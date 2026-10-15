@@ -2,13 +2,15 @@
 
 from __future__ import annotations
 
+import json
 import time
+from pathlib import Path
 
 from pydantic import BaseModel, Field
 
 from ..core import refs
 from ..envelope import RecompError, Result
-from ..registry import Ctx, verb
+from ..registry import Ctx, NoInput, verb
 from ..workers import jobs
 
 
@@ -113,6 +115,29 @@ def job_retry(ctx: Ctx, inp: RefIn):
                        backend=j["backend"], dedupe=False)
     mode = jobs.kick(ctx.project)
     return Result(data={"job": new["ref"], "runner": mode}, job=new["ref"])
+
+
+@verb("worker.status", NoInput)
+def worker_status(ctx: Ctx, inp: NoInput):
+    """The local job runner, and the remote folder: live remote workers and jobs waiting there."""
+    from ..core import config
+    from ..workers import remote
+    out = {"local_runner": jobs.runner_alive(ctx.project), "default_backend": config.get("worker.default_backend"),
+           "worker_python": config.get("worker.python"), "remote_folder": config.get("worker.remote_folder") or None}
+    if out["remote_folder"]:
+        root = Path(out["remote_folder"])
+        out["remote_workers"] = remote.workers_alive(root) if root.exists() else []
+        waiting = []
+        for j in sorted((root / "jobs").glob("*")) if (root / "jobs").exists() else []:
+            st = {}
+            try:
+                st = json.loads((j / "status.json").read_text(encoding="utf-8"))
+            except (OSError, ValueError):
+                pass
+            if st.get("state") not in ("done", "failed"):
+                waiting.append({"job": j.name, "state": st.get("state", "queued"), "progress": st.get("progress", 0)})
+        out["remote_jobs_open"] = waiting
+    return out
 
 
 class RunIn(BaseModel):

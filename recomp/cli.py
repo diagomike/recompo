@@ -197,6 +197,22 @@ def main(argv: list[str] | None = None) -> int:
     if rest[0] == "serve":
         from .server import app as server_app
         return server_app.main(rest[1:], g["project"])
+    if rest[0] == "worker" and len(rest) > 1 and rest[1] == "serve":
+        from .core import config as _cfg
+        from .workers.scripts import remote_worker
+        import argparse as _ap
+        ap = _ap.ArgumentParser(prog="recomp worker serve")
+        ap.add_argument("--folder", default=_cfg.get("worker.remote_folder"))
+        ap.add_argument("--python", default=_cfg.get("worker.python"))
+        ap.add_argument("--once", action="store_true")
+        ap.add_argument("--idle-exit", type=float, default=0.0)
+        a = ap.parse_args(rest[2:])
+        if not a.folder:
+            print("no folder: pass --folder or set worker.remote_folder")
+            return 2
+        n = remote_worker.serve(__import__("pathlib").Path(a.folder), a.python, a.once, a.idle_exit)
+        print(f"served {n} job(s)")
+        return 0
     if rest[0] == "worker" and len(rest) > 1 and rest[1] == "run":
         from .workers import runner
         extra = ["--project", g["project"]] if g["project"] else []

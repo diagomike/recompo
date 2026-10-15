@@ -19,6 +19,7 @@ class DiarizeIn(BaseModel):
     speakers: int | None = Field(None, description="Exact number of speakers, if known")
     min: int | None = None
     max: int | None = None
+    on: str | None = Field(None, description="local or remote (default: config worker.default_backend)")
 
 
 @verb("speaker.diarize", DiarizeIn, effect="heavy", examples=["recomp speaker diarize S2 --speakers 2"])
@@ -26,7 +27,7 @@ def speaker_diarize(ctx: Ctx, inp: DiarizeIn):
     """Find who speaks when (pyannote, local) and label transcript lines; known people are recognised automatically."""
     s = refs.source(ctx.db, inp.ref)
     params = {k: v for k, v in {"speakers": inp.speakers, "min": inp.min, "max": inp.max}.items() if v}
-    j = jobs.enqueue(ctx.db, "diarize", target=s["ref"], source_id=s["id"], params=params)
+    j = jobs.enqueue(ctx.db, "diarize", target=s["ref"], source_id=s["id"], params=params, backend=jobs.backend(inp.on))
     mode = jobs.kick(ctx.project)
     return Result(data={"job": j["ref"], "runner": mode}, job=j["ref"], next=[f"recomp job wait {j['ref']} --timeout 120",
                                                                              f"recomp speaker list {s['ref']}"])

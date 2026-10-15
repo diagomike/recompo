@@ -41,7 +41,9 @@ def captions_for_slot(db, src: dict, a: float, b: float, at: float, lang: str | 
     translated = lang and tr.get("language") and lang != tr["language"]
     for seg in _segments_in(db, tr, a, b):
         s0, s1 = max(a, seg["start"]), min(b, seg["end"])
-        if s1 - s0 < 0.2:
+        inside = s1 - s0
+        # A line that only grazes the cut (the tail of a sentence before it) is not shown or voiced.
+        if inside < 0.2 or (inside < 0.5 * (seg["end"] - seg["start"]) and inside < 1.0):
             continue
         text = seg["text"]
         raw = _words_in(db, tr, s0, s1)

@@ -199,6 +199,7 @@ class AsrIn(BaseModel):
     engine: str = Field("whisper", description="whisper or ctc (character models, e.g. badrex/Ethio-ASR-amharic)")
     primary: bool | None = Field(None, description="Make the result primary (default: only if none)")
     allow_download: bool = Field(False, description="Allow the worker to download a missing model")
+    on: str | None = Field(None, description="local or remote (a GPU notebook watching worker.remote_folder); default: config")
     model_config = {"populate_by_name": True}
 
 
@@ -212,7 +213,7 @@ def transcript_asr(ctx: Ctx, inp: AsrIn):
         ranges = [[parse(inp.from_) or 0.0, parse(inp.to) or (src["duration"] or 0)]]
     params = {k: v for k, v in {"language": inp.language, "ranges": ranges, "model": inp.model, "engine": inp.engine,
                                 "primary": inp.primary, "allow_download": inp.allow_download}.items() if v is not None}
-    j = jobs.enqueue(ctx.db, "asr", target=src["ref"], source_id=src["id"], params=params)
+    j = jobs.enqueue(ctx.db, "asr", target=src["ref"], source_id=src["id"], params=params, backend=jobs.backend(inp.on))
     mode = jobs.kick(ctx.project)
     est = (src["duration"] or 0) * (0.25 if not ranges else 0)
     return Result(data={"job": j["ref"], "runner": mode, "estimate": f"~{est / 60:.0f} min on CPU" if est else None},

@@ -34,6 +34,7 @@ Effects: `read` (no changes) · `write` (undoable op) · `heavy` (starts a job) 
 | `transcript` | [`transcript.align`](#transcriptalign), [`transcript.asr`](#transcriptasr), [`transcript.edit-segment`](#transcriptedit-segment), [`transcript.fetch-captions`](#transcriptfetch-captions), [`transcript.import`](#transcriptimport), [`transcript.list`](#transcriptlist), [`transcript.outline`](#transcriptoutline), [`transcript.read`](#transcriptread), [`transcript.set-primary`](#transcriptset-primary), [`transcript.shift`](#transcriptshift), [`transcript.sync-check`](#transcriptsync-check) |
 | `ui` | [`ui.answer`](#uianswer), [`ui.ask`](#uiask), [`ui.note`](#uinote), [`ui.notes`](#uinotes), [`ui.select`](#uiselect), [`ui.selection`](#uiselection), [`ui.show`](#uishow) |
 | `version` | [`version`](#version) |
+| `worker` | [`worker.status`](#workerstatus) |
 
 ## cache
 
@@ -1594,6 +1595,7 @@ Find who speaks when (pyannote, local) and label transcript lines; known people 
 | `--speakers` | integer | None | Exact number of speakers, if known |
 | `--min` | integer | None |  |
 | `--max` | integer | None |  |
+| `--on` | string | None | local or remote (default: config worker.default_backend) |
 
 ```
 recomp speaker diarize S2 --speakers 2
@@ -1686,6 +1688,7 @@ Transcribe a source locally (faster-whisper with word timings) as a job.
 | `--engine` | string | 'whisper' | whisper or ctc (character models, e.g. badrex/Ethio-ASR-amharic) |
 | `--primary` | boolean | None | Make the result primary (default: only if none) |
 | `--allow-download` | boolean | False | Allow the worker to download a missing model |
+| `--on` | string | None | local or remote (a GPU notebook watching worker.remote_folder); default: config |
 
 ```
 recomp transcript asr S3
@@ -1928,3 +1931,11 @@ recomp ui show S1 --at 1:02:10
 `recomp version` · effect: **read**
 
 Version and where things are.
+
+## worker
+
+### worker.status
+
+`recomp worker status` · effect: **read**
+
+The local job runner, and the remote folder: live remote workers and jobs waiting there.

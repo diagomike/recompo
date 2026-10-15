@@ -23,7 +23,11 @@ def worker_python() -> str:
 
 
 def run_script(name: str, args: list[str], ctx=None, allow_download: bool = False, env_extra: dict | None = None) -> dict:
-    """Run ``scripts/<name>.py``; JSON lines on stdout become job progress. Returns the last line."""
+    """Run ``scripts/<name>.py``; JSON lines on stdout become job progress. Returns the last line.
+    Jobs queued with ``backend='remote'`` run in the remote worker's folder instead."""
+    if ctx is not None and (ctx.job.get("backend") == "remote"):
+        from . import remote
+        return remote.run_script(name, args, ctx, env={})  # a fresh notebook has no model cache: let it download
     env = dict(os.environ)
     env["HF_HOME"] = config.get("worker.hf_home") or env.get("HF_HOME", "")
     env["PYTHONIOENCODING"] = "utf-8"

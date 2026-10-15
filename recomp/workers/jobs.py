@@ -48,6 +48,17 @@ def _load_tasks() -> None:
                 raise
 
 
+def backend(choice: str | None) -> str:
+    from ..core import config
+    b = choice or config.get("worker.default_backend") or "local"
+    if b not in ("local", "remote"):
+        raise RecompError("E_INVALID", "on: local or remote")
+    if b == "remote" and not config.get("worker.remote_folder"):
+        raise RecompError("E_INVALID", "no remote folder configured",
+                          hint="`recomp config set worker.remote_folder <folder the notebook also sees>`")
+    return b
+
+
 def lane_of(type_: str) -> str:
     _load_tasks()
     return TASKS.get(type_, (None, "cpu"))[1]
@@ -206,9 +217,12 @@ def run_pending(project: Project, lanes: tuple[str, ...] = ("cpu", "net"), idle_
 
 
 def requeue_stale(db) -> int:
+    """Jobs whose runner died: running ones are taken over, ones being cancelled end cancelled."""
+    cutoff = time.time() - RUNNING_STALE_S
+    db.conn.execute("UPDATE job SET status='cancelled', finished_at=? WHERE status='cancelling' "
+                    "AND COALESCE(heartbeat, started_at, 0) < ?", (time.time(), cutoff))
     cur = db.conn.execute("UPDATE job SET status='queued', pid=NULL, message='taken over' "
-                          "WHERE status IN ('running','cancelling') AND COALESCE(heartbeat, started_at, 0) < ?",
-                          (time.time() - RUNNING_STALE_S,))
+                          "WHERE status='running' AND COALESCE(heartbeat, started_at, 0) < ?", (cutoff,))
     return cur.rowcount
 
 

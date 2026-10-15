@@ -99,6 +99,29 @@ def synth(text: str, lang: str, dest: Path, voice: str | None = None, rate_pct: 
     return secs
 
 
+def synth_batch(items: list[tuple[str, Path]], lang: str, voice: str | None = None) -> None:
+    """Voice many lines at once (MMS loads its model once); other backends fall back to one call per line."""
+    backend, v = voice_for(lang, voice)
+    todo = [(t, p) for t, p in items if not p.exists()]
+    if not todo:
+        return
+    if backend != "mms":
+        for t, p in todo:
+            synth(t, lang, p, voice=voice)
+        return
+    import json
+    import tempfile
+    from ..workers.worker_env import run_script
+    with tempfile.TemporaryDirectory() as tmpd:
+        jobs = [{"text": t, "out": str(Path(tmpd) / f"{k}.wav")} for k, (t, _) in enumerate(todo)]
+        jf = Path(tmpd) / "batch.json"
+        jf.write_text(json.dumps(jobs, ensure_ascii=False), encoding="utf-8")
+        run_script("tts_mms", ["--model", v, "--batch", str(jf)], allow_download=bool(config.get("tts.allow_download")))
+        for j, (_, p) in zip(jobs, todo):
+            p.parent.mkdir(parents=True, exist_ok=True)
+            _to_wav48(Path(j["out"]), p)
+
+
 def edge_voices(lang: str) -> list[dict]:
     import edge_tts
 

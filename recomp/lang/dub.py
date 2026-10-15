@@ -19,6 +19,7 @@ from . import tts
 
 MAX_SPEEDUP = 1.25
 MAX_DELAY = 1.0
+MAX_RATE_PCT = 35
 
 
 def _key(*parts) -> str:
@@ -36,6 +37,8 @@ def build_dub(project, plan: dict, voice: str | None = None, log=print, progress
     work = project.dir("cache", "dub", _key(plan["hash"], lang, v))
     body = plan["body_dur"]
     slot_ends = sorted(it["at"] + it["dur"] for it in plan["items"])
+    if backend == "mms":  # one model load for every line
+        tts.synth_batch([(l["text"], clips_dir / f"{_key(backend, v, l['text'])}.wav") for l in lines], lang, voice=voice)
     placed, overflow, sped = [], [], 0
     prev_end = 0.0
     for k, line in enumerate(lines):
@@ -49,6 +52,14 @@ def build_dub(project, plan: dict, voice: str | None = None, log=print, progress
         clip = clips_dir / f"{_key(backend, v, line['text'])}.wav"
         dur = ff.probe(clip).duration if clip.exists() else tts.synth(line["text"], lang, clip, voice=voice)
         use, factor = clip, 1.0
+        if dur > window and backend == "edge":
+            # Ask the voice itself to speak faster first: it sounds natural where time-stretching does not.
+            rate = min(MAX_RATE_PCT, int((dur / window - 1) * 100) + 6)
+            fast_clip = clips_dir / f"{_key(backend, v, line['text'], rate)}.wav"
+            fdur = ff.probe(fast_clip).duration if fast_clip.exists() else \
+                tts.synth(line["text"], lang, fast_clip, voice=voice, rate_pct=rate)
+            if fdur < dur:
+                clip, dur, use = fast_clip, fdur, fast_clip
         if dur > window:
             factor = min(MAX_SPEEDUP, dur / window)
             fast = clips_dir / f"{clip.stem}_x{factor:.3f}.wav"
@@ -57,7 +68,7 @@ def build_dub(project, plan: dict, voice: str | None = None, log=print, progress
             use = fast
             sped += 1
             dur = dur / factor
-            if dur > window + 0.15:
+            if dur > window + 0.3:
                 overflow.append({"at": round(line["start"], 2), "text": line["text"][:80], "over_s": round(dur - window, 2),
                                  "key": line.get("seg")})
         placed.append({"file": str(use), "at": start, "dur": round(dur, 3), "factor": round(factor, 3),
