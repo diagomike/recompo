@@ -32,6 +32,14 @@ def _segments_in(db, tr: dict, a: float, b: float) -> list[dict]:
                                     'AND "end" > ? AND start < ? ORDER BY idx', (tr["id"], a + 0.05, b - 0.05))]
 
 
+def _clean_caption(text: str) -> str:
+    """Shown captions drop transcript-only marks: YouTube's '>>' speaker turns and [bracketed] sound tags."""
+    import re
+    text = text.replace(">>", " ")
+    text = re.sub(r"\[[^\]]{1,40}\]", " ", text)
+    return " ".join(text.split())
+
+
 def captions_for_slot(db, src: dict, a: float, b: float, at: float, lang: str | None) -> list[dict]:
     """Source captions for [a, b) mapped to output time ``at``; translations replace text when lang differs."""
     tr = primary(db, src["id"])
@@ -45,12 +53,13 @@ def captions_for_slot(db, src: dict, a: float, b: float, at: float, lang: str | 
         # A line that only grazes the cut (the tail of a sentence before it) is not shown or voiced.
         if inside < 0.2 or (inside < 0.5 * (seg["end"] - seg["start"]) and inside < 1.0):
             continue
-        text = seg["text"]
+        text = _clean_caption(seg["text"])
         raw = _words_in(db, tr, s0, s1)
         if not raw:  # no word timing: spread words over the line so long lines can be chunked in time
             from ..transcript.align import proportional_words
             raw = [(w["start"], w["end"], w["text"]) for w in proportional_words(seg) if s0 <= w["start"] < s1]
-        words = [(w0 - a + at, w1 - a + at, t) for (w0, w1, t) in raw]
+        words = [(w0 - a + at, w1 - a + at, t) for (w0, w1, t) in raw
+                 if t.strip(">").strip() and not (t.startswith("[") and t.endswith("]"))]
         if translated:
             row = db.one("SELECT text FROM translation WHERE lang=? AND kind='segment' AND target_id=?",
                          (lang, str(seg["id"])))

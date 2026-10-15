@@ -135,13 +135,20 @@ def caption_events(captions: list[dict], style: str, w: int, h: int) -> list[str
                     out.append(dialogue(s0, e0, "Karaoke", " ".join(parts)))
         return out
     max_chars = 30 if vertical else 44
+    events: list[tuple[float, float, str]] = []
     for cap in captions:
         words = cap.get("words") or []
         if words and cap["end"] - cap["start"] > 6:
             for chunk in chunk_words(words, max_chars * 2, max_dur=5.5):
-                out.append(dialogue(chunk[0][0], chunk[-1][1] + 0.2, "Caption", wrap(" ".join(x[2] for x in chunk), max_chars)))
+                events.append((chunk[0][0], chunk[-1][1] + 0.2, " ".join(x[2] for x in chunk)))
         else:
-            out.append(dialogue(cap["start"], cap["end"], "Caption", wrap(cap["text"], max_chars)))
+            events.append((cap["start"], cap["end"], cap["text"]))
+    events.sort(key=lambda e: e[0])
+    for k, (a, b, text) in enumerate(events):
+        if k + 1 < len(events):
+            b = min(b, events[k + 1][0] - 0.02)  # one caption at a time: never stack overlapping lines
+        if b - a > 0.15:
+            out.append(dialogue(a, b, "Caption", wrap(text, max_chars)))
     return out
 
 
