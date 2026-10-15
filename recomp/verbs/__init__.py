@@ -13,4 +13,5 @@ MODULES = [
     "cut",
     "journey",
     "overlay",
+    "export",
 ]

@@ -9,15 +9,19 @@ Effects: `read` (no changes) · `write` (undoable op) · `heavy` (starts a job) 
 
 | Noun | Verbs |
 |---|---|
+| `cache` | [`cache.prune`](#cacheprune), [`cache.size`](#cachesize) |
 | `chapter` | [`chapter.add`](#chapteradd), [`chapter.auto`](#chapterauto), [`chapter.edit`](#chapteredit), [`chapter.list`](#chapterlist), [`chapter.merge`](#chaptermerge), [`chapter.remove`](#chapterremove), [`chapter.seed`](#chapterseed), [`chapter.set`](#chapterset), [`chapter.split`](#chaptersplit) |
 | `config` | [`config.get`](#configget), [`config.set`](#configset) |
 | `context` | [`context`](#context) |
 | `cut` | [`cut.add`](#cutadd), [`cut.edit`](#cutedit), [`cut.list`](#cutlist), [`cut.merge`](#cutmerge), [`cut.remove`](#cutremove), [`cut.show`](#cutshow), [`cut.split`](#cutsplit), [`cut.suggest`](#cutsuggest), [`cut.tag`](#cuttag), [`cut.trim`](#cuttrim) |
 | `doctor` | [`doctor`](#doctor) |
+| `export` | [`export.check`](#exportcheck), [`export.cuts`](#exportcuts), [`export.run`](#exportrun), [`export.show`](#exportshow), [`export.status`](#exportstatus) |
 | `job` | [`job.cancel`](#jobcancel), [`job.list`](#joblist), [`job.retry`](#jobretry), [`job.run`](#jobrun), [`job.show`](#jobshow), [`job.tail`](#jobtail), [`job.wait`](#jobwait) |
 | `journey` | [`journey.add`](#journeyadd), [`journey.delete`](#journeydelete), [`journey.duplicate`](#journeyduplicate), [`journey.edit`](#journeyedit), [`journey.from-search`](#journeyfrom-search), [`journey.list`](#journeylist), [`journey.move`](#journeymove), [`journey.new`](#journeynew), [`journey.remove`](#journeyremove), [`journey.reorder`](#journeyreorder), [`journey.section`](#journeysection), [`journey.show`](#journeyshow), [`journey.transition`](#journeytransition), [`journey.trim-slot`](#journeytrim-slot), [`journey.validate`](#journeyvalidate) |
 | `op` | [`op.log`](#oplog), [`op.redo`](#opredo), [`op.undo`](#opundo) |
 | `overlay` | [`overlay.add`](#overlayadd), [`overlay.auto-lower-thirds`](#overlayauto-lower-thirds), [`overlay.edit`](#overlayedit), [`overlay.list`](#overlaylist), [`overlay.remove`](#overlayremove) |
+| `preview` | [`preview`](#preview) |
+| `profile` | [`profile.edit`](#profileedit), [`profile.list`](#profilelist), [`profile.new`](#profilenew), [`profile.show`](#profileshow) |
 | `project` | [`project.agent-kit`](#projectagent-kit), [`project.init`](#projectinit), [`project.list`](#projectlist), [`project.set`](#projectset), [`project.show`](#projectshow), [`project.use`](#projectuse) |
 | `recipe` | [`recipe.export`](#recipeexport), [`recipe.import`](#recipeimport), [`recipe.show`](#recipeshow) |
 | `search` | [`search`](#search) |
@@ -26,6 +30,24 @@ Effects: `read` (no changes) · `write` (undoable op) · `heavy` (starts a job) 
 | `transcript` | [`transcript.align`](#transcriptalign), [`transcript.asr`](#transcriptasr), [`transcript.edit-segment`](#transcriptedit-segment), [`transcript.import`](#transcriptimport), [`transcript.list`](#transcriptlist), [`transcript.outline`](#transcriptoutline), [`transcript.read`](#transcriptread), [`transcript.set-primary`](#transcriptset-primary), [`transcript.shift`](#transcriptshift), [`transcript.sync-check`](#transcriptsync-check) |
 | `ui` | [`ui.answer`](#uianswer), [`ui.ask`](#uiask), [`ui.note`](#uinote), [`ui.notes`](#uinotes), [`ui.select`](#uiselect), [`ui.selection`](#uiselection), [`ui.show`](#uishow) |
 | `version` | [`version`](#version) |
+
+## cache
+
+### cache.prune
+
+`recomp cache prune` · effect: **write**
+
+Delete the oldest render intermediates until the cache fits (exports are untouched).
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `--max-gb` | number | None | Keep the render cache under this size (default: config render.cache_max_gb) |
+
+### cache.size
+
+`recomp cache size` · effect: **read**
+
+Disk used by caches (render intermediates, frames, thumbnails, peaks) and exports.
 
 ## chapter
 
@@ -362,6 +384,72 @@ Check the tools, worker environment, models, disk and (optionally) network this 
 recomp doctor
 recomp doctor --net
 ```
+
+## export
+
+### export.check
+
+`recomp export check <ref>` · effect: **write**
+
+Re-run the automatic checks on an export.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<ref>` | string | required |  |
+
+### export.cuts
+
+`recomp export cuts <cuts>` · effect: **heavy**
+
+Export individual cuts (one video each) with their own credits.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<cuts>` | list[string] | required |  |
+| `--profile` | string | 'clip' |  |
+
+```
+recomp export cuts C4 C9 --profile clip
+```
+
+### export.run
+
+`recomp export run <journey>` · effect: **heavy**
+
+Render a journey in every profile × language asked for (jobs). Outputs land in exports/<journey>/<profile>-<lang>/.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<journey>` | string | required |  |
+| `--profiles` | list[string] | None |  |
+| `--langs` | list[string] | None | Languages (default: the journey's) |
+| `--dub` | boolean | True | Dub languages other than the journey's (needs translations); false = subtitles only |
+
+```
+recomp export run J1 --profiles shorts,landscape
+recomp export run J1 --profiles shorts --langs en,am,sw,fr
+```
+
+### export.show
+
+`recomp export show <ref>` · effect: **read**
+
+One export in full: files, checks and the ready-to-paste description.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<ref>` | string | required |  |
+
+### export.status
+
+`recomp export status <of>` · effect: **read**
+
+Exports with status, outputs and failed checks (newest first).
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<of>` | string | None | Only exports of this journey or cut |
+| `--limit` | integer | 40 |  |
 
 ## job
 
@@ -775,6 +863,104 @@ Delete an overlay.
 | Field | Type | Default | Description |
 |---|---|---|---|
 | `<ref>` | string | required |  |
+
+## preview
+
+### preview
+
+`recomp preview <target>` · effect: **heavy**
+
+A quick low-resolution render of a journey or cut in a profile's look (job); the viewer shows it when done.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<target>` | string | required | Journey or cut ref |
+| `--profile` | string | 'landscape' | Which profile to approximate (rendered small and fast) |
+| `--lang` | string | None |  |
+
+```
+recomp preview J1
+recomp preview J1 --profile shorts
+recomp preview C4
+```
+
+## profile
+
+### profile.edit
+
+`recomp profile edit <name>` · effect: **write**
+
+Change an export profile.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<name>` | string | required |  |
+| `--from` | string | None | Start from this profile |
+| `--width` | integer | None |  |
+| `--height` | integer | None |  |
+| `--fps` | integer | None |  |
+| `--reframe` | string | None | fit-blur \| fit-pad \| crop-center \| crop-x |
+| `--captions` | string | None | burn \| sidecar \| off |
+| `--caption-style` | string | None | clean \| karaoke |
+| `--overlays` | boolean | None |  |
+| `--lower-thirds` | boolean | None |  |
+| `--music` | boolean | None |  |
+| `--endcard` | boolean | None |  |
+| `--endcard-seconds` | number | None |  |
+| `--title-card` | boolean | None |  |
+| `--loudness` | number | None |  |
+| `--crf` | integer | None |  |
+| `--preset` | string | None |  |
+| `--dub-mode` | string | None | voiceover \| replace |
+| `--description` | string | None |  |
+
+### profile.list
+
+`recomp profile list` · effect: **read**
+
+Export profiles: format and treatment, separate from journey content.
+
+### profile.new
+
+`recomp profile new <name>` · effect: **write**
+
+Create an export profile (optionally from another).
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<name>` | string | required |  |
+| `--from` | string | None | Start from this profile |
+| `--width` | integer | None |  |
+| `--height` | integer | None |  |
+| `--fps` | integer | None |  |
+| `--reframe` | string | None | fit-blur \| fit-pad \| crop-center \| crop-x |
+| `--captions` | string | None | burn \| sidecar \| off |
+| `--caption-style` | string | None | clean \| karaoke |
+| `--overlays` | boolean | None |  |
+| `--lower-thirds` | boolean | None |  |
+| `--music` | boolean | None |  |
+| `--endcard` | boolean | None |  |
+| `--endcard-seconds` | number | None |  |
+| `--title-card` | boolean | None |  |
+| `--loudness` | number | None |  |
+| `--crf` | integer | None |  |
+| `--preset` | string | None |  |
+| `--dub-mode` | string | None | voiceover \| replace |
+| `--description` | string | None |  |
+
+```
+recomp profile new reel --from shorts --caption-style clean --no-music
+```
+
+### profile.show
+
+`recomp profile show <name>` · effect: **read**
+
+One profile's full settings.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<name>` | string | required |  |
 
 ## project
 

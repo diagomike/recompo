@@ -160,11 +160,11 @@ class Cancelled(Exception):
 
 def run(args: list[str], duration: float | None = None, progress: Callable[[float, str], None] | None = None,
         cancelled: Callable[[], bool] | None = None, timeout: float | None = None,
-        capture_stdout: bool = False) -> subprocess.CompletedProcess:
+        capture_stdout: bool = False, cwd: str | None = None) -> subprocess.CompletedProcess:
     """Run ffmpeg with ``-progress``; report fraction done; kill on cancel or timeout."""
     cmd = [ffmpeg_bin(), "-hide_banner", "-nostdin", "-y", "-progress", "pipe:2", "-stats_period", "1"] + args
     proc = subprocess.Popen(cmd, stdout=subprocess.PIPE if capture_stdout else subprocess.DEVNULL,
-                            stderr=subprocess.PIPE, creationflags=CREATE_NO_WINDOW)
+                            stderr=subprocess.PIPE, creationflags=CREATE_NO_WINDOW, cwd=cwd)
     tail: list[str] = []
     start = time.time()
     last = 0.0
