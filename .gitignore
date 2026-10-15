@@ -11,3 +11,4 @@ recomp/static/app/
 tests/fixtures/generated/
 .env
 *.log
+web/tsconfig.tsbuildinfo
