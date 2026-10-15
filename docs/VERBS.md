@@ -18,6 +18,7 @@ Effects: `read` (no changes) · `write` (undoable op) · `heavy` (starts a job) 
 | `export` | [`export.check`](#exportcheck), [`export.cuts`](#exportcuts), [`export.run`](#exportrun), [`export.show`](#exportshow), [`export.status`](#exportstatus) |
 | `job` | [`job.cancel`](#jobcancel), [`job.list`](#joblist), [`job.retry`](#jobretry), [`job.run`](#jobrun), [`job.show`](#jobshow), [`job.tail`](#jobtail), [`job.wait`](#jobwait) |
 | `journey` | [`journey.add`](#journeyadd), [`journey.delete`](#journeydelete), [`journey.duplicate`](#journeyduplicate), [`journey.edit`](#journeyedit), [`journey.from-search`](#journeyfrom-search), [`journey.list`](#journeylist), [`journey.move`](#journeymove), [`journey.new`](#journeynew), [`journey.remove`](#journeyremove), [`journey.reorder`](#journeyreorder), [`journey.section`](#journeysection), [`journey.show`](#journeyshow), [`journey.transition`](#journeytransition), [`journey.trim-slot`](#journeytrim-slot), [`journey.validate`](#journeyvalidate) |
+| `lang` | [`lang.say`](#langsay), [`lang.status`](#langstatus), [`lang.translate`](#langtranslate), [`lang.voices`](#langvoices) |
 | `music` | [`music.bed-add`](#musicbed-add), [`music.bed-edit`](#musicbed-edit), [`music.bed-remove`](#musicbed-remove), [`music.get`](#musicget), [`music.library-add`](#musiclibrary-add), [`music.list`](#musiclist), [`music.search`](#musicsearch) |
 | `op` | [`op.log`](#oplog), [`op.redo`](#opredo), [`op.undo`](#opundo) |
 | `overlay` | [`overlay.add`](#overlayadd), [`overlay.auto-lower-thirds`](#overlayauto-lower-thirds), [`overlay.edit`](#overlayedit), [`overlay.list`](#overlaylist), [`overlay.remove`](#overlayremove) |
@@ -746,6 +747,69 @@ Check a journey before export: media available, sane lengths, labels, music lice
 | Field | Type | Default | Description |
 |---|---|---|---|
 | `<journey>` | string | required |  |
+
+## lang
+
+### lang.say
+
+`recomp lang say <text>` · effect: **network**
+
+Voice a single line into the project's cache (to audition a voice).
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<text>` | string | required |  |
+| `--lang` | string | 'en' |  |
+| `--voice` | string | None |  |
+
+```
+recomp lang say "ሰላም" --lang am
+```
+
+### lang.status
+
+`recomp lang status <journey>` · effect: **read**
+
+Translation coverage per language for a journey, and who wrote it (agent, google, user).
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<journey>` | string | required |  |
+
+### lang.translate
+
+`recomp lang translate <journey>` · effect: **write**
+
+Translate a journey's spoken lines, overlays and title. Get the template, write the translations yourself (best), or draft with --engine google.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<journey>` | string | required |  |
+| `--to` | string | required | Target language code (am, sw, fr, om, …) |
+| `--template` | boolean | False | Return the lines to translate (with timing budgets) instead of writing |
+| `--translations` | object | None | {key: text} from the template (use --input) |
+| `--engine` | string | None | google: draft every untranslated line with Google's web endpoint |
+| `--overwrite` | boolean | False | With --engine: also replace lines translated before (never the user's) |
+
+```
+recomp lang translate J1 --to am --template
+recomp lang translate J1 --to am --input am.json
+recomp lang translate J1 --to sw --engine google
+```
+
+### lang.voices
+
+`recomp lang voices <lang>` · effect: **network**
+
+Voices available for a language (edge neural voices; the configured default is marked).
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<lang>` | string | required |  |
+
+```
+recomp lang voices am
+```
 
 ## music
 

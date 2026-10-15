@@ -195,10 +195,35 @@ def _music_graph(plan: dict, first_input: int, body_dur: float) -> tuple[list[st
 
 
 def _audio_chain(plan: dict, music_first: int, body_label: str = "[0:a]") -> tuple[list[str], list[str]]:
-    """Filter lines turning body audio (+ music) into [mix]."""
-    m_inputs, fl, mus = _music_graph(plan, music_first, plan["body_dur"])
-    fl = list(fl)
-    fl.append(f"{body_label}aresample=48000,aformat=sample_fmts=fltp:channel_layouts=stereo[dlg0]")
+    """Filter lines turning body audio (+ dub) (+ music) into [mix]."""
+    inputs: list[str] = []
+    fl: list[str] = []
+    nxt = music_first
+    dub = plan.get("dub")
+    fmt = "aresample=48000,aformat=sample_fmts=fltp:channel_layouts=stereo"
+    if dub:
+        inputs += ["-i", dub["file"]]
+        d_idx = nxt
+        nxt += 1
+        fl.append(f"[{d_idx}:a]{fmt},volume=1.6[dub0]")
+        if dub.get("mode") == "replace" and dub.get("background"):
+            inputs += ["-i", dub["background"]]
+            b_idx = nxt
+            nxt += 1
+            fl.append(f"[{b_idx}:a]{fmt}[bg]")
+            fl.append("[bg][dub0]amix=inputs=2:normalize=0:duration=first[dlg0]")
+        else:
+            # Voice-over: the original stays audible between lines and drops well under the dub.
+            fl.append(f"{body_label}{fmt}[orig]")
+            fl.append("[dub0]asplit=2[dubA][dubSC]")
+            fl.append("[orig][dubSC]sidechaincompress=threshold=0.01:ratio=14:attack=8:release=350:makeup=1[origd]")
+            fl.append("[origd]volume=0.55[origq]")
+            fl.append("[origq][dubA]amix=inputs=2:normalize=0:duration=first[dlg0]")
+    else:
+        fl.append(f"{body_label}{fmt}[dlg0]")
+    m_inputs, mfl, mus = _music_graph(plan, nxt, plan["body_dur"])
+    inputs += m_inputs
+    fl = list(mfl) + fl
     if mus:
         duck = float(plan["music"][0].get("duck_db", -10))
         ratio = max(2.0, min(20.0, -duck / 1.5))
@@ -207,7 +232,7 @@ def _audio_chain(plan: dict, music_first: int, body_label: str = "[0:a]") -> tup
         fl.append("[dlg][ducked]amix=inputs=2:normalize=0:duration=first[mix]")
     else:
         fl.append("[dlg0]anull[mix]")
-    return m_inputs, fl
+    return inputs, fl
 
 
 def measure_loudness(body: Path, plan: dict) -> dict:
@@ -318,6 +343,13 @@ def render(project, plan: dict, out_dir: Path, c: Ctx | None = None) -> dict:
             raise ff.Cancelled()
     body = assemble(work, plan["items"], parts, prof, c)
     c.progress(0.65, "assembled")
+    if plan.get("dub") and plan["dub"].get("mode") == "replace" and not plan["dub"].get("background"):
+        from ..lang import dub as dubmod
+        try:
+            plan["dub"]["background"] = str(dubmod.background(project, body, log=c.log))
+        except RecompError as exc:
+            c.log(f"separation failed ({exc.message}); falling back to voice-over")
+            plan["dub"]["mode"] = "voiceover"
     card = endcard(work, plan, prof, c)
     c.progress(0.7, "endcard")
     out_dir.mkdir(parents=True, exist_ok=True)

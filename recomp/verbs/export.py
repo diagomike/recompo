@@ -255,6 +255,7 @@ def export_show(ctx: Ctx, inp: ShowIn):
     e = refs.resolve(db, inp.ref, "export")[1]
     out = _brief(db, e)
     out["checks"] = (e["checks"] or {}).get("checks", [])
+    out["error"] = (e["checks"] or {}).get("error")
     out["loudness"] = (e["checks"] or {}).get("loudness")
     folder = Path(e["folder"])
     out["files"] = sorted(p.name for p in folder.glob("*")) if folder.exists() else []

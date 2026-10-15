@@ -26,6 +26,20 @@ def build_plan(db, project, exp: dict, overrides: dict | None = None) -> dict:
 
 @task("export", lane="cpu")
 def job_export(ctx: JobCtx):
+    try:
+        return _export(ctx)
+    except Exception as exc:
+        msg = exc.message if isinstance(exc, RecompError) else f"{type(exc).__name__}: {exc}"
+        exp = ctx.db.get("export", ctx.params["export"])
+        if exp is not None:
+            with ctx.db.op("export.failed", "machine") as tx:
+                tx.update("export", exp["id"], {"status": "failed", "checks": {"ok": False, "error": msg[:500], "checks": []}},
+                          log=False)
+                tx.event("export", {"export": exp["ref"], "status": "failed"})
+        raise
+
+
+def _export(ctx: JobCtx):
     db = ctx.db
     exp = db.get("export", ctx.params["export"])
     if exp is None:
@@ -42,6 +56,22 @@ def job_export(ctx: JobCtx):
     result = engine.render(ctx.project, plan, folder, rc)
     ctx.log(f"rendered in {result['seconds']}s, cache hits {result['slot_cache_hits']}/{result['slots']}")
     chk = checks.run(folder, plan)
+    if plan.get("dub"):
+        d = plan["dub"]
+        over = d.get("overflow") or []
+        chk["checks"].append({"check": "dub fit", "ok": not over,
+                              "detail": f"{d['lines']} lines, {d['sped_up']} sped up, {len(over)} overflowing ({d['backend']} {d['voice']}, {d['mode']})"})
+        import os
+        if not ctx.params.get("preview") and not ctx.params.get("skip_roundtrip") and os.environ.get("RECOMP_DUB_ROUNDTRIP") != "0":
+            from ..lang import dubcheck
+            try:
+                rt = dubcheck.check(folder, plan, log=ctx.log)
+            except Exception as exc:  # noqa: BLE001
+                rt = {"check": "dub intelligibility", "ok": False, "detail": f"round trip failed: {exc}"[:200]}
+            if rt:
+                chk["checks"].append(rt)
+        (folder / "dub.json").write_text(__import__("json").dumps(d, indent=1, ensure_ascii=False), encoding="utf-8")
+        chk["ok"] = all(c["ok"] for c in chk["checks"])
     status = "done" if chk["ok"] else "done-with-problems"
     with db.op("export.done", "machine") as tx:
         tx.update("export", exp["id"], {"status": status, "outputs": result, "checks": chk}, log=False)

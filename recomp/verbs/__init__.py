@@ -16,4 +16,5 @@ MODULES = [
     "export",
     "music",
     "speaker",
+    "lang",
 ]
