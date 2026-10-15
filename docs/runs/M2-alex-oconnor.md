@@ -1,0 +1,55 @@
+# M2: Alex O'Connor (links)
+
+**Date:** 2026-10-15 · **Project:** `C:\Recomposer\projects\alex-oconnor` · **Theme (chosen by the agent, Q6):** consciousness
+
+## What happened, step by step (plan §7.2)
+
+| # | Step | Result |
+|---|---|---|
+| 1 | `project init alex-oconnor --kind channel` | project with the agent kit |
+| 2 | `source add https://www.youtube.com/@CosmicSkeptic/videos --limit 30` | a 30-entry pick list (45 h of video), nothing added |
+| — | `source add --pick 1,12,20,24,3` | **blocked**: YouTube answered "Sign in to confirm you're not a bot" for per-video requests. The five sources were added from the list's metadata (`metadata-partial`) and the run paused; listings kept working |
+| — | *(evening)* block lifted; `source refresh S1…S5` | full metadata, **creator chapters** (12–15 per episode), caption languages |
+| 3 | captions | word-timed auto captions (`en-orig`, with `>>` speaker turns) for all five: 571–1,332 lines each |
+| 3b | audio + local ASR on S4 (the fallback path) | audio-only fetch, then faster-whisper: **58 min of audio in 27 min**; S4.t2 made primary |
+| 4 | speakers | S5 diarised (2 voices, 4.4 min of CPU); named "Alex O'Connor" and "Priest (audience)"; S4 diarisation for cross-episode recognition (see below) |
+| 5 | search → reading → cuts | `chapter seed`, `cut suggest`, `transcript read --chapter` on the relevant chapters; **12 cuts from 4 conversations** (Seth, Pollan, Frankish, Strawson), each with *why*, tags and speaker |
+| 6 | journeys | **J1 "Can a machine be conscious?"** (4 slots, 3 guests, 1:19); **J2 "Four ways to think about consciousness"** (8 slots, 4 episodes, 5:34, five sections: The question / An illusion? / Feeling first / All the way down / And machines?); J3 "Doing versus being" (Seth only, 1:00) |
+| 7 | video | whole episodes at ≤720p, once each: 217 MB, 305 MB, 444 MB, 1.9 GB (see note) |
+| 8 | exports | J1 shorts + landscape, J2 landscape + shorts, J3 shorts; all checks pass |
+| 9 | hub | J1–J3 published locally; the hub recipe page plays link recipes through the official YouTube player, slot by slot |
+
+![J2 landscape frames: title, Pollan, Frankish, Pollan, Strawson, the endcard with the hub link and QR code](img/m2-j2-landscape-frames.jpg)
+![J3 shorts frames](img/m2-j3-shorts-frames.jpg)
+![Hub recipe page playing a link recipe through YouTube](img/m2-hub-youtube-recipe.jpg)
+
+### Exports
+
+| Export | What | Length (planned) | Loudness | True peak | Captions |
+|---|---|---|---|---|---|
+| X5 / X6 | J1 shorts / landscape | 82.4 s (82.4) | −14.5 LUFS | −1.7 dBFS | 12 |
+| X7 | J2 landscape | 337.2 s (337.17) | −14.5 | −1.3 | 55 |
+| X3 | J3 shorts | 63.2 s (63.17) | −14.2 | −1.6 | 8 |
+
+Credits name each episode, the channel and the music; the J2 endcard carries the hub recipe link and QR code
+because it was published before export.
+
+## What this run changed in the code
+
+1. **Bot-check fallback.** When per-video metadata is refused, `--pick` still adds sources from the list's metadata,
+   and `source refresh` completes them later instead of failing the whole pick.
+2. **Whole video at ≤720p instead of sections.** Section downloads through ffmpeg read the stream from the start
+   to reach each cut, which stalled here for more than eight minutes on the first slot. Talks are small at 720p
+   (1–4 MB per minute; 1080p is three to four times larger), so each source is fetched once and every later cut
+   is local. Sections stay available (`config network.link_video sections`).
+3. **Transient 403s** on googlevideo: video downloads retry with backoff (S1 succeeded on the second try).
+4. **Lower thirds for episodes** name the guest and the episode title, without repeating the guest or the year.
+5. **Layout:** name tags moved top-left; centre cards wait for the title instead of stacking.
+
+## Notes
+
+- The YouTube block lasted from ~06:30 to the evening; the JavaScript runtime (Node) is now passed to yt-dlp,
+  which YouTube extraction requires. Browser cookies were never used.
+- Captions from YouTube carry `>>` at speaker changes, which made attribution easy even before diarisation.
+- S4's cuts were made on the caption transcript; after ASR became primary, exports use the ASR words. Both
+  transcripts agree on these lines.
