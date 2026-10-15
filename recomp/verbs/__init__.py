@@ -5,4 +5,10 @@ MODULES = [
     "project",
     "ops",
     "ui",
+    "source",
+    "job",
+    "transcript",
+    "search",
+    "chapter",
+    "cut",
 ]

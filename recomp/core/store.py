@@ -170,10 +170,11 @@ class Tx:
         if not changed:
             return before
         if table in schema.EDITORIAL:
-            self._guard(table, before, changed.keys())
+            self._guard(table, before, [k for k in changed if k not in schema.UNGUARDED])
             prov = dict(before.get("prov") or {})
             for k in changed:
-                prov[k] = self.actor
+                if k not in schema.UNGUARDED:
+                    prov[k] = self.actor
             changed_db = dict(changed, prov=prov, updated_at=time.time())
         else:
             changed_db = dict(changed)
@@ -241,6 +242,12 @@ class Tx:
                 hint="Ask the user. If they confirm in chat, repeat the command with --as-user.",
                 data={"ref": ref},
             )
+
+
+def top_rank(row: dict) -> int:
+    """The highest precedence of anyone who created or edited this row."""
+    prov = row.get("prov") or {}
+    return max([RANK.get(row.get("created_by", "machine"), 0)] + [RANK.get(a, 0) for a in prov.values()])
 
 
 def _norm(v: Any) -> Any:
@@ -373,6 +380,8 @@ class Database:
                 self.conn.execute(f"DELETE FROM {q(table)} WHERE id=?", (id_,))
             return
         cols = list(target)
+        if current is not None:  # keep live bookkeeping (job status) when restoring a row
+            cols = [c for c in cols if c not in schema.UNGUARDED]
         values = [_enc(table, c, target[c]) for c in cols]
         if current is None:
             self.conn.execute(f"INSERT INTO {q(table)} ({', '.join(q(c) for c in cols)}) "
@@ -385,7 +394,7 @@ class Database:
 def _row_key(row: dict | None) -> str | None:
     if row is None:
         return None
-    return json.dumps({k: v for k, v in row.items() if k != "updated_at"}, sort_keys=True, default=str)
+    return json.dumps({k: v for k, v in row.items() if k not in schema.UNGUARDED}, sort_keys=True, default=str)
 
 
 def _jsonable(value: Any) -> Any:

@@ -9,14 +9,134 @@ Effects: `read` (no changes) · `write` (undoable op) · `heavy` (starts a job) 
 
 | Noun | Verbs |
 |---|---|
+| `chapter` | [`chapter.add`](#chapteradd), [`chapter.auto`](#chapterauto), [`chapter.edit`](#chapteredit), [`chapter.list`](#chapterlist), [`chapter.merge`](#chaptermerge), [`chapter.remove`](#chapterremove), [`chapter.seed`](#chapterseed), [`chapter.set`](#chapterset), [`chapter.split`](#chaptersplit) |
 | `config` | [`config.get`](#configget), [`config.set`](#configset) |
 | `context` | [`context`](#context) |
+| `cut` | [`cut.add`](#cutadd), [`cut.edit`](#cutedit), [`cut.list`](#cutlist), [`cut.merge`](#cutmerge), [`cut.remove`](#cutremove), [`cut.show`](#cutshow), [`cut.split`](#cutsplit), [`cut.suggest`](#cutsuggest), [`cut.tag`](#cuttag), [`cut.trim`](#cuttrim) |
 | `doctor` | [`doctor`](#doctor) |
+| `job` | [`job.cancel`](#jobcancel), [`job.list`](#joblist), [`job.retry`](#jobretry), [`job.run`](#jobrun), [`job.show`](#jobshow), [`job.tail`](#jobtail), [`job.wait`](#jobwait) |
 | `op` | [`op.log`](#oplog), [`op.redo`](#opredo), [`op.undo`](#opundo) |
 | `project` | [`project.agent-kit`](#projectagent-kit), [`project.init`](#projectinit), [`project.list`](#projectlist), [`project.set`](#projectset), [`project.show`](#projectshow), [`project.use`](#projectuse) |
+| `search` | [`search`](#search) |
 | `setup` | [`setup.shim`](#setupshim) |
+| `source` | [`source.add`](#sourceadd), [`source.list`](#sourcelist), [`source.process`](#sourceprocess), [`source.relink`](#sourcerelink), [`source.remove`](#sourceremove), [`source.rights`](#sourcerights), [`source.show`](#sourceshow), [`source.status`](#sourcestatus) |
+| `transcript` | [`transcript.align`](#transcriptalign), [`transcript.asr`](#transcriptasr), [`transcript.edit-segment`](#transcriptedit-segment), [`transcript.import`](#transcriptimport), [`transcript.list`](#transcriptlist), [`transcript.outline`](#transcriptoutline), [`transcript.read`](#transcriptread), [`transcript.set-primary`](#transcriptset-primary), [`transcript.shift`](#transcriptshift), [`transcript.sync-check`](#transcriptsync-check) |
 | `ui` | [`ui.answer`](#uianswer), [`ui.ask`](#uiask), [`ui.note`](#uinote), [`ui.notes`](#uinotes), [`ui.select`](#uiselect), [`ui.selection`](#uiselection), [`ui.show`](#uishow) |
 | `version` | [`version`](#version) |
+
+## chapter
+
+### chapter.add
+
+`recomp chapter add <ref>` · effect: **write**
+
+Add one chapter.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<ref>` | string | required | Source ref |
+| `--start` | string | required | Start time |
+| `--end` | string | required | End time |
+| `--title` | string | '' |  |
+| `--summary` | string | '' |  |
+| `--tags` | list[string] | None |  |
+
+### chapter.auto
+
+`recomp chapter auto <ref>` · effect: **write**
+
+Machine draft chapters from pauses and shot rhythm (titles are placeholders: rewrite them).
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<ref>` | string | required |  |
+| `--target-min` | number | 0 | Target chapter length in minutes (default: 5 for films, 8 for talks) |
+
+### chapter.edit
+
+`recomp chapter edit <ref>` · effect: **write**
+
+Change a chapter's span, title, summary or tags.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<ref>` | string | required | Chapter ref, e.g. S1.c4 |
+| `--start` | string | None |  |
+| `--end` | string | None |  |
+| `--title` | string | None |  |
+| `--summary` | string | None |  |
+| `--tags` | list[string] | None |  |
+
+### chapter.list
+
+`recomp chapter list <ref>` · effect: **read**
+
+Chapters of one source (or all), with spans, titles, summaries and tags.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<ref>` | string | None | Source ref (default: all sources) |
+| `--tag` | string | None |  |
+
+### chapter.merge
+
+`recomp chapter merge <ref> <other>` · effect: **write**
+
+Merge two chapters of the same source (the first keeps its title).
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<ref>` | string | required | First chapter |
+| `<other>` | string | required | The chapter to absorb |
+
+### chapter.remove
+
+`recomp chapter remove <ref>` · effect: **write**
+
+Delete a chapter.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<ref>` | string | required |  |
+
+### chapter.seed
+
+`recomp chapter seed <ref>` · effect: **write**
+
+Import the chapters the creator published (YouTube chapters, or chapters embedded in the file).
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<ref>` | string | required |  |
+
+### chapter.set
+
+`recomp chapter set <ref>` · effect: **write**
+
+Replace a source's chapters in bulk (chapters the user wrote are kept and reported). Ends default to the next chapter's start.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<ref>` | string | required | Source ref |
+| `--items` | list[any] | required | Chapters (use --input chapters.json: a list or {items: [...]}) |
+| `--snap` | boolean | True | Snap boundaries to transcript segment starts |
+| `--method` | string | 'written' | written \| seed \| auto |
+
+```
+recomp chapter set S1 --input chapters.json
+```
+
+### chapter.split
+
+`recomp chapter split <ref>` · effect: **write**
+
+Split a chapter in two at a time.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<ref>` | string | required |  |
+| `--at` | string | required | Time to split at |
+| `--title` | string | '' | Title for the second half |
 
 ## config
 
@@ -57,6 +177,171 @@ One-call briefing: the project, every source's pipeline status, journeys, jobs, 
 recomp context
 ```
 
+## cut
+
+### cut.add
+
+`recomp cut add <ref>` · effect: **write**
+
+Make a cut by quote, segment range or times. Edges snap to words (and shots); the spoken text is stored with it.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<ref>` | string | required | Source ref |
+| `--from` | string | None | Start time |
+| `--to` | string | None | End time |
+| `--segments` | string | None | Segment range from `transcript read`, e.g. 412..430 |
+| `--quote-start` | string | None | Words the cut starts with (exact from the transcript) |
+| `--quote-end` | string | None | Words the cut ends with |
+| `--near` | string | None | Look for the quote near this time (± 10 min) |
+| `--snap` | string | 'words' | words \| shots \| words+shots \| none |
+| `--pad` | string | None | Lead-in,tail seconds (default 0.15,0.35) |
+| `--title` | string | '' |  |
+| `--why` | string | '' | Why this moment matters |
+| `--tags` | list[string] | None |  |
+| `--emotions` | list[string] | None |  |
+| `--people` | list[string] | None |  |
+| `--rating` | integer | None | 1–5 |
+| `--note` | string | '' |  |
+
+```
+recomp cut add S1 --quote-start "You either die a hero" --quote-end "become the villain" --title "Live long enough" --why "Harvey's thesis" --tags fate,heroism
+recomp cut add S1 --from 01:02:10.5 --to 01:02:55 --snap words+shots
+recomp cut add S1 --segments 412..430
+```
+
+### cut.edit
+
+`recomp cut edit <ref>` · effect: **write**
+
+Change a cut's labels (title, why, note, tags, emotions, people, rating).
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<ref>` | string | required | Cut ref |
+| `--title` | string | None |  |
+| `--why` | string | None |  |
+| `--note` | string | None |  |
+| `--tags` | list[string] | None |  |
+| `--emotions` | list[string] | None |  |
+| `--people` | list[string] | None |  |
+| `--rating` | integer | None |  |
+
+### cut.list
+
+`recomp cut list` · effect: **read**
+
+Cuts with spans, titles, why, tags and chapter; filter by source, tag, person, emotion, text, or unused.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `--source` | string | None | Source ref |
+| `--tag` | string | None |  |
+| `--person` | string | None |  |
+| `--emotion` | string | None |  |
+| `--chapter` | string | None |  |
+| `--match` | string | None | Text in title, why or quote |
+| `--unused` | boolean | False | Only cuts not in any journey |
+| `--limit` | integer | 200 |  |
+
+```
+recomp cut list --source S1
+recomp cut list --tag sacrifice --unused
+```
+
+### cut.merge
+
+`recomp cut merge <ref> <other>` · effect: **write**
+
+Merge two cuts from the same source into one spanning both.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<ref>` | string | required |  |
+| `<other>` | string | required |  |
+
+### cut.remove
+
+`recomp cut remove <ref>` · effect: **write**
+
+Delete a cut (refused while a journey uses it).
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<ref>` | string | required |  |
+
+### cut.show
+
+`recomp cut show <ref>` · effect: **read**
+
+One cut in full, with the lines around it and the journeys that use it.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<ref>` | string | required |  |
+
+### cut.split
+
+`recomp cut split <ref>` · effect: **write**
+
+Split a cut into two at a source time.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<ref>` | string | required |  |
+| `--at` | string | required | Source time to split at |
+
+### cut.suggest
+
+`recomp cut suggest <query>` · effect: **read**
+
+Turn search hits into whole-thought cut candidates (sentence and pause boundaries, min/max length). Nothing is created.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<query>` | string | required |  |
+| `--sources` | list[string] | None |  |
+| `--min-s` | number | 15 | Shortest suggestion |
+| `--max-s` | number | 90 | Longest suggestion |
+| `--limit` | integer | 10 |  |
+
+```
+recomp cut suggest "what it costs to be good" --limit 8
+```
+
+### cut.tag
+
+`recomp cut tag <refs_>` · effect: **write**
+
+Add or remove tags on several cuts at once.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `--refs` | list[string] | required | Cut refs |
+| `--add` | list[string] | None |  |
+| `--remove` | list[string] | None |  |
+
+```
+recomp cut tag C3 C9 --add sacrifice --remove draft
+```
+
+### cut.trim
+
+`recomp cut trim <ref>` · effect: **write**
+
+Move a cut's edges (absolute or relative); optionally re-snap.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<ref>` | string | required |  |
+| `--start` | string | None | New start: absolute time, or +0.3 / -1.2 relative |
+| `--end` | string | None | New end: absolute time, or relative |
+| `--snap` | string | 'none' | Snap the new edges: words \| shots \| words+shots \| none |
+
+```
+recomp cut trim C17 --start +0.3 --end -1.2
+```
+
 ## doctor
 
 ### doctor
@@ -73,6 +358,86 @@ Check the tools, worker environment, models, disk and (optionally) network this 
 ```
 recomp doctor
 recomp doctor --net
+```
+
+## job
+
+### job.cancel
+
+`recomp job cancel <ref>` · effect: **write**
+
+Cancel a queued or running job.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<ref>` | string | required | Job ref, e.g. job7 |
+
+### job.list
+
+`recomp job list` · effect: **read**
+
+Jobs, newest first: open ones plus anything finished in the last hour.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `--status` | string | None | queued, running, done, failed, cancelled |
+| `--all` | boolean | False | Include finished jobs older than an hour |
+| `--limit` | integer | 30 |  |
+
+### job.retry
+
+`recomp job retry <ref>` · effect: **heavy**
+
+Queue a failed or cancelled job again.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<ref>` | string | required | Job ref, e.g. job7 |
+
+### job.run
+
+`recomp job run` · effect: **heavy** · hidden (viewer use)
+
+Drain queued jobs in this process now (normally a background runner does this).
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `--lanes` | list[string] | None |  |
+
+### job.show
+
+`recomp job show <ref>` · effect: **read**
+
+One job in full: params, progress, result or error.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<ref>` | string | required | Job ref, e.g. job7 |
+
+### job.tail
+
+`recomp job tail <ref>` · effect: **read**
+
+The end of a job's log.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<ref>` | string | required |  |
+| `--lines` | integer | 30 |  |
+
+### job.wait
+
+`recomp job wait <refs>` · effect: **read**
+
+Wait for job(s) to finish, returning early at the timeout with their progress.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<refs>` | list[string] | required | Job ref(s) |
+| `--timeout` | number | 60 | Return after this many seconds even if not finished |
+
+```
+recomp job wait job7 --timeout 90
 ```
 
 ## op
@@ -185,6 +550,31 @@ Make a project the current one (by registered name or by folder).
 |---|---|---|---|
 | `<target>` | string | required | Project name (from `project list`) or folder |
 
+## search
+
+### search
+
+`recomp search <query>` · effect: **read**
+
+Find where something is said, across all sources. Each hit has its chapter, surrounding lines and a ready `cut add` command.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<query>` | string | required | Words or "exact phrases" |
+| `--sources` | list[string] | None | Limit to these source refs |
+| `--chapter` | string | None | Limit to one chapter |
+| `--speaker` | string | None | Limit to a speaker label or person name |
+| `--all-transcripts` | boolean | False | Search every transcript, not only the primary ones |
+| `--context` | integer | 1 | Segments of context before and after |
+| `--limit` | integer | 20 |  |
+| `--mode` | string | 'auto' | all (every word), any, or auto (all, then any if nothing found) |
+
+```
+recomp search "free will"
+recomp search forgiveness --sources S1,S4 --limit 10
+recomp search "everlasting life" --speaker "Pastor Chris"
+```
+
 ## setup
 
 ### setup.shim
@@ -196,6 +586,290 @@ Write `recomp` launchers (sh and .cmd) into a folder on PATH so agents can call 
 | Field | Type | Default | Description |
 |---|---|---|---|
 | `--bin-dir` | string | 'C:\\Users\\pc\\bin' | Folder on PATH for the launchers |
+
+## source
+
+### source.add
+
+`recomp source add <target>` · effect: **write**
+
+Add media: files are referenced in place (never copied); subtitles beside them are imported; processing jobs are queued. Links and channels: see the recomp-ingest skill.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<target>` | string | required | File, folder, glob (quote it) or link |
+| `--title` | string | None | Title (default: parsed from the file name / link metadata) |
+| `--year` | integer | None |  |
+| `--creator` | string | None | Director, channel, speaker… |
+| `--language` | string | None | Spoken language code (default: project language) |
+| `--subs` | string | None | Subtitle file to import (default: find sidecars and embedded) |
+| `--subtitles` | boolean | True | Import sidecar/embedded subtitles automatically |
+| `--process` | boolean | True | Queue audio, peaks, shots and thumbnails jobs |
+| `--jobs` | list[string] | None | Which processing jobs |
+| `--limit` | integer | None | Links: how many entries of a channel/playlist to list |
+| `--match` | string | None | Links: only entries whose title matches (regex, case-insensitive) |
+| `--since` | string | None | Links: only entries newer than e.g. 90d |
+| `--pick` | list[string] | None | Links: add these entries from the last pick list (numbers or ids) |
+
+```
+recomp source add "D:\Recomp\Video\The.Dark.Knight*.mp4"
+recomp source add D:\Movies --jobs audio,peaks
+recomp source add https://www.youtube.com/@CosmicSkeptic/videos --limit 30
+recomp source add --pick 2,5,9
+```
+
+### source.list
+
+`recomp source list` · effect: **read**
+
+Sources with duration, transcript and counts.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `--kind` | string | None | file or link |
+| `--match` | string | None | Title contains |
+
+### source.process
+
+`recomp source process <ref>` · effect: **heavy**
+
+(Re)queue processing jobs for a source: audio, peaks, shots, thumbs.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<ref>` | string | required |  |
+| `--jobs` | list[string] | None |  |
+| `--force` | boolean | False | Redo even if already done |
+
+```
+recomp source process S1 --jobs shots --force
+```
+
+### source.relink
+
+`recomp source relink <ref> <path>` · effect: **write**
+
+Point a source at its file's new location (checked by fingerprint).
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<ref>` | string | required |  |
+| `<path>` | string | required |  |
+| `--force` | boolean | False | Accept a file whose fingerprint differs |
+
+### source.remove
+
+`recomp source remove <ref>` · effect: **write**
+
+Remove a source from the project (the media file itself is never touched). Its chapters and cuts go too; undo restores those, but transcripts/shots must be re-imported.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<ref>` | string | required | Source ref, e.g. S1 |
+
+### source.rights
+
+`recomp source rights <ref>` · effect: **write**
+
+Set a source's credit and rights details (used for attribution in every export).
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<ref>` | string | required |  |
+| `--owner` | string | None | Rights holder, e.g. the studio or channel |
+| `--notice` | string | None | Credit line shown in exports |
+| `--licence` | string | None |  |
+| `--url` | string | None | Canonical page for the work |
+| `--title` | string | None |  |
+| `--year` | integer | None |  |
+| `--creator` | string | None |  |
+
+```
+recomp source rights S1 --owner "Warner Bros." --notice "The Dark Knight (2008), Warner Bros."
+```
+
+### source.show
+
+`recomp source show <ref>` · effect: **read**
+
+Everything about one source: media facts, rights, transcripts, stages, counts, files.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<ref>` | string | required | Source ref, e.g. S1 |
+
+### source.status
+
+`recomp source status` · effect: **read**
+
+Pipeline stage per source (probe, audio, peaks, shots, thumbs, transcript…) and running jobs.
+
+## transcript
+
+### transcript.align
+
+`recomp transcript align <ref>` · effect: **write**
+
+Give a subtitle transcript per-word timings: matched against ASR words, or spread proportionally.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<ref>` | string | required | Transcript (or source → primary) to give word timings |
+| `--using` | string | None | ASR transcript with word timings (default: newest ASR of the source) |
+| `--method` | string | 'auto' | auto (asr if available, else proportional), asr, proportional |
+
+```
+recomp transcript align S1.t1 --using S1.t2
+```
+
+### transcript.asr
+
+`recomp transcript asr <ref>` · effect: **heavy**
+
+Transcribe a source locally (faster-whisper with word timings) as a job.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<ref>` | string | required | Source ref |
+| `--language` | string | None | Spoken language (default: detect) |
+| `--from` | string | None | Only this range: start |
+| `--to` | string | None | Only this range: end |
+| `--model` | string | None | Model repo/path (default: config worker.asr_model) |
+| `--engine` | string | 'whisper' | whisper or ctc (character models, e.g. badrex/Ethio-ASR-amharic) |
+| `--primary` | boolean | None | Make the result primary (default: only if none) |
+| `--allow-download` | boolean | False | Allow the worker to download a missing model |
+
+```
+recomp transcript asr S3
+recomp transcript asr S1 --from 10:00 --to 20:00 --language en
+```
+
+### transcript.edit-segment
+
+`recomp transcript edit-segment <ref> <idx>` · effect: **write**
+
+Correct one segment's text, timing or speaker (word timings are re-spread if the text changes).
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<ref>` | string | required | Source or transcript ref |
+| `<idx>` | integer | required | Segment index (#idx in transcript read) |
+| `--text` | string | None |  |
+| `--start` | string | None |  |
+| `--end` | string | None |  |
+| `--speaker` | string | None |  |
+
+```
+recomp transcript edit-segment S1 412 --text "Why so serious?"
+```
+
+### transcript.import
+
+`recomp transcript import <ref> <file>` · effect: **write**
+
+Import a subtitle or caption file as a transcript of a source.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<ref>` | string | required | Source ref |
+| `<file>` | string | required | Subtitle/caption file (.srt .vtt .ass .json3) |
+| `--language` | string | None |  |
+| `--primary` | boolean | None | Make it the primary transcript (default: only if none) |
+| `--offset` | string | None | Shift all times by this much on import (e.g. -1.5) |
+
+```
+recomp transcript import S1 film.en.srt
+```
+
+### transcript.list
+
+`recomp transcript list <ref>` · effect: **read**
+
+Transcripts of a source: origin, language, primary, word timing, sync result.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<ref>` | string | required | Source ref (or a transcript ref) |
+
+### transcript.outline
+
+`recomp transcript outline <ref>` · effect: **read**
+
+The shape of a source before reading it: speech density, long silences, shot rhythm, creator/embedded and existing chapters, in 5-minute buckets.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<ref>` | string | required | Source ref (or a transcript ref) |
+
+```
+recomp transcript outline S1
+```
+
+### transcript.read
+
+`recomp transcript read <ref>` · effect: **read**
+
+Read a window of a transcript as compact timed lines `#idx [hh:mm:ss.s] text` (cheap on context).
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<ref>` | string | required | Source (primary transcript) or transcript ref |
+| `--from` | string | None | Start time |
+| `--to` | string | None | End time |
+| `--chapter` | string | None | Read one chapter, e.g. S1.c4 |
+| `--around` | string | None | Centre time; reads ± --span seconds |
+| `--span` | number | 45 | Half-width for --around |
+| `--limit` | integer | 250 | Max segments |
+| `--cursor` | integer | None | Continue from this segment index (from next_cursor) |
+| `--words` | boolean | False | Include per-word timings |
+
+```
+recomp transcript read S1 --from 10:00 --to 15:00
+recomp transcript read S1 --chapter S1.c4
+recomp transcript read S1 --around 1:02:10 --span 30
+```
+
+### transcript.set-primary
+
+`recomp transcript set-primary <ref>` · effect: **write**
+
+Make a transcript the one search, reading and captions use for its source.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<ref>` | string | required | Transcript ref |
+
+### transcript.shift
+
+`recomp transcript shift <ref> <by>` · effect: **write**
+
+Shift every segment and word of a transcript in time (its own inverse: shift back to undo).
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<ref>` | string | required |  |
+| `<by>` | string | required | Seconds to add to every time (negative = earlier) |
+
+```
+recomp transcript shift S1.t1 -1.5
+```
+
+### transcript.sync-check
+
+`recomp transcript sync-check <ref>` · effect: **heavy**
+
+Measure whether subtitles match the speech (offset and drift); --fix shifts them. Uses an existing ASR transcript if there is one, otherwise runs ASR on three 60-second windows (a job).
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<ref>` | string | required | Source or transcript ref |
+| `--against` | string | None | Use this ASR transcript instead of running ASR on 3 windows |
+| `--fix` | boolean | False | Shift the transcript by the measured offset |
+
+```
+recomp transcript sync-check S1
+recomp transcript sync-check S1 --fix
+```
 
 ## ui
 

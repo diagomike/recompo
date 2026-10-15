@@ -92,14 +92,27 @@ def find_upwards(start: Path) -> Path | None:
     return None
 
 
+def locate(target: str) -> Path:
+    """A project by registered name, folder name, a folder under projects_root, or a path."""
+    reg = config.registry()
+    if target in reg["projects"]:
+        return Path(reg["projects"][target]["path"])
+    for info in reg["projects"].values():
+        if Path(info["path"]).name.lower() == target.lower():
+            return Path(info["path"])
+    path = Path(target)
+    if not path.is_absolute() and not (path / MANIFEST).exists():
+        under = Path(config.get("projects_root")) / target
+        if (under / MANIFEST).exists():
+            return under
+    return path
+
+
 def resolve(explicit: str | None = None) -> Project:
     """--project flag > RECOMP_PROJECT > a project folder at or above cwd > the current project."""
     target = explicit or os.environ.get("RECOMP_PROJECT")
     if target:
-        reg = config.registry()
-        if target in reg["projects"]:
-            return Project(Path(reg["projects"][target]["path"]))
-        return Project(Path(target))
+        return Project(locate(target))
     found = find_upwards(Path.cwd())
     if found:
         return Project(found)

@@ -316,6 +316,9 @@ EDITORIAL = {"source", "transcript", "segment", "person", "speaker_label", "chap
              "journey", "slot", "overlay", "music_track", "music_bed", "profile", "export",
              "translation"}
 
+# Bookkeeping fields written by jobs: no precedence guard, ignored when undo checks for conflicts.
+UNGUARDED = {"status", "stats", "has_words", "updated_at"}
+
 # Child rows captured with a delete so undo can restore them (only op-logged children).
 CHILDREN: dict[str, list[tuple[str, str]]] = {
     "journey": [("slot", "journey_id"), ("overlay", "journey_id"), ("music_bed", "journey_id")],

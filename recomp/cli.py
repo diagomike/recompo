@@ -43,6 +43,7 @@ def _add_field(parser: argparse.ArgumentParser, name: str, f: FieldInfo, positio
     ann, _ = _unwrap(f.annotation)
     origin = typing.get_origin(ann)
     help_text = (f.description or "").replace("%", "%%")
+    flag_name = f.alias or name
     if positional:
         # Always optional at the argparse level: --input may supply it, and pydantic reports
         # a missing required field as a JSON E_INVALID envelope rather than a usage dump.
@@ -51,13 +52,13 @@ def _add_field(parser: argparse.ArgumentParser, name: str, f: FieldInfo, positio
                             default=argparse.SUPPRESS, metavar=label)
         return
     if ann is bool:
-        parser.add_argument(_flag(name), dest=name, action=argparse.BooleanOptionalAction,
+        parser.add_argument(_flag(flag_name), dest=name, action=argparse.BooleanOptionalAction,
                             default=argparse.SUPPRESS, help=help_text)
     elif origin is list:
-        parser.add_argument(_flag(name), dest=name, action="append", default=argparse.SUPPRESS,
+        parser.add_argument(_flag(flag_name), dest=name, action="append", default=argparse.SUPPRESS,
                             help=(help_text + " (repeat or comma-separate)").strip())
     else:
-        parser.add_argument(_flag(name), dest=name, default=argparse.SUPPRESS, help=help_text,
+        parser.add_argument(_flag(flag_name), dest=name, default=argparse.SUPPRESS, help=help_text,
                             required=False)
 
 
@@ -198,7 +199,8 @@ def main(argv: list[str] | None = None) -> int:
         return server_app.main(rest[1:], g["project"])
     if rest[0] == "worker" and len(rest) > 1 and rest[1] == "run":
         from .workers import runner
-        return runner.main(rest[2:])
+        extra = ["--project", g["project"]] if g["project"] else []
+        return runner.main(extra + rest[2:])
     if rest[0] == "help":
         target = None
         tail = [a for a in rest[1:] if a != "--json"]

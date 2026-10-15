@@ -16,6 +16,7 @@ dependencies = [
   "edge-tts>=7.3.1",
   "segno>=1.6",
   "mcp>=2.3",
+  "numpy>=2.0",
 ]
 
 [project.optional-dependencies]
