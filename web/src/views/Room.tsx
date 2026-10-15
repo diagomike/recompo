@@ -11,7 +11,7 @@ type RoomData = {
   turns: any[]; thumbs: any; peaks: any;
 };
 
-const LANE = { ruler: 16, film: 40, wave: 44, shots: 8, chapters: 20, cuts: 20 };
+const LANE = { ruler: 16, film: 40, wave: 44, shots: 8, speakers: 8, chapters: 20, cuts: 20 };
 const H = Object.values(LANE).reduce((a, b) => a + b, 0) + 6;
 
 export default function Room({ sourceRef }: { sourceRef: string }) {
@@ -237,6 +237,16 @@ function Lanes(p: {
     g.fillStyle = col("--faint");
     for (const s of data.shots) { if (s < v0 || s > v1) continue; g.fillRect(t2x(s), y + 1, 1, LANE.shots - 2); }
     y += LANE.shots;
+    // speakers: one colour per voice label
+    const palette = ["#2b62b8", "#c2410c", "#7c3aed", "#0f766e", "#b45309", "#be185d"];
+    const labels: string[] = [];
+    for (const tr of data.turns) {
+      if (!labels.includes(tr.label)) labels.push(tr.label);
+      if (tr.end < v0 || tr.start > v1) continue;
+      g.fillStyle = palette[labels.indexOf(tr.label) % palette.length];
+      g.fillRect(t2x(tr.start), y + 1, Math.max(1, t2x(tr.end) - t2x(tr.start)), LANE.speakers - 2);
+    }
+    y += LANE.speakers;
     const bars = (items: Span[], color: string, yy: number, h: number) => {
       for (const it of items) {
         if (it.end < v0 || it.start > v1) continue;
@@ -255,7 +265,7 @@ function Lanes(p: {
 
   const hit = (x: number, y: number): Span | null => {
     const s = x2t(x);
-    const chapY = LANE.ruler + LANE.film + LANE.wave + LANE.shots;
+    const chapY = LANE.ruler + LANE.film + LANE.wave + LANE.shots + LANE.speakers;
     if (y >= chapY && y < chapY + LANE.chapters) return data.chapters.find((c) => c.start <= s && s < c.end) || null;
     if (y >= chapY + LANE.chapters && y < chapY + LANE.chapters + LANE.cuts) return data.cuts.find((c) => c.start <= s && s < c.end) || null;
     return null;

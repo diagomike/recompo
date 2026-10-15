@@ -49,7 +49,8 @@ def show(db, j: dict) -> dict:
     sources = sorted({it["source"]["ref"] for it in tl})
     return {"ref": j["ref"], "title": j["title"], "intent": j["intent"], "description": j["description"],
             "language": j["language"], "status": j["status"], "duration": clock(total), "duration_s": round(total, 2),
-            "slots": slots, "overlays": overlays, "music": beds, "sources": sources, "by": j["created_by"]}
+            "slots": slots, "overlays": overlays, "music": beds, "sources": sources, "by": j["created_by"],
+            "links": j.get("links") or {}}
 
 
 class NewIn(BaseModel):

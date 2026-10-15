@@ -84,6 +84,10 @@ function Journey({ jref, slotParam }: { jref: string; slotParam: string | null }
         <div className="spacer" />
         <button className="btn small" onClick={async () => setCheck((await call("journey.validate", { journey: jref })).data)}><CheckCircle2 size={13} />Check</button>
         <button className="btn small" onClick={() => go("exports", null, { journey: jref })}>Export…</button>
+        {j.links?.hub
+          ? <a className="btn small" href={`#/hub/r/${String(j.links.hub).split("/r/")[1]}`}>On the hub</a>
+          : <button className="btn small" title="Share the recipe (not the media) on the configured hub"
+                    onClick={() => call("hub.publish", { journey: jref })}>Publish</button>}
       </div>
       {j.intent && <p className="sub" style={{ margin: "0 0 8px" }}>{j.intent}</p>}
       {msg && <div className="err">{msg}</div>}
