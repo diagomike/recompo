@@ -77,9 +77,15 @@ def overlay_auto_lower_thirds(ctx: Ctx, inp: AutoIn):
         for it in R.timeline(db, j):
             src = it["source"]
             people = ", ".join(it["cut"]["people"] or [])
-            name = src["title"] + (f" ({src['year']})" if src.get("year") else "")
-            if src["kind"] == "link" and src.get("creator") and src["creator"] not in name:
-                name = f"{src['creator']} · {name}"
+            if src["kind"] == "link":
+                # Episodes: the title says enough; add the channel only when nobody on screen is the channel.
+                name = src["title"]
+                for person in it["cut"]["people"] or []:
+                    name = name.replace(f" - {person}", "").replace(f" – {person}", "")
+                if src.get("creator") and src["creator"] not in name and src["creator"] not in people:
+                    name = f"{src['creator']} · {name}"
+            else:
+                name = src["title"] + (f" ({src['year']})" if src.get("year") else "")
             text = inp.template.format(people=people, title_sep="\n" if people else "", source=name, year=src.get("year") or "",
                                        creator=src.get("creator") or "", cut=it["cut"]["title"])
             if not people and prev_src == src["id"]:
