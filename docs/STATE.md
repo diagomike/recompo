@@ -2,11 +2,11 @@
 
 The build's working memory. If context runs short, resume from here.
 
-**Last updated:** 2026-10-15 (evening)
+**Last updated:** 2026-10-15 (night)
 
 | | |
 |---|---|
-| Phases | **P0–P14 built** · **P15 editing toolkit** verbs built (viewer parts go with P16) · **P16 UX pass** planned |
+| Phases | **P0–P16 built** (P16 awaits your review) · **P17 research wing and channel desk** planned |
 | Milestones | **M1** ([report](runs/M1-dark-knight.md)) · **M2** ([report](runs/M2-alex-oconnor.md)) · **M3** am/sw/fr + om · **M4** local hub ([report](runs/M3-M4-languages-and-hub.md)): all done |
 | Suite | 85+ fast tests (`pytest -q`), slow speaker test (`pytest -m slow`); the reorder-cache timing assert can flake under heavy load |
 | Projects | `C:\Recomposer\projects\dark-knight` (M1, M3), `alex-oconnor` (M2: 5 episodes, 12 cuts, 3 journeys); `_uitest` scratch folder (forgotten from the list; safe to delete) |
@@ -33,6 +33,12 @@ The build's working memory. If context runs short, resume from here.
   HF cache `D:\LangBridgeLocal\cache\hf`; `facebook/mms-tts-orm` downloaded there on first Oromo dub.
 - Measured: whisper-turbo int8 ASR at RTF 0.33 on this CPU; shots 79 s and audio 7 s for an 89-min film;
   pyannote ~70 s on 40 s of audio including load.
+
+## Viewer (P16)
+- Project home (`#/p/<name>/home`) is the checklist (`project checklist`); Cut bin (`#/p/<name>/cuts`) mixes sources.
+- Filters live in the URL; `recomp ui show <view> --filter "k=v&k=v" --highlight <verb>` opens the same view.
+- Every button runs one verb (hover shows the command; the robot hands it to the agent via `ui notes`).
+- `p16-check` project: the acceptance run (two fixture clips from `C:\Recomposer\p16-media`, J1, X1/X2).
 
 ## Lessons
 - `>>` marks name speakers for free only when dense (≥ 1/min); sparse marks swap every later line (M2: 86 % vs 50 %).

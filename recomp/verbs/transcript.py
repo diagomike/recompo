@@ -434,8 +434,6 @@ def transcript_edit_segment(ctx: Ctx, inp: EditSegIn):
     with ctx.op(f"edit {tr['ref']}#{inp.idx}") as tx:
         seg = tx.update("segment", row["id"], fields)
         if "text" in fields and tr["has_words"]:
-            tx.conn.execute("DELETE FROM word WHERE segment_id=?", (row["id"],))
-            tx.conn.executemany('INSERT INTO word(segment_id, idx, start, "end", text, prob) VALUES(?,?,?,?,?,?)',
-                                [(row["id"], j, w["start"], w["end"], w["text"], None)
-                                 for j, w in enumerate(align.proportional_words(seg))])
+            from ..transcript.edit import rewrite_words
+            rewrite_words(tx, seg, seg["text"])  # unchanged words keep their timings
     return {"idx": inp.idx, "start": seg["start"], "end": seg["end"], "text": seg["text"]}

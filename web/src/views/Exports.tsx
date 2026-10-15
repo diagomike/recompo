@@ -1,31 +1,40 @@
 import { useState } from "react";
-import { Copy, Play, RefreshCw } from "lucide-react";
-import { fileUrl, must, verb } from "../api";
+import { Copy, FolderOpen, Play, RefreshCw } from "lucide-react";
+import { fileUrl, must } from "../api";
 import { useApp, useData } from "../App";
+import { Act, useActions } from "../actions";
+import { FilterBar, useFilters } from "../filters";
+import Translations from "./Translations";
 
 export default function Exports() {
   const { route, go } = useApp();
-  const { data: list, error } = useData(() => must<any[]>("export.status", { limit: 60 }));
+  const [f, setF] = useFilters();
+  const tab = f.tab || "renders";
+  const { data: all, error } = useData(() => must<any[]>("export.status", { limit: 200 }));
   const { data: journeys } = useData(() => must<any[]>("journey.list"));
   const { data: profs } = useData(() => must<any[]>("profile.list"));
   const [j, setJ] = useState(route.params.get("journey") || "");
   const [chosen, setChosen] = useState<string[]>(["shorts", "landscape"]);
   const [langs, setLangs] = useState("");
-  const [msg, setMsg] = useState<string | null>(null);
   const current = route.arg;
 
-  const run = async (preview: boolean) => {
-    const target = j || journeys?.[0]?.ref;
-    if (!target) return;
-    const env = preview
-      ? await verb("preview", { target, profile: chosen[0] || "landscape" })
-      : await verb("export.run", { journey: target, profiles: chosen, langs: langs ? langs.split(",").map((x) => x.trim()) : [] });
-    setMsg(env.ok ? null : env.error!.message + (env.error!.hint ? " — " + env.error!.hint : ""));
-  };
+  const target = j || journeys?.[0]?.ref || "";
+  const langList = langs ? langs.split(",").map((x) => x.trim()).filter(Boolean) : [];
+  const list = (all || []).filter((x) => (!f.journey || x.of === f.journey) && (!f.profile || x.profile === f.profile) &&
+    (!f.lang || x.lang === f.lang) && (!f.status || (f.status === "problems" ? x.status !== "done" : x.status === f.status)) && (f.previews || !x.preview));
 
   return (
     <div className="page" style={{ maxWidth: "none" }}>
-      <h1 className="h1">Exports</h1>
+      <div className="row" style={{ marginBottom: 4 }}>
+        <h1 className="h1" style={{ margin: 0 }}>Exports</h1>
+        <div className="tabs" style={{ marginLeft: 8 }}>
+          <button className={"tab" + (tab === "renders" ? " on" : "")} onClick={() => setF("tab", null)}>Renders</button>
+          <button className={"tab" + (tab === "translations" ? " on" : "")} onClick={() => setF("tab", "translations")}>Translations</button>
+        </div>
+        <div className="spacer" />
+        <Act verb="project.reveal" args={{ what: "exports" }} small ghost quiet icon={<FolderOpen size={13} />}>Exports folder</Act>
+      </div>
+      {tab === "translations" ? <Translations journeys={journeys || []} profiles={profs || []} /> : <>
       <p className="sub">Render a journey in any formats and languages. Each export comes with captions, a ready-to-paste description with full credits, and the recipe. You upload it yourself.</p>
       <div className="card" style={{ marginBottom: 12 }}>
         <div className="row">
@@ -38,15 +47,21 @@ export default function Exports() {
             </label>
           ))}
           <input className="input" style={{ width: 140 }} placeholder="langs e.g. en,am,sw" value={langs} onChange={(e) => setLangs(e.target.value)} />
-          <button className="btn" onClick={() => run(true)}>Preview</button>
-          <button className="btn primary" onClick={() => run(false)}>Export</button>
+          <Act verb="preview" args={{ target, profile: chosen[0] || "landscape" }} disabled={!target}>Preview</Act>
+          <Act verb="export.run" args={{ journey: target, profiles: chosen, langs: langList }} primary agent disabled={!target || !chosen.length}>Export</Act>
         </div>
-        {msg && <div className="err">{msg}</div>}
       </div>
       {error && <div className="err">{error}</div>}
+      <FilterBar count={list.length} keep={["tab"]} fields={[
+        { key: "journey", label: "Journey", type: "select", options: (journeys || []).map((x) => [x.ref, `${x.ref} ${x.title}`] as [string, string]) },
+        { key: "profile", label: "Profile", type: "select", options: Array.from(new Set((all || []).map((x) => x.profile))) },
+        { key: "lang", label: "Language", type: "select", options: Array.from(new Set((all || []).map((x) => x.lang))) },
+        { key: "status", label: "Status", type: "select", options: ["done", "running", "queued", "failed", ["problems", "not done"]] },
+        { key: "previews", label: "Show previews", type: "check" },
+      ]} />
       <div className="jgrid" style={{ gridTemplateColumns: "minmax(300px, 420px) minmax(0, 1fr)" }}>
         <div>
-          {(list || []).map((x) => (
+          {list.map((x) => (
             <div key={x.ref} className="card" style={{ marginBottom: 6, cursor: "pointer", borderColor: x.ref === current ? "var(--accent)" : undefined }}
                  onClick={() => go("exports", x.ref)}>
               <div className="row">
@@ -59,25 +74,23 @@ export default function Exports() {
               {!!x.problems.length && <div style={{ fontSize: 12, color: "var(--red)" }}>{x.problems.map((p: any) => p.check).join(", ")}</div>}
             </div>
           ))}
-          {list && !list.length && <div className="empty">No exports yet.</div>}
+          {all && !list.length && <div className="empty">{all.length ? "No exports match these filters." : "No exports yet."}</div>}
         </div>
         <div>{current && <ExportDetail key={current} xref={current} />}</div>
       </div>
+      </>}
     </div>
   );
 }
 
 function DubFix({ x }: { x: any }) {
   const [edits, setEdits] = useState<Record<string, string>>({});
-  const [msg, setMsg] = useState<string | null>(null);
+  const { run } = useActions();
   const lines = x.dub.to_fix as any[];
   const save = async (rerender: boolean) => {
-    const env = await verb("lang.translate", { journey: x.of, to: x.lang, translations: edits });
-    if (!env.ok) { setMsg(env.error!.message); return; }
-    if (rerender) {
-      const r = await verb("export.run", { journey: x.of, profiles: [x.profile], langs: [x.lang] });
-      setMsg(r.ok ? `Re-exporting as ${r.refs?.[0]}…` : r.error!.message);
-    } else setMsg(`Saved ${Object.keys(edits).length} line(s).`);
+    const env = await run("lang.edit", { journey: x.of, lang: x.lang, lines: edits }, { label: `Save ${Object.keys(edits).length} ${x.lang} line(s)` });
+    if (!env.ok) return;
+    if (rerender) await run("export.run", { journey: x.of, profiles: [x.profile], langs: [x.lang] }, { label: `Re-export ${x.lang}` });
     setEdits({});
   };
   return (
@@ -102,7 +115,6 @@ function DubFix({ x }: { x: any }) {
           <button className="btn small primary" onClick={() => save(true)}>Save and re-export {x.lang}</button>
         </div>
       )}
-      {msg && <div className="warn">{msg}</div>}
     </div>
   );
 }
@@ -117,7 +129,8 @@ function ExportDetail({ xref }: { xref: string }) {
     <div className="card">
       <div className="row" style={{ marginBottom: 8 }}>
         <b>{x.ref} · {x.title}</b><span className="chip">{x.profile} · {x.lang}</span><div className="spacer" />
-        <button className="btn small" onClick={() => verb("export.check", { ref: xref })}><RefreshCw size={12} />Re-check</button>
+        <Act verb="project.reveal" args={{ what: xref }} small ghost quiet icon={<FolderOpen size={12} />}>Folder</Act>
+        <Act verb="export.check" args={{ ref: xref }} small icon={<RefreshCw size={12} />}>Re-check</Act>
       </div>
       {x.video ? (
         <video controls src={fileUrl(x.video)} style={{ width: "100%", maxHeight: vertical ? 560 : 420, background: "#000", borderRadius: 4 }} />

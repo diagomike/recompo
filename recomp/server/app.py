@@ -62,7 +62,17 @@ async def run_verb(name: str, request: Request):
     if actor not in ("user", "agent"):
         actor = "user"
     env = await asyncio.to_thread(registry.run, name, args, actor, proj)
+    from ..cli import cli_line
+    env["cli"] = cli_line(name, args)
     return JSONResponse(env)
+
+
+@app.post("/api/cli")
+async def cli_for(request: Request):
+    """The command line for a verb call: buttons show it before they run, so every action is one the agent can run too."""
+    from ..cli import cli_line
+    body = await request.json() if await request.body() else {}
+    return {"cli": cli_line(body.get("verb", ""), body.get("args") or {})}
 
 
 @app.get("/api/verbs")
@@ -149,7 +159,14 @@ def room(ref: str, request: Request):
             "transcript": {"ref": tr["ref"], "origin": tr["origin"], "language": tr["language"],
                            "has_words": bool(tr["has_words"])} if tr else None,
             "segments": segs, "chapters": chapters, "cuts": cuts, "shots": shots, "turns": turns,
-            "thumbs": thumbs, "peaks": peaks}
+            "thumbs": thumbs, "peaks": peaks, "transcripts": [
+                {"ref": t["ref"], "origin": t["origin"], "language": t["language"], "label": t["label"],
+                 "primary": bool(t["is_primary"])} for t in db.rows("transcript", "WHERE source_id=? ORDER BY created_at",
+                                                                   (src["id"],))],
+            "voices": {r[0]: {"person": r[1], "name": r[2]} for r in db.all(
+                "SELECT sl.label, p.ref, p.name FROM speaker_label sl LEFT JOIN person p ON p.id=sl.person_id "
+                "WHERE sl.source_id=?", (src["id"],))},
+            "people": [{"ref": p["ref"], "name": p["name"]} for p in db.rows("person", "ORDER BY name")]}
 
 
 # ---- media ---------------------------------------------------------------------------------
@@ -185,17 +202,22 @@ def _range_file(path: Path, request: Request, media_type: str | None = None) -> 
         "Content-Length": str(end - start + 1)})
 
 
+def _local_media(p, src: dict) -> Path | None:
+    """The source's own file, or the video fetched for a link source."""
+    path = Path(src["path"]) if src["path"] else None
+    if path and path.exists():
+        return path
+    alt = p.db.one("SELECT path FROM asset WHERE source_id=? AND role IN ('video','preview') ORDER BY created_at DESC",
+                   (src["id"],))
+    return Path(alt[0]) if alt and Path(alt[0]).exists() else None
+
+
 @app.get("/media/source/{ref}")
 def media_source(ref: str, request: Request):
     p = project(request.query_params.get("project"))
-    src = refs.source(p.db, ref)
-    path = Path(src["path"]) if src["path"] else None
-    if not path or not path.exists():
-        alt = p.db.one("SELECT path FROM asset WHERE source_id=? AND role IN ('video','preview') ORDER BY created_at DESC",
-                       (src["id"],))
-        if alt is None:
-            raise HTTPException(404, "no local media for this source")
-        path = Path(alt[0])
+    path = _local_media(p, refs.source(p.db, ref))
+    if path is None:
+        raise HTTPException(404, "no local media for this source")
     return _range_file(path, request)
 
 
@@ -219,9 +241,8 @@ def media_frame(ref: str, request: Request, t: float = 0.0, w: int = 240):
     """One still frame (cached): slot and cut thumbnails."""
     from ..media import ff
     p = project(request.query_params.get("project"))
-    src = refs.source(p.db, ref)
-    path = Path(src["path"]) if src["path"] else None
-    if not path or not path.exists():
+    path = _local_media(p, refs.source(p.db, ref))
+    if path is None:
         raise HTTPException(404, "no local media")
     w = max(80, min(640, int(w)))
     out = p.dir("cache", "frames") / f"{ref}_{t:.1f}_{w}.jpg"

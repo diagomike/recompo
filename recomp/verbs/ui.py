@@ -47,26 +47,44 @@ class SelectIn(BaseModel):
     t: str | None = Field(None, description="Playhead time")
 
 
-@verb("ui.select", SelectIn, effect="write", hidden=True)
+@verb("ui.select", SelectIn, effect="write",
+      examples=["recomp ui select --refs C3,C7,C9   # tick cuts in the user's cut bin",
+                "recomp ui select --source S1 --start 12:03 --end 12:48"])
 def ui_select(ctx: Ctx, inp: SelectIn):
-    """Record a selection (the viewer calls this as the user selects)."""
+    """Set the shared selection: a time range on a source and/or refs. The viewer records the user's selection here,
+    and the agent can select for the user (cuts ticked in the cut bin, a range in a source room)."""
     value = {"source": inp.source, "start": parse(inp.start), "end": parse(inp.end), "refs": inp.refs,
              "t": parse(inp.t), "by": ctx.actor}
     set_state(ctx.db, "selection", value)
     return value
 
 
+VIEWS = ("home", "sources", "cuts", "search", "journeys", "exports", "translations", "jobs", "activity")
+
+
 class ShowIn(BaseModel):
-    ref: str = Field(..., description="What to show: S1, S1.c3, C17, J2, J2#3, X1 …",
+    ref: str = Field(..., description="What to show: S1, S1.c3, C17, J2, J2#3, X1 …, or a view: "
+                                      "home, sources, cuts, search, journeys, exports, translations, jobs, activity",
                      json_schema_extra={"pos": 0})
     at: str | None = Field(None, description="Time to seek to (source time for sources/chapters/cuts)")
     play: bool = Field(False, description="Start playing")
+    filter: str | None = Field(None, description="Filters for a list view, e.g. \"source=S1&tag=fear\" or \"q=consciousness\"")
+    highlight: str | None = Field(None, description="Point at the button that runs this verb, e.g. export.run")
 
 
-@verb("ui.show", ShowIn, effect="write", examples=["recomp ui show C17", "recomp ui show S1 --at 1:02:10"])
+@verb("ui.show", ShowIn, effect="write",
+      examples=["recomp ui show C17", "recomp ui show S1 --at 1:02:10",
+                'recomp ui show cuts --filter "source=S2&min=20"', "recomp ui show J1 --highlight export.run"])
 def ui_show(ctx: Ctx, inp: ShowIn):
-    """Move the user's viewer to a ref (and optionally a time). Use it to point at what you mean."""
-    value = {"ref": inp.ref, "at": parse(inp.at), "play": inp.play, "by": ctx.actor, "nonce": ulid()}
+    """Move the user's viewer to a ref or a view (optionally a time, list filters, and a button to point at)."""
+    flt = {}
+    for part in (inp.filter or "").replace(";", "&").split("&"):
+        if "=" in part:
+            k, v = part.split("=", 1)
+            flt[k.strip()] = v.strip()
+    ref = inp.ref.lower() if inp.ref.lower() in VIEWS else inp.ref
+    value = {"ref": ref, "at": parse(inp.at), "play": inp.play, "filter": flt, "highlight": inp.highlight,
+             "by": ctx.actor, "nonce": ulid()}
     set_state(ctx.db, "focus", value)
     return value
 
@@ -109,13 +127,19 @@ def ui_answer(ctx: Ctx, inp: AnswerIn):
 class NoteIn(BaseModel):
     text: str = Field(..., description="Note for the agent", json_schema_extra={"pos": 0})
     refs: list[str] = Field(default_factory=list)
+    verb: str | None = Field(None, description="A verb the user hands to the agent to run (with args)")
+    args: dict = Field(default_factory=dict, description="Its arguments")
 
 
 @verb("ui.note", NoteIn, effect="write", hidden=True)
 def ui_note(ctx: Ctx, inp: NoteIn):
-    """Leave a note for the agent (the viewer calls this)."""
+    """Leave a note for the agent (the viewer calls this); with a verb, it is an action handed to the agent."""
     notes = get_state(ctx.db, "notes", [])
     item = {"id": ulid(), "text": inp.text, "refs": inp.refs, "by": ctx.actor, "time": time.time(), "seen": False}
+    if inp.verb:
+        from ..cli import cli_line
+        item["request"] = {"verb": inp.verb, "args": inp.args, "cli": cli_line(inp.verb, inp.args)}
+        item["selection"] = get_state(ctx.db, "selection")
     notes.append(item)
     set_state(ctx.db, "notes", notes[-100:])
     return item

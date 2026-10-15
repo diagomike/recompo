@@ -17,6 +17,7 @@ export default function AgentPanel() {
     setText("");
   };
   const open = (notes?.open_asks || []) as any[];
+  const waiting = ((notes?.notes || []) as any[]).filter((n) => n.by === "user");
   const running = (jobs?.jobs || []).filter((j: any) => j.status === "running" || j.status === "queued");
   return (
     <>
@@ -34,6 +35,12 @@ export default function AgentPanel() {
             </div>
           </div>
         ))}
+        {!!waiting.length && (
+          <div style={{ marginTop: 6 }}>
+            <div className="muted2">Waiting for the agent to read ({waiting.length}):</div>
+            {waiting.slice(-4).map((n) => <div key={n.id} className="handed">{n.request ? <code>{n.request.cli}</code> : n.text}</div>)}
+          </div>
+        )}
         <div className="row" style={{ marginTop: 6 }}>
           <input className="input grow" placeholder="Note to the agent…" value={text} onChange={(e) => setText(e.target.value)} onKeyDown={(e) => e.key === "Enter" && send()} />
           <button className="btn small" onClick={send}><Send size={13} /></button>

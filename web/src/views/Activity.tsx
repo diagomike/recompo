@@ -2,11 +2,14 @@ import { useState } from "react";
 import { Undo2, Redo2 } from "lucide-react";
 import { must, verb } from "../api";
 import { useApp, useData } from "../App";
+import { FilterBar, textMatch, useFilters } from "../filters";
 
 export default function ActivityView() {
   const { go } = useApp();
-  const [actor, setActor] = useState("");
-  const { data, error } = useData(() => must<any[]>("op.log", { limit: 150, ...(actor ? { actor } : {}) }), [actor]);
+  const [f] = useFilters();
+  const actor = f.actor || "";
+  const { data: raw, error } = useData(() => must<any[]>("op.log", { limit: 300, ...(actor ? { actor } : {}) }), [actor]);
+  const data = (raw || []).filter((o) => textMatch(f.q, o.verb, o.summary, o.cli, o.refs.join(" ")));
   const [msg, setMsg] = useState<string | null>(null);
   const act = async (name: string) => {
     const env = await verb(name, {});
@@ -19,21 +22,22 @@ export default function ActivityView() {
       <div className="row" style={{ marginBottom: 10 }}>
         <button className="btn" onClick={() => act("op.undo")}><Undo2 size={14} />Undo</button>
         <button className="btn" onClick={() => act("op.redo")}><Redo2 size={14} />Redo</button>
-        <div className="spacer" />
-        <select className="input" value={actor} onChange={(e) => setActor(e.target.value)}>
-          <option value="">everyone</option><option value="user">you</option><option value="agent">agent</option><option value="machine">machine</option>
-        </select>
       </div>
+      <FilterBar count={data.length} fields={[
+        { key: "q", label: "Text", type: "text", placeholder: "verb, ref, command" },
+        { key: "actor", label: "Who", type: "select", options: [["user", "you"], ["agent", "agent"], ["machine", "machine"]] },
+      ]} />
       {msg && <div className="err">{msg}</div>}
       {error && <div className="err">{error}</div>}
       <table className="table">
         <thead><tr><th>When</th><th>Who</th><th>What</th><th>Refs</th><th>State</th></tr></thead>
         <tbody>
-          {(data || []).map((o) => (
+          {data.map((o) => (
             <tr key={o.op}>
               <td className="mono" style={{ color: "var(--muted)" }}>{ago(o.ago_s)}</td>
               <td><span className={"chip " + o.actor}>{o.actor}</span></td>
-              <td><span className="mono">{o.verb}</span> {o.summary && <span style={{ color: "var(--muted)" }}>· {o.summary}</span>}</td>
+              <td><span className="mono">{o.verb}</span> {o.summary && <span style={{ color: "var(--muted)" }}>· {o.summary}</span>}
+                {o.cli && <div><code className="clil">{o.cli}</code></div>}</td>
               <td>{o.refs.slice(0, 8).map((r: string) => <a key={r} href="#" className="mono" style={{ marginRight: 6 }} onClick={(e) => { e.preventDefault(); refGo(go, r); }}>{r}</a>)}</td>
               <td>{o.state !== "done" && <span className="chip">{o.state}</span>}</td>
             </tr>

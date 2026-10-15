@@ -32,9 +32,11 @@ def op_log(ctx: Ctx, inp: LogIn):
         params.append(f'%"{inp.ref}"%')
     sql = ("WHERE " + " AND ".join(where)) if where else ""
     rows = ctx.db.rows("op", f"{sql} ORDER BY seq DESC LIMIT ?", (*params, inp.limit))
+    from ..cli import cli_line
     return [{"op": r["id"], "time": round(r["time"], 3), "ago_s": round(time.time() - r["time"]),
              "actor": r["actor"], "verb": r["verb"], "refs": r["refs"], "summary": r["summary"],
-             "state": r["state"], "changes": len(r["changes"])} for r in rows]
+             "state": r["state"], "changes": len(r["changes"]), "cli": cli_line(r["verb"], r["args"] or {})}
+            for r in rows]
 
 
 class UndoIn(BaseModel):

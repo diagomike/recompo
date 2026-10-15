@@ -11,12 +11,14 @@ Every open task by priority. Done phases are summarised; their detail is in git 
 - [x] M2 Alex O'Connor links ([report](runs/M2-alex-oconnor.md)) · P14 docs, launcher, backup, multitrack, dub review panel
 
 ## In progress
-- [ ] **P15 editing toolkit** (plan §6): transcript replace/edit/clean/delete/merge/split/resegment/export, shift
-      --scale/--from/--to, speaker assign (ranges, `>>` turns, `NAME:` prefixes) and people, lang
-      lines/edit/replace/clear, caption box per profile and language, caption sheet. Verbs built and tested;
-      viewer parts (inline line editing, translation editor) go with P16.
-- [ ] **P16 UX perfecting pass** (plan §6): one workspace, cut bin across sources → journeys, filters everywhere,
-      action bars whose buttons are verbs the agent can also run, guided project checklist, shortcuts.
+- [x] **P15 editing toolkit** verbs (transcript bulk edits, manual speakers, translation editing, caption box) and their
+      viewer parts (inline line editing, speakers panel, translation editor).
+- [x] **P16 UX pass** built: project home and checklist, cut bin across sources, drag cuts into journeys, filters in
+      the URL everywhere, buttons that show their command and can be handed to the agent, `ui show` with views,
+      filters and highlights, file browser, shortcuts, two-click confirms, phone widths. **Your review is the
+      remaining step** (the plan marks P16 `[you]`).
+- [ ] **P17 research wing and channel desk** (plan §6): watchlists, trend radar beyond YouTube, inbox, channels you post to,
+      posting queue, re-linking posts, performance view.
 
 ## Waiting on the user
 - [ ] Real Kaggle/Colab run of `notebooks/recomp_worker.ipynb` (the protocol is tested locally with a stand-in worker).

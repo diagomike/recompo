@@ -521,6 +521,41 @@ stays a verb the agent can run too. It comes after P15 so the screens can expose
 journey without typing a command, and every step shows as a verb in the Activity log. Each screen is checked
 in the browser pane, then by you. `[auto]` + `[you]`
 
+**P17 — Research wing and channel desk (added 2026-10-15 at the user's request)**
+Go online to see what is new and trending, bring it into projects, cut it, and track what was posted on which of
+your channels. It builds on P8 (links), P13 (trends) and P11 (hub link-post). It never uploads, logs in or posts:
+you upload, and the app re-links what you posted.
+- *Watchlists:* follow creators per project (Lex Fridman, The Diary of a CEO, Alex O'Connor, preaching channels): a
+  YouTube channel, playlist or podcast feed. `watch add <url> --project … --filter "title~consciousness"`,
+  `watch check` (new episodes since the last check: title, length, date, caption languages), `watch list`,
+  `watch remove`. A scheduled check (Windows Task Scheduler or the studio's timer) reports new episodes into
+  each project's inbox; nothing is fetched until you or the agent pick it.
+- *Trend radar:* `trends` gains sources beyond YouTube search and channels: YouTube's trending and most-popular
+  lists (keyless pages, or the Data API with your key), TikTok and Instagram public pages and hashtags where yt-dlp
+  can read them without signing in (best effort: when a site refuses, it says so and stops; no cookies unless you
+  set them), and Google Trends topics. Each result gets a score (views per day since posting, growth across
+  checks, topic match to the project), and results are saved as snapshots so growth shows over time.
+- *Inbox:* per project, new episodes and trend picks land in an inbox (`inbox list`, `inbox take <id…>` → `source
+  add`, `inbox dismiss`). Taking an item can run a recipe of steps: captions → chapters seed → `cut suggest` on the
+  project's themes, so the agent arrives at reviewed cut candidates rather than raw videos.
+- *Channel desk:* register the social channels you post to (`channel add "Alex Lovers" --platform youtube
+  --handle @… --niche philosophy`; TikTok, Instagram, Facebook, YouTube) with their niche, formats (shorts,
+  landscape), languages and a posting cadence. Each export can be assigned to a channel (`post plan X12 --channel
+  …`), giving a posting queue: what is ready, for which channel, with its title, description, hashtags and
+  credits already written. After you upload, `post link X12 <url>` records the post (and `hub link-post` re-links
+  the recipe on the hub, so hub visitors find the clip on your channel). `post check` reads public view counts
+  back for a performance view per channel and per source.
+- *Viewer:* a Research page (watchlists with new-episode badges, the trend radar with filters and scores, the
+  inbox with take/dismiss) and a Channels page (channels, the posting queue per channel, posted clips with
+  links and counts). Everything is a verb the agent can run, as in P16.
+- *Rights:* every pick keeps its source, creator and licence; descriptions credit the creator and link the
+  original. Commentary and transformation are the point of cuts; the posting queue shows each clip's source
+  rights note so you decide what to post.
+*Done when:* a watchlist of three channels reports their newest episodes; taking one into a project ends with
+cut candidates; a trend radar search returns scored YouTube results (and TikTok results or a clear refusal);
+an export is planned for a channel, linked after a (pretend, local) upload, and shows on the hub and in the
+channel's posted list. `[auto]`; real posting and any signed-in source `[you]`.
+
 ---
 
 ## 7. Acceptance runs (scripted)

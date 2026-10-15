@@ -100,8 +100,10 @@ def lang_translate(ctx: Ctx, inp: TranslateIn):
     if unknown:
         raise RecompError("E_INVALID", f"unknown keys: {unknown[:5]}", hint="Use the keys from --template")
     written, kept = 0, []
-    with ctx.op(f"translate {j['ref']} → {inp.to}") as tx:
-        for key, (text, how) in todo.items():
+
+    def write(tx, items) -> None:
+        nonlocal written
+        for key, (text, how) in items:
             u = by_key[key]
             row = db.one("SELECT id, created_by, prov FROM translation WHERE lang=? AND kind=? AND target_id=?",
                          (inp.to, u["kind"], u["target"]))
@@ -118,6 +120,17 @@ def lang_translate(ctx: Ctx, inp: TranslateIn):
                 tx.insert("translation", {"lang": inp.to, "kind": u["kind"], "target_id": u["target"], "text": text.strip(),
                                           "method": how})
             written += 1
+
+    # Machine drafts are the machine's, whoever asked for them: the agent and the user can both refine them later.
+    drafts = [(k, v) for k, v in todo.items() if v[1] == "google"]
+    own = [(k, v) for k, v in todo.items() if v[1] != "google"]
+    if drafts:
+        with ctx.db.op("lang.translate", "machine", ctx.args) as tx:
+            tx.summary = f"google draft {j['ref']} → {inp.to}"
+            write(tx, drafts)
+    if own or not drafts:
+        with ctx.op(f"translate {j['ref']} → {inp.to}") as tx:
+            write(tx, own)
     have = existing(db, inp.to, us)
     long_lines = [k for k, u in by_key.items() if u["dur"] and k in have and len(have[k]["text"]) > u["dur"] * cps * 1.15]
     return Result(data={"journey": j["ref"], "to": inp.to, "written": written, "kept_users": kept,
@@ -227,7 +240,7 @@ def lang_lines(ctx: Ctx, inp: LinesIn):
         h = have.get(u["key"])
         text = h["text"] if h else None
         row = {"key": u["key"], "kind": u["kind"], "at": u["at"], "source": u["text"], "text": text,
-               "by": (h["created_by"] if h["created_by"] == "user" else h["method"]) if h else None}
+               "by": (h["method"] if h["method"] == "google" else h["created_by"]) if h else None}
         if u["dur"]:
             budget = int(u["dur"] * cps)
             row.update(dur=u["dur"], budget=budget)

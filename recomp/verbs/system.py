@@ -36,6 +36,8 @@ def source_brief(db, s: dict) -> dict:
         "transcript": dict(tr) if tr else None,
         "chapters": _count(db, "chapter", "WHERE source_id=?", (s["id"],)),
         "cuts": _count(db, "cut", "WHERE source_id=?", (s["id"],)),
+        "has_media": bool(s.get("path") and Path(s["path"]).exists()) or bool(db.one(
+            "SELECT 1 FROM asset WHERE source_id=? AND role IN ('video','preview')", (s["id"],))),
     }
 
 
@@ -74,6 +76,8 @@ def context(ctx: Ctx, inp: NoInput):
         nxt.append('recomp journey new "<title>" --intent "<what it is for>"')
     if notes:
         nxt.insert(0, "recomp ui notes   # the user left you notes")
+        for n in reversed([n for n in notes if n.get("request")][-3:]):
+            nxt.insert(0, f"{n['request']['cli']}   # the user handed you this action")
     return Result(data={
         "project": ctx.project.summary(),
         "counts": counts,

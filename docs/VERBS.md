@@ -25,11 +25,11 @@ Effects: `read` (no changes) · `write` (undoable op) · `heavy` (starts a job) 
 | `overlay` | [`overlay.add`](#overlayadd), [`overlay.auto-lower-thirds`](#overlayauto-lower-thirds), [`overlay.edit`](#overlayedit), [`overlay.list`](#overlaylist), [`overlay.remove`](#overlayremove) |
 | `preview` | [`preview`](#preview) |
 | `profile` | [`profile.edit`](#profileedit), [`profile.list`](#profilelist), [`profile.new`](#profilenew), [`profile.show`](#profileshow) |
-| `project` | [`project.agent-kit`](#projectagent-kit), [`project.backup`](#projectbackup), [`project.forget`](#projectforget), [`project.init`](#projectinit), [`project.list`](#projectlist), [`project.set`](#projectset), [`project.show`](#projectshow), [`project.use`](#projectuse) |
+| `project` | [`project.agent-kit`](#projectagent-kit), [`project.backup`](#projectbackup), [`project.checklist`](#projectchecklist), [`project.forget`](#projectforget), [`project.init`](#projectinit), [`project.list`](#projectlist), [`project.reveal`](#projectreveal), [`project.set`](#projectset), [`project.show`](#projectshow), [`project.use`](#projectuse) |
 | `recipe` | [`recipe.export`](#recipeexport), [`recipe.import`](#recipeimport), [`recipe.show`](#recipeshow) |
 | `search` | [`search`](#search) |
 | `setup` | [`setup.shim`](#setupshim) |
-| `source` | [`source.add`](#sourceadd), [`source.fetch-audio`](#sourcefetch-audio), [`source.fetch-video`](#sourcefetch-video), [`source.list`](#sourcelist), [`source.process`](#sourceprocess), [`source.refresh`](#sourcerefresh), [`source.relink`](#sourcerelink), [`source.remove`](#sourceremove), [`source.rights`](#sourcerights), [`source.show`](#sourceshow), [`source.status`](#sourcestatus) |
+| `source` | [`source.add`](#sourceadd), [`source.browse`](#sourcebrowse), [`source.fetch-audio`](#sourcefetch-audio), [`source.fetch-video`](#sourcefetch-video), [`source.list`](#sourcelist), [`source.process`](#sourceprocess), [`source.refresh`](#sourcerefresh), [`source.relink`](#sourcerelink), [`source.remove`](#sourceremove), [`source.rights`](#sourcerights), [`source.show`](#sourceshow), [`source.status`](#sourcestatus) |
 | `speaker` | [`speaker.assign`](#speakerassign), [`speaker.diarize`](#speakerdiarize), [`speaker.list`](#speakerlist), [`speaker.match`](#speakermatch), [`speaker.merge`](#speakermerge), [`speaker.name`](#speakername), [`speaker.people`](#speakerpeople), [`speaker.unlink`](#speakerunlink) |
 | `transcript` | [`transcript.align`](#transcriptalign), [`transcript.asr`](#transcriptasr), [`transcript.clean`](#transcriptclean), [`transcript.delete`](#transcriptdelete), [`transcript.edit`](#transcriptedit), [`transcript.edit-segment`](#transcriptedit-segment), [`transcript.export`](#transcriptexport), [`transcript.fetch-captions`](#transcriptfetch-captions), [`transcript.import`](#transcriptimport), [`transcript.list`](#transcriptlist), [`transcript.merge`](#transcriptmerge), [`transcript.outline`](#transcriptoutline), [`transcript.read`](#transcriptread), [`transcript.replace`](#transcriptreplace), [`transcript.resegment`](#transcriptresegment), [`transcript.set-primary`](#transcriptset-primary), [`transcript.shift`](#transcriptshift), [`transcript.split`](#transcriptsplit), [`transcript.sync-check`](#transcriptsync-check) |
 | `trends` | [`trends.channel`](#trendschannel), [`trends.search`](#trendssearch), [`trends.youtube`](#trendsyoutube) |
@@ -273,6 +273,11 @@ Cuts with spans, titles, why, tags and chapter; filter by source, tag, person, e
 | `--chapter` | string | None |  |
 | `--match` | string | None | Text in title, why or quote |
 | `--unused` | boolean | False | Only cuts not in any journey |
+| `--journey` | string | None | Only cuts in this journey |
+| `--min` | number | None | Shortest, in seconds |
+| `--max` | number | None | Longest, in seconds |
+| `--by` | string | None | Made by: user, agent or machine |
+| `--rating` | integer | None | At least this rating |
 | `--limit` | integer | 200 |  |
 
 ```
@@ -1442,6 +1447,17 @@ Restore by unzipping anywhere and `recomp project use <folder>`, then `source re
 | `--out` | string | None | Zip file to write (default: <project>/../<name>-backup-<date>.zip) |
 | `--exports` | boolean | False | Include rendered exports (large) |
 
+### project.checklist
+
+`recomp project checklist` · effect: **read**
+
+Where the project stands, step by step (sources → transcripts → speakers → chapters → cuts → journeys →
+languages → exports), each with its next actions. The viewer's home page shows the same list.
+
+```
+recomp project checklist
+```
+
 ### project.forget
 
 `recomp project forget <target>` · effect: **write**
@@ -1476,6 +1492,21 @@ recomp project init C:\Recomposer\projects\alex-oconnor --kind channel
 `recomp project list` · effect: **read**
 
 Registered projects and which one is current.
+
+### project.reveal
+
+`recomp project reveal <what>` · effect: **read**
+
+Open a project folder (or an export's folder) in the file manager on this computer.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<what>` | string | 'root' | root, sources, recipes, exports, an export (X3), or a path inside the project |
+
+```
+recomp project reveal exports
+recomp project reveal X3
+```
 
 ### project.set
 
@@ -1614,6 +1645,21 @@ recomp source add "D:\Recomp\Video\The.Dark.Knight*.mp4"
 recomp source add D:\Movies --jobs audio,peaks
 recomp source add https://www.youtube.com/@CosmicSkeptic/videos --limit 30
 recomp source add --pick 2,5,9
+```
+
+### source.browse
+
+`recomp source browse <path>` · effect: **read**
+
+List a folder's subfolders, media and subtitle files (read-only), to pick sources without typing paths.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<path>` | string | None | Folder to list (default: drives on Windows, else the home folder) |
+| `--all` | boolean | False | Show every file, not only media and subtitles |
+
+```
+recomp source browse D:\Movies
 ```
 
 ### source.fetch-audio
@@ -2292,12 +2338,14 @@ recomp ui ask "Keep the laugh at the end of C4?" --refs C4 --options keep,trim
 
 `recomp ui note <text>` · effect: **write** · hidden (viewer use)
 
-Leave a note for the agent (the viewer calls this).
+Leave a note for the agent (the viewer calls this); with a verb, it is an action handed to the agent.
 
 | Field | Type | Default | Description |
 |---|---|---|---|
 | `<text>` | string | required | Note for the agent |
 | `--refs` | list[string] | None |  |
+| `--verb` | string | None | A verb the user hands to the agent to run (with args) |
+| `--args` | object | None | Its arguments |
 
 ### ui.notes
 
@@ -2311,9 +2359,10 @@ Open questions you pinned, the user's answers, and notes the user left for you.
 
 ### ui.select
 
-`recomp ui select` · effect: **write** · hidden (viewer use)
+`recomp ui select` · effect: **write**
 
-Record a selection (the viewer calls this as the user selects).
+Set the shared selection: a time range on a source and/or refs. The viewer records the user's selection here,
+and the agent can select for the user (cuts ticked in the cut bin, a range in a source room).
 
 | Field | Type | Default | Description |
 |---|---|---|---|
@@ -2322,6 +2371,11 @@ Record a selection (the viewer calls this as the user selects).
 | `--end` | string | None | Range end (time) |
 | `--refs` | list[string] | None | Selected refs (cuts, slots, chapters) |
 | `--t` | string | None | Playhead time |
+
+```
+recomp ui select --refs C3,C7,C9   # tick cuts in the user's cut bin
+recomp ui select --source S1 --start 12:03 --end 12:48
+```
 
 ### ui.selection
 
@@ -2333,17 +2387,21 @@ What the user currently has selected in the viewer (a time range on a source, an
 
 `recomp ui show <ref>` · effect: **write**
 
-Move the user's viewer to a ref (and optionally a time). Use it to point at what you mean.
+Move the user's viewer to a ref or a view (optionally a time, list filters, and a button to point at).
 
 | Field | Type | Default | Description |
 |---|---|---|---|
-| `<ref>` | string | required | What to show: S1, S1.c3, C17, J2, J2#3, X1 … |
+| `<ref>` | string | required | What to show: S1, S1.c3, C17, J2, J2#3, X1 …, or a view: home, sources, cuts, search, journeys, exports, translations, jobs, activity |
 | `--at` | string | None | Time to seek to (source time for sources/chapters/cuts) |
 | `--play` | boolean | False | Start playing |
+| `--filter` | string | None | Filters for a list view, e.g. "source=S1&tag=fear" or "q=consciousness" |
+| `--highlight` | string | None | Point at the button that runs this verb, e.g. export.run |
 
 ```
 recomp ui show C17
 recomp ui show S1 --at 1:02:10
+recomp ui show cuts --filter "source=S2&min=20"
+recomp ui show J1 --highlight export.run
 ```
 
 ## version

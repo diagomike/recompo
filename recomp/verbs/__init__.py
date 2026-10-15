@@ -9,6 +9,7 @@ MODULES = [
     "job",
     "transcript",
     "textedit",
+    "workspace",
     "search",
     "chapter",
     "cut",

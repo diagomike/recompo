@@ -161,6 +161,49 @@ def _print(env: dict, pretty: bool) -> None:
     sys.stdout.flush()
 
 
+def _quote(value: Any) -> str:
+    s = str(value)
+    if s and all(c.isalnum() or c in "._:#,/\\-+=@" for c in s):
+        return s
+    return '"' + s.replace('"', '\\"') + '"'
+
+
+def cli_line(name: str, args: dict | None) -> str:
+    """The command a person or agent would type for this verb call (shown on buttons and in the activity log)."""
+    v = registry.load_all().get(name)
+    if v is None:
+        return f"recomp {name.replace('.', ' ')}"
+    fields = v.model.model_fields
+    by_alias = {f.alias: n for n, f in fields.items() if f.alias}
+    vals = {by_alias.get(k, k): val for k, val in (args or {}).items()}
+    pos = v.positional()
+    parts = ["recomp", *v.name.split(".")]
+    for n in pos:
+        val = vals.get(n)
+        if val in (None, "", []):
+            continue
+        parts += [_quote(x) for x in val] if isinstance(val, list) else [_quote(val)]
+    needs_input = False
+    for n, f in fields.items():
+        if n in pos or n not in vals:
+            continue
+        val = vals[n]
+        if val is None or val == [] or val == {} or (not f.is_required() and val == f.default):
+            continue
+        flag = _flag(f.alias or n)
+        if isinstance(val, bool):
+            parts.append(flag if val else "--no-" + flag[2:])
+        elif isinstance(val, (dict, list)) and any(isinstance(x, dict) for x in (val if isinstance(val, list) else [val])):
+            needs_input = True
+        elif isinstance(val, list):
+            parts += [flag, _quote(",".join(str(x) for x in val))]
+        else:
+            parts += [flag, _quote(val)]
+    if needs_input:
+        parts += ["--input", "<file.json>"]
+    return " ".join(parts)
+
+
 def help_payload(name: str | None = None) -> dict:
     verbs = registry.load_all()
     if name:

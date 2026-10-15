@@ -27,6 +27,11 @@ what you did, and leave the person's own choices alone.
    (it returns early with progress) and do other useful work in between.
 6. **Show, don't describe.** `recomp ui show <ref>` moves the user's viewer to what you mean;
    `recomp preview <ref>` renders a quick look. `recomp ui ask "…"` pins a question in the viewer.
+   You can also open a view with filters and point at a button
+   (`recomp ui show cuts --filter "source=S2&min=20" --highlight journey.add`) and tick items for the user
+   (`recomp ui select --refs C3,C7`). Every button in the viewer is a verb: the user can hand one to you, and
+   it arrives in `recomp ui notes` (and first in `recomp context`'s next steps) with its exact command line.
+   `recomp project checklist` is the user's home page: where the project stands and what comes next.
 7. **Everything is undoable.** `recomp op log`, `recomp op undo`. Prefer small ops the user can follow.
 8. **Nothing leaves this machine without the user's go-ahead in chat**: publishing to a non-local hub,
    or anything posted publicly. You never upload videos; the user does.

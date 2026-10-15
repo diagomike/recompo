@@ -318,6 +318,11 @@ class ListIn(BaseModel):
     chapter: str | None = None
     match: str | None = Field(None, description="Text in title, why or quote")
     unused: bool = Field(False, description="Only cuts not in any journey")
+    journey: str | None = Field(None, description="Only cuts in this journey")
+    min: float | None = Field(None, description="Shortest, in seconds")
+    max: float | None = Field(None, description="Longest, in seconds")
+    by: str | None = Field(None, description="Made by: user, agent or machine")
+    rating: int | None = Field(None, description="At least this rating")
     limit: int = 200
 
 
@@ -346,12 +351,31 @@ def cut_list(ctx: Ctx, inp: ListIn):
         params += [f"%{inp.match}%"] * 3
     if inp.unused:
         where.append("id NOT IN (SELECT cut_id FROM slot)")
+    if inp.journey:
+        where.append("id IN (SELECT cut_id FROM slot WHERE journey_id=?)")
+        params.append(refs.resolve(db, inp.journey, "journey")[1]["id"])
+    if inp.min is not None:
+        where.append('("end" - start) >= ?')
+        params.append(inp.min)
+    if inp.max is not None:
+        where.append('("end" - start) <= ?')
+        params.append(inp.max)
+    if inp.by:
+        where.append("created_by=?")
+        params.append(inp.by)
+    if inp.rating is not None:
+        where.append("COALESCE(rating, 0) >= ?")
+        params.append(inp.rating)
     rows = db.rows("cut", ("WHERE " + " AND ".join(where) if where else "") + " ORDER BY source_id, start LIMIT ?",
                    (*params, inp.limit))
     out = []
+    titles = {r[0]: r[1] for r in db.all("SELECT id, title FROM source")}
     for c in rows:
         b = brief(db, c)
         b["quote"] = (c["quote"] or "")[:140]
+        b["source_title"] = titles.get(c["source_id"])
+        b["journeys"] = [r[0] for r in db.all("SELECT DISTINCT j.ref FROM slot s JOIN journey j ON j.id=s.journey_id "
+                                              "WHERE s.cut_id=? ORDER BY j.ref", (c["id"],))]
         out.append(b)
     return out
 
@@ -386,7 +410,7 @@ def cut_suggest(ctx: Ctx, inp: SuggestIn):
         if any(x[0] == h["source_id"] and a < x[2] and b > x[1] for x in taken):
             continue
         taken.append((h["source_id"], a, b))
-        out.append({"source": h["sref"], "span": f"{clock(a)}–{clock(b)}", "dur": round(b - a, 1),
+        out.append({"source": h["sref"], "span": f"{clock(a)}–{clock(b)}", "dur": round(b - a, 1), "start": round(a, 3), "end": round(b, 3),
                     "text": " ".join(s["text"] for s in segs[lo:hi + 1])[:600],
                     "cut": f"recomp cut add {h['sref']} --segments {segs[lo]['idx']}..{segs[hi]['idx']} --title \"…\" --why \"…\""})
         if len(out) >= inp.limit:

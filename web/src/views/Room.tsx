@@ -1,14 +1,16 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { Pause, Play, Scissors, BookmarkPlus, ZoomIn, ZoomOut, Maximize2, X } from "lucide-react";
 import { clock, mediaUrl, peaksUrl, room, thumbUrl, verb } from "../api";
 import { useApp } from "../App";
+import { useActions } from "../actions";
 import YouTubePlayer, { type YTHandle } from "./YouTubePlayer";
+import TranscriptPane from "./TranscriptPane";
 
 type Seg = { idx: number; start: number; end: number; text: string; speaker: string | null; words: [number, number, string][] | null };
 type Span = { ref: string; start: number; end: number; title: string; by: string; why?: string; summary?: string; tags?: string[] };
 type RoomData = {
   source: any; transcript: any; segments: Seg[]; chapters: Span[]; cuts: Span[]; shots: number[];
-  turns: any[]; thumbs: any; peaks: any;
+  turns: any[]; thumbs: any; peaks: any; voices?: Record<string, { name: string | null }>; people?: any[]; transcripts?: any[];
 };
 
 const LANE = { ruler: 16, film: 40, wave: 44, shots: 8, speakers: 8, chapters: 20, cuts: 20 };
@@ -101,7 +103,7 @@ export default function Room({ sourceRef }: { sourceRef: string }) {
       if (e.key === " ") { e.preventDefault(); toggle(); }
       else if (e.key === "i" || e.key === "I") setSel((s) => ({ a: t, b: s && s.b > t ? s.b : Math.min(dur, t + 10) }));
       else if (e.key === "o" || e.key === "O") setSel((s) => ({ a: s && s.a < t ? s.a : Math.max(0, t - 10), b: t }));
-      else if ((e.key === "c" || e.key === "C") && sel) setForm("cut");
+      else if ((e.key === "c" || e.key === "C") && sel) { e.preventDefault(); setForm("cut"); }  // the key must not land in the title field
       else if (e.key === "Escape") { setSel(null); setForm(null); }
       else if (e.key === "ArrowLeft") seek(Math.max(0, t - (e.shiftKey ? 10 : 2)));
       else if (e.key === "ArrowRight") seek(Math.min(dur, t + (e.shiftKey ? 10 : 2)));
@@ -147,7 +149,7 @@ export default function Room({ sourceRef }: { sourceRef: string }) {
           </p>
         </div>
       </div>
-      <Transcript data={data} t={t} sel={sel} seek={seek} setSel={setSel} />
+      <TranscriptPane data={data} t={t} sel={sel} seek={seek} setSel={setSel} panel={route.params.get("panel")} />
     </div>
   );
 }
@@ -240,10 +242,12 @@ function Lanes(p: {
     // speakers: one colour per voice label
     const palette = ["#2b62b8", "#c2410c", "#7c3aed", "#0f766e", "#b45309", "#be185d"];
     const labels: string[] = [];
+    const nameOf = (l: string) => data.voices?.[l]?.name || l;
     for (const tr of data.turns) {
-      if (!labels.includes(tr.label)) labels.push(tr.label);
+      const key = nameOf(tr.label);
+      if (!labels.includes(key)) labels.push(key);
       if (tr.end < v0 || tr.start > v1) continue;
-      g.fillStyle = palette[labels.indexOf(tr.label) % palette.length];
+      g.fillStyle = palette[labels.indexOf(key) % palette.length];
       g.fillRect(t2x(tr.start), y + 1, Math.max(1, t2x(tr.end) - t2x(tr.start)), LANE.speakers - 2);
     }
     y += LANE.speakers;
@@ -301,60 +305,6 @@ function Lanes(p: {
   );
 }
 
-function Transcript({ data, t, sel, seek, setSel }: { data: RoomData; t: number; sel: { a: number; b: number } | null; seek: (t: number, play?: boolean) => void; setSel: (s: { a: number; b: number } | null) => void }) {
-  const box = useRef<HTMLDivElement>(null);
-  const userScroll = useRef(0);
-  const anchor = useRef<number | null>(null);
-  const cur = useMemo(() => {
-    let lo = 0, hi = data.segments.length - 1, ans = -1;
-    while (lo <= hi) { const m = (lo + hi) >> 1; if (data.segments[m].start <= t) { ans = m; lo = m + 1; } else hi = m - 1; }
-    return ans;
-  }, [t, data.segments]);
-  useEffect(() => {
-    if (Date.now() - userScroll.current < 4000 || cur < 0) return;
-    const el = box.current?.querySelector(`[data-i="${cur}"]`) as HTMLElement | null;
-    if (el && box.current) {
-      const top = el.offsetTop - box.current.clientHeight / 3;
-      if (Math.abs(box.current.scrollTop - top) > box.current.clientHeight / 3) box.current.scrollTop = top;
-    }
-  }, [cur]);
-  const chapStarts = new Map<number, Span>();
-  for (const c of data.chapters) {
-    const i = data.segments.findIndex((s) => s.end > c.start);
-    if (i >= 0 && !chapStarts.has(i)) chapStarts.set(i, c);
-  }
-  if (!data.transcript) return <div className="transcript"><div className="empty" style={{ margin: 12 }}>No transcript yet. Ask your agent: <code>recomp transcript asr {data.source.ref}</code></div></div>;
-  return (
-    <div className="transcript" ref={box} onWheel={() => (userScroll.current = Date.now())}>
-      <div style={{ padding: "0 10px 6px", color: "var(--muted)", fontSize: 12 }}>
-        {data.transcript.ref} · {data.transcript.origin} · {data.transcript.language}{data.transcript.has_words ? " · word timing" : ""} · {data.segments.length} lines
-      </div>
-      {data.segments.map((s, i) => {
-        const c = chapStarts.get(i);
-        const inSel = sel && s.end > sel.a && s.start < sel.b;
-        return (
-          <div key={s.idx}>
-            {c && <div className="chaphead">{c.ref} {c.title}<span className="s">{clock(c.start, 0)}</span></div>}
-            <div className={"seg" + (i === cur ? " now" : "") + (inSel ? " sel" : "")} data-i={i}
-                 onClick={(e) => {
-                   if (e.shiftKey && anchor.current != null) {
-                     const a = Math.min(anchor.current, s.start), b = Math.max(data.segments.find((x) => x.start === anchor.current)?.end || s.end, s.end);
-                     setSel({ a, b });
-                   } else { anchor.current = s.start; setSel({ a: s.start, b: s.end }); seek(s.start); }
-                 }}>
-              <span className="t">#{s.idx} {clock(s.start, 0)}</span>
-              <span>
-                {s.speaker && <b style={{ color: "var(--blue)" }}>{s.speaker}: </b>}
-                {i === cur && s.words ? s.words.map((w, k) => <span key={k} className={"w" + (t >= w[0] && t < w[1] ? " now" : "")}>{w[2]} </span>) : s.text}
-              </span>
-            </div>
-          </div>
-        );
-      })}
-    </div>
-  );
-}
-
 function Lists({ data, focusRef, onPick }: { data: RoomData; focusRef: string | null; onPick: (s: Span) => void }) {
   const [tab, setTab] = useState<"cuts" | "chapters">(data.cuts.length ? "cuts" : "chapters");
   const items = tab === "cuts" ? data.cuts : data.chapters;
@@ -385,13 +335,12 @@ function SpanForm({ kind, sourceRef, sel, onDone }: { kind: "cut" | "chapter"; s
   const [why, setWhy] = useState("");
   const [tags, setTags] = useState("");
   const [snap, setSnap] = useState("words+shots");
-  const [msg, setMsg] = useState<string | null>(null);
+  const { run } = useActions();
   const save = async () => {
     const env = kind === "cut"
-      ? await verb("cut.add", { ref: sourceRef, from: String(sel.a), to: String(sel.b), title, why, tags: tags ? tags.split(",").map((x) => x.trim()) : [], snap })
-      : await verb("chapter.add", { ref: sourceRef, start: String(sel.a), end: String(sel.b), title, summary: why, tags: tags ? tags.split(",").map((x) => x.trim()) : [] });
-    if (!env.ok) setMsg(env.error!.message);
-    else onDone(env.refs?.[0]);
+      ? await run("cut.add", { ref: sourceRef, from: String(sel.a), to: String(sel.b), title, why, tags: tags ? tags.split(",").map((x) => x.trim()) : [], snap }, { label: "New cut" })
+      : await run("chapter.add", { ref: sourceRef, start: String(sel.a), end: String(sel.b), title, summary: why, tags: tags ? tags.split(",").map((x) => x.trim()) : [] }, { label: "New chapter" });
+    if (env.ok) onDone(env.refs?.[0]);
   };
   return (
     <div className="card" style={{ margin: 8 }}>
@@ -412,7 +361,6 @@ function SpanForm({ kind, sourceRef, sel, onDone }: { kind: "cut" | "chapter"; s
         <input className="input" placeholder="tags, comma separated" value={tags} onChange={(e) => setTags(e.target.value)} />
         <button className="btn primary" onClick={save}>Save</button>
       </div>
-      {msg && <div className="err">{msg}</div>}
     </div>
   );
 }

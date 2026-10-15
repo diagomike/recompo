@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Search as SearchIcon } from "lucide-react";
 import { must } from "../api";
 import { useApp } from "../App";
+import { Act } from "../actions";
 
 export default function SearchView() {
   const { go, route } = useApp();
@@ -45,7 +46,10 @@ export default function SearchView() {
               <div key={i} className="card" style={{ marginBottom: 6 }}>
                 <div className="row"><b className="mono">{c.source}</b><span className="mono" style={{ color: "var(--muted)" }}>{c.span} · {c.dur}s</span></div>
                 <div style={{ margin: "4px 0" }}>{c.text}</div>
-                <code style={{ color: "var(--muted)" }}>{c.cut}</code>
+                <div className="row" style={{ gap: 4 }}>
+                  <Act verb="cut.add" args={{ ref: c.source, from: String(c.start), to: String(c.end), title: c.text.split(/[.?!]/)[0].slice(0, 60), why: `search: ${q}` }} small primary>Cut this</Act>
+                  <button className="btn small ghost" onClick={() => go("room", c.source, { t: c.start })}>Open</button>
+                </div>
               </div>
             ))}
           </div>
