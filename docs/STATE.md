@@ -6,17 +6,17 @@ The build's working memory. If context runs short, resume from here.
 
 | | |
 |---|---|
-| Phases | **P0–P13 built; P14 in progress** (docs, launcher, backup done) |
-| Milestones | **M1 done** ([report](runs/M1-dark-knight.md)) · **M3 done** (am/sw/fr dubs, om stretch: [report](runs/M3-M4-languages-and-hub.md)) · **M4 done** (local hub) · **M2 blocked**: YouTube bot check on this machine |
+| Phases | **P0–P14 built** |
+| Milestones | **M1** ([report](runs/M1-dark-knight.md)) · **M2** ([report](runs/M2-alex-oconnor.md)) · **M3** am/sw/fr + om · **M4** local hub ([report](runs/M3-M4-languages-and-hub.md)): all done |
 | Suite | 70+ fast tests (`pytest -q`), slow speaker test (`pytest -m slow`) |
-| Projects | `C:\Recomposer\projects\dark-knight` (M1, M3), `alex-oconnor` (5 link sources from the list, captions pending), `_uitest` (scratch) |
+| Projects | `C:\Recomposer\projects\dark-knight` (M1, M3), `alex-oconnor` (M2: 5 episodes, 12 cuts, 3 journeys); `_uitest` scratch folder (forgotten from the list; safe to delete) |
 | Hub | `python -m hub` on 8790, data in `%USERPROFILE%\.recomp\hub`, seeded test users in `seed_users.json` there |
 
-## Blocked on the user
-- **YouTube** answers "Sign in to confirm you're not a bot" (and HTTP 429) for per-video requests from this
-  machine since 2026-10-15 ~06:30; flat listings still work. Options for the user: wait for the block to lift
-  (`recomp source refresh S1` then retries); allow browser cookies (`recomp config set network.cookies_from_browser chrome`);
-  or run ingest from another network or the Kaggle/Colab worker. Until then M2's captions, ASR and sections cannot be fetched.
+## Notes for the user
+- YouTube blocked per-video requests from this machine from ~06:30 until the evening of 2026-10-15; it lifted on its
+  own. If it returns: wait, or decide on browser cookies (`recomp config set network.cookies_from_browser chrome`),
+  or run ingest through the remote notebook.
+- Link videos are fetched whole at ≤720p once per source (`network.link_video full`); `sections` is the alternative.
 
 ## Defaults in force (open questions Q1–Q6)
 - Projects at `C:\Recomposer\projects` (D: has ~15 GB free); source movies stay on D:.
