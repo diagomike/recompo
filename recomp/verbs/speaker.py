@@ -262,8 +262,18 @@ def speaker_assign(ctx: Ctx, inp: AssignIn):
     changes = [{"line": f"{tr['ref']}#{s['idx']}", "at": clock(s["start"]), "speaker": n, "text": (t or s["text"])[:90]}
                for s, n, t in plan[:40]]
     data = {"dry_run": inp.dry_run, "lines": len(plan), "by_person": counts, "changes": changes}
+    warnings = []
+    if inp.by == "marks" and segs:
+        marks = sum(1 for s in segs if ">>" in s["text"])
+        minutes = max(0.1, (segs[-1]["end"] - segs[0]["start"]) / 60)
+        data["marks"] = {"count": marks, "per_minute": round(marks / minutes, 2)}
+        # Measured on M2: 2.5 marks/min agreed with diarisation on 86 % of speech; 0.37/min was chance (50 %),
+        # because one missed mark swaps every later line.
+        if marks / minutes < 1.0:
+            warnings.append(f"only {marks} '>>' marks in {minutes:.0f} min: YouTube missed most turns here, and one missed "
+                            "mark swaps every later line. Name ranges instead (--from/--to per speaker), or diarise.")
     if inp.dry_run or not plan:
-        return Result(data=data, next=["run again without --dry-run to apply"] if plan else [])
+        return Result(data=data, warnings=warnings, next=["run again without --dry-run to apply"] if plan else [])
     made = []
     with ctx.op(f"assign speakers in {tr['ref']} ({len(plan)} lines)") as tx:
         persons: dict[str, tuple[dict, str]] = {}
@@ -284,7 +294,7 @@ def speaker_assign(ctx: Ctx, inp: AssignIn):
         _retune_turns(tx, src["id"], spans)
         _refresh_labels(tx, db, src["id"], tr["id"])
     data["people"] = made
-    return Result(data=data, refs=[m["ref"] for m in made],
+    return Result(data=data, refs=[m["ref"] for m in made], warnings=warnings,
                   next=[f"recomp speaker list {src['ref']}", "recomp op undo   # reverts the whole assignment"])
 
 
