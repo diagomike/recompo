@@ -16,6 +16,7 @@ Effects: `read` (no changes) · `write` (undoable op) · `heavy` (starts a job) 
 | `cut` | [`cut.add`](#cutadd), [`cut.edit`](#cutedit), [`cut.list`](#cutlist), [`cut.merge`](#cutmerge), [`cut.remove`](#cutremove), [`cut.show`](#cutshow), [`cut.split`](#cutsplit), [`cut.suggest`](#cutsuggest), [`cut.tag`](#cuttag), [`cut.trim`](#cuttrim) |
 | `doctor` | [`doctor`](#doctor) |
 | `export` | [`export.check`](#exportcheck), [`export.cuts`](#exportcuts), [`export.run`](#exportrun), [`export.show`](#exportshow), [`export.status`](#exportstatus) |
+| `hub` | [`hub.comment`](#hubcomment), [`hub.comments`](#hubcomments), [`hub.feed`](#hubfeed), [`hub.follow`](#hubfollow), [`hub.fork`](#hubfork), [`hub.link-post`](#hublink-post), [`hub.login`](#hublogin), [`hub.logout`](#hublogout), [`hub.publish`](#hubpublish), [`hub.pull`](#hubpull), [`hub.show`](#hubshow), [`hub.vote`](#hubvote), [`hub.whoami`](#hubwhoami) |
 | `job` | [`job.cancel`](#jobcancel), [`job.list`](#joblist), [`job.retry`](#jobretry), [`job.run`](#jobrun), [`job.show`](#jobshow), [`job.tail`](#jobtail), [`job.wait`](#jobwait) |
 | `journey` | [`journey.add`](#journeyadd), [`journey.delete`](#journeydelete), [`journey.duplicate`](#journeyduplicate), [`journey.edit`](#journeyedit), [`journey.from-search`](#journeyfrom-search), [`journey.list`](#journeylist), [`journey.move`](#journeymove), [`journey.new`](#journeynew), [`journey.remove`](#journeyremove), [`journey.reorder`](#journeyreorder), [`journey.section`](#journeysection), [`journey.show`](#journeyshow), [`journey.transition`](#journeytransition), [`journey.trim-slot`](#journeytrim-slot), [`journey.validate`](#journeyvalidate) |
 | `lang` | [`lang.say`](#langsay), [`lang.status`](#langstatus), [`lang.translate`](#langtranslate), [`lang.voices`](#langvoices) |
@@ -453,6 +454,158 @@ Exports with status, outputs and failed checks (newest first).
 |---|---|---|---|
 | `<of>` | string | None | Only exports of this journey or cut |
 | `--limit` | integer | 40 |  |
+
+## hub
+
+### hub.comment
+
+`recomp hub comment <recipe> <text>` · effect: **publish**
+
+Comment on a recipe (or reply to a comment).
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<recipe>` | string | required |  |
+| `<text>` | string | required |  |
+| `--reply-to` | string | None |  |
+
+### hub.comments
+
+`recomp hub comments <recipe>` · effect: **network**
+
+The comments on a recipe.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<recipe>` | string | required | Recipe id or hub URL |
+
+### hub.feed
+
+`recomp hub feed` · effect: **network**
+
+Recipes on the hub: trending, new, top, from people you follow, or yours; filter by tag, source or text.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `--kind` | string | 'trending' | trending \| new \| top \| following \| mine |
+| `--tag` | string | None |  |
+| `--source` | string | None | Source key, e.g. youtube:T_7Fm1VujEs |
+| `--query` | string | None |  |
+| `--limit` | integer | 20 |  |
+
+### hub.follow
+
+`recomp hub follow <handle>` · effect: **publish**
+
+Follow (or unfollow) someone on the hub.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<handle>` | string | required |  |
+| `--undo` | boolean | False |  |
+
+### hub.fork
+
+`recomp hub fork <recipe>` · effect: **network**
+
+Fork a hub recipe into your hub account (private) and pull it into this project to edit.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<recipe>` | string | required | Recipe id or hub URL |
+
+### hub.link-post
+
+`recomp hub link-post <journey> <url>` · effect: **publish**
+
+Record where you posted a video made from this journey, on the journey and on its hub recipe.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<journey>` | string | required |  |
+| `<url>` | string | required | Where you posted the video |
+| `--lang` | string | None |  |
+
+```
+recomp hub link-post J1 https://youtube.com/shorts/…
+```
+
+### hub.login
+
+`recomp hub login` · effect: **network**
+
+Sign in to a hub (or register on a local one) and keep the session token in the studio home.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `--handle` | string | required |  |
+| `--password` | string | None | Default: env RECOMP_HUB_PASSWORD. Agents: only for local test accounts. |
+| `--register` | boolean | False | Create the account first (local hubs) |
+| `--display` | string | None |  |
+| `--url` | string | None | Hub URL (default config hub.url) |
+
+### hub.logout
+
+`recomp hub logout` · effect: **network**
+
+Sign out of the configured hub.
+
+### hub.publish
+
+`recomp hub publish <journey>` · effect: **publish**
+
+Share a journey's recipe on the hub (sources, timecodes, text, credits; never the media). Re-publishing adds a version.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<journey>` | string | required |  |
+| `--visibility` | string | 'public' | public \| unlisted \| private |
+| `--confirm` | boolean | False | Required for a non-local hub; only after the user said so in chat |
+
+```
+recomp hub publish J1 --visibility public
+```
+
+### hub.pull
+
+`recomp hub pull <recipe>` · effect: **network**
+
+Bring a hub recipe into this project as a journey (link sources are added; files are matched or marked missing).
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<recipe>` | string | required | Recipe id or hub URL |
+
+```
+recomp hub pull http://127.0.0.1:8790/r/01K…
+```
+
+### hub.show
+
+`recomp hub show <recipe>` · effect: **network**
+
+A hub recipe: card, slots, credits, votes, comments count, linked posts.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<recipe>` | string | required | Recipe id or hub URL |
+
+### hub.vote
+
+`recomp hub vote <recipe> <value>` · effect: **publish**
+
+Vote a recipe up or down (or clear your vote).
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<recipe>` | string | required |  |
+| `<value>` | string | 'up' | up \| down \| clear |
+
+### hub.whoami
+
+`recomp hub whoami` · effect: **read**
+
+Who the studio is signed in as on the configured hub.
 
 ## job
 

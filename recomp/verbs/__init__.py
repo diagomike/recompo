@@ -17,4 +17,5 @@ MODULES = [
     "music",
     "speaker",
     "lang",
+    "hub",
 ]

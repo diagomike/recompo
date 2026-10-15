@@ -18,6 +18,7 @@ from ..media import ff
 from . import tts
 
 MAX_SPEEDUP = 1.25
+MAX_DELAY = 1.0
 
 
 def _key(*parts) -> str:
@@ -34,10 +35,17 @@ def build_dub(project, plan: dict, voice: str | None = None, log=print, progress
     clips_dir = project.dir("cache", "dub", "clips")
     work = project.dir("cache", "dub", _key(plan["hash"], lang, v))
     body = plan["body_dur"]
+    slot_ends = sorted(it["at"] + it["dur"] for it in plan["items"])
     placed, overflow, sped = [], [], 0
+    prev_end = 0.0
     for k, line in enumerate(lines):
-        nxt = lines[k + 1]["start"] if k + 1 < len(lines) else body
-        window = max(0.3, min(nxt, body) - line["start"] - 0.05)
+        # Voice-over placement: a line may start a little late (up to MAX_DELAY) to follow the one before,
+        # and must finish before its own cut ends and before the next line would be pushed too late.
+        start = max(line["start"], prev_end + 0.08)
+        slot_end = next((e for e in slot_ends if e > line["start"] + 0.01), body) - 0.05
+        nxt = lines[k + 1]["start"] + MAX_DELAY if k + 1 < len(lines) else body
+        hard_end = min(slot_end, nxt, body)
+        window = max(0.3, hard_end - start)
         clip = clips_dir / f"{_key(backend, v, line['text'])}.wav"
         dur = ff.probe(clip).duration if clip.exists() else tts.synth(line["text"], lang, clip, voice=voice)
         use, factor = clip, 1.0
@@ -50,8 +58,11 @@ def build_dub(project, plan: dict, voice: str | None = None, log=print, progress
             sped += 1
             dur = dur / factor
             if dur > window + 0.15:
-                overflow.append({"at": round(line["start"], 2), "text": line["text"][:80], "over_s": round(dur - window, 2)})
-        placed.append({"file": str(use), "at": line["start"], "dur": round(dur, 3), "factor": round(factor, 3)})
+                overflow.append({"at": round(line["start"], 2), "text": line["text"][:80], "over_s": round(dur - window, 2),
+                                 "key": line.get("seg")})
+        placed.append({"file": str(use), "at": start, "dur": round(dur, 3), "factor": round(factor, 3),
+                       "delay": round(start - line["start"], 2)})
+        prev_end = start + dur
         if progress:
             progress(k / len(lines) * 0.4, f"voiced {k + 1}/{len(lines)}")
     dub = work / "dub.wav"
