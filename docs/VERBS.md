@@ -18,6 +18,7 @@ Effects: `read` (no changes) · `write` (undoable op) · `heavy` (starts a job) 
 | `export` | [`export.check`](#exportcheck), [`export.cuts`](#exportcuts), [`export.run`](#exportrun), [`export.show`](#exportshow), [`export.status`](#exportstatus) |
 | `job` | [`job.cancel`](#jobcancel), [`job.list`](#joblist), [`job.retry`](#jobretry), [`job.run`](#jobrun), [`job.show`](#jobshow), [`job.tail`](#jobtail), [`job.wait`](#jobwait) |
 | `journey` | [`journey.add`](#journeyadd), [`journey.delete`](#journeydelete), [`journey.duplicate`](#journeyduplicate), [`journey.edit`](#journeyedit), [`journey.from-search`](#journeyfrom-search), [`journey.list`](#journeylist), [`journey.move`](#journeymove), [`journey.new`](#journeynew), [`journey.remove`](#journeyremove), [`journey.reorder`](#journeyreorder), [`journey.section`](#journeysection), [`journey.show`](#journeyshow), [`journey.transition`](#journeytransition), [`journey.trim-slot`](#journeytrim-slot), [`journey.validate`](#journeyvalidate) |
+| `music` | [`music.bed-add`](#musicbed-add), [`music.bed-edit`](#musicbed-edit), [`music.bed-remove`](#musicbed-remove), [`music.get`](#musicget), [`music.library-add`](#musiclibrary-add), [`music.list`](#musiclist), [`music.search`](#musicsearch) |
 | `op` | [`op.log`](#oplog), [`op.redo`](#opredo), [`op.undo`](#opundo) |
 | `overlay` | [`overlay.add`](#overlayadd), [`overlay.auto-lower-thirds`](#overlayauto-lower-thirds), [`overlay.edit`](#overlayedit), [`overlay.list`](#overlaylist), [`overlay.remove`](#overlayremove) |
 | `preview` | [`preview`](#preview) |
@@ -744,6 +745,115 @@ Check a journey before export: media available, sane lengths, labels, music lice
 | Field | Type | Default | Description |
 |---|---|---|---|
 | `<journey>` | string | required |  |
+
+## music
+
+### music.bed-add
+
+`recomp music bed-add <journey> <track>` · effect: **write**
+
+Lay a music bed under a journey (ducked automatically under speech).
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<journey>` | string | required |  |
+| `<track>` | string | required | Music track ref, e.g. M1 |
+| `--at` | string | '0' | Start on the journey timeline |
+| `--dur` | number | None | Seconds (default: to the end of the journey) |
+| `--track-in` | string | '0' | Start this far into the track |
+| `--gain` | number | -16 | Level in dB (under speech it is ducked further) |
+| `--duck` | number | -10 | How much to duck under speech, in dB |
+| `--fade-in` | number | 1.5 |  |
+| `--fade-out` | number | 2.5 |  |
+
+```
+recomp music bed-add J1 M1 --gain -18
+```
+
+### music.bed-edit
+
+`recomp music bed-edit <ref>` · effect: **write**
+
+Change a bed's timing, level or ducking.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<ref>` | string | required | Bed ref, e.g. B1 |
+| `--at` | string | None |  |
+| `--dur` | number | None |  |
+| `--track-in` | string | None |  |
+| `--gain` | number | None |  |
+| `--duck` | number | None |  |
+| `--fade-in` | number | None |  |
+| `--fade-out` | number | None |  |
+
+### music.bed-remove
+
+`recomp music bed-remove <ref>` · effect: **write**
+
+Remove a music bed.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<ref>` | string | required |  |
+
+### music.get
+
+`recomp music get <pick>` · effect: **network**
+
+Download a track (from the last search, or by Openverse id) into the project's music folder, with its licence.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<pick>` | string | required | Number from the last search, or an Openverse audio id |
+
+```
+recomp music get 3
+```
+
+### music.library-add
+
+`recomp music library-add <file>` · effect: **write**
+
+Add a local audio file you have the rights to, with its licence (copied into the project).
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<file>` | string | required |  |
+| `--title` | string | '' |  |
+| `--artist` | string | '' |  |
+| `--licence` | string | required | Licence you hold it under, e.g. 'CC BY 4.0' or 'own work' |
+| `--licence-url` | string | '' |  |
+| `--url` | string | '' |  |
+
+```
+recomp music library-add "D:\Music\theme.mp3" --title Theme --artist Me --licence "own work"
+```
+
+### music.list
+
+`recomp music list` · effect: **read**
+
+Tracks in the project's library and the journeys they play under.
+
+### music.search
+
+`recomp music search <query>` · effect: **network**
+
+Search open-licensed music (Openverse: Freesound, Jamendo, ccMixter…). Results are numbered for `music get`.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<query>` | string | required | Mood, genre or instrument, e.g. "melancholic piano" |
+| `--licence` | string | 'safe' | safe (CC0, CC BY, public domain) \| commercial (adds BY-SA) \| any |
+| `--min-s` | number | None | Shortest track in seconds |
+| `--max-s` | number | None | Longest track in seconds |
+| `--limit` | integer | 12 |  |
+
+```
+recomp music search "melancholic piano" --min-s 60
+recomp music search "ambient strings" --licence any
+```
 
 ## op
 

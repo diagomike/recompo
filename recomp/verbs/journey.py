@@ -44,7 +44,7 @@ def show(db, j: dict) -> dict:
     for b in db.rows("music_bed", "WHERE journey_id=?", (j["id"],)):
         t = db.get("music_track", b["track_id"])
         beds.append({"ref": b["ref"], "track": t["ref"], "title": t["title"], "artist": t["artist"], "licence": t["licence"],
-                     "gain_db": b["gain_db"], "duck_db": b["duck_db"]})
+                     "gain_db": b["gain_db"], "duck_db": b["duck_db"], "file": t["file"]})
     total = tl[-1]["end"] if tl else 0.0
     sources = sorted({it["source"]["ref"] for it in tl})
     return {"ref": j["ref"], "title": j["title"], "intent": j["intent"], "description": j["description"],

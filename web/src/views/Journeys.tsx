@@ -75,6 +75,7 @@ function Journey({ jref, slotParam }: { jref: string; slotParam: string | null }
   if (error) return <div className="err">{error}</div>;
   if (!j) return <div>Loading…</div>;
   const musicFiles: Record<string, string> = {};
+  for (const m of j.music) if (m.file) musicFiles[m.track] = m.file;
   return (
     <div>
       <div className="row" style={{ marginBottom: 6 }}>

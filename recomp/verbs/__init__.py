@@ -14,4 +14,5 @@ MODULES = [
     "journey",
     "overlay",
     "export",
+    "music",
 ]
