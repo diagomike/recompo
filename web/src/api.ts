@@ -50,7 +50,8 @@ export async function room(ref: string) {
 export const mediaUrl = (ref: string) => `/media/source/${ref}?${q()}`;
 export const peaksUrl = (ref: string) => `/media/peaks/${ref}?${q()}`;
 export const thumbUrl = (ref: string, name: string) => `/media/thumbs/${ref}/${name}?${q()}`;
-export const fileUrl = (path: string) => `/media/file?path=${encodeURIComponent(path)}&${q()}`;
+export const frameUrl = (ref: string, t: number, w = 240) => `/media/frame/${ref}?t=${t.toFixed(1)}&w=${w}&${q()}`;
+export const fileUrl =(path: string) => `/media/file?path=${encodeURIComponent(path)}&${q()}`;
 
 export type Ev = { kind: string; seq: number; data: any };
 

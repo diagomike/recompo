@@ -213,6 +213,26 @@ def media_thumbs(ref: str, name: str, request: Request):
     return _range_file(path, request)
 
 
+@app.get("/media/frame/{ref}")
+def media_frame(ref: str, request: Request, t: float = 0.0, w: int = 240):
+    """One still frame (cached): slot and cut thumbnails."""
+    from ..media import ff
+    p = project(request.query_params.get("project"))
+    src = refs.source(p.db, ref)
+    path = Path(src["path"]) if src["path"] else None
+    if not path or not path.exists():
+        raise HTTPException(404, "no local media")
+    w = max(80, min(640, int(w)))
+    out = p.dir("cache", "frames") / f"{ref}_{t:.1f}_{w}.jpg"
+    if not out.exists():
+        try:
+            ff.run_simple(["-ss", f"{max(0.0, t):.2f}", "-i", str(path), "-frames:v", "1",
+                           "-vf", f"scale={w}:-2", "-q:v", "5", str(out)], timeout=30)
+        except Exception as exc:  # noqa: BLE001
+            raise HTTPException(500, str(exc)) from exc
+    return _range_file(out, request, "image/jpeg")
+
+
 @app.get("/media/file")
 def media_file(request: Request, path: str):
     """A file inside the project folder (exports, previews, music)."""

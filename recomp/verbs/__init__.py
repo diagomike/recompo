@@ -11,4 +11,6 @@ MODULES = [
     "search",
     "chapter",
     "cut",
+    "journey",
+    "overlay",
 ]

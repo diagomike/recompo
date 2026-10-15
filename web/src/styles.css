@@ -134,7 +134,7 @@ code, .mono { font-family: var(--mono); font-size: 12px; }
 .kbd { font-family: var(--mono); font-size: 11px; border: 1px solid var(--line-2); border-bottom-width: 2px; border-radius: 3px; padding: 0 4px; color: var(--muted); }
 
 /* journeys */
-.jgrid { display: grid; grid-template-columns: 260px 1fr; gap: 12px; }
+.jgrid { display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: 12px; }
 .slot { display: grid; grid-template-columns: 26px 92px 1fr auto; gap: 8px; align-items: center; padding: 6px 8px; background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); margin-bottom: 4px; }
 .slot.drag { opacity: .5; }
 .slot.over { border-color: var(--blue); }

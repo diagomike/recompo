@@ -15,8 +15,11 @@ Effects: `read` (no changes) · `write` (undoable op) · `heavy` (starts a job) 
 | `cut` | [`cut.add`](#cutadd), [`cut.edit`](#cutedit), [`cut.list`](#cutlist), [`cut.merge`](#cutmerge), [`cut.remove`](#cutremove), [`cut.show`](#cutshow), [`cut.split`](#cutsplit), [`cut.suggest`](#cutsuggest), [`cut.tag`](#cuttag), [`cut.trim`](#cuttrim) |
 | `doctor` | [`doctor`](#doctor) |
 | `job` | [`job.cancel`](#jobcancel), [`job.list`](#joblist), [`job.retry`](#jobretry), [`job.run`](#jobrun), [`job.show`](#jobshow), [`job.tail`](#jobtail), [`job.wait`](#jobwait) |
+| `journey` | [`journey.add`](#journeyadd), [`journey.delete`](#journeydelete), [`journey.duplicate`](#journeyduplicate), [`journey.edit`](#journeyedit), [`journey.from-search`](#journeyfrom-search), [`journey.list`](#journeylist), [`journey.move`](#journeymove), [`journey.new`](#journeynew), [`journey.remove`](#journeyremove), [`journey.reorder`](#journeyreorder), [`journey.section`](#journeysection), [`journey.show`](#journeyshow), [`journey.transition`](#journeytransition), [`journey.trim-slot`](#journeytrim-slot), [`journey.validate`](#journeyvalidate) |
 | `op` | [`op.log`](#oplog), [`op.redo`](#opredo), [`op.undo`](#opundo) |
+| `overlay` | [`overlay.add`](#overlayadd), [`overlay.auto-lower-thirds`](#overlayauto-lower-thirds), [`overlay.edit`](#overlayedit), [`overlay.list`](#overlaylist), [`overlay.remove`](#overlayremove) |
 | `project` | [`project.agent-kit`](#projectagent-kit), [`project.init`](#projectinit), [`project.list`](#projectlist), [`project.set`](#projectset), [`project.show`](#projectshow), [`project.use`](#projectuse) |
+| `recipe` | [`recipe.export`](#recipeexport), [`recipe.import`](#recipeimport), [`recipe.show`](#recipeshow) |
 | `search` | [`search`](#search) |
 | `setup` | [`setup.shim`](#setupshim) |
 | `source` | [`source.add`](#sourceadd), [`source.list`](#sourcelist), [`source.process`](#sourceprocess), [`source.relink`](#sourcerelink), [`source.remove`](#sourceremove), [`source.rights`](#sourcerights), [`source.show`](#sourceshow), [`source.status`](#sourcestatus) |
@@ -440,6 +443,220 @@ Wait for job(s) to finish, returning early at the timeout with their progress.
 recomp job wait job7 --timeout 90
 ```
 
+## journey
+
+### journey.add
+
+`recomp journey add <journey> <cuts>` · effect: **write**
+
+Add cuts to a journey (append, or insert before slot --at).
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<journey>` | string | required |  |
+| `<cuts>` | list[string] | required | Cut refs in order |
+| `--at` | integer | None | Insert before this slot number (default: append) |
+| `--section` | string | None | Section heading for the first added slot |
+
+```
+recomp journey add J1 C3 C9 C4
+recomp journey add J1 C7 --at 2
+```
+
+### journey.delete
+
+`recomp journey delete <journey>` · effect: **write**
+
+Delete a journey (its cuts stay). Undo restores it.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<journey>` | string | required |  |
+
+### journey.duplicate
+
+`recomp journey duplicate <journey>` · effect: **write**
+
+Copy a journey (slots, overlays and music) to try a variation.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<journey>` | string | required |  |
+
+### journey.edit
+
+`recomp journey edit <journey>` · effect: **write**
+
+Change a journey's title, intent, description, language or status.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<journey>` | string | required |  |
+| `--title` | string | None |  |
+| `--intent` | string | None |  |
+| `--description` | string | None |  |
+| `--language` | string | None |  |
+| `--status` | string | None | draft \| ready \| published |
+
+### journey.from-search
+
+`recomp journey from-search <query>` · effect: **write**
+
+Draft a journey from search: whole-thought cuts for the best hits, in search order. Edit it afterwards.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<query>` | string | required |  |
+| `--title` | string | None |  |
+| `--limit` | integer | 8 | How many cuts |
+| `--sources` | list[string] | None |  |
+| `--min-s` | number | 15 |  |
+| `--max-s` | number | 75 |  |
+
+```
+recomp journey from-search "forgiveness" --limit 8 --title "On forgiveness"
+```
+
+### journey.list
+
+`recomp journey list` · effect: **read**
+
+All journeys with slot counts and lengths.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `--status` | string | None |  |
+
+### journey.move
+
+`recomp journey move <slot>` · effect: **write**
+
+Move a slot to another position.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<slot>` | string | required | Slot ref, e.g. J1#4 |
+| `--to` | integer | required | New position (1-based) |
+
+```
+recomp journey move J1#4 --to 1
+```
+
+### journey.new
+
+`recomp journey new <title>` · effect: **write**
+
+Start a journey (optionally with its first cuts).
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<title>` | string | required |  |
+| `--intent` | string | '' | What the journey is for, in a sentence |
+| `--description` | string | '' |  |
+| `--language` | string | 'en' |  |
+| `--cuts` | list[string] | None | Cuts to start with, in order |
+
+```
+recomp journey new "Live long enough" --intent "What heroism costs" --cuts C4,C9,C2
+```
+
+### journey.remove
+
+`recomp journey remove <slot>` · effect: **write**
+
+Remove a slot from a journey (the cut itself stays).
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<slot>` | string | required | Slot ref, e.g. J1#3 |
+
+### journey.reorder
+
+`recomp journey reorder <journey>` · effect: **write**
+
+Reorder all slots at once.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<journey>` | string | required |  |
+| `--order` | list[integer] | required | New order as current slot numbers, e.g. 3,1,2,4 |
+
+```
+recomp journey reorder J1 --order 3,1,2,4
+```
+
+### journey.section
+
+`recomp journey section <journey> <heading>` · effect: **write**
+
+Start a titled section at a slot (shown as a heading; long-form exports can show a card).
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<journey>` | string | required |  |
+| `<heading>` | string | required | Section heading ('' clears it) |
+| `--at` | integer | required | The slot the section starts at |
+
+```
+recomp journey section J1 "The bargain" --at 3
+```
+
+### journey.show
+
+`recomp journey show <journey>` · effect: **read**
+
+A journey's timeline: slots (source span, output position, section), overlays, music, total length.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<journey>` | string | required |  |
+
+```
+recomp journey show J1
+```
+
+### journey.transition
+
+`recomp journey transition <slot>` · effect: **write**
+
+Set the transition *into* a slot.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<slot>` | string | required |  |
+| `--type` | string | 'fade' | cut \| fade \| dip (to black) |
+| `--dur` | number | 0.5 | Seconds |
+
+```
+recomp journey transition J1#3 --type fade --dur 0.6
+```
+
+### journey.trim-slot
+
+`recomp journey trim-slot <slot>` · effect: **write**
+
+Trim one slot inside its cut (the cut itself is unchanged; other journeys are unaffected).
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<slot>` | string | required |  |
+| `--start` | string | None | Source time, or +/− seconds relative to the cut's start ('reset' clears) |
+| `--end` | string | None | Source time, or +/− relative to the cut's end ('reset' clears) |
+
+```
+recomp journey trim-slot J1#2 --start +1.5 --end -2
+```
+
+### journey.validate
+
+`recomp journey validate <journey>` · effect: **read**
+
+Check a journey before export: media available, sane lengths, labels, music licences, recipe structure.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<journey>` | string | required |  |
+
 ## op
 
 ### op.log
@@ -483,6 +700,81 @@ Undo the most recent change(s). Refuses to undo a higher-precedence actor's work
 recomp op undo
 recomp op undo --n 3
 ```
+
+## overlay
+
+### overlay.add
+
+`recomp overlay add <target>` · effect: **write**
+
+Add text over a journey or one slot: title card, lower third, pull quote, free text.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<target>` | string | required | Journey (J1: whole-journey overlay) or slot (J1#3) |
+| `--kind` | string | 'text' | title \| lower_third \| quote \| text \| endcard \| section |
+| `--text` | string | required | Text; use \n for a second line |
+| `--at` | string | '0' | Seconds into the slot (or the journey) |
+| `--dur` | number | None | Seconds shown (default depends on kind) |
+| `--position` | string | None | top \| middle \| bottom (default by kind) |
+| `--size` | number | None | Relative text size (1.0 = default) |
+
+```
+recomp overlay add J1 --kind title --text "Live long enough"
+recomp overlay add J1#2 --kind quote --text "You either die a hero…" --at 1
+```
+
+### overlay.auto-lower-thirds
+
+`recomp overlay auto-lower-thirds <journey>` · effect: **write**
+
+Credit every slot on screen: who is speaking and where it is from (people · source (year)).
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<journey>` | string | required |  |
+| `--replace` | boolean | True | Replace lower thirds made earlier by this verb |
+| `--template` | string | '{people}{title_sep}{source}' | Fields: {people} {source} {year} {creator} {cut} |
+
+```
+recomp overlay auto-lower-thirds J1
+```
+
+### overlay.edit
+
+`recomp overlay edit <ref>` · effect: **write**
+
+Change an overlay's text, timing, kind or style.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<ref>` | string | required |  |
+| `--text` | string | None |  |
+| `--at` | string | None |  |
+| `--dur` | number | None |  |
+| `--kind` | string | None |  |
+| `--position` | string | None |  |
+| `--size` | number | None |  |
+
+### overlay.list
+
+`recomp overlay list <journey>` · effect: **read**
+
+Overlays of a journey.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<journey>` | string | required |  |
+
+### overlay.remove
+
+`recomp overlay remove <ref>` · effect: **write**
+
+Delete an overlay.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<ref>` | string | required |  |
 
 ## project
 
@@ -549,6 +841,48 @@ Make a project the current one (by registered name or by folder).
 | Field | Type | Default | Description |
 |---|---|---|---|
 | `<target>` | string | required | Project name (from `project list`) or folder |
+
+## recipe
+
+### recipe.export
+
+`recomp recipe export <journey>` · effect: **write**
+
+Write the recipe as JSON, a CMX3600 EDL or an OpenTimelineIO file (to finish in Resolve/Premiere/Kdenlive).
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<journey>` | string | required |  |
+| `--format` | string | 'json' | json \| edl (CMX3600) \| otio (OpenTimelineIO) |
+| `--out` | string | None | Write to this file (default: recipes/ folder) |
+
+```
+recomp recipe export J1 --format otio
+```
+
+### recipe.import
+
+`recomp recipe import <file>` · effect: **write**
+
+Rebuild a journey from a recipe file: link sources are added; file sources are matched by fingerprint or title.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<file>` | string | required | A recipe JSON file |
+
+### recipe.show
+
+`recomp recipe show <journey>` · effect: **read**
+
+The journey as a recipe (portable JSON: sources, timecodes, overlays, music, credits).
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<journey>` | string | required |  |
+
+```
+recomp recipe show J1
+```
 
 ## search
 
