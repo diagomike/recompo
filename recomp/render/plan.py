@@ -129,6 +129,15 @@ def build(db, project, journey: dict | None = None, cuts: list[dict] | None = No
                 t_text = row[0] if row else title
             overlays.insert(0, {"ref": "title", "kind": "title", "text": t_text, "start": 0.0,
                                 "end": min(2.8, items[0]["dur"]), "style": {}})
+        # Centre cards never stack: a section or quote card that would overlap the title waits for it.
+        titles = [o for o in overlays if o["kind"] == "title"]
+        for o in overlays:
+            if o["kind"] in ("section", "quote"):
+                for t in titles:
+                    if o["start"] < t["end"] and o["end"] > t["start"]:
+                        dur = o["end"] - o["start"]
+                        o["start"] = round(t["end"] + 0.2, 3)
+                        o["end"] = round(o["start"] + dur, 3)
         if prof["music"]:
             for m in rec["music"]:
                 tr = db.by_ref("music_track", m["track"])

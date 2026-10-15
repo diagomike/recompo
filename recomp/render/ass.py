@@ -48,8 +48,9 @@ def styles(w: int, h: int, sample_text: str = "") -> str:
         ("Title", font, round(base * 1.7), white, white, black, black, 1, 0, 1, max(3, base // 9), 2, 5, 80, 80, 0),
         ("Section", font, round(base * 1.05), white, white, black, black, 1, 0, 1, max(2, base // 12), 1, 5, 80, 80, 0),
         ("Quote", "Georgia" if font == "Arial" else font, round(base * 1.25), white, white, black, black, 0, 1, 1, max(2, base // 12), 2, 5, 100, 100, 0),
-        ("Lower", font, round(base * 0.82), white, white, box, box, 1, 0, 3, round(base * 0.35), 0, 7 if vertical else 1,
-         round(w * 0.05), 60, round(h * 0.09) if vertical else round(h * 0.16)),
+        # Name tags sit top-left in every format: clear of captions and of channel watermarks (bottom-right).
+        ("Lower", font, round(base * 0.82), white, white, box, box, 1, 0, 3, round(base * 0.35), 0, 7,
+         round(w * 0.05), 60, round(h * 0.09) if vertical else round(h * 0.06)),
         ("Text", font, base, white, white, black, black, 0, 0, 1, max(2, base // 14), 1, 8, 60, 60, round(h * 0.08)),
         ("End", font, round(base * 1.1), white, white, black, black, 0, 0, 1, 0, 0, 7, round(w * 0.08), 60, round(h * 0.12)),
         ("EndTitle", font, round(base * 1.5), white, white, black, black, 1, 0, 1, 0, 0, 7, round(w * 0.08), 60, round(h * 0.12)),
