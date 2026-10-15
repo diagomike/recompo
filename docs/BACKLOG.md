@@ -17,7 +17,7 @@ Every open task by priority. Done phases are summarised; their detail is in git 
       the URL everywhere, buttons that show their command and can be handed to the agent, `ui show` with views,
       filters and highlights, file browser, shortcuts, two-click confirms, phone widths. **Your review is the
       remaining step** (the plan marks P16 `[you]`).
-- [ ] **P17 research wing and channel desk** (plan §6): watchlists, trend radar beyond YouTube, inbox, channels you post to,
+- [ ] **P17 research wing and channel desk**: researched and planned (plan §6, [research](research/P17-research-wing.md)); awaiting approval. Watchlists, inbox, replay moments, trend radar, channels you post to,
       posting queue, re-linking posts, performance view.
 
 ## Waiting on the user

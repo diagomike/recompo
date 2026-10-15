@@ -212,6 +212,11 @@ hub.
 | `ui` | `selection`, `show <ref> [--at t]`, `ask "question"` (pinned note in the viewer), `notes` |
 | `hub` | `login`, `logout`, `whoami`, `publish <J> --visibility`, `pull <recipe-id>`, `fork`, `vote`, `comment`, `follow`, `feed`, `link-post <J> <url>` |
 | `trends` | `youtube [--region --category]` (API key), `search <topic> --since 7d`, `channel <url> --since 30d` |
+| `watch` (P17) | `add <url\|name> --project [--podcast --only --match --rights]`, `check`, `list`, `edit`, `remove` (studio level) |
+| `inbox` (P17) | `list [--project]`, `take <ids>` (source add + take recipe), `dismiss` |
+| `radar` (P17) | `add <topic> --sources youtube,google,tiktok --region`, `run`, `show`; `research brief --channel` |
+| `channel` / `post` (P17) | `channel add/list/edit/remove/stats`; `post plan <X> --channel [--at]`, `queue`, `open`, `link <id> <url>`, `check` |
+| `source moments` (P17) | YouTube "Most replayed" heatmap → replay lane; `cut suggest --by replay` |
 | `cache` | `size`, `prune [--max-gb]` |
 
 ### 3.8 Recipe spec v1 (`docs/RECIPE_SPEC.md`, JSON Schema in `compose/recipe.schema.json`)
@@ -521,40 +526,110 @@ stays a verb the agent can run too. It comes after P15 so the screens can expose
 journey without typing a command, and every step shows as a verb in the Activity log. Each screen is checked
 in the browser pane, then by you. `[auto]` + `[you]`
 
-**P17 — Research wing and channel desk (added 2026-10-15 at the user's request)**
-Go online to see what is new and trending, bring it into projects, cut it, and track what was posted on which of
-your channels. It builds on P8 (links), P13 (trends) and P11 (hub link-post). It never uploads, logs in or posts:
-you upload, and the app re-links what you posted.
-- *Watchlists:* follow creators per project (Lex Fridman, The Diary of a CEO, Alex O'Connor, preaching channels): a
-  YouTube channel, playlist or podcast feed. `watch add <url> --project … --filter "title~consciousness"`,
-  `watch check` (new episodes since the last check: title, length, date, caption languages), `watch list`,
-  `watch remove`. A scheduled check (Windows Task Scheduler or the studio's timer) reports new episodes into
-  each project's inbox; nothing is fetched until you or the agent pick it.
-- *Trend radar:* `trends` gains sources beyond YouTube search and channels: YouTube's trending and most-popular
-  lists (keyless pages, or the Data API with your key), TikTok and Instagram public pages and hashtags where yt-dlp
-  can read them without signing in (best effort: when a site refuses, it says so and stops; no cookies unless you
-  set them), and Google Trends topics. Each result gets a score (views per day since posting, growth across
-  checks, topic match to the project), and results are saved as snapshots so growth shows over time.
-- *Inbox:* per project, new episodes and trend picks land in an inbox (`inbox list`, `inbox take <id…>` → `source
-  add`, `inbox dismiss`). Taking an item can run a recipe of steps: captions → chapters seed → `cut suggest` on the
-  project's themes, so the agent arrives at reviewed cut candidates rather than raw videos.
-- *Channel desk:* register the social channels you post to (`channel add "Alex Lovers" --platform youtube
-  --handle @… --niche philosophy`; TikTok, Instagram, Facebook, YouTube) with their niche, formats (shorts,
-  landscape), languages and a posting cadence. Each export can be assigned to a channel (`post plan X12 --channel
-  …`), giving a posting queue: what is ready, for which channel, with its title, description, hashtags and
-  credits already written. After you upload, `post link X12 <url>` records the post (and `hub link-post` re-links
-  the recipe on the hub, so hub visitors find the clip on your channel). `post check` reads public view counts
-  back for a performance view per channel and per source.
-- *Viewer:* a Research page (watchlists with new-episode badges, the trend radar with filters and scores, the
-  inbox with take/dismiss) and a Channels page (channels, the posting queue per channel, posted clips with
-  links and counts). Everything is a verb the agent can run, as in P16.
-- *Rights:* every pick keeps its source, creator and licence; descriptions credit the creator and link the
-  original. Commentary and transformation are the point of cuts; the posting queue shows each clip's source
-  rights note so you decide what to post.
-*Done when:* a watchlist of three channels reports their newest episodes; taking one into a project ends with
-cut candidates; a trend radar search returns scored YouTube results (and TikTok results or a clear refusal);
-an export is planned for a channel, linked after a (pretend, local) upload, and shows on the hub and in the
-channel's posted list. `[auto]`; real posting and any signed-in source `[you]`.
+**P17 — Research wing and channel desk (added 2026-10-15; research in [docs/research/P17-research-wing.md](research/P17-research-wing.md))**
+
+Goal: from "a creator posted something" or "this topic is moving" to cuts and journeys ready for the right one of
+your channels, and back again once you have posted: links, the hub, view counts. The app reads public data and
+never signs in, uploads or posts; you upload, and the app records where.
+
+*Architecture.* Watchlists, channels and posts span projects (one show feeds several channels; one channel draws on
+several projects), so P17 adds a **studio store**: `studio.db` in the studio home (`%USERPROFILE%\.recomp`), using
+the same store code as projects (op log, undo, precedence, events) with its own migrations. Studio verbs run without
+a project; each watch and channel names the projects it feeds. Network reads go through the existing link ladder
+(yt-dlp with backoff, bot-check handling, no cookies unless you set them) plus plain HTTP for RSS. Heavy steps are
+jobs as before. Every capability is a verb, as in P16.
+
+*P17a — Watchlists and inbox.*
+- `watch add <url|name> --project P` for a YouTube channel (RSS `channel_id` feed, `UULF` = no Shorts or `UUSH` =
+  Shorts only, falling back to yt-dlp's channel listing), a YouTube playlist, or a podcast (`--podcast "Diary of a
+  CEO"` resolves the RSS feed through the iTunes Search API; or a feed URL). Options: `--only videos|shorts|all`,
+  `--match "consciousness|free will"` (title filter), `--min-length 20m`, `--rights authorised|program|unknown`
+  with a note, `--take auto|inbox` (default inbox).
+- `watch check [--watch W]` reads every feed, remembers what it has seen, and puts new items in the project's inbox
+  (title, date, length, link, caption languages where cheap). `watch list`, `watch edit`, `watch remove`.
+- `inbox list [--project]`, `inbox take <ids…>` (→ `source add`, then the project's *take recipe*), `inbox dismiss`.
+  The default take recipe: captions (or audio + ASR for audio-only podcasts) → creator chapters → replay heatmap →
+  `cut suggest` on the project's themes. You arrive at reviewed cut candidates, not raw videos.
+- Checks run when you press Check, when the agent runs `watch check`, and on a timer while the studio is open
+  (default every 2 h). A Windows scheduled task (`studio schedule --every 6h`) is created only if you ask for it.
+
+*P17b — Moments: where viewers rewatch.* `source moments S3` fetches YouTube's "Most replayed" heatmap through yt-dlp
+(100 points, 0–1; may be missing for new videos) and stores it. The source room gains a **replay lane**; `cut suggest
+--by replay` proposes cuts around replay peaks, snapped to whole sentences with the existing boundary logic; the
+default suggest blends replay peaks with topic matches. Search and the agent see the same peaks.
+
+*P17c — Trend radar.* Sources, each returning scored items into a snapshot:
+- YouTube: topic search (exists), channel scans (exists), `mostPopular` by region and category (your key; now music,
+  film and gaming heavy), YouTube Charts podcast rankings where readable.
+- Google Trends: daily trending searches per country from the public RSS feed (the official API is a closed alpha).
+- TikTok and Instagram, best effort without signing in: public video and profile pages through yt-dlp, and TikTok
+  Creative Center hashtag rankings where its public pages answer. When a site refuses, the radar says so for that
+  source and carries on; no cookies, no paid scrapers unless you choose one later.
+- `radar add "consciousness" --sources youtube,google,tiktok --region US --project alex-oconnor` saves a radar;
+  `radar run [name]` takes a snapshot; `radar show` ranks items by **views per day**, **growth since the last
+  snapshot**, **topic match** to the project's themes and channels' niches, and **freshness**. Picks go to the inbox.
+- `research brief --channel "Alex Lovers"` assembles, for the agent and for you: new episodes from the channel's
+  watches, radar movers in its niche, the inbox, replay peaks of taken items, and what the channel posted recently and
+  how it did. It is the agent's starting point for "what should we cut today".
+
+*P17d — Channel desk.*
+- `channel add "Alex Lovers" --platform youtube --handle @… --niche "philosophy, consciousness" --profiles shorts
+  --langs en --projects alex-oconnor --cadence 1/day` (YouTube, TikTok, Instagram, Facebook, X); `channel list/edit/
+  remove`. Each channel keeps a description template (credits and source links are always added), default
+  hashtags, and the hub link line.
+- `post plan <X…> --channel C [--at 2026-10-20 18:00]` puts exports in the channel's **queue** with a ready title,
+  description (from the export's `description.txt` + the channel template), hashtags, the rights note of each source,
+  and the file path. `post queue [--channel]` lists what is ready, planned and overdue; `post open <id>` reveals the
+  file and copies the text.
+- After you upload: `post link <id> <url>` records the post, links it on the journey and (if the recipe is on the
+  hub) on the hub recipe via `hub link-post`, so hub visitors find the clip on your channel.
+- `post check` reads public counts (views, likes, comments) for posted URLs: yt-dlp keyless, or the Data API
+  (1 unit per 50 videos) when you have a key. `channel stats` shows per channel, per source and per journey how
+  posts did over time, so the radar's "topic match" can learn which themes work on which channel.
+
+*P17e — Viewer.* Two studio-level pages, reachable from the start page and every project:
+- **Research**: watchlists with "new" badges and a Check button; the inbox (thumbnail, title, length, rights,
+  Take/Dismiss, target project); the trend radar (sources, filters, score, growth, refusals shown per source);
+  a moment preview (the replay curve of a candidate before you take it).
+- **Channels**: channel cards (niche, cadence, last post, next planned); the posting queue per channel with copy
+  buttons for title, description and hashtags, "Reveal file", and "I posted it" (paste the URL → `post link`);
+  posted clips with counts and links; per-channel stats.
+- Both follow the P16 rules (every button a verb; filters in the URL; `ui show research|channels`).
+
+*Rights.* Every watch, source and post carries a rights note (authorised, clipping program, unknown). The queue
+shows it next to each clip and warns on unknown; descriptions always credit the creator and link the original.
+Journeys add the commentary and transformation that YouTube's reused-content review looks for; the app does not
+judge legality for you.
+
+*Out of scope for P17 (possible later, behind your own accounts and platform audits):* posting through the YouTube,
+TikTok or Instagram APIs; signed-in scraping; paid trend data.
+
+*Done when (▶ M5, report `docs/runs/M5-research-and-channels.md`):*
+1. Watches for Alex O'Connor, Lex Fridman and The Diary of a CEO (YouTube, no Shorts) and one podcast feed report
+   their newest items; a second check reports nothing new.
+2. Taking one new episode into a project ends with captions, creator chapters, a replay lane and cut candidates
+   that combine replay peaks with the project's themes; the agent turns two of them into a journey.
+3. A radar for one topic returns scored YouTube results and Google Trends items, and TikTok results or a clear
+   refusal; a second snapshot shows growth.
+4. Two channels exist; two exports are planned for one of them; `post link` with placeholder URLs (local hub)
+   shows the links on the journey, on the hub recipe and in the channel's posted list; `post check` reads counts for
+   one real public video URL.
+5. The Research and Channels pages do all of the above without typing a command, checked in the browser pane.
+`[auto]`; real posting, signed-in sources and your channel handles `[you]`.
+
+*Order:* P17a → P17b → P17c → P17d → P17e → M5. Each step ends with tests (feeds and pages mocked; one `-m real`
+test per network source), VERBS.md regenerated, STATE/BACKLOG updated and a local commit.
+
+*Open questions (defaults used unless you say otherwise):*
+- P17-Q1 Which preaching channels and podcasts to watch first, and which projects they feed? *Default:* Alex
+  O'Connor → `alex-oconnor`; Lex Fridman and The Diary of a CEO → a new `podcasts` project; preaching: you name one.
+- P17-Q2 Your social channels (names, platforms, handles, niches)? *Default:* two placeholder channels until you
+  give real ones.
+- P17-Q3 A YouTube Data API key in `.env`? *Default:* keyless (RSS + yt-dlp); the key only adds `mostPopular` and
+  cheaper counts.
+- P17-Q4 Background checks: *Default:* every 2 h while the studio runs; no Windows scheduled task unless asked.
+- P17-Q5 Auto-take new episodes? *Default:* no; everything lands in the inbox.
+- P17-Q6 TikTok/Instagram without cookies only? *Default:* yes; a refusal is reported, never worked around.
 
 ---
 
