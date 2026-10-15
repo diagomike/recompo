@@ -67,6 +67,46 @@ export default function Exports() {
   );
 }
 
+function DubFix({ x }: { x: any }) {
+  const [edits, setEdits] = useState<Record<string, string>>({});
+  const [msg, setMsg] = useState<string | null>(null);
+  const lines = x.dub.to_fix as any[];
+  const save = async (rerender: boolean) => {
+    const env = await verb("lang.translate", { journey: x.of, to: x.lang, translations: edits });
+    if (!env.ok) { setMsg(env.error!.message); return; }
+    if (rerender) {
+      const r = await verb("export.run", { journey: x.of, profiles: [x.profile], langs: [x.lang] });
+      setMsg(r.ok ? `Re-exporting as ${r.refs?.[0]}…` : r.error!.message);
+    } else setMsg(`Saved ${Object.keys(edits).length} line(s).`);
+    setEdits({});
+  };
+  return (
+    <div style={{ marginTop: 10 }}>
+      <div className="row"><b>Dub</b><span className="chip">{x.dub.backend} {x.dub.voice}</span>
+        <span style={{ color: "var(--muted)", fontSize: 12 }}>{x.dub.lines} lines · {x.dub.sped_up} sped up</span></div>
+      {!lines.length && <div style={{ color: "var(--accent)", fontSize: 12 }}>Every line fits.</div>}
+      {!!lines.length && <div style={{ fontSize: 12, color: "var(--muted)" }}>Lines that don't fit their time: shorten them, then re-export this language. Kept lines play in the original voice.</div>}
+      {lines.map((l) => (
+        <div key={l.key} style={{ borderTop: "1px solid var(--line)", padding: "4px 0" }}>
+          <div className="row" style={{ fontSize: 12 }}>
+            <span className="mono">{l.at.toFixed(1)}s</span>
+            <span className={"chip " + (l.kind === "overflow" ? "failed" : "")}>{l.kind === "overflow" ? `+${l.over_s}s` : "original voice"}</span>
+            <span style={{ color: "var(--muted)" }}>{l.source_text}</span>
+          </div>
+          <input className="input" style={{ width: "100%" }} defaultValue={l.text} onChange={(e) => setEdits({ ...edits, [l.key]: e.target.value })} />
+        </div>
+      ))}
+      {!!Object.keys(edits).length && (
+        <div className="row" style={{ marginTop: 6 }}>
+          <button className="btn small" onClick={() => save(false)}>Save lines</button>
+          <button className="btn small primary" onClick={() => save(true)}>Save and re-export {x.lang}</button>
+        </div>
+      )}
+      {msg && <div className="warn">{msg}</div>}
+    </div>
+  );
+}
+
 function ExportDetail({ xref }: { xref: string }) {
   const { data: x, error } = useData(() => must<any>("export.show", { ref: xref }), [xref]);
   const [copied, setCopied] = useState(false);
@@ -85,6 +125,7 @@ function ExportDetail({ xref }: { xref: string }) {
       <div className="row" style={{ marginTop: 8, flexWrap: "wrap", gap: 4 }}>
         {(x.checks || []).map((c: any) => <span key={c.check} className={"chip " + (c.ok ? "done" : "failed")} title={c.detail}>{c.check}: {c.detail}</span>)}
       </div>
+      {x.dub && <DubFix x={x} />}
       {x.description && (
         <div style={{ marginTop: 10 }}>
           <div className="row"><b>Description</b><div className="spacer" />

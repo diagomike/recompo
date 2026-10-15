@@ -261,6 +261,19 @@ def export_show(ctx: Ctx, inp: ShowIn):
     out["files"] = sorted(p.name for p in folder.glob("*")) if folder.exists() else []
     desc = folder / "description.txt"
     out["description"] = desc.read_text(encoding="utf-8") if desc.exists() else None
+    dubf = folder / "dub.json"
+    if dubf.exists():
+        d = json.loads(dubf.read_text(encoding="utf-8"))
+        lines = []
+        for kind, items in (("overflow", d.get("overflow") or []), ("kept", d.get("kept_original") or [])):
+            for o in items:
+                if o.get("key") is None:
+                    continue
+                src = db.one("SELECT text FROM segment WHERE id=?", (o["key"],))
+                lines.append({"key": f"seg:{o['key']}", "kind": kind, "at": o["at"], "over_s": o.get("over_s"),
+                              "text": o["text"], "source_text": src[0] if src else None})
+        out["dub"] = {"backend": d.get("backend"), "voice": d.get("voice"), "mode": d.get("mode"), "lines": d.get("lines"),
+                      "sped_up": d.get("sped_up"), "to_fix": lines}
     return out
 
 
