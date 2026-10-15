@@ -25,7 +25,7 @@ Effects: `read` (no changes) · `write` (undoable op) · `heavy` (starts a job) 
 | `overlay` | [`overlay.add`](#overlayadd), [`overlay.auto-lower-thirds`](#overlayauto-lower-thirds), [`overlay.edit`](#overlayedit), [`overlay.list`](#overlaylist), [`overlay.remove`](#overlayremove) |
 | `preview` | [`preview`](#preview) |
 | `profile` | [`profile.edit`](#profileedit), [`profile.list`](#profilelist), [`profile.new`](#profilenew), [`profile.show`](#profileshow) |
-| `project` | [`project.agent-kit`](#projectagent-kit), [`project.init`](#projectinit), [`project.list`](#projectlist), [`project.set`](#projectset), [`project.show`](#projectshow), [`project.use`](#projectuse) |
+| `project` | [`project.agent-kit`](#projectagent-kit), [`project.backup`](#projectbackup), [`project.init`](#projectinit), [`project.list`](#projectlist), [`project.set`](#projectset), [`project.show`](#projectshow), [`project.use`](#projectuse) |
 | `recipe` | [`recipe.export`](#recipeexport), [`recipe.import`](#recipeimport), [`recipe.show`](#recipeshow) |
 | `search` | [`search`](#search) |
 | `setup` | [`setup.shim`](#setupshim) |
@@ -1303,6 +1303,18 @@ One profile's full settings.
 | Field | Type | Default | Description |
 |---|---|---|---|
 | `--overwrite` | boolean | True | Overwrite existing kit files (your own CLAUDE.md notes below the marker are kept) |
+
+### project.backup
+
+`recomp project backup` · effect: **write**
+
+Zip the project's work (database, recipes, music with licences, captions) without source media or caches.
+Restore by unzipping anywhere and `recomp project use <folder>`, then `source relink` if media moved.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `--out` | string | None | Zip file to write (default: <project>/../<name>-backup-<date>.zip) |
+| `--exports` | boolean | False | Include rendered exports (large) |
 
 ### project.init
 

@@ -60,7 +60,9 @@ def _export(ctx: JobCtx):
         d = plan["dub"]
         over = d.get("overflow") or []
         chk["checks"].append({"check": "dub fit", "ok": not over,
-                              "detail": f"{d['lines']} lines, {d['sped_up']} sped up, {len(over)} overflowing ({d['backend']} {d['voice']}, {d['mode']})"})
+                              "detail": f"{d['lines']} lines, {d['sped_up']} sped up, {len(over)} overflowing, "
+                                        f"{len(d.get('kept_original') or [])} kept in the original voice "
+                                        f"({d['backend']} {d['voice']}, {d['mode']})"})
         import os
         if not ctx.params.get("preview") and not ctx.params.get("skip_roundtrip") and os.environ.get("RECOMP_DUB_ROUNDTRIP") != "0":
             from ..lang import dubcheck

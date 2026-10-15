@@ -2,39 +2,46 @@
 
 The build's working memory. If context runs short, resume from here.
 
-**Last updated:** 2026-10-15
+**Last updated:** 2026-10-15 (evening)
 
 | | |
 |---|---|
-| Phase | **P0 done**: foundations and agent contract |
-| Next | P1: ingest and media (local scan, probe, fingerprint, subtitles discovery, audio, shots, peaks, jobs) |
-| Suite | 20 passed |
-| Plan | [PLAN.md](PLAN.md) approved 2026-10-15 with the defaults for Q1–Q6 |
+| Phases | **P0–P13 built; P14 in progress** (docs, launcher, backup done) |
+| Milestones | **M1 done** ([report](runs/M1-dark-knight.md)) · **M3 done** (am/sw/fr dubs, om stretch: [report](runs/M3-M4-languages-and-hub.md)) · **M4 done** (local hub) · **M2 blocked**: YouTube bot check on this machine |
+| Suite | 70+ fast tests (`pytest -q`), slow speaker test (`pytest -m slow`) |
+| Projects | `C:\Recomposer\projects\dark-knight` (M1, M3), `alex-oconnor` (5 link sources from the list, captions pending), `_uitest` (scratch) |
+| Hub | `python -m hub` on 8790, data in `%USERPROFILE%\.recomp\hub`, seeded test users in `seed_users.json` there |
+
+## Blocked on the user
+- **YouTube** answers "Sign in to confirm you're not a bot" (and HTTP 429) for per-video requests from this
+  machine since 2026-10-15 ~06:30; flat listings still work. Options for the user: wait for the block to lift
+  (`recomp source refresh S1` then retries); allow browser cookies (`recomp config set network.cookies_from_browser chrome`);
+  or run ingest from another network or the Kaggle/Colab worker. Until then M2's captions, ASR and sections cannot be fetched.
 
 ## Defaults in force (open questions Q1–Q6)
-- Projects at `C:\Recomposer\projects` (D: has about 15 GB free). Source movies stay in place on D:.
-- Git is local only; commit after each verified phase; nothing is pushed.
-- edge-tts network access is approved when it first prompts (pin `edge-tts>=7.3.1`; 7.2.8 gets 403).
-- Afaan Oromo dub via MMS-TTS is the stretch goal for M3.
-- No `--cookies-from-browser` without asking.
-- I choose the Alex O'Connor journey theme from the latest episodes and say which.
-
-## What exists
-- `recomp` CLI and envelope, the verb registry, generated `docs/VERBS.md`, the MCP stdio server (`recomp mcp`).
-- SQLite store with every table the plan needs (migration 1), FTS5 on segments, the op log with
-  undo/redo, the precedence guard, the event table for the viewer.
-- Verbs: `context`, `doctor`, `version`, `config get/set`, `setup shim`, `project init/use/list/show/set/agent-kit`,
-  `op log/undo/redo`, `ui selection/select/show/ask/answer/note/notes`.
-- The agent kit (AGENTS.md, CLAUDE.md, six skills, .mcp.json, read-verb permissions) is installed by
-  `project init`.
+- Projects at `C:\Recomposer\projects` (D: has ~15 GB free); source movies stay on D:.
+- Git local only; commit after each verified phase; nothing pushed.
+- edge-tts allowed (needs `speech.platform.bing.com`; runs outside the sandbox); pin `edge-tts>=7.3.1`.
+- Afaan Oromo via MMS-TTS (`facebook/mms-tts-orm`, non-commercial weights) as the stretch goal.
+- No browser cookies unless the user sets them.
+- Alex O'Connor theme: **consciousness** (Pollan, Frankish, Anil Seth, Galen Strawson).
 
 ## Environment (verified 2026-10-15)
-- App venv: `.venv` (Python 3.13.2): fastapi, uvicorn, pydantic, httpx, yt-dlp 2026.08.19 + curl_cffi,
-  edge-tts 7.3.1, segno, mcp 2.3.0, pytest.
-- Worker python: `D:\LangBridgeLocal\.venv` (faster-whisper 1.2.1, pyannote 4.0.7, torch CPU), HF cache
-  `D:\LangBridgeLocal\cache\hf` (whisper-turbo, wav2vec2-en, pyannote community-1, wavlm-sv, Ethio-ASR).
-- ffmpeg 8.1.2 full; Node 24.
+- App venv `.venv` (Python 3.13.2): fastapi, uvicorn, pydantic, httpx, yt-dlp 2026.08.19 + curl_cffi, edge-tts 7.3.1,
+  segno, mcp 2.3.0, numpy, pytest. Viewer: React 18 / Vite 5 (node_modules copied from recomposer_v2 + lucide-react).
+- Worker python `D:\LangBridgeLocal\.venv` (faster-whisper 1.2.1, pyannote 4.0.7, transformers, audio-separator);
+  HF cache `D:\LangBridgeLocal\cache\hf`; `facebook/mms-tts-orm` downloaded there on first Oromo dub.
+- Measured: whisper-turbo int8 ASR at RTF 0.33 on this CPU; shots 79 s and audio 7 s for an 89-min film;
+  pyannote ~70 s on 40 s of audio including load.
 
 ## Lessons
-- MCP SDK 2.x: low-level `Server(name, on_list_tools=…, on_call_tool=…)`; types come from `mcp_types`
-  with snake_case fields (`input_schema`, `is_error`).
+- Whisper word starts run ~0.4 s early: refine against energy onsets (`transcript/refine.py`).
+- Aligning subtitles to ASR: keep matches inside the line's own window (repeated phrases borrow timings).
+- Frame-exact slots + sample-exact audio assembly, or captions drift ~34 ms per slot.
+- Limit true peak at 4× oversampling; AAC overshoots a sample-peak limiter.
+- CC BY-ND music cannot be laid under video (sync = adaptation); default music search is CC0/BY.
+- Dub fit: voice-over placement with a 1 s delay budget, edge `rate` before time-stretch, short interjections may keep
+  the original voice; the agent shortens lines the check lists.
+- The runner process keeps old code loaded: after changing worker code, let it go idle (30 s) or stop it before re-queuing.
+- Shell heredoc edits mangle backslashes: use the Edit tool for code with `\b`, `\c`, `\n`.
+- MCP SDK 2.x: low-level `Server(on_list_tools=…, on_call_tool=…)`, types in `mcp_types` with snake_case fields.

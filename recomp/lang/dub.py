@@ -39,7 +39,7 @@ def build_dub(project, plan: dict, voice: str | None = None, log=print, progress
     slot_ends = sorted(it["at"] + it["dur"] for it in plan["items"])
     if backend == "mms":  # one model load for every line
         tts.synth_batch([(l["text"], clips_dir / f"{_key(backend, v, l['text'])}.wav") for l in lines], lang, voice=voice)
-    placed, overflow, sped = [], [], 0
+    placed, overflow, sped, kept = [], [], 0, []
     prev_end = 0.0
     for k, line in enumerate(lines):
         # Voice-over placement: a line may start a little late (up to MAX_DELAY) to follow the one before,
@@ -68,6 +68,10 @@ def build_dub(project, plan: dict, voice: str | None = None, log=print, progress
             use = fast
             sped += 1
             dur = dur / factor
+            if dur > window + 0.3 and len(line["text"].split()) <= 3:
+                # A short interjection that cannot fit: leave it in the original voice (audible under a voice-over).
+                kept.append({"at": round(line["start"], 2), "text": line["text"][:80], "key": line.get("seg")})
+                continue
             if dur > window + 0.3:
                 overflow.append({"at": round(line["start"], 2), "text": line["text"][:80], "over_s": round(dur - window, 2),
                                  "key": line.get("seg")})
@@ -99,7 +103,7 @@ def build_dub(project, plan: dict, voice: str | None = None, log=print, progress
             args += ["-i", str(p)]
         ff.run_simple([*args, "-filter_complex", "".join(f"[{i}:a]" for i in range(len(parts))) +
                        f"amix=inputs={len(parts)}:normalize=0[m]", "-map", "[m]", "-ac", "1", "-ar", "48000", str(dub)], timeout=600)
-    info = {"file": str(dub), "lang": lang, "backend": backend, "voice": v, "lines": len(placed), "sped_up": sped,
+    info = {"file": str(dub), "lang": lang, "backend": backend, "voice": v, "lines": len(placed), "sped_up": sped, "kept_original": kept,
             "overflow": overflow, "text": " ".join(l["text"] for l in lines)}
     (work / "dub.json").write_text(json.dumps(info, ensure_ascii=False, indent=1), encoding="utf-8")
     return info
@@ -123,7 +127,7 @@ def apply_to_plan(project, db, plan: dict, exp: dict, ctx) -> dict:
     """Called by the export job for a dubbed language: voice the lines and attach the dub to the plan."""
     from ..render.plan import plan_hash
     info = build_dub(project, plan, voice=(ctx.params or {}).get("voice"), log=ctx.log, progress=ctx.progress)
-    plan["dub"] = {k: info[k] for k in ("file", "lang", "backend", "voice", "lines", "sped_up", "overflow")}
+    plan["dub"] = {k: info[k] for k in ("file", "lang", "backend", "voice", "lines", "sped_up", "overflow", "kept_original")}
     plan["dub"]["mode"] = plan["profile"].get("dub_mode", "voiceover")
     plan["_dub_text"] = info["text"]
     plan["hash"] = plan_hash(plan)

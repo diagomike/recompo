@@ -97,6 +97,52 @@ def project_set(ctx: Ctx, inp: SetIn):
     return ctx.project.summary()
 
 
+class BackupIn(BaseModel):
+    out: str | None = Field(None, description="Zip file to write (default: <project>/../<name>-backup-<date>.zip)")
+    exports: bool = Field(False, description="Include rendered exports (large)")
+
+
+@verb("project.backup", BackupIn, effect="write")
+def project_backup(ctx: Ctx, inp: BackupIn):
+    """Zip the project's work (database, recipes, music with licences, captions) without source media or caches.
+    Restore by unzipping anywhere and `recomp project use <folder>`, then `source relink` if media moved."""
+    import sqlite3
+    import time
+    import zipfile
+    root = ctx.project.root
+    out = Path(inp.out) if inp.out else root.parent / f"{root.name}-backup-{time.strftime('%Y%m%d-%H%M')}.zip"
+    snap = root / "cache" / "backup.db"
+    snap.parent.mkdir(parents=True, exist_ok=True)
+    src = sqlite3.connect(str(root / P.DB_NAME))
+    dst = sqlite3.connect(str(snap))
+    src.backup(dst)  # a consistent copy even while the studio is running
+    src.close()
+    dst.close()
+    n = 0
+    with zipfile.ZipFile(out, "w", zipfile.ZIP_DEFLATED) as z:
+        z.write(root / P.MANIFEST, P.MANIFEST)
+        z.write(snap, P.DB_NAME)
+        for sub in ("recipes", "music"):
+            for f in (root / sub).rglob("*"):
+                if f.is_file():
+                    z.write(f, f.relative_to(root).as_posix())
+                    n += 1
+        for f in (root / "sources").rglob("*"):
+            if f.is_file() and f.suffix in (".json", ".json3", ".vtt", ".srt"):
+                z.write(f, f.relative_to(root).as_posix())
+                n += 1
+        if inp.exports:
+            for f in (root / "exports").rglob("*"):
+                if f.is_file():
+                    z.write(f, f.relative_to(root).as_posix())
+                    n += 1
+        for f in [root / "AGENTS.md", root / "CLAUDE.md"]:
+            if f.exists():
+                z.write(f, f.name)
+    snap.unlink(missing_ok=True)
+    return {"zip": str(out), "files": n + 2, "mb": round(out.stat().st_size / 1e6, 2)}
+
+
 class KitIn(BaseModel):
     overwrite: bool = Field(True, description="Overwrite existing kit files (your own CLAUDE.md notes below the marker are kept)")
 
