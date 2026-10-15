@@ -46,6 +46,41 @@ because it was published before export.
 4. **Lower thirds for episodes** name the guest and the episode title, without repeating the guest or the year.
 5. **Layout:** name tags moved top-left; centre cards wait for the title instead of stacking.
 
+## Speakers across episodes (P9 acceptance)
+
+S5 was diarised and its voices named ("Alex O'Connor", "Priest (audience)"). S4 was then diarised with
+`--speakers 2` and **Alex was recognised automatically**: SPEAKER_01 → P1 at cosine 0.902 (threshold 0.70),
+520 lines labelled without a naming step. It took 1 h 51 min of CPU for 58 minutes of audio.
+
+### Cheaper: naming speakers from `>>` marks (P15)
+
+`speaker assign --by marks --names "A,B"` flips speakers at YouTube's `>>` turn marks. It needs no model and takes
+0.3 s. Compared with diarisation, by speaking time:
+
+| Episode | Lines | `>>` marks | Marks per minute | Agreement with diarisation |
+|---|---|---|---|---|
+| S5 (priest) | 115 | 11 | 2.5 | **86 %** |
+| S4 (Strawson) | 571 | 20 | 0.35 | 50 % (chance) |
+
+Dense marks give a usable labelling for free. Sparse marks fail, because one missed mark swaps every later line,
+so the verb now reports mark density and warns below one mark per minute. For sparse episodes: name ranges
+(`speaker assign S4 "Galen Strawson" --from … --to …`) or diarise.
+
+## Re-export with clean captions (P15)
+
+Auto captions overlapped (rolling lines stacked two at a time) and showed `>>` marks. Captions are now shown one at a time,
+`>>` and [sound] tags are removed from what is displayed, and words follow edited text. J1 to J3 were exported again
+(slots came from the cache; all checks pass; no `>>` and no two captions on screen at once in any of them):
+
+| Export | What | Length (planned) | Loudness | True peak | Caption events |
+|---|---|---|---|---|---|
+| X17 / X14 | J1 shorts / landscape | 82.4 s (82.4) | −14.5 LUFS | −1.7 dBFS | 210 karaoke / 26 |
+| X15 | J2 landscape | 337.2 s (337.17) | −14.5 | −1.3 | 104 |
+| X16 | J3 shorts | 63.2 s (63.17) | −14.2 | −1.6 | 162 karaoke |
+
+The first J1 shorts re-export (X13) still had one 10 ms overlap between two karaoke words (a minimum highlight
+length); highlights now end exactly where the next word starts, and X17 replaces it.
+
 ## Notes
 
 - The YouTube block lasted from ~06:30 to the evening; the JavaScript runtime (Node) is now passed to yt-dlp,

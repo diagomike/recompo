@@ -6,9 +6,9 @@ The build's working memory. If context runs short, resume from here.
 
 | | |
 |---|---|
-| Phases | **P0–P14 built** |
+| Phases | **P0–P14 built** · **P15 editing toolkit** verbs built (viewer parts go with P16) · **P16 UX pass** planned |
 | Milestones | **M1** ([report](runs/M1-dark-knight.md)) · **M2** ([report](runs/M2-alex-oconnor.md)) · **M3** am/sw/fr + om · **M4** local hub ([report](runs/M3-M4-languages-and-hub.md)): all done |
-| Suite | 70+ fast tests (`pytest -q`), slow speaker test (`pytest -m slow`) |
+| Suite | 85+ fast tests (`pytest -q`), slow speaker test (`pytest -m slow`); the reorder-cache timing assert can flake under heavy load |
 | Projects | `C:\Recomposer\projects\dark-knight` (M1, M3), `alex-oconnor` (M2: 5 episodes, 12 cuts, 3 journeys); `_uitest` scratch folder (forgotten from the list; safe to delete) |
 | Hub | `python -m hub` on 8790, data in `%USERPROFILE%\.recomp\hub`, seeded test users in `seed_users.json` there |
 
@@ -35,6 +35,8 @@ The build's working memory. If context runs short, resume from here.
   pyannote ~70 s on 40 s of audio including load.
 
 ## Lessons
+- `>>` marks name speakers for free only when dense (≥ 1/min); sparse marks swap every later line (M2: 86 % vs 50 %).
+- Ebrima's Ethiopic syllables are about Latin width: caption rows need no script-specific shortening (caption sheet).
 - Whisper word starts run ~0.4 s early: refine against energy onsets (`transcript/refine.py`).
 - Aligning subtitles to ASR: keep matches inside the line's own window (repeated phrases borrow timings).
 - Frame-exact slots + sample-exact audio assembly, or captions drift ~34 ms per slot.

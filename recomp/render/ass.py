@@ -210,7 +210,8 @@ def caption_events(captions: list[dict], style: str, w: int, h: int, layout: dic
                     t = esc(tx)
                     parts.append(r"{\c&H4AD8FF&}" + t + r"{\c&HFFFFFF&}" if kk == k else t)
                 s0 = chunk[0][0] if k == 0 else ws
-                e0 = min(max(nxt, ws + 0.05), limit)
+                # a word's highlight ends where the next word's begins (no minimum that could overlap it)
+                e0 = min(nxt if k + 1 < len(chunk) else max(nxt, ws + 0.05), limit)
                 if e0 > s0:
                     out.append(dialogue(s0, e0, "Karaoke", " ".join(parts)))
         return out
