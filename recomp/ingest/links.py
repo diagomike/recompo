@@ -309,11 +309,17 @@ def fetch_video(project, src: dict, height: int = 720, log=print, progress=None)
             "format": f"bv*[height<={height}][vcodec^=avc1]+ba[ext=m4a]/bv*[height<={height}][ext=mp4]+ba/b[height<={height}]/b",
             "merge_output_format": "mp4", "outtmpl": str(folder / f"video_{height}.%(ext)s"),
             "concurrent_fragment_downloads": 4, "progress_hooks": [hook] if hook else []}
-    try:
-        with _ydl(opts) as ydl:
-            ydl.download([src["uri"]])
-    except Exception as exc:  # noqa: BLE001
-        raise classify_error(exc) from exc
+    for attempt in range(3):  # googlevideo answers 403 now and then; a fresh extraction usually works
+        try:
+            with _ydl(opts) as ydl:
+                ydl.download([src["uri"]])
+            break
+        except Exception as exc:  # noqa: BLE001
+            err = classify_error(exc)
+            if attempt == 2 or "403" not in str(exc):
+                raise err from exc
+            log(f"video {src['ref']}: {err.message}; retrying")
+            time.sleep(30 * (attempt + 1))
     if not out.exists():
         cands = [p for p in folder.glob(f"video_{height}.*") if p.suffix not in (".part", ".ytdl")]
         if not cands:
