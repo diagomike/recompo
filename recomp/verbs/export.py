@@ -280,6 +280,55 @@ def export_check(ctx: Ctx, inp: ShowIn):
     return chk
 
 
+class MultiIn(BaseModel):
+    journey: str = Field(..., json_schema_extra={"pos": 0})
+    profile: str = Field("landscape", description="Profile whose finished exports to combine")
+    langs: list[str] = Field(..., description="Languages to include; the first one's picture is used")
+
+
+@verb("export.multitrack", MultiIn, effect="write",
+      examples=["recomp export multitrack J1 --profile landscape --langs en,am,sw,fr"])
+def export_multitrack(ctx: Ctx, inp: MultiIn):
+    """One MP4 with every language's audio track and subtitle track, from finished exports (no re-render).
+    Use a profile with captions as sidecar (not burned) so the picture suits every language."""
+    from ..media import ff
+    from ..render.engine import ISO3
+    db = ctx.db
+    j = refs.resolve(db, inp.journey, "journey")[1]
+    found = []
+    for lang in inp.langs:
+        rows = db.rows("export", "WHERE journey_id=? AND profile=? AND lang=? AND status IN ('done','done-with-problems') "
+                       "AND folder NOT LIKE '%preview-%' ORDER BY created_at DESC LIMIT 1", (j["id"], inp.profile, lang))
+        if not rows or not (rows[0]["outputs"] or {}).get("video"):
+            raise RecompError("E_NOT_FOUND", f"no finished {inp.profile} export in {lang}",
+                              hint=f"`recomp export run {j['ref']} --profiles {inp.profile} --langs {lang}`")
+        found.append((lang, Path(rows[0]["outputs"]["video"]), Path(rows[0]["folder"]) / "captions.srt"))
+    out_dir = Path(found[0][1]).parent.parent / f"{inp.profile}-multi"
+    out_dir.mkdir(parents=True, exist_ok=True)
+    out = out_dir / "video.mp4"
+    args = []
+    for _, video, _ in found:
+        args += ["-i", str(video)]
+    subs = [(lang, srt) for lang, _, srt in found if srt.exists() and srt.stat().st_size > 10]
+    for _, srt in subs:
+        args += ["-i", str(srt)]
+    args += ["-map", "0:v:0"]
+    for k in range(len(found)):
+        args += ["-map", f"{k}:a:0"]
+    for k in range(len(subs)):
+        args += ["-map", f"{len(found) + k}:0"]
+    args += ["-c:v", "copy", "-c:a", "copy", "-c:s", "mov_text"]
+    for k, (lang, _, _) in enumerate(found):
+        args += [f"-metadata:s:a:{k}", f"language={ISO3.get(lang[:2], 'und')}", f"-disposition:a:{k}", "default" if k == 0 else "0"]
+    for k, (lang, _) in enumerate(subs):
+        args += [f"-metadata:s:s:{k}", f"language={ISO3.get(lang[:2], 'und')}"]
+    args += ["-movflags", "+faststart", str(out)]
+    ff.run(args)
+    info = ff.probe(out).to_dict()
+    return {"video": str(out), "audio_tracks": info["audio_streams"], "subtitle_tracks": len(subs),
+            "languages": [l for l, _, _ in found]}
+
+
 class PruneIn(BaseModel):
     max_gb: float | None = Field(None, description="Keep the render cache under this size (default: config render.cache_max_gb)")
 

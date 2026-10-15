@@ -73,3 +73,11 @@ def test_untranslated_language_is_reported(dproj, OK):
     res = OK("export.run", {"journey": "J1", "profiles": ["landscape"], "langs": ["sw"]}, dproj)
     x = OK("export.show", {"ref": res["exports"][0]["export"]}, dproj)
     assert x["status"] in ("failed", "done-with-problems") or x.get("error")
+
+
+def test_multitrack_combines_languages(dproj, OK):
+    t = OK("lang.translate", {"journey": "J1", "to": "fr", "template": True}, dproj)
+    OK("lang.translate", {"journey": "J1", "to": "fr", "translations": {l["key"]: "Salut " + l["text"] for l in t["lines"]}}, dproj)
+    OK("export.run", {"journey": "J1", "profiles": ["landscape"], "langs": ["en", "fr"]}, dproj)
+    m = OK("export.multitrack", {"journey": "J1", "profile": "landscape", "langs": ["en", "fr"]}, dproj)
+    assert m["audio_tracks"] == 2 and m["subtitle_tracks"] == 2

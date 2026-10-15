@@ -15,7 +15,7 @@ Effects: `read` (no changes) · `write` (undoable op) · `heavy` (starts a job) 
 | `context` | [`context`](#context) |
 | `cut` | [`cut.add`](#cutadd), [`cut.edit`](#cutedit), [`cut.list`](#cutlist), [`cut.merge`](#cutmerge), [`cut.remove`](#cutremove), [`cut.show`](#cutshow), [`cut.split`](#cutsplit), [`cut.suggest`](#cutsuggest), [`cut.tag`](#cuttag), [`cut.trim`](#cuttrim) |
 | `doctor` | [`doctor`](#doctor) |
-| `export` | [`export.check`](#exportcheck), [`export.cuts`](#exportcuts), [`export.run`](#exportrun), [`export.show`](#exportshow), [`export.status`](#exportstatus) |
+| `export` | [`export.check`](#exportcheck), [`export.cuts`](#exportcuts), [`export.multitrack`](#exportmultitrack), [`export.run`](#exportrun), [`export.show`](#exportshow), [`export.status`](#exportstatus) |
 | `hub` | [`hub.comment`](#hubcomment), [`hub.comments`](#hubcomments), [`hub.feed`](#hubfeed), [`hub.follow`](#hubfollow), [`hub.fork`](#hubfork), [`hub.link-post`](#hublink-post), [`hub.login`](#hublogin), [`hub.logout`](#hublogout), [`hub.publish`](#hubpublish), [`hub.pull`](#hubpull), [`hub.show`](#hubshow), [`hub.vote`](#hubvote), [`hub.whoami`](#hubwhoami) |
 | `job` | [`job.cancel`](#jobcancel), [`job.list`](#joblist), [`job.retry`](#jobretry), [`job.run`](#jobrun), [`job.show`](#jobshow), [`job.tail`](#jobtail), [`job.wait`](#jobwait) |
 | `journey` | [`journey.add`](#journeyadd), [`journey.delete`](#journeydelete), [`journey.duplicate`](#journeyduplicate), [`journey.edit`](#journeyedit), [`journey.from-search`](#journeyfrom-search), [`journey.list`](#journeylist), [`journey.move`](#journeymove), [`journey.new`](#journeynew), [`journey.remove`](#journeyremove), [`journey.reorder`](#journeyreorder), [`journey.section`](#journeysection), [`journey.show`](#journeyshow), [`journey.transition`](#journeytransition), [`journey.trim-slot`](#journeytrim-slot), [`journey.validate`](#journeyvalidate) |
@@ -416,6 +416,23 @@ Export individual cuts (one video each) with their own credits.
 
 ```
 recomp export cuts C4 C9 --profile clip
+```
+
+### export.multitrack
+
+`recomp export multitrack <journey>` · effect: **write**
+
+One MP4 with every language's audio track and subtitle track, from finished exports (no re-render).
+Use a profile with captions as sidecar (not burned) so the picture suits every language.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<journey>` | string | required |  |
+| `--profile` | string | 'landscape' | Profile whose finished exports to combine |
+| `--langs` | list[string] | required | Languages to include; the first one's picture is used |
+
+```
+recomp export multitrack J1 --profile landscape --langs en,am,sw,fr
 ```
 
 ### export.run
