@@ -60,7 +60,7 @@ export function ActionProvider({ children }: { children: ReactNode }) {
         {toasts.map((t) => (
           <div key={t.id} className={"toast " + (t.ok ? "ok" : "bad")}>
             <div className="thead">
-              <span className="ticon">{t.ok ? <Check size={15} /> : <X size={15} />}</span>
+              <span className="ticon">{t.ok ? <Check size={14} /> : <X size={14} />}</span>
               <b className="grow">{t.title}{t.refs?.length ? " → " + t.refs.slice(0, 4).join(", ") : ""}</b>
               {t.undo && <button className="btn small" onClick={async () => { const e = await verb("op.undo", {}); toast(e.ok ? { ok: true, title: `Undone: ${e.data.verb}` } : { ok: false, title: "Undo", detail: e.error!.message + (e.error!.hint ? " — " + e.error!.hint : "") }); setToasts((xs) => xs.filter((x) => x.id !== t.id)); }}><Undo2 size={14} />Undo</button>}
               <button className="btn ghost small icon" aria-label="Dismiss" onClick={() => setToasts((xs) => xs.filter((x) => x.id !== t.id))}><X size={14} /></button>
@@ -135,7 +135,7 @@ export function Act(p: ActProps) {
         <button className="btn ghost small icon agent-hand" disabled={p.disabled} aria-label="Hand this to the agent"
                 data-tip="Hand this to the agent instead: it gets the same command" data-tip-cmd={tip || p.verb}
                 onMouseEnter={() => !tip && cliFor(p.verb, args).then(setTip)} onClick={() => hand(p.verb, args, label)}>
-          <Bot size={15} />
+          <Bot size={14} />
         </button>
       )}
     </span>

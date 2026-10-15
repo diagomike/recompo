@@ -94,7 +94,7 @@ export function Menu({ items, label = "More actions", trigger, small, align = "e
     <>
       <button ref={btn} className={trigger ? "btn" + (small ? " small" : "") : "btn ghost icon" + (small ? " small" : "")} aria-haspopup="menu" aria-expanded={open}
               data-tip={trigger ? undefined : label} aria-label={label} onClick={() => setOpen(!open)}>
-        {trigger ?? <MoreHorizontal size={18} />}
+        {trigger ?? <MoreHorizontal size={14} />}
       </button>
       {open && createPortal(
         <div ref={box} className="menu" role="menu" style={pos}>
@@ -128,7 +128,7 @@ export function Dialog({ title, sub, children, footer, onClose, wide, icon }: {
         <div className="dhead">
           {icon}
           <div className="grow"><h2>{title}</h2>{sub && <p>{sub}</p>}</div>
-          <button className="btn ghost icon" onClick={onClose} aria-label="Close" data-tip="Close (Esc)"><X size={18} /></button>
+          <button className="btn ghost icon" onClick={onClose} aria-label="Close" data-tip="Close (Esc)"><X size={14} /></button>
         </div>
         <div className="dbody">{children}</div>
         {footer && <div className="dfoot">{footer}</div>}
@@ -148,7 +148,7 @@ export function Disclosure({ id, label, children, defaultOpen = false, count }: 
   return (
     <div className="disclosure">
       <button className="dtoggle" onClick={toggle} aria-expanded={open}>
-        {open ? <ChevronDown size={16} /> : <ChevronRight size={16} />}{label}{count ? <span className="chip">{count}</span> : null}
+        {open ? <ChevronDown size={14} /> : <ChevronRight size={14} />}{label}{count ? <span className="chip">{count}</span> : null}
       </button>
       {open && <div className="dcontent">{children}</div>}
     </div>

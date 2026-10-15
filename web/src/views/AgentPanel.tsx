@@ -22,9 +22,9 @@ export default function AgentPanel({ onClose }: { onClose: () => void }) {
   return (
     <>
       <div className="drawerhead">
-        <Bot size={20} style={{ color: "var(--agent)" }} />
+        <Bot size={14} style={{ color: "var(--agent)" }} />
         <h2 className="grow">Agent</h2>
-        <button className="btn ghost icon" onClick={onClose} aria-label="Close" data-tip="Hide the panel" data-tip-key="."><X size={18} /></button>
+        <button className="btn ghost icon" onClick={onClose} aria-label="Close" data-tip="Hide the panel" data-tip-key="."><X size={14} /></button>
       </div>
       <div className="sidesec">
         <h3><MessageCircleQuestion size={14} />Questions for you</h3>
@@ -42,7 +42,7 @@ export default function AgentPanel({ onClose }: { onClose: () => void }) {
         ))}
         <div className="row nowrap" style={{ marginTop: 10, gap: 8 }}>
           <input className="input grow" placeholder="Leave a note for the agent…" value={text} onChange={(e) => setText(e.target.value)} onKeyDown={(e) => e.key === "Enter" && send()} />
-          <button className="btn icon" onClick={send} disabled={!text.trim()} aria-label="Send" data-tip="Send: the agent reads it with `recomp ui notes`"><Send size={16} /></button>
+          <button className="btn icon" onClick={send} disabled={!text.trim()} aria-label="Send" data-tip="Send: the agent reads it with `recomp ui notes`"><Send size={14} /></button>
         </div>
         {!!waiting.length && (
           <div style={{ marginTop: 12 }}>
@@ -63,7 +63,7 @@ export default function AgentPanel({ onClose }: { onClose: () => void }) {
         </div>
       )}
       <div className="sidesec" style={{ borderBottom: 0 }}>
-        <h3><span className="grow">Activity</span><button className="btn ghost small icon" aria-label="Undo" data-tip="Undo your last change" data-tip-key="Ctrl+Z" onClick={() => verb("op.undo")}><Undo2 size={15} /></button></h3>
+        <h3><span className="grow">Activity</span><button className="btn ghost small icon" aria-label="Undo" data-tip="Undo your last change" data-tip-key="Ctrl+Z" onClick={() => verb("op.undo")}><Undo2 size={14} /></button></h3>
         {(ops || []).map((o) => (
           <div key={o.op} className="act">
             <span className={"who chip " + o.actor}>{o.actor === "user" ? "you" : o.actor}</span>

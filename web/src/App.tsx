@@ -181,11 +181,11 @@ function Shell() {
   const v = route.view;
   const isOn = (key: string) => v === key || (key === "sources" && v === "room");
   const nav: [string, string, JSX.Element, string][] = [
-    ["home", "Home", <HomeIcon size={19} />, "g h"], ["journeys", "Journeys", <Layers size={19} />, "g j"],
-    ["sources", "Sources", <Film size={19} />, "g s"], ["cuts", "Cut bin", <Scissors size={19} />, "g c"], ["search", "Search", <SearchIcon size={19} />, "g f"],
-    ["exports", "Exports", <Upload size={19} />, "g e"],
+    ["home", "Home", <HomeIcon size={14} />, "g h"], ["journeys", "Journeys", <Layers size={14} />, "g j"],
+    ["sources", "Sources", <Film size={14} />, "g s"], ["cuts", "Cut bin", <Scissors size={14} />, "g c"], ["search", "Search", <SearchIcon size={14} />, "g f"],
+    ["exports", "Exports", <Upload size={14} />, "g e"],
   ];
-  const themeIcon = theme === "dark" ? <Moon size={18} /> : theme === "light" ? <Sun size={18} /> : <Monitor size={18} />;
+  const themeIcon = theme === "dark" ? <Moon size={14} /> : theme === "light" ? <Sun size={14} /> : <Monitor size={14} />;
   const cycleTheme = () => setTheme(theme === "system" ? "dark" : theme === "dark" ? "light" : "system");
   const docked = agentOpen && width >= 1440 && v !== "room";
   const navButton = (key: string, label: string, icon: JSX.Element, keys?: string, badge?: number) => (
@@ -203,7 +203,7 @@ function Shell() {
           <nav className="nav" aria-label="Main">
             <a className="brand" href="#/" data-tip={width <= 1180 ? "All projects" : undefined}><span className="logo">R</span><span className="word">Recomposer</span></a>
             <button className="projbtn" onClick={() => (window.location.hash = "#/")} data-tip="Switch project">
-              <ChevronsUpDown size={16} className="faint" />
+              <ChevronsUpDown size={14} className="faint" />
               <span className="ptext ellipsis"><span className="plabel">Project</span><br /><span className="pname">{route.project}</span></span>
             </button>
             <div className="navgroup">Make</div>
@@ -213,9 +213,9 @@ function Shell() {
             <div className="navgroup">Deliver</div>
             {nav.slice(5).map(([k, l, i, kk]) => navButton(k, l, i, kk))}
             <div className="navfoot">
-              {navButton("jobs", "Jobs", <ListChecks size={19} />, "g b", running)}
-              {navButton("activity", "Activity", <Activity size={19} />, "g a")}
-              <button className="navitem" onClick={() => (window.location.hash = "#/hub")} data-tip={width <= 1180 ? "Community hub" : undefined}><Share2 size={19} /><span className="lbl">Community hub</span></button>
+              {navButton("jobs", "Jobs", <ListChecks size={14} />, "g b", running)}
+              {navButton("activity", "Activity", <Activity size={14} />, "g a")}
+              <button className="navitem" onClick={() => (window.location.hash = "#/hub")} data-tip={width <= 1180 ? "Community hub" : undefined}><Share2 size={14} /><span className="lbl">Community hub</span></button>
             </div>
           </nav>
         )}
@@ -223,22 +223,22 @@ function Shell() {
           <header className="topbar">
             {!route.project && <a className="brand" href="#/" style={{ padding: 0 }}><span className="logo">R</span><span>Recomposer</span></a>}
             {route.project && width <= 700 && (
-              <button className="btn ghost small" onClick={() => (window.location.hash = "#/")} data-tip="Switch project"><ChevronsUpDown size={15} />{route.project}</button>
+              <button className="btn ghost small" onClick={() => (window.location.hash = "#/")} data-tip="Switch project"><ChevronsUpDown size={14} />{route.project}</button>
             )}
             {route.project && width > 700 && <div className="crumbs"><b>{title}</b></div>}
             <div className="spacer" />
             {route.project && v !== "start" && (
               <button className="btn primary" onClick={newJourney} data-tip="Start a guided journey" data-tip-key="n">
-                <Plus size={17} /><span className="hide-sm">New journey</span>
+                <Plus size={14} /><span className="hide-sm">New journey</span>
               </button>
             )}
-            {!route.project && v !== "hub" && <button className="btn ghost" onClick={() => (window.location.hash = "#/hub")}><Share2 size={17} />Community hub</button>}
+            {!route.project && v !== "hub" && <button className="btn ghost" onClick={() => (window.location.hash = "#/hub")}><Share2 size={14} />Community hub</button>}
             <button className="btn ghost icon" onClick={cycleTheme} data-tip={`Theme: ${theme} (click to change)`} aria-label="Theme">{themeIcon}</button>
-            {route.project && width > 700 && <button className="btn ghost icon" onClick={() => setHelp(true)} data-tip="Keyboard shortcuts" data-tip-key="?" aria-label="Keyboard shortcuts"><Keyboard size={18} /></button>}
+            {route.project && width > 700 && <button className="btn ghost icon" onClick={() => setHelp(true)} data-tip="Keyboard shortcuts" data-tip-key="?" aria-label="Keyboard shortcuts"><Keyboard size={14} /></button>}
             {route.project && (
               <button className={"btn iconbtn" + (agentOpen ? " on" : "")} onClick={() => toggleAgent()} aria-expanded={agentOpen}
                       data-tip={agentOpen ? "Hide the agent panel" : asks ? `The agent asks ${asks} question(s)` : "Agent: notes, questions and live activity"} data-tip-key=".">
-                <Bot size={18} /><span className="hide-sm">Agent</span>{!!asks && <span className="badge">{asks}</span>}
+                <Bot size={14} /><span className="hide-sm">Agent</span>{!!asks && <span className="badge">{asks}</span>}
               </button>
             )}
           </header>
@@ -297,14 +297,14 @@ function Shell() {
 function MoreNav({ go, running }: { go: (v: string) => void; running: number }) {
   return (
     <span style={{ display: "grid", placeItems: "center", position: "relative" }}>
-      <Menu label="More" align="end" trigger={<><MenuIcon size={20} /></>} items={[
-        { label: "Search", icon: <SearchIcon size={17} />, onSelect: () => go("search") },
-        { label: "Exports", icon: <Upload size={17} />, onSelect: () => go("exports") },
-        { label: `Jobs${running ? ` (${running} running)` : ""}`, icon: <ListChecks size={17} />, onSelect: () => go("jobs") },
-        { label: "Activity", icon: <Activity size={17} />, onSelect: () => go("activity") },
+      <Menu label="More" align="end" trigger={<><MenuIcon size={14} /></>} items={[
+        { label: "Search", icon: <SearchIcon size={14} />, onSelect: () => go("search") },
+        { label: "Exports", icon: <Upload size={14} />, onSelect: () => go("exports") },
+        { label: `Jobs${running ? ` (${running} running)` : ""}`, icon: <ListChecks size={14} />, onSelect: () => go("jobs") },
+        { label: "Activity", icon: <Activity size={14} />, onSelect: () => go("activity") },
         "sep",
-        { label: "Community hub", icon: <Share2 size={17} />, onSelect: () => (window.location.hash = "#/hub") },
-        { label: "All projects", icon: <ChevronsUpDown size={17} />, onSelect: () => (window.location.hash = "#/") },
+        { label: "Community hub", icon: <Share2 size={14} />, onSelect: () => (window.location.hash = "#/hub") },
+        { label: "All projects", icon: <ChevronsUpDown size={14} />, onSelect: () => (window.location.hash = "#/") },
       ]} />
     </span>
   );

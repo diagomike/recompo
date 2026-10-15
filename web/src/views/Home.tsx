@@ -3,15 +3,14 @@ import { ArrowRight, CheckCircle2, Circle, CircleDashed, Film, FolderOpen, Layer
 import { must } from "../api";
 import { useApp, useData } from "../App";
 import { Act, useActions } from "../actions";
-import { Disclosure, Menu, useWidth } from "../ui";
-import { JourneyCards } from "./Journeys";
+import { Disclosure, Menu } from "../ui";
+import { JourneyTable } from "./Journeys";
 
 // The project at a glance: journeys first (what you are making), then the setup steps still open, each with its
 // next action. The agent reads the same list with `recomp project checklist`.
 export default function Home() {
   const { go, newJourney } = useApp();
   const { run } = useActions();
-  const width = useWidth();
   const { data, error } = useData(() => must<any>("project.checklist"));
   if (error) return <div className="page"><div className="err">{error}</div></div>;
   if (!data) return <div className="page">Loading…</div>;
@@ -24,7 +23,7 @@ export default function Home() {
   const hasCuts = steps.find((s) => s.key === "cuts")?.state === "done";
   const journeys = data.journeys as any[];
   return (
-    <div className="page wide">
+    <div className="page">
       <div className="pagehead">
         <div className="titles">
           <div className="eyebrow">Project · {data.project.kind}</div>
@@ -32,10 +31,10 @@ export default function Home() {
           <p className="sub mono faint" style={{ fontSize: 13 }}>{data.project.path}</p>
         </div>
         <Menu label="Project actions" items={[
-          { label: "Open the project folder", icon: <FolderOpen size={16} />, onSelect: () => run("project.reveal", { what: "root" }, { quiet: true }) },
-          ...Object.keys(data.folders).map((k) => ({ label: `Open ${k}/`, icon: <FolderOpen size={16} />, onSelect: () => run("project.reveal", { what: k }, { quiet: true }) })),
+          { label: "Open the project folder", icon: <FolderOpen size={14} />, onSelect: () => run("project.reveal", { what: "root" }, { quiet: true }) },
+          ...Object.keys(data.folders).map((k) => ({ label: `Open ${k}/`, icon: <FolderOpen size={14} />, onSelect: () => run("project.reveal", { what: k }, { quiet: true }) })),
           "sep",
-          { label: "All projects", icon: <Layers size={16} />, onSelect: () => (window.location.hash = "#/") },
+          { label: "All projects", icon: <Layers size={14} />, onSelect: () => (window.location.hash = "#/") },
         ]} />
       </div>
 
@@ -43,24 +42,24 @@ export default function Home() {
         <div className="hero">
           <div><h2>Start with your sources</h2>
             <p className="sub">Films, talks, podcasts or YouTube links. Files stay where they are; links bring captions first and video only when a journey needs it.</p></div>
-          <div className="row"><button className="btn primary lg" onClick={() => go("sources", null, { browse: 1 })}><Film size={18} />Add sources</button></div>
+          <div className="row"><button className="btn primary lg" onClick={() => go("sources", null, { browse: 1 })}><Film size={14} />Add sources</button></div>
         </div>
       ) : (
         <section className="section">
           <div className="sechead">
             <div className="grow"><h2 className="h2">Journeys</h2>
               <p className="sub">{journeys.length ? "Pick up where you left off, or start a new one." : "Your sources are ready: make something from them."}</p></div>
-            {!!journeys.length && <button className="btn primary" onClick={newJourney}><Plus size={17} />New journey</button>}
+            {!!journeys.length && <button className="btn primary" onClick={newJourney}><Plus size={14} />New journey</button>}
           </div>
-          {journeys.length ? <JourneyCards journeys={journeys} limit={width > 1300 ? 5 : 3} /> : (
+          {journeys.length ? <JourneyTable journeys={journeys} limit={6} /> : (
             <div className="hero">
               <div><h2>Make your first journey</h2>
                 <p className="sub">Say what it is for and where it goes (Shorts, YouTube, the community hub). The studio walks you through gathering moments
                   from {hasCuts ? "your cuts and" : ""} your sources, putting them in order, the look, a check and the export.</p></div>
-              <div className="row"><button className="btn primary lg" onClick={newJourney}><Sparkles size={18} />New journey</button></div>
+              <div className="row"><button className="btn primary lg" onClick={newJourney}><Sparkles size={14} />New journey</button></div>
             </div>
           )}
-          {journeys.length > (width > 1300 ? 5 : 3) && <div style={{ marginTop: 12 }}><button className="btn ghost" onClick={() => go("journeys")}>All {journeys.length} journeys<ArrowRight size={16} /></button></div>}
+          {journeys.length > 6 && <div style={{ marginTop: 12 }}><button className="btn ghost" onClick={() => go("journeys")}>All {journeys.length} journeys<ArrowRight size={14} /></button></div>}
         </section>
       )}
 
@@ -88,7 +87,7 @@ export default function Home() {
             {Object.entries(data.folders).map(([k, f]: [string, any]) => (
               <div key={k} className="card pad-sm stack sm">
                 <div className="row nowrap"><b className="grow">{k}/</b><span className="chip">{f.files} files · {f.mb >= 1000 ? (f.mb / 1000).toFixed(1) + " GB" : f.mb + " MB"}</span>
-                  <Act verb="project.reveal" args={{ what: k }} small ghost quiet icon={<FolderOpen size={15} />} label={`Open ${k}/`}>{""}</Act></div>
+                  <Act verb="project.reveal" args={{ what: k }} small ghost quiet icon={<FolderOpen size={14} />} label={`Open ${k}/`}>{""}</Act></div>
                 <div className="muted2">
                   {k === "sources" && "Media fetched for link sources, audio, thumbnails."}
                   {k === "recipes" && "One JSON recipe per journey: sources and timecodes, shareable without media."}
@@ -117,7 +116,7 @@ function StepRow({ s, next }: { s: any; next: boolean }) {
   return (
     <li className={"step " + s.state + (next ? " next" : "")}>
       <span className="sicon">
-        {s.state === "done" ? <CheckCircle2 size={20} /> : s.state === "partial" ? <CircleDashed size={20} /> : <Circle size={20} />}
+        {s.state === "done" ? <CheckCircle2 size={14} /> : s.state === "partial" ? <CircleDashed size={14} /> : <Circle size={14} />}
       </span>
       <div className="stack sm">
         <div className="row tight">
@@ -132,7 +131,7 @@ function StepRow({ s, next }: { s: any; next: boolean }) {
               ? <Act key={a.label} verb={a.verb} args={a.args} small primary={next && k === 0} agent>{a.label}</Act>
               : <button key={a.label} className={"btn small" + (next && k === 0 ? " primary" : "")} onClick={() => open(a)}>{a.label}</button>)}
             {s.agent && s.state !== "done" && !asking && (
-              <button className="btn ghost small" data-tip="Leave this for the agent: it sees it in `recomp ui notes`" onClick={() => setAsking(true)}><Sparkles size={15} />Ask the agent…</button>
+              <button className="btn ghost small" data-tip="Leave this for the agent: it sees it in `recomp ui notes`" onClick={() => setAsking(true)}><Sparkles size={14} />Ask the agent…</button>
             )}
             {asking && (
               <span className="row nowrap grow" style={{ minWidth: 260 }}>

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { ArrowRight, Layers, Scissors, Sparkles, SquarePlus } from "lucide-react";
+import { ArrowRight, Scissors, Sparkles, SquarePlus } from "lucide-react";
 import { must } from "../api";
 import { useApp } from "../App";
 import { useActions } from "../actions";
@@ -51,18 +51,18 @@ export default function NewJourney({ onClose }: { onClose: () => void }) {
   };
 
   return (
-    <Dialog wide title="New journey" icon={<span className="eicon" style={{ width: 40, height: 40, borderRadius: 12, display: "grid", placeItems: "center", background: "var(--accent-soft)", color: "var(--accent)" }}><Layers size={20} /></span>}
+    <Dialog wide title="New journey"
             sub="A journey strings moments from your sources into one piece. Say what it is for and where it goes; the studio guides you from there."
             onClose={onClose}
             footer={<>
               <span className="muted2 grow">Next: {start === "empty" ? "gather cuts" : "put them in order"}. You can change all of this later.</span>
               <button className="btn" onClick={onClose}>Cancel</button>
-              <button className="btn primary lg" disabled={busy} onClick={create}>{busy ? "Creating…" : "Create journey"}<ArrowRight size={18} /></button>
+              <button className="btn primary" disabled={busy} onClick={create}>{busy ? "Creating…" : "Create journey"}<ArrowRight size={14} /></button>
             </>}>
       <div className="stack lg">
         <div className="field">
           <label htmlFor="nj-title">Name</label>
-          <input id="nj-title" className={"input lg" + (tried && !title.trim() ? " on" : "")} placeholder="e.g. Can a machine be conscious?" value={title}
+          <input id="nj-title" className={"input" + (tried && !title.trim() ? " on" : "")} placeholder="e.g. Can a machine be conscious?" value={title}
                  onChange={(e) => setTitle(e.target.value)} onKeyDown={(e) => e.key === "Enter" && create()} />
           {tried && !title.trim() && <span className="help" style={{ color: "var(--red)" }}>Give it a name to continue.</span>}
         </div>
@@ -88,16 +88,16 @@ export default function NewJourney({ onClose }: { onClose: () => void }) {
           <span className="label">How do you want to start?</span>
           <div className="grid3" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))" }}>
             <button type="button" className={"tile" + (start === "empty" ? " on" : "")} onClick={() => setStart("empty")}>
-              <span className="tt"><SquarePlus size={17} />Gather step by step</span>
+              <span className="tt"><SquarePlus size={14} />Gather step by step</span>
               <span className="td">Suggestions, your cut bin, or new cuts from any source.</span>
             </button>
             <button type="button" className={"tile" + (start === "selection" ? " on" : "")} onClick={() => setStart("selection")} disabled={!picked.length}
                     style={!picked.length ? { opacity: .55, cursor: "default" } : undefined}>
-              <span className="tt"><Scissors size={17} />{picked.length ? `With ${picked.length} ticked cut${picked.length > 1 ? "s" : ""}` : "With ticked cuts"}</span>
+              <span className="tt"><Scissors size={14} />{picked.length ? `With ${picked.length} ticked cut${picked.length > 1 ? "s" : ""}` : "With ticked cuts"}</span>
               <span className="td">{picked.length ? picked.join(" → ") : "Tick cuts in the cut bin first."}</span>
             </button>
             <button type="button" className={"tile" + (start === "search" ? " on" : "")} onClick={() => setStart("search")}>
-              <span className="tt"><Sparkles size={17} />Draft from a theme</span>
+              <span className="tt"><Sparkles size={14} />Draft from a theme</span>
               <span className="td">Whole-thought cuts for a theme, across your sources.</span>
             </button>
           </div>
