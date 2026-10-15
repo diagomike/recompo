@@ -248,7 +248,9 @@ def measure_loudness(body: Path, plan: dict) -> dict:
 
 def final(work: Path, body: Path, card: Path | None, plan: dict, prof: dict, out: Path, c: Ctx) -> Path:
     w, h = prof["width"], prof["height"]
-    doc = ass.document(w, h, plan["captions"] if prof["captions"] == "burn" else [], prof["caption_style"], plan["overlays"])
+    caps = plan["captions"] if prof["captions"] == "burn" else []
+    layout = ass.caption_layout(prof, plan.get("lang"), " ".join(c["text"] for c in caps[:20]))
+    doc = ass.document(w, h, caps, prof["caption_style"], plan["overlays"], layout)
     (work / "overlay.ass").write_text(doc, encoding="utf-8")
     meas = measure_loudness(body, plan)
     c.progress(0.8, "loudness measured")

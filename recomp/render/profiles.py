@@ -13,6 +13,11 @@ BASE: dict = {
     "reframe": "fit-pad",            # fit-blur | fit-pad | crop-center | crop-x
     "captions": "burn",              # burn | sidecar | off
     "caption_style": "clean",        # clean | karaoke | quote
+    "caption_max_chars": None,       # characters per caption row (None: by format and script)
+    "caption_max_lines": 2,          # rows per caption screen; longer lines become more screens
+    "caption_scale": 1.0,            # caption font size factor
+    "caption_margin": None,          # distance from the bottom as a fraction of the height (None: by format)
+    "caption_lang": {},              # per-language overrides: {"am": {"max_chars": 24, "scale": 0.9}}
     "overlays": True,
     "lower_thirds": True,
     "music": True,

@@ -292,30 +292,56 @@ def transcript_sync_check(ctx: Ctx, inp: SyncIn):
     return out
 
 
-def shift(ctx: Ctx, tr: dict, by: float) -> None:
-    with ctx.op(f"shift {tr['ref']} {by:+.3f}s") as tx:
-        tx.conn.execute('UPDATE segment SET start=start+?, "end"="end"+? WHERE transcript_id=?', (by, by, tr["id"]))
-        tx.conn.execute('UPDATE word SET start=start+?, "end"="end"+? WHERE segment_id IN '
-                        "(SELECT id FROM segment WHERE transcript_id=?)", (by, by, tr["id"]))
+def shift(ctx: Ctx, tr: dict, by: float, scale: float = 1.0, frm: float | None = None, to: float | None = None) -> int:
+    """t -> t * scale + by, for the whole transcript or only the lines that start inside [frm, to)."""
+    where, params = "transcript_id=?", [tr["id"]]
+    if frm is not None:
+        where += " AND start >= ?"
+        params.append(frm)
+    if to is not None:
+        where += " AND start < ?"
+        params.append(to)
+    whole = frm is None and to is None
+    label = f"{by:+.3f}s" + (f" x{scale:g}" if scale != 1.0 else "") + ("" if whole else " (range)")
+    with ctx.op(f"shift {tr['ref']} {label}") as tx:
+        tx.conn.execute(f'UPDATE word SET start=start*?+?, "end"="end"*?+? WHERE segment_id IN '
+                        f"(SELECT id FROM segment WHERE {where})", [scale, by, scale, by] + params)
+        n = tx.conn.execute(f'UPDATE segment SET start=start*?+?, "end"="end"*?+? WHERE {where}',
+                            [scale, by, scale, by] + params).rowcount
         stats = dict(tr["stats"] or {})
-        if "sync" in stats:
+        if whole and "sync" in stats:
             stats["sync"] = dict(stats["sync"], applied=round(by, 3))
-        tx.update("transcript", tr["id"], {"offset_s": round((tr["offset_s"] or 0) + by, 3), "stats": stats})
+        fields = {"stats": stats}
+        if whole and scale == 1.0:
+            fields["offset_s"] = round((tr["offset_s"] or 0) + by, 3)
+        else:
+            stats["retimed"] = stats.get("retimed", []) + [{"by": by, "scale": scale, "from": frm, "to": to}]
+        tx.update("transcript", tr["id"], fields)
         tx.redoable = False
+    return n
 
 
 class ShiftIn(BaseModel):
     ref: str = Field(..., json_schema_extra={"pos": 0})
-    by: str = Field(..., description="Seconds to add to every time (negative = earlier)", json_schema_extra={"pos": 1})
+    by: str = Field("0", description="Seconds to add to every time (negative = earlier)", json_schema_extra={"pos": 1})
+    scale: float = Field(1.0, description="Multiply times first (frame-rate drift: 25/23.976 = 1.04271)")
+    from_: str | None = Field(None, alias="from", description="Only lines starting at or after this time")
+    to: str | None = Field(None, description="Only lines starting before this time")
+
+    model_config = {"populate_by_name": True}
 
 
-@verb("transcript.shift", ShiftIn, effect="write", examples=["recomp transcript shift S1.t1 -1.5"])
+@verb("transcript.shift", ShiftIn, effect="write",
+      examples=["recomp transcript shift S1.t1 -1.5", "recomp transcript shift S1 0 --scale 1.04271",
+                "recomp transcript shift S1 0.8 --from 1:02:10   # only the lines after a reel change"])
 def transcript_shift(ctx: Ctx, inp: ShiftIn):
-    """Shift every segment and word of a transcript in time (its own inverse: shift back to undo)."""
+    """Shift (and optionally stretch) a transcript's times, whole or from/to a point. Shift back to undo a whole shift."""
     _, tr = transcript_for(ctx.db, inp.ref)
     by = parse(inp.by) or 0.0
-    shift(ctx, tr, by)
-    return {"transcript": tr["ref"], "shifted": by}
+    if inp.scale <= 0:
+        raise RecompError("E_INVALID", "scale must be positive", hint="e.g. 1.04271 for 23.976 → 25 fps")
+    n = shift(ctx, tr, by, inp.scale, parse(inp.from_) if inp.from_ else None, parse(inp.to) if inp.to else None)
+    return {"transcript": tr["ref"], "shifted": by, "scale": inp.scale, "lines": n}
 
 
 class AlignIn(BaseModel):

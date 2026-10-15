@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import os
 from pathlib import Path
 
 from pydantic import BaseModel, Field
@@ -14,7 +15,8 @@ from ..registry import Ctx, NoInput, verb
 from ..render import profiles
 from ..workers import jobs
 
-PROFILE_FIELDS = ("width", "height", "fps", "reframe", "captions", "caption_style", "overlays", "lower_thirds", "music",
+PROFILE_FIELDS = ("width", "height", "fps", "reframe", "captions", "caption_style", "caption_max_chars",
+                  "caption_max_lines", "caption_scale", "caption_margin", "overlays", "lower_thirds", "music",
                   "endcard", "endcard_seconds", "title_card", "loudness", "crf", "preset", "dub_mode", "multitrack")
 
 
@@ -52,6 +54,12 @@ class ProfileIn(BaseModel):
     reframe: str | None = Field(None, description="fit-blur | fit-pad | crop-center | crop-x")
     captions: str | None = Field(None, description="burn | sidecar | off")
     caption_style: str | None = Field(None, description="clean | karaoke")
+    caption_max_chars: int | None = Field(None, description="Characters per caption row (0 = automatic by format and script)")
+    caption_max_lines: int | None = Field(None, description="Rows per caption screen (longer lines become more screens)")
+    caption_scale: float | None = Field(None, description="Caption font size factor, e.g. 0.9")
+    caption_margin: float | None = Field(None, description="Distance from the bottom as a fraction of the height, e.g. 0.12")
+    caption_lang: str | None = Field(None, description="Per-language caption override, lang:key=value,…  "
+                                                       "e.g. am:max_chars=24,scale=0.9 (key=none removes it)")
     overlays: bool | None = None
     lower_thirds: bool | None = None
     music: bool | None = None
@@ -66,12 +74,39 @@ class ProfileIn(BaseModel):
     model_config = {"populate_by_name": True}
 
 
+def _caption_lang(current: dict, spec: str) -> dict:
+    """'am:max_chars=24,scale=0.9' → {'am': {'max_chars': 24, 'scale': 0.9}} merged into current."""
+    if ":" not in spec:
+        raise RecompError("E_INVALID", "caption_lang looks like am:max_chars=24,scale=0.9")
+    lang, body = spec.split(":", 1)
+    entry = dict(current.get(lang) or {})
+    for part in body.split(","):
+        if "=" not in part:
+            continue
+        k, v = (x.strip() for x in part.split("=", 1))
+        if k not in ("max_chars", "max_lines", "scale", "margin"):
+            raise RecompError("E_INVALID", f"unknown caption key {k!r}", hint="max_chars, max_lines, scale, margin")
+        if v.lower() in ("none", ""):
+            entry.pop(k, None)
+        else:
+            entry[k] = int(v) if k in ("max_chars", "max_lines") else float(v)
+    if entry:
+        current[lang] = entry
+    else:
+        current.pop(lang, None)
+    return current
+
+
 def _settings(inp: ProfileIn, base: dict) -> dict:
     s = dict(base)
     for k in (*PROFILE_FIELDS, "description"):
         v = getattr(inp, k, None)
         if v is not None:
             s[k] = v
+    if s.get("caption_max_chars") == 0:
+        s["caption_max_chars"] = None
+    if inp.caption_lang:
+        s["caption_lang"] = _caption_lang(dict(s.get("caption_lang") or {}), inp.caption_lang)
     if s["reframe"] not in ("fit-blur", "fit-pad", "crop-center", "crop-x"):
         raise RecompError("E_INVALID", "reframe must be fit-blur, fit-pad, crop-center or crop-x")
     if s["captions"] not in ("burn", "sidecar", "off") or s["caption_style"] not in ("clean", "karaoke"):
@@ -361,3 +396,79 @@ def cache_size(ctx: Ctx, inp: NoInput):
         p = ctx.project.root / name
         out[name] = round(sum(f.stat().st_size for f in p.rglob("*") if f.is_file()) / 1e9, 3) if p.exists() else 0.0
     return {"gb": out}
+
+
+class SheetIn(BaseModel):
+    journey: str = Field(..., json_schema_extra={"pos": 0})
+    profile: str = Field("shorts", description="Profile whose caption box to show")
+    lang: str | None = Field(None, description="Language (default: the journey's)")
+    count: int = Field(8, description="How many caption screens (the longest lines first)")
+    out: str | None = Field(None, description="PNG to write (default: exports/sheets/<J>-<profile>-<lang>.png)")
+
+
+@verb("export.caption-sheet", SheetIn, effect="write",
+      examples=["recomp export caption-sheet J1 --profile shorts --lang am",
+                "recomp profile edit shorts --caption-lang am:max_chars=20 && recomp export caption-sheet J1 --lang am"])
+def export_caption_sheet(ctx: Ctx, inp: SheetIn):
+    """One PNG of a journey's longest captions as they will be burned in (a profile, a language): check width in seconds, no render."""
+    import re as _re
+    from ..media import ff
+    from ..render import ass
+    from ..render import plan as P
+    db = ctx.db
+    j = refs.resolve(db, inp.journey, "journey")[1]
+    prof_row = db.rows("profile", "WHERE name=?", (inp.profile,))
+    if not prof_row:
+        raise RecompError("E_NOT_FOUND", f"profile {inp.profile!r} not found", hint="`recomp profile list`")
+    prof = profiles.resolve(prof_row[0]["settings"])
+    lang = inp.lang or j["language"]
+    pl = P.build(db, ctx.project, journey=j, profile=prof, lang=lang)
+    caps = pl["captions"]
+    if not caps:
+        raise RecompError("E_NOT_FOUND", f"{j['ref']} has no captions in {lang}",
+                          hint=f"`recomp lang lines {j['ref']} {lang} --missing`")
+    w, h = prof["width"], prof["height"]
+    layout = ass.caption_layout(prof, lang, " ".join(c["text"] for c in caps[:20]))
+    longest = sorted(sorted(caps, key=lambda c: -len(c["text"]))[:max(1, inp.count)], key=lambda c: c["start"])
+    screens: list[str] = []
+    for c in longest:
+        seen = []
+        for line in ass.caption_events([dict(c, start=0.0, end=max(0.5, c["end"] - c["start"]))],
+                                       prof["caption_style"], w, h, layout):
+            fields = line.split(",", 9)  # Dialogue: layer, start, end, style, …, text
+            plain = _re.sub(r"\{[^}]*\}", "", fields[9])  # karaoke: one screen per chunk, not per word
+            if plain not in seen:
+                seen.append(plain)
+                screens.append(fields[3] + "\t" + plain)
+    screens = screens[:max(1, inp.count) * 2][:16]
+    vertical = h > w
+    cols = 4 if vertical else 2
+    rows = -(-len(screens) // cols)
+    n = cols * rows
+    work = ctx.project.dir("cache", "sheets")
+    doc = [ass.header(w, h, " ".join(s.split("\t", 1)[1] for s in screens), layout)]
+    for k, s in enumerate(screens):
+        style, body = s.split("\t", 1)
+        doc.append(ass.dialogue(k, k + 1, style, body))
+    doc.append(ass.dialogue(0, n, "Text", "{\\an7\\fscx60\\fscy60\\alpha&H60&}" +
+                            ass.esc(f"{inp.profile} · {lang} · {layout['max_chars']} chars × {layout['max_lines']} rows")))
+    (work / "sheet.ass").write_text("\n".join(doc) + "\n", encoding="utf-8")
+    bg = work / "bg.jpg"
+    first = pl["items"][0]
+    src_path = first.get("path")
+    if src_path and Path(src_path).exists():
+        ff.run_simple(["-ss", f"{first['in'] + min(2.0, first['dur'] / 2):.3f}", "-i", src_path, "-frames:v", "1",
+                       "-vf", f"scale={w}:{h}:force_original_aspect_ratio=increase,crop={w}:{h},boxblur=12:1", str(bg)])
+        inputs = ["-loop", "1", "-framerate", "1", "-t", str(n), "-i", "bg.jpg"]
+    else:
+        inputs = ["-f", "lavfi", "-i", f"color=c=0x3a4048:s={w}x{h}:r=1:d={n}"]
+    fonts = ":fontsdir=C\\\\:/Windows/Fonts" if os.name == "nt" else ""
+    factor = 0.3333 if vertical else 0.5
+    out = Path(inp.out) if inp.out else ctx.project.dir("exports", "sheets") / f"{j['ref']}-{inp.profile}-{lang}.png"
+    ff.run(inputs + ["-vf", f"format=yuv420p,subtitles=sheet.ass{fonts},scale=trunc(iw*{factor}/2)*2:-2,"
+                            f"tile={cols}x{rows}:padding=6:color=0x111111", "-frames:v", "1", str(out.resolve())],
+           cwd=str(work), timeout=120)
+    return Result(data={"file": str(out), "screens": len(screens), "caption_box": layout, "profile": inp.profile,
+                        "lang": lang},
+                  next=[f"recomp profile edit {inp.profile} --caption-lang {lang}:max_chars={max(8, layout['max_chars'] - 4)}"
+                        "   # narrower rows, then look again"])

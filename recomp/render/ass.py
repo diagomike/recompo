@@ -33,18 +33,44 @@ def _colour(rgb: str, alpha: int = 0) -> str:
     return f"&H{alpha:02X}{b}{g}{r}".upper()
 
 
-def styles(w: int, h: int, sample_text: str = "") -> str:
+def caption_layout(prof: dict, lang: str | None = None, sample: str = "") -> dict:
+    """Caption box for a profile and language: characters per row, rows, font scale, distance from the bottom.
+
+    Profile keys caption_max_chars, caption_max_lines, caption_scale and caption_margin (a fraction of the
+    height) override the defaults; caption_lang {lang: {max_chars, max_lines, scale, margin}} overrides per language.
+    Ethiopic syllables are wider than Latin letters, so their rows hold fewer characters by default.
+    """
+    w, h = prof.get("width", 1920), prof.get("height", 1080)
+    vertical = h > w
+    karaoke = prof.get("caption_style") == "karaoke"
+    chars = (22 if vertical else 34) if karaoke else (30 if vertical else 44)
+    if ETHIOPIC.search(sample or ""):
+        chars = round(chars * 0.8)
+    over = (prof.get("caption_lang") or {}).get(lang or "", {}) or {}
+    scale = float(over.get("scale") or prof.get("caption_scale") or 1.0)
+    explicit = over.get("max_chars") or prof.get("caption_max_chars")
+    chars = int(explicit) if explicit else max(8, round(chars / scale))
+    lines = int(over.get("max_lines") or prof.get("caption_max_lines") or 2)
+    margin = over.get("margin", prof.get("caption_margin"))
+    return {"max_chars": chars, "max_lines": max(1, lines), "scale": scale,
+            "margin": float(margin) if margin is not None else None}
+
+
+def styles(w: int, h: int, sample_text: str = "", layout: dict | None = None) -> str:
     short = min(w, h)
     vertical = h > w
     base = round(short * 0.048)
-    mv = round(h * (0.20 if vertical else 0.075))
+    layout = layout or {}
+    cap_scale = layout.get("scale") or 1.0
+    mv = round(h * (layout["margin"] if layout.get("margin") is not None else (0.20 if vertical else 0.075)))
+    mk = round(h * (layout["margin"] if layout.get("margin") is not None else (0.30 if vertical else 0.12)))
     font = font_for(sample_text)
     white, yellow, black = _colour("ffffff"), _colour("ffd84a"), _colour("000000")
     box = _colour("101010", 0x50)
     rows = [
         # Name, Font, Size, Primary, Secondary, Outline, Back, Bold, Italic, BorderStyle, Outline, Shadow, Align, ML, MR, MV
-        ("Caption", font, base, white, white, black, _colour("000000", 0x80), 0, 0, 1, max(2, base // 14), 1, 2, 60, 60, mv),
-        ("Karaoke", font, round(base * 1.25), white, yellow, black, _colour("000000", 0x80), 1, 0, 1, max(3, base // 10), 2, 2, 50, 50, round(h * (0.30 if vertical else 0.12))),
+        ("Caption", font, round(base * cap_scale), white, white, black, _colour("000000", 0x80), 0, 0, 1, max(2, base // 14), 1, 2, 60, 60, mv),
+        ("Karaoke", font, round(base * 1.25 * cap_scale), white, yellow, black, _colour("000000", 0x80), 1, 0, 1, max(3, base // 10), 2, 2, 50, 50, mk),
         ("Title", font, round(base * 1.7), white, white, black, black, 1, 0, 1, max(3, base // 9), 2, 5, 80, 80, 0),
         ("Section", font, round(base * 1.05), white, white, black, black, 1, 0, 1, max(2, base // 12), 1, 5, 80, 80, 0),
         ("Quote", "Georgia" if font == "Arial" else font, round(base * 1.25), white, white, black, black, 0, 1, 1, max(2, base // 12), 2, 5, 100, 100, 0),
@@ -64,9 +90,9 @@ def styles(w: int, h: int, sample_text: str = "") -> str:
     return "\n".join(out)
 
 
-def header(w: int, h: int, sample: str = "") -> str:
+def header(w: int, h: int, sample: str = "", layout: dict | None = None) -> str:
     return "\n".join(["[Script Info]", "ScriptType: v4.00+", f"PlayResX: {w}", f"PlayResY: {h}", "WrapStyle: 0",
-                      "ScaledBorderAndShadow: yes", "YCbCr Matrix: TV.709", "", styles(w, h, sample), "",
+                      "ScaledBorderAndShadow: yes", "YCbCr Matrix: TV.709", "", styles(w, h, sample, layout), "",
                       "[Events]", "Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text"])
 
 
@@ -90,7 +116,7 @@ def chunk_words(words: list[tuple[float, float, str]], max_chars: int, max_dur: 
     return out
 
 
-def wrap(text: str, max_chars: int) -> str:
+def _rows(text: str, max_chars: int) -> list[str]:
     words, lines, cur = text.split(), [], ""
     for w in words:
         if cur and len(cur) + 1 + len(w) > max_chars:
@@ -100,28 +126,83 @@ def wrap(text: str, max_chars: int) -> str:
             cur = (cur + " " + w).strip()
     if cur:
         lines.append(cur)
-    if len(lines) > 2:  # rebalance into two lines
-        half = len(text) // 2
-        cut = text.rfind(" ", 0, half + 8)
-        lines = [text[:cut].strip(), text[cut:].strip()] if cut > 0 else lines[:2]
+    return lines
+
+
+def wrap(text: str, max_chars: int, max_lines: int = 2) -> str:
+    lines = _rows(text, max_chars)
+    if len(lines) > max_lines:  # rebalance into max_lines rows of similar length
+        target = len(text) / max_lines
+        lines, cur = [], ""
+        for w in text.split():
+            if cur and len(cur) + 1 + len(w) > target + 6 and len(lines) < max_lines - 1:
+                lines.append(cur)
+                cur = w
+            else:
+                cur = (cur + " " + w).strip()
+        lines.append(cur)
     return "\\N".join(esc(x) for x in lines)
 
 
-def caption_events(captions: list[dict], style: str, w: int, h: int) -> list[str]:
+def split_timed(text: str, a: float, b: float, limit: int) -> list[tuple[float, float, str]]:
+    """A long untimed line (a translation) as caption screens of at most ``limit`` characters, each shown for
+    a share of the line's time in proportion to its length. Breaks prefer sentence and clause ends."""
+    toks = text.split()
+    if len(text) <= limit or len(toks) < 2:
+        return [(a, b, text)]
+    pieces, cur = [], []
+    for t in toks:
+        n = len(" ".join(cur + [t]))
+        if cur and n > limit:
+            pieces.append(cur)
+            cur = []
+        cur.append(t)
+        if t.endswith((".", "?", "!", "።", "؟", "፧")) and len(" ".join(cur)) > limit * 0.45:
+            pieces.append(cur)
+            cur = []
+        elif t.endswith((",", ";", ":", "፣", "፤", "،")) and len(" ".join(cur)) > limit * 0.7:
+            pieces.append(cur)
+            cur = []
+    if cur:
+        if pieces and len(" ".join(cur)) < limit * 0.25 and len(" ".join(pieces[-1] + cur)) <= limit * 1.15:
+            pieces[-1] += cur  # no orphan word on a screen of its own
+        else:
+            pieces.append(cur)
+    texts = [" ".join(p) for p in pieces]
+    total = sum(len(t) for t in texts) or 1
+    out, t0 = [], a
+    for tx in texts:
+        t1 = t0 + (b - a) * len(tx) / total
+        out.append((round(t0, 3), round(t1, 3), tx))
+        t0 = t1
+    return out
+
+
+def caption_events(captions: list[dict], style: str, w: int, h: int, layout: dict | None = None) -> list[str]:
     """captions: [{start, end, text, words: [(s, e, text)]}] on the output timeline."""
     vertical = h > w
+    layout = layout or caption_layout({"width": w, "height": h, "caption_style": style})
+    max_chars, max_lines = layout["max_chars"], layout["max_lines"]
     out = []
     if style == "karaoke":
-        max_chars = 22 if vertical else 34
         chunks: list[list[tuple[float, float, str]]] = []
+        plain: list[tuple[float, float, str]] = []  # untimed text (translations): screens without a word highlight
         for cap in captions:
             words = cap.get("words") or []
-            if not words:
-                words = [(cap["start"], cap["end"], cap["text"])]
-            chunks += chunk_words(words, max_chars)
+            if words:
+                chunks += chunk_words(words, max_chars)
+            else:
+                plain += split_timed(cap["text"], cap["start"], cap["end"], max_chars * max_lines)
+        starts = sorted([c[0][0] for c in chunks] + [p[0] for p in plain])
+        for a, b, text in plain:
+            later = [s for s in starts if s > a + 1e-6]
+            b = min(b, later[0] - 0.02) if later else b
+            if b - a > 0.15:
+                out.append(dialogue(a, b, "Karaoke", wrap(text, max_chars, max_lines)))
         chunks.sort(key=lambda c: c[0][0])
         for ci, chunk in enumerate(chunks):
-            limit = chunks[ci + 1][0][0] if ci + 1 < len(chunks) else chunk[-1][1] + 0.3
+            later = [s for s in starts if s > chunk[0][0] + 1e-6]
+            limit = later[0] if later else chunk[-1][1] + 0.3
             c_end = min(chunk[-1][1] + 0.15, limit)
             for k, (ws, we, _) in enumerate(chunk):
                 nxt = chunk[k + 1][0] if k + 1 < len(chunk) else c_end
@@ -134,21 +215,22 @@ def caption_events(captions: list[dict], style: str, w: int, h: int) -> list[str
                 if e0 > s0:
                     out.append(dialogue(s0, e0, "Karaoke", " ".join(parts)))
         return out
-    max_chars = 30 if vertical else 44
+    del vertical
+    box = max_chars * max_lines
     events: list[tuple[float, float, str]] = []
     for cap in captions:
         words = cap.get("words") or []
-        if words and cap["end"] - cap["start"] > 6:
-            for chunk in chunk_words(words, max_chars * 2, max_dur=5.5):
+        if words and (cap["end"] - cap["start"] > 6 or len(cap["text"]) > box):
+            for chunk in chunk_words(words, box, max_dur=5.5):
                 events.append((chunk[0][0], chunk[-1][1] + 0.2, " ".join(x[2] for x in chunk)))
         else:
-            events.append((cap["start"], cap["end"], cap["text"]))
+            events += split_timed(cap["text"], cap["start"], cap["end"], box)
     events.sort(key=lambda e: e[0])
     for k, (a, b, text) in enumerate(events):
         if k + 1 < len(events):
             b = min(b, events[k + 1][0] - 0.02)  # one caption at a time: never stack overlapping lines
         if b - a > 0.15:
-            out.append(dialogue(a, b, "Caption", wrap(text, max_chars)))
+            out.append(dialogue(a, b, "Caption", wrap(text, max_chars, max_lines)))
     return out
 
 
@@ -179,11 +261,12 @@ def overlay_events(overlays: list[dict], w: int, h: int) -> list[str]:
     return out
 
 
-def document(w: int, h: int, captions: list[dict], caption_style: str, overlays: list[dict]) -> str:
+def document(w: int, h: int, captions: list[dict], caption_style: str, overlays: list[dict],
+             layout: dict | None = None) -> str:
     sample = " ".join([c["text"] for c in captions[:20]] + [o["text"] for o in overlays[:10]])
-    lines = [header(w, h, sample)]
+    lines = [header(w, h, sample, layout)]
     if caption_style != "off":
-        lines += caption_events(captions, caption_style, w, h)
+        lines += caption_events(captions, caption_style, w, h, layout)
     lines += overlay_events(overlays, w, h)
     return "\n".join(lines) + "\n"
 

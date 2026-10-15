@@ -58,6 +58,24 @@ source add ─► (probe · audio · shots · peaks jobs) ─► transcript impo
 | Languages | `recomp lang translate J1 --to am --input am.json` (your own translation) · `recomp export run J1 --profiles shorts --langs am,sw` (dubs) |
 | Share | `recomp hub publish J1 --visibility public` (ask first) · `recomp hub link-post J1 <url the user posted>` |
 
+## Fixing things cheaply (before reaching for a model)
+
+Every bulk edit takes `--dry-run` (shows before → after) and is one `recomp op undo` away.
+
+| Need | Command |
+|---|---|
+| Fix a misheard name everywhere | `recomp transcript replace all "Anil Seth" "Anil Seth" --whole --dry-run` |
+| Tidy auto captions | `recomp transcript clean S2 --dry-run` (`>>`, [Music], ♪, doubled words; `--rules list`) |
+| Many line edits at once | `recomp transcript edit S1 --input edits.json` (`{"edits": [{"idx": 12, "text": "…"}]}`) |
+| Lines broken or joined badly | `recomp transcript merge S1 12-14` · `recomp transcript split S1 412 --after "Why so serious?"` · `recomp transcript resegment S2` |
+| Subtitles drift | `recomp transcript shift S1 0 --scale 1.04271` · `recomp transcript shift S1 0.8 --from 1:02:10` |
+| Who speaks (no diarisation) | `recomp speaker assign S5 --by marks --names "Alex O'Connor,Guest"` (YouTube `>>` turns: do this **before** `clean`) · `recomp speaker assign S1 --by prefix` (`JOKER:` lines) · `recomp speaker assign S4 "Anil Seth" --from 12:30 --to 48:10` · `recomp speaker people` |
+| Translation lines too long | `recomp lang lines J1 am --over --profile shorts` → `recomp lang edit J1 am --key seg:… --text "…"` · terms: `recomp lang replace am "…" "…"` |
+| Captions too wide | `recomp export caption-sheet J1 --profile shorts --lang am` (one PNG, no render) → `recomp profile edit shorts --caption-lang am:max_chars=22` or `--caption-scale 0.9` |
+
+Diarisation (`speaker diarize`) and ASR are for when nothing cheaper works: two named people on a
+`>>`-marked transcript take one command and no model.
+
 ## Writing chapters, cuts and journeys
 
 - **Chapters** follow the media: scenes and dramatic beats for films, topics and questions for

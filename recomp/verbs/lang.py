@@ -188,3 +188,164 @@ def lang_say(ctx: Ctx, inp: SayIn):
     out = ctx.project.dir("cache", "dub", "say") / (hashlib.sha1((inp.lang + (inp.voice or "") + inp.text).encode()).hexdigest()[:12] + ".wav")
     dur = tts.synth(inp.text, inp.lang, out, voice=inp.voice)
     return {"file": str(out), "seconds": round(dur, 2)}
+
+
+# ---- editing translations (P15) ----
+
+def _layout(db, profile: str | None, lang: str, sample: str) -> dict | None:
+    if not profile:
+        return None
+    from ..render import ass, profiles
+    p = db.rows("profile", "WHERE name=?", (profile,))
+    if not p:
+        raise RecompError("E_NOT_FOUND", f"profile {profile!r} not found", hint="`recomp profile list`")
+    return ass.caption_layout(profiles.resolve(p[0]["settings"]), lang, sample)
+
+
+class LinesIn(BaseModel):
+    journey: str = Field(..., json_schema_extra={"pos": 0})
+    lang: str = Field(..., description="Language code", json_schema_extra={"pos": 1})
+    over: bool = Field(False, description="Only lines too long to speak in their time (to shorten)")
+    missing: bool = Field(False, description="Only lines with no translation yet")
+    profile: str | None = Field(None, description="Also count caption screens per line under this profile's caption box")
+    find: str | None = Field(None, description="Only lines whose source or translation contains this text")
+
+
+@verb("lang.lines", LinesIn,
+      examples=["recomp lang lines J1 am --over", "recomp lang lines J1 am --profile shorts", "recomp lang lines J1 fr --missing"])
+def lang_lines(ctx: Ctx, inp: LinesIn):
+    """Every line of a journey in one language: source, translation, length against its speaking budget, who wrote it."""
+    db = ctx.db
+    j = journey_of(db, inp.journey)
+    us = units(db, j)
+    have = existing(db, inp.lang, us)
+    cps = CPS.get(inp.lang, 15.0)
+    sample = " ".join(h["text"] for h in list(have.values())[:20])
+    layout = _layout(db, inp.profile, inp.lang, sample)
+    rows, over_n = [], 0
+    for u in us:
+        h = have.get(u["key"])
+        text = h["text"] if h else None
+        row = {"key": u["key"], "kind": u["kind"], "at": u["at"], "source": u["text"], "text": text,
+               "by": (h["created_by"] if h["created_by"] == "user" else h["method"]) if h else None}
+        if u["dur"]:
+            budget = int(u["dur"] * cps)
+            row.update(dur=u["dur"], budget=budget)
+            if text:
+                row.update(chars=len(text), fit=round(len(text) / max(1, budget), 2))
+                if len(text) > budget * 1.15:
+                    row["over"] = True
+                    over_n += 1
+        if layout and text and u["kind"] == "segment":
+            from ..render.ass import split_timed
+            row["screens"] = len(split_timed(text, 0, 1, layout["max_chars"] * layout["max_lines"]))
+        if inp.over and not row.get("over"):
+            continue
+        if inp.missing and text:
+            continue
+        if inp.find and inp.find.lower() not in (u["text"] + " " + (text or "")).lower():
+            continue
+        rows.append(row)
+    data = {"journey": j["ref"], "lang": inp.lang, "coverage": f"{len(have)}/{len(us)}", "over_budget": over_n,
+            "chars_per_second": cps, "lines": rows}
+    if layout:
+        data["caption_box"] = layout
+    nxt = [f"recomp lang edit {j['ref']} {inp.lang} --key <key> --text <shorter line>"] if rows else []
+    return Result(data=data, next=nxt)
+
+
+class LangEditIn(BaseModel):
+    journey: str = Field(..., json_schema_extra={"pos": 0})
+    lang: str = Field(..., json_schema_extra={"pos": 1})
+    key: str | None = Field(None, description="One line's key (from `lang lines`)")
+    text: str | None = Field(None, description="Its new text")
+    lines: dict[str, str] = Field(default_factory=dict, description="Many lines: {key: text} (use --input)")
+
+
+@verb("lang.edit", LangEditIn, effect="write",
+      examples=["recomp lang edit J1 am --key seg:5121 --text <new line>",
+                "recomp lang edit J1 am --input fixes.json   # {lines: {key: text}}"])
+def lang_edit(ctx: Ctx, inp: LangEditIn):
+    """Set one or many translated lines (a shorter line, a better word). Lines the user wrote are kept unless you are the user."""
+    lines = dict(inp.lines)
+    if inp.key:
+        if inp.text is None:
+            raise RecompError("E_INVALID", "--key needs --text")
+        lines[inp.key] = inp.text
+    if not lines:
+        raise RecompError("E_INVALID", "give --key and --text, or --input with {lines: {key: text}}")
+    return lang_translate(ctx, TranslateIn(journey=inp.journey, to=inp.lang, translations=lines))
+
+
+class LangReplaceIn(BaseModel):
+    lang: str = Field(..., description="Language code", json_schema_extra={"pos": 0})
+    find: str = Field(..., json_schema_extra={"pos": 1})
+    replace: str = Field(..., json_schema_extra={"pos": 2})
+    journey: str | None = Field(None, description="Only this journey's lines (default: every translation in the language)")
+    regex: bool = False
+    case: bool = False
+    whole: bool = Field(False, description="Whole words only")
+    dry_run: bool = False
+
+
+@verb("lang.replace", LangReplaceIn, effect="write",
+      examples=["recomp lang replace am ንቃተ-ህሊና 'ንቃተ ህሊና' --dry-run", "recomp lang replace fr 'Anil Set' 'Anil Seth' --journey J1"])
+def lang_replace(ctx: Ctx, inp: LangReplaceIn):
+    """Find and replace across a language's translations: terminology, name spellings, punctuation."""
+    from ..transcript import edit as E
+    db = ctx.db
+    pat = E.compile_pattern(inp.find, inp.regex, inp.case, inp.whole)
+    repl = inp.replace if inp.regex else inp.replace.replace("\\", "\\\\")
+    rows = db.rows("translation", "WHERE lang=? ORDER BY kind, target_id", (inp.lang,))
+    if inp.journey:
+        j = journey_of(db, inp.journey)
+        keys = {(u["kind"], u["target"]) for u in units(db, j)}
+        rows = [r for r in rows if (r["kind"], r["target_id"]) in keys]
+    plan = []
+    for r in rows:
+        new = " ".join(pat.sub(repl, r["text"]).split())
+        if new != r["text"]:
+            plan.append((r, new))
+    skipped = []
+    if not inp.dry_run and plan:
+        with ctx.op(f"replace in {inp.lang} translations") as tx:
+            for r, new in plan:
+                try:
+                    tx.update("translation", r["id"], {"text": new})
+                except RecompError:
+                    skipped.append(f"{r['kind']}:{r['target_id']}")
+    changes = [{"key": f"{r['kind']}:{r['target_id']}", "before": r["text"], "after": new} for r, new in plan[:40]]
+    return Result(data={"dry_run": inp.dry_run, "replaced": len(plan) - len(skipped), "changes": changes,
+                        "kept_users": skipped},
+                  next=["run again without --dry-run to apply"] if inp.dry_run and plan else [])
+
+
+class ClearIn(BaseModel):
+    journey: str = Field(..., json_schema_extra={"pos": 0})
+    lang: str = Field(..., json_schema_extra={"pos": 1})
+    keys: str | None = Field(None, description="Comma list of keys (default: every line of the journey in this language)")
+    method: str | None = Field(None, description="Only lines written this way: google, agent, user")
+
+
+@verb("lang.clear", ClearIn, effect="write",
+      examples=["recomp lang clear J1 om --method google", "recomp lang clear J1 am --keys seg:5121,seg:5122"])
+def lang_clear(ctx: Ctx, inp: ClearIn):
+    """Remove translations of a journey (all, some keys, or only one method's drafts) so they can be redone."""
+    db = ctx.db
+    j = journey_of(db, inp.journey)
+    want = {k.strip() for k in inp.keys.split(",")} if inp.keys else None
+    gone, kept = 0, []
+    with ctx.op(f"clear {inp.lang} of {j['ref']}") as tx:
+        for u in units(db, j):
+            if want is not None and u["key"] not in want:
+                continue
+            r = db.one("SELECT id, method, created_by FROM translation WHERE lang=? AND kind=? AND target_id=?",
+                       (inp.lang, u["kind"], u["target"]))
+            if r is None or (inp.method and inp.method not in (r["method"], r["created_by"])):
+                continue
+            try:
+                tx.delete("translation", r["id"])
+                gone += 1
+            except RecompError:
+                kept.append(u["key"])
+    return {"journey": j["ref"], "lang": inp.lang, "removed": gone, "kept_users": kept}

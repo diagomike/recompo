@@ -8,6 +8,7 @@ MODULES = [
     "source",
     "job",
     "transcript",
+    "textedit",
     "search",
     "chapter",
     "cut",

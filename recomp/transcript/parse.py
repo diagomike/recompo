@@ -177,12 +177,35 @@ def segments_from_words(words: list[dict], gap: float = 0.7, max_len: float = 12
     return segs
 
 
+def parse_recomp_json(text: str) -> tuple[list[dict], list[str]]:
+    """`transcript export --format json`: {segments: [{start, end, text, speaker?, words?: [{start, end, text}]}]}."""
+    import json
+    data = json.loads(text)
+    rows = data.get("segments", data) if isinstance(data, dict) else data
+    segs, problems = [], []
+    for k, r in enumerate(rows):
+        try:
+            seg = {"start": float(r["start"]), "end": float(r["end"]), "text": str(r["text"]).strip()}
+        except (KeyError, TypeError, ValueError):
+            problems.append(f"line {k}: needs start, end and text")
+            continue
+        if r.get("speaker"):
+            seg["speaker"] = r["speaker"]
+        if r.get("words"):
+            seg["words"] = [{"start": float(w["start"]), "end": float(w["end"]), "text": w["text"]} for w in r["words"]]
+        if seg["text"]:
+            segs.append(seg)
+    return segs, problems
+
+
 def parse_file(path: Path) -> tuple[list[dict], list[str]]:
     path = Path(path)
     text = read_text(path)
     ext = path.suffix.lower()
     if ext == ".json3" or (ext == ".json" and '"events"' in text[:2000]):
         return parse_json3(text)
+    if ext == ".json":
+        return parse_recomp_json(text)
     if ext in (".ass", ".ssa") or "[Script Info]" in text[:500]:
         return parse_ass(text)
     return parse_cues(text)

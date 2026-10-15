@@ -15,11 +15,11 @@ Effects: `read` (no changes) · `write` (undoable op) · `heavy` (starts a job) 
 | `context` | [`context`](#context) |
 | `cut` | [`cut.add`](#cutadd), [`cut.edit`](#cutedit), [`cut.list`](#cutlist), [`cut.merge`](#cutmerge), [`cut.remove`](#cutremove), [`cut.show`](#cutshow), [`cut.split`](#cutsplit), [`cut.suggest`](#cutsuggest), [`cut.tag`](#cuttag), [`cut.trim`](#cuttrim) |
 | `doctor` | [`doctor`](#doctor) |
-| `export` | [`export.check`](#exportcheck), [`export.cuts`](#exportcuts), [`export.multitrack`](#exportmultitrack), [`export.run`](#exportrun), [`export.show`](#exportshow), [`export.status`](#exportstatus) |
+| `export` | [`export.caption-sheet`](#exportcaption-sheet), [`export.check`](#exportcheck), [`export.cuts`](#exportcuts), [`export.multitrack`](#exportmultitrack), [`export.run`](#exportrun), [`export.show`](#exportshow), [`export.status`](#exportstatus) |
 | `hub` | [`hub.comment`](#hubcomment), [`hub.comments`](#hubcomments), [`hub.feed`](#hubfeed), [`hub.follow`](#hubfollow), [`hub.fork`](#hubfork), [`hub.link-post`](#hublink-post), [`hub.login`](#hublogin), [`hub.logout`](#hublogout), [`hub.publish`](#hubpublish), [`hub.pull`](#hubpull), [`hub.show`](#hubshow), [`hub.vote`](#hubvote), [`hub.whoami`](#hubwhoami) |
 | `job` | [`job.cancel`](#jobcancel), [`job.list`](#joblist), [`job.retry`](#jobretry), [`job.run`](#jobrun), [`job.show`](#jobshow), [`job.tail`](#jobtail), [`job.wait`](#jobwait) |
 | `journey` | [`journey.add`](#journeyadd), [`journey.delete`](#journeydelete), [`journey.duplicate`](#journeyduplicate), [`journey.edit`](#journeyedit), [`journey.from-search`](#journeyfrom-search), [`journey.list`](#journeylist), [`journey.move`](#journeymove), [`journey.new`](#journeynew), [`journey.remove`](#journeyremove), [`journey.reorder`](#journeyreorder), [`journey.section`](#journeysection), [`journey.show`](#journeyshow), [`journey.transition`](#journeytransition), [`journey.trim-slot`](#journeytrim-slot), [`journey.validate`](#journeyvalidate) |
-| `lang` | [`lang.say`](#langsay), [`lang.status`](#langstatus), [`lang.translate`](#langtranslate), [`lang.voices`](#langvoices) |
+| `lang` | [`lang.clear`](#langclear), [`lang.edit`](#langedit), [`lang.lines`](#langlines), [`lang.replace`](#langreplace), [`lang.say`](#langsay), [`lang.status`](#langstatus), [`lang.translate`](#langtranslate), [`lang.voices`](#langvoices) |
 | `music` | [`music.bed-add`](#musicbed-add), [`music.bed-edit`](#musicbed-edit), [`music.bed-remove`](#musicbed-remove), [`music.get`](#musicget), [`music.library-add`](#musiclibrary-add), [`music.list`](#musiclist), [`music.search`](#musicsearch) |
 | `op` | [`op.log`](#oplog), [`op.redo`](#opredo), [`op.undo`](#opundo) |
 | `overlay` | [`overlay.add`](#overlayadd), [`overlay.auto-lower-thirds`](#overlayauto-lower-thirds), [`overlay.edit`](#overlayedit), [`overlay.list`](#overlaylist), [`overlay.remove`](#overlayremove) |
@@ -30,8 +30,8 @@ Effects: `read` (no changes) · `write` (undoable op) · `heavy` (starts a job) 
 | `search` | [`search`](#search) |
 | `setup` | [`setup.shim`](#setupshim) |
 | `source` | [`source.add`](#sourceadd), [`source.fetch-audio`](#sourcefetch-audio), [`source.fetch-video`](#sourcefetch-video), [`source.list`](#sourcelist), [`source.process`](#sourceprocess), [`source.refresh`](#sourcerefresh), [`source.relink`](#sourcerelink), [`source.remove`](#sourceremove), [`source.rights`](#sourcerights), [`source.show`](#sourceshow), [`source.status`](#sourcestatus) |
-| `speaker` | [`speaker.diarize`](#speakerdiarize), [`speaker.list`](#speakerlist), [`speaker.match`](#speakermatch), [`speaker.merge`](#speakermerge), [`speaker.name`](#speakername), [`speaker.unlink`](#speakerunlink) |
-| `transcript` | [`transcript.align`](#transcriptalign), [`transcript.asr`](#transcriptasr), [`transcript.edit-segment`](#transcriptedit-segment), [`transcript.fetch-captions`](#transcriptfetch-captions), [`transcript.import`](#transcriptimport), [`transcript.list`](#transcriptlist), [`transcript.outline`](#transcriptoutline), [`transcript.read`](#transcriptread), [`transcript.set-primary`](#transcriptset-primary), [`transcript.shift`](#transcriptshift), [`transcript.sync-check`](#transcriptsync-check) |
+| `speaker` | [`speaker.assign`](#speakerassign), [`speaker.diarize`](#speakerdiarize), [`speaker.list`](#speakerlist), [`speaker.match`](#speakermatch), [`speaker.merge`](#speakermerge), [`speaker.name`](#speakername), [`speaker.people`](#speakerpeople), [`speaker.unlink`](#speakerunlink) |
+| `transcript` | [`transcript.align`](#transcriptalign), [`transcript.asr`](#transcriptasr), [`transcript.clean`](#transcriptclean), [`transcript.delete`](#transcriptdelete), [`transcript.edit`](#transcriptedit), [`transcript.edit-segment`](#transcriptedit-segment), [`transcript.export`](#transcriptexport), [`transcript.fetch-captions`](#transcriptfetch-captions), [`transcript.import`](#transcriptimport), [`transcript.list`](#transcriptlist), [`transcript.merge`](#transcriptmerge), [`transcript.outline`](#transcriptoutline), [`transcript.read`](#transcriptread), [`transcript.replace`](#transcriptreplace), [`transcript.resegment`](#transcriptresegment), [`transcript.set-primary`](#transcriptset-primary), [`transcript.shift`](#transcriptshift), [`transcript.split`](#transcriptsplit), [`transcript.sync-check`](#transcriptsync-check) |
 | `trends` | [`trends.channel`](#trendschannel), [`trends.search`](#trendssearch), [`trends.youtube`](#trendsyoutube) |
 | `ui` | [`ui.answer`](#uianswer), [`ui.ask`](#uiask), [`ui.note`](#uinote), [`ui.notes`](#uinotes), [`ui.select`](#uiselect), [`ui.selection`](#uiselection), [`ui.show`](#uishow) |
 | `version` | [`version`](#version) |
@@ -392,6 +392,25 @@ recomp doctor --net
 ```
 
 ## export
+
+### export.caption-sheet
+
+`recomp export caption-sheet <journey>` · effect: **write**
+
+One PNG of a journey's longest captions as they will be burned in (a profile, a language): check width in seconds, no render.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<journey>` | string | required |  |
+| `--profile` | string | 'shorts' | Profile whose caption box to show |
+| `--lang` | string | None | Language (default: the journey's) |
+| `--count` | integer | 8 | How many caption screens (the longest lines first) |
+| `--out` | string | None | PNG to write (default: exports/sheets/<J>-<profile>-<lang>.png) |
+
+```
+recomp export caption-sheet J1 --profile shorts --lang am
+recomp profile edit shorts --caption-lang am:max_chars=20 && recomp export caption-sheet J1 --lang am
+```
 
 ### export.check
 
@@ -922,6 +941,86 @@ Check a journey before export: media available, sane lengths, labels, music lice
 
 ## lang
 
+### lang.clear
+
+`recomp lang clear <journey> <lang>` · effect: **write**
+
+Remove translations of a journey (all, some keys, or only one method's drafts) so they can be redone.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<journey>` | string | required |  |
+| `<lang>` | string | required |  |
+| `--keys` | string | None | Comma list of keys (default: every line of the journey in this language) |
+| `--method` | string | None | Only lines written this way: google, agent, user |
+
+```
+recomp lang clear J1 om --method google
+recomp lang clear J1 am --keys seg:5121,seg:5122
+```
+
+### lang.edit
+
+`recomp lang edit <journey> <lang>` · effect: **write**
+
+Set one or many translated lines (a shorter line, a better word). Lines the user wrote are kept unless you are the user.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<journey>` | string | required |  |
+| `<lang>` | string | required |  |
+| `--key` | string | None | One line's key (from `lang lines`) |
+| `--text` | string | None | Its new text |
+| `--lines` | object | None | Many lines: {key: text} (use --input) |
+
+```
+recomp lang edit J1 am --key seg:5121 --text <new line>
+recomp lang edit J1 am --input fixes.json   # {lines: {key: text}}
+```
+
+### lang.lines
+
+`recomp lang lines <journey> <lang>` · effect: **read**
+
+Every line of a journey in one language: source, translation, length against its speaking budget, who wrote it.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<journey>` | string | required |  |
+| `<lang>` | string | required | Language code |
+| `--over` | boolean | False | Only lines too long to speak in their time (to shorten) |
+| `--missing` | boolean | False | Only lines with no translation yet |
+| `--profile` | string | None | Also count caption screens per line under this profile's caption box |
+| `--find` | string | None | Only lines whose source or translation contains this text |
+
+```
+recomp lang lines J1 am --over
+recomp lang lines J1 am --profile shorts
+recomp lang lines J1 fr --missing
+```
+
+### lang.replace
+
+`recomp lang replace <lang> <find> <replace>` · effect: **write**
+
+Find and replace across a language's translations: terminology, name spellings, punctuation.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<lang>` | string | required | Language code |
+| `<find>` | string | required |  |
+| `<replace>` | string | required |  |
+| `--journey` | string | None | Only this journey's lines (default: every translation in the language) |
+| `--regex` | boolean | False |  |
+| `--case` | boolean | False |  |
+| `--whole` | boolean | False | Whole words only |
+| `--dry-run` | boolean | False |  |
+
+```
+recomp lang replace am ንቃተ-ህሊና 'ንቃተ ህሊና' --dry-run
+recomp lang replace fr 'Anil Set' 'Anil Seth' --journey J1
+```
+
 ### lang.say
 
 `recomp lang say <text>` · effect: **network**
@@ -1249,6 +1348,11 @@ Change an export profile.
 | `--reframe` | string | None | fit-blur \| fit-pad \| crop-center \| crop-x |
 | `--captions` | string | None | burn \| sidecar \| off |
 | `--caption-style` | string | None | clean \| karaoke |
+| `--caption-max-chars` | integer | None | Characters per caption row (0 = automatic by format and script) |
+| `--caption-max-lines` | integer | None | Rows per caption screen (longer lines become more screens) |
+| `--caption-scale` | number | None | Caption font size factor, e.g. 0.9 |
+| `--caption-margin` | number | None | Distance from the bottom as a fraction of the height, e.g. 0.12 |
+| `--caption-lang` | string | None | Per-language caption override, lang:key=value,…  e.g. am:max_chars=24,scale=0.9 (key=none removes it) |
 | `--overlays` | boolean | None |  |
 | `--lower-thirds` | boolean | None |  |
 | `--music` | boolean | None |  |
@@ -1283,6 +1387,11 @@ Create an export profile (optionally from another).
 | `--reframe` | string | None | fit-blur \| fit-pad \| crop-center \| crop-x |
 | `--captions` | string | None | burn \| sidecar \| off |
 | `--caption-style` | string | None | clean \| karaoke |
+| `--caption-max-chars` | integer | None | Characters per caption row (0 = automatic by format and script) |
+| `--caption-max-lines` | integer | None | Rows per caption screen (longer lines become more screens) |
+| `--caption-scale` | number | None | Caption font size factor, e.g. 0.9 |
+| `--caption-margin` | number | None | Distance from the bottom as a fraction of the height, e.g. 0.12 |
+| `--caption-lang` | string | None | Per-language caption override, lang:key=value,…  e.g. am:max_chars=24,scale=0.9 (key=none removes it) |
 | `--overlays` | boolean | None |  |
 | `--lower-thirds` | boolean | None |  |
 | `--music` | boolean | None |  |
@@ -1638,6 +1747,34 @@ Pipeline stage per source (probe, audio, peaks, shots, thumbs, transcript…) an
 
 ## speaker
 
+### speaker.assign
+
+`recomp speaker assign <ref> <name>` · effect: **write**
+
+Say who speaks which lines, directly: by range, time, cut or text, from '>>' turns, or from 'NAME:' prefixes. No models needed.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<ref>` | string | required | Source or transcript ref |
+| `<name>` | string | None | Person or character to give the selected lines |
+| `--by` | string | None | marks: YouTube '>>' turns, cycling --names · prefix: 'NAME:' line prefixes in subtitles (film characters) |
+| `--names` | string | None | With --by marks: comma list in speaking order, e.g. "Alex O'Connor,Anil Seth" |
+| `--lines` | string | None | Line indices: 12, 12-40, 3,7,9-11 |
+| `--from` | string | None | Lines ending after this time |
+| `--to` | string | None | Lines starting before this time |
+| `--cut` | string | None | Lines inside this cut (C3) |
+| `--match` | string | None | Lines containing this text |
+| `--strip` | boolean | True | With --by prefix: remove the 'NAME:' prefix from the text |
+| `--clear` | boolean | False | Remove the speaker from the selected lines instead |
+| `--dry-run` | boolean | False |  |
+
+```
+recomp speaker assign S4 "Anil Seth" --from 12:30 --to 48:10
+recomp speaker assign S5 --by marks --names "Alex O'Connor,Michael Pollan"
+recomp speaker assign S1 --by prefix --dry-run
+recomp speaker assign S1 "The Joker" --cut C4
+```
+
 ### speaker.diarize
 
 `recomp speaker diarize <ref>` · effect: **heavy**
@@ -1699,6 +1836,26 @@ Say who a voice is. The person is created if new; their voice is then recognised
 recomp speaker name S2:SPEAKER_01 "Alex O'Connor"
 ```
 
+### speaker.people
+
+`recomp speaker people <person>` · effect: **write**
+
+List people and characters (lines, sources, aliases), or rename, alias, annotate or remove one.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<person>` | string | None | Person to change (P1 or name); omit to list everyone |
+| `--rename` | string | None | New name (the old one becomes an alias) |
+| `--alias` | string | None | Add an alias (another spelling, a character's other name) |
+| `--note` | string | None | A note: who they are, the actor who plays them |
+| `--remove` | boolean | False | Delete the person (their lines keep their voice label) |
+
+```
+recomp speaker people
+recomp speaker people P2 --rename "Michael Pollan" --alias "Pollan"
+recomp speaker people "The Joker" --note "played by Heath Ledger"
+```
+
 ### speaker.unlink
 
 `recomp speaker unlink <voice>` · effect: **write**
@@ -1750,6 +1907,64 @@ recomp transcript asr S3
 recomp transcript asr S1 --from 10:00 --to 20:00 --language en
 ```
 
+### transcript.clean
+
+`recomp transcript clean <ref>` · effect: **write**
+
+Tidy transcript text with presets (sound tags, >> marks, ♪, doubled words, fillers, spacing, casing). Empty lines are removed.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `--lines` | string | None | Line indices: 12, 12-40 or 3,7,9-11 (the #idx from `transcript read`) |
+| `--from` | string | None | Only lines ending after this time |
+| `--to` | string | None | Only lines starting before this time |
+| `--dry-run` | boolean | False | Show what would change without changing anything |
+| `<ref>` | string | required | Source or transcript ref, or `all` |
+| `--rules` | string | None | Comma list; default marks,tags,notes,doubles,spacing. Also: fillers, case. `--rules list` shows them all |
+
+```
+recomp transcript clean S2 --dry-run
+recomp transcript clean all --rules tags,notes,spacing
+recomp transcript clean S1 --rules list
+```
+
+### transcript.delete
+
+`recomp transcript delete <ref>` · effect: **write**
+
+Remove lines (credits, sound-only lines, a subtitle file's ads) by range, time or pattern.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `--lines` | string | None | Line indices: 12, 12-40 or 3,7,9-11 (the #idx from `transcript read`) |
+| `--from` | string | None | Only lines ending after this time |
+| `--to` | string | None | Only lines starting before this time |
+| `--dry-run` | boolean | False | Show what would change without changing anything |
+| `<ref>` | string | required | Source or transcript ref |
+| `--match` | string | None | Only lines containing this text (or --regex pattern) |
+| `--regex` | boolean | False |  |
+
+```
+recomp transcript delete S1 --lines 0-3 --dry-run
+recomp transcript delete S1 --match "^\[.*\]$" --regex
+```
+
+### transcript.edit
+
+`recomp transcript edit <ref>` · effect: **write**
+
+Change many lines at once (text, start, end, speaker) from one JSON input; one undo reverts them all.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<ref>` | string | required | Source or transcript ref |
+| `--edits` | list[any] | required | Lines to change (use --input edits.json: {edits: [{idx, text, …}]}) |
+| `--dry-run` | boolean | False |  |
+
+```
+recomp transcript edit S1 --input edits.json
+```
+
 ### transcript.edit-segment
 
 `recomp transcript edit-segment <ref> <idx>` · effect: **write**
@@ -1767,6 +1982,25 @@ Correct one segment's text, timing or speaker (word timings are re-spread if the
 
 ```
 recomp transcript edit-segment S1 412 --text "Why so serious?"
+```
+
+### transcript.export
+
+`recomp transcript export <ref>` · effect: **write**
+
+Write a transcript to a file (srt, vtt, txt, json) for an outside editor; `transcript import` reads it back.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<ref>` | string | required | Source or transcript ref |
+| `--format` | string | 'srt' | srt \| vtt \| txt \| json (json keeps words and speakers; import reads it back) |
+| `--out` | string | None | File to write (default: <project>/exports/transcripts/<ref>.<format>) |
+| `--from` | string | None |  |
+| `--to` | string | None |  |
+
+```
+recomp transcript export S1 --format srt
+recomp transcript export S4 --format json --out s4.json
 ```
 
 ### transcript.fetch-captions
@@ -1812,6 +2046,21 @@ Transcripts of a source: origin, language, primary, word timing, sync result.
 |---|---|---|---|
 | `<ref>` | string | required | Source ref (or a transcript ref) |
 
+### transcript.merge
+
+`recomp transcript merge <ref> <lines>` · effect: **write**
+
+Join consecutive lines into one (a sentence the subtitles broke apart). Words keep their timings.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<ref>` | string | required | Source or transcript ref |
+| `<lines>` | string | required | Consecutive lines to join, e.g. 12-14 |
+
+```
+recomp transcript merge S1 12-14
+```
+
 ### transcript.outline
 
 `recomp transcript outline <ref>` · effect: **read**
@@ -1850,6 +2099,51 @@ recomp transcript read S1 --chapter S1.c4
 recomp transcript read S1 --around 1:02:10 --span 30
 ```
 
+### transcript.replace
+
+`recomp transcript replace <ref> <find> <replace>` · effect: **write**
+
+Find and replace across a transcript (or all of them): names, misheard words, punctuation. Word timings follow.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `--lines` | string | None | Line indices: 12, 12-40 or 3,7,9-11 (the #idx from `transcript read`) |
+| `--from` | string | None | Only lines ending after this time |
+| `--to` | string | None | Only lines starting before this time |
+| `--dry-run` | boolean | False | Show what would change without changing anything |
+| `<ref>` | string | required | Source or transcript ref, or `all` (every source's primary transcript) |
+| `<find>` | string | required | Text (or --regex pattern) to find |
+| `<replace>` | string | required | Replacement (regex groups as \1) |
+| `--regex` | boolean | False |  |
+| `--case` | boolean | False | Case-sensitive |
+| `--whole` | boolean | False | Whole words only |
+
+```
+recomp transcript replace all "Anil Seth" "Anil Seth" --whole --dry-run
+recomp transcript replace S4 "conscious ness" "consciousness"
+recomp transcript replace S1 "^- " "" --regex
+```
+
+### transcript.resegment
+
+`recomp transcript resegment <ref>` · effect: **write**
+
+Rebuild lines from word timings (rolling auto captions → sentence-like lines). Writes a new transcript; the old one stays.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<ref>` | string | required | Source or transcript ref (needs word timings) |
+| `--max-chars` | integer | 84 | Longest line in characters (two caption rows ≈ 84) |
+| `--max-dur` | number | 7.0 | Longest line in seconds |
+| `--gap` | number | 0.8 | A pause this long always starts a new line |
+| `--primary` | boolean | True | Make the result the primary transcript |
+| `--dry-run` | boolean | False |  |
+
+```
+recomp transcript resegment S2 --dry-run
+recomp transcript resegment S2 --max-chars 70
+```
+
 ### transcript.set-primary
 
 `recomp transcript set-primary <ref>` · effect: **write**
@@ -1864,15 +2158,38 @@ Make a transcript the one search, reading and captions use for its source.
 
 `recomp transcript shift <ref> <by>` · effect: **write**
 
-Shift every segment and word of a transcript in time (its own inverse: shift back to undo).
+Shift (and optionally stretch) a transcript's times, whole or from/to a point. Shift back to undo a whole shift.
 
 | Field | Type | Default | Description |
 |---|---|---|---|
 | `<ref>` | string | required |  |
-| `<by>` | string | required | Seconds to add to every time (negative = earlier) |
+| `<by>` | string | '0' | Seconds to add to every time (negative = earlier) |
+| `--scale` | number | 1.0 | Multiply times first (frame-rate drift: 25/23.976 = 1.04271) |
+| `--from` | string | None | Only lines starting at or after this time |
+| `--to` | string | None | Only lines starting before this time |
 
 ```
 recomp transcript shift S1.t1 -1.5
+recomp transcript shift S1 0 --scale 1.04271
+recomp transcript shift S1 0.8 --from 1:02:10   # only the lines after a reel change
+```
+
+### transcript.split
+
+`recomp transcript split <ref> <idx>` · effect: **write**
+
+Split one line in two, after given words or at a time. Later lines are renumbered.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<ref>` | string | required | Source or transcript ref |
+| `<idx>` | integer | required | Line to split |
+| `--after` | string | None | Split after these words (the end of the first part) |
+| `--at` | string | None | Or split at this time (words decide the text) |
+
+```
+recomp transcript split S1 412 --after "Why so serious?"
+recomp transcript split S1 412 --at 1:02:03.4
 ```
 
 ### transcript.sync-check

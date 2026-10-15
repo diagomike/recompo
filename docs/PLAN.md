@@ -193,7 +193,7 @@ hub.
 | `doctor` | checks ffmpeg/fonts/worker python/models/disk/hub/network endpoints |
 | `project` | `init <path> [--kind]`, `use`, `list`, `show`, `set`, `archive`, `agent-kit` (re)install |
 | `source` | `add <path\|glob\|url> [--limit --since --match]`, `list`, `show`, `status`, `relink`, `rights set`, `remove`, `fetch-audio`, `fetch-sections` |
-| `transcript` | `import <file>`, `fetch-captions`, `asr [--model --lang --on local\|remote]`, `align`, `sync-check [--fix]`, `read <S> [--from --to --chapter --format]`, `outline <S>`, `set-primary`, `edit-segment` |
+| `transcript` | `import <file>`, `fetch-captions`, `asr [--model --lang --on local\|remote]`, `align`, `sync-check [--fix]`, `read <S> [--from --to --chapter --format]`, `outline <S>`, `set-primary`, `edit-segment`; P15: `replace`, `edit`, `clean`, `merge`, `split`, `delete`, `resegment`, `export` |
 | `search` | `<query> [--sources --person --chapter --mode bm25\|semantic\|hybrid --limit]`, `index rebuild` |
 | `shots` / `peaks` | `detect`, `show` / `build` |
 | `chapter` | `seed` (creator/platform chapters), `auto` (machine), `set <S> --input` (bulk, snaps to segment boundaries), `add/edit/merge/split/remove`, `list` |
@@ -204,8 +204,8 @@ hub.
 | `profile` | `list`, `new <name> --aspect 9:16 --res 1080x1920 --reframe fit-blur --captions burn:karaoke --music on --endcard recipe --langs en,am`, `edit`, `show` |
 | `preview` | `<C\|J> [--profile]` → fast 480p render, then the viewer opens it |
 | `export` | `run <J> --profiles a,b --langs en,am,sw,fr`, `cuts <C…> --profile`, `status`, `check <export>`, `package <export>`, `recipe <J>` (json), `edl <J>`, `otio <J>` |
-| `lang` | `translate <J> --to am [--input file]` (agent-supplied) or `--engine google`, `voices <lang>`, `dub <J> --lang am --mode voiceover\|replace [--voice]` |
-| `speaker` | `diarize <S>`, `list`, `name <S:SPK_n> "Name"`, `match` (cross-source), `merge` |
+| `lang` | `translate <J> --to am [--input file]` (agent-supplied) or `--engine google`, `voices <lang>`, `dub <J> --lang am --mode voiceover\|replace [--voice]`; P15: `lines`, `edit`, `replace`, `clear` |
+| `speaker` | `diarize <S>`, `list`, `name <S:SPK_n> "Name"`, `match` (cross-source), `merge`; P15: `assign` (ranges, patterns, `>>` turns, `NAME:` prefixes), `people` |
 | `job` | `list`, `show`, `wait`, `tail`, `cancel`, `retry` |
 | `worker` | `serve [--folder]`, `status`, `config` |
 | `op` | `log`, `undo`, `redo` |
@@ -462,6 +462,64 @@ real Kaggle/Colab run is `[you]`: you start the notebook and I watch the folder.
 relinking and cross-release offset matching · performance pass · full docs (README, AGENT_GUIDE
 transcripts) · final regression of M1 to M4 · BACKLOG of what's next (face-aware reframe, voice cloning
 via lang_bridge, public hub deployment, multilingual embeddings). `[auto]`
+
+**P15 — Editing toolkit (added 2026-10-15 at the user's request)**
+Cheap, direct ways for the agent and the user to fix text, timing and speakers in bulk, so a heavy
+model is never the only way to do these jobs. Every verb is op-logged (`op undo` reverts a whole bulk
+edit) and every bulk verb takes `--dry-run`, which shows the before and after of each line it would change.
+Word timings follow the text: when a line's text changes, its word count decides whether the old timings are
+kept or spread again, and the render path does the same check, so an undo can never show stale words.
+- *Transcripts:* `transcript replace` (literal or regex, case-aware, whole words, over one transcript, a range or
+  all sources) · `transcript edit` (many lines from one JSON input: text, start, end, speaker) · `transcript clean`
+  (presets: `>>` marks, [sound] tags, ♪, doubled words, fillers, spacing, sentence case for auto captions) ·
+  `transcript merge` and `transcript split` (lines) · `transcript delete` (lines by range or pattern) ·
+  `transcript resegment` (rebuild fragmented rolling auto-caption lines into readable lines from word timings:
+  max characters, max seconds, sentence ends) · `transcript shift --scale --from --to` (frame-rate drift and
+  partial shifts) · `transcript export` (srt, vtt, txt, json; for outside editors; `import` reads it back).
+- *Speakers and characters without ML:* `speaker assign` names lines directly: by index range, time range,
+  regex or a cut, from YouTube `>>` turns (alternating the given names), or from `NAME:` prefixes in SDH
+  subtitles (film characters, prefixes optionally stripped). It creates people and voice labels exactly as
+  diarisation would, so search, cut filters, lower thirds and the speaker lane work the same. Diarisation stays
+  for when nothing cheaper works. `speaker people` lists, renames and aliases people (characters included).
+- *Translations:* `lang lines` (every line of a language with source text, length, reading speed against the
+  language's budget and a fit flag; `--over` for only the ones to shorten) · `lang edit` (one or many lines) ·
+  `lang replace` (terminology and name spellings across a language) · `lang clear` (drop a language or lines).
+- *Caption width and layout:* profile keys `caption_max_chars` (per line), `caption_max_lines`, `caption_scale`
+  (font size), `caption_margin` (distance from the edge) and `caption_lang` (per-language overrides, e.g. Ethiopic
+  script narrower lines); lines with no word timings that run longer than the box are split into timed chunks in
+  proportion to their characters instead of stacking. `export caption-sheet` renders the longest captions of a
+  journey in one language and profile to a single PNG, so width can be checked in seconds without a render.
+- *Viewer:* inline line editing in the Source room, a translation editor (`lang lines` and `lang edit`) on the
+  Exports page.
+*Done when:* each verb has tests (including dry runs and undo); `>>`-marked captions of an Alex O'Connor
+episode name both speakers without diarisation; an Amharic caption sheet shows two-line captions inside the
+frame. `[auto]`
+
+**P16 — UX perfecting pass (added 2026-10-15 at the user's request)**
+The viewer becomes a workspace a person can drive end to end without the agent, while every manual action
+stays a verb the agent can run too. It comes after P15 so the screens can expose the editing verbs.
+- *One project workspace:* sources, transcripts, cuts, journeys and exports of a project in one place, with
+  the folder layout visible (`sources/`, `recipes/`, `exports/`): where each file is, open the folder, reveal an
+  export. Journeys and exports already live in the project folder; the UI says so.
+- *Cuts from many media into one journey:* a cut bin across all sources (filter by source, tag, person, chapter,
+  length, rating, text), multi-select, and "add to journey" or drag into a journey's timeline; "new journey from
+  selection"; cut creation from a transcript selection in any source room; a journey timeline that shows each
+  slot's source.
+- *Filtering everywhere:* one filter bar pattern (text, source, person, tag, language, status, date) on sources,
+  transcript lines, cuts, journeys, exports and jobs; filters live in the URL so the agent can open the same view
+  (`ui show … --filter`).
+- *Clear manual actions, orderable by the agent:* each screen has a visible action bar; every button names the
+  verb it runs (the command is shown on hover and in the Activity log), and the same action can be handed to the
+  agent ("ask the agent to do this") with the current selection attached. The agent can open views, set filters,
+  select items and highlight a button through `ui` verbs, so the work moves between the person and the agent in both
+  directions.
+- *Guided flow:* a project checklist (sources → transcripts → speakers → cuts → journeys → languages → exports),
+  each step with its state and the next action; empty states that explain what to do; undo shown after every change.
+- *Polish:* keyboard shortcuts (play, mark in/out, add cut, next line), consistent layout and naming, loading and
+  error states with the error's hint, mobile-safe widths for the hub.
+*Done when:* starting from an empty project, a person can add two media files, cut from both and export a
+journey without typing a command, and every step shows as a verb in the Activity log. Each screen is checked
+in the browser pane, then by you. `[auto]` + `[you]`
 
 ---
 

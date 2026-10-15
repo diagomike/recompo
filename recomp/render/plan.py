@@ -11,18 +11,12 @@ from pathlib import Path
 
 from ..compose import recipe as R
 from ..envelope import RecompError
+from ..transcript.align import proportional_words
+from ..transcript.edit import sync_words
 from ..transcript.store import primary
 from . import profiles
 
 PLAN_VERSION = 5
-
-
-def _words_in(db, tr: dict, a: float, b: float) -> list[tuple[float, float, str]]:
-    if not tr or not tr["has_words"]:
-        return []
-    rows = db.all('SELECT w.start, w."end", w.text FROM word w JOIN segment s ON s.id=w.segment_id '
-                  'WHERE s.transcript_id=? AND w."end" > ? AND w.start < ? ORDER BY w.start, w.idx', (tr["id"], a, b))
-    return [(max(a, r[0]), min(b, r[1]), r[2]) for r in rows]
 
 
 def _segments_in(db, tr: dict, a: float, b: float) -> list[dict]:
@@ -54,12 +48,14 @@ def captions_for_slot(db, src: dict, a: float, b: float, at: float, lang: str | 
         if inside < 0.2 or (inside < 0.5 * (seg["end"] - seg["start"]) and inside < 1.0):
             continue
         text = _clean_caption(seg["text"])
-        raw = _words_in(db, tr, s0, s1)
-        if not raw:  # no word timing: spread words over the line so long lines can be chunked in time
-            from ..transcript.align import proportional_words
-            raw = [(w["start"], w["end"], w["text"]) for w in proportional_words(seg) if s0 <= w["start"] < s1]
-        words = [(w0 - a + at, w1 - a + at, t) for (w0, w1, t) in raw
-                 if t.strip(">").strip() and not (t.startswith("[") and t.endswith("]"))]
+        own = [(r[0], r[1], r[2]) for r in db.all('SELECT start, "end", text FROM word WHERE segment_id=? ORDER BY idx',
+                                                   (seg["id"],))] if tr["has_words"] else []
+        # Words follow the line's current text (an edit or an undo may have changed it since they were timed).
+        timed = sync_words(text, own) if own else []
+        if not timed:  # no word timing: spread words over the line so long lines can be chunked in time
+            timed = [(w["start"], w["end"], w["text"]) for w in proportional_words(dict(seg, text=text))]
+        raw = [(max(a, w0), min(b, w1), t) for (w0, w1, t) in timed if s0 - 0.05 <= w0 < s1]
+        words = [(w0 - a + at, w1 - a + at, t) for (w0, w1, t) in raw if w1 >= w0]
         if translated:
             row = db.one("SELECT text FROM translation WHERE lang=? AND kind='segment' AND target_id=?",
                          (lang, str(seg["id"])))
