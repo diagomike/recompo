@@ -14,7 +14,7 @@ from ..envelope import RecompError
 from ..transcript.store import primary
 from . import profiles
 
-PLAN_VERSION = 3
+PLAN_VERSION = 5
 
 
 def _words_in(db, tr: dict, a: float, b: float) -> list[tuple[float, float, str]]:
@@ -68,6 +68,24 @@ def _item(src: dict, a: float, b: float, at: float, slot_settings: dict, transit
             "video": probe.get("video"), "audio": probe.get("audio"), "kind": src["kind"]}
 
 
+def quantize(items: list[dict], fps: int) -> None:
+    """Whole frames per slot, and output positions recomputed from them, so the rendered body's
+    length equals the plan exactly and captions don't drift on long journeys."""
+    t = 0.0
+    for k, it in enumerate(items):
+        frames = max(1, round(it["dur"] * fps))
+        it["frames"] = frames
+        it["dur"] = round(frames / fps, 4)
+        it["out"] = round(it["in"] + it["dur"], 4)
+        tr = it.get("transition") or {}
+        overlap = 0.0
+        if k and tr.get("type") in ("fade", "dip"):
+            overlap = round(min(float(tr.get("dur", 0.5)), it["dur"] / 2, items[k - 1]["dur"] / 2) * fps) / fps
+            tr["dur"] = overlap
+        it["at"] = round(max(0.0, t - overlap), 4)
+        t = it["at"] + it["dur"]
+
+
 def build(db, project, journey: dict | None = None, cuts: list[dict] | None = None, profile: dict | None = None,
           lang: str | None = None, title: str | None = None) -> dict:
     prof = profiles.resolve(profile or {})
@@ -80,10 +98,11 @@ def build(db, project, journey: dict | None = None, cuts: list[dict] | None = No
         for it in tl:
             items.append(_item(it["source"], it["in"], it["out"], it["at"], it["settings"], it["transition"],
                                it["ref"], it["cut"]["ref"]))
+        quantize(items, prof["fps"])
         rec = R.build(db, journey)
         lang = lang or journey["language"]
         title = title or journey["title"]
-        slot_at = {it["id"]: it for it in tl}
+        slot_at = {it["id"]: {"at": items[k]["at"], "end": items[k]["at"] + items[k]["dur"]} for k, it in enumerate(tl)}
         for o in db.rows("overlay", "WHERE journey_id=? ORDER BY at", (journey["id"],)):
             if o["kind"] == "lower_third" and not prof["lower_thirds"]:
                 continue
@@ -125,6 +144,7 @@ def build(db, project, journey: dict | None = None, cuts: list[dict] | None = No
             src = db.get("source", c["source_id"])
             items.append(_item(src, c["start"], c["end"], at, {}, {}, c["ref"], c["ref"]))
             at += c["end"] - c["start"]
+        quantize(items, prof["fps"])
         title = title or (cuts[0]["title"] if cuts else "clip")
         srcs = {}
         for it in items:

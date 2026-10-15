@@ -107,18 +107,27 @@ def words_from_reference(sub_segments: list[dict], ref_words: list[dict]) -> tup
     for seg in sub_segments:
         toks = tokens(seg["text"])
         words = []
+        seg_matched = 0
+        seg_total = 0
         for tok in toks:
             if not norm(tok):
                 words.append({"text": tok, "start": None, "end": None})
                 continue
             ref = matched_by_flat.get(flat_i)
             flat_i += 1
-            total += 1
-            if ref and seg["start"] - 2.0 <= ref["start"] <= seg["end"] + 2.0:
-                matched += 1
+            seg_total += 1
+            # A spoken word must sit inside its subtitle's own window (± a little): repeated phrases
+            # nearby ("I'm here to …") would otherwise lend their timing to the wrong line.
+            if ref and seg["start"] - 0.6 <= ref["start"] <= seg["end"] + 0.6:
+                seg_matched += 1
                 words.append({"text": tok, "start": ref["start"], "end": ref["end"], "prob": ref.get("prob")})
             else:
                 words.append({"text": tok, "start": None, "end": None})
+        total += seg_total
+        if seg_total and seg_matched / seg_total < 0.5:
+            out.append(proportional_words(seg))  # the recogniser missed this line: trust the subtitle's timing
+            continue
+        matched += seg_matched
         out.append(_fill(words, seg["start"], seg["end"]))
     return out, {"matched": matched, "words": total, "ratio": round(matched / max(1, total), 3)}
 

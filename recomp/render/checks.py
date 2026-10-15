@@ -30,7 +30,7 @@ def run(folder: Path, plan: dict) -> dict:
         add("video exists", False, str(video))
         return out
     info = ff.probe(video)
-    add("duration", info.duration is not None and abs(info.duration - plan["total"]) <= 0.35,
+    add("duration", info.duration is not None and abs(info.duration - plan["total"]) <= 0.12,
         f"{info.duration}s vs planned {plan['total']}s")
     v = info.video[0] if info.video else None
     add("frame size", v is not None and (v.width, v.height) == (prof["width"], prof["height"]),
@@ -41,7 +41,9 @@ def run(folder: Path, plan: dict) -> dict:
     try:
         ld = loudness(video)
         ok = ld["integrated"] is not None and abs(ld["integrated"] - prof["loudness"]) <= 1.0
-        add("loudness", ok, f"{ld['integrated']} LUFS (target {prof['loudness']}), true peak {ld['true_peak']} dBFS")
+        add("loudness", ok, f"{ld['integrated']} LUFS (target {prof['loudness']})")
+        add("true peak", ld["true_peak"] is not None and ld["true_peak"] <= prof["true_peak"] + 0.5,
+            f"{ld['true_peak']} dBFS (ceiling {prof['true_peak']})")
         out["loudness"] = ld
     except Exception as exc:  # noqa: BLE001
         add("loudness", False, str(exc)[:200])

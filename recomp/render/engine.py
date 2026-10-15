@@ -74,12 +74,17 @@ def render_slot(project, item: dict, prof: dict, c: Ctx) -> Path:
         raise RecompError("E_NOT_FOUND", f"{item['ref']}: no media file for {item['source']}")
     dur = item["dur"]
     has_audio = bool(item.get("audio"))
-    args = ["-ss", f"{item['in']:.3f}", "-i", src]
+    frames = item.get("frames") or max(1, round(dur * prof["fps"]))
+    args = ["-ss", f"{item['in']:.3f}", "-t", f"{dur + 1.0:.3f}", "-i", src]
     if not has_audio:
-        args += ["-f", "lavfi", "-t", f"{dur:.3f}", "-i", "anullsrc=r=48000:cl=stereo"]
-    vf = reframe_filter(item, prof) + f",fps={prof['fps']},setsar=1,format=yuv420p[v]"
-    af = (f"[0:a:0]{audio_filter(item, dur)}[a]" if has_audio else "[1:a]anull[a]")
-    args += ["-filter_complex", vf + ";" + af, "-map", "[v]", "-map", "[a]", "-t", f"{dur:.3f}",
+        args += ["-f", "lavfi", "-t", f"{dur + 1.0:.3f}", "-i", "anullsrc=r=48000:cl=stereo"]
+    # Exactly `frames` frames (padded by cloning the last one if the source runs short) and exactly
+    # `dur` seconds of audio: slots then add up to the plan's length with no drift.
+    vf = (reframe_filter(item, prof) + f",fps={prof['fps']},tpad=stop_mode=clone:stop_duration=1,"
+          f"trim=end_frame={frames},setpts=PTS-STARTPTS,setsar=1,format=yuv420p[v]")
+    af = (f"[0:a:0]{audio_filter(item, dur)},atrim=0:{dur:.4f},asetpts=PTS-STARTPTS[a]" if has_audio
+          else f"[1:a]atrim=0:{dur:.4f},asetpts=PTS-STARTPTS[a]")
+    args += ["-filter_complex", vf + ";" + af, "-map", "[v]", "-map", "[a]", "-frames:v", str(frames),
              "-c:v", prof["video_codec"], "-preset", prof["preset"], "-crf", str(prof["crf"]),
              "-g", str(prof["fps"] * 2), "-pix_fmt", "yuv420p",
              "-c:a", "aac", "-b:a", prof["audio_bitrate"], "-ar", "48000", "-ac", "2",
@@ -93,10 +98,19 @@ def assemble(work: Path, items: list[dict], parts: list[Path], prof: dict, c: Ct
     body = work / "body.mp4"
     has_tr = any((it.get("transition") or {}).get("type") in ("fade", "dip") for it in items[1:])
     if not has_tr:
+        # Video: stream copy (every slot has exactly its frame count). Audio: decoded and trimmed to each
+        # slot's exact length, so AAC padding cannot accumulate into drift over many slots.
         lst = work / "concat.txt"
         lst.write_text("".join(f"file '{p.as_posix()}'\n" for p in parts), encoding="utf-8")
-        ff.run(["-f", "concat", "-safe", "0", "-i", str(lst), "-c", "copy", "-movflags", "+faststart", str(body)],
-               cancelled=c.cancelled)
+        args = ["-f", "concat", "-safe", "0", "-i", str(lst)]
+        fl = []
+        for k, p in enumerate(parts):
+            args += ["-i", str(p)]
+            fl.append(f"[{k + 1}:a]atrim=0:{items[k]['dur']:.4f},asetpts=PTS-STARTPTS[a{k}]")
+        fl.append("".join(f"[a{k}]" for k in range(len(parts))) + f"concat=n={len(parts)}:v=0:a=1[a]")
+        args += ["-filter_complex", ";".join(fl), "-map", "0:v", "-map", "[a]", "-c:v", "copy",
+                 "-c:a", "aac", "-b:a", prof["audio_bitrate"], "-ar", "48000", "-movflags", "+faststart", str(body)]
+        ff.run(args, cancelled=c.cancelled)
         return body
     args = []
     for p in parts:
@@ -221,10 +235,11 @@ def final(work: Path, body: Path, card: Path | None, plan: dict, prof: dict, out
     m_inputs, afl = _audio_chain(plan, next_in)
     args += m_inputs
     fonts = ":fontsdir=C\\\\:/Windows/Fonts" if os.name == "nt" else ""
-    fl = [f"[0:v]subtitles=overlay.ass{fonts}[vb]"] + afl
+    fl = [f"[0:v]setpts=N/({prof['fps']}*TB),subtitles=overlay.ass{fonts}[vb]"] + afl
     ln = (f"loudnorm=I={prof['loudness']}:TP={prof['true_peak']}:LRA=11:measured_I={meas['input_i']}:"
           f"measured_TP={meas['input_tp']}:measured_LRA={meas['input_lra']}:measured_thresh={meas['input_thresh']}:"
-          f"offset={meas['target_offset']}:linear=true,aresample=48000")
+          f"offset={meas['target_offset']}:linear=true,aresample=48000,"
+          f"alimiter=limit={10 ** ((prof['true_peak'] - 0.6) / 20):.3f}:attack=2:release=60:level=false")
     fl.append(f"[mix]{ln}[mixn]")
     if card:
         fl.append("[vb][mixn][1:v][1:a]concat=n=2:v=1:a=1[v][a]")
@@ -233,7 +248,7 @@ def final(work: Path, body: Path, card: Path | None, plan: dict, prof: dict, out
         vmap, amap = "[vb]", "[mixn]"
     lang3 = ISO3.get((plan.get("lang") or "en")[:2], "und")
     url = (plan.get("links") or {}).get("hub") or ""
-    args += ["-filter_complex", ";".join(fl), "-map", vmap, "-map", amap,
+    args += ["-filter_complex", ";".join(fl), "-map", vmap, "-map", amap, "-t", f"{plan['total']:.3f}",
              "-c:v", prof["video_codec"], "-preset", prof["preset"], "-crf", str(prof["crf"]), "-pix_fmt", "yuv420p",
              "-c:a", "aac", "-b:a", prof["audio_bitrate"], "-ar", "48000", "-movflags", "+faststart",
              "-metadata", f"title={plan['title']}", "-metadata", f"comment=Recomposer recipe {plan['recipe_hash']} {url}".strip(),
