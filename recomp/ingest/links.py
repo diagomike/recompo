@@ -291,10 +291,53 @@ def fetch_audio(project, src: dict, progress=None, log=print) -> Path:
     return files[0]
 
 
+def fetch_video(project, src: dict, height: int = 720, log=print, progress=None) -> Path:
+    """The whole video at ≤ height (H.264 + AAC), once per source. Talks at 720p are small (≈1 MB/min);
+    reading sections through ffmpeg instead streams from the start of the file and is far slower here."""
+    folder = project.dir("sources", src["ref"])
+    out = folder / f"video_{height}.mp4"
+    if out.exists():
+        return out
+    hook = None
+    if progress:
+        def hook(d):
+            if d.get("status") == "downloading":
+                total = d.get("total_bytes") or d.get("total_bytes_estimate")
+                if total:
+                    progress(min(0.99, d.get("downloaded_bytes", 0) / total), f"{d.get('downloaded_bytes', 0) // 1_000_000} MB")
+    opts = {"skip_download": False,
+            "format": f"bv*[height<={height}][vcodec^=avc1]+ba[ext=m4a]/bv*[height<={height}][ext=mp4]+ba/b[height<={height}]/b",
+            "merge_output_format": "mp4", "outtmpl": str(folder / f"video_{height}.%(ext)s"),
+            "concurrent_fragment_downloads": 4, "progress_hooks": [hook] if hook else []}
+    try:
+        with _ydl(opts) as ydl:
+            ydl.download([src["uri"]])
+    except Exception as exc:  # noqa: BLE001
+        raise classify_error(exc) from exc
+    if not out.exists():
+        cands = [p for p in folder.glob(f"video_{height}.*") if p.suffix not in (".part", ".ytdl")]
+        if not cands:
+            raise RecompError("E_EXTERNAL", "video download produced no file")
+        cands[0].rename(out)
+    db = project.db
+    db.conn.execute("INSERT OR REPLACE INTO asset(id, source_id, role, path, info, created_at) VALUES(?,?,?,?,?,?)",
+                    (f"video-{src['ref']}-{height}", src["id"], "video", str(out), json.dumps({"height": height}), time.time()))
+    log(f"video {src['ref']} ≤{height}p → {out.name} ({out.stat().st_size // 1_000_000} MB)")
+    return out
+
+
 def ensure_section(project, item: dict, prof: dict, log=print) -> str:
-    """Download [in − 1.5 s, out + 1.5 s] of a link source (cut exactly), and shift the item onto it."""
+    """Media for one slot of a link source. Default (network.link_video = full): the whole video at ≤720p,
+    downloaded once per source. With ``sections``: only [in − 1.5 s, out + 1.5 s], cut exactly."""
     db = project.db
     src = db.by_ref("source", item["source"])
+    if (config.get("network.link_video") or "full") == "full":
+        path = fetch_video(project, src, int(config.get("network.link_video_height") or 720), log=log)
+        from ..media import ff
+        info = ff.probe(path).to_dict()
+        item["video"], item["audio"] = info["video"], info["audio"]
+        item["fingerprint"] = f"video:{src['ref']}:{path.stat().st_size}"
+        return str(path)
     pad = 1.5
     a = max(0.0, item["in"] - pad)
     b = item["out"] + pad

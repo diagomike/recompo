@@ -29,7 +29,7 @@ Effects: `read` (no changes) · `write` (undoable op) · `heavy` (starts a job) 
 | `recipe` | [`recipe.export`](#recipeexport), [`recipe.import`](#recipeimport), [`recipe.show`](#recipeshow) |
 | `search` | [`search`](#search) |
 | `setup` | [`setup.shim`](#setupshim) |
-| `source` | [`source.add`](#sourceadd), [`source.fetch-audio`](#sourcefetch-audio), [`source.list`](#sourcelist), [`source.process`](#sourceprocess), [`source.refresh`](#sourcerefresh), [`source.relink`](#sourcerelink), [`source.remove`](#sourceremove), [`source.rights`](#sourcerights), [`source.show`](#sourceshow), [`source.status`](#sourcestatus) |
+| `source` | [`source.add`](#sourceadd), [`source.fetch-audio`](#sourcefetch-audio), [`source.fetch-video`](#sourcefetch-video), [`source.list`](#sourcelist), [`source.process`](#sourceprocess), [`source.refresh`](#sourcerefresh), [`source.relink`](#sourcerelink), [`source.remove`](#sourceremove), [`source.rights`](#sourcerights), [`source.show`](#sourceshow), [`source.status`](#sourcestatus) |
 | `speaker` | [`speaker.diarize`](#speakerdiarize), [`speaker.list`](#speakerlist), [`speaker.match`](#speakermatch), [`speaker.merge`](#speakermerge), [`speaker.name`](#speakername), [`speaker.unlink`](#speakerunlink) |
 | `transcript` | [`transcript.align`](#transcriptalign), [`transcript.asr`](#transcriptasr), [`transcript.edit-segment`](#transcriptedit-segment), [`transcript.fetch-captions`](#transcriptfetch-captions), [`transcript.import`](#transcriptimport), [`transcript.list`](#transcriptlist), [`transcript.outline`](#transcriptoutline), [`transcript.read`](#transcriptread), [`transcript.set-primary`](#transcriptset-primary), [`transcript.shift`](#transcriptshift), [`transcript.sync-check`](#transcriptsync-check) |
 | `trends` | [`trends.channel`](#trendschannel), [`trends.search`](#trendssearch), [`trends.youtube`](#trendsyoutube) |
@@ -1519,6 +1519,21 @@ Download only the audio of a link source (about 1 MB a minute), then make its 16
 
 ```
 recomp source fetch-audio S2
+```
+
+### source.fetch-video
+
+`recomp source fetch-video <ref>` · effect: **network**
+
+Download a link source's whole video once (≤720p by default) so its cuts render and play locally.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<ref>` | string | required |  |
+| `--height` | integer | 720 | Maximum height (720 is plenty for talks and shorts) |
+
+```
+recomp source fetch-video S2
 ```
 
 ### source.list

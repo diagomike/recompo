@@ -259,6 +259,23 @@ def source_refresh(ctx: Ctx, inp: RefIn):
     return links.refresh(ctx, s)
 
 
+class FetchVideoIn(BaseModel):
+    ref: str = Field(..., json_schema_extra={"pos": 0})
+    height: int = Field(720, description="Maximum height (720 is plenty for talks and shorts)")
+
+
+@verb("source.fetch-video", FetchVideoIn, effect="network", examples=["recomp source fetch-video S2"])
+def source_fetch_video(ctx: Ctx, inp: FetchVideoIn):
+    """Download a link source's whole video once (≤720p by default) so its cuts render and play locally."""
+    from ..ingest import links
+    s = refs.source(ctx.db, inp.ref)
+    if s["kind"] != "link":
+        raise RecompError("E_INVALID", f"{s['ref']} is a local file")
+    j = jobs.enqueue(ctx.db, "fetch-video", target=s["ref"], source_id=s["id"], params={"height": inp.height})
+    mode = jobs.kick(ctx.project)
+    return Result(data={"job": j["ref"], "runner": mode}, job=j["ref"])
+
+
 @verb("source.fetch-audio", RefIn, effect="network", examples=["recomp source fetch-audio S2"])
 def source_fetch_audio(ctx: Ctx, inp: RefIn):
     """Download only the audio of a link source (about 1 MB a minute), then make its 16 kHz audio and waveform."""

@@ -143,7 +143,8 @@ def room(ref: str, request: Request):
     return {"source": {"ref": src["ref"], "title": src["title"], "year": src["year"], "creator": src["creator"],
                        "kind": src["kind"], "duration": src["duration"], "platform": src["platform"],
                        "platform_id": src["platform_id"], "uri": src["uri"], "status": src["status"],
-                       "has_media": bool(src["path"] and Path(src["path"]).exists()),
+                       "has_media": bool(src["path"] and Path(src["path"]).exists()) or bool(db.one(
+                           "SELECT 1 FROM asset WHERE source_id=? AND role IN ('video','preview')", (src["id"],))),
                        "video": (meta.get("probe") or {}).get("video")},
             "transcript": {"ref": tr["ref"], "origin": tr["origin"], "language": tr["language"],
                            "has_words": bool(tr["has_words"])} if tr else None,

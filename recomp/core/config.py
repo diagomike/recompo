@@ -36,7 +36,7 @@ DEFAULTS: dict[str, Any] = {
         "mms": {"om": "facebook/mms-tts-orm"},
     },
     "render": {"cache_max_gb": 8},
-    "network": {"yt_sleep_subtitles": 3, "yt_retries": 4},
+    "network": {"yt_sleep_subtitles": 3, "yt_retries": 4, "link_video": "full", "link_video_height": 720},
 }
 
 

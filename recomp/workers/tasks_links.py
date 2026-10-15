@@ -34,6 +34,14 @@ def job_captions(ctx: JobCtx):
     return {"transcript": tr["ref"], "segments": len(segs), "auto": is_auto, "words": any(s.get("words") for s in segs)}
 
 
+@task("fetch-video", lane="net")
+def job_fetch_video(ctx: JobCtx):
+    src = ctx.source()
+    path = links.fetch_video(ctx.project, src, int(ctx.params.get("height") or 720), log=ctx.log, progress=ctx.progress)
+    ctx.set_status("video", "done")
+    return {"path": str(path), "mb": round(path.stat().st_size / 1e6, 1)}
+
+
 @task("fetch-audio", lane="net")
 def job_fetch_audio(ctx: JobCtx):
     src = ctx.source()
