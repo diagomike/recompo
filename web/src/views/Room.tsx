@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import { Pause, Play, Scissors, BookmarkPlus, ZoomIn, ZoomOut, Maximize2, X } from "lucide-react";
+import { ArrowLeft, Pause, Play, Scissors, BookmarkPlus, ZoomIn, ZoomOut, Maximize2, X } from "lucide-react";
 import { clock, frameUrl, mediaUrl, peaksUrl, room, thumbUrl, verb } from "../api";
 import { useApp } from "../App";
 import { Act, useActions } from "../actions";
@@ -40,7 +40,8 @@ function Splitter({ dir, onDrag }: { dir: "col" | "row"; onDrag: (delta: number)
 }
 
 export default function Room({ sourceRef }: { sourceRef: string }) {
-  const { route, version } = useApp();
+  const { route, version, go } = useApp();
+  const jref = route.params.get("j");  // gathering for a journey: new cuts go straight into it
   const [data, setData] = useState<RoomData | null>(null);
   const [err, setErr] = useState<string | null>(null);
   const [t, setT] = useState(0);
@@ -144,6 +145,14 @@ export default function Room({ sourceRef }: { sourceRef: string }) {
   const src = data.source;
 
   return (
+    <div style={{ display: "grid", gridTemplateRows: jref ? "auto minmax(0, 1fr)" : "minmax(0, 1fr)", height: "100%", minHeight: 0 }}>
+    {jref && (
+      <div className="roombanner">
+        <Scissors size={17} />
+        <span className="grow">Gathering for <b>{jref}</b>: select a range and press <span className="kbd">C</span>. Cuts you make here go straight into the journey.</span>
+        <button className="btn small primary" onClick={() => go("journeys", jref, { step: "gather" })}><ArrowLeft size={15} />Back to {jref}</button>
+      </div>
+    )}
     <div className="room" style={window.innerWidth > 900 ? { gridTemplateColumns: `minmax(380px, 1fr) 6px ${paneW}px` } : undefined}>
       <div className="left">
         <div className="player" style={{ height: playerH }}>
@@ -175,7 +184,7 @@ export default function Room({ sourceRef }: { sourceRef: string }) {
           )}
           <Lanes data={data} peaks={peaks} t={t} view={view} setView={setView} sel={sel} setSel={setSel} seek={seek}
                  focusRef={focusRef} setFocusRef={setFocusRef} hits={hits} />
-          {form && sel && <SpanForm kind={form} sourceRef={sourceRef} sel={sel} onDone={(ref) => { setForm(null); if (ref) setFocusRef(ref); }} />}
+          {form && sel && <SpanForm kind={form} sourceRef={sourceRef} sel={sel} jref={jref} onDone={(ref) => { setForm(null); if (ref) setFocusRef(ref); }} />}
         </div>
         <div className="below">
           <Lists data={data} focusRef={focusRef} onPick={(s) => { setFocusRef(s.ref); setSel({ a: s.start, b: s.end }); zoomTo(s.start, s.end); seek(s.start); }} />
@@ -188,6 +197,7 @@ export default function Room({ sourceRef }: { sourceRef: string }) {
       <Splitter dir="col" onDrag={(d) => setLay("paneW", Math.max(280, Math.min(window.innerWidth * 0.6, paneW - d)))} />
       <TranscriptPane data={data} t={t} sel={sel} seek={seek} setSel={setSel} panel={route.params.get("panel")}
                       query={route.params.get("tq")} onHits={setHits} />
+    </div>
     </div>
   );
 }
@@ -442,23 +452,27 @@ function Lists({ data, focusRef, onPick }: { data: RoomData; focusRef: string | 
   );
 }
 
-function SpanForm({ kind, sourceRef, sel, onDone }: { kind: "cut" | "chapter"; sourceRef: string; sel: { a: number; b: number }; onDone: (ref?: string) => void }) {
+function SpanForm({ kind, sourceRef, sel, onDone, jref }: { kind: "cut" | "chapter"; sourceRef: string; sel: { a: number; b: number }; onDone: (ref?: string) => void; jref: string | null }) {
   const [title, setTitle] = useState("");
   const [why, setWhy] = useState("");
   const [tags, setTags] = useState("");
   const [snap, setSnap] = useState("words+shots");
+  const [intoJ, setIntoJ] = useState(true);
   const { run } = useActions();
   const save = async () => {
     const env = kind === "cut"
-      ? await run("cut.add", { ref: sourceRef, from: String(sel.a), to: String(sel.b), title, why, tags: tags ? tags.split(",").map((x) => x.trim()) : [], snap }, { label: "New cut" })
+      ? await run("cut.add", { ref: sourceRef, from: String(sel.a), to: String(sel.b), title, why, tags: tags ? tags.split(",").map((x) => x.trim()) : [], snap,
+                               ...(jref && intoJ ? { journey: jref } : {}) }, { label: jref && intoJ ? `New cut into ${jref}` : "New cut" })
       : await run("chapter.add", { ref: sourceRef, start: String(sel.a), end: String(sel.b), title, summary: why, tags: tags ? tags.split(",").map((x) => x.trim()) : [] }, { label: "New chapter" });
     if (env.ok) onDone(env.refs?.[0]);
   };
   return (
-    <div className="card" style={{ margin: 8 }}>
-      <div className="row" style={{ marginBottom: 6 }}>
+    <div className="card stack" style={{ margin: 12 }}>
+      <div className="row">
         <b>{kind === "cut" ? "New cut" : "New chapter"}</b><span className="mono" style={{ color: "var(--muted)" }}>{clock(sel.a)}–{clock(sel.b)}</span>
-        <div className="spacer" /><button className="btn ghost small" onClick={() => onDone()}><X size={14} /></button>
+        <div className="spacer" />
+        {kind === "cut" && jref && <label className="check muted2"><input type="checkbox" checked={intoJ} onChange={(e) => setIntoJ(e.target.checked)} />Add to {jref}</label>}
+        <button className="btn ghost small icon" aria-label="Close" onClick={() => onDone()}><X size={16} /></button>
       </div>
       <div className="row">
         <input autoFocus className="input grow" placeholder="Title" value={title} onChange={(e) => setTitle(e.target.value)} />
@@ -468,7 +482,7 @@ function SpanForm({ kind, sourceRef, sel, onDone }: { kind: "cut" | "chapter"; s
           </select>
         )}
       </div>
-      <div className="row" style={{ marginTop: 6 }}>
+      <div className="row">
         <input className="input grow" placeholder={kind === "cut" ? "Why it matters" : "Summary"} value={why} onChange={(e) => setWhy(e.target.value)} onKeyDown={(e) => e.key === "Enter" && save()} />
         <input className="input" placeholder="tags, comma separated" value={tags} onChange={(e) => setTags(e.target.value)} />
         <button className="btn primary" onClick={save}>Save</button>

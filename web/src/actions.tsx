@@ -59,11 +59,11 @@ export function ActionProvider({ children }: { children: ReactNode }) {
       <div className="toasts" role="status" aria-live="polite">
         {toasts.map((t) => (
           <div key={t.id} className={"toast " + (t.ok ? "ok" : "bad")}>
-            <div className="row" style={{ gap: 6, flexWrap: "nowrap" }}>
-              {t.ok ? <Check size={14} /> : <X size={14} />}
+            <div className="thead">
+              <span className="ticon">{t.ok ? <Check size={15} /> : <X size={15} />}</span>
               <b className="grow">{t.title}{t.refs?.length ? " → " + t.refs.slice(0, 4).join(", ") : ""}</b>
-              {t.undo && <button className="btn small" onClick={async () => { const e = await verb("op.undo", {}); toast(e.ok ? { ok: true, title: `Undone: ${e.data.verb}` } : { ok: false, title: "Undo", detail: e.error!.message + (e.error!.hint ? " — " + e.error!.hint : "") }); setToasts((xs) => xs.filter((x) => x.id !== t.id)); }}><Undo2 size={12} />Undo</button>}
-              <button className="btn ghost small" onClick={() => setToasts((xs) => xs.filter((x) => x.id !== t.id))}><X size={12} /></button>
+              {t.undo && <button className="btn small" onClick={async () => { const e = await verb("op.undo", {}); toast(e.ok ? { ok: true, title: `Undone: ${e.data.verb}` } : { ok: false, title: "Undo", detail: e.error!.message + (e.error!.hint ? " — " + e.error!.hint : "") }); setToasts((xs) => xs.filter((x) => x.id !== t.id)); }}><Undo2 size={14} />Undo</button>}
+              <button className="btn ghost small icon" aria-label="Dismiss" onClick={() => setToasts((xs) => xs.filter((x) => x.id !== t.id))}><X size={14} /></button>
             </div>
             {t.detail && <div className="tdetail">{t.detail}</div>}
             {t.cli && <code className="tcli">{t.cli}</code>}
@@ -88,9 +88,16 @@ export async function cliFor(name: string, args: Record<string, any>): Promise<s
 
 type ActProps = {
   verb: string; args?: Record<string, any>; label?: string; icon?: ReactNode; children?: ReactNode;
-  primary?: boolean; small?: boolean; ghost?: boolean; disabled?: boolean; confirm?: string; quiet?: boolean;
-  agent?: boolean; onDone?: (env: Envelope) => void; title?: string; className?: string;
+  primary?: boolean; small?: boolean; lg?: boolean; ghost?: boolean; disabled?: boolean; confirm?: string; quiet?: boolean;
+  agent?: boolean; onDone?: (env: Envelope) => void; title?: string; className?: string; kbd?: string;
 };
+
+// The words of a button's children, for its toast and the agent hand-off.
+function textOf(n: ReactNode): string {
+  if (typeof n === "string" || typeof n === "number") return String(n);
+  if (Array.isArray(n)) return n.map(textOf).join("").trim();
+  return "";
+}
 
 // A button that runs one verb. Hover shows the command; the robot hands the same action to the agent.
 export function Act(p: ActProps) {
@@ -99,7 +106,7 @@ export function Act(p: ActProps) {
   const [tip, setTip] = useState<string>("");
   const [armed, setArmed] = useState(false);
   const args = p.args || {};
-  const label = p.label || (typeof p.children === "string" ? p.children : p.verb);
+  const label = p.label || textOf(p.children) || p.verb;
   const go = async () => {
     if (p.disabled || busy) return;
     if (p.confirm && !armed) {  // two clicks instead of a blocking dialog
@@ -113,19 +120,22 @@ export function Act(p: ActProps) {
     setBusy(false);
     if (env.ok) p.onDone?.(env);
   };
-  const cls = ["btn", p.primary ? "primary" : "", p.small ? "small" : "", p.ghost && !armed ? "ghost" : "", armed ? "armed" : "",
+  const iconOnly = !!p.icon && (p.children === "" || (p.children == null && !p.label));
+  const cls = ["btn", p.primary ? "primary" : "", p.small ? "small" : "", p.lg ? "lg" : "", iconOnly && !armed ? "icon" : "", p.ghost && !armed ? "ghost" : "", armed ? "armed" : "",
                highlight === p.verb ? "pulse" : "", p.className || ""].join(" ");
   return (
     <span className="act-wrap">
-      <button className={cls} data-verb={p.verb} disabled={p.disabled || busy} onClick={go}
-              onMouseEnter={() => !tip && cliFor(p.verb, args).then(setTip)}
-              title={(armed && p.confirm ? p.confirm + "\n" : "") + (p.title ? p.title + "\n" : "") + (tip || `recomp ${p.verb.replace(".", " ")}`)}>
-        {p.icon}{armed ? "Click again to confirm" : (p.children ?? p.label)}{busy ? "…" : ""}
+      <button className={cls} data-verb={p.verb} disabled={p.disabled || busy} onClick={go} aria-label={iconOnly ? label : undefined}
+              onMouseEnter={() => !tip && cliFor(p.verb, args).then(setTip)} onFocus={() => !tip && cliFor(p.verb, args).then(setTip)}
+              data-tip={(armed && p.confirm ? p.confirm : p.title || (iconOnly ? label : "Runs this command")) || undefined}
+              data-tip-cmd={tip || `recomp ${p.verb.replace(".", " ")}`} data-tip-key={p.kbd}>
+        {p.icon}{armed ? "Click again to confirm" : iconOnly ? null : (p.children ?? p.label)}{busy ? "…" : ""}
       </button>
       {p.agent && (
-        <button className="btn ghost small agent-hand" disabled={p.disabled} title={`Hand to the agent: ${tip || p.verb}`}
+        <button className="btn ghost small icon agent-hand" disabled={p.disabled} aria-label="Hand this to the agent"
+                data-tip="Hand this to the agent instead: it gets the same command" data-tip-cmd={tip || p.verb}
                 onMouseEnter={() => !tip && cliFor(p.verb, args).then(setTip)} onClick={() => hand(p.verb, args, label)}>
-          <Bot size={12} />
+          <Bot size={15} />
         </button>
       )}
     </span>

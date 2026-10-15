@@ -18,7 +18,7 @@ Effects: `read` (no changes) · `write` (undoable op) · `heavy` (starts a job) 
 | `export` | [`export.caption-sheet`](#exportcaption-sheet), [`export.check`](#exportcheck), [`export.cuts`](#exportcuts), [`export.multitrack`](#exportmultitrack), [`export.run`](#exportrun), [`export.show`](#exportshow), [`export.status`](#exportstatus) |
 | `hub` | [`hub.comment`](#hubcomment), [`hub.comments`](#hubcomments), [`hub.feed`](#hubfeed), [`hub.follow`](#hubfollow), [`hub.fork`](#hubfork), [`hub.link-post`](#hublink-post), [`hub.login`](#hublogin), [`hub.logout`](#hublogout), [`hub.publish`](#hubpublish), [`hub.pull`](#hubpull), [`hub.show`](#hubshow), [`hub.vote`](#hubvote), [`hub.whoami`](#hubwhoami) |
 | `job` | [`job.cancel`](#jobcancel), [`job.list`](#joblist), [`job.retry`](#jobretry), [`job.run`](#jobrun), [`job.show`](#jobshow), [`job.tail`](#jobtail), [`job.wait`](#jobwait) |
-| `journey` | [`journey.add`](#journeyadd), [`journey.delete`](#journeydelete), [`journey.duplicate`](#journeyduplicate), [`journey.edit`](#journeyedit), [`journey.from-search`](#journeyfrom-search), [`journey.list`](#journeylist), [`journey.move`](#journeymove), [`journey.new`](#journeynew), [`journey.remove`](#journeyremove), [`journey.reorder`](#journeyreorder), [`journey.section`](#journeysection), [`journey.show`](#journeyshow), [`journey.transition`](#journeytransition), [`journey.trim-slot`](#journeytrim-slot), [`journey.validate`](#journeyvalidate) |
+| `journey` | [`journey.add`](#journeyadd), [`journey.delete`](#journeydelete), [`journey.duplicate`](#journeyduplicate), [`journey.edit`](#journeyedit), [`journey.from-search`](#journeyfrom-search), [`journey.guide`](#journeyguide), [`journey.list`](#journeylist), [`journey.move`](#journeymove), [`journey.new`](#journeynew), [`journey.remove`](#journeyremove), [`journey.reorder`](#journeyreorder), [`journey.review`](#journeyreview), [`journey.section`](#journeysection), [`journey.show`](#journeyshow), [`journey.transition`](#journeytransition), [`journey.trim-slot`](#journeytrim-slot), [`journey.validate`](#journeyvalidate) |
 | `lang` | [`lang.clear`](#langclear), [`lang.edit`](#langedit), [`lang.lines`](#langlines), [`lang.replace`](#langreplace), [`lang.say`](#langsay), [`lang.status`](#langstatus), [`lang.translate`](#langtranslate), [`lang.voices`](#langvoices) |
 | `music` | [`music.bed-add`](#musicbed-add), [`music.bed-edit`](#musicbed-edit), [`music.bed-remove`](#musicbed-remove), [`music.get`](#musicget), [`music.library-add`](#musiclibrary-add), [`music.list`](#musiclist), [`music.search`](#musicsearch) |
 | `op` | [`op.log`](#oplog), [`op.redo`](#opredo), [`op.undo`](#opundo) |
@@ -234,11 +234,13 @@ Make a cut by quote, segment range or times. Edges snap to words (and shots); th
 | `--people` | list[string] | None |  |
 | `--rating` | integer | None | 1–5 |
 | `--note` | string | '' |  |
+| `--journey` | string | None | Also append the new cut to this journey (e.g. J1) |
 
 ```
 recomp cut add S1 --quote-start "You either die a hero" --quote-end "become the villain" --title "Live long enough" --why "Harvey's thesis" --tags fate,heroism
 recomp cut add S1 --from 01:02:10.5 --to 01:02:55 --snap words+shots
 recomp cut add S1 --segments 412..430
+recomp cut add S2 --from 3:10 --to 3:42 --why "the turn" --journey J1   # cut straight into a journey
 ```
 
 ### cut.edit
@@ -774,7 +776,7 @@ Copy a journey (slots, overlays and music) to try a variation.
 
 `recomp journey edit <journey>` · effect: **write**
 
-Change a journey's title, intent, description, language or status.
+Change a journey's title, intent, description, language, status or destinations.
 
 | Field | Type | Default | Description |
 |---|---|---|---|
@@ -784,6 +786,11 @@ Change a journey's title, intent, description, language or status.
 | `--description` | string | None |  |
 | `--language` | string | None |  |
 | `--status` | string | None | draft \| ready \| published |
+| `--formats` | list[string] | None | Where it will go: shorts, landscape, square, hub |
+
+```
+recomp journey edit J1 --formats shorts,landscape
+```
 
 ### journey.from-search
 
@@ -802,6 +809,21 @@ Draft a journey from search: whole-thought cuts for the best hits, in search ord
 
 ```
 recomp journey from-search "forgiveness" --limit 8 --title "On forgiveness"
+```
+
+### journey.guide
+
+`recomp journey guide <journey>` · effect: **read**
+
+The guided flow for a journey — purpose → gather → order → look → check → export — with each step's state and
+next action. The viewer's journey studio shows the same steps (`recomp ui show J1 --filter step=look`).
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<journey>` | string | required |  |
+
+```
+recomp journey guide J1
 ```
 
 ### journey.list
@@ -833,7 +855,7 @@ recomp journey move J1#4 --to 1
 
 `recomp journey new <title>` · effect: **write**
 
-Start a journey (optionally with its first cuts).
+Start a journey (optionally with its first cuts and where it will go).
 
 | Field | Type | Default | Description |
 |---|---|---|---|
@@ -842,9 +864,11 @@ Start a journey (optionally with its first cuts).
 | `--description` | string | '' |  |
 | `--language` | string | 'en' |  |
 | `--cuts` | list[string] | None | Cuts to start with, in order |
+| `--formats` | list[string] | None | Where it will go: shorts, landscape, square, hub (sets length goals and export profiles) |
 
 ```
 recomp journey new "Live long enough" --intent "What heroism costs" --cuts C4,C9,C2
+recomp journey new "On free will" --intent "Three answers in a minute" --formats shorts,hub
 ```
 
 ### journey.remove
@@ -870,6 +894,23 @@ Reorder all slots at once.
 
 ```
 recomp journey reorder J1 --order 3,1,2,4
+```
+
+### journey.review
+
+`recomp journey review <journey> <step>` · effect: **write**
+
+Mark a judgement step of the guided flow as reviewed (the order reads well, the look is right, the check is
+enough without a preview), so the guide moves on.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<journey>` | string | required |  |
+| `<step>` | string | required | order \| look \| check |
+| `--done` | boolean | True | false reopens the step |
+
+```
+recomp journey review J1 look
 ```
 
 ### journey.section

@@ -34,7 +34,50 @@ def test_checklist_walks_the_project(proj, OK, two):
     OK("journey.new", {"title": "Two sources", "cuts": ["C2", "C1"]}, p)
     steps = {s["key"]: s for s in OK("project.checklist", {}, p)["steps"]}
     assert steps["cuts"]["detail"] == "2 cut(s) from 2 source(s)" and steps["journeys"]["state"] == "done"
-    assert any(a.get("params", {}).get("journey") == "J1" for a in steps["exports"]["actions"])
+    assert any(a.get("params", {}) == {"ref": "J1", "step": "export"} for a in steps["exports"]["actions"])
+    assert steps["journeys"]["actions"][0]["params"] == {"ref": "J1"}
+    data = OK("project.checklist", {}, p)
+    assert data["journeys"][0]["ref"] == "J1" and data["journeys"][0]["of"] == 6
+
+
+def test_guided_journey_flow(proj, OK, R, two):
+    """Purpose → gather (cuts from two sources, one cut straight into the journey) → order → look → check → export."""
+    p, _ = two
+    OK("journey.new", {"title": "Two voices", "intent": "Two answers in under a minute", "formats": ["shorts", "hub"]}, p)
+    g = OK("journey.guide", {"journey": "J1"}, p)
+    assert [s["key"] for s in g["steps"]] == ["purpose", "gather", "order", "look", "check", "export"]
+    assert g["steps"][0]["state"] == "done" and g["next"] == "gather" and g["target"]["max_s"] == 90
+    assert g["steps"][1]["actions"][0]["verb"] == "cut.suggest"
+    assert R("journey.new", {"title": "x", "formats": ["vhs"]}, p)["error"]["code"] == "E_INVALID"
+
+    OK("cut.add", {"ref": "S1", "from": "12", "to": "16.5", "snap": "none", "why": "w"}, p)
+    OK("journey.add", {"journey": "J1", "cuts": ["C1"]}, p)
+    c = OK("cut.add", {"ref": "S2", "from": "1", "to": "9", "snap": "none", "why": "w", "journey": "J1"}, p)
+    assert c["journey"] == "J1"
+    j = OK("journey.show", {"journey": "J1"}, p)
+    assert [s["cut"] for s in j["slots"]] == ["C1", "C2"] and j["sources"] == ["S1", "S2"] and j["formats"] == ["shorts", "hub"]
+    OK("op.undo", {}, p)  # one op: the cut and its slot go together
+    assert len(OK("journey.show", {"journey": "J1"}, p)["slots"]) == 1
+    OK("op.redo", {}, p)
+
+    g = OK("journey.guide", {"journey": "J1"}, p)
+    assert g["steps"][1]["state"] == "done" and g["next"] == "order" and g["steps"][2]["state"] == "partial"
+    assert R("journey.review", {"journey": "J1", "step": "gather"}, p)["error"]["code"] == "E_INVALID"
+    g = OK("journey.review", {"journey": "J1", "step": "order"}, p)
+    assert g["steps"][2]["state"] == "done" and g["next"] == "look"
+    OK("overlay.add", {"target": "J1", "kind": "title", "text": "Two voices"}, p)
+    assert OK("journey.guide", {"journey": "J1"}, p)["steps"][3]["state"] == "partial"
+    g = OK("journey.review", {"journey": "J1", "step": "look"}, p)
+    assert g["next"] == "check" and g["steps"][4]["state"] == "partial"
+    assert any("work best" in n for n in OK("journey.validate", {"journey": "J1"}, p)["notes"])  # 12.5 s < 30 s
+    g = OK("journey.review", {"journey": "J1", "step": "check"}, p)
+    assert g["next"] == "export"
+    ex = g["steps"][5]["actions"]
+    assert ex[0]["args"] == {"journey": "J1", "profiles": ["shorts"]} and ex[1]["verb"] == "hub.publish"
+    OK("journey.edit", {"journey": "J1", "formats": ["landscape"]}, p)
+    assert OK("journey.guide", {"journey": "J1"}, p)["steps"][5]["actions"][0]["args"]["profiles"] == ["landscape"]
+    reopened = OK("journey.review", {"journey": "J1", "step": "look", "done": False}, p)
+    assert reopened["steps"][3]["state"] == "partial"
 
 
 def test_browse_and_reveal(proj, OK, R, two):
