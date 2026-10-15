@@ -29,7 +29,7 @@ recomp journey show J1                   # timeline, total duration, per-slot so
 ## Look and sound
 - `recomp overlay auto-lower-thirds J1` credits each slot's source and speaker.
 - `recomp overlay add J1 --kind title --text "…"` (opening card), `--kind quote` on a slot for a pull-quote.
-- Music: `recomp music search "melancholic strings" --licence commercial`, then `recomp music bed add J1 M1`.
+- Music: `recomp music search "melancholic strings" --licence commercial`, then `recomp music bed-add J1 M1`.
   Beds duck under speech automatically; keep gain around −16 dB.
 - Transitions: hard cuts by default; `recomp journey transition J1#3 --type fade --dur 0.5` where a breath helps.
 

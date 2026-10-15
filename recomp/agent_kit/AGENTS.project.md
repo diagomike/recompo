@@ -53,9 +53,9 @@ source add ─► (probe · audio · shots · peaks jobs) ─► transcript impo
 | Chapters | `recomp chapter seed S2` (creator chapters) · write yours: `recomp chapter set S1 --input chapters.json` |
 | Cuts | `recomp cut add S1 --quote-start "Why so" --quote-end "that face" --title … --why … --tags …` · `recomp cut add S1 --from 12:03 --to 12:48` · `recomp cut suggest "everlasting life"` |
 | Journeys | `recomp journey new "Title" --intent …` · `recomp journey add J1 C3 C9 C4` · `recomp journey move J1#3 --to 1` · `recomp journey section J1 "Part two" --at 3` · `recomp journey show J1` |
-| Look | `recomp overlay auto-lower-thirds J1` · `recomp overlay add J1#1 --kind quote --text …` · `recomp music search "warm piano" --licence commercial` · `recomp music bed add J1 M1` |
+| Look | `recomp overlay auto-lower-thirds J1` · `recomp overlay add J1#1 --kind quote --text …` · `recomp music search "warm piano" --licence commercial` · `recomp music bed-add J1 M1` |
 | Export | `recomp profile list` · `recomp preview J1` · `recomp export run J1 --profiles shorts,landscape --langs en,am,sw,fr` · `recomp export status` |
-| Languages | `recomp lang translate J1 --to am --input am.json` (your own translation) · `recomp lang dub J1 --lang am` |
+| Languages | `recomp lang translate J1 --to am --input am.json` (your own translation) · `recomp export run J1 --profiles shorts --langs am,sw` (dubs) |
 | Share | `recomp hub publish J1 --visibility public` (ask first) · `recomp hub link-post J1 <url the user posted>` |
 
 ## Writing chapters, cuts and journeys
