@@ -38,14 +38,13 @@ def caption_layout(prof: dict, lang: str | None = None, sample: str = "") -> dic
 
     Profile keys caption_max_chars, caption_max_lines, caption_scale and caption_margin (a fraction of the
     height) override the defaults; caption_lang {lang: {max_chars, max_lines, scale, margin}} overrides per language.
-    Ethiopic syllables are wider than Latin letters, so their rows hold fewer characters by default.
+    (Measured on a caption sheet: Ebrima's Ethiopic syllables are about as wide as Latin letters, so the default
+    row length is the same for both scripts.)
     """
     w, h = prof.get("width", 1920), prof.get("height", 1080)
     vertical = h > w
     karaoke = prof.get("caption_style") == "karaoke"
     chars = (22 if vertical else 34) if karaoke else (30 if vertical else 44)
-    if ETHIOPIC.search(sample or ""):
-        chars = round(chars * 0.8)
     over = (prof.get("caption_lang") or {}).get(lang or "", {}) or {}
     scale = float(over.get("scale") or prof.get("caption_scale") or 1.0)
     explicit = over.get("max_chars") or prof.get("caption_max_chars")

@@ -41,7 +41,7 @@ def test_resegment_breaks_at_sentences_and_speakers():
 def test_caption_layout_overrides():
     prof = {"width": 1080, "height": 1920, "caption_style": "clean"}
     assert ass.caption_layout(prof)["max_chars"] == 30
-    assert ass.caption_layout(prof, "am", "ሰላም ነው")["max_chars"] == 24  # Ethiopic rows hold fewer characters
+    assert ass.caption_layout(prof, "am", "ሰላም ነው")["max_chars"] == 30  # Ebrima's syllables are about Latin width
     assert ass.caption_layout(dict(prof, caption_scale=1.5))["max_chars"] == 20
     lay = ass.caption_layout(dict(prof, caption_max_chars=26, caption_lang={"am": {"max_chars": 18, "max_lines": 3}}), "am")
     assert (lay["max_chars"], lay["max_lines"]) == (18, 3)
