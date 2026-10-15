@@ -78,7 +78,7 @@ def queue_processing(db, src: dict, which: list[str], force: bool = False) -> li
 
 
 class AddIn(BaseModel):
-    target: str = Field(..., description="File, folder, glob (quote it) or link", json_schema_extra={"pos": 0})
+    target: str = Field("", description="File, folder, glob (quote it) or link (omit with --pick)", json_schema_extra={"pos": 0})
     title: str | None = Field(None, description="Title (default: parsed from the file name / link metadata)")
     year: int | None = None
     creator: str | None = Field(None, description="Director, channel, speaker…")
@@ -103,6 +103,8 @@ def source_add(ctx: Ctx, inp: AddIn):
     if inp.pick or URL.match(inp.target or ""):
         from ..ingest import links
         return links.add(ctx, inp)
+    if not inp.target:
+        raise RecompError("E_INVALID", "give a file, folder, glob or link (or --pick from the last list)")
     files = expand(inp.target)
     if not files:
         raise RecompError("E_NOT_FOUND", f"no media files at {inp.target}",
@@ -245,6 +247,29 @@ def source_process(ctx: Ctx, inp: ProcessIn):
     q = queue_processing(ctx.db, s, inp.jobs, force=inp.force)
     mode = jobs.kick(ctx.project)
     return Result(data={"jobs": q, "runner": mode}, job=q[0] if q else None)
+
+
+@verb("source.refresh", RefIn, effect="network", examples=["recomp source refresh S2"])
+def source_refresh(ctx: Ctx, inp: RefIn):
+    """Complete a link source's metadata (creator chapters, caption languages, date) and fetch captions if missing."""
+    from ..ingest import links
+    s = refs.source(ctx.db, inp.ref)
+    if s["kind"] != "link":
+        raise RecompError("E_INVALID", f"{s['ref']} is a local file")
+    return links.refresh(ctx, s)
+
+
+@verb("source.fetch-audio", RefIn, effect="network", examples=["recomp source fetch-audio S2"])
+def source_fetch_audio(ctx: Ctx, inp: RefIn):
+    """Download only the audio of a link source (about 1 MB a minute), then make its 16 kHz audio and waveform."""
+    s = refs.source(ctx.db, inp.ref)
+    if s["kind"] != "link":
+        raise RecompError("E_INVALID", f"{s['ref']} is a local file")
+    j1 = jobs.enqueue(ctx.db, "fetch-audio", target=s["ref"], source_id=s["id"])
+    j2 = jobs.enqueue(ctx.db, "audio", target=s["ref"], source_id=s["id"], depends_on=[j1["ref"]])
+    j3 = jobs.enqueue(ctx.db, "peaks", target=s["ref"], source_id=s["id"], depends_on=[j2["ref"]])
+    mode = jobs.kick(ctx.project)
+    return Result(data={"jobs": [j1["ref"], j2["ref"], j3["ref"]], "runner": mode}, job=j1["ref"])
 
 
 class RelinkIn(BaseModel):

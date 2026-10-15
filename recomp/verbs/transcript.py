@@ -219,6 +219,23 @@ def transcript_asr(ctx: Ctx, inp: AsrIn):
                   job=j["ref"], next=[f"recomp job wait {j['ref']} --timeout 90"])
 
 
+class CaptionsIn(BaseModel):
+    ref: str = Field(..., description="Link source ref", json_schema_extra={"pos": 0})
+    language: str | None = Field(None, description="Caption language (default: the source's)")
+
+
+@verb("transcript.fetch-captions", CaptionsIn, effect="network", examples=["recomp transcript fetch-captions S2"])
+def transcript_fetch_captions(ctx: Ctx, inp: CaptionsIn):
+    """Fetch a link's captions (manual first, then the original-language auto captions) as a job. On HTTP 429 fall back to `transcript asr`."""
+    src = refs.source(ctx.db, inp.ref)
+    if src["kind"] != "link":
+        raise RecompError("E_INVALID", f"{src['ref']} is a file; import its subtitles with `transcript import`")
+    j = jobs.enqueue(ctx.db, "captions", target=src["ref"], source_id=src["id"],
+                     params={"language": inp.language or src.get("language")})
+    mode = jobs.kick(ctx.project)
+    return Result(data={"job": j["ref"], "runner": mode}, job=j["ref"], next=[f"recomp job wait {j['ref']} --timeout 60"])
+
+
 class SyncIn(BaseModel):
     ref: str = Field(..., description="Source or transcript ref", json_schema_extra={"pos": 0})
     against: str | None = Field(None, description="Use this ASR transcript instead of running ASR on 3 windows")

@@ -27,8 +27,8 @@ Effects: `read` (no changes) · `write` (undoable op) · `heavy` (starts a job) 
 | `recipe` | [`recipe.export`](#recipeexport), [`recipe.import`](#recipeimport), [`recipe.show`](#recipeshow) |
 | `search` | [`search`](#search) |
 | `setup` | [`setup.shim`](#setupshim) |
-| `source` | [`source.add`](#sourceadd), [`source.list`](#sourcelist), [`source.process`](#sourceprocess), [`source.relink`](#sourcerelink), [`source.remove`](#sourceremove), [`source.rights`](#sourcerights), [`source.show`](#sourceshow), [`source.status`](#sourcestatus) |
-| `transcript` | [`transcript.align`](#transcriptalign), [`transcript.asr`](#transcriptasr), [`transcript.edit-segment`](#transcriptedit-segment), [`transcript.import`](#transcriptimport), [`transcript.list`](#transcriptlist), [`transcript.outline`](#transcriptoutline), [`transcript.read`](#transcriptread), [`transcript.set-primary`](#transcriptset-primary), [`transcript.shift`](#transcriptshift), [`transcript.sync-check`](#transcriptsync-check) |
+| `source` | [`source.add`](#sourceadd), [`source.fetch-audio`](#sourcefetch-audio), [`source.list`](#sourcelist), [`source.process`](#sourceprocess), [`source.refresh`](#sourcerefresh), [`source.relink`](#sourcerelink), [`source.remove`](#sourceremove), [`source.rights`](#sourcerights), [`source.show`](#sourceshow), [`source.status`](#sourcestatus) |
+| `transcript` | [`transcript.align`](#transcriptalign), [`transcript.asr`](#transcriptasr), [`transcript.edit-segment`](#transcriptedit-segment), [`transcript.fetch-captions`](#transcriptfetch-captions), [`transcript.import`](#transcriptimport), [`transcript.list`](#transcriptlist), [`transcript.outline`](#transcriptoutline), [`transcript.read`](#transcriptread), [`transcript.set-primary`](#transcriptset-primary), [`transcript.shift`](#transcriptshift), [`transcript.sync-check`](#transcriptsync-check) |
 | `ui` | [`ui.answer`](#uianswer), [`ui.ask`](#uiask), [`ui.note`](#uinote), [`ui.notes`](#uinotes), [`ui.select`](#uiselect), [`ui.selection`](#uiselection), [`ui.show`](#uishow) |
 | `version` | [`version`](#version) |
 
@@ -1227,7 +1227,7 @@ Add media: files are referenced in place (never copied); subtitles beside them a
 
 | Field | Type | Default | Description |
 |---|---|---|---|
-| `<target>` | string | required | File, folder, glob (quote it) or link |
+| `<target>` | string | '' | File, folder, glob (quote it) or link (omit with --pick) |
 | `--title` | string | None | Title (default: parsed from the file name / link metadata) |
 | `--year` | integer | None |  |
 | `--creator` | string | None | Director, channel, speaker… |
@@ -1246,6 +1246,20 @@ recomp source add "D:\Recomp\Video\The.Dark.Knight*.mp4"
 recomp source add D:\Movies --jobs audio,peaks
 recomp source add https://www.youtube.com/@CosmicSkeptic/videos --limit 30
 recomp source add --pick 2,5,9
+```
+
+### source.fetch-audio
+
+`recomp source fetch-audio <ref>` · effect: **network**
+
+Download only the audio of a link source (about 1 MB a minute), then make its 16 kHz audio and waveform.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<ref>` | string | required | Source ref, e.g. S1 |
+
+```
+recomp source fetch-audio S2
 ```
 
 ### source.list
@@ -1273,6 +1287,20 @@ Sources with duration, transcript and counts.
 
 ```
 recomp source process S1 --jobs shots --force
+```
+
+### source.refresh
+
+`recomp source refresh <ref>` · effect: **network**
+
+Complete a link source's metadata (creator chapters, caption languages, date) and fetch captions if missing.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<ref>` | string | required | Source ref, e.g. S1 |
+
+```
+recomp source refresh S2
 ```
 
 ### source.relink
@@ -1391,6 +1419,21 @@ Correct one segment's text, timing or speaker (word timings are re-spread if the
 
 ```
 recomp transcript edit-segment S1 412 --text "Why so serious?"
+```
+
+### transcript.fetch-captions
+
+`recomp transcript fetch-captions <ref>` · effect: **network**
+
+Fetch a link's captions (manual first, then the original-language auto captions) as a job. On HTTP 429 fall back to `transcript asr`.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<ref>` | string | required | Link source ref |
+| `--language` | string | None | Caption language (default: the source's) |
+
+```
+recomp transcript fetch-captions S2
 ```
 
 ### transcript.import

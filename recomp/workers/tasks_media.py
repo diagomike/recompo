@@ -12,9 +12,13 @@ from ..media import audio, ff, shots
 from .jobs import JobCtx, task
 
 
-def media_path(ctx: JobCtx, src: dict) -> Path:
+def media_path(ctx: JobCtx, src: dict, audio_ok: bool = False) -> Path:
     if src.get("path") and Path(src["path"]).exists():
         return Path(src["path"])
+    if audio_ok:
+        row = ctx.db.one("SELECT path FROM asset WHERE source_id=? AND role='audio_full' ORDER BY created_at DESC", (src["id"],))
+        if row and Path(row[0]).exists():
+            return Path(row[0])
     raise RecompError("E_NOT_FOUND", f"{src['ref']}: media file not available locally",
                       hint=f"`recomp source relink {src['ref']} <path>` or fetch it (links: `recomp source fetch-audio`).")
 
@@ -30,10 +34,18 @@ def job_audio(ctx: JobCtx):
     a = (meta.get("probe") or {}).get("audio") or {}
     dest = audio_path(ctx.project, src)
     if not dest.exists() or ctx.params.get("force"):
-        if not src.get("path") and src.get("kind") == "link":
-            raise RecompError("E_NOT_FOUND", f"{src['ref']} has no local media yet",
-                              hint=f"`recomp source fetch-audio {src['ref']}`")
-        audio.extract_16k(media_path(ctx, src), dest, a.get("channels"), a.get("layout", ""),
+        if src.get("kind") == "link" and not (src.get("path") and Path(src["path"]).exists()):
+            from ..ingest import links
+            ctx.log("link source: fetching audio only")
+            links.fetch_audio(ctx.project, src, log=ctx.log)
+            path = next(p for p in ctx.project.dir("sources", src["ref"]).glob("audio_full.*") if p.suffix not in (".part", ".ytdl"))
+            info = ff.probe(path)
+            a = (info.to_dict().get("audio") or {})
+            with ctx.db.op("job.audio", "machine") as tx:
+                tx.conn.execute("DELETE FROM asset WHERE source_id=? AND role='audio_full'", (src["id"],))
+                tx.conn.execute("INSERT INTO asset(id, source_id, role, path, info, created_at) VALUES(?,?,?,?,?,?)",
+                                (ulid(), src["id"], "audio_full", str(path), json.dumps({}), time.time()))
+        audio.extract_16k(media_path(ctx, src, audio_ok=True), dest, a.get("channels"), a.get("layout", ""),
                           duration=src.get("duration"), progress=ctx.progress, cancelled=ctx.cancelled)
     with ctx.db.op("job.audio", "machine") as tx:
         tx.conn.execute("DELETE FROM asset WHERE source_id=? AND role='audio16k'", (src["id"],))
