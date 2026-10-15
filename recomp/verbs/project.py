@@ -72,6 +72,21 @@ def project_list(ctx: Ctx, inp: NoInput):
     return {"current": reg.get("current"), "projects": out}
 
 
+@verb("project.forget", UseIn, effect="write", needs_project=False)
+def project_forget(ctx: Ctx, inp: UseIn):
+    """Remove a project from the studio's list (its folder and files are left untouched)."""
+    reg = config.registry()
+    name = inp.target if inp.target in reg["projects"] else next(
+        (n for n, i in reg["projects"].items() if Path(i["path"]).name == inp.target or i["path"] == inp.target), None)
+    if name is None:
+        raise RecompError("E_NOT_FOUND", f"{inp.target!r} is not in the project list")
+    path = reg["projects"].pop(name)["path"]
+    if reg.get("current") == name:
+        reg["current"] = None
+    config.save_registry(reg)
+    return {"forgotten": name, "folder_kept": path}
+
+
 @verb("project.show", NoInput)
 def project_show(ctx: Ctx, inp: NoInput):
     """The current project's manifest and folder."""

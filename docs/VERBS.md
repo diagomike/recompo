@@ -25,7 +25,7 @@ Effects: `read` (no changes) · `write` (undoable op) · `heavy` (starts a job) 
 | `overlay` | [`overlay.add`](#overlayadd), [`overlay.auto-lower-thirds`](#overlayauto-lower-thirds), [`overlay.edit`](#overlayedit), [`overlay.list`](#overlaylist), [`overlay.remove`](#overlayremove) |
 | `preview` | [`preview`](#preview) |
 | `profile` | [`profile.edit`](#profileedit), [`profile.list`](#profilelist), [`profile.new`](#profilenew), [`profile.show`](#profileshow) |
-| `project` | [`project.agent-kit`](#projectagent-kit), [`project.backup`](#projectbackup), [`project.init`](#projectinit), [`project.list`](#projectlist), [`project.set`](#projectset), [`project.show`](#projectshow), [`project.use`](#projectuse) |
+| `project` | [`project.agent-kit`](#projectagent-kit), [`project.backup`](#projectbackup), [`project.forget`](#projectforget), [`project.init`](#projectinit), [`project.list`](#projectlist), [`project.set`](#projectset), [`project.show`](#projectshow), [`project.use`](#projectuse) |
 | `recipe` | [`recipe.export`](#recipeexport), [`recipe.import`](#recipeimport), [`recipe.show`](#recipeshow) |
 | `search` | [`search`](#search) |
 | `setup` | [`setup.shim`](#setupshim) |
@@ -1332,6 +1332,16 @@ Restore by unzipping anywhere and `recomp project use <folder>`, then `source re
 |---|---|---|---|
 | `--out` | string | None | Zip file to write (default: <project>/../<name>-backup-<date>.zip) |
 | `--exports` | boolean | False | Include rendered exports (large) |
+
+### project.forget
+
+`recomp project forget <target>` · effect: **write**
+
+Remove a project from the studio's list (its folder and files are left untouched).
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<target>` | string | required | Project name (from `project list`) or folder |
 
 ### project.init
 
