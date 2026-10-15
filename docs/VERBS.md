@@ -32,6 +32,7 @@ Effects: `read` (no changes) · `write` (undoable op) · `heavy` (starts a job) 
 | `source` | [`source.add`](#sourceadd), [`source.fetch-audio`](#sourcefetch-audio), [`source.list`](#sourcelist), [`source.process`](#sourceprocess), [`source.refresh`](#sourcerefresh), [`source.relink`](#sourcerelink), [`source.remove`](#sourceremove), [`source.rights`](#sourcerights), [`source.show`](#sourceshow), [`source.status`](#sourcestatus) |
 | `speaker` | [`speaker.diarize`](#speakerdiarize), [`speaker.list`](#speakerlist), [`speaker.match`](#speakermatch), [`speaker.merge`](#speakermerge), [`speaker.name`](#speakername), [`speaker.unlink`](#speakerunlink) |
 | `transcript` | [`transcript.align`](#transcriptalign), [`transcript.asr`](#transcriptasr), [`transcript.edit-segment`](#transcriptedit-segment), [`transcript.fetch-captions`](#transcriptfetch-captions), [`transcript.import`](#transcriptimport), [`transcript.list`](#transcriptlist), [`transcript.outline`](#transcriptoutline), [`transcript.read`](#transcriptread), [`transcript.set-primary`](#transcriptset-primary), [`transcript.shift`](#transcriptshift), [`transcript.sync-check`](#transcriptsync-check) |
+| `trends` | [`trends.channel`](#trendschannel), [`trends.search`](#trendssearch), [`trends.youtube`](#trendsyoutube) |
 | `ui` | [`ui.answer`](#uianswer), [`ui.ask`](#uiask), [`ui.note`](#uinote), [`ui.notes`](#uinotes), [`ui.select`](#uiselect), [`ui.selection`](#uiselection), [`ui.show`](#uishow) |
 | `version` | [`version`](#version) |
 | `worker` | [`worker.status`](#workerstatus) |
@@ -1835,6 +1836,56 @@ Measure whether subtitles match the speech (offset and drift); --fix shifts them
 ```
 recomp transcript sync-check S1
 recomp transcript sync-check S1 --fix
+```
+
+## trends
+
+### trends.channel
+
+`recomp trends channel <url>` · effect: **network**
+
+A channel's recent videos ranked by views (per day when dates are known).
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<url>` | string | required | Channel or playlist link |
+| `--since` | string | None |  |
+| `--limit` | integer | 30 |  |
+
+```
+recomp trends channel https://www.youtube.com/@CosmicSkeptic/videos
+```
+
+### trends.search
+
+`recomp trends search <topic>` · effect: **network**
+
+Recent videos on a topic, ranked by views per day (no key needed). Pick them with `source add --pick`.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<topic>` | string | required |  |
+| `--since` | string | '30d' | Only videos newer than this (7d, 30d) |
+| `--limit` | integer | 25 |  |
+
+```
+recomp trends search "free will" --since 7d
+```
+
+### trends.youtube
+
+`recomp trends youtube` · effect: **network**
+
+YouTube's 'most popular' chart for a region (needs your YOUTUBE_API_KEY in the studio home's .env).
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `--region` | string | 'US' | Region code, e.g. US, ET, KE, FR |
+| `--category` | string | None | YouTube category id (22 People & Blogs, 27 Education, 25 News…) |
+| `--limit` | integer | 25 |  |
+
+```
+recomp trends youtube --region ET --category 27
 ```
 
 ## ui
