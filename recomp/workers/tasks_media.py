@@ -12,9 +12,19 @@ from ..media import audio, ff, shots
 from .jobs import JobCtx, task
 
 
+def fetched_video(ctx: JobCtx, src: dict) -> Path | None:
+    """The video fetched for a link source (whole, at ≤720p), if any."""
+    row = ctx.db.one("SELECT path FROM asset WHERE source_id=? AND role IN ('video','preview') ORDER BY created_at DESC",
+                     (src["id"],))
+    return Path(row[0]) if row and Path(row[0]).exists() else None
+
+
 def media_path(ctx: JobCtx, src: dict, audio_ok: bool = False) -> Path:
     if src.get("path") and Path(src["path"]).exists():
         return Path(src["path"])
+    vid = fetched_video(ctx, src)
+    if vid is not None:
+        return vid
     if audio_ok:
         row = ctx.db.one("SELECT path FROM asset WHERE source_id=? AND role='audio_full' ORDER BY created_at DESC", (src["id"],))
         if row and Path(row[0]).exists():
@@ -34,7 +44,7 @@ def job_audio(ctx: JobCtx):
     a = (meta.get("probe") or {}).get("audio") or {}
     dest = audio_path(ctx.project, src)
     if not dest.exists() or ctx.params.get("force"):
-        if src.get("kind") == "link" and not (src.get("path") and Path(src["path"]).exists()):
+        if src.get("kind") == "link" and not (src.get("path") and Path(src["path"]).exists()) and fetched_video(ctx, src) is None:
             from ..ingest import links
             ctx.log("link source: fetching audio only")
             links.fetch_audio(ctx.project, src, log=ctx.log)
@@ -67,10 +77,19 @@ def job_peaks(ctx: JobCtx):
     return meta
 
 
+def _video_probe(ctx: JobCtx, src: dict) -> dict:
+    """A link source's metadata has no stream info; its fetched video does."""
+    probe = (src.get("meta") or {}).get("probe") or {}
+    if probe.get("video"):
+        return probe
+    vid = fetched_video(ctx, src)
+    return ff.probe(vid).to_dict() if vid is not None else probe
+
+
 @task("shots", lane="cpu")
 def job_shots(ctx: JobCtx):
     src = ctx.source()
-    probe = (src.get("meta") or {}).get("probe") or {}
+    probe = _video_probe(ctx, src)
     if not probe.get("video"):
         ctx.set_status("shots", "n/a")
         return {"shots": 0, "note": "no video stream"}
@@ -90,7 +109,7 @@ def job_shots(ctx: JobCtx):
 def job_thumbs(ctx: JobCtx):
     """Sprite sheets: one 160 px frame every N seconds, 10×10 per sheet (the viewer's filmstrip)."""
     src = ctx.source()
-    probe = (src.get("meta") or {}).get("probe") or {}
+    probe = _video_probe(ctx, src)
     if not probe.get("video"):
         ctx.set_status("thumbs", "n/a")
         return {"sheets": 0}

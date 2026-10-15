@@ -114,7 +114,7 @@ code, .mono { font-family: var(--mono); font-size: 12px; }
 
 /* source room */
 .room { display: grid; grid-template-columns: minmax(420px, 1fr) minmax(340px, 440px); height: 100%; min-height: 0; }
-.room .left { display: grid; grid-template-rows: auto auto 1fr; min-height: 0; min-width: 0; border-right: 1px solid var(--line); }
+.room .left { display: grid; grid-template-rows: auto auto auto auto 1fr; min-height: 0; min-width: 0; border-right: 1px solid var(--line); }
 .player { background: #000; display: grid; place-items: center; position: relative; }
 .player video { width: 100%; max-height: 52vh; display: block; }
 .ctrl { display: flex; gap: 6px; align-items: center; padding: 6px 10px; background: var(--panel); border-bottom: 1px solid var(--line); flex-wrap: wrap; }
@@ -256,3 +256,18 @@ code.clil { color: var(--faint); font-size: 11px; overflow-wrap: anywhere; }
   .room .left { border-right: 0; }
   .room .transcript { min-height: 50vh; }
 }
+.seg mark { background: var(--amber-soft); color: inherit; border-bottom: 2px solid var(--amber); padding: 0 1px; border-radius: 2px; }
+.seg.hitnow { box-shadow: inset 3px 0 0 var(--amber), inset 0 0 0 1px var(--amber); }
+.findrow .chip { font-variant-numeric: tabular-nums; }
+.splitter { background: var(--line); position: relative; z-index: 2; }
+.splitter.col { cursor: col-resize; width: 6px; }
+.splitter.row { cursor: row-resize; height: 6px; }
+.splitter:hover, .splitter:active { background: var(--blue); }
+.player { overflow: hidden; }
+.player video { width: 100%; height: 100%; max-height: none; object-fit: contain; }
+.player > div { width: 100%; height: 100%; aspect-ratio: auto !important; }
+.player iframe { width: 100% !important; height: 100% !important; }
+.lanes { cursor: crosshair; }
+.lanetip { position: absolute; z-index: 4; pointer-events: none; max-width: 260px; background: var(--text); color: var(--bg); font-size: 11px; padding: 3px 6px; border-radius: 3px; box-shadow: 0 2px 8px rgba(0,0,0,.2); }
+@media (max-width: 900px) { .splitter.col { display: none; } }
+.lanehint { display: flex; gap: 8px; align-items: center; padding: 3px 10px; font-size: 12px; color: var(--muted); background: var(--panel-2); border-bottom: 1px solid var(--line); }

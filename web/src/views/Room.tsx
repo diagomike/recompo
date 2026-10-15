@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Pause, Play, Scissors, BookmarkPlus, ZoomIn, ZoomOut, Maximize2, X } from "lucide-react";
-import { clock, mediaUrl, peaksUrl, room, thumbUrl, verb } from "../api";
+import { clock, frameUrl, mediaUrl, peaksUrl, room, thumbUrl, verb } from "../api";
 import { useApp } from "../App";
-import { useActions } from "../actions";
+import { Act, useActions } from "../actions";
 import YouTubePlayer, { type YTHandle } from "./YouTubePlayer";
 import TranscriptPane from "./TranscriptPane";
 
@@ -13,8 +13,31 @@ type RoomData = {
   turns: any[]; thumbs: any; peaks: any; voices?: Record<string, { name: string | null }>; people?: any[]; transcripts?: any[];
 };
 
-const LANE = { ruler: 16, film: 40, wave: 44, shots: 8, speakers: 8, chapters: 20, cuts: 20 };
-const H = Object.values(LANE).reduce((a, b) => a + b, 0) + 6;
+// Panel sizes the user dragged, remembered in this browser.
+function useLayout(): [{ playerH: number; paneW: number }, (k: "playerH" | "paneW", v: number) => void] {
+  const [lay, setLay] = useState(() => {
+    try { return { playerH: 0, paneW: 0, ...JSON.parse(localStorage.getItem("recomp.room.layout") || "{}") }; } catch { return { playerH: 0, paneW: 0 }; }
+  });
+  const set = (k: "playerH" | "paneW", v: number) => setLay((cur: any) => {
+    const next = { ...cur, [k]: Math.round(v) };
+    try { localStorage.setItem("recomp.room.layout", JSON.stringify(next)); } catch { /* ignore */ }
+    return next;
+  });
+  return [lay, set];
+}
+
+function Splitter({ dir, onDrag }: { dir: "col" | "row"; onDrag: (delta: number) => void }) {
+  const start = (e: React.MouseEvent) => {
+    e.preventDefault();
+    let last = dir === "col" ? e.clientX : e.clientY;
+    const move = (ev: MouseEvent) => { const cur = dir === "col" ? ev.clientX : ev.clientY; onDrag(cur - last); last = cur; };
+    const up = () => { window.removeEventListener("mousemove", move); window.removeEventListener("mouseup", up); document.body.style.cursor = ""; };
+    document.body.style.cursor = dir === "col" ? "col-resize" : "row-resize";
+    window.addEventListener("mousemove", move);
+    window.addEventListener("mouseup", up);
+  };
+  return <div className={"splitter " + dir} onMouseDown={start} title="Drag to resize" />;
+}
 
 export default function Room({ sourceRef }: { sourceRef: string }) {
   const { route, version } = useApp();
@@ -27,6 +50,10 @@ export default function Room({ sourceRef }: { sourceRef: string }) {
   const [peaks, setPeaks] = useState<Uint8Array | null>(null);
   const [form, setForm] = useState<null | "cut" | "chapter">(null);
   const [focusRef, setFocusRef] = useState<string | null>(route.params.get("focus"));
+  const [hits, setHits] = useState<number[]>([]);
+  const [lay, setLay] = useLayout();
+  const playerH = lay.playerH || Math.round(window.innerHeight * 0.42);
+  const paneW = lay.paneW || 420;
   const video = useRef<HTMLVideoElement>(null);
   const yt = useRef<YTHandle>(null);
   const dur = data?.source?.duration || 0;
@@ -117,13 +144,15 @@ export default function Room({ sourceRef }: { sourceRef: string }) {
   const src = data.source;
 
   return (
-    <div className="room">
+    <div className="room" style={window.innerWidth > 900 ? { gridTemplateColumns: `minmax(380px, 1fr) 6px ${paneW}px` } : undefined}>
       <div className="left">
-        <div className="player">
+        <div className="player" style={{ height: playerH }}>
           {useYT ? <YouTubePlayer ref={yt} videoId={src.platform_id} />
-            : src.has_media ? <video ref={video} src={mediaUrl(sourceRef)} preload="metadata" onClick={toggle} />
+            : src.has_media ? <video ref={video} src={mediaUrl(sourceRef)} preload="metadata" onClick={toggle}
+                                     poster={frameUrl(sourceRef, Math.min(60, (src.duration || 10) / 3), 640)} />
               : <div style={{ color: "#bbb", padding: 40 }}>No local media for this source yet.</div>}
         </div>
+        <Splitter dir="row" onDrag={(d) => setLay("playerH", Math.max(120, Math.min(window.innerHeight * 0.75, playerH + d)))} />
         <div className="ctrl">
           <button className="btn small" onClick={toggle}>{playing ? <Pause size={14} /> : <Play size={14} />}</button>
           <span className="mono">{clock(t)} / {clock(dur, 0)}</span>
@@ -137,8 +166,15 @@ export default function Room({ sourceRef }: { sourceRef: string }) {
           <button className="btn small ghost" onClick={() => setView([0, dur])}><Maximize2 size={14} /></button>
         </div>
         <div>
+          {src.has_media && (!data.thumbs || !data.peaks) && (
+            <div className="lanehint">
+              <span>{!data.thumbs && !data.peaks ? "No filmstrip or waveform yet" : !data.thumbs ? "No filmstrip yet" : "No waveform yet"} for this source.</span>
+              <Act verb="source.process" args={{ ref: sourceRef, jobs: [...(!data.peaks ? ["audio", "peaks"] : []), ...(!data.thumbs ? ["thumbs"] : [])] }}
+                   small agent title="Runs in the background; the lanes fill in when it is done">Build them</Act>
+            </div>
+          )}
           <Lanes data={data} peaks={peaks} t={t} view={view} setView={setView} sel={sel} setSel={setSel} seek={seek}
-                 focusRef={focusRef} setFocusRef={setFocusRef} />
+                 focusRef={focusRef} setFocusRef={setFocusRef} hits={hits} />
           {form && sel && <SpanForm kind={form} sourceRef={sourceRef} sel={sel} onDone={(ref) => { setForm(null); if (ref) setFocusRef(ref); }} />}
         </div>
         <div className="below">
@@ -149,25 +185,52 @@ export default function Room({ sourceRef }: { sourceRef: string }) {
           </p>
         </div>
       </div>
-      <TranscriptPane data={data} t={t} sel={sel} seek={seek} setSel={setSel} panel={route.params.get("panel")} />
+      <Splitter dir="col" onDrag={(d) => setLay("paneW", Math.max(280, Math.min(window.innerWidth * 0.6, paneW - d)))} />
+      <TranscriptPane data={data} t={t} sel={sel} seek={seek} setSel={setSel} panel={route.params.get("panel")}
+                      query={route.params.get("tq")} onHits={setHits} />
     </div>
   );
 }
 
+type LaneDef = { key: string; h: number; label: string };
+
+// Only the lanes a source has: link sources without fetched media get a speech lane (from the transcript)
+// instead of empty frame and waveform strips. Chapters and cuts get room for their labels.
+function laneDefs(data: RoomData, peaks: Uint8Array | null): LaneDef[] {
+  const out: LaneDef[] = [{ key: "overview", h: 16, label: "whole source" }, { key: "ruler", h: 16, label: "" }];
+  if (data.thumbs?.sheets?.length) out.push({ key: "film", h: 40, label: "frames" });
+  if (peaks && data.peaks) out.push({ key: "wave", h: 40, label: "audio" });
+  else if (data.segments.length) out.push({ key: "speech", h: 16, label: "speech" });
+  if (data.shots.length) out.push({ key: "shots", h: 8, label: "shots" });
+  if (data.turns.length) out.push({ key: "speakers", h: 12, label: "speakers" });
+  out.push({ key: "chapters", h: 28, label: "chapters" }, { key: "cuts", h: 28, label: "cuts" });
+  return out;
+}
+
+const PALETTE = ["#2b62b8", "#c2410c", "#7c3aed", "#0f766e", "#b45309", "#be185d"];
+
 function Lanes(p: {
   data: RoomData; peaks: Uint8Array | null; t: number; view: [number, number]; setView: (v: [number, number]) => void;
   sel: { a: number; b: number } | null; setSel: (s: { a: number; b: number } | null) => void; seek: (t: number) => void;
-  focusRef: string | null; setFocusRef: (r: string | null) => void;
+  focusRef: string | null; setFocusRef: (r: string | null) => void; hits: number[];
 }) {
   const ref = useRef<HTMLCanvasElement>(null);
   const wrap = useRef<HTMLDivElement>(null);
   const [w, setW] = useState(800);
-  const drag = useRef<{ x: number; t: number } | null>(null);
+  const drag = useRef<{ x: number; t: number; lane: string } | null>(null);
   const sprites = useRef<Record<string, HTMLImageElement>>({});
   const [, setLoaded] = useState(0);
+  const [tip, setTip] = useState<{ x: number; y: number; text: string } | null>(null);
   const { data, peaks, t, view, sel } = p;
   const dur = data.source.duration || 1;
   const [v0, v1] = view[1] > view[0] ? view : [0, dur];
+  const lanes = laneDefs(data, peaks);
+  const H = lanes.reduce((a, l) => a + l.h, 0) + 4;
+  const top: Record<string, number> = {};
+  lanes.reduce((y, l) => { top[l.key] = y; return y + l.h; }, 0);
+  const voiceName = (l: string) => data.voices?.[l]?.name || l;
+  const speakerKeys: string[] = [];
+  for (const tr of data.turns) { const k = voiceName(tr.label); if (!speakerKeys.includes(k)) speakerKeys.push(k); }
 
   useEffect(() => {
     const ro = new ResizeObserver(() => wrap.current && setW(wrap.current.clientWidth));
@@ -186,6 +249,7 @@ function Lanes(p: {
 
   const x2t = (x: number) => v0 + (x / w) * (v1 - v0);
   const t2x = (s: number) => ((s - v0) / (v1 - v0)) * w;
+  const o2x = (s: number) => (s / dur) * w;  // overview: the whole source
 
   useEffect(() => {
     const c = ref.current;
@@ -197,82 +261,121 @@ function Lanes(p: {
     const css = getComputedStyle(document.documentElement);
     const col = (n: string) => css.getPropertyValue(n).trim();
     g.fillStyle = col("--panel"); g.fillRect(0, 0, w, H);
-    let y = 0;
-    // ruler
-    const span = v1 - v0;
-    const step = [1, 2, 5, 10, 15, 30, 60, 120, 300, 600, 900, 1800].find((s) => span / s < w / 70) || 3600;
-    g.fillStyle = col("--faint"); g.font = "10px " + col("--mono"); g.strokeStyle = col("--line");
-    for (let s = Math.ceil(v0 / step) * step; s <= v1; s += step) {
-      const x = t2x(s); g.fillRect(x, y + 10, 1, 6); g.fillText(clock(s, 0), x + 3, y + 10);
-    }
-    y += LANE.ruler;
-    // filmstrip
-    const th = data.thumbs;
-    if (th?.sheets?.length) {
-      const first = sprites.current[th.sheets[0]];
-      const tw = th.width, tH = first?.naturalHeight ? first.naturalHeight / th.rows : 22;
-      const scale = LANE.film / tH, cellW = tw * scale;
-      for (let x = 0; x < w; x += cellW) {
-        const s = x2t(x + cellW / 2);
-        const k = Math.max(0, Math.floor(s / th.every));
-        const sheet = sprites.current[th.sheets[Math.floor(k / (th.cols * th.rows))]];
-        const kk = k % (th.cols * th.rows);
-        if (sheet?.complete && sheet.naturalWidth) g.drawImage(sheet, (kk % th.cols) * tw, Math.floor(kk / th.cols) * tH, tw, tH, x, y, cellW, LANE.film);
+    const font = (px: number) => `${px}px ` + col("--sans");
+    for (const l of lanes) {
+      const y = top[l.key], h = l.h;
+      if (l.key === "overview") {
+        g.fillStyle = col("--panel-2"); g.fillRect(0, y, w, h);
+        g.globalAlpha = 0.45; g.fillStyle = col("--violet");
+        for (const c of data.chapters) g.fillRect(o2x(c.start), y + 3, Math.max(1, o2x(c.end) - o2x(c.start) - 1), h - 6);
+        g.globalAlpha = 1; g.fillStyle = col("--accent");
+        for (const c of data.cuts) g.fillRect(o2x(c.start), y + 1, Math.max(2, o2x(c.end) - o2x(c.start)), h - 2);
+        g.fillStyle = col("--amber");
+        for (const hh of p.hits) g.fillRect(o2x(hh), y, 1, h);
+        g.strokeStyle = col("--blue"); g.lineWidth = 1.5;
+        g.strokeRect(o2x(v0) + 0.5, y + 0.5, Math.max(3, o2x(v1) - o2x(v0)) - 1, h - 1);
+        g.fillStyle = col("--red"); g.fillRect(o2x(t), y, 1.5, h);
+      } else if (l.key === "ruler") {
+        const span = v1 - v0;
+        const step = [1, 2, 5, 10, 15, 30, 60, 120, 300, 600, 900, 1800].find((s) => span / s < w / 70) || 3600;
+        g.fillStyle = col("--faint"); g.font = "10px " + col("--mono");
+        for (let s = Math.ceil(v0 / step) * step; s <= v1; s += step) { const x = t2x(s); g.fillRect(x, y + 10, 1, 6); g.fillText(clock(s, 0), x + 3, y + 10); }
+      } else if (l.key === "film") {
+        const th = data.thumbs;
+        const first = sprites.current[th.sheets[0]];
+        const tw = th.width, tH = first?.naturalHeight ? first.naturalHeight / th.rows : 22;
+        const cellW = tw * (h / tH);
+        for (let x = 0; x < w; x += cellW) {
+          const k = Math.max(0, Math.floor(x2t(x + cellW / 2) / th.every));
+          const sheet = sprites.current[th.sheets[Math.floor(k / (th.cols * th.rows))]];
+          const kk = k % (th.cols * th.rows);
+          if (sheet?.complete && sheet.naturalWidth) g.drawImage(sheet, (kk % th.cols) * tw, Math.floor(kk / th.cols) * tH, tw, tH, x, y, cellW, h);
+        }
+      } else if (l.key === "wave") {
+        const ps = data.peaks.per_second;
+        g.fillStyle = col("--wave");
+        const mid = y + h / 2;
+        for (let x = 0; x < w; x++) {
+          const a = Math.floor(x2t(x) * ps), b = Math.max(a + 1, Math.floor(x2t(x + 1) * ps));
+          let m = 0;
+          for (let k = a; k < b && k < peaks!.length; k++) if (peaks![k] > m) m = peaks![k];
+          const hh = (m / 255) * (h / 2 - 1);
+          g.fillRect(x, mid - hh, 1, hh * 2 || 1);
+        }
+      } else if (l.key === "speech") {
+        for (const s of data.segments) {
+          if (s.end < v0 || s.start > v1) continue;
+          g.fillStyle = s.speaker ? PALETTE[Math.max(0, speakerKeys.indexOf(voiceName(s.speaker))) % PALETTE.length] : col("--wave");
+          g.fillRect(t2x(s.start), y + 3, Math.max(1, t2x(s.end) - t2x(s.start) - 0.5), h - 6);
+        }
+      } else if (l.key === "shots") {
+        g.fillStyle = col("--faint");
+        for (const s of data.shots) { if (s < v0 || s > v1) continue; g.fillRect(t2x(s), y + 1, 1, h - 2); }
+      } else if (l.key === "speakers") {
+        for (const tr of data.turns) {
+          if (tr.end < v0 || tr.start > v1) continue;
+          g.fillStyle = PALETTE[speakerKeys.indexOf(voiceName(tr.label)) % PALETTE.length];
+          g.fillRect(t2x(tr.start), y + 2, Math.max(1, t2x(tr.end) - t2x(tr.start)), h - 4);
+        }
+      } else if (l.key === "chapters" || l.key === "cuts") {
+        const items = l.key === "chapters" ? data.chapters : data.cuts;
+        const color = l.key === "chapters" ? col("--violet") : col("--accent");
+        for (const it of items) {
+          if (it.end < v0 || it.start > v1) continue;
+          const x = t2x(it.start), x2 = t2x(it.end), bw = Math.max(4, x2 - x - 1);
+          g.fillStyle = color; g.globalAlpha = it.ref === p.focusRef ? 1 : 0.6;
+          g.fillRect(x, y + 3, bw, h - 6);
+          g.globalAlpha = 1;
+          if (bw > 26) {
+            g.save(); g.beginPath(); g.rect(x, y, bw - 2, h); g.clip();
+            g.fillStyle = "#fff"; g.font = font(11); g.fillText(`${it.ref.replace(/^S\d+\./, "")} ${it.title}`, x + 4, y + h / 2 + 4);
+            g.restore();
+          }
+        }
+      }
+      if (l.label && l.key !== "overview") {  // lane name, faint, at the right edge
+        g.fillStyle = col("--faint"); g.globalAlpha = 0.7; g.font = font(9);
+        const tw2 = g.measureText(l.label).width;
+        g.fillText(l.label, w - tw2 - 4, y + 10); g.globalAlpha = 1;
       }
     }
-    y += LANE.film;
-    // waveform
-    if (peaks && data.peaks) {
-      const ps = data.peaks.per_second;
-      g.fillStyle = col("--wave");
-      const mid = y + LANE.wave / 2;
-      for (let x = 0; x < w; x++) {
-        const a = Math.floor(x2t(x) * ps), b = Math.max(a + 1, Math.floor(x2t(x + 1) * ps));
-        let m = 0;
-        for (let k = a; k < b && k < peaks.length; k++) if (peaks[k] > m) m = peaks[k];
-        const hgt = (m / 255) * (LANE.wave / 2 - 1);
-        g.fillRect(x, mid - hgt, 1, hgt * 2 || 1);
-      }
+    const bodyTop = top["ruler"];
+    if (sel) { g.fillStyle = col("--sel"); g.fillRect(t2x(sel.a), bodyTop, t2x(sel.b) - t2x(sel.a), H - bodyTop); }
+    g.fillStyle = col("--amber");
+    const dense = p.hits.filter((hh) => hh >= v0 && hh <= v1).length > 30;  // many hits: marks on the ruler, faint lines below
+    for (const hh of p.hits) {
+      if (hh < v0 || hh > v1) continue;
+      const x = t2x(hh);
+      g.globalAlpha = 1; g.fillRect(x - 1, bodyTop, dense ? 2 : 3, 16);
+      g.globalAlpha = dense ? 0.22 : 0.8; g.fillRect(x, bodyTop + 16, 1, H - bodyTop - 16);
     }
-    y += LANE.wave;
-    // shots
-    g.fillStyle = col("--faint");
-    for (const s of data.shots) { if (s < v0 || s > v1) continue; g.fillRect(t2x(s), y + 1, 1, LANE.shots - 2); }
-    y += LANE.shots;
-    // speakers: one colour per voice label
-    const palette = ["#2b62b8", "#c2410c", "#7c3aed", "#0f766e", "#b45309", "#be185d"];
-    const labels: string[] = [];
-    const nameOf = (l: string) => data.voices?.[l]?.name || l;
-    for (const tr of data.turns) {
-      const key = nameOf(tr.label);
-      if (!labels.includes(key)) labels.push(key);
-      if (tr.end < v0 || tr.start > v1) continue;
-      g.fillStyle = palette[labels.indexOf(key) % palette.length];
-      g.fillRect(t2x(tr.start), y + 1, Math.max(1, t2x(tr.end) - t2x(tr.start)), LANE.speakers - 2);
-    }
-    y += LANE.speakers;
-    const bars = (items: Span[], color: string, yy: number, h: number) => {
-      for (const it of items) {
-        if (it.end < v0 || it.start > v1) continue;
-        const x = t2x(it.start), x2 = t2x(it.end);
-        g.fillStyle = color; g.globalAlpha = it.ref === p.focusRef ? 0.95 : 0.55;
-        g.fillRect(x, yy + 2, Math.max(2, x2 - x - 1), h - 4);
-        g.globalAlpha = 1; g.fillStyle = "#fff"; g.font = "10px " + col("--sans");
-        if (x2 - x > 30) { g.save(); g.beginPath(); g.rect(x, yy, x2 - x - 2, h); g.clip(); g.fillText(`${it.ref} ${it.title}`, x + 3, yy + h - 6); g.restore(); }
-      }
-    };
-    bars(data.chapters, col("--violet"), y, LANE.chapters); y += LANE.chapters;
-    bars(data.cuts, col("--accent"), y, LANE.cuts); y += LANE.cuts;
-    if (sel) { g.fillStyle = col("--sel"); g.fillRect(t2x(sel.a), 0, t2x(sel.b) - t2x(sel.a), H); }
-    g.fillStyle = col("--red"); g.fillRect(t2x(t), 0, 1.5, H);
+    g.globalAlpha = 1;
+    g.fillStyle = col("--red"); g.fillRect(t2x(t), bodyTop, 1.5, H - bodyTop);
   });
 
+  const laneAt = (y: number) => lanes.find((l) => y >= top[l.key] && y < top[l.key] + l.h)?.key || null;
   const hit = (x: number, y: number): Span | null => {
-    const s = x2t(x);
-    const chapY = LANE.ruler + LANE.film + LANE.wave + LANE.shots + LANE.speakers;
-    if (y >= chapY && y < chapY + LANE.chapters) return data.chapters.find((c) => c.start <= s && s < c.end) || null;
-    if (y >= chapY + LANE.chapters && y < chapY + LANE.chapters + LANE.cuts) return data.cuts.find((c) => c.start <= s && s < c.end) || null;
+    const s = x2t(x), lane = laneAt(y);
+    const near = (items: Span[]) => items.find((c) => c.start <= s && s < c.end) ||
+      items.find((c) => Math.abs(t2x(c.start) - x) < 4) || null;  // thin bars are easy to hit
+    if (lane === "chapters") return near(data.chapters);
+    if (lane === "cuts") return near(data.cuts);
     return null;
+  };
+  const describe = (x: number, y: number): string | null => {
+    const lane = laneAt(y);
+    if (lane === "overview") return `${clock((x / w) * dur, 0)} · click or drag to move the view`;
+    const h = hit(x, y);
+    if (h) return `${h.ref} ${h.title || ""} · ${clock(h.start, 0)}–${clock(h.end, 0)} (${Math.round(h.end - h.start)}s)${h.why ? " — " + h.why : ""}`;
+    const s = x2t(x);
+    if (lane === "speakers") { const tr = data.turns.find((r) => r.start <= s && s < r.end); return tr ? `${voiceName(tr.label)} · ${clock(s, 0)}` : null; }
+    if (lane === "speech") { const sg = data.segments.find((r) => r.start <= s && s < r.end); return sg ? `${clock(sg.start, 0)} ${sg.speaker ? voiceName(sg.speaker) + ": " : ""}${sg.text.slice(0, 90)}` : null; }
+    return clock(s, 1);
+  };
+  const recenter = (x: number) => {
+    const span = v1 - v0, c = (x / w) * dur;
+    const a = Math.max(0, Math.min(dur - span, c - span / 2));
+    p.setView([a, a + span]);
   };
 
   return (
@@ -284,23 +387,32 @@ function Lanes(p: {
            const f = e.deltaY > 0 ? 1.25 : 0.8;
            p.setView([Math.max(0, at - (at - v0) * f), Math.min(dur, at + (v1 - at) * f)]);
          }}
-         onMouseDown={(e) => { const r = e.currentTarget.getBoundingClientRect(); drag.current = { x: e.clientX - r.left, t: x2t(e.clientX - r.left) }; }}
+         onMouseDown={(e) => {
+           const r = e.currentTarget.getBoundingClientRect(); const x = e.clientX - r.left, y = e.clientY - r.top;
+           const lane = laneAt(y) || "";
+           drag.current = { x, t: x2t(x), lane };
+           if (lane === "overview") recenter(x);
+         }}
          onMouseMove={(e) => {
+           const r = e.currentTarget.getBoundingClientRect(); const x = e.clientX - r.left, y = e.clientY - r.top;
+           const d = describe(x, y);
+           setTip(d ? { x, y, text: d } : null);
            if (!drag.current) return;
-           const r = e.currentTarget.getBoundingClientRect(); const x = e.clientX - r.left;
+           if (drag.current.lane === "overview") { recenter(x); return; }
            if (Math.abs(x - drag.current.x) > 4) { const a = drag.current.t, b = x2t(x); p.setSel({ a: Math.min(a, b), b: Math.max(a, b) }); }
          }}
          onMouseUp={(e) => {
            const r = e.currentTarget.getBoundingClientRect(); const x = e.clientX - r.left; const y = e.clientY - r.top;
-           if (drag.current && Math.abs(x - drag.current.x) <= 4) {
+           if (drag.current && drag.current.lane !== "overview" && Math.abs(x - drag.current.x) <= 4) {
              const h = hit(x, y);
              if (h) { p.setFocusRef(h.ref); p.setSel({ a: h.start, b: h.end }); p.seek(h.start); }
              else p.seek(x2t(x));
            }
            drag.current = null;
          }}
-         onMouseLeave={() => (drag.current = null)}>
+         onMouseLeave={() => { drag.current = null; setTip(null); }}>
       <canvas ref={ref} style={{ height: H }} />
+      {tip && <div className="lanetip" style={{ left: Math.min(tip.x + 12, w - 260), top: tip.y + 14 }}>{tip.text}</div>}
     </div>
   );
 }

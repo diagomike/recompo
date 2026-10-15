@@ -90,7 +90,8 @@ function Shell() {
         if (f.highlight) setHighlight(f.highlight);
         toast({ ok: true, title: `The agent opened ${f.ref}`, detail: f.highlight ? `and points at ${f.highlight}` : undefined });
       }
-      if (e.kind !== "hello") {
+      // selection and focus are shared state, not data: they move views but need no reload
+      if (e.kind !== "hello" && !(e.kind === "ui" && (e.data?.key === "selection" || e.data?.key === "focus"))) {
         window.clearTimeout(timer);
         timer = window.setTimeout(() => setVersion((v) => v + 1), 120);
       }
@@ -103,7 +104,7 @@ function Shell() {
     if (VIEWS.includes(ref)) { go(ref, null, filter || {}); return; }
     if (/^S\d+(\.c\d+|\.t\d+)?$/.test(ref) || /^C\d+$/.test(ref)) {
       const src = ref.startsWith("S") ? ref.split(".")[0] : null;
-      if (src) go("room", src, { t: at ?? undefined, focus: ref, play: play ? 1 : undefined });
+      if (src) go("room", src, { t: at ?? undefined, focus: ref, play: play ? 1 : undefined, ...(filter || {}) });
       else must("cut.show", { ref }).then((c: any) => go("room", c.source, { t: at ?? c.start, focus: ref, play: play ? 1 : undefined }));
     } else if (/^J\d+(#\d+)?$/.test(ref)) go("journeys", ref.split("#")[0], { slot: ref.split("#")[1], ...(filter || {}) });
     else if (/^X\d+$/.test(ref)) go("exports", ref);

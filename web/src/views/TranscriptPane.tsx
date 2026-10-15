@@ -1,22 +1,41 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { Combine, Eraser, Pencil, Replace, Split, Trash2, Users, X } from "lucide-react";
+import { ChevronDown, ChevronUp, Combine, Eraser, ListFilter, Pencil, Replace, Search, Split, Trash2, Users, X } from "lucide-react";
 import { clock, verb } from "../api";
 import { Act, useActions } from "../actions";
 
 type Seg = { idx: number; start: number; end: number; text: string; speaker: string | null; words: [number, number, string][] | null };
 type Sel = { a: number; b: number } | null;
 
+// "free will" stays a phrase; other words must all appear in the line (any order, any case).
+function terms(q: string): string[] {
+  const out: string[] = [];
+  q.replace(/"([^"]+)"|(\S+)/g, (_m, phrase, word) => { out.push(String(phrase || word).toLowerCase()); return ""; });
+  return out.filter(Boolean);
+}
+const escapeRe = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+
+function Marked({ text, ts }: { text: string; ts: string[] }) {
+  if (!ts.length) return <>{text}</>;
+  const re = new RegExp(`(${ts.map(escapeRe).join("|")})`, "gi");
+  return <>{text.split(re).map((part, k) => (k % 2 ? <mark key={k}>{part}</mark> : part))}</>;
+}
+
 // The transcript beside the player: read along, select lines, and fix them in place.
 // Every edit is a transcript or speaker verb (one undo each); the agent runs the same ones in bulk.
-export default function TranscriptPane({ data, t, sel, seek, setSel, panel }: {
+export default function TranscriptPane({ data, t, sel, seek, setSel, panel, query, onHits }: {
   data: any; t: number; sel: Sel; seek: (t: number, play?: boolean) => void; setSel: (s: Sel) => void; panel: string | null;
+  query?: string | null; onHits?: (times: number[]) => void;
 }) {
   const box = useRef<HTMLDivElement>(null);
   const userScroll = useRef(0);
   const anchor = useRef<number | null>(null);
   const [editing, setEditing] = useState<number | null>(null);
   const [draft, setDraft] = useState("");
-  const [find, setFind] = useState("");
+  const [find, setFind] = useState(query || "");
+  const [only, setOnly] = useState(false);
+  const [pos, setPos] = useState(-1);
+  const findBox = useRef<HTMLInputElement>(null);
+  useEffect(() => { if (query != null) setFind(query); }, [query]);
   const [tool, setTool] = useState<null | "replace" | "speakers">(panel === "speakers" ? "speakers" : null);
   const { run } = useActions();
   const segs: Seg[] = data.segments;
@@ -41,7 +60,56 @@ export default function TranscriptPane({ data, t, sel, seek, setSel, panel }: {
   const selected = sel ? segs.filter((s) => s.end > sel.a + 0.01 && s.start < sel.b - 0.01) : [];
   const lines = selected.length ? `${selected[0].idx}-${selected[selected.length - 1].idx}` : "";
   const q = find.trim().toLowerCase();
-  const hits = q ? segs.filter((s) => s.text.toLowerCase().includes(q)).length : 0;
+  const ts = useMemo(() => terms(q), [q]);
+  // A term matches in the line itself, or (for phrases) starting in it and running on into the next line,
+  // which is how rolling auto-captions break sentences.
+  const hitSet = useMemo(() => {
+    const out = new Set<number>();
+    if (!ts.length) return out;
+    const low = segs.map((s) => s.text.toLowerCase());
+    low.forEach((line, i) => {
+      const next = low[i + 1] || "";
+      if (ts.every((x) => line.includes(x) || (x.includes(" ") && (line + " " + next).includes(x) && !next.includes(x)))) out.add(i);
+    });
+    return out;
+  }, [ts, segs]);
+  const hitIdx = useMemo(() => Array.from(hitSet).sort((a, b) => a - b), [hitSet]);
+  useEffect(() => setPos(-1), [q]);
+  useEffect(() => { onHits?.(hitIdx.map((i) => segs[i].start)); },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [hitIdx]);
+  // Jump to a hit: select its line, seek the player there, and bring the line into view.
+  const jump = (k: number) => {
+    if (!hitIdx.length) return;
+    const p = ((k % hitIdx.length) + hitIdx.length) % hitIdx.length;
+    const s = segs[hitIdx[p]];
+    setPos(p);
+    setSel({ a: s.start, b: s.end });
+    seek(s.start);
+    userScroll.current = Date.now();
+    window.setTimeout(() => {
+      const el = box.current?.querySelector(`[data-i="${hitIdx[p]}"]`) as HTMLElement | null;
+      if (el && box.current) box.current.scrollTop = el.offsetTop - box.current.clientHeight / 3;
+    }, 30);
+  };
+  const nextFromPlayhead = (dir: 1 | -1) => {
+    if (!hitIdx.length) return;
+    if (pos >= 0) return jump(pos + dir);
+    const after = hitIdx.findIndex((i) => segs[i].start > t + 0.2);
+    jump(dir === 1 ? (after < 0 ? 0 : after) : (after < 0 ? hitIdx.length - 1 : after - 1));
+  };
+  // Ctrl+F (or F3) searches this source instead of the browser page.
+  useEffect(() => {
+    const on = (e: KeyboardEvent) => {
+      if (((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "f") || e.key === "F3") {
+        e.preventDefault();
+        if (e.key === "F3" && hitIdx.length) nextFromPlayhead(e.shiftKey ? -1 : 1);
+        else { findBox.current?.focus(); findBox.current?.select(); }
+      }
+    };
+    window.addEventListener("keydown", on);
+    return () => window.removeEventListener("keydown", on);
+  });
 
   const chapStarts = new Map<number, any>();
   for (const c of data.chapters) {
@@ -83,14 +151,21 @@ export default function TranscriptPane({ data, t, sel, seek, setSel, panel }: {
           <button className={"btn ghost small" + (tool === "replace" ? " on" : "")} onClick={() => setTool(tool === "replace" ? null : "replace")} title="Find and replace"><Replace size={13} /></button>
           <button className={"btn ghost small" + (tool === "speakers" ? " on" : "")} onClick={() => setTool(tool === "speakers" ? null : "speakers")} title="Speakers"><Users size={13} /></button>
         </div>
-        <div className="row" style={{ gap: 4, marginTop: 4 }}>
-          <input className="input grow small" placeholder="Find in transcript" value={find} onChange={(e) => setFind(e.target.value)} data-filter="tq"
+        <div className="row findrow" style={{ gap: 4, marginTop: 4, flexWrap: "nowrap" }}>
+          <Search size={13} style={{ color: "var(--faint)", flex: "none" }} />
+          <input ref={findBox} className="input grow small" placeholder='Search this source (Ctrl+F) · words or "a phrase"' value={find}
+                 onChange={(e) => setFind(e.target.value)} data-filter="tq" aria-label="Search this transcript"
                  onKeyDown={(e) => {
-                   if (e.key !== "Enter" || !q) return;
-                   const next = segs.find((s) => s.start > t + 0.2 && s.text.toLowerCase().includes(q)) || segs.find((s) => s.text.toLowerCase().includes(q));
-                   if (next) { setSel({ a: next.start, b: next.end }); seek(next.start); userScroll.current = 0; }
+                   if (e.key === "Enter") { e.preventDefault(); nextFromPlayhead(e.shiftKey ? -1 : 1); }
+                   if (e.key === "ArrowDown") { e.preventDefault(); nextFromPlayhead(1); }
+                   if (e.key === "ArrowUp") { e.preventDefault(); nextFromPlayhead(-1); }
+                   if (e.key === "Escape") { setFind(""); setOnly(false); }
                  }} />
-          {q && <span className="chip">{hits} lines</span>}
+          {q && <span className={"chip" + (hitIdx.length ? "" : " failed")} style={{ flex: "none" }}>{hitIdx.length ? `${pos >= 0 ? pos + 1 : "–"} / ${hitIdx.length}` : "no match"}</span>}
+          {q && <button className="btn ghost small" disabled={!hitIdx.length} onClick={() => nextFromPlayhead(-1)} title="Previous (Shift+Enter, ↑)"><ChevronUp size={13} /></button>}
+          {q && <button className="btn ghost small" disabled={!hitIdx.length} onClick={() => nextFromPlayhead(1)} title="Next (Enter, ↓)"><ChevronDown size={13} /></button>}
+          {q && <button className={"btn ghost small" + (only ? " on" : "")} onClick={() => setOnly(!only)} title="Show only matching lines"><ListFilter size={13} /></button>}
+          {q && <button className="btn ghost small" onClick={() => { setFind(""); setOnly(false); }} title="Clear (Esc)"><X size={12} /></button>}
         </div>
         {tool === "replace" && <ReplacePanel trRef={tr.ref} find={find} setFind={setFind} lines={lines} onClose={() => setTool(null)} />}
         {tool === "speakers" && <SpeakersPanel data={data} lines={lines} onClose={() => setTool(null)} />}
@@ -108,14 +183,17 @@ export default function TranscriptPane({ data, t, sel, seek, setSel, panel }: {
         )}
       </div>
       <div className="tbody" ref={box} onWheel={() => (userScroll.current = Date.now())}>
+        {only && !hitIdx.length && <div className="muted2" style={{ padding: 12 }}>No line matches “{find}”.</div>}
         {segs.map((s, i) => {
           const c = chapStarts.get(i);
           const inSel = sel && s.end > sel.a + 0.01 && s.start < sel.b - 0.01;
-          const hit = q && s.text.toLowerCase().includes(q);
+          const hit = hitSet.has(i);
+          if (only && !hit) return null;
+          const focused = pos >= 0 && hitIdx[pos] === i;
           return (
             <div key={s.idx}>
-              {c && <div className="chaphead">{c.ref} {c.title}<span className="s">{clock(c.start, 0)}</span></div>}
-              <div className={"seg" + (i === cur ? " now" : "") + (inSel ? " sel" : "") + (hit ? " hit" : "")} data-i={i}
+              {c && !only && <div className="chaphead">{c.ref} {c.title}<span className="s">{clock(c.start, 0)}</span></div>}
+              <div className={"seg" + (i === cur ? " now" : "") + (inSel ? " sel" : "") + (hit ? " hit" : "") + (focused ? " hitnow" : "")} data-i={i}
                    onClick={(e) => {
                      if (editing === s.idx) return;
                      if (e.shiftKey && anchor.current != null) {
@@ -138,7 +216,8 @@ export default function TranscriptPane({ data, t, sel, seek, setSel, panel }: {
                 ) : (
                   <span className="segtext">
                     {s.speaker && <b className="who">{who(s.speaker)}: </b>}
-                    {i === cur && s.words ? s.words.map((w, k) => <span key={k} className={"w" + (t >= w[0] && t < w[1] ? " now" : "")}>{w[2]} </span>) : s.text}
+                    {i === cur && s.words && !hit ? s.words.map((w, k) => <span key={k} className={"w" + (t >= w[0] && t < w[1] ? " now" : "")}>{w[2]} </span>)
+                      : <Marked text={s.text} ts={hit ? ts : []} />}
                     <button className="btn ghost small editbtn" title="Edit this line (or double-click)" onClick={(e) => { e.stopPropagation(); setEditing(s.idx); setDraft(s.text); }}><Pencil size={11} /></button>
                   </span>
                 )}

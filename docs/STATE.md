@@ -38,6 +38,10 @@ The build's working memory. If context runs short, resume from here.
 - Project home (`#/p/<name>/home`) is the checklist (`project checklist`); Cut bin (`#/p/<name>/cuts`) mixes sources.
 - Filters live in the URL; `recomp ui show <view> --filter "k=v&k=v" --highlight <verb>` opens the same view.
 - Every button runs one verb (hover shows the command; the robot hands it to the agent via `ui notes`).
+- Source room: Ctrl+F searches that source (words or "a phrase", across caption line breaks), Enter/↑↓ jump and seek,
+  hits tick the lanes; `ui show S3 --filter "tq=free will"` opens it searched. Lanes adapt to what a source has
+  (speech lane without audio, overview strip, hover labels); player and transcript widths drag and are remembered.
+- Link sources with fetched video build frames and waveform from it (`source process S3 --jobs audio,peaks,thumbs`).
 - `p16-check` project: the acceptance run (two fixture clips from `C:\Recomposer\p16-media`, J1, X1/X2).
 
 ## Lessons

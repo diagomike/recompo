@@ -106,3 +106,23 @@ def test_google_drafts_belong_to_the_machine(proj, OK, two, monkeypatch):
     key = [line["key"] for line in lines if line["kind"] == "segment"][0]
     r = OK("lang.edit", {"journey": "J1", "lang": "fr", "key": key, "text": "Mieux."}, p)  # the agent may refine it
     assert r["written"] == 1 and not r["kept_users"]
+
+
+def test_link_source_filmstrip_from_fetched_video(proj, OK, two):
+    """A link source with its video fetched gets frames and a waveform like a local file (P16 room lanes)."""
+    import json as _json
+    import time as _time
+
+    from recomp.core import project as P
+    from recomp.core.ids import ulid
+    p, media = two
+    db = P.resolve(str(p)).db
+    with db.op("test", "machine") as tx:
+        tx.conn.execute("UPDATE source SET kind='link', path=NULL, meta=? WHERE ref='S1'", (_json.dumps({}),))
+        sid = tx.conn.execute("SELECT id FROM source WHERE ref='S1'").fetchone()[0]
+        tx.conn.execute("INSERT INTO asset(id, source_id, role, path, info, created_at) VALUES(?,?,?,?,?,?)",
+                        (ulid(), sid, "video", str(media / "clip.mp4"), "{}", _time.time()))
+    OK("source.process", {"ref": "S1", "jobs": ["thumbs"], "force": True}, p)
+    st = OK("source.status", {}, p)
+    assert {s["ref"]: s["status"].get("thumbs") for s in st}["S1"] == "done"
+    assert any((p / "cache" / "thumbs" / "S1").glob("sheet_*.jpg"))
