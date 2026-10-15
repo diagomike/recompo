@@ -317,7 +317,7 @@ EDITORIAL = {"source", "transcript", "segment", "person", "speaker_label", "chap
              "translation"}
 
 # Bookkeeping fields written by jobs: no precedence guard, ignored when undo checks for conflicts.
-UNGUARDED = {"status", "stats", "has_words", "updated_at"}
+UNGUARDED = {"status", "stats", "has_words", "updated_at", "outputs", "checks", "job_id", "recipe_hash"}
 
 # Child rows captured with a delete so undo can restore them (only op-logged children).
 CHILDREN: dict[str, list[tuple[str, str]]] = {

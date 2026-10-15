@@ -15,4 +15,5 @@ MODULES = [
     "overlay",
     "export",
     "music",
+    "speaker",
 ]

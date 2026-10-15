@@ -28,6 +28,7 @@ Effects: `read` (no changes) · `write` (undoable op) · `heavy` (starts a job) 
 | `search` | [`search`](#search) |
 | `setup` | [`setup.shim`](#setupshim) |
 | `source` | [`source.add`](#sourceadd), [`source.fetch-audio`](#sourcefetch-audio), [`source.list`](#sourcelist), [`source.process`](#sourceprocess), [`source.refresh`](#sourcerefresh), [`source.relink`](#sourcerelink), [`source.remove`](#sourceremove), [`source.rights`](#sourcerights), [`source.show`](#sourceshow), [`source.status`](#sourcestatus) |
+| `speaker` | [`speaker.diarize`](#speakerdiarize), [`speaker.list`](#speakerlist), [`speaker.match`](#speakermatch), [`speaker.merge`](#speakermerge), [`speaker.name`](#speakername), [`speaker.unlink`](#speakerunlink) |
 | `transcript` | [`transcript.align`](#transcriptalign), [`transcript.asr`](#transcriptasr), [`transcript.edit-segment`](#transcriptedit-segment), [`transcript.fetch-captions`](#transcriptfetch-captions), [`transcript.import`](#transcriptimport), [`transcript.list`](#transcriptlist), [`transcript.outline`](#transcriptoutline), [`transcript.read`](#transcriptread), [`transcript.set-primary`](#transcriptset-primary), [`transcript.shift`](#transcriptshift), [`transcript.sync-check`](#transcriptsync-check) |
 | `ui` | [`ui.answer`](#uianswer), [`ui.ask`](#uiask), [`ui.note`](#uinote), [`ui.notes`](#uinotes), [`ui.select`](#uiselect), [`ui.selection`](#uiselection), [`ui.show`](#uishow) |
 | `version` | [`version`](#version) |
@@ -1361,6 +1362,78 @@ Everything about one source: media facts, rights, transcripts, stages, counts, f
 `recomp source status` · effect: **read**
 
 Pipeline stage per source (probe, audio, peaks, shots, thumbs, transcript…) and running jobs.
+
+## speaker
+
+### speaker.diarize
+
+`recomp speaker diarize <ref>` · effect: **heavy**
+
+Find who speaks when (pyannote, local) and label transcript lines; known people are recognised automatically.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<ref>` | string | required | Source ref |
+| `--speakers` | integer | None | Exact number of speakers, if known |
+| `--min` | integer | None |  |
+| `--max` | integer | None |  |
+
+```
+recomp speaker diarize S2 --speakers 2
+```
+
+### speaker.list
+
+`recomp speaker list <ref>` · effect: **read**
+
+Voices per source (label, seconds, linked person, match score, a sample line) and the people in the project.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<ref>` | string | None | Source ref (default: all) |
+
+### speaker.match
+
+`recomp speaker match` · effect: **write**
+
+Re-run recognition: link unnamed voices to known people when they sound alike enough.
+
+### speaker.merge
+
+`recomp speaker merge <person> <other>` · effect: **write**
+
+Merge two people who are the same person.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<person>` | string | required | Person to keep (P1) |
+| `<other>` | string | required | Person to merge into it |
+
+### speaker.name
+
+`recomp speaker name <voice> <name>` · effect: **write**
+
+Say who a voice is. The person is created if new; their voice is then recognised in other sources.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<voice>` | string | required | Voice, e.g. S2:SPEAKER_00 |
+| `<name>` | string | required | The person's name |
+| `--propagate` | boolean | True | Recognise this person in other sources' voices |
+
+```
+recomp speaker name S2:SPEAKER_01 "Alex O'Connor"
+```
+
+### speaker.unlink
+
+`recomp speaker unlink <voice>` · effect: **write**
+
+Remove a wrong person link from a voice.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<voice>` | string | required |  |
 
 ## transcript
 

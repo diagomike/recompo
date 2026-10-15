@@ -30,7 +30,21 @@ SENTENCES = [
     (30.0, "The night is darkest just before the dawn."),
     (35.0, "Why so serious?"),
 ]
-VERSION = 3
+VERSION = 4
+ZIRA, HAZEL = "Microsoft Zira Desktop", "Microsoft Hazel Desktop"
+DIALOGUES = {
+    "dialog_a": [(ZIRA, "Do you think a plant could ever be conscious?"),
+                 (HAZEL, "I doubt it, because consciousness seems to need a nervous system."),
+                 (ZIRA, "But plants respond to their surroundings in surprisingly complex ways."),
+                 (HAZEL, "Responding is not the same thing as experiencing anything at all."),
+                 (ZIRA, "Then what would count as evidence for experience?"),
+                 (HAZEL, "That is exactly the hard problem, and nobody has solved it.")],
+    "dialog_b": [(HAZEL, "Free will might be an illusion produced by the brain."),
+                 (ZIRA, "If it is an illusion, who exactly is being fooled?"),
+                 (HAZEL, "Perhaps the self is part of the same illusion."),
+                 (ZIRA, "That sounds like a story we tell to make sense of choices."),
+                 (HAZEL, "Stories can still be useful, even when they are not literally true.")],
+}
 
 
 def colour_for_second(s: int) -> tuple[int, int, int]:
@@ -104,12 +118,34 @@ def make(out: Path = OUT) -> dict:
             lines += [str(i), f"{_tc(a)} --> {_tc(b)}", text, ""]
         return "\n".join(lines)
 
+    # Two-voice dialogues (Zira en-US, Hazel en-GB) for speaker tests: same two people, different lines.
+    for name, lines in DIALOGUES.items():
+        inputs, filters, t, cues = [], [], 1.0, []
+        for i, (voice, text) in enumerate(lines):
+            wav = tmp / f"{name}{i}.wav"
+            if not _sapi(text, wav, voice):
+                _ff(["-f", "lavfi", "-i", f"sine=f={220 if 'Zira' in voice else 330}:d=2", "-ar", "22050", str(wav)])
+            dur = float(subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0",
+                                        str(wav)], capture_output=True, text=True).stdout.strip() or 2)
+            inputs += ["-i", str(wav)]
+            filters.append(f"[{i}:a]aresample=48000,adelay={int(t * 1000)}|{int(t * 1000)}[a{i}]")
+            cues.append((t, t + dur, text))
+            t += dur + 0.8
+        total = t + 1.0
+        filters.append("".join(f"[a{i}]" for i in range(len(lines))) +
+                       f"amix=inputs={len(lines)}:normalize=0,apad=whole_dur={total:.2f},atrim=0:{total:.2f}[m]")
+        _ff([*inputs, "-filter_complex", ";".join(filters), "-map", "[m]", "-ac", "1", "-ar", "48000", str(tmp / f"{name}.wav")])
+        _ff(["-f", "lavfi", "-i", f"color=c=0x334455:s=320x180:r=10:d={total:.2f}", "-i", str(tmp / f"{name}.wav"),
+             "-c:v", "libx264", "-preset", "veryfast", "-c:a", "aac", "-shortest", str(out / f"{name}.mp4")])
+        (out / f"{name}.srt").write_text("\n".join(f"{k}\n{_tc(a)} --> {_tc(b)}\n{x}\n" for k, (a, b, x) in enumerate(cues, start=1)),
+                                         encoding="utf-8")
     (out / "clip.srt").write_text(srt(0.0), encoding="utf-8")
     (out / "clip_offset.srt").write_text(srt(1.5), encoding="utf-8")
     shutil.copy(out / "clip.srt", out / "clip51.srt")
     shutil.rmtree(tmp, ignore_errors=True)
     info = {"version": VERSION, "speech": speech, "duration": DURATION, "sentences": SENTENCES,
-            "files": ["clip.mp4", "clip51.mp4", "clip.srt", "clip_offset.srt", "clip51.srt"]}
+            "files": ["clip.mp4", "clip51.mp4", "clip.srt", "clip_offset.srt", "clip51.srt",
+                      "dialog_a.mp4", "dialog_a.srt", "dialog_b.mp4", "dialog_b.srt"]}
     stamp.write_text(json.dumps(info, indent=1), encoding="utf-8")
     return info
 

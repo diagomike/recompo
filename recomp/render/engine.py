@@ -238,8 +238,10 @@ def final(work: Path, body: Path, card: Path | None, plan: dict, prof: dict, out
     fl = [f"[0:v]setpts=N/({prof['fps']}*TB),subtitles=overlay.ass{fonts}[vb]"] + afl
     ln = (f"loudnorm=I={prof['loudness']}:TP={prof['true_peak']}:LRA=11:measured_I={meas['input_i']}:"
           f"measured_TP={meas['input_tp']}:measured_LRA={meas['input_lra']}:measured_thresh={meas['input_thresh']}:"
-          f"offset={meas['target_offset']}:linear=true,aresample=48000,"
-          f"alimiter=limit={10 ** ((prof['true_peak'] - 0.6) / 20):.3f}:attack=2:release=60:level=false")
+          f"offset={meas['target_offset']}:linear=true,"
+          # Limit at 4x oversampling (≈ true peak) with headroom for the AAC encoder's overshoot.
+          f"aresample=192000,alimiter=limit={10 ** ((prof['true_peak'] - 1.0) / 20):.3f}:attack=1:release=50:level=false,"
+          f"aresample=48000")
     fl.append(f"[mix]{ln}[mixn]")
     if card:
         fl.append("[vb][mixn][1:v][1:a]concat=n=2:v=1:a=1[v][a]")

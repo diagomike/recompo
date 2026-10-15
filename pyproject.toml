@@ -37,5 +37,6 @@ pythonpath = ["."]
 markers = [
   "e2e: end-to-end tests over generated media (slower)",
   "real: tests that need real media or network (skipped by default)",
+  "slow: worker-model tests (pyannote, TTS) that take minutes; run with -m slow",
 ]
-addopts = "-m 'not real'"
+addopts = "-m 'not real and not slow'"
