@@ -85,7 +85,9 @@ def load_lex(txt: str) -> list[dict]:
 
 
 def load_asr(path: Path) -> list[dict]:
-    d = json.loads(Path(path).read_text(encoding="utf-8"))
+    path = Path(path)
+    raw = gzip.open(path, "rt", encoding="utf-8").read() if path.suffix == ".gz" else path.read_text(encoding="utf-8")
+    d = json.loads(raw)
     segs = d.get("segments", d)
     return [{"start": s["start"], "end": s["end"], "text": s["text"].strip()} for s in segs]
 

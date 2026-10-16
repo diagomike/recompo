@@ -401,9 +401,60 @@
     {
      "title": "Within Reason #153 If Anyone Builds It, EVERYONE Dies - AI Expert on Superintelligence",
      "kind": "asr",
-     "path": "C:/Users/pc/AppData/Local/Temp/claude/D--py-self-execute-v0--claude-worktrees-p17-moment-selection-rights-d3996e/294e5a37-49ea-4824-a0d1-047601ca6466/scratchpad/wr153/wr153.asr.json",
+     "path": "docs/research/P17-follow/raw/within-reason-153.asr.json.gz",
      "video_note": "YouTube B_HDkqZtGOE; podcast timing",
-     "missing": true
+     "segments": 1185,
+     "length": "1:35:13",
+     "candidates": [
+      {
+       "start": 153.56,
+       "end": 201.78,
+       "text": "smarter than the smartest humans. And it's kind of crazy, right? If you just like step back and look at it, they're like, oh yeah, we're growing the machines to be smarter. It's working. We're going to make them smarter than the smartest humans until they're, they can outsmart all of us and then run it, you know, 10,000 times the speed and make a million copies of themselves. And we're just going to like blaze ahead. And it's like, hold on. It's kind of crazy. and in some sense it's easy for people to understand that it's kind of crazy and a lot of people in the field of ai understand how dangerous this is you see everyone from you know the the people working in the companies to the heads of the companies to the top academics who like won nobel prizes for uh kicking off this field you see them all saying oh yeah this is horribly dangerous stuff but it just takes a while for people to notice like oh",
+       "speakers": [],
+       "score": 4.79,
+       "terms": [
+        "AI",
+        "smarter",
+        "dangerous"
+       ]
+      },
+      {
+       "start": 708.44,
+       "end": 757.74,
+       "text": "what superintelligence is. We know what artificial intelligence is, roughly, although the definition's a little bit loose. But the thing you're talking about in the title of your book, it is superintelligence. What is superintelligence? We define superintelligence as AI that is better than the best humans at every mental task. And, you know, you can you can toss around various caveats. But the rough idea is anything you can do mentally, if the AI can do it better, we anything that the best human can do mentally, or like even more so, take any particular task, take the best human at that task, if it's a mental task, and AI can do at least as well or better, we call it a super intelligence. Now, you know, this definition is a sort of useful working definition, because once the AI is better than",
+       "speakers": [],
+       "score": 6.47,
+       "terms": [
+        "AI",
+        "intelligence",
+        "superintelligence"
+       ]
+      },
+      {
+       "start": 757.74,
+       "end": 808.89,
+       "text": "the best human at every mental task. It's better at things like AI research. It's better at things like making the next smarter generation of AIs. It's better at things like inventing new technologies. Better at things like designing robots, designing infrastructure, designing, you know, running a supply chain. It's sort of better at all these things than humans and better even than the best humans. And so it can, at least as fast and probably faster than the humans, make the next smarter generations of things and things probably go pretty fast from that point um that doesn't mean that the the danger waits to happen until the ais get super intelligent by this definition super intelligence in this definition is sort of like by the time the ai is smarter than the smartest humans uh you're sort of definitely uh you know things are about to get crazy",
+       "speakers": [],
+       "score": 4.79,
+       "terms": [
+        "AI",
+        "smarter",
+        "intelligence"
+       ]
+      },
+      {
+       "start": 4731.62,
+       "end": 4777.9,
+       "text": "Like everything, chess computers, you know, let's do away with it. Like we just can't run the risk. Or is it a more like, let's not take this any further or let's keep going, but be more careful. Like what's the take home? It's most like, let's not take this any further. You know, the danger here is in these AIs that are smarter than the smartest humans. It's in these AIs that can automate scientific and technological development. This is what the AI companies say they're trying to make. You know, they say we're going after superintelligence in the true sense of the word. They say we're trying to make the equivalent of, you know, a country worth of Einsteins running in a data center, right? They say they're trying to build automated AI researchers where once you can make an AI that can make a smarter AI that can make a smarter AI that can make a smarter AI,",
+       "speakers": [],
+       "score": 6.18,
+       "terms": [
+        "AI",
+        "smarter",
+        "superintelligence"
+       ]
+      }
+     ]
     }
    ]
   }

@@ -28,7 +28,7 @@ that was in this note. Live checks were run from this machine; raw responses and
 |---|---|---|
 | The Diary of a CEO | feed `<podcast:transcript type="text/vtt">` | on 322 of 896 episodes; sentence-level cues, no speaker names |
 | Lex Fridman | `lexfridman.com/<episode>-transcript` | speaker names, hh:mm:ss per paragraph, the YouTube id, chapter headings |
-| Alex O'Connor (Within Reason) | feed audio (`megaphone.fm` mp3) + local ASR | no transcript tag; #153 (95 min, 91 MB) transcribed locally |
+| Alex O'Connor (Within Reason) | feed audio (`megaphone.fm` mp3) + local ASR | no transcript tag; #153 (95 min, 91 MB) transcribed locally in 75 min of CPU (1,185 segments, word-timed) |
 | Any YouTube video | word-timed captions `json3` | **blocked today**: per-video requests answer 429, then "Sign in to confirm you're not a bot", even after a 15 min back-off |
 
 Notes:

@@ -23,12 +23,12 @@ curl -sL "https://itunes.apple.com/search?media=podcast&term=Within+Reason+Alex+
 .venv/Scripts/python.exe -m yt_dlp --flat-playlist -J "ytsearch40:Alex O'Connor interview"
 .venv/Scripts/python.exe -m yt_dlp --flat-playlist -J "https://www.youtube.com/@CosmicSkeptic/search?query=AI"
 
-# Within Reason #153 transcript (feed audio + local ASR, ~30 min CPU)
+# Within Reason #153 transcript (feed audio + local ASR; 75 min of CPU for 95 min of audio here)
 curl -sL -o wr153.mp3 https://traffic.megaphone.fm/APO8838750537.mp3
 ffmpeg -i wr153.mp3 -ac 1 -ar 16000 wr153.wav
 HF_HOME='D:\LangBridgeLocal\cache\hf' HF_HUB_OFFLINE=1 D:/LangBridgeLocal/.venv/Scripts/python.exe -I recomp/workers/scripts/asr.py --wav wr153.wav --out wr153.asr.json
 
-# the brief (edit the asr path in ai-models.json to where wr153.asr.json is)
+# the brief (ai-models.json reads the stored copy raw/within-reason-153.asr.json.gz)
 .venv/Scripts/python.exe scripts/research/topic_brief.py --config docs/research/P17-follow/ai-models.json --out docs/research/P17-follow/ai-models
 ```
 
@@ -36,7 +36,7 @@ HF_HOME='D:\LangBridgeLocal\cache\hf' HF_HUB_OFFLINE=1 D:/LangBridgeLocal/.venv/
 - YouTube per-video requests (captions, heatmaps) were blocked all session (429, then the bot check). Cookies were
   allowed (D-24), but `--cookies-from-browser chrome` could not copy the cookie database: Chrome kept 10 background
   processes running after its windows closed. An exported cookies.txt is the reliable route.
-- The Within Reason audio (91 MB) and its WAV were kept outside the repo (scratch folder); only the ASR JSON's passages
-  appear in the brief.
+- The Within Reason audio (91 MB) and its WAV were kept outside the repo; the word-timed ASR is stored as
+  `raw/within-reason-153.asr.json.gz`.
 - DOAC's VTT has no speaker names, so the brief can't yet say whether a passage is Steven Bartlett or the guest.
 - Within Reason's podcast timing was not aligned to the YouTube upload (B_HDkqZtGOE); the build aligns by text.

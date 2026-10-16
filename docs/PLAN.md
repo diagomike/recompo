@@ -550,7 +550,7 @@ every button runs one (P16).
 1. Published transcripts: a podcast feed's `<podcast:transcript>` (The Diary of a CEO: WebVTT on 322 episodes) or
    the creator's site (lexfridman.com/<episode>-transcript: speaker, timestamp, YouTube id, chapters).
 2. YouTube captions (word-timed `json3`) for the matching video.
-3. The podcast feed's audio + local ASR (Within Reason ships audio only; 95 min of audio in about a third of that).
+3. The podcast feed's audio + local ASR (Within Reason ships audio only; 95 min of audio took 75 min of CPU here).
 Podcast and video timings can differ (intros, inserted ads): a source taken from a feed is aligned to its YouTube
 video by matching transcript text before cuts are exported from video.
 
