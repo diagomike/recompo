@@ -39,6 +39,26 @@ export default function Studio({ jref }: { jref: string }) {
   const media = useMemo(() => new Set((sources || []).filter((s) => s.has_media).map((s) => s.ref)), [sources]);
   const titles = useMemo(() => Object.fromEntries((sources || []).map((s) => [s.ref, s.title])), [sources]) as Record<string, string>;
 
+  // Keys: 1–6 switch steps; Enter runs the status bar's primary action. Not while typing, in a dialog or a menu,
+  // and not when a button or link has the focus (Enter already presses that one).
+  useEffect(() => {
+    const on = (e: KeyboardEvent) => {
+      const el = e.target as HTMLElement | null;
+      const tag = el?.tagName;
+      if (tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT" || el?.isContentEditable) return;
+      if (e.ctrlKey || e.metaKey || e.altKey || document.querySelector(".modal, .menu")) return;
+      if (/^[1-6]$/.test(e.key) && g) {
+        const st = g.steps[Number(e.key) - 1];
+        if (st) { e.preventDefault(); setStep(st.key); }
+      } else if (e.key === "Enter" && !e.shiftKey && tag !== "BUTTON" && tag !== "A") {
+        const btn = document.querySelector(".stepfoot button.primary:not(:disabled)") as HTMLButtonElement | null;
+        if (btn) { e.preventDefault(); btn.click(); }
+      }
+    };
+    window.addEventListener("keydown", on);
+    return () => window.removeEventListener("keydown", on);
+  });
+
   if (error) return <div className="page"><div className="err">{error}</div><button className="btn" onClick={() => go("journeys")}>All journeys</button></div>;
   if (!g || !j) return <div className="page">Loading…</div>;
   const cur = g.steps.find((s) => s.key === step) || g.steps[0];
@@ -71,7 +91,7 @@ export default function Studio({ jref }: { jref: string }) {
             {k > 0 && <ChevronRight size={12} className="faint" />}
             <button role="tab" aria-selected={s.key === cur.key}
                     className={"railstep " + s.state + (s.key === cur.key ? " on" : "") + (s.key === g.next ? " next" : "")}
-                    onClick={() => setStep(s.key)} data-tip={`${s.title}: ${s.detail}${s.key === g.next ? " (next)" : ""}`}>
+                    onClick={() => setStep(s.key)} data-tip={`${s.title}: ${s.detail}${s.key === g.next ? " (next)" : ""}`} data-tip-key={String(k + 1)}>
               <span className="num">{s.state === "done" ? <Check size={11} /> : s.state === "problem" ? "!" : s.n}</span>
               <span className="rt">{RAIL[s.key] || s.title}</span>
             </button>
@@ -129,7 +149,8 @@ function StepFoot({ c, what, primary, back = true }: { c: StepCtx; what?: ReactN
 
 function NextButton({ c, label }: { c: StepCtx; label?: string }) {
   if (!c.nextKey) return null;
-  return <button className="btn primary" onClick={() => c.setStep(c.nextKey!)}>{label || `Next: ${RAIL[c.nextKey]}`}<ArrowRight size={14} /></button>;
+  return <button className="btn primary" onClick={() => c.setStep(c.nextKey!)} data-tip={`Go to step ${c.g.steps.findIndex((s) => s.key === c.nextKey) + 1}`} data-tip-key="Enter">
+    {label || `Next: ${RAIL[c.nextKey]}`}<ArrowRight size={14} /></button>;
 }
 
 // The journey's length against the destination's sweet spot.
@@ -206,7 +227,7 @@ function PurposeStep({ c }: { c: StepCtx }) {
         </div>
       </Stage>
       <StepFoot c={c} back={false} what={dirty ? "Unsaved changes" : "Saved. You can come back and change this any time."}
-                primary={dirty ? <Act verb="journey.edit" args={args} primary disabled={!title.trim()} onDone={() => c.setStep("gather")}>Save and gather cuts<ArrowRight size={14} /></Act>
+                primary={dirty ? <Act kbd="Enter" verb="journey.edit" args={args} primary disabled={!title.trim()} onDone={() => c.setStep("gather")}>Save and gather cuts<ArrowRight size={14} /></Act>
                   : <NextButton c={c} />} />
     </>
   );
@@ -231,7 +252,7 @@ function GatherStep({ c }: { c: StepCtx }) {
         {from === "sources" && <SourcePicker c={c} />}
       </Stage>
       <StepFoot c={c} what={c.g.slots ? `${c.g.slots} cut${c.g.slots > 1 ? "s" : ""} from ${c.g.sources.length} source${c.g.sources.length > 1 ? "s" : ""} · ${mmss(c.g.duration_s)}${c.g.slots < 2 ? " · add at least one more" : ""}` : "No cuts yet: add moments from any source."}
-                primary={<button className="btn primary" disabled={!c.g.slots} onClick={() => c.setStep("order")}>Next: Order<ArrowRight size={14} /></button>} />
+                primary={<button className="btn primary" disabled={!c.g.slots} onClick={() => c.setStep("order")} data-tip="Go to step 3" data-tip-key="Enter">Next: Order<ArrowRight size={14} /></button>} />
     </>
   );
 }
@@ -493,7 +514,7 @@ function OrderStep({ c }: { c: StepCtx }) {
       </Stage>
       <StepFoot c={c} what={s.state === "done" ? "Order confirmed. Changing it is always fine." : "Play it through in the preview pane. When it reads well, confirm the order."}
                 primary={s.state === "done" ? <NextButton c={c} /> :
-                  <Act verb="journey.review" args={{ journey: c.jref, step: "order" }} primary disabled={slots.length < 2} onDone={() => c.setStep("look")}>Order looks right<ArrowRight size={14} /></Act>} />
+                  <Act kbd="Enter" verb="journey.review" args={{ journey: c.jref, step:"order" }} primary disabled={slots.length < 2} onDone={() => c.setStep("look")}>Order looks right<ArrowRight size={14} /></Act>} />
       {trim && <TrimDialog slot={trim} onClose={() => setTrim(null)} />}
     </>
   );
@@ -595,7 +616,7 @@ function LookStep({ c }: { c: StepCtx }) {
       </Stage>
       <StepFoot c={c} what={s.detail}
                 primary={s.state === "done" ? <NextButton c={c} /> :
-                  <Act verb="journey.review" args={{ journey: c.jref, step: "look" }} primary onDone={() => c.setStep("check")}>Looks good<ArrowRight size={14} /></Act>} />
+                  <Act kbd="Enter" verb="journey.review" args={{ journey: c.jref, step:"look" }} primary onDone={() => c.setStep("check")}>Looks good<ArrowRight size={14} /></Act>} />
     </>
   );
 }
@@ -721,7 +742,7 @@ function CheckStep({ c }: { c: StepCtx }) {
       </Stage>
       <StepFoot c={c} what={v && !v.ok ? "Fix the problems above, then come back." : s.state === "done" ? "Checked." : "A preview is optional but worth a minute."}
                 primary={s.state === "done" ? <NextButton c={c} /> :
-                  <Act verb="journey.review" args={{ journey: c.jref, step: "check" }} primary disabled={!v?.ok} onDone={() => c.setStep("export")}>Ready to export<ArrowRight size={14} /></Act>} />
+                  <Act kbd="Enter" verb="journey.review" args={{ journey: c.jref, step:"check" }} primary disabled={!v?.ok} onDone={() => c.setStep("export")}>Ready to export<ArrowRight size={14} /></Act>} />
     </>
   );
 }
@@ -827,7 +848,7 @@ function ExportStep({ c }: { c: StepCtx }) {
         </div>
       </Stage>
       <StepFoot c={c} what={done.length ? "Done. Change anything and export again: unchanged parts come from the cache." : `${n} video${n === 1 ? "" : "s"}: ${chosen.join(", ") || "pick a format"}${langList.length ? ` × ${langList.join(", ")}` : ""}`}
-                primary={<Act verb="export.run" args={{ journey: c.jref, profiles: chosen, langs: langList }} primary agent disabled={!chosen.length || !c.j.slots.length} icon={<Clapperboard size={14} />}>
+                primary={<Act kbd="Enter" verb="export.run" args={{ journey: c.jref, profiles: chosen, langs: langList }} primary agent disabled={!chosen.length || !c.j.slots.length} icon={<Clapperboard size={14} />}>
                   {`Export ${n} video${n === 1 ? "" : "s"}`}</Act>} />
     </>
   );

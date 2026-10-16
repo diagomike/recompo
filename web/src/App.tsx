@@ -249,7 +249,7 @@ function Shell() {
               {route.project && v === "home" && <Home />}
               {route.project && v === "sources" && <Sources />}
               {route.project && v === "cuts" && <Cuts />}
-              {route.project && v === "room" && route.arg && <Room key={route.arg} sourceRef={route.arg} />}
+              {route.project && v === "room" && route.arg && <Room key={route.project + "/" + route.arg} sourceRef={route.arg} />}
               {route.project && v === "search" && <SearchView />}
               {route.project && v === "journeys" && <Journeys />}
               {route.project && v === "exports" && <Exports />}
@@ -281,7 +281,9 @@ function Shell() {
               <table><tbody>
                 {[["n", "New journey"], ["g h · g j · g s", "Home, Journeys, Sources"], ["g c · g f · g e", "Cut bin, Search, Exports"], ["g b · g a", "Jobs, Activity"],
                   [".", "Show or hide the agent panel"], ["/", "Focus the filter or find box"], ["Ctrl+Z, Ctrl+Shift+Z", "Undo, redo (yours; the agent cannot undo your work)"],
+                  ["1 – 6", "Journey studio: go to a step"], ["Enter", "Journey studio: the status bar's next action"],
                   ["Space", "Play / pause (source room)"], ["I / O", "Mark in / out"], ["C", "Cut the selection"], ["← / →", "Seek 2 s (Shift: 10 s)"],
+                  ["Ctrl+F · F3", "Find in the source's transcript, next match"], ["Ctrl+H", "Find and replace in the transcript"],
                   ["Shift-click", "Extend a selection (lines, cuts)"], ["Double-click a line", "Edit it"], ["?", "This help"]].map(([k, d]) => (
                   <tr key={k}><td style={{ width: 200 }}><span className="kbd">{k}</span></td><td>{d}</td></tr>
                 ))}

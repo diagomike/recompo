@@ -78,7 +78,7 @@ export function Menu({ items, label = "More actions", trigger, small, align = "e
     if (!open) return;
     const close = (e: MouseEvent) => { if (!box.current?.contains(e.target as Node) && !btn.current?.contains(e.target as Node)) setOpen(false); };
     const key = (e: KeyboardEvent) => {
-      if (e.key === "Escape") { setOpen(false); btn.current?.focus(); }
+      if (e.key === "Escape") { e.stopPropagation(); setOpen(false); btn.current?.focus(); }
       if (e.key === "ArrowDown" || e.key === "ArrowUp") {
         e.preventDefault();
         const els = Array.from(box.current?.querySelectorAll(".mi:not(:disabled)") || []) as HTMLElement[];
@@ -115,7 +115,7 @@ export function Dialog({ title, sub, children, footer, onClose, wide, icon }: {
 }) {
   const box = useRef<HTMLDivElement>(null);
   useEffect(() => {
-    const key = (e: KeyboardEvent) => { if (e.key === "Escape") onClose(); };
+    const key = (e: KeyboardEvent) => { if (e.key === "Escape") { e.stopPropagation(); onClose(); } };  // one Escape closes one layer
     document.addEventListener("keydown", key);
     const first = box.current?.querySelector("input, textarea, select, button.primary") as HTMLElement | null;
     first?.focus();

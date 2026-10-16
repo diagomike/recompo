@@ -100,7 +100,52 @@ next steps. Every step shows in the Activity log as a verb (`journey.new --forma
 - `npx tsc --noEmit` clean; `npm --prefix web run build` built; `scripts/gen_docs.py` regenerated `docs/VERBS.md`.
 
 ## Not done / next
-- The source room and the translation editor keep their P16 structure (restyled by the new tokens only).
-- Studio shortcuts (1–6 to switch steps, Enter for the status bar's action) are not wired yet.
+- ~~The source room and the translation editor keep their P16 structure~~ — done, see below.
+- ~~Studio shortcuts (1–6, Enter)~~ — done, see below.
 - Music search needs the network; there is no offline music library seed.
 - Your review of the flow is the remaining step.
+
+## Follow-up: source room and translation editor (2026-10-16)
+Same rules as above, applied to the two screens that were only restyled. Checked in the browser pane and with
+`scripts/shots.py` at 1280×800, 1024×768 and 390×844 on `p16-check` (writes), `alex-oconnor` and `dark-knight`
+(read only).
+
+**Source room.** A one-line source header (badge, title, length, link, transcript in use; ⋯ for building the lanes,
+the original, its cuts in the cut bin, resetting the panels, the keys). Under the player one command row in groups:
+play and the playhead · In · Out · the selection (its tooltip says the agent sees it) │ Cut · Chapter │ zoom in, out,
+to the selection, whole source │ find. Every button has a tooltip with its key or command. The inline cut form that
+pushed the lanes down is now a dialog: title and "why" up front, tags and edge snapping folded; in gathering mode it
+is titled "New cut into J2" with the "Add to J2" tick in its footer. Cuts and chapters below are a flat list with a
+segmented switch; a row click selects its range, and its ⋯ menu plays it, edits it (same dialog), adds a cut to the
+gathering journey, cuts a chapter, or deletes it after a confirm dialog. The keyboard hint paragraph went into the
+tooltips and the `?` help.
+
+**Transcript pane.** One row: transcript picker (its tooltip gives the line count), the find box with count,
+previous/next, "only matching lines" and clear, and ⋯ (find and replace, speakers, clean every line, fetch captions or
+transcribe again). Selecting lines shows a contextual line bar: speaker name, Merge, Split at the playhead, ⋯ (clean
+these lines, replace in these lines, delete with a confirm). Find and replace (also `Ctrl+H`) and Speakers are
+dialogs; diarisation and NAME: prefixes are folded under "Other ways".
+
+**Translation editor.** One command row: journey, language with coverage, **+ Language** (a dialog: Google draft
+now, or ask the agent for a proper translation), the caption box format, Draft missing, Replace (a dialog), ⋯ (caption
+sheet, export this language, the journey's export step, redo the Google drafts with a confirm). The caption box is a
+single folded line ("22 characters × 2 rows, font ×1 (default)") that opens to its settings and the caption sheet.
+On phones each line stacks (time and author, source, translation, fit). `?journey=J1` (the studio's "Translate it"
+link) now preselects the journey.
+
+**Studio keys.** `1`–`6` go to a step, `Enter` runs the status bar's primary action; both are ignored while typing,
+with a dialog or menu open, or with a button focused. Step tabs and primary buttons show the key in their tooltip;
+the `?` help lists them with `Ctrl+F`/`F3`/`Ctrl+H`.
+
+**Fixed on the way.** Escape in a dialog or menu also cleared the room's selection (now one Escape closes one layer);
+on phones the lanes overlapped the transcript (the room is now one scrolling column); switching projects on the same
+source ref kept the previous project's room data (the room is keyed by project and ref).
+
+| | |
+|---|---|
+| Source room 1280 (alex-oconnor, lines selected) | ![](img/p16c-room-1280.png) |
+| Gathering for J2, 1024 | ![](img/p16c-roomgather-1024.png) |
+| Source room, phone | ![](img/p16c-room-390.png) |
+| Translation editor 1280 / 1024 / phone | ![](img/p16c-trans-1280.png) ![](img/p16c-trans-1024.png) ![](img/p16c-trans-390.png) |
+
+Checks: `npx tsc --noEmit` clean, `npm --prefix web run build` built, `pytest -q` 92 passed.

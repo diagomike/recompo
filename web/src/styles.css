@@ -250,7 +250,7 @@ a.chip:hover { text-decoration: none; border-color: var(--line-2); }
 .toast.bad .ticon { color: var(--red); }
 .toast .tdetail { color: var(--muted); margin: 3px 0 0 20px; }
 .toast .tcli { display: block; margin: 3px 0 0 20px; color: var(--faint); font-size: 11px; overflow-wrap: anywhere; }
-.disclosure > button.dtoggle { display: inline-flex; align-items: center; gap: 4px; border: 0; background: transparent; color: var(--muted); cursor: pointer; padding: 2px 0; font-size: 12px; }
+.disclosure > button.dtoggle { display: inline-flex; align-items: center; gap: 4px; text-align: left; border: 0; background: transparent; color: var(--muted); cursor: pointer; padding: 2px 0; font-size: 12px; }
 .disclosure > button.dtoggle:hover { color: var(--text); }
 .disclosure > .dcontent { padding-top: 6px; }
 
@@ -265,6 +265,16 @@ a.chip:hover { text-decoration: none; border-color: var(--line-2); }
 .actionbar .hint { color: var(--muted); font-size: 12px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 40ch; }
 .savebar { position: sticky; bottom: 0; display: flex; gap: 6px; align-items: center; flex-wrap: wrap; padding: 6px 8px; margin-top: 8px; background: var(--panel-2); border: 1px solid var(--line); border-radius: var(--radius); }
 .savebar.live { background: var(--amber-soft); border-color: var(--amber); }
+/* A command row is a one-line ribbon: related commands in groups, a thin rule between groups, and the rest in ⋯. */
+.cmdrow { display: flex; align-items: center; flex-wrap: wrap; row-gap: 3px; padding: 3px 6px; background: var(--panel); border-bottom: 1px solid var(--line); min-height: 32px; }
+.cmdrow.boxed { border: 1px solid var(--line); border-radius: var(--radius); margin-bottom: 8px; }
+.cmdgroup { display: inline-flex; align-items: center; gap: 3px; padding: 0 6px; border-left: 1px solid var(--line); min-height: 24px; flex-wrap: nowrap; }
+.cmdgroup:first-child { border-left: 0; padding-left: 0; }
+.cmdgroup.grow { flex: 1 1 200px; min-width: 0; }
+.cmdgroup.end { margin-left: auto; border-left: 0; padding-right: 0; }
+.cmdgroup .tc { font-family: var(--mono); font-size: 12px; font-variant-numeric: tabular-nums; white-space: nowrap; padding: 0 2px; }
+.selchip { display: inline-flex; align-items: center; gap: 2px; height: 22px; padding: 0 2px 0 6px; border-radius: var(--radius); background: var(--blue-soft); color: var(--blue); font: 12px var(--mono); white-space: nowrap; }
+.selchip .btn { color: var(--blue); }
 
 /* ── Home ───────────────────────────────────────────────────────────────────────────────── */
 .hero { display: flex; gap: 12px; align-items: center; padding: 8px 12px; border: 1px solid var(--line); border-left: 3px solid var(--accent); border-radius: var(--radius); background: var(--panel); flex-wrap: wrap; }
@@ -360,7 +370,6 @@ a.chip:hover { text-decoration: none; border-color: var(--line-2); }
 .brow.click { cursor: pointer; }
 .brow.click:hover { background: var(--panel-2); }
 .brow.sub { color: var(--muted); }
-.cutlist .cutrow { display: grid; grid-template-columns: 44px minmax(0, 1fr) auto; gap: 6px; padding: 4px 0; border-bottom: 1px solid var(--line); font-size: 12px; }
 
 /* ── Agent drawer ───────────────────────────────────────────────────────────────────────── */
 .sidesec { padding: 8px 12px; border-bottom: 1px solid var(--line); }
@@ -371,12 +380,21 @@ a.chip:hover { text-decoration: none; border-color: var(--line-2); }
 .handed { font-size: 11px; color: var(--muted); border-left: 2px solid var(--user); padding-left: 6px; margin: 3px 0; overflow-wrap: anywhere; }
 
 /* ── Source room ────────────────────────────────────────────────────────────────────────── */
+.roomwrap { display: grid; grid-template-columns: minmax(0, 1fr); height: 100%; min-height: 0; }
 .room { display: grid; grid-template-columns: minmax(420px, 1fr) minmax(340px, 440px); height: 100%; min-height: 0; }
 .room .left { display: grid; grid-template-rows: auto auto auto auto minmax(0, 1fr); min-height: 0; min-width: 0; border-right: 1px solid var(--line); }
 .player video { width: 100%; height: 100%; max-height: none; display: block; object-fit: contain; }
 .player > div { width: 100%; height: 100%; aspect-ratio: auto !important; }
 .player iframe { width: 100% !important; height: 100% !important; }
 .ctrl { display: flex; gap: 6px; align-items: center; padding: 5px 10px; background: var(--panel); border-bottom: 1px solid var(--line); flex-wrap: wrap; }
+.roomhead { display: flex; gap: 8px; align-items: center; padding: 3px 6px 3px 10px; min-height: 32px; background: var(--panel); border-bottom: 1px solid var(--line); min-width: 0; }
+.roomhead .h1 { font-size: 14px; margin: 0; }
+.spanlist { border-top: 1px solid var(--line); }
+.spanrow { display: grid; grid-template-columns: 52px minmax(0, 1fr) auto auto; gap: 8px; align-items: center; padding: 3px 4px 3px 8px; border-bottom: 1px solid var(--line); cursor: pointer; font-size: 12px; }
+.spanrow:hover { background: var(--panel-2); }
+.spanrow.on { background: var(--accent-soft); box-shadow: inset 3px 0 0 var(--accent); }
+.spanrow .sw { color: var(--muted); }
+.roomkeys { color: var(--faint); font-size: 11px; padding: 6px 2px 0; }
 .lanes { position: relative; background: var(--panel); user-select: none; cursor: crosshair; }
 .lanes canvas { display: block; width: 100%; }
 .below { overflow: auto; padding: 8px 10px; min-height: 0; }
@@ -397,7 +415,6 @@ a.chip:hover { text-decoration: none; border-color: var(--line-2); }
 .tpane .thead { padding: 6px 10px; border-bottom: 1px solid var(--line); background: var(--panel); position: relative; }
 .tpane .tbody { overflow: auto; min-height: 0; padding: 6px 0; }
 .linebar { display: flex; flex-wrap: wrap; gap: 4px; align-items: center; margin-top: 6px; padding: 4px 6px; background: var(--blue-soft); border-radius: var(--radius); font-size: 12px; }
-.toolpanel { margin-top: 6px; padding: 6px 8px; border: 1px solid var(--line-2); border-radius: var(--radius); background: var(--panel-2); font-size: 12px; display: grid; gap: 4px; }
 .previewlist { max-height: 180px; overflow: auto; font-size: 12px; display: grid; gap: 4px; }
 .previewlist s { color: var(--faint); }
 .segtext { position: relative; }
@@ -415,8 +432,6 @@ a.chip:hover { text-decoration: none; border-color: var(--line-2); }
 .roombanner { display: flex; gap: 8px; align-items: center; padding: 4px 10px; background: var(--accent-soft); border-bottom: 1px solid var(--accent); flex-wrap: wrap; font-size: 12.5px; }
 
 /* translations, hub, misc */
-.capbox { margin-bottom: 8px; }
-.capbox .sheet { margin-top: 8px; max-width: 100%; max-height: 340px; width: auto; display: block; border-radius: var(--radius); border: 1px solid var(--line); }
 .tlines td { vertical-align: top; }
 .tlines tr.over td { background: var(--red-soft); }
 .fit { height: 6px; background: var(--line); border-radius: 3px; overflow: hidden; position: relative; }
@@ -445,7 +460,11 @@ pre.desc { white-space: pre-wrap; background: var(--panel-2); padding: 8px; bord
 @media (max-width: 960px) {
   .stage { grid-template-columns: minmax(0, 1fr); }
   .stageside { position: static; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
-  .room { grid-template-columns: 1fr; grid-template-rows: auto 1fr; }
+  /* One column that scrolls as a page: player, commands, lanes, lists, then the transcript in its own scroller. */
+  .roomwrap { height: auto; min-height: 100%; }
+  .room { grid-template-columns: 1fr; grid-template-rows: auto auto; height: auto; }
+  .room .left { grid-template-rows: auto auto auto auto auto; border-bottom: 1px solid var(--line); }
+  .room .transcript { height: 75vh; }
   .splitter.col { display: none; }
   .jgrid { grid-template-columns: 1fr; }
   .table.cuts th:nth-child(2), .table.cuts td:nth-child(2) { display: none; }
@@ -459,7 +478,8 @@ pre.desc { white-space: pre-wrap; background: var(--panel-2); padding: 8px; bord
   .bottomnav { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; background: var(--panel); border-top: 1px solid var(--line); }
   .bottomnav button { display: grid; justify-items: center; align-content: center; gap: 1px; border: 0; background: transparent; color: var(--muted); font-size: 10.5px; cursor: pointer; position: relative; height: 100%; width: 100%; }
   .bottomnav button.on { color: var(--accent); font-weight: 600; }
-  .topbar .hide-sm, .studiohead .hide-sm { display: none; }
+  .topbar .hide-sm, .studiohead .hide-sm, .roomhead .hide-sm, .cmdrow .hide-sm, .cutlistbar .hide-sm, .spanrow .hide-sm { display: none; }
+  .spanrow { grid-template-columns: 30px minmax(0, 1fr) auto auto; gap: 6px; }
   .page { padding: 10px 10px 32px; }
   .studiohead, .rail { padding-left: 10px; padding-right: 10px; }
   .stagewrap { padding: 8px 10px 0; }
@@ -481,4 +501,16 @@ pre.desc { white-space: pre-wrap; background: var(--panel-2); padding: 8px; bord
   .drawer.float { width: 100vw; bottom: 50px; }
   .scrim { bottom: 50px; }
   .stepfoot .what { display: none; }
+  .cmdgroup { flex-wrap: wrap; row-gap: 3px; }
+  .cmdrow.boxed .cmdgroup { border-left: 0; padding-left: 0; }
+  /* Translation lines stack: time and author on top, then the source, the translation and its fit. */
+  .tlines { display: block; border: 0; background: transparent; overflow: visible; }
+  .tlines thead { display: none; }
+  .tlines tbody { display: block; }
+  .tlines tr { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 3px 8px; padding: 6px 8px; background: var(--panel); border: 1px solid var(--line); border-top: 0; }
+  .tlines tr:first-child { border-top: 1px solid var(--line); }
+  .tlines tr.over { background: var(--red-soft); }
+  .tlines td { display: block; padding: 0; border: 0; background: transparent !important; }
+  .tlines td:nth-child(5) { grid-column: 2; grid-row: 1; }
+  .tlines td:nth-child(2), .tlines td:nth-child(3), .tlines td:nth-child(4) { grid-column: 1 / -1; }
 }

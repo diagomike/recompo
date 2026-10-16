@@ -2,7 +2,7 @@
 
 The build's working memory. If context runs short, resume from here.
 
-**Last updated:** 2026-10-15 (night)
+**Last updated:** 2026-10-16 (source room and translation editor in the P16b structure; studio keys)
 
 | | |
 |---|---|
@@ -53,9 +53,23 @@ The build's working memory. If context runs short, resume from here.
 - `scripts/shots.py` takes headless screenshots for run reports (waits for data; `--dark`, any size).
 - Filters live in the URL; `recomp ui show <view> --filter "k=v&k=v" --highlight <verb>` opens the same view.
 - Every button runs one verb (hover shows the command; the robot hands it to the agent via `ui notes`).
-- Source room: Ctrl+F searches that source (words or "a phrase", across caption line breaks), Enter/↑↓ jump and seek,
-  hits tick the lanes; `ui show S3 --filter "tq=free will"` opens it searched. Lanes adapt to what a source has
-  (speech lane without audio, overview strip, hover labels); player and transcript widths drag and are remembered.
+- Studio keys: `1`–`6` go to a step, `Enter` runs the status bar's primary action (not while typing, in a dialog or a
+  menu, or with a button focused). Tooltips on the step tabs and the primary buttons show the key.
+- Source room (P16b structure, 2026-10-16): a one-line source header (badge, title, length, transcript; ⋯ for build
+  lanes, the original, its cuts, reset panels, keys), then under the player one **command row** in groups —
+  play · In/Out · selection (Esc clears) │ Cut · Chapter │ zoom in/out/to selection/whole │ find. New cut, new chapter
+  and editing one are a **dialog** (title and why; tags and snapping folded), so the lanes never jump. Cuts and
+  chapters below are a flat list (click selects; ⋯ plays, edits, adds to the gathering journey, deletes with a
+  confirm). Phones get one scrolling column. Escape in a dialog or menu closes only that layer (`ui.tsx`).
+- Transcript pane: transcript picker + find box + ⋯ (find and replace, speakers, clean every line, re-fetch/ASR) in
+  one row; a contextual line bar for selected lines (speaker, merge/split, ⋯ clean, replace in lines, delete with a
+  confirm). Find and replace (`Ctrl+H`) and Speakers are dialogs. Ctrl+F searches that source (words or "a phrase",
+  across caption line breaks), Enter/↑↓/F3 jump and seek, hits tick the lanes; `ui show S3 --filter "tq=free will"`
+  opens it searched. Lanes adapt to what a source has; player and transcript widths drag and are remembered.
+- Translation editor (Exports › Translations, `?tj=J1&tl=am&tp=shorts`, or `?journey=J1` from the studio): one
+  command row (journey, language, **+ Language** dialog — Google draft or ask the agent — caption box format, Draft
+  missing, Replace dialog, ⋯ caption sheet, export, redo Google drafts), the caption box folded to one line, filters,
+  the lines (stacked on phones) and the save bar.
 - Link sources with fetched video build frames and waveform from it (`source process S3 --jobs audio,peaks,thumbs`).
 - `p16-check` project: the acceptance run (two fixture clips from `C:\Recomposer\p16-media`, J1, X1/X2).
 
