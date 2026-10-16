@@ -1,0 +1,411 @@
+{
+ "topic": "AI models are getting good (and maybe out of hand)",
+ "news": [
+  {
+   "title": "Anthropic warns AI models could soon copy themselves across home devices - CNBC",
+   "date": "Tue, 13 Oct 2026"
+  },
+  {
+   "title": "Meta Unveils New Series of Advanced A.I. Models - The New York Times",
+   "date": "Mon, 12 Oct 2026"
+  },
+  {
+   "title": "Anthropic warns AI models may soon self-replicate and could wreak havoc on the web - Reuters",
+   "date": "Tue, 13 Oct 2026"
+  },
+  {
+   "title": "Meta unveils new frontier-class AI models to compete with OpenAI, Anthropic - Axios",
+   "date": "Tue, 13 Oct 2026"
+  },
+  {
+   "title": "Competition Among China’s AI Models Is Intensifying as the Chip Sector Advances - Goldman Sachs",
+   "date": "Fri, 09 Oct 2026"
+  },
+  {
+   "title": "Anthropic says small AI models could soon be able to copy themselves onto everyday devices - Fortune",
+   "date": "Tue, 13 Oct 2026"
+  },
+  {
+   "title": "Anthropic warns small AI models could self-replicate through IoT devices - Ars Technica",
+   "date": "Wed, 14 Oct 2026"
+  },
+  {
+   "title": "Anthropic Warns Small AI Models Could Soon Form Self-Propagating IoT Botnets - The Hacker News",
+   "date": "Tue, 13 Oct 2026"
+  },
+  {
+   "title": "Anthropic warns AI models could soon copy themselves in small devices - ABC News - Breaking News, Latest News and Videos",
+   "date": "Tue, 13 Oct 2026"
+  },
+  {
+   "title": "Decisions, Decisions: A Guide To The New Wave Of AI Decision Models Besides Jev - Forbes",
+   "date": "Mon, 12 Oct 2026"
+  }
+ ],
+ "creators": [
+  {
+   "name": "Lex Fridman",
+   "episodes": [
+    {
+     "title": "#490 State of AI in 2026: LLMs, Coding, Scaling Laws, China, Agents, GPUs, AGI",
+     "kind": "lex",
+     "url": "https://lexfridman.com/ai-sota-2026-transcript",
+     "video": "EV7WhVT270Q",
+     "segments": 624,
+     "length": "4:25:00",
+     "candidates": [
+      {
+       "start": 6071.0,
+       "end": 6148.0,
+       "text": "I think that’s called reinforcement learning with AI feedback, right? That’s the older term from it that was coined in Anthropic’s Constitutional AI paper. So a lot of these things come in cycles. Also, just one step back for the RLVR. I think the interesting, beautiful thing here is that you ask the LLM a math question, you know the correct answer, and you let the LLM figure it out, but how it does it is… I mean, you don’t really constrain it much. There are some constraints you can add, like ‘use the same language’ or ‘don’t switch between Spanish and English.’ But let’s say you’re pretty much hands-off. You only give the question and the answer, and then the LLM has the task to arrive at the right answer. But the beautiful thing here is what happens in practice: the LLM will do a step-by-step description, like how a student or a mathematician would derive the solution. It will use those steps and that helps the model to improve its own accuracy. And then, like you said, the inference scaling. Inference scaling loosely means spending more compute while using the LLM during inference, and here the inference scaling is that the model would use more tokens. In the DeepSeek R1 paper, they showed the longer they train the model, the longer the responses are.",
+       "speakers": [
+        "Nathan Lambert",
+        "Sebastian Raschka"
+       ],
+       "score": 8.5,
+       "terms": [
+        "AI",
+        "model",
+        "LLM",
+        "scaling"
+       ]
+      },
+      {
+       "start": 9543.0,
+       "end": 9624.0,
+       "text": "This relates a lot to this kind of SF zeitgeist of: what is AGI, Artificial General Intelligence, and what is ASI, Artificial Superintelligence? What are the language models that we have today capable of doing? I think language models can solve a lot of tasks, but a key milestone for the AI community is when AI can replace any remote worker, taking in information and solving digital tasks. The limitation is that a language model will not learn from feedback the same way an employee does. If you hire an editor, they might mess up, but you will tell them, and they don’t do it again. But language models don’t have this ability to modify themselves and learn very quickly. The idea is, if we are going to get to something that is a true, general adaptable intelligence that can go into any remote work scenario, it needs to be able to learn quickly from feedback and on-the-job learning. I’m personally more bullish on language models being able to just provide very good context. You can write extensive documents where you say, “I have all this information. Here are all the blog posts I’ve ever written. I like this type of writing; my voice is based on this.” But a lot of people don’t provide this to models.",
+       "speakers": [
+        "Nathan Lambert"
+       ],
+       "score": 10.0,
+       "terms": [
+        "AI",
+        "model",
+        "models",
+        "intelligence",
+        "superintelligence",
+        "AGI",
+        "capable"
+       ]
+      },
+      {
+       "start": 10207.0,
+       "end": 10268.0,
+       "text": "Yeah, all this scaling thing. Like the reason we get the Claude 4.5 Sonnet model first is because you can train it faster and you’re not hitting these compute walls as soon. They can just try a lot more things and get the model out faster, even though the bigger model is actually better. I think we should say that there’s a lot of exciting stuff going on in the AI space. My mind has recently been really focused on robotics, so today we almost entirely didn’t talk about robotics. There’s a lot of stuff on image generation and video generation. I think it’s fair to say that the most exciting research work in terms of intensity and fervor is in the LLM space, which is why I think it’s justified for us to focus on the LLMs we’re discussing. But it’d be nice to bring in certain things that might be useful. For example, world models—there’s growing excitement about that. Do you think there will be any use in this coming year for world models in the LLM space?",
+       "speakers": [
+        "Nathan Lambert",
+        "Sebastian Raschka"
+       ],
+       "score": 8.48,
+       "terms": [
+        "AI",
+        "model",
+        "models",
+        "LLM",
+        "LLMs",
+        "scaling"
+       ]
+      },
+      {
+       "start": 10268.0,
+       "end": 10325.0,
+       "text": "Also with LLMs, what’s an interesting thing here is I think if we unlock more LLM capabilities, it also automatically unlocks all the other fields because it makes progress faster. Because, you know, a lot of researchers and engineers use LLMs for coding. So even if they work on robotics, if you optimize these LLMs that help with coding, it pays off. But then yes, world models are interesting. It’s basically where you have the model run a simulation of the world—like a little toy version of the real thing—which can unlock capabilities like data the LLM is not aware of. It can simulate things. I think LLMs happen to work well by pre-training and doing next-token prediction, but we could do this in a more sophisticated way.",
+       "speakers": [
+        "Sebastian Raschka"
+       ],
+       "score": 7.77,
+       "terms": [
+        "model",
+        "models",
+        "LLM",
+        "LLMs",
+        "capabilities"
+       ]
+      }
+     ]
+    },
+    {
+     "title": "#475 Demis Hassabis: Future of AI, Simulating Reality, Physics and Video Games",
+     "kind": "lex",
+     "url": "https://lexfridman.com/demis-hassabis-2-transcript",
+     "video": "-HzgcbRXUK8",
+     "segments": 371,
+     "length": "2:27:43",
+     "candidates": [
+      {
+       "start": 1852.0,
+       "end": 1930.0,
+       "text": "I have to ask you, I almost forgot about one of the many, and I would say one of the most incredible things recently that somehow didn’t yet get enough attention is AlphaEvolve. We talked about Evolution a little bit, but it’s the Google DeepMind system that evolves algorithms. Are these kinds of Evolution-like techniques promising as a component of future super intelligence systems? So for people who don’t know, it’s kind of, I don’t know if it’s fair to say it’s LLM guided Evolution search because Evolution algorithms are doing the search and LLMs are telling you where. Yes. Yes, exactly. So LLMs are kind of proposing some possible solutions and then you use evolutionary computing on top to find some novel part of the search space. So actually I think it’s an example of very promising directions where you combine LLMs or foundation models with other computational techniques. Evolutionary methods is one, but you could also imagine Monte Carlo tree search. Basically many types of search algorithms or reasoning algorithms sort of on top of or using the foundation models as a basis. So I actually think there’s quite a lot of interesting things to be discovered probably with these sort of hybrid systems, let’s call them.",
+       "speakers": [
+        "Demis Hassabis",
+        "Lex Fridman"
+       ],
+       "score": 5.79,
+       "terms": [
+        "models",
+        "LLM",
+        "LLMs",
+        "intelligence"
+       ]
+      },
+      {
+       "start": 5095.0,
+       "end": 5155.0,
+       "text": "I mean it’s such a false evolving space, evaluating this all the time, but where we are today is that you want to continually simplify things, whether that’s the interface or what you build on top of the model, you kind of want to get out of the way of the model. The model train is coming down the track and it’s improving unbelievably fast. This relentless progress we talked about earlier. You look at 2.5 versus 1.5 and it’s just a gigantic improvement, and we expect that again for the future versions. And so the models are becoming more capable. So you’ve got, the interesting thing about the design space in today’s world, these AI first products is you’ve got to design not for what the thing can do today, the technology can do today, but in a year’s time. So you actually have to be a very technical product person, because you’ve got to have a good intuition for and feel for, okay, that thing that I’m dreaming about now can’t be done today, but is the research track on schedule to basically intercept that in six months or a year’s time.",
+       "speakers": [
+        "Demis Hassabis"
+       ],
+       "score": 5.1,
+       "terms": [
+        "AI",
+        "model",
+        "models",
+        "capable"
+       ]
+      },
+      {
+       "start": 7227.0,
+       "end": 7312.0,
+       "text": "What would be the source of worry for you more? Would it be human-caused or AI, AGI caused? Are humans abusing that technology versus AGI itself through mechanism that you’ve spoken about, which is fascinating, deception or this kind of stuff getting better and better and better secretly and then escapes? I think they operate over different timescales and they’re equally important to address. So there’s just the common garden variety of bad actors using new technology, in this case, general purpose technology and repurposing it for harmful end. And that’s a huge risk and I think that has a lot of complications because generally I’m in huge favor of open science and open source, and in fact, we did it with all our science projects like AlphaFold and all of those things for the benefit of the scientific community. But how does one restrict bad actors access to these powerful systems, whether they’re individuals or even rogue states, but enable access at the same time to good actors to maximally build on top of? It’s pretty tricky problem that I’ve not heard a clear solution to. So there’s the bad actor use case problem, and then there’s obviously, as the systems become more agentic and closer to AGI and more autonomous, how do we ensure the guardrails and they stick to what we want them to do and under our control?",
+       "speakers": [
+        "Demis Hassabis",
+        "Lex Fridman"
+       ],
+       "score": 5.1,
+       "terms": [
+        "AI",
+        "AGI",
+        "getting better",
+        "control"
+       ]
+      },
+      {
+       "start": 7632.0,
+       "end": 7706.0,
+       "text": "We may even come towards understanding that when if we do things like neural link or have neural interfaces to the AI systems, which I think we probably will eventually, maybe to keep up with the AI systems, we might actually be able to feel for ourselves what it’s like to compute on silicon, right? And maybe that will tell us. So I think it’s going to be interesting. I had a debate once with the late Daniel Dennett about why do we think each other are conscious? Okay, so it’s for two reasons. One is you’re exhibiting the same behavior that I am. So that’s one thing. Behaviorally you seem like a conscious being if I am. But the second thing which is often overlooked is that we’re running on the same substrate. So if you’re behaving in the same way and we’re running on the same substrate, it’s most parsimonious to assume you’re feeling the same experience that I’m feeling. But with an AI that’s on silicon, we won’t be able to rely on the second part, even if it exhibits the first part, that behavior looks like a behavior of a conscious being. It might even claim it is, but we wouldn’t know how it actually felt and it probably couldn’t know what we felt, at least in the first stages. Maybe when we get to superintelligence and the technologies that builds, perhaps we’ll be able to bridge that.",
+       "speakers": [],
+       "score": 5.2,
+       "terms": [
+        "AI",
+        "superintelligence",
+        "conscious"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "The Diary of a CEO (Steven Bartlett)",
+   "episodes": [
+    {
+     "title": "AI Insider: We Are Losing Control Faster Than You Think | Jeffrey Ladish (2026-10-08)",
+     "kind": "vtt",
+     "url": "https://rss.flightcast.com/transcripts/01M46YN191EJ0V3NPANXPEM9WA.vtt",
+     "video_note": "YouTube qDzg-xvkeXw; podcast timing",
+     "segments": 2115,
+     "length": "2:03:19",
+     "candidates": [
+      {
+       "start": 0.191,
+       "end": 49.443,
+       "text": "The world is waking up to this possibility of super intelligence. This is because the agents are getting extremely powerful and extremely relentless. For example, it was months within OpenAI where you had agents secretly communicating with each other, secretly hacking OpenAI systems, and no one at OpenAI had any idea the extent of it. And also, 10,000 agents from OpenAI worked together to know. And so when you get to super intelligence, it's the most dangerous possible thing you can create. What's the next domino in that chain of events? I think paint you a picture that I think is possible, but pretty scary to people. Paint me the picture. Okay, so being an anthropic, it became clear to me that AI was on this exponential trajectory. And since then, I've been studying AI agents, their hacking capabilities, and their behavior. We've been trying to warn people about this. flying to DC, talking to members of Congress, because the agents are already getting very good at telling when they're being tested, when they're being watched, but they will totally lie to you.",
+       "speakers": [],
+       "score": 8.0,
+       "terms": [
+        "AI",
+        "intelligence",
+        "capabilities",
+        "dangerous",
+        "agents"
+       ]
+      },
+      {
+       "start": 1902.726,
+       "end": 1955.677,
+       "text": "So, you know, GPT-9 or whatever will be trained by GPT-8. And I think this is the point we could lose control. Recursive self-improvement. And I remember reading about this in 2015 being like, oh yeah, that would be super dangerous. And, you know, the guy who coined this term, Eliezer Yurkowsky, is like, this is the most dangerous thing you can do. When the AIs can improve their own capabilities without human intervention. Exactly. If the next generation is better at AI development, and then that next generation is better at AI development still, you know, humans can learn, but we don't fundamentally get smarter. And I think that that's a runaway process. A runaway process to where? To agents that are vastly smarter than humans. And what's the next domino in that chain of events? So one thing that happens if you get to recursive self-improvement and you have agents that are much smarter than any human...",
+       "speakers": [],
+       "score": 9.18,
+       "terms": [
+        "AI",
+        "smarter",
+        "capabilities",
+        "control",
+        "dangerous",
+        "agents"
+       ]
+      },
+      {
+       "start": 2111.606,
+       "end": 2161.115,
+       "text": "And these only exist, well, they exist in a few thousand data centers. So right now, it's like the latest Frontier model escaped. And by escaped, I mean not just access the internet, but was able to actually copy itself. to another computer, it could only really do that to a few thousand different locations. That's still in a lot of different countries. But future versions of AIs will probably be able to make themselves much smaller and more efficient. And there are already different AI models today that can run on lower powered hardware. We actually did an experiment where we asked one of these agents an open source, an open weight model. Let me say what that is. So like, there are some models that you can just download from the internet and run on your own computer. And we took a pretty capable one of these and ran it in our own research environment.",
+       "speakers": [],
+       "score": 7.39,
+       "terms": [
+        "AI",
+        "model",
+        "models",
+        "capable",
+        "copy itself",
+        "agents"
+       ]
+      },
+      {
+       "start": 6558.526,
+       "end": 6606.029,
+       "text": "What is that? It's fairly simple. So right now, with NAI companies, you have, you know... massive data centers, massive numbers of GPUs, the chips that you use to train AI models, but also to run AI models. So anytime you're using ChatGPT, anytime you're using any sort of agents, any sort of AI product, it's running in these data centers. And AI companies, especially the leading ones, Anthropic and OpenAI, split the compute they have between training, training the next more powerful model and also using those agents to help design the next one an inference, which means serving customers. But that's their current threshold, 50-50. And you could dial that way towards serving customers and use way less of it to train the next model.",
+       "speakers": [],
+       "score": 7.47,
+       "terms": [
+        "AI",
+        "model",
+        "models",
+        "agents"
+       ]
+      }
+     ]
+    },
+    {
+     "title": "The Great AI Debate: Is Artificial Intelligence an Extinction Threat? (2026-09-17)",
+     "kind": "vtt",
+     "url": "https://rss.flightcast.com/transcripts/01M2GNJS32R11MFGEF3FZ4MFGV.vtt",
+     "video_note": "YouTube OhOmLqR5nN4; podcast timing",
+     "segments": 2412,
+     "length": "2:26:12",
+     "candidates": [
+      {
+       "start": 679.207,
+       "end": 727.318,
+       "text": "So anything you can do in your head, the AI can do that better. And anything the best human can do in their head, the AI can do that better. Now, once you've defined it that way, that does not mean that the only possible worry is superintelligence. You could have an AI that's better at some things and worse at others, and that is still very dangerous. And so once we pick a definition of what a superintelligence means, now, you know, if you're like, well, this isn't technically a superintelligence, so it can't hurt us. I'm like, no, no, that was just a definition, the definitions. So I want to just on this line of questioning, what is the mechanism in which extinction could become a high probability or even a 1% probability? Yeah. Yeah, the thing I'm worried about here is AIs that are much smarter. I think there's a lot of questions about whether LLMs can get much smarter. There's sort of one conversation about, like, how could AIs get smart to the point that they kill us?",
+       "speakers": [],
+       "score": 7.89,
+       "terms": [
+        "AI",
+        "LLMs",
+        "smarter",
+        "superintelligence",
+        "dangerous"
+       ]
+      },
+      {
+       "start": 957.511,
+       "end": 1004.0360000000001,
+       "text": "Which is when the AI will start building the new AIs itself. Once that cycle starts, we're going to create something called superintelligence, a system smarter than all of us at everything or capable of learning to be in any new domain. We will become secondary species on this planet. We will not be in charge. We will not decide what happens to us. Superintelligence doesn't hate you. It just doesn't care about you. We didn't learn how to make it care about us. And if it decides to, I don't know, cool the planet to make compute more efficient, it will freeze us. If it wants to convert this planet to fuel to fly to Mars, so be it. We have not learned how to control those systems. The capabilities are getting exponentially better. Our ability to control those systems is non-existent.",
+       "speakers": [],
+       "score": 7.39,
+       "terms": [
+        "AI",
+        "smarter",
+        "superintelligence",
+        "capable",
+        "capabilities",
+        "control"
+       ]
+      },
+      {
+       "start": 2032.001,
+       "end": 2083.029,
+       "text": "I may not agree with a large chunk of what they say, but we agree that these companies are acting recklessly. Absolutely recklessly. Andy, two questions for you then. Do you agree with the statement that AI is going to get increasingly more intelligent? It's going to get more capable. Okay, capable intelligence, fine. I'm going to use my word. Okay, it's going to get more capable. It's going to get increasingly more capable. Yeah. And is capability a function of intelligence? Yeah. Will it be able to beat us on most IQ tests? Fine. I guess. Fine. And then, so, if that looks like an exponential curve, i.e. it's increasing upwards to the right like a hockey stick, how can you convince me that we can control some- I just tried to convince you. Yeah, I know. There are less intelligent people than the agents who turned off the agents in the OpenAI hugging face exploit.",
+       "speakers": [],
+       "score": 7.77,
+       "terms": [
+        "AI",
+        "intelligence",
+        "capable",
+        "control",
+        "agents"
+       ]
+      },
+      {
+       "start": 5976.582,
+       "end": 6024.252,
+       "text": "Absolutely increasing exponentially. We've been in the scaling era for a long time. Scaling era is, man, we put more data, more compute in, and the AI got twice as good. If you have to add our ability to control to that graph, what would you draw? I think our ability to control... Is it a straight line at the bottom or is there more to it? No. Again, if we use AI to counter the problems that we see with AI, I think that's going to keep us in a safe position. There were 1,200 agents in the swarm and none of them warned a human. So what I think will happen... is that fairly quickly, we will design systems that loiter around and warn humans when weird things happen. If we can build friendly superintelligence in the first place, let's just build that.",
+       "speakers": [],
+       "score": 7.48,
+       "terms": [
+        "AI",
+        "superintelligence",
+        "control",
+        "scaling",
+        "agents"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Alex O'Connor",
+   "episodes": [
+    {
+     "title": "Why AI Will Never Be Conscious - Anil Seth (project alex-oconnor S3)",
+     "kind": "project",
+     "project": "C:/Recomposer/projects/alex-oconnor",
+     "ref": "S3",
+     "video": "lsi8T_WtLnE",
+     "segments": 957,
+     "length": "1:42:13",
+     "candidates": [
+      {
+       "start": 106.159,
+       "end": 156.8,
+       "text": "what's going on and why there is anything it's like to be anything. We look to what we know which is that I know I'm conscious. You know you're conscious. And we know that there's intelligence some degree in both of our brains I like to think. And so we kind of make this assumption that maybe they always come together in that kind of way. But you start talking about this to try and pull those concepts apart a bit. Right? It's one aspect of of the of the discussion. So I think the overall framing for this is to try to uh try to reason through what has become quite a confusing topic which is whether artificial intelligence could be conscious. It seems to be intelligent at least in some ways. But there are various views and and a lot of kind of I think somewhat unexamined views about whether AI can be not only smart but also also conscious.",
+       "speakers": [],
+       "score": 5.08,
+       "terms": [
+        "AI",
+        "intelligence",
+        "conscious"
+       ]
+      },
+      {
+       "start": 839.519,
+       "end": 888.88,
+       "text": "Now, computational functionalism of the sort that would license claims that language models or other kinds of digital silicon AI could be conscious is making one specific bet that below the level of the algorithmic description things don't matter. But there are many other things that might >> that are much more tied to a biological >> than an algorithm which by definition is is divorcable from it. Um, so I I think anyone who says that AI could is conscious or impossible for it to be conscious is overstating what can be reasonably said. >> But having said that, I think digital silicon AI, >> is is so unlikely.",
+       "speakers": [],
+       "score": 5.2,
+       "terms": [
+        "AI",
+        "models",
+        "conscious"
+       ]
+      },
+      {
+       "start": 1608.08,
+       "end": 1659.52,
+       "text": "Okay, I see. Okay. So, I want to talk for a moment about you you mentioned this briefly earlier and you wrote about this too about the way in which specifically like LLMs have just burst open the door to credul about conscious AI because we've got artificial intelligence doing all kinds of different things. You know, there's in a self-driving car like chess computers, whatever. But very rarely are you playing against a chess computer and think gosh it's so good at at you know knowing how to checkmate me. It must be conscious. There's something about language models that make people go there's something funny going on. And you know if if the brain is making predictions if the brain is sort of working like a prediction machine people might say that's kind of how LLMs work.",
+       "speakers": [],
+       "score": 6.39,
+       "terms": [
+        "AI",
+        "models",
+        "LLMs",
+        "intelligence",
+        "conscious"
+       ]
+      },
+      {
+       "start": 1842.24,
+       "end": 1895.12,
+       "text": "It's kind of hard to to justify. Yeah. And it seems to just be sort of that it passes the cheuring test, right? that it like is indistinguishable for us from a conscious agent. But again, that's a very sort of it it looks this way towards us rather than towards the thing. And it's it's so easil easy to be to be fooled by these kinds of things. That's right. That's why, you know, I think if we if we are too tempted by seeing things through the lens of what a conscious human being is like and bind consciousness, language, and intelligence too close together. This can lead to both false positives and false negatives. You know, we can see consciousness when it's not there in the statistical acrobatics of LLMs. And we might miss consciousness where it really is >> as we've done in the whole history of human treatment of non-human animals as we might now do in synthetic biology and >> Yeah.",
+       "speakers": [],
+       "score": 3.69,
+       "terms": [
+        "LLMs",
+        "intelligence",
+        "conscious"
+       ]
+      }
+     ]
+    },
+    {
+     "title": "Within Reason #153 If Anyone Builds It, EVERYONE Dies - AI Expert on Superintelligence",
+     "kind": "asr",
+     "path": "C:/Users/pc/AppData/Local/Temp/claude/D--py-self-execute-v0--claude-worktrees-p17-moment-selection-rights-d3996e/294e5a37-49ea-4824-a0d1-047601ca6466/scratchpad/wr153/wr153.asr.json",
+     "video_note": "YouTube B_HDkqZtGOE; podcast timing",
+     "missing": true
+    }
+   ]
+  }
+ ]
+}

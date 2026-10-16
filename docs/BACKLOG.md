@@ -17,10 +17,14 @@ Every open task by priority. Done phases are summarised; their detail is in git 
       the URL everywhere, buttons that show their command and can be handed to the agent, `ui show` with views,
       filters and highlights, file browser, shortcuts, two-click confirms, phone widths. **Your review is the
       remaining step** (the plan marks P16 `[you]`).
-- [ ] **P17 research wing and channel desk**: researched and planned (plan §6, [research](research/P17-research-wing.md)); awaiting approval. Watchlists, inbox, replay moments, trend radar, channels you post to,
-      posting queue, re-linking posts, performance view.
+- [ ] **P17 research wing** (re-planned 2026-10-16, plan §6, [research](research/P17-research-wing.md)): find and follow
+      creators, inbox from their new posts, transcript library (back catalogue, text only), topics from the news or
+      from you, topic briefs ("what my creators said about X"), journeys from topics, rights statuses with the
+      posting gate and the hub publish confirmation (D-23). Awaiting your approval; open questions P17-Q1–Q6.
 
 ## Waiting on the user
+- [ ] Approve the new P17 plan (or answer P17-Q1–Q6); name the channel you post to.
+- [ ] Cookies for YouTube when it blocks: export a cookies.txt from Chrome (its background processes lock the database).
 - [ ] Real Kaggle/Colab run of `notebooks/recomp_worker.ipynb` (the protocol is tested locally with a stand-in worker).
 - [ ] Listening check of the am/sw/fr/om dubs (automated checks pass; human ears decide).
 - [ ] Rights holder for *The Dark Knight (2026)*: `recomp source rights S1 --owner …`.

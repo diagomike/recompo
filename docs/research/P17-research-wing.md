@@ -1,91 +1,98 @@
-# P17 research: watching creators, finding trends, cutting, and running channels
+# P17 research: following creators and compiling what they say
 
-**Date:** 2026-10-15 · **For:** the P17 plan (docs/PLAN.md §6) · Live checks were run from this machine; everything else is
-from the sources listed at the end.
+**Updated:** 2026-10-16 (first version 2026-10-15) · **For:** the P17 plan (docs/PLAN.md §6) · **Stance:** D-22, we
+create from people we follow; trend data is only a prompt for topics. **Rights:** D-23 replaces every rights rule
+that was in this note. Live checks were run from this machine; raw responses and the prototype's output are in
+[P17-follow/](P17-follow/README.md).
 
-## What works without keys (verified here)
+## Finding creators (verified 2026-10-16, keyless)
 
-| Need | Mechanism | Verified |
+| Need | Mechanism | Result here |
 |---|---|---|
-| New uploads of a YouTube channel | `https://www.youtube.com/feeds/videos.xml?channel_id=UC…` (latest 15) | 200, 15 entries (Alex O'Connor) |
-| … without Shorts / only Shorts | `playlist_id=UULF…` / `UUSH…` (the channel id with `UC` swapped; undocumented) | 200, 15 entries |
-| A podcast's RSS feed by name | iTunes Search API `itunes.apple.com/search?media=podcast&term=…` → `feedUrl` (no key) | The Diary of a CEO → `rss2.flightcast.com/…` |
-| Where viewers rewatch inside a video | yt-dlp's `heatmap` field ("Most replayed"): 100 points, value 0–1 | S3 (Anil Seth): peaks at 20:30, 7:10, 19:28, 14:21, 1:28:07 |
-| Recent videos on a topic, views per day | yt-dlp on a YouTube search URL (existing `trends search`) | M2 |
+| Channels about a subject | yt-dlp on `youtube.com/results?search_query=…&sp=EgIQAg%253D%253D` (channel filter) | "philosophy podcast": 494 channels with subscriber counts (Philosophize This!, Overthink, …) |
+| A person, and where they appear as a guest | yt-dlp `ytsearch40:"Alex O'Connor interview"`, grouped by channel | his own channel 12, plus Closer To Truth, Chris Williamson, Flagrant, Jay Shetty, Triggernometry, Hank Green… |
+| A podcast and its feed | iTunes Search API `itunes.apple.com/search?media=podcast&term=…` → `feedUrl` | Within Reason (anchor.fm), Lex Fridman (lexfridman.com/feed/podcast), DOAC (flightcast) |
+
+## Following them
+
+| Need | Mechanism | Result here |
+|---|---|---|
+| New uploads of a channel | yt-dlp flat listing of `@handle/videos` (or `/shorts`) | works (Alex: 443 entries) |
+| … via RSS | `youtube.com/feeds/videos.xml?channel_id=UC…` (`UULF`/`UUSH` playlists for no-Shorts/Shorts) | **failing today**: 404 / 500 for all three channels (worked 2026-10-15); keep as the cheap first try, fall back to the listing |
+| New podcast episodes | the feed itself | Within Reason 162 items, Lex 502, DOAC 896 |
+| A channel's past videos on a topic | yt-dlp on `@handle/search?query=AI` | Alex 313, Lex 137, DOAC 416 results (title, views, length) |
+
+## Transcripts without per-video YouTube requests
+
+| Creator | Route | Result here |
+|---|---|---|
+| The Diary of a CEO | feed `<podcast:transcript type="text/vtt">` | on 322 of 896 episodes; sentence-level cues, no speaker names |
+| Lex Fridman | `lexfridman.com/<episode>-transcript` | speaker names, hh:mm:ss per paragraph, the YouTube id, chapter headings |
+| Alex O'Connor (Within Reason) | feed audio (`megaphone.fm` mp3) + local ASR | no transcript tag; #153 (95 min, 91 MB) transcribed locally |
+| Any YouTube video | word-timed captions `json3` | **blocked today**: per-video requests answer 429, then "Sign in to confirm you're not a bot", even after a 15 min back-off |
 
 Notes:
-- RSS feeds had intermittent 404s in December 2025 and the `UULF/UUSH` prefixes are undocumented: fall back to
-  yt-dlp's flat channel listing (already used by `source add <channel>`) when a feed fails.
-- The heatmap is missing for new or low-traffic videos and some Shorts; it is a signal, not a requirement.
-- The heatmap's peaks line up with the moments the agent chose by reading the transcript in M2 (S3's C3 at 14:42
-  sits on the 14:21 peak's slope), which makes it a strong, free second opinion for `cut suggest`.
+- Podcast and YouTube versions can differ: DOAC's podcast titles don't match the YouTube titles of the same episode
+  (match by guest, date and transcript text, not title), and feed audio may carry intros or inserted ads, so a
+  feed-timed passage is aligned to the video by text before cutting video.
+- Cookies (D-24): `--cookies-from-browser chrome` failed with "Could not copy Chrome cookie database" because
+  Chrome was running; close Chrome or export a cookies.txt.
 
-## Official APIs and their limits
+## What's in the air (topic prompts, verified 2026-10-16, keyless)
 
-- **YouTube Data API v3** (your key, 10,000 units/day by default): `videos.list` and `playlistItems.list` cost
-  1 unit (50 videos per call: cheap view counts), `search.list` costs 100. `videos.list chart=mostPopular` still
-  works, but since 21 July 2025 it reflects trending music, movies and gaming charts rather than the old
-  Trending page, which YouTube retired in favour of category charts (YouTube Charts: music, podcasts, trailers).
-- **Google Trends**: the public RSS feed `trends.google.com/trending/rss?geo=US` (top ~20 daily searches per
-  country, undocumented); the official Trends API is an application-gated alpha (July 2025); `pytrends` is
-  archived and its trending-search calls return 404.
-- **Podcast Index API**: free key + secret; `episodes/byfeedurl` and `recent/episodes`. Only needed if plain RSS
-  parsing falls short.
-- **TikTok**: no official trend API for commercial users (the Research API is for vetted academics and non-profits).
-  Creative Center shows trending hashtags (27 countries) and videos (a few countries) publicly; third-party
-  scrapers depend on its internal endpoints, which change. yt-dlp reads public TikTok videos and (since 2024)
-  user pages; results vary over time.
-- **Instagram**: public reels often need a logged-in session for yt-dlp; we do not use cookies unless you set them.
-- **Uploading** (out of scope for P17; you upload): YouTube API uploads from unaudited projects are locked
-  private; TikTok's Content Posting API posts privately until the app passes an audit (max 5 users/day before);
-  Instagram publishing needs a Business/Creator account linked to a Facebook Page, an app review, and the video
-  on a public URL. All three are possible later behind your own accounts and audits.
+| Source | Mechanism | Today |
+|---|---|---|
+| Google News | `news.google.com/rss` (top), `/rss/headlines/section/topic/TECHNOLOGY`, `/rss/search?q=AI+models+when:7d` | 45–100 items; "Anthropic warns AI models could soon copy themselves…", "Meta unveils new frontier-class AI models", "Gemini 4" |
+| Google Trends | `trends.google.com/trending/rss?geo=US` | 10 items, mostly sports and celebrities: weak for our topics |
+| Wikipedia | `wikimedia.org/api/rest_v1/metrics/pageviews/top/en.wikipedia/all-access/YYYY/MM/DD` | the previous day 404s until it is published; one day earlier works |
+| Hacker News | `hacker-news.firebaseio.com/v0/topstories.json` | ids of the top 500 stories (tech topics) |
+
+The official Google Trends API is an application-gated alpha and `pytrends` is archived; the RSS feeds above are
+undocumented but keyless.
+
+## The prototype: a topic brief
+
+`scripts/research/topic_brief.py` took the topic "AI models are getting good", this week's headlines and six
+episodes from three followed creators. It read their transcripts by the routes above and ranked 45–90 s passages by
+the topic's terms. Some of what it surfaced, with timestamps:
+- DOAC, Jeffrey Ladish (2026-10-08) 0:35:11: "the latest Frontier model escaped… was able to actually copy itself",
+  which is the week's headline in a guest's words.
+- Lex Fridman #490 *State of AI in 2026* 2:39:03 (Nathan Lambert): what AGI and ASI mean and when AI "can replace
+  any remote worker".
+- Alex O'Connor S3 (Anil Seth) 0:26:48: "LLMs have just burst open the door to credulity about conscious AI".
+
+So the loop works end to end without touching YouTube's blocked endpoints. Three things matter for the build:
+- Speaker names decide whose opinion a passage is. Lex's pages have them; DOAC's VTT doesn't, so diarisation or the
+  host's known voice (P9) is needed.
+- Keyword ranking finds the passages. The agent still reads them and picks.
+- Keeping a back catalogue of transcripts makes "what did they say before" instant.
+
+## Official APIs and their limits (from 2026-10-15, still relevant)
+
+- **YouTube Data API v3** (your key, 10,000 units/day): `videos.list` 1 unit per 50 videos; `search.list` 100 units.
+  Useful later for your own channel's analytics (read-only), not needed for following.
+- **Podcast Index API** (free key): only if plain feeds fall short.
+- **Uploading** stays with you (D-10). YouTube API uploads from unaudited projects are locked private.
 
 ## Formats
 
-- YouTube Shorts: up to 3 minutes for square or vertical videos (since 15 October 2024).
-- TikTok: up to 10 minutes; Instagram Reels: 3 minutes in Meta's current guidance (sources disagree: check
-  at posting time). Our `shorts` profile (1080×1920) fits all three.
+YouTube Shorts: up to 3 minutes for square or vertical video (since 15 October 2024). The `shorts` profile
+(1080×1920) fits.
 
-## Rights and monetisation
+## Possible later aids (not in P17)
 
-- YouTube's July 2025 update renamed "repetitious" to **inauthentic content** (mass-produced, template-like) and left
-  the **reused content** policy unchanged: clips, compilations, commentary and reactions are reviewed for
-  meaningful added value. Journeys (sections, quote cards, translations, dubbing, cross-source arguments) are the
-  kind of transformation that policy looks for; plain re-uploads are not.
-- **Clipping programs** are now a market: creators fund campaigns that pay clippers per 1,000 views (Whop Content
-  Rewards: about $0.20–$6, typically $1–$4). A campaign listing is the clearest sign a show authorises clips.
-  Big shows (Lex Fridman: "Lex Clips"; The Diary of a CEO) run official clip channels; without a campaign or
-  written permission, treat their clips as unauthorised. A third-party "Diary of a CEO (Pay To Clip)" listing
-  exists but its authorisation is unconfirmed.
-- Preaching and sermon channels often welcome sharing but licences vary; record each watch's rights note
-  (authorised / program / unknown) and show it in the posting queue. This is not legal advice.
+- YouTube's "Most replayed" heatmap (yt-dlp `heatmap`, 100 points) as a second opinion on where an episode's
+  strongest moments are. Dropped from P17 as a market signal (D-22); the agent reads the transcript.
 
 ## Sources
 
 - YouTube RSS: [WP RSS Aggregator](https://www.wprssaggregator.com/youtube-rss-feed/),
-  [Privacy Guides thread](https://discuss.privacyguides.net/t/how-to-create-a-rss-feed-for-any-youtube-channel/35169),
-  [zenn.dev guide](https://zenn.dev/banboobloom/articles/2026010200001), [HN: YouTube, your RSS feeds are broken](https://hn.nuxt.dev/item/48030964)
-- YouTube Data API: [quota costs](https://developers.google.com/youtube/v3/determine_quota_cost),
-  [getting started](https://developers.google.com/youtube/v3/getting-started),
-  [videos implementation (mostPopular)](https://developers.google.com/youtube/v3/guides/implementation/videos?hl=en),
-  [revision history](https://developers.google.com/youtube/v3/revision_history?hl=de),
-  [videos.insert private lock](https://developers.google.cn/youtube/v3/docs/videos?hl=en)
-- Trending page retirement: [TechCrunch](https://techcrunch.com/2025/07/10/youtube-is-getting-rid-of-its-trending-page-and-trending-now-list),
-  [9to5Google](https://9to5google.com/2025/07/10/youtube-trending-page-removal/), [PPC Land](https://ppc.land/youtube-closes-trending-page-after-a-decade-of-operation/)
-- Google Trends: [Trends API alpha](https://developers.google.com/search/blog/2025/07/trends-api),
-  [Search Engine Journal](https://www.searchenginejournal.com/google-trends-api-alpha-mueller-confirms-small-pilot-group/554078/),
-  [ScrapeBadger: Google Trends in 2026](https://scrapebadger.com/blog/does-google-trends-have-an-api-what-to-use-in-2026)
-- Podcasts: [labnol: podcast feed lookup](https://labnol.org/podcast), [podcast-index-api](https://cdn.jsdelivr.net/npm/podcast-index-api@2.0.0/README.md)
-- TikTok: [Research API](https://developers.tiktok.com/products/research-api/), [TokConnect guide](https://tokconnect.com/guides/tiktok-research-api/),
-  [Creative Center scrapers (Apify)](https://apify.com/symphonic_mullite/tiktok-creative-center-trends),
-  [Content Posting API](https://developers.tiktok.com/doc/content-posting-api-reference-direct-post), [yt-dlp-TTUser (archived)](https://github.com/bashonly/yt-dlp-TTUser)
-- Instagram: [Content publishing](https://developers.facebook.com/docs/instagram-platform/instagram-graph-api/content-publishing)
-- Heatmap: [yt-dlp heatmap commit (mirror)](https://bytes.keithhacks.cyou/etc/yt-dlp/commit/5caf30dbc34f10b0be60676fece635b5c59f0d72),
-  [youtube-heatmap](https://github.com/WillianAgostini/youtube-heatmap)
-- Shorts length: [Tubefilter](https://www.tubefilter.com/?p=182474), [Gigazine](https://gigazine.net/gsc_news/en/20241004-youtube-short-video-length-3-minutes)
-- Policy: [YouTube Help: channel monetization policies](https://support.google.com/youtube/answer/1311392),
-  [PPC Land: inauthentic content](https://ppc.land/youtube-clarifies-inauthentic-content-policy-changes/)
-- Clipping: [Whop Content Rewards docs](https://docs.whop.com/memberships-and-access/third-party-apps/content-rewards),
-  [OpenClip: Whop clipping rates](https://openclip.app/guides/whop-clipping-guide), [Digiday: WTF is clipping](https://digiday.com/media/wtf-is-clipping-the-low-lift-creator-strategy-grabbing-advertisers-attention/),
-  [Lex Clips announcement](https://x.com/lexfridman/status/1196133567308476417), [Diary of a CEO (Pay To Clip) listing](https://whop.com/clipper-school/clipper-school/)
+  [HN: YouTube, your RSS feeds are broken](https://hn.nuxt.dev/item/48030964)
+- Podcasts: [Podcasting 2.0 transcript tag](https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md#transcript),
+  [labnol: podcast feed lookup](https://labnol.org/podcast)
+- Lex Fridman transcripts: [example](https://lexfridman.com/andrew-scull-transcript)
+- Google News RSS, Google Trends RSS, Wikimedia pageviews API, Hacker News API: endpoints above (checked live)
+- YouTube Data API: [quota costs](https://developers.google.com/youtube/v3/determine_quota_cost)
+- Google Trends: [Trends API alpha](https://developers.google.com/search/blog/2025/07/trends-api)
+- Shorts length: [Tubefilter](https://www.tubefilter.com/?p=182474)
+- Cookies: [yt-dlp issue 7271 (Chrome cookie database locked)](https://github.com/yt-dlp/yt-dlp/issues/7271)
