@@ -15,8 +15,15 @@ Every open task by priority. Done phases are summarised; their detail is in git 
       viewer parts (inline line editing, speakers panel, translation editor).
 - [x] **P16 UX pass** built: project home and checklist, cut bin across sources, drag cuts into journeys, filters in
       the URL everywhere, buttons that show their command and can be handed to the agent, `ui show` with views,
-      filters and highlights, file browser, shortcuts, two-click confirms, phone widths. **Your review is the
-      remaining step** (the plan marks P16 `[you]`).
+      filters and highlights, file browser, shortcuts, two-click confirms, phone widths.
+- [x] **P16b UX rework** after your review ([report](runs/P16b-ux-rework.md)): the guided journey studio (purpose →
+      gather → order → look → check → export, `journey guide`/`journey review`), destinations on journeys
+      (`--formats`), `cut add --journey`, New journey dialog, nav rail and agent drawer, Word-style progressive disclosure
+      (ribbon of steps, command rows, menus, dialogs, "More filters", collapsible advanced options), dense tables and
+      lists instead of cards. **Your review is the remaining step.**
+- [ ] P16b follow-ups: the source room and the translation editor still use the P16 layout (restyled, not
+      restructured); a "Look" preview of lower thirds per slot; journey studio keyboard shortcuts (1–6 for steps,
+      Enter for the next action); music search needs the network (no offline library seed yet).
 - [ ] **P17 research wing and channel desk**: researched and planned (plan §6, [research](research/P17-research-wing.md)); awaiting approval. Watchlists, inbox, replay moments, trend radar, channels you post to,
       posting queue, re-linking posts, performance view.
 

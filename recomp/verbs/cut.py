@@ -77,6 +77,7 @@ class AddIn(BaseModel):
     people: list[str] = Field(default_factory=list)
     rating: int | None = Field(None, description="1–5")
     note: str = ""
+    journey: str | None = Field(None, description="Also append the new cut to this journey (e.g. J1)")
     model_config = {"populate_by_name": True}
 
 
@@ -125,7 +126,8 @@ def resolve_range(ctx: Ctx, src: dict, inp) -> tuple[float, float, dict]:
 @verb("cut.add", AddIn, effect="write",
       examples=['recomp cut add S1 --quote-start "You either die a hero" --quote-end "become the villain" --title "Live long enough" --why "Harvey\'s thesis" --tags fate,heroism',
                 "recomp cut add S1 --from 01:02:10.5 --to 01:02:55 --snap words+shots",
-                "recomp cut add S1 --segments 412..430"])
+                "recomp cut add S1 --segments 412..430",
+                'recomp cut add S2 --from 3:10 --to 3:42 --why "the turn" --journey J1   # cut straight into a journey'])
 def cut_add(ctx: Ctx, inp: AddIn):
     """Make a cut by quote, segment range or times. Edges snap to words (and shots); the spoken text is stored with it."""
     db = ctx.db
@@ -133,11 +135,23 @@ def cut_add(ctx: Ctx, inp: AddIn):
     a, b, info = resolve_range(ctx, src, inp)
     quote = text_between(db, src, a, b)
     ch = chapter_at(db, src["id"], (a + b) / 2)
-    with ctx.op(f"cut {src['ref']} {clock(a)}") as tx:
+    j = None
+    if inp.journey:
+        from .journey import journey_of
+        j = journey_of(db, inp.journey)
+    with ctx.op(f"cut {src['ref']} {clock(a)}" + (f" into {j['ref']}" if j else "")) as tx:
         c = tx.insert("cut", {"source_id": src["id"], "start": a, "end": b, "title": inp.title or quote[:60],
                               "quote": quote, "why": inp.why, "note": inp.note, "tags": inp.tags,
                               "emotions": inp.emotions, "people": inp.people, "rating": inp.rating,
                               "chapter_id": ch["id"] if ch else None, "snap": info})
+        if j:
+            last = db.scalar("SELECT MAX(pos) FROM slot WHERE journey_id=?", (j["id"],)) or 0.0
+            tx.insert("slot", {"journey_id": j["id"], "pos": float(last) + 1.0, "cut_id": c["id"]})
+            from .journey import renumber
+            renumber(tx, j["id"])
+    if j:
+        from .journey import mirror
+        mirror(ctx, j["id"])
     warnings = []
     dur = b - a
     if dur > 240:
@@ -146,8 +160,12 @@ def cut_add(ctx: Ctx, inp: AddIn):
         warnings.append(f"very short cut ({dur:.1f}s)")
     if not inp.why:
         warnings.append("no --why given: say why this moment matters (it is what you and the user search later)")
-    return Result(data=brief(db, c), refs=[c["ref"]], warnings=warnings,
-                  next=[f"recomp ui show {c['ref']} --play", f"recomp journey add <J> {c['ref']}"])
+    data = brief(db, c)
+    if j:
+        data["journey"] = j["ref"]
+    return Result(data=data, refs=[c["ref"]] + ([j["ref"]] if j else []), warnings=warnings,
+                  next=[f"recomp ui show {c['ref']} --play",
+                        f"recomp journey guide {j['ref']}" if j else f"recomp journey add <J> {c['ref']}"])
 
 
 class EditIn(BaseModel):
