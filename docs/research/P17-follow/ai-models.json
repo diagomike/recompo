@@ -1,0 +1,28 @@
+{
+  "topic": "AI models are getting good (and maybe out of hand)",
+  "news_query": "AI models",
+  "terms": ["AI", "model", "models", "LLM", "LLMs", "smarter", "intelligence", "superintelligence", "AGI",
+            "getting better", "capable", "capabilities", "control", "dangerous", "scaling", "conscious",
+            "copy itself", "replicate", "agents"],
+  "creators": [
+    {"name": "Lex Fridman", "episodes": [
+      {"title": "#490 State of AI in 2026: LLMs, Coding, Scaling Laws, China, Agents, GPUs, AGI", "kind": "lex",
+       "url": "https://lexfridman.com/ai-sota-2026-transcript", "video": "EV7WhVT270Q"},
+      {"title": "#475 Demis Hassabis: Future of AI, Simulating Reality, Physics and Video Games", "kind": "lex",
+       "url": "https://lexfridman.com/demis-hassabis-2-transcript", "video": "-HzgcbRXUK8"}
+    ]},
+    {"name": "The Diary of a CEO (Steven Bartlett)", "episodes": [
+      {"title": "AI Insider: We Are Losing Control Faster Than You Think | Jeffrey Ladish (2026-10-08)", "kind": "vtt",
+       "url": "https://rss.flightcast.com/transcripts/01M46YN191EJ0V3NPANXPEM9WA.vtt", "video_note": "YouTube qDzg-xvkeXw; podcast timing"},
+      {"title": "The Great AI Debate: Is Artificial Intelligence an Extinction Threat? (2026-09-17)", "kind": "vtt",
+       "url": "https://rss.flightcast.com/transcripts/01M2GNJS32R11MFGEF3FZ4MFGV.vtt", "video_note": "YouTube OhOmLqR5nN4; podcast timing"}
+    ]},
+    {"name": "Alex O'Connor", "episodes": [
+      {"title": "Why AI Will Never Be Conscious - Anil Seth (project alex-oconnor S3)", "kind": "project",
+       "project": "C:/Recomposer/projects/alex-oconnor", "ref": "S3", "video": "lsi8T_WtLnE"},
+      {"title": "Within Reason #153 If Anyone Builds It, EVERYONE Dies - AI Expert on Superintelligence", "kind": "asr",
+       "path": "docs/research/P17-follow/raw/within-reason-153.asr.json.gz",
+       "video_note": "YouTube B_HDkqZtGOE; podcast timing"}
+    ]}
+  ]
+}

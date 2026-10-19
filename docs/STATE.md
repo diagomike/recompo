@@ -2,20 +2,24 @@
 
 The build's working memory. If context runs short, resume from here.
 
-**Last updated:** 2026-10-16 (source room and translation editor in the P16b structure; studio keys)
+**Last updated:** 2026-10-19 (the P16b UX rework and the P17 re-plan merged into master; worktrees removed)
 
 | | |
 |---|---|
-| Phases | **P0–P16 built** (P16 awaits your review) · **P17 research wing and channel desk** planned |
+| Phases | **P0–P16b built** (P16b awaits your review) · **P17 research wing** re-planned 2026-10-16: follow creators, compile what they say (D-22), rights model (D-23); awaiting approval |
 | Milestones | **M1** ([report](runs/M1-dark-knight.md)) · **M2** ([report](runs/M2-alex-oconnor.md)) · **M3** am/sw/fr + om · **M4** local hub ([report](runs/M3-M4-languages-and-hub.md)): all done |
 | Suite | 85+ fast tests (`pytest -q`), slow speaker test (`pytest -m slow`); the reorder-cache timing assert can flake under heavy load |
 | Projects | `C:\Recomposer\projects\dark-knight` (M1, M3), `alex-oconnor` (M2: 5 episodes, 12 cuts, 3 journeys); `_uitest` scratch folder (forgotten from the list; safe to delete) |
 | Hub | `python -m hub` on 8790, data in `%USERPROFILE%\.recomp\hub`, seeded test users in `seed_users.json` there |
 
 ## Notes for the user
-- YouTube blocked per-video requests from this machine from ~06:30 until the evening of 2026-10-15; it lifted on its
-  own. If it returns: wait, or decide on browser cookies (`recomp config set network.cookies_from_browser chrome`),
-  or run ingest through the remote notebook.
+- YouTube blocked per-video requests from this machine from ~06:30 until the evening of 2026-10-15, and again from
+  ~04:10 on 2026-10-16 (429, then the bot check). Listings, searches, feeds and published transcripts kept working.
+  Browser cookies are allowed since 2026-10-16 (D-24), but Chrome keeps background processes that lock its cookie
+  database: export a cookies.txt (P17 adds `network.cookies_file`) or fully quit Chrome.
+- P17 direction (2026-10-16, D-22): we are an active creation team. Follow creators, make journeys from their new
+  posts and from topics in the air they have opinions on; no market-watching. Prototype and evidence:
+  `docs/research/P17-follow/` (topic brief on "AI models are getting good" across Lex, DOAC and Alex).
 - Link videos are fetched whole at ≤720p once per source (`network.link_video full`); `sections` is the alternative.
 
 ## Defaults in force (open questions Q1–Q6)
@@ -23,7 +27,7 @@ The build's working memory. If context runs short, resume from here.
 - Git local only; commit after each verified phase; nothing pushed.
 - edge-tts allowed (needs `speech.platform.bing.com`; runs outside the sandbox); pin `edge-tts>=7.3.1`.
 - Afaan Oromo via MMS-TTS (`facebook/mms-tts-orm`, non-commercial weights) as the stretch goal.
-- No browser cookies unless the user sets them.
+- Browser cookies allowed for the research wing (D-24); published transcripts and feeds first.
 - Alex O'Connor theme: **consciousness** (Pollan, Frankish, Anil Seth, Galen Strawson).
 
 ## Environment (verified 2026-10-15)
