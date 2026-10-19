@@ -2,13 +2,13 @@
 
 The build's working memory. If context runs short, resume from here.
 
-**Last updated:** 2026-10-19 (the P16b UX rework and the P17 re-plan merged into master; worktrees removed)
+**Last updated:** 2026-10-19 (P17 approved with defaults; P17a find and follow built)
 
 | | |
 |---|---|
-| Phases | **P0–P16b built** (P16b awaits your review) · **P17 research wing** re-planned 2026-10-16: follow creators, compile what they say (D-22), rights model (D-23); awaiting approval |
+| Phases | **P0–P16b built** (P16b awaits your review) · **P17 research wing** approved 2026-10-19 with defaults P17-Q1–Q6: **P17a built** (find, follow, inbox, library); P17b topics next, then P17c rights, P17d viewer, M5 |
 | Milestones | **M1** ([report](runs/M1-dark-knight.md)) · **M2** ([report](runs/M2-alex-oconnor.md)) · **M3** am/sw/fr + om · **M4** local hub ([report](runs/M3-M4-languages-and-hub.md)): all done |
-| Suite | 85+ fast tests (`pytest -q`), slow speaker test (`pytest -m slow`); the reorder-cache timing assert can flake under heavy load |
+| Suite | 100+ fast tests (`pytest -q`), slow speaker test (`pytest -m slow`), live P17 sources (`pytest -m real tests/unit/test_follow_real.py`); the reorder-cache timing assert can flake under heavy load |
 | Projects | `C:\Recomposer\projects\dark-knight` (M1, M3), `alex-oconnor` (M2: 5 episodes, 12 cuts, 3 journeys); `_uitest` scratch folder (forgotten from the list; safe to delete) |
 | Hub | `python -m hub` on 8790, data in `%USERPROFILE%\.recomp\hub`, seeded test users in `seed_users.json` there |
 
@@ -21,6 +21,8 @@ The build's working memory. If context runs short, resume from here.
   posts and from topics in the air they have opinions on; no market-watching. Prototype and evidence:
   `docs/research/P17-follow/` (topic brief on "AI models are getting good" across Lex, DOAC and Alex).
 - Link videos are fetched whole at ≤720p once per source (`network.link_video full`); `sections` is the alternative.
+- YouTube refused per-video requests again on 2026-10-19 (bot check). Taking an inbox item still works: the source
+  is added from the listing's metadata (`source refresh` completes it later) and Lex transcripts come from his site.
 
 ## Defaults in force (open questions Q1–Q6)
 - Projects at `C:\Recomposer\projects` (D: has ~15 GB free); source movies stay on D:.
@@ -79,6 +81,28 @@ The build's working memory. If context runs short, resume from here.
   the lines (stacked on phones) and the save bar.
 - Link sources with fetched video build frames and waveform from it (`source process S3 --jobs audio,peaks,thumbs`).
 - `p16-check` project: the acceptance run (two fixture clips from `C:\Recomposer\p16-media`, J1, X1/X2).
+
+## Research wing (P17a, 2026-10-19)
+- **Studio store** `studio.db` in the studio home (`recomp/core/studio.py`, `schema.STUDIO_MIGRATIONS`): follows (F),
+  `follow_seen`, inbox (I), library docs (L) with `lib_seg` + FTS. Same store code as projects: op log, precedence,
+  events; `recomp op log|undo|redo --studio`. Verbs reach it through `ctx.studio` / `ctx.studio_op()` (no project).
+- `recomp/research/`: `net` (HTTP), `feeds` (podcast RSS → episodes with a transcript **route**: published VTT/SRT/JSON
+  → lex page → asr; YouTube Atom), `youtube` (flat listings: channel search, person search, uploads, in-channel
+  search), `podcasts` (iTunes search, feed read and peek), `transcripts` (fetch by route; Lex pages give speakers,
+  chapters and the YouTube id), `library` (add docs, search), `schedule` (checks every `research.check_every_h`).
+- Verbs (`recomp/verbs/follow.py`): `find creators`, `follow add|list|edit|remove|check|backfill`,
+  `inbox list|take|dismiss`, `library search|list|show|remove`; `search --scope library`; `project set --themes`.
+- A follow with a channel and a podcast pairs each upload with its feed episode by title words (≥ 0.45 Jaccard), so a
+  YouTube item gets the podcast's published transcript route. Lex's feed items become YouTube sources (the page
+  names the video and follows its clock); a feed-timed transcript on a video source is kept non-primary, labelled
+  "podcast timing".
+- First check of a follow: the newest `research.first_check_items` (3) go to the inbox, the rest are marked seen.
+  Feed reads are op-logged as the **machine** (the choices — take, dismiss — are the person's or agent's).
+- Taking a YouTube item uses the project's pick list, so a refused metadata request falls back to the listing.
+- Rights status (D-23) is stored on the follow and copied to `source.rights.status` on take; P17c adds the gate.
+- Tests: `tests/unit/test_follow.py` over fixtures cut from the research's saved responses
+  (`scripts/research/make_p17_fixtures.py` → `tests/fixtures/p17/`); live checks in `test_follow_real.py`.
+- YouTube's RSS answered 404 on 2026-10-19 (500 on 2026-10-16): the listing is the working path.
 
 ## Lessons
 - `>>` marks name speakers for free only when dense (≥ 1/min); sparse marks swap every later line (M2: 86 % vs 50 %).

@@ -40,6 +40,7 @@ what you did, and leave the person's own choices alone.
 
 `S1` source · `S1.t1` transcript · `S1.c4` chapter · `C17` cut · `J2` journey · `J2#3` third slot ·
 `O5` overlay · `M1` music track · `B1` music bed · `P3` person · `X4` export · `job12` job.
+Studio-level (research wing, no project needed): `F1` follow · `I3` inbox item · `L2` library transcript.
 Times: `4323.4`, `01:12:03.4`, `12:03`, `72m3.4s`. Outputs give seconds plus a clock string.
 
 ## The pipeline
@@ -62,6 +63,7 @@ source add ─► (probe · audio · shots · peaks jobs) ─► transcript impo
 | Export | `recomp profile list` · `recomp preview J1` · `recomp export run J1 --profiles shorts,landscape --langs en,am,sw,fr` · `recomp export status` |
 | Languages | `recomp lang translate J1 --to am --input am.json` (your own translation) · `recomp export run J1 --profiles shorts --langs am,sw` (dubs) |
 | Share | `recomp hub publish J1 --visibility public` (ask first) · `recomp hub link-post J1 <url the user posted>` |
+| Follow | `recomp find creators "…"` · `recomp follow add @handle --project P` · `recomp follow check` · `recomp inbox take I3` · `recomp library search "…"` (skill: recomp-research) |
 
 ## Fixing things cheaply (before reaching for a model)
 

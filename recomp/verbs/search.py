@@ -36,6 +36,8 @@ class SearchIn(BaseModel):
     context: int = Field(1, description="Segments of context before and after")
     limit: int = Field(20)
     mode: str = Field("auto", description="all (every word), any, or auto (all, then any if nothing found)")
+    scope: str = Field("project", description="project (this project's sources) or library (followed creators' "
+                                              "back catalogue in the studio library)")
 
 
 def run_search(db, inp: SearchIn) -> tuple[list[dict], str]:
@@ -78,11 +80,20 @@ def run_search(db, inp: SearchIn) -> tuple[list[dict], str]:
     return [dict(r) for r in rows], used
 
 
-@verb("search", SearchIn,
+@verb("search", SearchIn, needs_project=False,
       examples=['recomp search "free will"', "recomp search forgiveness --sources S1,S4 --limit 10",
-                'recomp search "everlasting life" --speaker "Pastor Chris"'])
+                'recomp search "everlasting life" --speaker "Pastor Chris"',
+                'recomp search "copy itself" --scope library'])
 def search(ctx: Ctx, inp: SearchIn):
-    """Find where something is said, across all sources. Each hit has its chapter, surrounding lines and a ready `cut add` command."""
+    """Find where something is said, across all sources. Each hit has its chapter, surrounding lines and a ready `cut add` command.
+    `--scope library` searches the followed creators' back catalogue instead (no project needed)."""
+    if inp.scope == "library":
+        from ..research import library
+        return library.search(ctx.studio, inp.query, None,
+                              limit=inp.limit, context=inp.context, mode=inp.mode)
+    if inp.scope != "project":
+        from ..envelope import RecompError
+        raise RecompError("E_INVALID", "scope: project or library")
     db = ctx.db
     rows, used = run_search(db, inp)
     hits = []

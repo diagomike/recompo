@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
+xmlns:podcast="https://podcastindex.org/namespace/1.0"
+xmlns:rawvoice="https://blubrry.com/developer/rawvoice-rss/"
+>
+<channel>
+	<title>Lex Fridman Podcast</title>
+	<atom:link href="https://lexfridman.com/feed/podcast/" rel="self" type="application/rss+xml" />
+	<link>https://lexfridman.com/</link>
+	<description>Conversations that explore technology, history, philosophy, physics, mathematics, biology, chemistry, engineering, AI, robotics, programming, music, film, art, sports, psychology, neuroscience, geopolitics, business, economics, religion, astronomy, and the human condition with people from all walks of life.</description>
+	<lastBuildDate>Sun, 11 Oct 2026 05:28:05 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>Blubrry PowerPress/11.17.11</generator>
+		<atom:link rel="hub" href="https://pubsubhubbub.appspot.com/" />
+	<itunes:new-feed-url>https://lexfridman.com/feed/podcast/</itunes:new-feed-url>
+	<itunes:author>Lex Fridman</itunes:author>
+	<itunes:explicit>false</itunes:explicit>
+	<itunes:image href="https://lexfridman.com/wordpress/wp-content/uploads/powerpress/artwork_3000-230.png" />
+	<itunes:owner>
+		<itunes:name>Lex Fridman</itunes:name>
+		<itunes:email>lexfridman@gmail.com</itunes:email>
+	</itunes:owner>
+	<podcast:medium>podcast</podcast:medium>
+	<image>
+		<title>Lex Fridman Podcast</title>
+		<url>https://lexfridman.com/wordpress/wp-content/uploads/powerpress/artwork_3000-230.png</url>
+		<link>https://lexfridman.com/podcast</link>
+	</image>
+	<itunes:category text="Technology" />
+	<itunes:category text="Science" />
+	<itunes:category text="Society &amp; Culture">
+		<itunes:category text="Philosophy" />
+	</itunes:category>
+	<podcast:podping usesPodping="true" />
+	<podcast:guid>7eeae9d1-141e-5133-9e8f-6c1da695e40c</podcast:guid>
+	<rawvoice:subscribe feed="https://lexfridman.com/feed/podcast/" itunes="https://podcasts.apple.com/us/podcast/lex-fridman-podcast/id1434243584" tunein="https://tunein.com/podcasts/Technology-Podcasts/Artificial-Intelligence-p1153019/" spotify="https://open.spotify.com/show/2MAi0BvDc6GTFvKFPXnkCL"></rawvoice:subscribe>
+	<item>
+		<title>#502 – Psychiatry, Insane Asylums, Mental Illness, ECT, Lobotomies, Freud &#038; Jung</title>
+		<link>https://lexfridman.com/andrew-scull/?utm_source=rss&#038;utm_medium=rss&#038;utm_campaign=andrew-scull</link>
+		<pubDate>Thu, 17 Sep 2026 00:40:49 +0000</pubDate>
+		<guid isPermaLink="false">https://lexfridman.com/?p=6554</guid>
+		<comments>https://lexfridman.com/andrew-scull/#respond</comments>
+		<wfw:commentRss>https://lexfridman.com/andrew-scull/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		<category><![CDATA[ai]]></category>
+		<description><![CDATA[<p>Andrew Scull is a historian of psychiatry.<br />
+Thank you for listening ❤ Check out our sponsors: <a href="https://lexfridman.com/sponsors/ep502-sc">https://lexfridman.com/sponsors/ep502-sc</a><br />
+See below for timestamps, transcript, and to give feedback, submit questions, contact Lex, etc.</p>
+<p><b>Transcript:</b><br />
+<a href="https://lexfridman.com/andrew-scull-transcript">https://lexfridman.com/andrew-scull-transcript</a></p>
+<p><b>CONTACT LEX:</b><br />
+<b>Feedback</b> &#8211; give feedback to Lex: <a href="https://lexfridman.com/survey">https://lexfridman.com/survey</a><br />
+<b>AMA</b> &#8211; submit questions, videos or call-in: <a href="https://lexfridman.com/ama">https://lexfridman.com/ama</a><br />
+<b>Hiring</b> &#8211; join our team: <a href="https://lexfridman.com/hiring">https://lexfridman.com/hiring</a><br />
+<b>Other</b> &#8211; other ways to get in touch: <a href="https://lexfridman.com/contact">https://lexfridman.com/contact</a></p>
+<p><b>EPISODE LINKS:</b><br />
+Andrew&#8217;s Website (UCSD faculty page): <a href="https://sociology.ucsd.edu/people/faculty/emeritus/andrew-scull.html">https://sociology.ucsd.edu/people/faculty/emeritus/andrew-scull.html</a><br />
+Desperate Remedies (book): <a href="https://amzn.to/4vmBquI">https://amzn.to/4vmBquI</a><br />
+Madness in Civilization (book): <a href="https://amzn.to/3SZhd0I">https://amzn.to/3SZhd0I</a></p>
+<p><b>SPONSORS:</b><br />
+To support this podcast, check out our sponsors &#38; get discounts:<br />
+<b>Wispr Flow:</b> AI-powered voice dictation app.<br />
+Go to <a href="https://lexfridman.com/s/wispr_flow-ep502-sc">https://wisprflow.ai/lex</a><br />
+<b>Fin:</b> AI agent for customer service.<br />
+Go to <a href="https://lexfridman.com/s/fin-ep502-sc">https://fin.ai/lex</a><br />
+<b>LMNT:</b> Zero-sugar electrolyte drink mix.<br />
+Go to <a href="https://lexfridman.com/s/lmnt-ep502-sc">https://drinkLMNT.com/lex</a><br />
+<b>Shopify:</b> Sell stuff online.<br />
+Go to <a href="https://lexfridman.com/s/shopify-ep502-sc">https://shopify.com/lex</a><br />
+<b>BetterHelp:</b> Online therapy and counseling.<br />
+Go to <a href="https://lexfridman.com/s/betterhelp-ep502-sc">https://betterhelp.com/lex</a><br />
+<b>Perplexity:</b> AI-powered answer engine.<br />
+Go to <a href="https://lexfridman.com/s/perplexity-ep502-sc">https://perplexity.ai/</a></p>
+<p><b>OUTLINE:</b><br />
+(00:00) &#8211; Introduction<br />
+(01:07) &#8211; Sponsors, Comments, and Reflections<br />
+(08:10) &#8211; Crisis in Psychiatry<br />
+(37:48) &#8211; Categories of Mental Illness<br />
+(45:07) &#8211; Asylums, Eugenics, and the Nazis<br />
+(57:13) &#8211; The Ice Pick Lobotomy<br />
+(1:03:26) &#8211; Malaria &#8220;Cure&#8221; for Syphilis<br />
+(1:21:42) &#8211; Insulin Coma Therapy<br />
+(1:29:34) &#8211; Electroconvulsive Therapy (ECT)<br />
+(1:49:03) &#8211; One Flew Over the Cuckoo&#8217;s Nest<br />
+(2:06:35) &#8211; Freud and Psychoanalysis<br />
+(2:36:30) &#8211; WWII and Cognitive behavioral therapy (CBT)<br />
+(2:57:04) &#8211; Antipsychotics<br />
+(3:20:24) &#8211; Antidepressants<br />
+(3:33:18) &#8211; Future of Psychiatry</p>
+<p><b>PODCAST LINKS:</b><br />
+&#8211; Podcast Website: <a href="https://lexfridman.com/podcast">https://lexfridman.com/podcast</a><br />
+&#8211; Apple Podcasts: <a href="https://apple.co/2lwqZIr">https://apple.co/2lwqZIr</a><br />
+&#8211; Spotify: <a href="https://open.spotify.com/show/2MAi0BvDc6GTFvKFPXnkCL">https://open.spotify.com/show/2MAi0BvDc6GTFvKFPXnkCL</a><br />
+&#8211; RSS: <a href="https://lexfridman.com/feed/podcast/">https://lexfridman.com/feed/podcast/</a><br />
+&#8211; Podcast Playlist: <a href="https://www.youtube.com/playlist?list=PLrAXtmErZgOdP_8GztsuKi9nrraNbKKp4">https://www.youtube.com/playlist?list=PLrAXtmErZgOdP_8GztsuKi9nrraNbKKp4</a><br />
+&#8211; Clips Channel: <a href="https://www.youtube.com/lexclips">https://www.youtube.com/lexclips</a></p>]]></description>
+		<enclosure url="https://media.blubrry.com/takeituneasy/ins.blubrry.com/takeituneasy/lex_ai_andrew_scull.mp3" length="5242880" type="audio/mpeg" />
+		<itunes:episodeType>full</itunes:episodeType>
+		<rawvoice:pid>155149992</rawvoice:pid>
+	</item>
+<item>
+		<title>#501 – DHH: Future of Programming, AI, Agentic Engineering, Vibe Coding &#038; Linux</title>
+		<link>https://lexfridman.com/dhh-2/?utm_source=rss&#038;utm_medium=rss&#038;utm_campaign=dhh-2</link>
+		<pubDate>Wed, 26 Aug 2026 21:47:04 +0000</pubDate>
+		<guid isPermaLink="false">https://lexfridman.com/?p=6506</guid>
+		<comments>https://lexfridman.com/dhh-2/#respond</comments>
+		<wfw:commentRss>https://lexfridman.com/dhh-2/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		<category><![CDATA[ai]]></category>
+		<description><![CDATA[<p>DHH is the creator of Ruby on Rails, Omarchy Linux, CTO of 37signals, and a racecar driver.<br />
+Thank you for listening ❤ Check out our sponsors: <a href="https://lexfridman.com/sponsors/ep501-sc">https://lexfridman.com/sponsors/ep501-sc</a><br />
+See below for timestamps, transcript, and to give feedback, submit questions, contact Lex, etc.</p>
+<p><b>Transcript:</b><br />
+<a href="https://lexfridman.com/dhh-2-transcript">https://lexfridman.com/dhh-2-transcript</a></p>
+<p><b>CONTACT LEX:</b><br />
+<b>Feedback</b> &#8211; give feedback to Lex: <a href="https://lexfridman.com/survey">https://lexfridman.com/survey</a><br />
+<b>AMA</b> &#8211; submit questions, videos or call-in: <a href="https://lexfridman.com/ama">https://lexfridman.com/ama</a><br />
+<b>Hiring</b> &#8211; join our team: <a href="https://lexfridman.com/hiring">https://lexfridman.com/hiring</a><br />
+<b>Other</b> &#8211; other ways to get in touch: <a href="https://lexfridman.com/contact">https://lexfridman.com/contact</a></p>
+<p><b>EPISODE LINKS:</b><br />
+DHH&#8217;s X: <a href="https://x.com/dhh">https://x.com/dhh</a><br />
+DHH&#8217;s Blog: <a href="https://world.hey.com/dhh">https://world.hey.com/dhh</a><br />
+Omarchy: <a href="https://omarchy.org">https://omarchy.org</a><br />
+Ruby on Rails: <a href="https://rubyonrails.org">https://rubyonrails.org</a><br />
+37signals: <a href="https://37signals.com">https://37signals.com</a></p>
+<p><b>SPONSORS:</b><br />
+To support this podcast, check out our sponsors &#38; get discounts:<br />
+<b>Wispr Flow:</b> AI-powered voice dictation app.<br />
+Go to <a href="https://lexfridman.com/s/wispr_flow-ep501-sc">https://wisprflow.ai/lex</a><br />
+<b>Blitzy:</b> AI agent for large enterprise codebases.<br />
+Go to <a href="https://lexfridman.com/s/blitzy-ep501-sc">https://blitzy.com/lex</a><br />
+<b>NetSuite:</b> Business management software.<br />
+Go to <a href="https://lexfridman.com/s/netsuite-ep501-sc">http://netsuite.ai/lex</a><br />
+<b>Shopify:</b> Sell stuff online.<br />
+Go to <a href="https://lexfridman.com/s/shopify-ep501-sc">https://shopify.com/lex</a><br />
+<b>LMNT:</b> Zero-sugar electrolyte drink mix.<br />
+Go to <a href="https://lexfridman.com/s/lmnt-ep501-sc">https://drinkLMNT.com/lex</a><br />
+<b>Plaud:</b> AI-powered note-taking devices and software.<br />
+Go to <a href="https://lexfridman.com/s/plaud-ep501-sc">https://plaud.ai/lex</a><br />
+<b>Higgsfield AI:</b> AI-based video generation, filmmaking, and creative studio.<br />
+Go to <a href="https://lexfridman.com/s/higgsfield-ep501-sc">https://higgsfield.ai</a><br />
+<b>Perplexity:</b> AI-powered answer engine.<br />
+Go to <a href="https://lexfridman.com/s/perplexity-ep501-sc">https://perplexity.ai/</a></p>
+<p><b>OUTLINE:</b><br />
+(00:00) &#8211; Introduction<br />
+(01:14) &#8211; Sponsors, Comments, and Reflections<br />
+(08:56) &#8211; Programming with AI agents<br />
+(24:14) &#8211; How software will change<br />
+(33:30) &#8211; AI impact on open source<br />
+(43:21) &#8211; Building Omarchy Linux distro<br />
+(53:05) &#8211; Vibe coding vs agentic engineering<br />
+(1:06:06) &#8211; The end of manual programming<br />
+(1:16:24) &#8211; Advice for programmers<br />
+(1:28:31) &#8211; Surviving Internet Hate<br />
+(1:37:46) &#8211; Programming setup for AI Agents<br />
+(1:50:11) &#8211; Obsessing about speed<br />
+(2:13:06) &#8211; Voice prompting vs typing<br />
+(2:27:05) &#8211; Best AI coding models<br />
+(2:43:55) &#8211; Best AI coding harnesses<br />
+(2:56:57) &#8211; AI video generation and filmmaking<br />
+(3:16:28) &#8211; Fatherhood<br />
+(3:44:35) &#8211; Linux will win the desktop<br />
+(3:55:51) &#8211; PewDiePie<br />
+(4:05:25) &#8211; Future of programming<br />
+(4:28:18) &#8211; Politics and immigration<br />
+(4:59:55) &#8211; Longevity, over-optimization, and fear of death<br />
+(5:11:38) &#8211; Eternal recurrence and future of human civization</p>]]></description>
+		<enclosure url="https://media.blubrry.com/takeituneasy/ins.blubrry.com/takeituneasy/lex_ai_dhh_2.mp3" length="249955445" type="audio/mpeg" />
+		<itunes:episodeType>full</itunes:episodeType>
+		<itunes:duration>5:21:57</itunes:duration>
+		<rawvoice:pid>155149992</rawvoice:pid>
+	</item>
+<item>
+		<title>#500 – Khabib Nurmagomedov: Dagestan, MMA, UFC, Islam, Conor, Fedor &#038; Football</title>
+		<link>https://lexfridman.com/khabib-nurmagomedov/?utm_source=rss&#038;utm_medium=rss&#038;utm_campaign=khabib-nurmagomedov</link>
+		<pubDate>Wed, 12 Aug 2026 13:11:45 +0000</pubDate>
+		<guid isPermaLink="false">https://lexfridman.com/?p=6494</guid>
+		<comments>https://lexfridman.com/khabib-nurmagomedov/#respond</comments>
+		<wfw:commentRss>https://lexfridman.com/khabib-nurmagomedov/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		<category><![CDATA[ai]]></category>
+		<description><![CDATA[<p>Khabib Nurmagomedov is one of the greatest fighters of all time, who retired from the UFC undefeated with a perfect 29-0 record. We did this conversation entirely in Russian. It&#8217;s translated and dubbed into English. Both language audio tracks (and subtitles) are available on YouTube. Here, only the English audio is available. We worked hard to make it enjoyable to listen to, by carefully dubbing the translation using voice-cloning, as we&#8217;ve done for previous foreign-language podcasts.</p>
+<p>Thank you for listening ❤ Check out our sponsors: <a href="https://lexfridman.com/sponsors/ep500-sc">https://lexfridman.com/sponsors/ep500-sc</a><br />
+See below for timestamps, transcript, and to give feedback, submit questions, contact Lex, etc.</p>
+<p><b>Transcript:</b><br />
+<a href="https://lexfridman.com/khabib-nurmagomedov-transcript">https://lexfridman.com/khabib-nurmagomedov-transcript</a></p>
+<p><b>CONTACT LEX:</b><br />
+<b>Feedback</b> &#8211; give feedback to Lex: <a href="https://lexfridman.com/survey">https://lexfridman.com/survey</a><br />
+<b>AMA</b> &#8211; submit questions, videos or call-in: <a href="https://lexfridman.com/ama">https://lexfridman.com/ama</a><br />
+<b>Hiring</b> &#8211; join our team: <a href="https://lexfridman.com/hiring">https://lexfridman.com/hiring</a><br />
+<b>Other</b> &#8211; other ways to get in touch: <a href="https://lexfridman.com/contact">https://lexfridman.com/contact</a></p>
+<p><b>EPISODE LINKS:</b><br />
+Khabib&#8217;s Instagram: <a href="https://instagram.com/khabib_nurmagomedov/">https://instagram.com/khabib_nurmagomedov/</a><br />
+Khabib&#8217;s YouTube: <a href="https://youtube.com/@KhabibTheEagle">https://youtube.com/@KhabibTheEagle</a><br />
+Khabib&#8217;s Facebook: <a href="https://facebook.com/KhabibTheEagle/">https://facebook.com/KhabibTheEagle/</a><br />
+Khabib&#8217;s X: <a href="https://x.com/TeamKhabib">https://x.com/TeamKhabib</a><br />
+Khabib&#8217;s Telegram: <a href="https://t.me/khabib_nurmagomedov">https://t.me/khabib_nurmagomedov</a><br />
+Khabib&#8217;s Website: <a href="https://khabib.com">https://khabib.com</a></p>
+<p><b>SPONSORS:</b><br />
+To support this podcast, check out our sponsors &#38; get discounts:<br />
+<b>Wispr Flow:</b> AI-powered voice dictation app.<br />
+Go to <a href="https://lexfridman.com/s/wispr_flow-ep500-sc">https://wisprflow.ai/lex</a><br />
+<b>LMNT:</b> Zero-sugar electrolyte drink mix.<br />
+Go to <a href="https://lexfridman.com/s/lmnt-ep500-sc">https://drinkLMNT.com/lex</a><br />
+<b>Shopify:</b> Sell stuff online.<br />
+Go to <a href="https://lexfridman.com/s/shopify-ep500-sc">https://shopify.com/lex</a><br />
+<b>BetterHelp:</b> Online therapy and counseling.<br />
+Go to <a href="https://lexfridman.com/s/betterhelp-ep500-sc">https://betterhelp.com/lex</a><br />
+<b>Perplexity:</b> AI-powered answer engine.<br />
+Go to <a href="https://lexfridman.com/s/perplexity-ep500-sc">https://perplexity.ai/</a></p>
+<p><b>OUTLINE:</b><br />
+(00:00) &#8211; Introduction<br />
+(01:29) &#8211; Sponsors, Comments, and Reflections<br />
+(08:24) &#8211; Why Dagestan produces so many great fighters<br />
+(18:31) &#8211; History of Dagestan warrior culture<br />
+(27:51) &#8211; Hard training in the mountains of Dagestan<br />
+(31:42) &#8211; The trap of fame, money, and power<br />
+(42:23) &#8211; The key to Khabib&#8217;s dominance<br />
+(53:36) &#8211; Discipline and hard work<br />
+(1:06:04) &#8211; Street fights in Dagestan<br />
+(1:19:45) &#8211; Khabib&#8217;s top pressure<br />
+(1:25:29) &#8211; Khabib vs Conor McGregor<br />
+(1:38:14) &#8211; Khabib&#8217;s toughest fight<br />
+(1:46:02) &#8211; Greatest MMA fighters of all time<br />
+(2:03:46) &#8211; Coaching<br />
+(2:09:19) &#8211; Daniel Cormier<br />
+(2:13:38) &#8211; Islam Makhachev<br />
+(2:23:35) &#8211; Dana White<br />
+(2:27:05) &#8211; Joe Rogan<br />
+(2:29:20) &#8211; Ali Abdelaziz<br />
+(2:31:57) &#8211; Football<br />
+(2:39:12) &#8211; Messi vs Ronaldo<br />
+(2:57:12) &#8211; Dubai<br />
+(3:01:03) &#8211; God<br />
+(3:08:46) &#8211; Advice for young people</p>]]></description>
+		<enclosure url="https://media.blubrry.com/takeituneasy/ins.blubrry.com/takeituneasy/lex_ai_khabib_nurmagomedov.mp3" length="5242880" type="audio/mpeg" />
+		<itunes:episodeType>full</itunes:episodeType>
+		<rawvoice:pid>154507075</rawvoice:pid>
+	</item>
+</channel>
+</rss>

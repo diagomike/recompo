@@ -15,9 +15,10 @@ class LogIn(BaseModel):
     actor: str | None = Field(None, description="Only ops by this actor: user, agent or machine")
     since: str | None = Field(None, description="Only ops newer than this, e.g. 10m, 2h, 90s")
     ref: str | None = Field(None, description="Only ops that touched this ref")
+    studio: bool = Field(False, description="The studio store's log (follows, inbox, library, topics) instead of the project's")
 
 
-@verb("op.log", LogIn, examples=["recomp op log --actor user --since 1h"])
+@verb("op.log", LogIn, needs_project=False, examples=["recomp op log --actor user --since 1h", "recomp op log --studio"])
 def op_log(ctx: Ctx, inp: LogIn):
     """The operation log, newest first: verb, actor, refs, summary and undo state."""
     where, params = [], []
@@ -31,7 +32,7 @@ def op_log(ctx: Ctx, inp: LogIn):
         where.append("refs LIKE ?")
         params.append(f'%"{inp.ref}"%')
     sql = ("WHERE " + " AND ".join(where)) if where else ""
-    rows = ctx.db.rows("op", f"{sql} ORDER BY seq DESC LIMIT ?", (*params, inp.limit))
+    rows = _db(ctx, inp.studio).rows("op", f"{sql} ORDER BY seq DESC LIMIT ?", (*params, inp.limit))
     from ..cli import cli_line
     return [{"op": r["id"], "time": round(r["time"], 3), "ago_s": round(time.time() - r["time"]),
              "actor": r["actor"], "verb": r["verb"], "refs": r["refs"], "summary": r["summary"],
@@ -41,21 +42,27 @@ def op_log(ctx: Ctx, inp: LogIn):
 
 class UndoIn(BaseModel):
     n: int = Field(1, description="How many ops to undo")
+    studio: bool = Field(False, description="Undo in the studio store (follows, inbox, library, topics)")
 
 
-@verb("op.undo", UndoIn, effect="write", examples=["recomp op undo", "recomp op undo --n 3"])
+def _db(ctx: Ctx, studio: bool):
+    return ctx.studio if studio else ctx.db
+
+
+@verb("op.undo", UndoIn, effect="write", needs_project=False,
+      examples=["recomp op undo", "recomp op undo --n 3", "recomp op undo --studio"])
 def op_undo(ctx: Ctx, inp: UndoIn):
     """Undo the most recent change(s). Refuses to undo a higher-precedence actor's work."""
     done = []
     for _ in range(max(1, inp.n)):
-        done.append(ctx.db.undo(ctx.actor, force=ctx.force))
+        done.append(_db(ctx, inp.studio).undo(ctx.actor, force=ctx.force))
     return done
 
 
-@verb("op.redo", UndoIn, effect="write")
+@verb("op.redo", UndoIn, effect="write", needs_project=False)
 def op_redo(ctx: Ctx, inp: UndoIn):
     """Redo the most recently undone change(s)."""
     done = []
     for _ in range(max(1, inp.n)):
-        done.append(ctx.db.redo(ctx.actor, force=ctx.force))
+        done.append(_db(ctx, inp.studio).redo(ctx.actor, force=ctx.force))
     return done

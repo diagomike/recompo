@@ -290,5 +290,7 @@ def main(argv: list[str], project_arg: str | None = None) -> int:
     if project_arg:
         os.environ["RECOMP_PROJECT"] = project_arg
     print(f"Recomposer studio on http://{a.host}:{a.port}")
+    from ..research import schedule
+    schedule.start()  # follow checks every research.check_every_h hours while the studio runs
     uvicorn.run(app, host=a.host, port=a.port, log_level="warning")
     return 0

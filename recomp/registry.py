@@ -88,6 +88,28 @@ class Ctx:
         self.verb_name = verb_name
         self.args = args or {}
         self.last_op: str | None = None
+        self._studio = None
+
+    @property
+    def studio(self):
+        """The studio store (follows, inbox, library, topics): no project needed."""
+        if self._studio is None:
+            from .core.studio import open_db
+            self._studio = open_db()
+        return self._studio
+
+    @contextmanager
+    def studio_op(self, summary: str = "") -> Iterator[Any]:
+        with self.studio.op(self.verb_name, self.actor, self.args, force=self.force) as tx:
+            tx.summary = summary
+            yield tx
+        if tx.op_id:
+            self.last_op = tx.op_id
+
+    def close(self) -> None:
+        if self._studio is not None:
+            self._studio.close()
+            self._studio = None
 
     @property
     def project(self):
@@ -159,5 +181,6 @@ def run(name: str, args: dict | None = None, actor: str = "agent", project_arg: 
         return fail(name, RecompError("E_INTERNAL", f"{type(exc).__name__}: {exc}", data=data,
                                       hint="Re-run with RECOMP_DEBUG=1 for a traceback."))
     finally:
+        ctx.close()
         if project is None and ctx._project is not None:
             ctx._project.close()

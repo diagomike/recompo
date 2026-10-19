@@ -288,8 +288,108 @@ MIGRATIONS: list[str] = [
     """,
 ]
 
+# The studio store (``studio.db`` in the studio home): what spans projects, i.e. the research wing (P17).
+# Same store code as a project (op log, undo, precedence, events); its own append-only migrations.
+STUDIO_MIGRATIONS: list[str] = [
+    # 1 — P17a: follows, their inbox, and the transcript library (text only, searchable).
+    f"""
+    CREATE TABLE meta (key TEXT PRIMARY KEY, value TEXT);
+    CREATE TABLE refseq (kind TEXT PRIMARY KEY, next INTEGER NOT NULL);
+    CREATE TABLE op (
+        seq INTEGER PRIMARY KEY AUTOINCREMENT,
+        id TEXT UNIQUE NOT NULL,
+        time REAL NOT NULL,
+        actor TEXT NOT NULL,
+        verb TEXT NOT NULL,
+        args TEXT NOT NULL DEFAULT '{{}}',
+        summary TEXT NOT NULL DEFAULT '',
+        changes TEXT NOT NULL DEFAULT '[]',
+        refs TEXT NOT NULL DEFAULT '[]',
+        state TEXT NOT NULL DEFAULT 'done',
+        redoable INTEGER NOT NULL DEFAULT 1
+    );
+    CREATE TABLE event (
+        seq INTEGER PRIMARY KEY AUTOINCREMENT,
+        time REAL NOT NULL,
+        kind TEXT NOT NULL,
+        payload TEXT NOT NULL DEFAULT '{{}}'
+    );
+    CREATE TABLE ui_state (key TEXT PRIMARY KEY, value TEXT NOT NULL, updated_at REAL NOT NULL);
+
+    CREATE TABLE follow ({COMMON},
+        name TEXT NOT NULL,
+        person TEXT NOT NULL DEFAULT '',
+        projects TEXT NOT NULL DEFAULT '[]',
+        feeds TEXT NOT NULL DEFAULT '{{}}',
+        only_kind TEXT NOT NULL DEFAULT 'videos',
+        match TEXT NOT NULL DEFAULT '',
+        rights TEXT NOT NULL DEFAULT '{{}}',
+        note TEXT NOT NULL DEFAULT '',
+        state TEXT NOT NULL DEFAULT '{{}}'
+    );
+    CREATE TABLE follow_seen (
+        follow_id TEXT NOT NULL REFERENCES follow(id) ON DELETE CASCADE,
+        key TEXT NOT NULL,
+        at REAL NOT NULL,
+        PRIMARY KEY (follow_id, key)
+    );
+    CREATE TABLE inbox ({COMMON},
+        follow_id TEXT REFERENCES follow(id) ON DELETE SET NULL,
+        project TEXT NOT NULL DEFAULT '',
+        key TEXT NOT NULL,
+        kind TEXT NOT NULL DEFAULT 'video',
+        title TEXT NOT NULL DEFAULT '',
+        channel TEXT NOT NULL DEFAULT '',
+        url TEXT NOT NULL DEFAULT '',
+        video_id TEXT,
+        published TEXT,
+        duration REAL,
+        route TEXT NOT NULL DEFAULT '{{}}',
+        status TEXT NOT NULL DEFAULT 'new',
+        taken TEXT NOT NULL DEFAULT '{{}}',
+        meta TEXT NOT NULL DEFAULT '{{}}'
+    );
+    CREATE INDEX inbox_status ON inbox(status, project);
+    CREATE UNIQUE INDEX inbox_key ON inbox(follow_id, key);
+
+    CREATE TABLE lib_doc ({COMMON},
+        follow_id TEXT REFERENCES follow(id) ON DELETE SET NULL,
+        key TEXT UNIQUE NOT NULL,
+        creator TEXT NOT NULL DEFAULT '',
+        title TEXT NOT NULL DEFAULT '',
+        published TEXT,
+        url TEXT NOT NULL DEFAULT '',
+        video_id TEXT,
+        route TEXT NOT NULL DEFAULT '{{}}',
+        language TEXT,
+        stats TEXT NOT NULL DEFAULT '{{}}'
+    );
+    CREATE TABLE lib_seg (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        doc_id TEXT NOT NULL REFERENCES lib_doc(id) ON DELETE CASCADE,
+        idx INTEGER NOT NULL,
+        start REAL NOT NULL,
+        "end" REAL NOT NULL,
+        speaker TEXT,
+        text TEXT NOT NULL
+    );
+    CREATE INDEX lib_seg_doc ON lib_seg(doc_id, idx);
+    CREATE VIRTUAL TABLE lib_seg_fts USING fts5(text, content='lib_seg', content_rowid='id',
+        tokenize='unicode61 remove_diacritics 2');
+    CREATE TRIGGER lib_seg_ai AFTER INSERT ON lib_seg BEGIN
+        INSERT INTO lib_seg_fts(rowid, text) VALUES (new.id, new.text);
+    END;
+    CREATE TRIGGER lib_seg_ad AFTER DELETE ON lib_seg BEGIN
+        INSERT INTO lib_seg_fts(lib_seg_fts, rowid, text) VALUES ('delete', old.id, old.text);
+    END;
+    """,
+]
+
 # Columns stored as JSON text, decoded on read.
 JSON_COLS: dict[str, set[str]] = {
+    "follow": {"projects", "feeds", "rights", "state", "prov"},
+    "inbox": {"route", "taken", "meta", "prov"},
+    "lib_doc": {"route", "stats", "prov"},
     "op": {"args", "changes", "refs"},
     "event": {"payload"},
     "job": {"params", "result", "depends_on"},
@@ -314,10 +414,10 @@ JSON_COLS: dict[str, set[str]] = {
 # Tables whose rows carry provenance and go through the precedence guard.
 EDITORIAL = {"source", "transcript", "segment", "person", "speaker_label", "chapter", "cut",
              "journey", "slot", "overlay", "music_track", "music_bed", "profile", "export",
-             "translation"}
+             "translation", "follow", "inbox", "lib_doc"}
 
 # Bookkeeping fields written by jobs: no precedence guard, ignored when undo checks for conflicts.
-UNGUARDED = {"status", "stats", "has_words", "updated_at", "outputs", "checks", "job_id", "recipe_hash",
+UNGUARDED = {"status", "stats", "has_words", "updated_at", "outputs", "checks", "job_id", "recipe_hash", "state",
              "idx", "seconds"}  # seconds: measured voice time; idx: segment order is renumbered in bulk by line splits; undo restores content, not position numbers
 
 # Child rows captured with a delete so undo can restore them (only op-logged children).
@@ -325,8 +425,10 @@ CHILDREN: dict[str, list[tuple[str, str]]] = {
     "journey": [("slot", "journey_id"), ("overlay", "journey_id"), ("music_bed", "journey_id")],
     "slot": [("overlay", "slot_id")],
     "source": [("chapter", "source_id"), ("cut", "source_id"), ("speaker_label", "source_id")],
+    "follow": [("inbox", "follow_id")],
 }
 
 # Short-ref prefixes per table (chapters/transcripts get ``S1.c4`` / ``S1.t2`` style refs).
 REF_PREFIX = {"source": "S", "cut": "C", "journey": "J", "overlay": "O", "music_track": "M",
-              "music_bed": "B", "person": "P", "export": "X", "job": "job"}
+              "music_bed": "B", "person": "P", "export": "X", "job": "job",
+              "follow": "F", "inbox": "I", "lib_doc": "L"}

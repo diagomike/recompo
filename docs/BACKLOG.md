@@ -26,13 +26,16 @@ Every open task by priority. Done phases are summarised; their detail is in git 
       layouts), studio keys `1`–`6` and `Enter` ([report](runs/P16b-ux-rework.md#follow-up-source-room-and-translation-editor-2026-10-16)).
 - [ ] Still open from P16b: a "Look" preview of lower thirds per slot; music search needs the network (no offline
       library seed yet). (Fixed 2026-10-19: the room's command row stays on one line down to 1024 px.)
-- [ ] **P17 research wing** (re-planned 2026-10-16, plan §6, [research](research/P17-research-wing.md)): find and follow
-      creators, inbox from their new posts, transcript library (back catalogue, text only), topics from the news or
-      from you, topic briefs ("what my creators said about X"), journeys from topics, rights statuses with the
-      posting gate and the hub publish confirmation (D-23). Awaiting your approval; open questions P17-Q1–Q6.
+- [ ] **P17 research wing** (approved 2026-10-19 with defaults P17-Q1–Q6; plan §6, [research](research/P17-research-wing.md)):
+  - [x] P17a find and follow: `find creators`, follows, checks (every 2 h while the studio runs), inbox take
+        (source, transcript by route, chapters, cut candidates on project themes), back-catalogue library and search.
+  - [ ] P17b topics: `topic suggest` (news prompts), `topic add/scan/brief`, `journey from-topic`.
+  - [ ] P17c rights and posting: `source rights set`, `post plan/queue/open/link` gate, `hub publish --confirm`.
+  - [ ] P17d viewer: Follows and Topics pages, publish confirmation, post queue panel.
+  - [ ] M5 acceptance run (`docs/runs/M5-follows-and-topics.md`).
 
 ## Waiting on the user
-- [ ] Approve the new P17 plan (or answer P17-Q1–Q6); name the channel you post to.
+- [ ] Name the channel you post to (P17-Q3; a placeholder is used until then).
 - [ ] Cookies for YouTube when it blocks: export a cookies.txt from Chrome (its background processes lock the database).
 - [ ] Real Kaggle/Colab run of `notebooks/recomp_worker.ipynb` (the protocol is tested locally with a stand-in worker).
 - [ ] Listening check of the am/sw/fr/om dubs (automated checks pass; human ears decide).

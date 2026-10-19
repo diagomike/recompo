@@ -3,7 +3,7 @@
 ## Claude Code specifics
 
 - Skills in `.claude/skills/`: `recomp-operate`, `recomp-ingest`, `recomp-chapters`, `recomp-cuts`,
-  `recomp-journeys`, `recomp-export`. Load the matching one before a stage of work.
+  `recomp-journeys`, `recomp-export`, `recomp-research` (following creators). Load the matching one before a stage of work.
 - The `recomposer` MCP server (`.mcp.json`) exposes the same verbs as tools; the CLI is often
   simpler in Bash. Both print the same envelope.
 - To show the user the viewer: start it with `recomp serve` in the background (or open

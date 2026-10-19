@@ -51,20 +51,21 @@ def decode(table: str, row: sqlite3.Row | None) -> dict | None:
     return out
 
 
-def connect(path: Path) -> sqlite3.Connection:
+def connect(path: Path, migrations: list[str] | None = None) -> sqlite3.Connection:
     conn = sqlite3.connect(str(path), timeout=30, isolation_level=None, check_same_thread=False)
     conn.row_factory = sqlite3.Row
     conn.execute("PRAGMA journal_mode=WAL")
     conn.execute("PRAGMA foreign_keys=ON")
     conn.execute("PRAGMA synchronous=NORMAL")
     conn.execute("PRAGMA busy_timeout=30000")
-    migrate(conn)
+    migrate(conn, migrations)
     return conn
 
 
-def migrate(conn: sqlite3.Connection) -> int:
+def migrate(conn: sqlite3.Connection, migrations: list[str] | None = None) -> int:
+    migrations = schema.MIGRATIONS if migrations is None else migrations
     version = conn.execute("PRAGMA user_version").fetchone()[0]
-    for i, sql in enumerate(schema.MIGRATIONS[version:], start=version + 1):
+    for i, sql in enumerate(migrations[version:], start=version + 1):
         conn.execute("BEGIN IMMEDIATE")
         try:
             for stmt in _split_sql(sql):
@@ -259,9 +260,9 @@ def _norm(v: Any) -> Any:
 
 
 class Database:
-    def __init__(self, path: Path):
+    def __init__(self, path: Path, migrations: list[str] | None = None):
         self.path = path
-        self.conn = connect(path)
+        self.conn = connect(path, migrations)
 
     def close(self) -> None:
         self.conn.close()

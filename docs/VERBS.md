@@ -16,10 +16,14 @@ Effects: `read` (no changes) · `write` (undoable op) · `heavy` (starts a job) 
 | `cut` | [`cut.add`](#cutadd), [`cut.edit`](#cutedit), [`cut.list`](#cutlist), [`cut.merge`](#cutmerge), [`cut.remove`](#cutremove), [`cut.show`](#cutshow), [`cut.split`](#cutsplit), [`cut.suggest`](#cutsuggest), [`cut.tag`](#cuttag), [`cut.trim`](#cuttrim) |
 | `doctor` | [`doctor`](#doctor) |
 | `export` | [`export.caption-sheet`](#exportcaption-sheet), [`export.check`](#exportcheck), [`export.cuts`](#exportcuts), [`export.multitrack`](#exportmultitrack), [`export.run`](#exportrun), [`export.show`](#exportshow), [`export.status`](#exportstatus) |
+| `find` | [`find.creators`](#findcreators) |
+| `follow` | [`follow.add`](#followadd), [`follow.backfill`](#followbackfill), [`follow.check`](#followcheck), [`follow.edit`](#followedit), [`follow.list`](#followlist), [`follow.remove`](#followremove) |
 | `hub` | [`hub.comment`](#hubcomment), [`hub.comments`](#hubcomments), [`hub.feed`](#hubfeed), [`hub.follow`](#hubfollow), [`hub.fork`](#hubfork), [`hub.link-post`](#hublink-post), [`hub.login`](#hublogin), [`hub.logout`](#hublogout), [`hub.publish`](#hubpublish), [`hub.pull`](#hubpull), [`hub.show`](#hubshow), [`hub.vote`](#hubvote), [`hub.whoami`](#hubwhoami) |
+| `inbox` | [`inbox.dismiss`](#inboxdismiss), [`inbox.list`](#inboxlist), [`inbox.take`](#inboxtake) |
 | `job` | [`job.cancel`](#jobcancel), [`job.list`](#joblist), [`job.retry`](#jobretry), [`job.run`](#jobrun), [`job.show`](#jobshow), [`job.tail`](#jobtail), [`job.wait`](#jobwait) |
 | `journey` | [`journey.add`](#journeyadd), [`journey.delete`](#journeydelete), [`journey.duplicate`](#journeyduplicate), [`journey.edit`](#journeyedit), [`journey.from-search`](#journeyfrom-search), [`journey.guide`](#journeyguide), [`journey.list`](#journeylist), [`journey.move`](#journeymove), [`journey.new`](#journeynew), [`journey.remove`](#journeyremove), [`journey.reorder`](#journeyreorder), [`journey.review`](#journeyreview), [`journey.section`](#journeysection), [`journey.show`](#journeyshow), [`journey.transition`](#journeytransition), [`journey.trim-slot`](#journeytrim-slot), [`journey.validate`](#journeyvalidate) |
 | `lang` | [`lang.clear`](#langclear), [`lang.edit`](#langedit), [`lang.lines`](#langlines), [`lang.replace`](#langreplace), [`lang.say`](#langsay), [`lang.status`](#langstatus), [`lang.translate`](#langtranslate), [`lang.voices`](#langvoices) |
+| `library` | [`library.list`](#librarylist), [`library.remove`](#libraryremove), [`library.search`](#librarysearch), [`library.show`](#libraryshow) |
 | `music` | [`music.bed-add`](#musicbed-add), [`music.bed-edit`](#musicbed-edit), [`music.bed-remove`](#musicbed-remove), [`music.get`](#musicget), [`music.library-add`](#musiclibrary-add), [`music.list`](#musiclist), [`music.search`](#musicsearch) |
 | `op` | [`op.log`](#oplog), [`op.redo`](#opredo), [`op.undo`](#opundo) |
 | `overlay` | [`overlay.add`](#overlayadd), [`overlay.auto-lower-thirds`](#overlayauto-lower-thirds), [`overlay.edit`](#overlayedit), [`overlay.list`](#overlaylist), [`overlay.remove`](#overlayremove) |
@@ -500,6 +504,144 @@ Exports with status, outputs and failed checks (newest first).
 | `<of>` | string | None | Only exports of this journey or cut |
 | `--limit` | integer | 40 |  |
 
+## find
+
+### find.creators
+
+`recomp find creators <query>` · effect: **network**
+
+Find channels, podcasts and a person's appearances to follow. Each result says how its transcripts can be had
+(published, lex, captions, asr); `recomp follow add <n>` follows result n.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<query>` | string | required | A subject, a channel or show name, or a person |
+| `--kind` | string | 'all' | channels, podcasts, person or all |
+| `--limit` | integer | 8 | Results per kind |
+| `--routes` | boolean | True | Check which podcasts publish transcripts (reads the start of each feed) |
+
+```
+recomp find creators "philosophy podcast"
+recomp find creators "Alex O'Connor" --kind person
+recomp find creators "Lex Fridman" --kind podcasts
+```
+
+## follow
+
+### follow.add
+
+`recomp follow add <target>` · effect: **network**
+
+Follow a creator or show: their YouTube channel and/or podcast feed, for the projects named. New posts land in
+the inbox on `follow check` (and every 2 h while the studio runs).
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<target>` | string | required | @handle or channel link, a podcast feed URL, a number from the last `find creators`, or a name |
+| `--project` | list[string] | None | Projects this follow feeds (default: the current one) |
+| `--name` | string | None | What to call it (default: the channel or show title) |
+| `--person` | string | None | The person (host) this follow is about, e.g. "Alex O'Connor" |
+| `--podcast` | string | None | Their podcast: feed URL or show name (looked up on iTunes) |
+| `--appearances` | boolean | False | Also watch for the person as a guest on other channels |
+| `--only` | string | 'videos' | videos, shorts or all |
+| `--match` | string | None | Only items whose title matches (regex, case-insensitive) |
+| `--rights` | string | 'private' | campaign, permitted or private (D-23); applies to sources it brings in |
+| `--evidence` | string | None | Link to the clipping program's terms or the creator's permission |
+| `--note` | string | '' |  |
+
+```
+recomp follow add @CosmicSkeptic --project alex-oconnor --person "Alex O'Connor" --podcast "Within Reason"
+recomp follow add https://lexfridman.com/feed/podcast --project ai-and-ideas --name "Lex Fridman"
+recomp follow add 3 --project ai-and-ideas
+```
+
+### follow.backfill
+
+`recomp follow backfill <ref>` · effect: **network**
+
+The back catalogue's transcripts (text only, no video) into the studio library, so "what did they say before"
+is a search: `recomp library search "…"`. Resumable: each run fetches up to --limit more.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<ref>` | string | required | Follow ref or name |
+| `--since` | string | None | How far back: 2y, 18m, 90d or a date (default research.backfill_since) |
+| `--limit` | integer | 20 | Transcripts to fetch in this run (run again to continue) |
+| `--captions` | boolean | True | For YouTube-only creators, fetch the videos' captions (one request each) |
+
+```
+recomp follow backfill F2
+recomp follow backfill "Lex Fridman" --since 2024-01-01 --limit 50
+```
+
+### follow.check
+
+`recomp follow check` · effect: **network**
+
+Look for new posts from followed creators; new ones go to the inbox of the follow's first project.
+A follow's first check takes only the newest few (`research.first_check_items`) and marks the rest as seen.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `--follow` | list[string] | None | Only these follows (default: all) |
+| `--first` | integer | None | On a follow's first check, how many of the newest items to put in the inbox |
+
+```
+recomp follow check
+recomp follow check --follow F2
+```
+
+### follow.edit
+
+`recomp follow edit <ref>` · effect: **write**
+
+Change a follow: name, person, projects, podcast feed, appearances, title filter, rights, note.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<ref>` | string | required | Follow ref or name |
+| `--name` | string | None |  |
+| `--person` | string | None |  |
+| `--project` | list[string] | None | Replace the projects it feeds |
+| `--podcast` | string | None | Set the podcast feed (URL or show name) |
+| `--appearances` | boolean | None |  |
+| `--only` | string | None |  |
+| `--match` | string | None | Title filter (regex); "" clears it |
+| `--rights` | string | None | campaign, permitted or private |
+| `--evidence` | string | None |  |
+| `--note` | string | None |  |
+
+```
+recomp follow edit F1 --project alex-oconnor,ai-and-ideas
+recomp follow edit F2 --match "AI|conscious"
+```
+
+### follow.list
+
+`recomp follow list` · effect: **read**
+
+Followed creators and shows: feeds, transcript route, new inbox items, library size, last check.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `--project` | string | None | Only follows feeding this project |
+
+```
+recomp follow list
+recomp follow list --project alex-oconnor
+```
+
+### follow.remove
+
+`recomp follow remove <ref>` · effect: **write**
+
+Stop following. Its inbox items go too (undo restores them); library transcripts stay unless --library.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<ref>` | string | required |  |
+| `--library` | boolean | False | Also drop its transcripts from the library |
+
 ## hub
 
 ### hub.comment
@@ -651,6 +793,58 @@ Vote a recipe up or down (or clear your vote).
 `recomp hub whoami` · effect: **read**
 
 Who the studio is signed in as on the configured hub.
+
+## inbox
+
+### inbox.dismiss
+
+`recomp inbox dismiss <refs>` · effect: **write**
+
+Not for us: dismissed items stay out of the inbox (a later check does not bring them back).
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<refs>` | list[string] | required |  |
+
+```
+recomp inbox dismiss I5 I6
+```
+
+### inbox.list
+
+`recomp inbox list` · effect: **read**
+
+New posts from followed creators, waiting to be taken into a project or dismissed.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `--project` | string | None |  |
+| `--status` | string | 'new' | new, taken, dismissed or all |
+| `--follow` | string | None |  |
+| `--limit` | integer | 50 |  |
+
+```
+recomp inbox list
+recomp inbox list --status all --follow F1
+```
+
+### inbox.take
+
+`recomp inbox take <refs>` · effect: **network**
+
+Take new posts into a project: the source (metadata first), its transcript by the cheapest route, the creator's
+chapters, and cut candidates on the project's themes (`project set --themes`).
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<refs>` | list[string] | required | Inbox items |
+| `--project` | string | None | Take into this project (default: the item's) |
+| `--suggest` | boolean | True | Suggest cuts on the project's themes when a transcript is ready |
+
+```
+recomp inbox take I3
+recomp inbox take I3 I4 --project ai-and-ideas
+```
 
 ## job
 
@@ -1128,6 +1322,70 @@ Voices available for a language (edge neural voices; the configured default is m
 recomp lang voices am
 ```
 
+## library
+
+### library.list
+
+`recomp library list` · effect: **read**
+
+Transcripts in the studio library: creator, episode, date, route, size.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `--follow` | string | None |  |
+| `--limit` | integer | 100 |  |
+
+```
+recomp library list --follow F2
+```
+
+### library.remove
+
+`recomp library remove <refs>` · effect: **write**
+
+Drop transcripts from the library (run `follow backfill` to fetch them again).
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<refs>` | list[string] | required |  |
+
+### library.search
+
+`recomp library search <query>` · effect: **read**
+
+Search what the followed creators said, across their back catalogue (same as `search --scope library`).
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<query>` | string | required | Words or "exact phrases" |
+| `--creator` | list[string] | None | Only these creators (follow person or name) |
+| `--since` | string | None | Only episodes since (2y, 2024-01-01) |
+| `--until` | string | None | Only episodes until (date) |
+| `--limit` | integer | 20 |  |
+| `--context` | integer | 1 |  |
+
+```
+recomp library search "copy itself"
+recomp library search consciousness --creator "Lex Fridman" --since 2y
+```
+
+### library.show
+
+`recomp library show <ref>` · effect: **read**
+
+Read a library transcript (a stretch of it), with speakers and times.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<ref>` | string | required |  |
+| `--from` | string | None | Start time (1:02:03) |
+| `--to` | string | None |  |
+| `--limit` | integer | 80 | Lines to show |
+
+```
+recomp library show L4 --from 35:00 --to 37:00
+```
+
 ## music
 
 ### music.bed-add
@@ -1251,9 +1509,11 @@ The operation log, newest first: verb, actor, refs, summary and undo state.
 | `--actor` | string | None | Only ops by this actor: user, agent or machine |
 | `--since` | string | None | Only ops newer than this, e.g. 10m, 2h, 90s |
 | `--ref` | string | None | Only ops that touched this ref |
+| `--studio` | boolean | False | The studio store's log (follows, inbox, library, topics) instead of the project's |
 
 ```
 recomp op log --actor user --since 1h
+recomp op log --studio
 ```
 
 ### op.redo
@@ -1265,6 +1525,7 @@ Redo the most recently undone change(s).
 | Field | Type | Default | Description |
 |---|---|---|---|
 | `--n` | integer | 1 | How many ops to undo |
+| `--studio` | boolean | False | Undo in the studio store (follows, inbox, library, topics) |
 
 ### op.undo
 
@@ -1275,10 +1536,12 @@ Undo the most recent change(s). Refuses to undo a higher-precedence actor's work
 | Field | Type | Default | Description |
 |---|---|---|---|
 | `--n` | integer | 1 | How many ops to undo |
+| `--studio` | boolean | False | Undo in the studio store (follows, inbox, library, topics) |
 
 ```
 recomp op undo
 recomp op undo --n 3
+recomp op undo --studio
 ```
 
 ## overlay
@@ -1553,7 +1816,7 @@ recomp project reveal X3
 
 `recomp project set` · effect: **write**
 
-Change the project's name, kind, languages or description.
+Change the project's name, kind, languages, description or themes.
 
 | Field | Type | Default | Description |
 |---|---|---|---|
@@ -1561,6 +1824,11 @@ Change the project's name, kind, languages or description.
 | `--kind` | string | None |  |
 | `--languages` | list[string] | None |  |
 | `--description` | string | None |  |
+| `--themes` | list[string] | None | What this project is about: cut suggestions for new posts from followed creators use these (e.g. consciousness,free will) |
+
+```
+recomp project set --themes "consciousness,free will"
+```
 
 ### project.show
 
@@ -1627,6 +1895,7 @@ recomp recipe show J1
 `recomp search <query>` · effect: **read**
 
 Find where something is said, across all sources. Each hit has its chapter, surrounding lines and a ready `cut add` command.
+`--scope library` searches the followed creators' back catalogue instead (no project needed).
 
 | Field | Type | Default | Description |
 |---|---|---|---|
@@ -1638,11 +1907,13 @@ Find where something is said, across all sources. Each hit has its chapter, surr
 | `--context` | integer | 1 | Segments of context before and after |
 | `--limit` | integer | 20 |  |
 | `--mode` | string | 'auto' | all (every word), any, or auto (all, then any if nothing found) |
+| `--scope` | string | 'project' | project (this project's sources) or library (followed creators' back catalogue in the studio library) |
 
 ```
 recomp search "free will"
 recomp search forgiveness --sources S1,S4 --limit 10
 recomp search "everlasting life" --speaker "Pastor Chris"
+recomp search "copy itself" --scope library
 ```
 
 ## setup

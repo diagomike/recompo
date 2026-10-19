@@ -21,4 +21,5 @@ MODULES = [
     "lang",
     "hub",
     "trends",
+    "follow",
 ]

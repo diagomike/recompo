@@ -98,11 +98,13 @@ class SetIn(BaseModel):
     kind: str | None = None
     languages: list[str] | None = None
     description: str | None = None
+    themes: list[str] | None = Field(None, description="What this project is about: cut suggestions for new posts "
+                                                       "from followed creators use these (e.g. consciousness,free will)")
 
 
-@verb("project.set", SetIn, effect="write")
+@verb("project.set", SetIn, effect="write", examples=['recomp project set --themes "consciousness,free will"'])
 def project_set(ctx: Ctx, inp: SetIn):
-    """Change the project's name, kind, languages or description."""
+    """Change the project's name, kind, languages, description or themes."""
     meta = ctx.project.meta
     for k, v in inp.model_dump(exclude_none=True).items():
         if k == "kind" and v not in P.KINDS:

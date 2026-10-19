@@ -49,6 +49,10 @@ def _ydl(extra: dict | None = None):
     browser = config.get("network.cookies_from_browser")
     if browser:
         opts["cookiesfrombrowser"] = (browser,)
+    # Or an exported cookies.txt (Chrome locks its own database while any Chrome process runs).
+    cookie_file = config.get("network.cookies_file")
+    if cookie_file:
+        opts["cookiefile"] = cookie_file
     opts.update(extra or {})
     return yt_dlp.YoutubeDL(opts)
 
