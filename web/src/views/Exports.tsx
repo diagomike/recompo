@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { Copy, FolderOpen, Play, RefreshCw } from "lucide-react";
+import { Copy, FolderOpen, Play, RefreshCw, Upload } from "lucide-react";
 import { fileUrl, must } from "../api";
 import { useApp, useData } from "../App";
 import { Act, useActions } from "../actions";
 import { FilterBar, useFilters } from "../filters";
 import Translations from "./Translations";
+import { Disclosure, Empty } from "../ui";
 
 export default function Exports() {
   const { route, go } = useApp();
@@ -24,32 +25,43 @@ export default function Exports() {
     (!f.lang || x.lang === f.lang) && (!f.status || (f.status === "problems" ? x.status !== "done" : x.status === f.status)) && (f.previews || !x.preview));
 
   return (
-    <div className="page" style={{ maxWidth: "none" }}>
-      <div className="row" style={{ marginBottom: 4 }}>
-        <h1 className="h1" style={{ margin: 0 }}>Exports</h1>
-        <div className="tabs" style={{ marginLeft: 8 }}>
-          <button className={"tab" + (tab === "renders" ? " on" : "")} onClick={() => setF("tab", null)}>Renders</button>
-          <button className={"tab" + (tab === "translations" ? " on" : "")} onClick={() => setF("tab", "translations")}>Translations</button>
+    <div className="page">
+      <div className="pagehead">
+        <div className="titles">
+          <h1 className="h1">Exports</h1>
+          <p className="sub">Every render with its captions, a ready-to-paste description with full credits, and the recipe. You upload them yourself.</p>
         </div>
-        <div className="spacer" />
-        <Act verb="project.reveal" args={{ what: "exports" }} small ghost quiet icon={<FolderOpen size={13} />}>Exports folder</Act>
+        <Act verb="project.reveal" args={{ what: "exports" }} quiet icon={<FolderOpen size={14} />}>Exports folder</Act>
+      </div>
+      <div className="segmented" style={{ marginBottom: 20 }} role="tablist">
+        <button className={tab === "renders" ? "on" : ""} onClick={() => setF("tab", null)}>Renders</button>
+        <button className={tab === "translations" ? "on" : ""} onClick={() => setF("tab", "translations")}>Translations</button>
       </div>
       {tab === "translations" ? <Translations journeys={journeys || []} profiles={profs || []} /> : <>
-      <p className="sub">Render a journey in any formats and languages. Each export comes with captions, a ready-to-paste description with full credits, and the recipe. You upload it yourself.</p>
-      <div className="card" style={{ marginBottom: 12 }}>
-        <div className="row">
-          <select className="input" value={j} onChange={(e) => setJ(e.target.value)}>
-            {(journeys || []).map((x) => <option key={x.ref} value={x.ref}>{x.ref} · {x.title} ({x.duration})</option>)}
-          </select>
-          {(profs || []).filter((p) => p.name !== "preview").map((p) => (
-            <label key={p.name} className="chip" style={{ cursor: "pointer" }} title={p.description}>
-              <input type="checkbox" checked={chosen.includes(p.name)} onChange={(e) => setChosen(e.target.checked ? [...chosen, p.name] : chosen.filter((x) => x !== p.name))} /> {p.name} {p.size}
-            </label>
-          ))}
-          <input className="input" style={{ width: 140 }} placeholder="langs e.g. en,am,sw" value={langs} onChange={(e) => setLangs(e.target.value)} />
-          <Act verb="preview" args={{ target, profile: chosen[0] || "landscape" }} disabled={!target}>Preview</Act>
-          <Act verb="export.run" args={{ journey: target, profiles: chosen, langs: langList }} primary agent disabled={!target || !chosen.length}>Export</Act>
+      <div className="callout" style={{ marginBottom: 16 }}>
+        <Upload size={14} />
+        <div className="grow">To export a journey, open it: its last step, <b>Export &amp; share</b>, renders every destination and language.
+          <div className="row tight" style={{ marginTop: 8 }}>
+            {(journeys || []).slice(-4).map((x) => <button key={x.ref} className="btn small" onClick={() => go("journeys", x.ref, { step: "export" })}>{x.ref} · {String(x.title).slice(0, 28)}</button>)}
+          </div>
         </div>
+      </div>
+      <div style={{ marginBottom: 16 }}>
+        <Disclosure id="exports.quick" label="Quick export (advanced)">
+          <div className="card row">
+            <select className="input" value={j} onChange={(e) => setJ(e.target.value)} aria-label="Journey">
+              {(journeys || []).map((x) => <option key={x.ref} value={x.ref}>{x.ref} · {x.title} ({String(x.duration).replace(/^00:/, "")})</option>)}
+            </select>
+            {(profs || []).filter((p) => p.name !== "preview").map((p) => (
+              <label key={p.name} className={"btn small" + (chosen.includes(p.name) ? " on" : "")} style={{ cursor: "pointer" }} data-tip={p.description}>
+                <input type="checkbox" checked={chosen.includes(p.name)} onChange={(e) => setChosen(e.target.checked ? [...chosen, p.name] : chosen.filter((x) => x !== p.name))} /> {p.name}
+              </label>
+            ))}
+            <input className="input" style={{ width: 160 }} placeholder="langs, e.g. en,am,sw" value={langs} onChange={(e) => setLangs(e.target.value)} />
+            <Act verb="preview" args={{ target, profile: chosen[0] || "landscape" }} disabled={!target}>Preview</Act>
+            <Act verb="export.run" args={{ journey: target, profiles: chosen, langs: langList }} primary agent disabled={!target || !chosen.length}>Export</Act>
+          </div>
+        </Disclosure>
       </div>
       {error && <div className="err">{error}</div>}
       <FilterBar count={list.length} keep={["tab"]} fields={[
@@ -59,22 +71,22 @@ export default function Exports() {
         { key: "status", label: "Status", type: "select", options: ["done", "running", "queued", "failed", ["problems", "not done"]] },
         { key: "previews", label: "Show previews", type: "check" },
       ]} />
-      <div className="jgrid" style={{ gridTemplateColumns: "minmax(300px, 420px) minmax(0, 1fr)" }}>
+      <div className="jgrid" style={{ gridTemplateColumns: current ? "minmax(280px, 400px) minmax(0, 1fr)" : "minmax(0, 1fr)" }}>
         <div>
           {list.map((x) => (
-            <div key={x.ref} className="card" style={{ marginBottom: 6, cursor: "pointer", borderColor: x.ref === current ? "var(--accent)" : undefined }}
+            <div key={x.ref} className={"card pad-sm click" + (x.ref === current ? " sel" : "")} style={{ marginBottom: 10 }}
                  onClick={() => go("exports", x.ref)}>
               <div className="row">
                 <b className="mono">{x.ref}</b><span>{x.of} · {x.title}</span><div className="spacer" />
                 <span className={"chip " + (x.status === "done" ? "done" : x.status.includes("problem") || x.status === "failed" ? "failed" : "running")}>{x.status}</span>
               </div>
-              <div style={{ fontSize: 12, color: "var(--muted)" }}>{x.preview ? "preview · " : ""}{x.profile} · {x.lang}{x.seconds ? ` · rendered in ${x.seconds}s` : ""}</div>
-              {x.progress != null && x.status !== "done" && <div className="bar" style={{ marginTop: 4 }}><i style={{ width: `${Math.round(x.progress * 100)}%` }} /></div>}
+              <div className="muted2">{x.preview ? "preview · " : ""}{x.profile} · {x.lang}{x.seconds ? ` · rendered in ${x.seconds}s` : ""}</div>
+              {x.progress != null && x.status !== "done" && <div className="bar" style={{ marginTop: 8 }}><i style={{ width: `${Math.round(x.progress * 100)}%` }} /></div>}
               {x.error && <div className="err" style={{ fontSize: 12 }}>{x.error}</div>}
-              {!!x.problems.length && <div style={{ fontSize: 12, color: "var(--red)" }}>{x.problems.map((p: any) => p.check).join(", ")}</div>}
+              {!!x.problems.length && <div className="muted2" style={{ color: "var(--red)" }}>{x.problems.map((p: any) => p.check).join(", ")}</div>}
             </div>
           ))}
-          {all && !list.length && <div className="empty">{all.length ? "No exports match these filters." : "No exports yet."}</div>}
+          {all && !list.length && <Empty icon={<Upload size={14} />} title={all.length ? "No exports match these filters" : "No exports yet"}>{all.length ? "Clear a filter to see more." : "Open a journey and follow it to its last step, Export & share."}</Empty>}
         </div>
         <div>{current && <ExportDetail key={current} xref={current} />}</div>
       </div>
@@ -127,15 +139,15 @@ function ExportDetail({ xref }: { xref: string }) {
   const vertical = (x.checks || []).some((c: any) => c.check === "frame size" && /^(\d+)x(\d+)$/.test(c.detail) && +c.detail.split("x")[1] > +c.detail.split("x")[0]);
   return (
     <div className="card">
-      <div className="row" style={{ marginBottom: 8 }}>
-        <b>{x.ref} · {x.title}</b><span className="chip">{x.profile} · {x.lang}</span><div className="spacer" />
+      <div className="row" style={{ marginBottom: 12 }}>
+        <b className="h3" style={{ margin: 0 }}>{x.ref} · {x.title}</b><span className="chip">{x.profile} · {x.lang}</span><div className="spacer" />
         <Act verb="project.reveal" args={{ what: xref }} small ghost quiet icon={<FolderOpen size={12} />}>Folder</Act>
         <Act verb="export.check" args={{ ref: xref }} small icon={<RefreshCw size={12} />}>Re-check</Act>
       </div>
       {x.video ? (
-        <video controls src={fileUrl(x.video)} style={{ width: "100%", maxHeight: vertical ? 560 : 420, background: "#000", borderRadius: 4 }} />
+        <video controls src={fileUrl(x.video)} style={vertical ? { height: "min(64vh, 560px)", maxWidth: "100%", display: "block", margin: "0 auto", background: "#000", borderRadius: 12 } : { width: "100%", maxHeight: 440, background: "#000", borderRadius: 12 }} />
       ) : <div className="empty"><Play size={14} /> Not rendered yet ({x.status}).</div>}
-      <div className="row" style={{ marginTop: 8, flexWrap: "wrap", gap: 4 }}>
+      <div className="row tight" style={{ marginTop: 12 }}>
         {(x.checks || []).map((c: any) => <span key={c.check} className={"chip " + (c.ok ? "done" : "failed")} title={c.detail}>{c.check}: {c.detail}</span>)}
       </div>
       {x.dub && <DubFix x={x} />}
@@ -144,10 +156,10 @@ function ExportDetail({ xref }: { xref: string }) {
           <div className="row"><b>Description</b><div className="spacer" />
             <button className="btn small" onClick={() => { navigator.clipboard.writeText(x.description); setCopied(true); setTimeout(() => setCopied(false), 1500); }}><Copy size={12} />{copied ? "Copied" : "Copy"}</button>
           </div>
-          <pre style={{ whiteSpace: "pre-wrap", background: "var(--panel-2)", padding: 8, borderRadius: 4, fontSize: 12 }}>{x.description}</pre>
+          <pre className="desc">{x.description}</pre>
         </div>
       )}
-      <div style={{ fontSize: 12, color: "var(--muted)" }}>Folder: <code>{x.folder}</code> · {x.files?.join(", ")}</div>
+      <Disclosure id="exports.files" label="Files"><div className="muted2">Folder: <code>{x.folder}</code><br />{x.files?.join(", ")}</div></Disclosure>
     </div>
   );
 }

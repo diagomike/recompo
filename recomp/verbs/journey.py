@@ -47,10 +47,48 @@ def show(db, j: dict) -> dict:
                      "gain_db": b["gain_db"], "duck_db": b["duck_db"], "file": t["file"]})
     total = tl[-1]["end"] if tl else 0.0
     sources = sorted({it["source"]["ref"] for it in tl})
+    formats = (j.get("settings") or {}).get("formats") or []
     return {"ref": j["ref"], "title": j["title"], "intent": j["intent"], "description": j["description"],
             "language": j["language"], "status": j["status"], "duration": clock(total), "duration_s": round(total, 2),
             "slots": slots, "overlays": overlays, "music": beds, "sources": sources, "by": j["created_by"],
-            "links": j.get("links") or {}}
+            "links": j.get("links") or {}, "formats": formats, "target": target_length(formats)}
+
+
+# Where a journey is going decides how long it should be and how it is exported. Profiles are formats;
+# "hub" shares the recipe (sources and timecodes, no media) with the community hub.
+DESTINATIONS = {
+    "shorts": {"label": "Shorts, Reels, TikTok", "profile": "shorts", "ideal": (30, 90), "max": 180,
+               "note": "Vertical 9:16. One idea, a hook in the first seconds, under 90 s."},
+    "landscape": {"label": "YouTube (landscape)", "profile": "landscape", "ideal": (120, 900), "max": None,
+                  "note": "16:9 with sections and lower thirds: room for an argument."},
+    "square": {"label": "Feeds (square)", "profile": "square", "ideal": (30, 120), "max": 600,
+               "note": "1:1 for Instagram, X, LinkedIn feeds."},
+    "hub": {"label": "Community hub", "profile": None, "ideal": None, "max": None,
+            "note": "Share the recipe: others play it from the original sources, no media copied."},
+}
+
+
+def mmss(s: float) -> str:
+    s = int(round(s))
+    return f"{s // 60}:{s % 60:02d}"
+
+
+def target_length(formats: list[str]) -> dict | None:
+    """The length that suits every destination chosen (the tightest one wins)."""
+    ideals = [DESTINATIONS[f]["ideal"] for f in formats if f in DESTINATIONS and DESTINATIONS[f]["ideal"]]
+    maxes = [DESTINATIONS[f]["max"] for f in formats if f in DESTINATIONS and DESTINATIONS[f]["max"]]
+    if not ideals:
+        return None
+    lo, hi = min(i[0] for i in ideals), min(i[1] for i in ideals)
+    return {"min_s": lo, "max_s": max(lo, hi), "hard_max_s": min(maxes) if maxes else None}
+
+
+def _check_formats(formats: list[str]) -> list[str]:
+    bad = [f for f in formats if f not in DESTINATIONS]
+    if bad:
+        raise RecompError("E_INVALID", f"unknown destination(s): {', '.join(bad)}",
+                          hint=f"choose from {', '.join(DESTINATIONS)}")
+    return formats
 
 
 class NewIn(BaseModel):
@@ -59,17 +97,21 @@ class NewIn(BaseModel):
     description: str = ""
     language: str = "en"
     cuts: list[str] = Field(default_factory=list, description="Cuts to start with, in order")
+    formats: list[str] = Field(default_factory=list,
+                               description="Where it will go: shorts, landscape, square, hub (sets length goals and export profiles)")
 
 
 @verb("journey.new", NewIn, effect="write",
-      examples=['recomp journey new "Live long enough" --intent "What heroism costs" --cuts C4,C9,C2'])
+      examples=['recomp journey new "Live long enough" --intent "What heroism costs" --cuts C4,C9,C2',
+                'recomp journey new "On free will" --intent "Three answers in a minute" --formats shorts,hub'])
 def journey_new(ctx: Ctx, inp: NewIn):
-    """Start a journey (optionally with its first cuts)."""
+    """Start a journey (optionally with its first cuts and where it will go)."""
     db = ctx.db
     cut_rows = [refs.resolve(db, c, "cut")[1] for c in inp.cuts]
+    _check_formats(inp.formats)
     with ctx.op(f"new journey {inp.title!r}") as tx:
         j = tx.insert("journey", {"title": inp.title, "intent": inp.intent, "description": inp.description,
-                                  "language": inp.language})
+                                  "language": inp.language, "settings": {"formats": inp.formats} if inp.formats else {}})
         for k, c in enumerate(cut_rows, start=1):
             tx.insert("slot", {"journey_id": j["id"], "pos": float(k), "cut_id": c["id"]})
     mirror(ctx, j["id"])
@@ -285,14 +327,17 @@ class EditIn(BaseModel):
     description: str | None = None
     language: str | None = None
     status: str | None = Field(None, description="draft | ready | published")
+    formats: list[str] | None = Field(None, description="Where it will go: shorts, landscape, square, hub")
 
 
-@verb("journey.edit", EditIn, effect="write")
+@verb("journey.edit", EditIn, effect="write", examples=["recomp journey edit J1 --formats shorts,landscape"])
 def journey_edit(ctx: Ctx, inp: EditIn):
-    """Change a journey's title, intent, description, language or status."""
+    """Change a journey's title, intent, description, language, status or destinations."""
     db = ctx.db
     j = journey_of(db, inp.journey)
-    fields = {k: v for k, v in inp.model_dump(exclude={"journey"}).items() if v is not None}
+    fields = {k: v for k, v in inp.model_dump(exclude={"journey", "formats"}).items() if v is not None}
+    if inp.formats is not None:
+        fields["settings"] = {**(j.get("settings") or {}), "formats": _check_formats(inp.formats)}
     with ctx.op(f"edit {j['ref']}") as tx:
         tx.update("journey", j["id"], fields)
     mirror(ctx, j["id"])
@@ -377,8 +422,10 @@ def journey_from_search(ctx: Ctx, inp: FromSearchIn):
 @verb("journey.validate", RefIn)
 def journey_validate(ctx: Ctx, inp: RefIn):
     """Check a journey before export: media available, sane lengths, labels, music licences, recipe structure."""
-    db = ctx.db
-    j = journey_of(db, inp.journey)
+    return validate(ctx.db, journey_of(ctx.db, inp.journey))
+
+
+def validate(db, j: dict) -> dict:
     tl = R.timeline(db, j)
     problems, notes = [], []
     if not tl:
@@ -395,7 +442,15 @@ def journey_validate(ctx: Ctx, inp: RefIn):
         if not it["cut"]["why"]:
             notes.append(f"{it['ref']}: cut {it['cut']['ref']} has no 'why'")
     total = tl[-1]["end"] if tl else 0
-    if total > 180:
+    formats = (j.get("settings") or {}).get("formats") or []
+    for f in formats:
+        d = DESTINATIONS.get(f) or {}
+        if tl and d.get("max") and total > d["max"]:
+            notes.append(f"{mmss(total)} is longer than {d['label']} allow ({mmss(d['max'])}): shorten it or drop {f}")
+        elif tl and d.get("ideal") and not d["ideal"][0] <= total <= d["ideal"][1]:
+            lo, hi = d["ideal"]
+            notes.append(f"{d['label']} work best at {lo}–{hi} s; this is {round(total)} s")
+    if not formats and total > 180:
         notes.append(f"{clock(total)} long: fine for landscape; shorts profiles cap at 3 min")
     for b in db.rows("music_bed", "WHERE journey_id=?", (j["id"],)):
         t = db.get("music_track", b["track_id"])
@@ -405,6 +460,127 @@ def journey_validate(ctx: Ctx, inp: RefIn):
     problems += R.validate(rec)
     return {"journey": j["ref"], "ok": not problems, "problems": problems, "notes": notes,
             "duration": clock(total), "hash": rec["hash"]}
+
+
+STEPS = ("purpose", "gather", "order", "look", "check", "export")
+REVIEWED = ("order", "look", "check")  # judgement calls: done when the person (or agent) says so
+
+
+def guide(ctx: Ctx, j: dict) -> dict:
+    """The guided flow for one journey: six steps, each with its state, what is done, and the next action."""
+    db = ctx.db
+    ref = j["ref"]
+    tl = R.timeline(db, j)
+    n = len(tl)
+    srcs = sorted({it["source"]["ref"] for it in tl})
+    total = tl[-1]["end"] if tl else 0.0
+    settings = j.get("settings") or {}
+    formats = settings.get("formats") or []
+    reviewed = set(settings.get("reviewed") or [])
+    target = target_length(formats)
+    sections = sum(1 for it in tl if it["section"])
+    kinds = [o["kind"] for o in db.rows("overlay", "WHERE journey_id=?", (j["id"],))]
+    beds = db.rows("music_bed", "WHERE journey_id=?", (j["id"],))
+    exps = db.rows("export", "WHERE journey_id=? ORDER BY created_at DESC", (j["id"],))
+    previews = [e for e in exps if "preview-" in (e["folder"] or "")]
+    finals = [e for e in exps if "preview-" not in (e["folder"] or "")]
+    steps: list[dict] = []
+
+    def step(key, title, state, detail, hint, actions=(), agent=""):
+        steps.append({"key": key, "n": len(steps) + 1, "title": title, "state": state, "detail": detail, "hint": hint,
+                      "actions": list(actions), "agent": agent, "reviewed": key in reviewed})
+
+    def act(label, verb_, args):
+        return {"label": label, "verb": verb_, "args": args}
+
+    where = ", ".join(DESTINATIONS[f]["label"] for f in formats if f in DESTINATIONS)
+    step("purpose", "Purpose", "done" if j["intent"] and formats else "partial" if j["intent"] or formats else "todo",
+         (j["intent"] or "No intent yet") + (f" · for {where}" if where else ""),
+         "Say in one sentence what it is for and where people will see it: that sets the length goal, the suggestions "
+         "and the export formats.",
+         [] if formats else [act("For Shorts and the hub", "journey.edit", {"journey": ref, "formats": ["shorts", "hub"]})],
+         f"Help me phrase what {ref} is for")
+
+    length = mmss(total) + (f" of {target['min_s']}–{target['max_s']} s" if target else "")
+    step("gather", "Gather cuts", "done" if n >= 2 else "partial" if n else "todo",
+         f"{n} cut(s) from {len(srcs)} source(s) · {length}" if n else "No cuts yet",
+         "Pick moments from any of your sources: suggestions for the intent, the cut bin, or cut new ones in a source room.",
+         [act("Suggest cuts for the intent", "cut.suggest", {"query": j["intent"] or j["title"], "limit": 8})],
+         f"Find cuts for {ref} ({j['intent'] or j['title']}) across my sources and add the best ones")
+
+    step("order", "Order", "done" if n >= 2 and ("order" in reviewed or sections) else "todo" if n < 2 else "partial",
+         f"{n} slot(s)" + (f", {sections} section(s)" if sections else "") if n else "Nothing to order yet",
+         "Drag the cuts into the order that tells it best. Sections help longer journeys.",
+         [act("Order looks right", "journey.review", {"journey": ref, "step": "order"})] if n >= 2 else [],
+         f"Put {ref}'s cuts in the strongest order")
+
+    have = {"title card": "title" in kinds, "lower thirds": "lower_third" in kinds, "music": bool(beds)}
+    got = [k for k, v in have.items() if v]
+    step("look", "Look", "done" if "look" in reviewed or all(have.values()) else "partial" if got else "todo",
+         ("Has " + ", ".join(got) if got else "Plain cuts") + (f"; no {', '.join(k for k, v in have.items() if not v)}"
+                                                               if len(got) < 3 else ""),
+         "A title card, who-is-speaking lower thirds and a quiet music bed. All optional.",
+         [act("Lower thirds", "overlay.auto-lower-thirds", {"journey": ref})]
+         + [act("Looks good", "journey.review", {"journey": ref, "step": "look"})],
+         f"Give {ref} a title card, lower thirds and a fitting music bed")
+
+    chk = validate(db, j) if tl else {"ok": False, "problems": ["no slots"], "notes": []}
+    pdone = [e for e in previews if e["status"] == "done"]
+    step("check", "Check", "todo" if not tl else "problem" if not chk["ok"] else "done" if pdone or "check" in reviewed
+         else "partial",
+         "Nothing to check yet" if not tl else ("; ".join(chk["problems"]) if not chk["ok"] else
+          "Ready to export" + (" · preview watched" if pdone else " · no preview yet")),
+         "Validate the journey and watch a quick low-resolution preview before the real render.",
+         [act("Preview", "preview", {"target": ref, "profile": (formats[0] if formats and formats[0] != "hub" else "landscape")})],
+         f"Check {ref} and tell me what to fix before export")
+
+    profs = [DESTINATIONS[f]["profile"] for f in formats if DESTINATIONS.get(f, {}).get("profile")] or ["landscape"]
+    fdone = [e for e in finals if e["status"] == "done"]
+    frun = [e for e in finals if e["status"] in ("queued", "rendering")]
+    shared = bool((j.get("links") or {}).get("hub"))
+    step("export", "Export & share", "done" if fdone and ("hub" not in formats or shared) else "running" if frun
+         else "partial" if fdone else "todo",
+         (f"{len(fdone)} export(s) done" if fdone else "Not exported yet") + (f", {len(frun)} rendering" if frun else "")
+         + (" · on the hub" if shared else ""),
+         "Render for each destination (and language). Each export has captions and a ready-to-paste description with credits.",
+         [act("Export " + ", ".join(profs), "export.run", {"journey": ref, "profiles": profs})]
+         + ([act("Share on the hub", "hub.publish", {"journey": ref})] if "hub" in formats and not shared else []),
+         f"Export {ref} as {', '.join(profs)}")
+
+    nxt = next((s["key"] for s in steps if s["state"] != "done"), None)
+    return {"journey": ref, "title": j["title"], "intent": j["intent"], "formats": formats, "target": target,
+            "duration_s": round(total, 2), "slots": n, "sources": srcs, "steps": steps, "next": nxt,
+            "done": sum(1 for s in steps if s["state"] == "done"), "notes": chk.get("notes", []),
+            "destinations": {k: {x: v[x] for x in ("label", "profile", "note")} for k, v in DESTINATIONS.items()}}
+
+
+@verb("journey.guide", RefIn, examples=["recomp journey guide J1"])
+def journey_guide(ctx: Ctx, inp: RefIn):
+    """The guided flow for a journey — purpose → gather → order → look → check → export — with each step's state and
+    next action. The viewer's journey studio shows the same steps (`recomp ui show J1 --filter step=look`)."""
+    return guide(ctx, journey_of(ctx.db, inp.journey))
+
+
+class ReviewIn(BaseModel):
+    journey: str = Field(..., json_schema_extra={"pos": 0})
+    step: str = Field(..., description="order | look | check", json_schema_extra={"pos": 1})
+    done: bool = Field(True, description="false reopens the step")
+
+
+@verb("journey.review", ReviewIn, effect="write", examples=["recomp journey review J1 look"])
+def journey_review(ctx: Ctx, inp: ReviewIn):
+    """Mark a judgement step of the guided flow as reviewed (the order reads well, the look is right, the check is
+    enough without a preview), so the guide moves on."""
+    if inp.step not in REVIEWED:
+        raise RecompError("E_INVALID", f"step must be one of {', '.join(REVIEWED)}",
+                          hint="purpose, gather and export are done by doing them")
+    db = ctx.db
+    j = journey_of(db, inp.journey)
+    settings = j.get("settings") or {}
+    reviewed = [s for s in settings.get("reviewed") or [] if s != inp.step] + ([inp.step] if inp.done else [])
+    with ctx.op(f"{'review' if inp.done else 'reopen'} {inp.step} of {j['ref']}") as tx:
+        tx.update("journey", j["id"], {"settings": {**settings, "reviewed": reviewed}})
+    return guide(ctx, db.get("journey", j["id"]))
 
 
 @verb("recipe.show", RefIn, examples=["recomp recipe show J1"])

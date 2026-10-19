@@ -1,8 +1,9 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import { Pause, Play, Scissors, BookmarkPlus, ZoomIn, ZoomOut, Maximize2, X } from "lucide-react";
+import { ArrowLeft, BookmarkPlus, ExternalLink, Film, Focus, Keyboard, Layers, Maximize2, Pause, Pencil, Play, Scissors, Search as SearchIcon, Trash2, X, ZoomIn, ZoomOut } from "lucide-react";
 import { clock, frameUrl, mediaUrl, peaksUrl, room, thumbUrl, verb } from "../api";
 import { useApp } from "../App";
 import { Act, useActions } from "../actions";
+import { Dialog, Disclosure, Menu, SrcBadge } from "../ui";
 import YouTubePlayer, { type YTHandle } from "./YouTubePlayer";
 import TranscriptPane from "./TranscriptPane";
 
@@ -40,7 +41,8 @@ function Splitter({ dir, onDrag }: { dir: "col" | "row"; onDrag: (delta: number)
 }
 
 export default function Room({ sourceRef }: { sourceRef: string }) {
-  const { route, version } = useApp();
+  const { route, version, go } = useApp();
+  const jref = route.params.get("j");  // gathering for a journey: new cuts go straight into it
   const [data, setData] = useState<RoomData | null>(null);
   const [err, setErr] = useState<string | null>(null);
   const [t, setT] = useState(0);
@@ -48,7 +50,8 @@ export default function Room({ sourceRef }: { sourceRef: string }) {
   const [sel, setSel] = useState<{ a: number; b: number } | null>(null);
   const [view, setView] = useState<[number, number]>([0, 0]);
   const [peaks, setPeaks] = useState<Uint8Array | null>(null);
-  const [form, setForm] = useState<null | "cut" | "chapter">(null);
+  const [form, setForm] = useState<null | { kind: "cut" | "chapter"; edit?: Span }>(null);
+  const { run } = useActions();
   const [focusRef, setFocusRef] = useState<string | null>(route.params.get("focus"));
   const [hits, setHits] = useState<number[]>([]);
   const [lay, setLay] = useLayout();
@@ -122,16 +125,20 @@ export default function Room({ sourceRef }: { sourceRef: string }) {
     setView([Math.max(0, a - pad), Math.min(dur || b + pad, b + pad)]);
   };
 
-  // Keyboard: space play, I/O set in/out, C cut, Esc clear.
+  const markIn = () => setSel((s) => ({ a: t, b: s && s.b > t ? s.b : Math.min(dur, t + 10) }));
+  const markOut = () => setSel((s) => ({ a: s && s.a < t ? s.a : Math.max(0, t - 10), b: t }));
+
+  // Keyboard: space play, I/O set in/out, C cut, Esc clear. Not while a dialog or menu is open.
   useEffect(() => {
     const on = (e: KeyboardEvent) => {
       const tag = (e.target as HTMLElement)?.tagName;
       if (tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT") return;
+      if (document.querySelector(".modal, .menu") || e.ctrlKey || e.metaKey || e.altKey) return;
       if (e.key === " ") { e.preventDefault(); toggle(); }
-      else if (e.key === "i" || e.key === "I") setSel((s) => ({ a: t, b: s && s.b > t ? s.b : Math.min(dur, t + 10) }));
-      else if (e.key === "o" || e.key === "O") setSel((s) => ({ a: s && s.a < t ? s.a : Math.max(0, t - 10), b: t }));
-      else if ((e.key === "c" || e.key === "C") && sel) { e.preventDefault(); setForm("cut"); }  // the key must not land in the title field
-      else if (e.key === "Escape") { setSel(null); setForm(null); }
+      else if (e.key === "i" || e.key === "I") markIn();
+      else if (e.key === "o" || e.key === "O") markOut();
+      else if ((e.key === "c" || e.key === "C") && sel) { e.preventDefault(); setForm({ kind: "cut" }); }  // the key must not land in the title field
+      else if (e.key === "Escape") setSel(null);
       else if (e.key === "ArrowLeft") seek(Math.max(0, t - (e.shiftKey ? 10 : 2)));
       else if (e.key === "ArrowRight") seek(Math.min(dur, t + (e.shiftKey ? 10 : 2)));
     };
@@ -142,8 +149,40 @@ export default function Room({ sourceRef }: { sourceRef: string }) {
   if (err) return <div className="page"><div className="err">{err}</div></div>;
   if (!data) return <div className="page">Loading…</div>;
   const src = data.source;
+  const missing = [...(!data.peaks ? ["audio", "peaks"] : []), ...(!data.thumbs ? ["thumbs"] : [])];
+  const zoomBy = (f: number) => { const c = (view[0] + view[1]) / 2, w = ((view[1] - view[0]) / 2) * f; setView([Math.max(0, c - w), Math.min(dur, c + w)]); };
+  const pick = (s: Span) => { setFocusRef(s.ref); setSel({ a: s.start, b: s.end }); zoomTo(s.start, s.end); seek(s.start); };
+  const findInSource = () => { const el = document.querySelector('[data-filter="tq"]') as HTMLInputElement | null; el?.focus(); el?.select(); };
 
   return (
+    <div className="roomwrap" style={{ gridTemplateRows: (jref ? "auto " : "") + "auto minmax(0, 1fr)" }}>
+    {jref && (
+      <div className="roombanner">
+        <Scissors size={15} />
+        <span className="grow">Gathering for <b>{jref}</b>: select a range and press <span className="kbd">C</span>. Cuts you make here go straight into the journey.</span>
+        <button className="btn small primary" onClick={() => go("journeys", jref, { step: "gather" })}><ArrowLeft size={14} />Back to {jref}</button>
+      </div>
+    )}
+    <div className="roomhead">
+      <SrcBadge ref_={src.ref} />
+      <h1 className="h1 ellipsis">{src.title}{src.year ? ` (${src.year})` : ""}</h1>
+      <span className="row tight nowrap hide-sm">
+        <span className="chip">{clock(dur, 0).replace(/^00:/, "")}</span>
+        {src.kind === "link" && <span className="chip" data-tip={src.has_media ? "A link; its media is fetched for frames and waveform" : "A link: it plays from the platform"}>link</span>}
+        {data.transcript ? <span className="chip ok" data-tip="The transcript in use">{data.transcript.origin} · {data.transcript.language}</span> : <span className="chip warn">no transcript</span>}
+      </span>
+      <div className="spacer" />
+      <Menu small label="Source actions" items={[
+        { header: src.ref },
+        ...(src.has_media && missing.length ? [{ label: "Build the filmstrip and waveform", icon: <Film size={14} />, desc: "Runs in the background; the lanes fill in",
+            onSelect: () => run("source.process", { ref: sourceRef, jobs: missing }, { label: "Build lanes" }) }] : []),
+        ...(String(src.uri || "").startsWith("http") ? [{ label: "Open the original", icon: <ExternalLink size={14} />, desc: src.platform || undefined, onSelect: () => window.open(src.uri, "_blank", "noreferrer") }] : []),
+        { label: "Its cuts in the cut bin", icon: <Scissors size={14} />, onSelect: () => go("cuts", null, { source: sourceRef }) },
+        { label: "Reset panel sizes", icon: <Maximize2 size={14} />, onSelect: () => { setLay("playerH", 0); setLay("paneW", 0); } },
+        "sep",
+        { label: "Keyboard shortcuts", icon: <Keyboard size={14} />, desc: "Space, I/O, C, ←/→, Ctrl+F", onSelect: () => window.dispatchEvent(new KeyboardEvent("keydown", { key: "?" })) },
+      ]} />
+    </div>
     <div className="room" style={window.innerWidth > 900 ? { gridTemplateColumns: `minmax(380px, 1fr) 6px ${paneW}px` } : undefined}>
       <div className="left">
         <div className="player" style={{ height: playerH }}>
@@ -153,41 +192,61 @@ export default function Room({ sourceRef }: { sourceRef: string }) {
               : <div style={{ color: "#bbb", padding: 40 }}>No local media for this source yet.</div>}
         </div>
         <Splitter dir="row" onDrag={(d) => setLay("playerH", Math.max(120, Math.min(window.innerHeight * 0.75, playerH + d)))} />
-        <div className="ctrl">
-          <button className="btn small" onClick={toggle}>{playing ? <Pause size={14} /> : <Play size={14} />}</button>
-          <span className="mono">{clock(t)} / {clock(dur, 0)}</span>
-          <b style={{ marginLeft: 8 }}>{src.ref} · {src.title}{src.year ? ` (${src.year})` : ""}</b>
-          <div className="spacer" />
-          {sel && <span className="chip" style={{ color: "var(--blue)" }}>{clock(sel.a)}–{clock(sel.b)} · {(sel.b - sel.a).toFixed(1)}s</span>}
-          <button className="btn small" disabled={!sel} onClick={() => setForm("cut")} title="Cut the selection (C)"><Scissors size={13} />Cut</button>
-          <button className="btn small" disabled={!sel} onClick={() => setForm("chapter")} title="Chapter from the selection"><BookmarkPlus size={13} />Chapter</button>
-          <button className="btn small ghost" onClick={() => { const c = (view[0] + view[1]) / 2, w = (view[1] - view[0]) / 3; setView([Math.max(0, c - w), Math.min(dur, c + w)]); }}><ZoomIn size={14} /></button>
-          <button className="btn small ghost" onClick={() => { const c = (view[0] + view[1]) / 2, w = (view[1] - view[0]) * 1.5; setView([Math.max(0, c - w), Math.min(dur, c + w)]); }}><ZoomOut size={14} /></button>
-          <button className="btn small ghost" onClick={() => setView([0, dur])}><Maximize2 size={14} /></button>
+        <div className="cmdrow" role="toolbar" aria-label="Source room commands">
+          <div className="cmdgroup" role="group" aria-label="Play and select">
+            <button className="btn small icon" onClick={toggle} aria-label={playing ? "Pause" : "Play"} data-tip={playing ? "Pause" : "Play"} data-tip-key="Space">
+              {playing ? <Pause size={14} /> : <Play size={14} />}</button>
+            <span className="tc" data-tip={`Playhead, of ${clock(dur, 0)}`}>{clock(t)}</span>
+            <button className="btn small ghost" onClick={markIn} data-tip="Mark in at the playhead" data-tip-key="I">In</button>
+            <button className="btn small ghost" onClick={markOut} data-tip="Mark out at the playhead" data-tip-key="O">Out</button>
+            {sel ? (
+              <span className="selchip" data-tip="The selection; the agent sees it too" data-tip-cmd="recomp ui selection">
+                {clock(sel.a).replace(/^00:/, "")}–{clock(sel.b).replace(/^00:/, "")} · {(sel.b - sel.a).toFixed(1)}s
+                <button className="btn ghost small icon" onClick={() => setSel(null)} aria-label="Clear the selection" data-tip="Clear the selection" data-tip-key="Esc"><X size={12} /></button>
+              </span>
+            ) : <span className="muted2 nowrap hide-sm" data-tip="Drag across the lanes, click a line, or use I and O">No selection</span>}
+          </div>
+          <div className="cmdgroup" role="group" aria-label="Cut and chapter">
+            <button className={"btn small" + (sel ? " primary" : "")} disabled={!sel} onClick={() => setForm({ kind: "cut" })}
+                    data-tip={jref ? `Cut the selection into ${jref}` : "Cut the selection"} data-tip-cmd={sel ? `recomp cut add ${sourceRef} --from ${sel.a.toFixed(2)} --to ${sel.b.toFixed(2)}` : undefined} data-tip-key="C">
+              <Scissors size={13} />Cut</button>
+            <button className="btn small" disabled={!sel} onClick={() => setForm({ kind: "chapter" })} data-tip="Make a chapter from the selection"
+                    data-tip-cmd={sel ? `recomp chapter add ${sourceRef} --start ${sel.a.toFixed(2)} --end ${sel.b.toFixed(2)}` : undefined}><BookmarkPlus size={13} />Chapter</button>
+          </div>
+          <div className="cmdgroup" role="group" aria-label="Zoom">
+            <button className="btn small ghost icon" onClick={() => zoomBy(2 / 3)} aria-label="Zoom in" data-tip="Zoom in" data-tip-key="wheel"><ZoomIn size={14} /></button>
+            <button className="btn small ghost icon" onClick={() => zoomBy(1.5)} aria-label="Zoom out" data-tip="Zoom out" data-tip-key="wheel"><ZoomOut size={14} /></button>
+            <button className="btn small ghost icon" onClick={() => sel && zoomTo(sel.a, sel.b)} disabled={!sel} aria-label="Zoom to the selection" data-tip="Zoom to the selection"><Focus size={14} /></button>
+            <button className="btn small ghost icon" onClick={() => setView([0, dur])} aria-label="Whole source" data-tip="Show the whole source"><Maximize2 size={14} /></button>
+          </div>
+          <div className="cmdgroup" role="group" aria-label="Find">
+            <button className="btn small ghost icon" onClick={findInSource} disabled={!data.transcript} aria-label="Find in this source" data-tip="Find in this source's transcript" data-tip-key="Ctrl+F"><SearchIcon size={14} /></button>
+          </div>
         </div>
         <div>
-          {src.has_media && (!data.thumbs || !data.peaks) && (
+          {src.has_media && missing.length > 0 && (
             <div className="lanehint">
               <span>{!data.thumbs && !data.peaks ? "No filmstrip or waveform yet" : !data.thumbs ? "No filmstrip yet" : "No waveform yet"} for this source.</span>
-              <Act verb="source.process" args={{ ref: sourceRef, jobs: [...(!data.peaks ? ["audio", "peaks"] : []), ...(!data.thumbs ? ["thumbs"] : [])] }}
+              <Act verb="source.process" args={{ ref: sourceRef, jobs: missing }}
                    small agent title="Runs in the background; the lanes fill in when it is done">Build them</Act>
             </div>
           )}
           <Lanes data={data} peaks={peaks} t={t} view={view} setView={setView} sel={sel} setSel={setSel} seek={seek}
                  focusRef={focusRef} setFocusRef={setFocusRef} hits={hits} />
-          {form && sel && <SpanForm kind={form} sourceRef={sourceRef} sel={sel} onDone={(ref) => { setForm(null); if (ref) setFocusRef(ref); }} />}
         </div>
         <div className="below">
-          <Lists data={data} focusRef={focusRef} onPick={(s) => { setFocusRef(s.ref); setSel({ a: s.start, b: s.end }); zoomTo(s.start, s.end); seek(s.start); }} />
-          <p style={{ color: "var(--faint)", fontSize: 11, marginTop: 8 }}>
-            <span className="kbd">Space</span> play · <span className="kbd">I</span>/<span className="kbd">O</span> in/out · drag on the lanes to select ·
-            <span className="kbd">C</span> cut · <span className="kbd">Shift</span>-click a line to extend · wheel zooms. Your selection is visible to the agent (<code>recomp ui selection</code>).
-          </p>
+          <Lists data={data} focusRef={focusRef} jref={jref} onPick={pick} play={(s) => { pick(s); seek(s.start, true); }}
+                 onEdit={(s, kind) => setForm({ kind, edit: s })} onCutFrom={(s) => { pick(s); setForm({ kind: "cut" }); }} />
         </div>
       </div>
       <Splitter dir="col" onDrag={(d) => setLay("paneW", Math.max(280, Math.min(window.innerWidth * 0.6, paneW - d)))} />
       <TranscriptPane data={data} t={t} sel={sel} seek={seek} setSel={setSel} panel={route.params.get("panel")}
                       query={route.params.get("tq")} onHits={setHits} />
+    </div>
+    {form && (form.edit || sel) && (
+      <SpanDialog kind={form.kind} sourceRef={sourceRef} sel={form.edit ? { a: form.edit.start, b: form.edit.end } : sel!} jref={jref} edit={form.edit}
+                  onDone={(ref) => { setForm(null); if (ref) setFocusRef(ref); }} />
+    )}
     </div>
   );
 }
@@ -417,65 +476,118 @@ function Lanes(p: {
   );
 }
 
-function Lists({ data, focusRef, onPick }: { data: RoomData; focusRef: string | null; onPick: (s: Span) => void }) {
-  const [tab, setTab] = useState<"cuts" | "chapters">(data.cuts.length ? "cuts" : "chapters");
-  const items = tab === "cuts" ? data.cuts : data.chapters;
-  return (
-    <div className="cutlist">
-      <div className="row" style={{ marginBottom: 4 }}>
-        <button className={"tab" + (tab === "cuts" ? " on" : "")} onClick={() => setTab("cuts")}>Cuts ({data.cuts.length})</button>
-        <button className={"tab" + (tab === "chapters" ? " on" : "")} onClick={() => setTab("chapters")}>Chapters ({data.chapters.length})</button>
-      </div>
-      {!items.length && <div style={{ color: "var(--muted)", fontSize: 12 }}>None yet.</div>}
-      {items.map((s) => (
-        <div key={s.ref} className="cutrow" style={s.ref === focusRef ? { background: "var(--accent-soft)" } : undefined}>
-          <a className="mono" href="#" onClick={(e) => { e.preventDefault(); onPick(s); }}>{s.ref}</a>
-          <div>
-            <b>{s.title}</b> <span className={"chip " + s.by}>{s.by}</span>
-            <div style={{ color: "var(--muted)" }}>{s.why || s.summary}</div>
-            {!!s.tags?.length && <div className="row" style={{ gap: 3 }}>{s.tags.map((tg) => <span key={tg} className="chip">{tg}</span>)}</div>}
-          </div>
-          <span className="mono" style={{ color: "var(--faint)" }}>{clock(s.start, 0)} · {(s.end - s.start).toFixed(0)}s</span>
-        </div>
-      ))}
-    </div>
-  );
-}
-
-function SpanForm({ kind, sourceRef, sel, onDone }: { kind: "cut" | "chapter"; sourceRef: string; sel: { a: number; b: number }; onDone: (ref?: string) => void }) {
-  const [title, setTitle] = useState("");
-  const [why, setWhy] = useState("");
-  const [tags, setTags] = useState("");
-  const [snap, setSnap] = useState("words+shots");
+// Cuts and chapters of this source as a flat list: click a row to select its range; the rest is in its ⋯ menu.
+function Lists({ data, focusRef, jref, onPick, play, onEdit, onCutFrom }: {
+  data: RoomData; focusRef: string | null; jref: string | null; onPick: (s: Span) => void; play: (s: Span) => void;
+  onEdit: (s: Span, kind: "cut" | "chapter") => void; onCutFrom: (s: Span) => void;
+}) {
+  const [tab, setTab] = useState<"cuts" | "chapters">(data.cuts.length || !data.chapters.length ? "cuts" : "chapters");
+  const [del, setDel] = useState<Span | null>(null);
   const { run } = useActions();
-  const save = async () => {
-    const env = kind === "cut"
-      ? await run("cut.add", { ref: sourceRef, from: String(sel.a), to: String(sel.b), title, why, tags: tags ? tags.split(",").map((x) => x.trim()) : [], snap }, { label: "New cut" })
-      : await run("chapter.add", { ref: sourceRef, start: String(sel.a), end: String(sel.b), title, summary: why, tags: tags ? tags.split(",").map((x) => x.trim()) : [] }, { label: "New chapter" });
-    if (env.ok) onDone(env.refs?.[0]);
-  };
+  const { go } = useApp();
+  const items = tab === "cuts" ? data.cuts : data.chapters;
+  const kind = tab === "cuts" ? "cut" : "chapter";
   return (
-    <div className="card" style={{ margin: 8 }}>
-      <div className="row" style={{ marginBottom: 6 }}>
-        <b>{kind === "cut" ? "New cut" : "New chapter"}</b><span className="mono" style={{ color: "var(--muted)" }}>{clock(sel.a)}–{clock(sel.b)}</span>
-        <div className="spacer" /><button className="btn ghost small" onClick={() => onDone()}><X size={14} /></button>
+    <div>
+      <div className="row nowrap cutlistbar" style={{ marginBottom: 4 }}>
+        <div className="segmented" role="tablist" aria-label="Cuts or chapters" style={{ flexWrap: "nowrap", flex: "none" }}>
+          <button role="tab" aria-selected={tab === "cuts"} className={tab === "cuts" ? "on" : ""} onClick={() => setTab("cuts")}><Scissors size={13} />Cuts {data.cuts.length}</button>
+          <button role="tab" aria-selected={tab === "chapters"} className={tab === "chapters" ? "on" : ""} onClick={() => setTab("chapters")}><BookmarkPlus size={13} />Chapters {data.chapters.length}</button>
+        </div>
+        <span className="muted2 ellipsis hide-sm">Click a row to select it · ⋯ for more</span>
       </div>
-      <div className="row">
-        <input autoFocus className="input grow" placeholder="Title" value={title} onChange={(e) => setTitle(e.target.value)} />
-        {kind === "cut" && (
-          <select className="input" value={snap} onChange={(e) => setSnap(e.target.value)}>
-            {["words+shots", "words", "shots", "none"].map((s) => <option key={s}>{s}</option>)}
-          </select>
-        )}
-      </div>
-      <div className="row" style={{ marginTop: 6 }}>
-        <input className="input grow" placeholder={kind === "cut" ? "Why it matters" : "Summary"} value={why} onChange={(e) => setWhy(e.target.value)} onKeyDown={(e) => e.key === "Enter" && save()} />
-        <input className="input" placeholder="tags, comma separated" value={tags} onChange={(e) => setTags(e.target.value)} />
-        <button className="btn primary" onClick={save}>Save</button>
-      </div>
+      {!items.length && <div className="muted2" style={{ padding: "6px 2px" }}>{tab === "cuts" ? "No cuts yet: select a range and press C." : "No chapters yet: select a range and choose Chapter."}</div>}
+      {!!items.length && (
+        <div className="spanlist">
+          {items.map((s) => (
+            <div key={s.ref} className={"spanrow" + (s.ref === focusRef ? " on" : "")} onClick={() => onPick(s)}>
+              <span className="mono faint">{s.ref.replace(/^S\d+\./, "")}</span>
+              <div style={{ minWidth: 0 }}>
+                <div className="row nowrap tight"><b className="ellipsis">{s.title || "(untitled)"}</b><span className={"chip " + s.by}>{s.by}</span>
+                  {(s.tags || []).slice(0, 3).map((tg) => <span key={tg} className="chip hide-sm">{tg}</span>)}</div>
+                {(s.why || s.summary) && <div className="sw ellipsis">{s.why || s.summary}</div>}
+              </div>
+              <span className="mono faint nowrap">{clock(s.start, 0).replace(/^00:/, "")} · {(s.end - s.start).toFixed(0)}s</span>
+              <span onClick={(e) => e.stopPropagation()}>
+                <Menu small label={`More for ${s.ref}`} items={[
+                  { label: "Play from here", icon: <Play size={14} />, onSelect: () => play(s) },
+                  { label: "Edit title and notes…", icon: <Pencil size={14} />, onSelect: () => onEdit(s, kind) },
+                  ...(kind === "cut" && jref ? [{ label: `Add to ${jref}`, icon: <Layers size={14} />, onSelect: () => run("journey.add", { journey: jref, cuts: [s.ref] }, { label: `Add ${s.ref} to ${jref}` }) }] : []),
+                  ...(kind === "cut" ? [{ label: "Show in the cut bin", icon: <Scissors size={14} />, onSelect: () => go("cuts", null, { q: s.title || s.ref }) }]
+                    : [{ label: "Cut this chapter…", icon: <Scissors size={14} />, desc: "A cut with the chapter's range", onSelect: () => onCutFrom(s) }]),
+                  "sep",
+                  { label: `Delete ${s.ref}…`, icon: <Trash2 size={14} />, danger: true, desc: kind === "cut" ? "Refused while a journey uses it" : "Undo brings it back", onSelect: () => setDel(s) },
+                ]} />
+              </span>
+            </div>
+          ))}
+        </div>
+      )}
+      {del && (
+        <Dialog title={`Delete ${del.ref} “${del.title || "untitled"}”?`} sub={kind === "cut" ? "A cut a journey uses cannot be deleted; remove it from the journey first. Undo (Ctrl+Z) brings it back." : "Undo (Ctrl+Z) brings it back."}
+                onClose={() => setDel(null)}
+                footer={<><div className="spacer" /><button className="btn" onClick={() => setDel(null)}>Keep it</button>
+                  <Act verb={kind === "cut" ? "cut.remove" : "chapter.remove"} args={{ ref: del.ref }} label={`Delete ${del.ref}`} className="danger" onDone={() => setDel(null)}>Delete</Act></>}>
+          <p className="muted2" style={{ margin: 0 }}>{clock(del.start, 0)}–{clock(del.end, 0)} · {(del.end - del.start).toFixed(0)}s</p>
+        </Dialog>
+      )}
     </div>
   );
 }
 
-
-
+// New cut, new chapter, or editing one: a dialog, so the lanes and the lists stay where they were.
+function SpanDialog({ kind, sourceRef, sel, onDone, jref, edit }: {
+  kind: "cut" | "chapter"; sourceRef: string; sel: { a: number; b: number }; onDone: (ref?: string) => void; jref: string | null; edit?: Span;
+}) {
+  const [title, setTitle] = useState(edit?.title || "");
+  const [why, setWhy] = useState((kind === "cut" ? edit?.why : edit?.summary) || "");
+  const [tags, setTags] = useState((edit?.tags || []).join(", "));
+  const [snap, setSnap] = useState("words+shots");
+  const [intoJ, setIntoJ] = useState(true);
+  const { run } = useActions();
+  const tagList = tags ? tags.split(",").map((x) => x.trim()).filter(Boolean) : [];
+  const into = kind === "cut" && !edit && !!jref && intoJ;
+  const save = async () => {
+    const env = edit
+      ? await run(kind === "cut" ? "cut.edit" : "chapter.edit", { ref: edit.ref, title, ...(kind === "cut" ? { why } : { summary: why }), tags: tagList }, { label: `Edit ${edit.ref}` })
+      : kind === "cut"
+        ? await run("cut.add", { ref: sourceRef, from: String(sel.a), to: String(sel.b), title, why, tags: tagList, snap, ...(into ? { journey: jref } : {}) },
+                    { label: into ? `New cut into ${jref}` : "New cut" })
+        : await run("chapter.add", { ref: sourceRef, start: String(sel.a), end: String(sel.b), title, summary: why, tags: tagList }, { label: "New chapter" });
+    if (env.ok) onDone(edit ? edit.ref : env.refs?.[0]);
+  };
+  const cmd = edit ? `recomp ${kind} edit ${edit.ref}` : kind === "cut" ? `recomp cut add ${sourceRef} --from ${sel.a.toFixed(2)} --to ${sel.b.toFixed(2)}${into ? ` --journey ${jref}` : ""}`
+    : `recomp chapter add ${sourceRef} --start ${sel.a.toFixed(2)} --end ${sel.b.toFixed(2)}`;
+  return (
+    <Dialog title={edit ? `Edit ${edit.ref}` : kind === "cut" ? (into ? `New cut into ${jref}` : "New cut") : "New chapter"}
+            sub={<span className="mono">{clock(sel.a)}–{clock(sel.b)} · {(sel.b - sel.a).toFixed(1)}s</span>} onClose={() => onDone()}
+            icon={kind === "cut" ? <Scissors size={16} /> : <BookmarkPlus size={16} />}
+            footer={<>
+              {kind === "cut" && !edit && jref && <label className="check muted2"><input type="checkbox" checked={intoJ} onChange={(e) => setIntoJ(e.target.checked)} />Add to {jref}</label>}
+              <div className="spacer" />
+              <button className="btn" onClick={() => onDone()}>Cancel</button>
+              <button className="btn primary" onClick={save} data-tip="Saves it (Enter)" data-tip-cmd={cmd}>{edit ? "Save" : kind === "cut" ? "Save cut" : "Save chapter"}</button>
+            </>}>
+      <form className="stack" onSubmit={(e) => { e.preventDefault(); save(); }}>
+        <div className="field"><label htmlFor="sp-title">Title</label>
+          <input id="sp-title" className="input" value={title} onChange={(e) => setTitle(e.target.value)} placeholder={kind === "cut" ? "What happens, in a few words" : "Chapter title"} /></div>
+        <div className="field"><label htmlFor="sp-why">{kind === "cut" ? "Why it matters" : "Summary"}</label>
+          <input id="sp-why" className="input" value={why} onChange={(e) => setWhy(e.target.value)} placeholder={kind === "cut" ? "Helps you (and the agent) find and order it later" : "Optional"} /></div>
+        <Disclosure id={"room.span.more." + kind} label={kind === "cut" && !edit ? "Tags and edge snapping" : "Tags"} count={tagList.length || undefined}>
+          <div className="stack sm">
+            <div className="field"><label htmlFor="sp-tags">Tags</label>
+              <input id="sp-tags" className="input" value={tags} onChange={(e) => setTags(e.target.value)} placeholder="comma separated, e.g. fear, turning point" /></div>
+            {kind === "cut" && !edit && (
+              <div className="field"><label htmlFor="sp-snap">Snap the edges to</label>
+                <select id="sp-snap" className="input" value={snap} onChange={(e) => setSnap(e.target.value)} style={{ maxWidth: 260 }}>
+                  <option value="words+shots">word ends and shot changes</option><option value="words">word ends</option><option value="shots">shot changes</option><option value="none">nothing (exact)</option>
+                </select>
+                <span className="help">Snapping keeps cuts from clipping a word or landing a frame before a shot change.</span></div>
+            )}
+          </div>
+        </Disclosure>
+        <button type="submit" hidden />
+      </form>
+    </Dialog>
+  );
+}

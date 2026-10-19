@@ -15,8 +15,18 @@ Every open task by priority. Done phases are summarised; their detail is in git 
       viewer parts (inline line editing, speakers panel, translation editor).
 - [x] **P16 UX pass** built: project home and checklist, cut bin across sources, drag cuts into journeys, filters in
       the URL everywhere, buttons that show their command and can be handed to the agent, `ui show` with views,
-      filters and highlights, file browser, shortcuts, two-click confirms, phone widths. **Your review is the
-      remaining step** (the plan marks P16 `[you]`).
+      filters and highlights, file browser, shortcuts, two-click confirms, phone widths.
+- [x] **P16b UX rework** after your review ([report](runs/P16b-ux-rework.md)): the guided journey studio (purpose →
+      gather → order → look → check → export, `journey guide`/`journey review`), destinations on journeys
+      (`--formats`), `cut add --journey`, New journey dialog, nav rail and agent drawer, Word-style progressive disclosure
+      (ribbon of steps, command rows, menus, dialogs, "More filters", collapsible advanced options), dense tables and
+      lists instead of cards. **Your review is the remaining step.**
+- [x] P16b follow-ups done 2026-10-16: the source room, transcript pane and translation editor in the P16b structure
+      (command rows by task, ⋯ menus, dialogs for cut/chapter/replace/speakers/new language, folded caption box, phone
+      layouts), studio keys `1`–`6` and `Enter` ([report](runs/P16b-ux-rework.md#follow-up-source-room-and-translation-editor-2026-10-16)).
+- [ ] Still open from P16b: a "Look" preview of lower thirds per slot; music search needs the network (no offline
+      library seed yet); the room's command row wraps its zoom group to a second line below ~1100 px with the
+      transcript pane at its default width.
 - [ ] **P17 research wing and channel desk**: researched and planned (plan §6, [research](research/P17-research-wing.md)); awaiting approval. Watchlists, inbox, replay moments, trend radar, channels you post to,
       posting queue, re-linking posts, performance view.
 
@@ -30,7 +40,7 @@ Every open task by priority. Done phases are summarised; their detail is in git 
    (Exports page) can close them.
 2. Oromo: an agent-reviewed translation (the Google draft runs long; MMS has no rate control → shorten lines).
 3. Final pass speed: optional faster preset for re-exports (reorder gate measured at 55–73 % of cold; see M1 report).
-4. Viewer: speaker lane colours by person, a translation editor, export matrix progress per language.
+4. Viewer: speaker lane colours by person, export matrix progress per language.
 5. Face-aware reframe for vertical exports (currently blurred fill or centre/offset crop).
 6. Voice cloning dubs through lang_bridge (OmniVoice / Seed-VC), labelled as AI voices in credits.
 7. Cross-release matching: estimate the offset between two copies of a film from subtitles/audio when a pulled recipe's
