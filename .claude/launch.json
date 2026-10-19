@@ -3,8 +3,8 @@
   "configurations": [
     {
       "name": "studio",
-      "runtimeExecutable": ".venv/Scripts/recomp.exe",
-      "runtimeArgs": ["serve", "--port", "8770"],
+      "runtimeExecutable": "D:/py_self/execute_v0/.venv/Scripts/python.exe",
+      "runtimeArgs": ["-m", "recomp.cli", "serve", "--port", "8770"],
       "port": 8770
     },
     {
@@ -15,7 +15,7 @@
     },
     {
       "name": "hub",
-      "runtimeExecutable": ".venv/Scripts/python.exe",
+      "runtimeExecutable": "D:/py_self/execute_v0/.venv/Scripts/python.exe",
       "runtimeArgs": ["-m", "hub", "--port", "8790"],
       "port": 8790
     }

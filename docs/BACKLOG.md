@@ -25,8 +25,7 @@ Every open task by priority. Done phases are summarised; their detail is in git 
       (command rows by task, ⋯ menus, dialogs for cut/chapter/replace/speakers/new language, folded caption box, phone
       layouts), studio keys `1`–`6` and `Enter` ([report](runs/P16b-ux-rework.md#follow-up-source-room-and-translation-editor-2026-10-16)).
 - [ ] Still open from P16b: a "Look" preview of lower thirds per slot; music search needs the network (no offline
-      library seed yet); the room's command row wraps its zoom group to a second line below ~1100 px with the
-      transcript pane at its default width.
+      library seed yet). (Fixed 2026-10-19: the room's command row stays on one line down to 1024 px.)
 - [ ] **P17 research wing** (re-planned 2026-10-16, plan §6, [research](research/P17-research-wing.md)): find and follow
       creators, inbox from their new posts, transcript library (back catalogue, text only), topics from the news or
       from you, topic briefs ("what my creators said about X"), journeys from topics, rights statuses with the

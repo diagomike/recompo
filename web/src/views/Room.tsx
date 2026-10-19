@@ -200,8 +200,8 @@ export default function Room({ sourceRef }: { sourceRef: string }) {
             <button className="btn small ghost" onClick={markIn} data-tip="Mark in at the playhead" data-tip-key="I">In</button>
             <button className="btn small ghost" onClick={markOut} data-tip="Mark out at the playhead" data-tip-key="O">Out</button>
             {sel ? (
-              <span className="selchip" data-tip="The selection; the agent sees it too" data-tip-cmd="recomp ui selection">
-                {clock(sel.a).replace(/^00:/, "")}–{clock(sel.b).replace(/^00:/, "")} · {(sel.b - sel.a).toFixed(1)}s
+              <span className="selchip" data-tip={`The selection, ${clock(sel.a).replace(/^00:/, "")}–${clock(sel.b).replace(/^00:/, "")}; the agent sees it too`} data-tip-cmd="recomp ui selection">
+                <span className="selrange">{clock(sel.a).replace(/^00:/, "")}–{clock(sel.b).replace(/^00:/, "")} · </span>{(sel.b - sel.a).toFixed(1)}s
                 <button className="btn ghost small icon" onClick={() => setSel(null)} aria-label="Clear the selection" data-tip="Clear the selection" data-tip-key="Esc"><X size={12} /></button>
               </span>
             ) : <span className="muted2 nowrap hide-sm" data-tip="Drag across the lanes, click a line, or use I and O">No selection</span>}

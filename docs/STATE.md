@@ -65,6 +65,9 @@ The build's working memory. If context runs short, resume from here.
   and editing one are a **dialog** (title and why; tags and snapping folded), so the lanes never jump. Cuts and
   chapters below are a flat list (click selects; ⋯ plays, edits, adds to the gathering journey, deletes with a
   confirm). Phones get one scrolling column. Escape in a dialog or menu closes only that layer (`ui.tsx`).
+  A container query on the left column (≤ 640 px) shortens the selection chip to its length (range in the tooltip),
+  so the command row stays on one line at 1024 px.
+- `.claude/launch.json` uses the main checkout's venv by absolute path, so `studio` and `hub` also start in worktrees.
 - Transcript pane: transcript picker + find box + ⋯ (find and replace, speakers, clean every line, re-fetch/ASR) in
   one row; a contextual line bar for selected lines (speaker, merge/split, ⋯ clean, replace in lines, delete with a
   confirm). Find and replace (`Ctrl+H`) and Speakers are dialogs. Ctrl+F searches that source (words or "a phrase",
