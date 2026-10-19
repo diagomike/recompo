@@ -23,4 +23,5 @@ MODULES = [
     "trends",
     "follow",
     "topic",
+    "post",
 ]

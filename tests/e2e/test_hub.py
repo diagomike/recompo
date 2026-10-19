@@ -40,11 +40,14 @@ def login(OK, handle, register=True):
     return OK("hub.login", {"handle": handle, "password": f"{handle}-test-pass", "register": register})
 
 
+PUBLIC = {"journey": "J1", "visibility": "public", "confirm": True}  # the user answered yes (D-23)
+
+
 def test_publish_vote_comment_follow_fork(hub, hproj, OK, R):
     login(OK, "ada")
-    pub = OK("hub.publish", {"journey": "J1"}, hproj)
+    pub = OK("hub.publish", PUBLIC, hproj, actor="user")
     assert pub["url"].startswith("http://127.0.0.1:8790/r/") and pub["version"] == 1
-    again = OK("hub.publish", {"journey": "J1"}, hproj)
+    again = OK("hub.publish", PUBLIC, hproj, actor="user")
     assert again["version"] == 2 and again["url"] == pub["url"]
     rid = pub["url"].rsplit("/", 1)[1]
     login(OK, "ben")
@@ -70,7 +73,7 @@ def test_publish_vote_comment_follow_fork(hub, hproj, OK, R):
 
 def test_source_page_heatmap_and_post_links(hub, hproj, OK):
     login(OK, "cleo")
-    pub = OK("hub.publish", {"journey": "J1"}, hproj)
+    pub = OK("hub.publish", PUBLIC, hproj, actor="user")
     rid = pub["url"].rsplit("/", 1)[1]
     r = hub.get(f"/api/hub/recipes/{rid}").json()
     key = r["sources"][0]["key"]
@@ -94,3 +97,26 @@ def test_privacy_and_guards(hub, hproj, OK, R):
     assert r.status_code == 400 and "local file paths" in r.json()["detail"]
     env = R("hub.login", {"handle": "eve", "password": "eve-test-pass", "register": True, "url": "https://hub.example.org"})
     assert env["error"]["code"] in ("E_PRECEDENCE", "E_NETWORK")
+
+
+def test_public_needs_the_users_permission_for_private_sources(hub, hproj, OK, R):
+    login(OK, "fay")
+    # Private by default, and private needs no question.
+    pub = OK("hub.publish", {"journey": "J1"}, hproj)
+    assert pub["visibility"] == "private" and pub["permission"] is None
+    # Public with a private source: the agent gets the consequences and the question, and cannot answer it.
+    e = R("hub.publish", {"journey": "J1", "visibility": "public"}, hproj)
+    assert e["error"]["code"] == "E_CONFIRM" and e["error"]["data"]["question"] == "Do you have permission to share this?"
+    assert e["error"]["data"]["sources"][0]["ref"] == "S1" and "public page" in e["error"]["data"]["consequences"][0]
+    assert R("hub.publish", {"journey": "J1", "visibility": "public", "confirm": True}, hproj)["error"]["code"] == "E_CONFIRM"
+    # The user answers yes: published, the answer and time saved on the version.
+    pub = OK("hub.publish", {"journey": "J1", "visibility": "public", "confirm": True}, hproj, actor="user")
+    assert pub["permission"]["answer"] == "yes" and pub["permission"]["by"] == "user"
+    rid = pub["url"].rsplit("/", 1)[1]
+    tok = hub.post("/api/hub/auth/login", json={"handle": "fay", "password": "fay-test-pass"}).json()["token"]
+    seen = hub.get(f"/api/hub/recipes/{rid}", headers={"Authorization": f"Bearer {tok}"}).json()
+    assert seen["permission"]["private_sources"][0]["ref"] == "S1" and seen["version"] == 2
+    assert "permission" not in hub.get(f"/api/hub/recipes/{rid}").json()  # only the owner sees their answer
+    # A source with verified permission asks nothing.
+    OK("source.rights", {"ref": "S1", "status": "permitted", "evidence": "https://example.org/ok"}, hproj)
+    assert OK("hub.publish", {"journey": "J1", "visibility": "public"}, hproj)["permission"] is None

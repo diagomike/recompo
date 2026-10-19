@@ -214,7 +214,7 @@ hub.
 | `trends` | `youtube [--region --category]` (API key), `search <topic> --since 7d`, `channel <url> --since 30d` |
 | `find` / `follow` / `inbox` (P17) | `find creators <query>`; `follow add <url\|name> --project [--person --podcast --appearances --rights]`, `check`, `backfill`, `list`, `edit`, `remove` (studio level); `inbox list`, `take`, `dismiss` |
 | `topic` (P17) | `suggest [--section --query]`, `add <topic> [--terms --follows --since]`, `scan`, `brief`, `list/edit/remove`; `journey from-topic <T>`; `search --scope library` |
-| `post` / `channel` (P17) | `source rights set <S> campaign\|permitted\|private --evidence`; `post plan <X> [--at]` (refuses `private`), `queue`, `open`, `link <id> <url>`; `channel stats` (your channel, read-only); `hub publish --confirm` |
+| `post` / `channel` (P17) | `source rights <S> --status campaign|permitted|private --evidence`;\|permitted\|private --evidence`; `post plan <X> [--at]` (refuses `private`), `queue`, `open`, `link <id> <url>`; `channel stats` (your channel, read-only); `hub publish --confirm` |
 | `cache` | `size`, `prune [--max-gb]` |
 
 ### 3.8 Recipe spec v1 (`docs/RECIPE_SPEC.md`, JSON Schema in `compose/recipe.schema.json`)
@@ -559,7 +559,7 @@ video by matching transcript text before cuts are exported from video.
   and person search (videos grouped by channel, which also shows a person's guest appearances elsewhere). Each
   result shows subscribers or episode count, feeds, and which transcript route it has.
 - `follow add <url|name> --project P [--person "Alex O'Connor"] [--podcast <feed|name>] [--appearances]
-  [--only videos|shorts|all] [--match "…"] [--rights campaign|permitted|private --evidence <url>]`: a follow is a
+  [--only videos|shorts|all] [--match "…"] [--rights campaign|| `post` / `channel` (P17) | `source rights <S> --status campaign|permitted|private --evidence`;|private --evidence <url>]`: a follow is a
   person or a show with its feeds (YouTube channel listing, RSS when it answers, podcast feed, transcript route).
   `--appearances` also watches searches for the person on other channels. `follow list/edit/remove`.
 - `follow check [--follow F]`: new items into the project's inbox (title, date, length, link, transcript route).
@@ -582,10 +582,10 @@ video by matching transcript text before cuts are exported from video.
   or per stance, lower thirds naming who speaks); the agent orders it into an argument and you edit.
 
 *P17c — Rights, publishing and posting (D-23).* Each source has one rights status: `campaign` (a clipping program
-covering it is running; terms linked), `permitted` (the creator's permission verified; evidence linked) or
-`private` (everything else). `source rights set <S> campaign|permitted|private --evidence <url>`; a follow's
+covering it is running; terms linked), `| `post` / `channel` (P17) | `source rights <S> --status campaign|permitted|private --evidence`;` (the creator's permission verified; evidence linked) or
+`private` (everything else). `source rights set <S> campaign|| `post` / `channel` (P17) | `source rights <S> --status campaign|permitted|private --evidence`;|private --evidence <url>`; a follow's
 `--rights` applies to sources it brings in.
-- Only `campaign` and `permitted` sources can enter the posting queue, and every post credits the creator (D-09).
+- Only `campaign` and `| `post` / `channel` (P17) | `source rights <S> --status campaign|permitted|private --evidence`;` sources can enter the posting queue, and every post credits the creator (D-09).
   The gate is in the verb (`post plan` refuses a `private` source with E_RIGHTS and the hint), not only in the UI.
 - `private` sources have no other limits: watching, ingesting, cutting, journeys and recipes all work fully.
 - Recipes are private by default. Publishing one on the hub is always allowed, but first shows a confirmation that

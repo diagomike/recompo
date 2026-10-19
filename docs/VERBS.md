@@ -10,6 +10,7 @@ Effects: `read` (no changes) · `write` (undoable op) · `heavy` (starts a job) 
 | Noun | Verbs |
 |---|---|
 | `cache` | [`cache.prune`](#cacheprune), [`cache.size`](#cachesize) |
+| `channel` | [`channel.set`](#channelset), [`channel.show`](#channelshow), [`channel.stats`](#channelstats) |
 | `chapter` | [`chapter.add`](#chapteradd), [`chapter.auto`](#chapterauto), [`chapter.edit`](#chapteredit), [`chapter.list`](#chapterlist), [`chapter.merge`](#chaptermerge), [`chapter.remove`](#chapterremove), [`chapter.seed`](#chapterseed), [`chapter.set`](#chapterset), [`chapter.split`](#chaptersplit) |
 | `config` | [`config.get`](#configget), [`config.set`](#configset) |
 | `context` | [`context`](#context) |
@@ -27,6 +28,7 @@ Effects: `read` (no changes) · `write` (undoable op) · `heavy` (starts a job) 
 | `music` | [`music.bed-add`](#musicbed-add), [`music.bed-edit`](#musicbed-edit), [`music.bed-remove`](#musicbed-remove), [`music.get`](#musicget), [`music.library-add`](#musiclibrary-add), [`music.list`](#musiclist), [`music.search`](#musicsearch) |
 | `op` | [`op.log`](#oplog), [`op.redo`](#opredo), [`op.undo`](#opundo) |
 | `overlay` | [`overlay.add`](#overlayadd), [`overlay.auto-lower-thirds`](#overlayauto-lower-thirds), [`overlay.edit`](#overlayedit), [`overlay.list`](#overlaylist), [`overlay.remove`](#overlayremove) |
+| `post` | [`post.cancel`](#postcancel), [`post.link`](#postlink), [`post.open`](#postopen), [`post.plan`](#postplan), [`post.queue`](#postqueue) |
 | `preview` | [`preview`](#preview) |
 | `profile` | [`profile.edit`](#profileedit), [`profile.list`](#profilelist), [`profile.new`](#profilenew), [`profile.show`](#profileshow) |
 | `project` | [`project.agent-kit`](#projectagent-kit), [`project.backup`](#projectbackup), [`project.checklist`](#projectchecklist), [`project.forget`](#projectforget), [`project.init`](#projectinit), [`project.list`](#projectlist), [`project.reveal`](#projectreveal), [`project.set`](#projectset), [`project.show`](#projectshow), [`project.use`](#projectuse) |
@@ -59,6 +61,48 @@ Delete the oldest render intermediates until the cache fits (exports are untouch
 `recomp cache size` · effect: **read**
 
 Disk used by caches (render intermediates, frames, thumbnails, peaks) and exports.
+
+## channel
+
+### channel.set
+
+`recomp channel set` · effect: **write**
+
+Name the channel you post to (one channel; a placeholder is used until you do).
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `--name` | string | None | What the channel is called |
+| `--platform` | string | None | youtube, tiktok or instagram |
+| `--handle` | string | None | @handle |
+| `--url` | string | None |  |
+
+```
+recomp channel set --name "Ideas in a minute" --handle @ideasinaminute --platform youtube
+```
+
+### channel.show
+
+`recomp channel show` · effect: **read**
+
+Your channel (or the placeholder), its imported numbers and the post counts.
+
+### channel.stats
+
+`recomp channel stats` · effect: **write**
+
+Your own channel's numbers (read-only): import a YouTube Studio CSV or read the public totals with your API key.
+Posts you linked get their video's row. Nobody else's numbers are read (D-22).
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `--csv` | string | None | A YouTube Studio export (Analytics › Advanced › Export › Table data.csv) |
+| `--api` | boolean | False | Read the channel's public totals with your YOUTUBE_API_KEY (read-only) |
+
+```
+recomp channel stats --csv C:\Users\me\Downloads\Table data.csv
+recomp channel stats --api
+```
 
 ## chapter
 
@@ -743,14 +787,18 @@ Sign out of the configured hub.
 `recomp hub publish <journey>` · effect: **publish**
 
 Share a journey's recipe on the hub (sources, timecodes, text, credits; never the media). Re-publishing adds a version.
+Recipes are private by default. Making one public or unlisted when it uses private sources (D-23) first lists what
+changes for each and asks the user "Do you have permission to share this?"; their answer and the time are saved on
+the recipe version. The agent cannot answer that for them.
 
 | Field | Type | Default | Description |
 |---|---|---|---|
 | `<journey>` | string | required |  |
-| `--visibility` | string | 'public' | public \| unlisted \| private |
-| `--confirm` | boolean | False | Required for a non-local hub; only after the user said so in chat |
+| `--visibility` | string | 'private' | private (default) \| unlisted \| public |
+| `--confirm` | boolean | False | The user's own answer: they have permission to share the private sources (and agree to publish on a non-local hub). Only after they said so in chat |
 
 ```
+recomp hub publish J1
 recomp hub publish J1 --visibility public
 ```
 
@@ -1643,6 +1691,84 @@ Delete an overlay.
 |---|---|---|---|
 | `<ref>` | string | required |  |
 
+## post
+
+### post.cancel
+
+`recomp post cancel <ref>` · effect: **write**
+
+Take a post out of the queue (undo with `recomp op undo --studio`).
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<ref>` | string | required |  |
+
+### post.link
+
+`recomp post link <ref> <url>` · effect: **write**
+
+Record where you posted it: on the post, on the journey and on its hub recipe (when published).
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<ref>` | string | required |  |
+| `<url>` | string | required | Where you posted it |
+
+```
+recomp post link Q2 https://youtube.com/shorts/abc123def45
+```
+
+### post.open
+
+`recomp post open <ref>` · effect: **write**
+
+Everything to upload a post yourself: the file, the title, the description with credits, the upload page.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<ref>` | string | required |  |
+| `--reveal` | boolean | False | Also show the file in the file manager |
+
+```
+recomp post open Q2 --reveal
+```
+
+### post.plan
+
+`recomp post plan <ref>` · effect: **write**
+
+Put an export in the posting queue for your channel. Refuses private sources (E_RIGHTS): only campaign and
+permitted sources can be posted (D-23); the description credits every creator.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<ref>` | string | required | A finished export (X3), or a journey (J1: its newest finished export) |
+| `--profile` | string | None | With a journey: which format (shorts, landscape…) |
+| `--lang` | string | None | With a journey: which language |
+| `--at` | string | None | When you plan to post it, e.g. 2026-10-20 18:00 |
+| `--title` | string | None | Post title (default: the journey's) |
+
+```
+recomp post plan X4 --at "2026-10-20 18:00"
+recomp post plan J2 --profile shorts --lang en
+```
+
+### post.queue
+
+`recomp post queue` · effect: **read**
+
+The posting queue: what you plan to upload, when, with which credits; and what you posted.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `--status` | string | 'open' | open (planned and opened), planned, opened, posted, cancelled or all |
+| `--project` | string | None |  |
+
+```
+recomp post queue
+recomp post queue --status posted
+```
+
 ## preview
 
 ### preview
@@ -2094,7 +2220,8 @@ Remove a source from the project (the media file itself is never touched). Its c
 
 `recomp source rights <ref>` · effect: **write**
 
-Set a source's credit and rights details (used for attribution in every export).
+Set a source's credit and rights details (used for attribution in every export) and its rights status (D-23):
+only campaign and permitted sources can enter the posting queue; private ones work for everything else.
 
 | Field | Type | Default | Description |
 |---|---|---|---|
@@ -2106,9 +2233,13 @@ Set a source's credit and rights details (used for attribution in every export).
 | `--title` | string | None |  |
 | `--year` | integer | None |  |
 | `--creator` | string | None |  |
+| `--status` | string | None | campaign (a clipping program by the rights holder covers it), permitted (the creator's permission is verified) or private (everything else) |
+| `--evidence` | string | None | Link to the program's terms or the creator's permission |
 
 ```
 recomp source rights S1 --owner "Warner Bros." --notice "The Dark Knight (2008), Warner Bros."
+recomp source rights S3 --status permitted --evidence https://…/permission-email
+recomp source rights S3 --status private
 ```
 
 ### source.show

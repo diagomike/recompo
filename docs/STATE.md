@@ -2,11 +2,11 @@
 
 The build's working memory. If context runs short, resume from here.
 
-**Last updated:** 2026-10-19 (P17 approved with defaults; P17a find and follow, P17b topics built)
+**Last updated:** 2026-10-19 (P17 approved with defaults; P17a find and follow, P17b topics, P17c rights and posting built)
 
 | | |
 |---|---|
-| Phases | **P0–P16b built** (P16b awaits your review) · **P17 research wing** approved 2026-10-19 with defaults P17-Q1–Q6: **P17a and P17b built** (find, follow, inbox, library; topics, briefs, journeys from topics); P17c rights next, then P17d viewer, M5 |
+| Phases | **P0–P16b built** (P16b awaits your review) · **P17 research wing** approved 2026-10-19 with defaults P17-Q1–Q6: **P17a–c built** (find, follow, inbox, library; topics, briefs, journeys from topics; rights statuses, posting queue, hub permission); P17d viewer next, then M5 |
 | Milestones | **M1** ([report](runs/M1-dark-knight.md)) · **M2** ([report](runs/M2-alex-oconnor.md)) · **M3** am/sw/fr + om · **M4** local hub ([report](runs/M3-M4-languages-and-hub.md)): all done |
 | Suite | 100+ fast tests (`pytest -q`), slow speaker test (`pytest -m slow`), live P17 sources (`pytest -m real tests/unit/test_follow_real.py`); the reorder-cache timing assert can flake under heavy load |
 | Projects | `C:\Recomposer\projects\dark-knight` (M1, M3), `alex-oconnor` (M2: 5 episodes, 12 cuts, 3 journeys); `_uitest` scratch folder (forgotten from the list; safe to delete) |
@@ -122,6 +122,23 @@ The build's working memory. If context runs short, resume from here.
   auto lower thirds; records the journey on the topic.
 - Live 2026-10-19: "AI models are getting good" → 6 passages from 4 Lex Fridman episodes (2 fetched); Alex O'Connor's
   AI episodes are audio-only in the feed (needs ASR) and YouTube refused captions, so the brief listed them as unread.
+
+## Rights and posting (P17c, 2026-10-19)
+- `recomp/core/rights.py`: `source.rights.status` campaign | permitted | private (missing = private); campaign and
+  permitted need `evidence`. `source rights S3 --status … --evidence …` (the plan's `source rights set` became flags
+  on the existing verb).
+- Studio migration 3: `channel` (CH; one channel, a placeholder until named — P17-Q3) and `post` (Q: project, export,
+  journey, file, title, description, at, status planned → opened → posted | cancelled, URL, sources' rights).
+- `post plan` (project verb) refuses private sources with **E_RIGHTS**; adds a credit line for any creator the
+  export's description lacks. `post open` returns file, text and upload page (`--reveal` shows the file);
+  `post link` records the URL on the post, the journey and its hub recipe (`hub.link-post`). `channel stats`: a
+  YouTube Studio CSV, or public totals with your API key; posted videos get their row. Read-only.
+- `hub publish` is **private by default**. Public/unlisted with private sources → **E_CONFIRM** with the question,
+  each source and its consequences; only the user can answer (`--confirm` from the user, or the agent's
+  `--confirm --as-user` after a yes in chat). The answer and time go on the hub's `recipe_version.permission`
+  (owner-only in the API) and on `journey.links.permissions`.
+- Store: journey `links` is bookkeeping (unguarded), so the agent can record a post after the user published;
+  inbox and post `status` are decisions (guarded and undoable: `schema.unguarded(table)`).
 
 ## Lessons
 - `>>` marks name speakers for free only when dense (≥ 1/min); sparse marks swap every later line (M2: 86 % vs 50 %).

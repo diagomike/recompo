@@ -31,7 +31,8 @@ Every open task by priority. Done phases are summarised; their detail is in git 
         (source, transcript by route, chapters, cut candidates on project themes), back-catalogue library and search.
   - [x] P17b topics: `topic suggest` (news prompts with who has talked about them), `topic add/edit/list/remove`,
         `topic scan` (episodes, cheap transcripts, ranked passages) and `topic brief`, `journey from-topic`.
-  - [ ] P17c rights and posting: `source rights set`, `post plan/queue/open/link` gate, `hub publish --confirm`.
+  - [x] P17c rights and posting: `source rights --status --evidence`, `post plan/queue/open/link/cancel` with the
+        E_RIGHTS gate, `channel set/show/stats`, `hub publish` private by default with the permission question (E_CONFIRM).
   - [ ] P17d viewer: Follows and Topics pages, publish confirmation, post queue panel.
   - [ ] M5 acceptance run (`docs/runs/M5-follows-and-topics.md`).
 

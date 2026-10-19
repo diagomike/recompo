@@ -206,8 +206,9 @@ async def publish(request: Request, authorization: str | None = Header(None)):
     thumb = _save_thumb(rid, body.get("thumbnail"))
     if thumb:
         run("UPDATE recipe SET thumbnail=? WHERE id=?", (thumb, rid))
-    run("INSERT INTO recipe_version(recipe_id, n, hash, body, created) VALUES(?,?,?,?,?)",
-        (rid, n, rec.get("hash"), json.dumps(rec, ensure_ascii=False), now))
+    perm = body.get("permission")
+    run("INSERT INTO recipe_version(recipe_id, n, hash, body, created, permission) VALUES(?,?,?,?,?,?)",
+        (rid, n, rec.get("hash"), json.dumps(rec, ensure_ascii=False), now, json.dumps(perm) if perm else None))
     _index_sources(rid, rec)
     return {"id": rid, "version": n, "url": f"/r/{rid}"}
 
@@ -231,9 +232,11 @@ def get_recipe(rid: str, authorization: str | None = Header(None), version: int 
     r = q1("SELECT * FROM recipe WHERE id=?", (rid,))
     if r is None or not _visible(r, user):
         raise HTTPException(404, "no such recipe")
-    v = q1("SELECT body FROM recipe_version WHERE recipe_id=? AND n=?", (rid, version or r["version"]))
+    v = q1("SELECT body, permission FROM recipe_version WHERE recipe_id=? AND n=?", (rid, version or r["version"]))
     out = _card(r, user)
     out["recipe"] = json.loads(v["body"])
+    if user and user["id"] == r["owner_id"] and v["permission"]:
+        out["permission"] = json.loads(v["permission"])  # the owner's answer when this version went public
     out["links"] = [dict(x) for x in q("SELECT url, platform, lang, created FROM post_link WHERE recipe_id=? ORDER BY created", (rid,))]
     out["forks"] = [x["id"] for x in q("SELECT id FROM recipe WHERE forked_from=? AND visibility='public'", (rid,))]
     return out

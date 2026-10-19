@@ -318,18 +318,33 @@ class RightsIn(BaseModel):
     title: str | None = None
     year: int | None = None
     creator: str | None = None
+    status: str | None = Field(None, description="campaign (a clipping program by the rights holder covers it), permitted "
+                                                 "(the creator's permission is verified) or private (everything else)")
+    evidence: str | None = Field(None, description="Link to the program's terms or the creator's permission")
 
 
 @verb("source.rights", RightsIn, effect="write",
-      examples=['recomp source rights S1 --owner "Warner Bros." --notice "The Dark Knight (2008), Warner Bros."'])
+      examples=['recomp source rights S1 --owner "Warner Bros." --notice "The Dark Knight (2008), Warner Bros."',
+                "recomp source rights S3 --status permitted --evidence https://…/permission-email",
+                "recomp source rights S3 --status private"])
 def source_rights(ctx: Ctx, inp: RightsIn):
-    """Set a source's credit and rights details (used for attribution in every export)."""
+    """Set a source's credit and rights details (used for attribution in every export) and its rights status (D-23):
+    only campaign and permitted sources can enter the posting queue; private ones work for everything else."""
+    from ..core import rights as RS
     s = refs.source(ctx.db, inp.ref)
     rights = dict(s["rights"] or {})
-    for k in ("owner", "notice", "licence", "url"):
+    for k in ("owner", "notice", "licence", "url", "evidence"):
         v = getattr(inp, k)
         if v is not None:
             rights[k] = v
+    if inp.status is not None:
+        if inp.status not in RS.STATUSES:
+            raise RecompError("E_INVALID", f"status: {', '.join(RS.STATUSES)}")
+        if inp.status != "private" and not rights.get("evidence"):
+            raise RecompError("E_INVALID", f"{inp.status} needs --evidence (the program's terms or the creator's permission)",
+                              hint="Without evidence the source stays private: everything works except the posting queue.")
+        rights["status"] = inp.status
+        rights["status_at"] = time.time()
     fields = {"rights": rights}
     for k in ("title", "year", "creator"):
         v = getattr(inp, k)

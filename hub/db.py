@@ -49,4 +49,7 @@ def connect(path: Path) -> sqlite3.Connection:
     conn.execute("PRAGMA journal_mode=WAL")
     conn.execute("PRAGMA foreign_keys=ON")
     conn.executescript(SCHEMA)
+    cols = {r[1] for r in conn.execute("PRAGMA table_info(recipe_version)")}
+    if "permission" not in cols:  # the user's answer to "Do you have permission to share this?" (D-23)
+        conn.execute("ALTER TABLE recipe_version ADD COLUMN permission TEXT")
     return conn

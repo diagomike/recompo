@@ -9,6 +9,7 @@ from __future__ import annotations
 import base64
 import json
 import os
+import time
 from pathlib import Path
 from urllib.parse import urlparse
 
@@ -120,19 +121,47 @@ def hub_logout(ctx: Ctx, inp: NoInput):
 
 class PublishIn(BaseModel):
     journey: str = Field(..., json_schema_extra={"pos": 0})
-    visibility: str = Field("public", description="public | unlisted | private")
-    confirm: bool = Field(False, description="Required for a non-local hub; only after the user said so in chat")
+    visibility: str = Field("private", description="private (default) | unlisted | public")
+    confirm: bool = Field(False, description="The user's own answer: they have permission to share the private sources "
+                                             "(and agree to publish on a non-local hub). Only after they said so in chat")
 
 
-@verb("hub.publish", PublishIn, effect="publish", examples=["recomp hub publish J1 --visibility public"])
+QUESTION = "Do you have permission to share this?"
+
+
+@verb("hub.publish", PublishIn, effect="publish",
+      examples=["recomp hub publish J1", "recomp hub publish J1 --visibility public"])
 def hub_publish(ctx: Ctx, inp: PublishIn):
-    """Share a journey's recipe on the hub (sources, timecodes, text, credits; never the media). Re-publishing adds a version."""
+    """Share a journey's recipe on the hub (sources, timecodes, text, credits; never the media). Re-publishing adds a version.
+    Recipes are private by default. Making one public or unlisted when it uses private sources (D-23) first lists what
+    changes for each and asks the user "Do you have permission to share this?"; their answer and the time are saved on
+    the recipe version. The agent cannot answer that for them."""
+    from ..core import rights as RS
     db = ctx.db
     j = refs.resolve(db, inp.journey, "journey")[1]
+    if inp.visibility not in ("private", "unlisted", "public"):
+        raise RecompError("E_INVALID", "visibility: private, unlisted or public")
     b = base()
     if not is_local(b) and not inp.confirm:
         raise RecompError("E_PRECEDENCE", f"{b} is not local: publishing there is the user's decision",
                           hint="Ask the user; if they agree in chat, repeat with --confirm.")
+    permission = None
+    if inp.visibility != "private":
+        priv = RS.private(RS.sources_of_journey(db, j["id"]))
+        if priv:
+            consequences = RS.public_consequences(priv)
+            if not inp.confirm or ctx.actor != "user":
+                raise RecompError(
+                    "E_CONFIRM",
+                    f"{j['ref']} uses {len(priv)} private source(s); making it {inp.visibility} needs the user's answer: {QUESTION}",
+                    hint=("Show the user the consequences and ask them. Only if they answer yes in chat, repeat with "
+                          "--confirm --as-user. Or publish it private, or set a source's status when there is evidence "
+                          "(`recomp source rights S… --status permitted --evidence <link>`).") if ctx.actor != "user" else
+                    "Answer the question; publish with --confirm if you have permission.",
+                    data={"question": QUESTION, "sources": priv, "consequences": consequences})
+            permission = {"question": QUESTION, "answer": "yes", "at": time.time(), "by": ctx.actor,
+                          "visibility": inp.visibility, "private_sources": [{"ref": s["ref"], "title": s["title"],
+                                                                             "creator": s["creator"]} for s in priv]}
     rec = R.build(db, j, ctx.project.meta)
     links = dict(j.get("links") or {})
     hub_id = (links.get("hub_ids") or {}).get(b)
@@ -144,14 +173,18 @@ def hub_publish(ctx: Ctx, inp: PublishIn):
             break
     rec.pop("links", None)
     res = call("POST", "/api/hub/recipes", {"recipe": rec, "visibility": inp.visibility, "id": hub_id, "languages": langs,
-                                           "thumbnail": thumb, "forked_from": links.get("forked_from_id")})
+                                           "thumbnail": thumb, "forked_from": links.get("forked_from_id"),
+                                           "permission": permission})
     url = f"{b}/r/{res['id']}"
     links.setdefault("hub_ids", {})[b] = res["id"]
     links["hub"] = url
+    if permission:
+        links.setdefault("permissions", []).append({**permission, "hub": url, "version": res["version"]})
     with ctx.op(f"published {j['ref']}") as tx:
         tx.update("journey", j["id"], {"links": links, "status": "published"})
     R.write_mirror(ctx.project, db, db.get("journey", j["id"]))
-    return Result(data={"journey": j["ref"], "url": url, "version": res["version"], "visibility": inp.visibility},
+    return Result(data={"journey": j["ref"], "url": url, "version": res["version"], "visibility": inp.visibility,
+                        "permission": permission},
                   next=["Re-export to put the recipe link and QR code on the endcard: recomp export run "
                         f"{j['ref']} --profiles shorts"])
 

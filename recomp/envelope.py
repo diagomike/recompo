@@ -12,6 +12,8 @@ EXIT = {
     "E_NO_PROJECT": 3,
     "E_PRECEDENCE": 4,
     "E_LOCKED": 4,
+    "E_RIGHTS": 4,   # a private source where only campaign/permitted ones may go (the posting queue)
+    "E_CONFIRM": 4,  # the user's own answer is needed (e.g. "Do you have permission to share this?")
     "E_CONFLICT": 5,
     "E_EXISTS": 5,
     "E_EXTERNAL": 6,

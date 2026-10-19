@@ -59,6 +59,20 @@ item, `L2` library transcript, `T1` topic (its passages: `p4`).
    order it into an argument (`recomp journey guide J…`). Podcast-timed passages are shifted onto the video's clock
    when the video has a word-timed transcript; otherwise the result warns: check those cuts.
 
+## Rights and posting (D-23)
+- Every source is `campaign` (a clipping program by the rights holder covers it), `permitted` (the creator's
+  permission is verified) or `private` (everything else). Private sources work for everything: watching, cutting,
+  journeys, recipes. Set a status only with evidence: `recomp source rights S3 --status permitted --evidence <link>`.
+  A follow's `--rights` applies to the sources it brings in.
+- `recomp post plan X4 --at "2026-10-20 18:00"` (or `post plan J2 --profile shorts`) queues an export for the user's
+  channel; it refuses private sources with `E_RIGHTS`. `recomp post queue`, `recomp post open Q1` (file, title,
+  description with credits, upload page), and after **the user** uploads: `recomp post link Q1 <url>`. You never upload.
+- `recomp hub publish J1` is private by default. Public or unlisted with private sources stops with `E_CONFIRM`: show
+  the user the consequences in `error.data` and ask "Do you have permission to share this?". Only if they answer yes
+  in chat: `--confirm --as-user`. Never answer it yourself.
+- The user's channel: `recomp channel set --name … --handle @…`; its numbers, read-only: `recomp channel stats --csv
+  <YouTube Studio export>`.
+
 ## Network
 YouTube per-video requests may answer 429 or a bot check: report it and back off; never work around it.
 Cookies are the user's call (`recomp config set network.cookies_file <cookies.txt>`).

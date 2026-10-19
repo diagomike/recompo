@@ -225,3 +225,12 @@ def test_background_checks_are_due_every_few_hours(fake, OK):
     assert not schedule.due() and schedule.due(time.time() + 2 * 3600 + 1)
     config.set_value("research.check_every_h", 0)
     assert not schedule.due(time.time() + 10 * 3600)
+
+
+def test_dismiss_is_undoable(fake, OK):
+    OK("follow.add", {"target": LEX_FEED})
+    item = OK("follow.check", {})["follows"][0]["new"][0]["ref"]
+    OK("inbox.dismiss", {"refs": [item]}, actor="user")
+    assert item not in [i["ref"] for i in OK("inbox.list", {})]
+    OK("op.undo", {"studio": True}, actor="user")
+    assert item in [i["ref"] for i in OK("inbox.list", {})]

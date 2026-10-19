@@ -171,10 +171,11 @@ class Tx:
         if not changed:
             return before
         if table in schema.EDITORIAL:
-            self._guard(table, before, [k for k in changed if k not in schema.UNGUARDED])
+            free = schema.unguarded(table)
+            self._guard(table, before, [k for k in changed if k not in free])
             prov = dict(before.get("prov") or {})
             for k in changed:
-                if k not in schema.UNGUARDED:
+                if k not in free:
                     prov[k] = self.actor
             changed_db = dict(changed, prov=prov, updated_at=time.time())
         else:
@@ -373,7 +374,7 @@ class Database:
     def _apply(self, table: str, id_: Any, current_should_be: dict | None, target: dict | None,
                force: bool) -> None:
         current = self.get(table, id_)
-        if not force and _row_key(current) != _row_key(current_should_be):
+        if not force and _row_key(table, current) != _row_key(table, current_should_be):
             raise RecompError("E_CONFLICT", f"{table} {id_} changed since; undo/redo would overwrite newer work",
                               hint="Inspect `recomp op log`; use --force only if the user agrees.")
         if target is None:
@@ -382,7 +383,7 @@ class Database:
             return
         cols = list(target)
         if current is not None:  # keep live bookkeeping (job status) when restoring a row
-            cols = [c for c in cols if c not in schema.UNGUARDED]
+            cols = [c for c in cols if c not in schema.unguarded(table)]
         values = [_enc(table, c, target[c]) for c in cols]
         if current is None:
             self.conn.execute(f"INSERT INTO {q(table)} ({', '.join(q(c) for c in cols)}) "
@@ -392,10 +393,11 @@ class Database:
                               values + [id_])
 
 
-def _row_key(row: dict | None) -> str | None:
+def _row_key(table: str, row: dict | None) -> str | None:
     if row is None:
         return None
-    return json.dumps({k: v for k, v in row.items() if k not in schema.UNGUARDED}, sort_keys=True, default=str)
+    free = schema.unguarded(table)
+    return json.dumps({k: v for k, v in row.items() if k not in free}, sort_keys=True, default=str)
 
 
 def _jsonable(value: Any) -> Any:
