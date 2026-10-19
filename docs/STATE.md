@@ -2,11 +2,11 @@
 
 The build's working memory. If context runs short, resume from here.
 
-**Last updated:** 2026-10-19 (P17 approved with defaults; P17a find and follow built)
+**Last updated:** 2026-10-19 (P17 approved with defaults; P17a find and follow, P17b topics built)
 
 | | |
 |---|---|
-| Phases | **P0–P16b built** (P16b awaits your review) · **P17 research wing** approved 2026-10-19 with defaults P17-Q1–Q6: **P17a built** (find, follow, inbox, library); P17b topics next, then P17c rights, P17d viewer, M5 |
+| Phases | **P0–P16b built** (P16b awaits your review) · **P17 research wing** approved 2026-10-19 with defaults P17-Q1–Q6: **P17a and P17b built** (find, follow, inbox, library; topics, briefs, journeys from topics); P17c rights next, then P17d viewer, M5 |
 | Milestones | **M1** ([report](runs/M1-dark-knight.md)) · **M2** ([report](runs/M2-alex-oconnor.md)) · **M3** am/sw/fr + om · **M4** local hub ([report](runs/M3-M4-languages-and-hub.md)): all done |
 | Suite | 100+ fast tests (`pytest -q`), slow speaker test (`pytest -m slow`), live P17 sources (`pytest -m real tests/unit/test_follow_real.py`); the reorder-cache timing assert can flake under heavy load |
 | Projects | `C:\Recomposer\projects\dark-knight` (M1, M3), `alex-oconnor` (M2: 5 episodes, 12 cuts, 3 journeys); `_uitest` scratch folder (forgotten from the list; safe to delete) |
@@ -103,6 +103,25 @@ The build's working memory. If context runs short, resume from here.
 - Tests: `tests/unit/test_follow.py` over fixtures cut from the research's saved responses
   (`scripts/research/make_p17_fixtures.py` → `tests/fixtures/p17/`); live checks in `test_follow_real.py`.
 - YouTube's RSS answered 404 on 2026-10-19 (500 on 2026-10-16): the listing is the working path.
+
+## Topics (P17b, 2026-10-19)
+- Studio migration 2: `topic` (T): title, terms, follows (empty = all), since, news query, projects, `brief` (JSON).
+- `recomp/research/topics.py`: Google News RSS (top, sections, 7-day search), Google Trends daily RSS, Wikipedia
+  most-viewed (only with `research.contact`: Wikimedia's robot policy 403s any agent without contact details), Hacker
+  News front page (Algolia); `key_terms` (acronyms and names first, a stop list), `passages` (45–90 s windows scored
+  by terms, a bonus for several different terms; best k non-overlapping).
+- `topic suggest` marks each prompt with the followed creators whose library episodes use two of its terms within
+  ~8 lines (single words need 3 mentions; words in most episodes are ignored). A hint for choosing, not a ranking.
+- `topic scan`: per follow, feed episodes and the channel's own search whose titles/descriptions mention a term;
+  missing transcripts fetched by route into the library (`--fetch` per creator; captions stop at the first YouTube
+  refusal; audio-only episodes listed as needs ASR); plus the follow's project sources (creator name match).
+  Writes the brief to `topic.brief` and `<studio home>/topics/T1-brief.md`. Passage ids `p1…` in reading order.
+- `journey from-topic` (project verb): adds missing episodes as their YouTube video (library transcript along when
+  it is on the video's clock), shifts podcast-timed passages by `align.estimate_offset` against a word-timed video
+  transcript (warns when there is none), cuts with why/people/tags `topic:T1`, sections per creator or stance,
+  auto lower thirds; records the journey on the topic.
+- Live 2026-10-19: "AI models are getting good" → 6 passages from 4 Lex Fridman episodes (2 fetched); Alex O'Connor's
+  AI episodes are audio-only in the feed (needs ASR) and YouTube refused captions, so the brief listed them as unread.
 
 ## Lessons
 - `>>` marks name speakers for free only when dense (≥ 1/min); sparse marks swap every later line (M2: 86 % vs 50 %).

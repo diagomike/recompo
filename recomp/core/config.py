@@ -38,8 +38,9 @@ DEFAULTS: dict[str, Any] = {
     "render": {"cache_max_gb": 8},
     "network": {"yt_sleep_subtitles": 3, "yt_retries": 4, "link_video": "full", "link_video_height": 720},
     # P17 research wing: follow checks run this often while the studio is open (0 = only on request);
-    # a follow's first check puts this many of the newest items in the inbox; backfill goes back this far.
-    "research": {"check_every_h": 2, "first_check_items": 3, "backfill_since": "2y"},
+    # a follow's first check puts this many of the newest items in the inbox; backfill goes back this far;
+    # contact: your email or URL for APIs whose policy asks for it (Wikipedia's most-viewed list); empty = skip them.
+    "research": {"check_every_h": 2, "first_check_items": 3, "backfill_since": "2y", "contact": ""},
 }
 
 

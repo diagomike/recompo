@@ -34,7 +34,7 @@ class Net:
         self.calls: list[str] = []
         self.listing = json.loads(text("yt-listing-alex.json"))
 
-    def get_text(self, url, timeout=30, max_bytes=None):
+    def get_text(self, url, timeout=30, max_bytes=None, user_agent=None):
         self.calls.append(url)
         if "itunes.apple.com" in url:
             return text("itunes-within-reason.json")

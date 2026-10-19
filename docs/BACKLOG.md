@@ -29,7 +29,8 @@ Every open task by priority. Done phases are summarised; their detail is in git 
 - [ ] **P17 research wing** (approved 2026-10-19 with defaults P17-Q1–Q6; plan §6, [research](research/P17-research-wing.md)):
   - [x] P17a find and follow: `find creators`, follows, checks (every 2 h while the studio runs), inbox take
         (source, transcript by route, chapters, cut candidates on project themes), back-catalogue library and search.
-  - [ ] P17b topics: `topic suggest` (news prompts), `topic add/scan/brief`, `journey from-topic`.
+  - [x] P17b topics: `topic suggest` (news prompts with who has talked about them), `topic add/edit/list/remove`,
+        `topic scan` (episodes, cheap transcripts, ranked passages) and `topic brief`, `journey from-topic`.
   - [ ] P17c rights and posting: `source rights set`, `post plan/queue/open/link` gate, `hub publish --confirm`.
   - [ ] P17d viewer: Follows and Topics pages, publish confirmation, post queue panel.
   - [ ] M5 acceptance run (`docs/runs/M5-follows-and-topics.md`).

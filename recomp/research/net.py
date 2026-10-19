@@ -12,10 +12,10 @@ from ..envelope import RecompError
 UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36"
 
 
-def get_text(url: str, timeout: float = 30, max_bytes: int | None = None) -> str:
+def get_text(url: str, timeout: float = 30, max_bytes: int | None = None, user_agent: str | None = None) -> str:
     """The body of ``url`` as text. ``max_bytes`` stops early (enough of a large feed to see what it offers)."""
     try:
-        with httpx.Client(follow_redirects=True, timeout=timeout, headers={"User-Agent": UA}) as client:
+        with httpx.Client(follow_redirects=True, timeout=timeout, headers={"User-Agent": user_agent or UA}) as client:
             with client.stream("GET", url) as r:
                 if r.status_code == 429:
                     raise RecompError("E_EXTERNAL", f"{_host(url)} is rate-limiting this machine (HTTP 429)",
@@ -36,8 +36,8 @@ def get_text(url: str, timeout: float = 30, max_bytes: int | None = None) -> str
                           hint="Check the connection; feeds and search work without any key.") from exc
 
 
-def get_json(url: str, timeout: float = 30) -> Any:
-    text = get_text(url, timeout=timeout)
+def get_json(url: str, timeout: float = 30, user_agent: str | None = None) -> Any:
+    text = get_text(url, timeout=timeout, user_agent=user_agent) if user_agent else get_text(url, timeout=timeout)
     try:
         return json.loads(text)
     except json.JSONDecodeError as exc:

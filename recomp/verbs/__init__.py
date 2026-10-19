@@ -22,4 +22,5 @@ MODULES = [
     "hub",
     "trends",
     "follow",
+    "topic",
 ]

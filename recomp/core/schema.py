@@ -383,6 +383,20 @@ STUDIO_MIGRATIONS: list[str] = [
         INSERT INTO lib_seg_fts(lib_seg_fts, rowid, text) VALUES ('delete', old.id, old.text);
     END;
     """,
+    # 2 — P17b: topics (from the news or from you) and their briefs.
+    f"""
+    CREATE TABLE topic ({COMMON},
+        title TEXT NOT NULL,
+        terms TEXT NOT NULL DEFAULT '[]',
+        follows TEXT NOT NULL DEFAULT '[]',
+        since TEXT,
+        news_query TEXT NOT NULL DEFAULT '',
+        projects TEXT NOT NULL DEFAULT '[]',
+        note TEXT NOT NULL DEFAULT '',
+        brief TEXT NOT NULL DEFAULT '{{}}',
+        state TEXT NOT NULL DEFAULT '{{}}'
+    );
+    """,
 ]
 
 # Columns stored as JSON text, decoded on read.
@@ -390,6 +404,7 @@ JSON_COLS: dict[str, set[str]] = {
     "follow": {"projects", "feeds", "rights", "state", "prov"},
     "inbox": {"route", "taken", "meta", "prov"},
     "lib_doc": {"route", "stats", "prov"},
+    "topic": {"terms", "follows", "projects", "brief", "state", "prov"},
     "op": {"args", "changes", "refs"},
     "event": {"payload"},
     "job": {"params", "result", "depends_on"},
@@ -414,10 +429,10 @@ JSON_COLS: dict[str, set[str]] = {
 # Tables whose rows carry provenance and go through the precedence guard.
 EDITORIAL = {"source", "transcript", "segment", "person", "speaker_label", "chapter", "cut",
              "journey", "slot", "overlay", "music_track", "music_bed", "profile", "export",
-             "translation", "follow", "inbox", "lib_doc"}
+             "translation", "follow", "inbox", "lib_doc", "topic"}
 
 # Bookkeeping fields written by jobs: no precedence guard, ignored when undo checks for conflicts.
-UNGUARDED = {"status", "stats", "has_words", "updated_at", "outputs", "checks", "job_id", "recipe_hash", "state",
+UNGUARDED = {"status", "stats", "has_words", "updated_at", "outputs", "checks", "job_id", "recipe_hash", "state", "brief",
              "idx", "seconds"}  # seconds: measured voice time; idx: segment order is renumbered in bulk by line splits; undo restores content, not position numbers
 
 # Child rows captured with a delete so undo can restore them (only op-logged children).
@@ -431,4 +446,4 @@ CHILDREN: dict[str, list[tuple[str, str]]] = {
 # Short-ref prefixes per table (chapters/transcripts get ``S1.c4`` / ``S1.t2`` style refs).
 REF_PREFIX = {"source": "S", "cut": "C", "journey": "J", "overlay": "O", "music_track": "M",
               "music_bed": "B", "person": "P", "export": "X", "job": "job",
-              "follow": "F", "inbox": "I", "lib_doc": "L"}
+              "follow": "F", "inbox": "I", "lib_doc": "L", "topic": "T"}

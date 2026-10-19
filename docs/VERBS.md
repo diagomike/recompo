@@ -21,7 +21,7 @@ Effects: `read` (no changes) · `write` (undoable op) · `heavy` (starts a job) 
 | `hub` | [`hub.comment`](#hubcomment), [`hub.comments`](#hubcomments), [`hub.feed`](#hubfeed), [`hub.follow`](#hubfollow), [`hub.fork`](#hubfork), [`hub.link-post`](#hublink-post), [`hub.login`](#hublogin), [`hub.logout`](#hublogout), [`hub.publish`](#hubpublish), [`hub.pull`](#hubpull), [`hub.show`](#hubshow), [`hub.vote`](#hubvote), [`hub.whoami`](#hubwhoami) |
 | `inbox` | [`inbox.dismiss`](#inboxdismiss), [`inbox.list`](#inboxlist), [`inbox.take`](#inboxtake) |
 | `job` | [`job.cancel`](#jobcancel), [`job.list`](#joblist), [`job.retry`](#jobretry), [`job.run`](#jobrun), [`job.show`](#jobshow), [`job.tail`](#jobtail), [`job.wait`](#jobwait) |
-| `journey` | [`journey.add`](#journeyadd), [`journey.delete`](#journeydelete), [`journey.duplicate`](#journeyduplicate), [`journey.edit`](#journeyedit), [`journey.from-search`](#journeyfrom-search), [`journey.guide`](#journeyguide), [`journey.list`](#journeylist), [`journey.move`](#journeymove), [`journey.new`](#journeynew), [`journey.remove`](#journeyremove), [`journey.reorder`](#journeyreorder), [`journey.review`](#journeyreview), [`journey.section`](#journeysection), [`journey.show`](#journeyshow), [`journey.transition`](#journeytransition), [`journey.trim-slot`](#journeytrim-slot), [`journey.validate`](#journeyvalidate) |
+| `journey` | [`journey.add`](#journeyadd), [`journey.delete`](#journeydelete), [`journey.duplicate`](#journeyduplicate), [`journey.edit`](#journeyedit), [`journey.from-search`](#journeyfrom-search), [`journey.from-topic`](#journeyfrom-topic), [`journey.guide`](#journeyguide), [`journey.list`](#journeylist), [`journey.move`](#journeymove), [`journey.new`](#journeynew), [`journey.remove`](#journeyremove), [`journey.reorder`](#journeyreorder), [`journey.review`](#journeyreview), [`journey.section`](#journeysection), [`journey.show`](#journeyshow), [`journey.transition`](#journeytransition), [`journey.trim-slot`](#journeytrim-slot), [`journey.validate`](#journeyvalidate) |
 | `lang` | [`lang.clear`](#langclear), [`lang.edit`](#langedit), [`lang.lines`](#langlines), [`lang.replace`](#langreplace), [`lang.say`](#langsay), [`lang.status`](#langstatus), [`lang.translate`](#langtranslate), [`lang.voices`](#langvoices) |
 | `library` | [`library.list`](#librarylist), [`library.remove`](#libraryremove), [`library.search`](#librarysearch), [`library.show`](#libraryshow) |
 | `music` | [`music.bed-add`](#musicbed-add), [`music.bed-edit`](#musicbed-edit), [`music.bed-remove`](#musicbed-remove), [`music.get`](#musicget), [`music.library-add`](#musiclibrary-add), [`music.list`](#musiclist), [`music.search`](#musicsearch) |
@@ -35,6 +35,7 @@ Effects: `read` (no changes) · `write` (undoable op) · `heavy` (starts a job) 
 | `setup` | [`setup.shim`](#setupshim) |
 | `source` | [`source.add`](#sourceadd), [`source.browse`](#sourcebrowse), [`source.fetch-audio`](#sourcefetch-audio), [`source.fetch-video`](#sourcefetch-video), [`source.list`](#sourcelist), [`source.process`](#sourceprocess), [`source.refresh`](#sourcerefresh), [`source.relink`](#sourcerelink), [`source.remove`](#sourceremove), [`source.rights`](#sourcerights), [`source.show`](#sourceshow), [`source.status`](#sourcestatus) |
 | `speaker` | [`speaker.assign`](#speakerassign), [`speaker.diarize`](#speakerdiarize), [`speaker.list`](#speakerlist), [`speaker.match`](#speakermatch), [`speaker.merge`](#speakermerge), [`speaker.name`](#speakername), [`speaker.people`](#speakerpeople), [`speaker.unlink`](#speakerunlink) |
+| `topic` | [`topic.add`](#topicadd), [`topic.brief`](#topicbrief), [`topic.edit`](#topicedit), [`topic.list`](#topiclist), [`topic.remove`](#topicremove), [`topic.scan`](#topicscan), [`topic.suggest`](#topicsuggest) |
 | `transcript` | [`transcript.align`](#transcriptalign), [`transcript.asr`](#transcriptasr), [`transcript.clean`](#transcriptclean), [`transcript.delete`](#transcriptdelete), [`transcript.edit`](#transcriptedit), [`transcript.edit-segment`](#transcriptedit-segment), [`transcript.export`](#transcriptexport), [`transcript.fetch-captions`](#transcriptfetch-captions), [`transcript.import`](#transcriptimport), [`transcript.list`](#transcriptlist), [`transcript.merge`](#transcriptmerge), [`transcript.outline`](#transcriptoutline), [`transcript.read`](#transcriptread), [`transcript.replace`](#transcriptreplace), [`transcript.resegment`](#transcriptresegment), [`transcript.set-primary`](#transcriptset-primary), [`transcript.shift`](#transcriptshift), [`transcript.split`](#transcriptsplit), [`transcript.sync-check`](#transcriptsync-check) |
 | `trends` | [`trends.channel`](#trendschannel), [`trends.search`](#trendssearch), [`trends.youtube`](#trendsyoutube) |
 | `ui` | [`ui.answer`](#uianswer), [`ui.ask`](#uiask), [`ui.note`](#uinote), [`ui.notes`](#uinotes), [`ui.select`](#uiselect), [`ui.selection`](#uiselection), [`ui.show`](#uishow) |
@@ -1003,6 +1004,29 @@ Draft a journey from search: whole-thought cuts for the best hits, in search ord
 
 ```
 recomp journey from-search "forgiveness" --limit 8 --title "On forgiveness"
+```
+
+### journey.from-topic
+
+`recomp journey from-topic <topic>` · effect: **write**
+
+Draft "What my creators think about X" from a topic brief: chosen passages become cuts (with why and who speaks)
+in this project, grouped into a section per creator (or per stance); episodes not yet here are added first.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<topic>` | string | required |  |
+| `--passages` | list[string] | None | Passage ids from the brief, in order (default: the best two per creator) |
+| `--by` | string | 'creator' | Sections per creator, or per stance (needs --stances) |
+| `--stances` | list[string] | None | Stance per passage for --by stance, e.g. "p1=worried,p4=hopeful" |
+| `--title` | string | None | Journey title (default: What my creators think about <topic>) |
+| `--formats` | list[string] | None |  |
+| `--lower-thirds` | boolean | True | Name who speaks on every slot |
+
+```
+recomp journey from-topic T1
+recomp journey from-topic T1 --passages p2,p5,p7,p9,p11,p12
+recomp journey from-topic T1 --by stance --stances "p2=worried,p5=worried,p9=hopeful"
 ```
 
 ### journey.guide
@@ -2223,6 +2247,124 @@ Remove a wrong person link from a voice.
 | Field | Type | Default | Description |
 |---|---|---|---|
 | `<voice>` | string | required |  |
+
+## topic
+
+### topic.add
+
+`recomp topic add <title>` · effect: **write**
+
+Name a topic to compile: what the followed creators said about it, now and in the past.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<title>` | string | required | The topic in your words, or a number from the last `topic suggest` |
+| `--terms` | list[string] | None | Words and phrases that mean it (default: from the title) |
+| `--follows` | list[string] | None | Only these creators (default: everyone followed) |
+| `--since` | string | '2y' | How far back to look: 2y, 18m or a date |
+| `--news-query` | string | None | Headlines to keep as context (default: the title) |
+| `--project` | list[string] | None | Where its journeys go (default: the current project) |
+| `--note` | string | '' |  |
+
+```
+recomp topic add "AI models are getting good" --terms "AI,model,AGI,superintelligence,copy itself"
+recomp topic add 3 --project ai-and-ideas
+```
+
+### topic.brief
+
+`recomp topic brief <ref>` · effect: **read**
+
+The topic brief: per creator, the episodes and passages (who speaks, times, links) and what could not be read.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<ref>` | string | required |  |
+| `--format` | string | 'json' | json or md |
+| `--creator` | string | None | Only this creator's part |
+
+```
+recomp topic brief T1
+recomp topic brief T1 --format md
+```
+
+### topic.edit
+
+`recomp topic edit <ref>` · effect: **write**
+
+Change a topic's title, terms, creators, time range, headline query or projects (scan again after).
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<ref>` | string | required |  |
+| `--title` | string | None |  |
+| `--terms` | list[string] | None | Replace the terms |
+| `--follows` | list[string] | None | Replace the creators ([] = everyone) |
+| `--since` | string | None |  |
+| `--news-query` | string | None |  |
+| `--project` | list[string] | None |  |
+| `--note` | string | None |  |
+
+```
+recomp topic edit T1 --terms "AI,AGI,superintelligence,control"
+```
+
+### topic.list
+
+`recomp topic list` · effect: **read**
+
+Topics, their terms, last scan and the journeys made from them.
+
+### topic.remove
+
+`recomp topic remove <ref>` · effect: **write**
+
+Drop a topic and its brief (journeys made from it stay in their projects).
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<ref>` | string | required |  |
+
+### topic.scan
+
+`recomp topic scan <ref>` · effect: **network**
+
+Find what each followed creator said about the topic: their feeds and channel search for episodes on it,
+transcripts fetched the cheap way into the library, plus project transcripts; ranks passages and writes the
+brief (`recomp topic brief T1`). The ranking is a shortlist: read and choose.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<ref>` | string | required |  |
+| `--fetch` | integer | 3 | Missing transcripts to fetch per creator in this scan |
+| `--episodes` | integer | 4 | Episodes to keep per creator in the brief |
+| `--passages` | integer | 3 | Passages to keep per episode |
+| `--news` | boolean | True | Keep this week's headlines on the topic as context |
+
+```
+recomp topic scan T1
+recomp topic scan T1 --fetch 6
+```
+
+### topic.suggest
+
+`recomp topic suggest` · effect: **network**
+
+What is in the air, as prompts: headlines and lists, each with the followed creators who have talked about it
+in the library. Pick one (`recomp topic add <n>`) or name your own; the news is a prompt, not a scoreboard.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `--section` | string | 'top' | Google News section: top, world, nation, business, technology, science, health, entertainment, sports |
+| `--query` | string | None | Search the news of the last 7 days instead of a section |
+| `--sources` | list[string] | None | news, trends (Google Trends daily, US), wikipedia (most viewed; needs `config set research.contact`), hn |
+| `--limit` | integer | 12 | Prompts per source |
+
+```
+recomp topic suggest --section technology
+recomp topic suggest --query "AI models"
+recomp topic suggest --sources news,trends
+```
 
 ## transcript
 
