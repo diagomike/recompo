@@ -39,25 +39,30 @@ def trim_listing(name: str, n: int) -> dict:
     return {k: v for k, v in d.items() if k in ("title", "channel", "channel_id", "uploader_id", "webpage_url", "_type", "entries")}
 
 
+def save(name: str, text: str) -> None:
+    """Write with LF line ends (Path.write_text writes CRLF on Windows; the repository uses LF)."""
+    (OUT / name).write_bytes(text.replace("\r\n", "\n").encode("utf-8"))
+
+
 def main() -> None:
     OUT.mkdir(parents=True, exist_ok=True)
-    (OUT / "feed-within-reason.xml").write_text(trim_feed(read("feed-within-reason.xml.gz"), 4), encoding="utf-8")
-    (OUT / "feed-lex.xml").write_text(trim_feed(read("feed-lex.xml.gz"), 3), encoding="utf-8")
-    (OUT / "feed-doac.xml").write_text(trim_feed(read("feed-doac.xml.gz"), 3, prefer="podcast:transcript"), encoding="utf-8")
+    save("feed-within-reason.xml", trim_feed(read("feed-within-reason.xml.gz"), 4))
+    save("feed-lex.xml", trim_feed(read("feed-lex.xml.gz"), 3))
+    save("feed-doac.xml", trim_feed(read("feed-doac.xml.gz"), 3, prefer="podcast:transcript"))
     page = read("lex-transcript-scull.html.gz")
     segs = [m.start() for m in re.finditer(r'<div class="ts-segment">', page)]
     cut = segs[40] if len(segs) > 40 else len(page)
-    (OUT / "lex-transcript.html").write_text(page[:cut] + "\n</div></body></html>\n", encoding="utf-8")
+    save("lex-transcript.html", page[:cut] + "\n</div></body></html>\n")
     vtt = read("doac-transcript-sample.vtt.gz")
     blocks = re.split(r"\n\s*\n", vtt)
-    (OUT / "doac.vtt").write_text("\n\n".join(blocks[:80]) + "\n", encoding="utf-8")
-    (OUT / "itunes-within-reason.json").write_text(read("itunes-within-reason.json"), encoding="utf-8")
+    save("doac.vtt", "\n\n".join(blocks[:80]) + "\n")
+    save("itunes-within-reason.json", read("itunes-within-reason.json"))
     for src, dst, n in (("yt-search-channels-philosophy.json.gz", "yt-search-channels.json", 5),
                         ("yt-listing-alex-latest.json.gz", "yt-listing-alex.json", 8),
                         ("yt-search-person-alex.json", "yt-search-person-alex.json", 15),
                         ("yt-channelsearch-alex-ai.json.gz", "yt-channelsearch-alex-ai.json", 6)):
-        (OUT / dst).write_text(json.dumps(trim_listing(src, n), ensure_ascii=False, indent=1), encoding="utf-8")
-    (OUT / "yt-rss-500.html").write_text(read("yt-rss-alex.xml"), encoding="utf-8")
+        save(dst, json.dumps(trim_listing(src, n), ensure_ascii=False, indent=1))
+    save("yt-rss-500.html", read("yt-rss-alex.xml"))
     for p in sorted(OUT.iterdir()):
         print(f"{p.name:32} {p.stat().st_size // 1024:5} kB")
 
