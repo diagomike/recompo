@@ -99,3 +99,11 @@ def test_topic_suggest_scan_brief_and_journey(fake, proj, OK, R):
     assert OK("topic.list", {})[0]["journeys"][0]["journey"] == "J1"
     bad = R("journey.from-topic", {"topic": "T1", "passages": ["p99"]}, proj)
     assert bad["error"]["code"] == "E_NOT_FOUND"
+
+
+def test_scan_fetches_the_most_on_topic_episode_first(fake, OK):
+    OK("follow.add", {"target": LEX_FEED, "name": "Lex Fridman"})
+    OK("topic.add", {"title": "AI and programming", "terms": ["AI", "programming"], "since": "2000-01-01"})
+    OK("topic.scan", {"ref": "T1", "fetch": 1, "news": False})
+    lib = OK("library.list", {})
+    assert [d["title"][:4] for d in lib] == ["#501"]  # "AI" and "Programming" in its title, not the newest (#502)

@@ -2,11 +2,11 @@
 
 The build's working memory. If context runs short, resume from here.
 
-**Last updated:** 2026-10-19 (P17 approved with defaults; P17a find and follow, P17b topics, P17c rights and posting built)
+**Last updated:** 2026-10-19 (P17a–d built: find and follow, topics, rights and posting, the Follows and Topics pages)
 
 | | |
 |---|---|
-| Phases | **P0–P16b built** (P16b awaits your review) · **P17 research wing** approved 2026-10-19 with defaults P17-Q1–Q6: **P17a–c built** (find, follow, inbox, library; topics, briefs, journeys from topics; rights statuses, posting queue, hub permission); P17d viewer next, then M5 |
+| Phases | **P0–P16b built** (P16b awaits your review) · **P17 research wing** approved 2026-10-19 with defaults P17-Q1–Q6: **P17a–d built** (find, follow, inbox, library; topics, briefs, journeys from topics; rights, posting queue, hub permission; Follows and Topics pages); M5 next |
 | Milestones | **M1** ([report](runs/M1-dark-knight.md)) · **M2** ([report](runs/M2-alex-oconnor.md)) · **M3** am/sw/fr + om · **M4** local hub ([report](runs/M3-M4-languages-and-hub.md)): all done |
 | Suite | 100+ fast tests (`pytest -q`), slow speaker test (`pytest -m slow`), live P17 sources (`pytest -m real tests/unit/test_follow_real.py`); the reorder-cache timing assert can flake under heavy load |
 | Projects | `C:\Recomposer\projects\dark-knight` (M1, M3), `alex-oconnor` (M2: 5 episodes, 12 cuts, 3 journeys); `_uitest` scratch folder (forgotten from the list; safe to delete) |
@@ -139,6 +139,28 @@ The build's working memory. If context runs short, resume from here.
   (owner-only in the API) and on `journey.links.permissions`.
 - Store: journey `links` is bookkeeping (unguarded), so the agent can record a post after the user published;
   inbox and post `status` are decisions (guarded and undoable: `schema.unguarded(table)`).
+
+## Research pages (P17d, 2026-10-19)
+- Studio-level routes `#/follows` and `#/topics` (also `#/p/<name>/follows|topics`; a **Research** group in the nav rail
+  with the inbox count; top-bar links on the start page). `ui show follows|topics|T1` opens them.
+- Follows (`web/src/views/Follows.tsx`): Inbox (Take into the follow's project, or the open one; Dismiss), Following
+  (Check, Backfill, Unfollow), Find creators (search → Follow result n), Library (search with links at the moment).
+  Studio changes don't stream: every action bumps a revision that reloads the tabs.
+- Topics (`Topics.tsx`): your topics (add with terms, Scan), In the air (`topic suggest` with who has talked about each
+  prompt; "Make it a topic"), the brief (passages to tick, play at the moment, "Draft journey in <project>", or pick a
+  project from the start page).
+- `PublishButton.tsx`: visibility (private default) and the permission dialog on E_CONFIRM (consequences, "Publish it
+  private instead", "Yes, I have permission"). `PostQueue.tsx`: Exports › Posting (channel form, queue, Open with
+  copyable text and upload page, "Posted…" link, Cancel); "Plan a post" on a finished export.
+- Toasts: studio verbs undo with `op undo --studio`; multi-store verbs (inbox take, topic scan, backfill, journey
+  from-topic) offer no one-click undo. The main area is keyed by project (a project change remounts every view).
+- CLI: the global `--project P` also fills a studio verb's own `project` field (follow add, topic add, inbox take).
+- Live 2026-10-19 (real studio): followed Lex Fridman (F1) and The Diary of a CEO (F2) from the Find tab into the new
+  `ai-and-ideas` project, Alex O'Connor (F3, channel + Within Reason) into `Alex O'Connor` by CLI; checks filled the
+  inbox; I1 (Lex #502) taken → ai-and-ideas S1 with the Lex transcript, 14 chapters, a cut candidate; topic T1 "AI
+  models are getting good" scanned from the page → 34 passages from 12 episodes, 3 creators, 2024-11-11 → 2026-10-08.
+- F2's person is "DOAC" (set by your Follow click, so the agent may not change it): `recomp follow edit F2 --person
+  "Steven Bartlett" --as-user` if you agree. New shows now default to the host named in the title.
 
 ## Lessons
 - `>>` marks name speakers for free only when dense (≥ 1/min); sparse marks swap every later line (M2: 86 % vs 50 %).

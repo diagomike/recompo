@@ -227,23 +227,30 @@ def _follow_episodes(db, f: dict, t: dict, since: str | None, fetch: int, missin
     fd = f["feeds"] or {}
     have = {r["key"] for r in db.all("SELECT key FROM lib_doc")}
     todo: list[dict] = []
+    asr: list[dict] = []
     episodes = []
+
+    def rel(title: str, desc: str) -> int:
+        # A title about the topic counts three times a description (show notes mention sponsors, "AI-powered" ones too).
+        return 3 * topics.mentions(title, terms) + topics.mentions(desc, terms)
+
     if fd.get("podcast"):
         episodes = podcasts.read(fd["podcast"]["feed"])["items"]
         for ep in episodes:
             if since and ep["published"] and ep["published"] < since:
                 continue
-            if not topics.mentions(ep["title"] + " " + ep["description"], terms):
+            r = rel(ep["title"], ep["description"])
+            if not r:
                 continue
             key = f"pod:{ep['guid']}"
             if key in have:
                 continue
             if ep["route"]["kind"] in ("published", "lex"):
                 todo.append({"key": key, "title": ep["title"], "published": ep["published"], "url": ep["link"] or ep["audio_url"],
-                             "video_id": ep.get("video_id"), "route": ep["route"]})
+                             "video_id": ep.get("video_id"), "route": ep["route"], "rel": r})
             elif ep["route"]["kind"] == "asr":
-                missing.append({"title": ep["title"], "published": ep["published"], "why": "audio only: needs ASR",
-                                "do": "take it into a project (`recomp inbox take`), then `recomp transcript asr <S>`"})
+                asr.append({"title": ep["title"], "published": ep["published"], "why": "audio only: needs ASR",
+                            "do": "take it into a project (`recomp inbox take`), then `recomp transcript asr <S>`", "rel": r})
     if fd.get("youtube"):
         query = t["news_query"] if len(t["news_query"] or "") < 40 else " ".join(t["terms"][:2])
         try:
@@ -252,7 +259,8 @@ def _follow_episodes(db, f: dict, t: dict, since: str | None, fetch: int, missin
             vids = []
             missing.append({"title": f"{f['name']} channel search", "why": exc.message})
         for v in vids:
-            if not topics.mentions(v["title"] + " " + v["description"], terms):
+            r = rel(v["title"], v["description"])
+            if not r:
                 continue
             # The same conversation in the podcast feed (or already in the library) is cheaper.
             if any(feeds.title_match(v["title"], ep["title"]) >= 0.45 for ep in episodes if ep["route"]["kind"] != "asr"):
@@ -260,7 +268,11 @@ def _follow_episodes(db, f: dict, t: dict, since: str | None, fetch: int, missin
             if db.one("SELECT 1 FROM lib_doc WHERE video_id=?", (v["video_id"],)) or f"yt:{v['video_id']}" in have:
                 continue
             todo.append({"key": f"yt:{v['video_id']}", "title": v["title"], "published": v.get("published"), "url": v["url"],
-                         "video_id": v["video_id"], "route": {"kind": "captions", "video_id": v["video_id"], "timing": "video"}})
+                         "video_id": v["video_id"], "route": {"kind": "captions", "video_id": v["video_id"], "timing": "video"},
+                         "rel": r})
+    # Most on-topic first (newest first among equals: the lists are newest first and the sort is stable).
+    todo.sort(key=lambda x: -x["rel"])
+    missing += sorted(asr, key=lambda x: -x["rel"])
     added = 0
     blocked = False
     for item in todo:
@@ -283,7 +295,7 @@ def _follow_episodes(db, f: dict, t: dict, since: str | None, fetch: int, missin
         with db.op("topic.scan", "machine", {"topic": t["ref"]}) as tx:
             tx.summary = f"library: {item['title'][:60]}"
             library.add_doc(tx, f, item["key"], {"creator": f["person"] or f["name"], "title": item["title"],
-                                                 "published": item["published"], "url": item["url"],
+                                                 "published": item["published"] or got.get("published"), "url": item["url"],
                                                  "video_id": got.get("video_id") or item["video_id"],
                                                  "route": {**item["route"], "timing": got.get("timing")},
                                                  "chapters": got.get("chapters") or []}, got["segments"])

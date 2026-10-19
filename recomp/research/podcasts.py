@@ -25,6 +25,15 @@ def read(feed_url: str) -> dict:
     return feeds.parse_podcast(net.get_text(feed_url, timeout=60))
 
 
+def read_head(feed_url: str, max_bytes: int = 600_000) -> dict:
+    """The show and its newest episodes from the start of the feed (large feeds run to megabytes)."""
+    text = net.get_text(feed_url, timeout=30, max_bytes=max_bytes)
+    end = text.rfind("</item>")
+    if end != -1 and len(text.encode("utf-8")) >= max_bytes:
+        text = text[: end + len("</item>")] + "\n</channel>\n</rss>\n"
+    return feeds.parse_podcast(text)
+
+
 def peek_route(feed_url: str) -> str:
     """What the newest episodes offer: published, lex, asr or none (reads only the start of the feed)."""
     text = net.get_text(feed_url, timeout=20, max_bytes=PEEK_BYTES)

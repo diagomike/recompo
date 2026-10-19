@@ -59,12 +59,13 @@ def ui_select(ctx: Ctx, inp: SelectIn):
     return value
 
 
-VIEWS = ("home", "sources", "cuts", "search", "journeys", "exports", "translations", "jobs", "activity")
+VIEWS = ("home", "sources", "cuts", "search", "journeys", "exports", "translations", "jobs", "activity", "follows", "topics")
 
 
 class ShowIn(BaseModel):
-    ref: str = Field(..., description="What to show: S1, S1.c3, C17, J2, J2#3, X1 …, or a view: "
-                                      "home, sources, cuts, search, journeys, exports, translations, jobs, activity",
+    ref: str = Field(..., description="What to show: S1, S1.c3, C17, J2, J2#3, X1, T1 (a topic's brief), or a view: "
+                                      "home, sources, cuts, search, journeys, exports, translations, jobs, activity, "
+                                      "follows, topics",
                      json_schema_extra={"pos": 0})
     at: str | None = Field(None, description="Time to seek to (source time for sources/chapters/cuts)")
     play: bool = Field(False, description="Start playing")

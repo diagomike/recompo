@@ -33,11 +33,12 @@ Every open task by priority. Done phases are summarised; their detail is in git 
         `topic scan` (episodes, cheap transcripts, ranked passages) and `topic brief`, `journey from-topic`.
   - [x] P17c rights and posting: `source rights --status --evidence`, `post plan/queue/open/link/cancel` with the
         E_RIGHTS gate, `channel set/show/stats`, `hub publish` private by default with the permission question (E_CONFIRM).
-  - [ ] P17d viewer: Follows and Topics pages, publish confirmation, post queue panel.
+  - [x] P17d viewer: Follows and Topics pages, publish confirmation dialog, posting queue on the Exports page.
   - [ ] M5 acceptance run (`docs/runs/M5-follows-and-topics.md`).
 
 ## Waiting on the user
 - [ ] Name the channel you post to (P17-Q3; a placeholder is used until then).
+- [ ] F2 (The Diary of a CEO) is labelled "DOAC": rename it to Steven Bartlett? (`recomp follow edit F2 --person "Steven Bartlett" --as-user`)
 - [ ] Cookies for YouTube when it blocks: export a cookies.txt from Chrome (its background processes lock the database).
 - [ ] Real Kaggle/Colab run of `notebooks/recomp_worker.ipynb` (the protocol is tested locally with a stand-in worker).
 - [ ] Listening check of the am/sw/fr/om dubs (automated checks pass; human ears decide).

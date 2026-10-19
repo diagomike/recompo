@@ -73,6 +73,10 @@ item, `L2` library transcript, `T1` topic (its passages: `p4`).
 - The user's channel: `recomp channel set --name … --handle @…`; its numbers, read-only: `recomp channel stats --csv
   <YouTube Studio export>`.
 
+## Showing the user
+The viewer has a page for each part: `recomp ui show follows` (inbox, following, find, library) and
+`recomp ui show T1` (the topic's brief, where the user can tick passages and draft the journey).
+
 ## Network
 YouTube per-video requests may answer 429 or a bot check: report it and back off; never work around it.
 Cookies are the user's call (`recomp config set network.cookies_file <cookies.txt>`).

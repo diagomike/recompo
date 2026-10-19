@@ -295,6 +295,23 @@ a.chip:hover { text-decoration: none; border-color: var(--line-2); }
 .step.next { box-shadow: inset 3px 0 0 var(--blue); background: var(--blue-soft); }
 .step .sdetail { color: var(--muted); font-size: 12px; }
 
+/* ── Research wing: library hits, topic briefs ──────────────────────────────────────────── */
+ul.plain { list-style: none; padding: 0; margin: 0; display: grid; gap: 3px; }
+.hit { padding: 6px 8px; background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); }
+.hit .muted2 { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.briefcreator { margin: 14px 0 6px; }
+.briefcreator > .h3 { margin: 0 0 6px; padding-bottom: 4px; border-bottom: 1px solid var(--line); }
+.briefep { margin: 0 0 10px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--panel); }
+.briefep > .row { padding: 5px 8px; border-bottom: 1px solid var(--line); background: var(--panel-2); }
+.passage { display: flex; gap: 8px; align-items: flex-start; padding: 5px 8px; border-top: 1px solid var(--line); cursor: pointer; }
+.passage:first-of-type { border-top: 0; }
+.passage:hover { background: var(--panel-2); }
+.passage.on { background: var(--blue-soft); box-shadow: inset 3px 0 0 var(--blue); }
+.passage > input { margin-top: 4px; }
+.passage > .mono { color: var(--faint); width: 30px; flex: none; padding-top: 3px; }
+.passage .ptext { display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; color: var(--text); font-size: 12.5px; line-height: 1.45; margin-top: 2px; }
+.passage.on .ptext { -webkit-line-clamp: unset; }
+
 /* ── Journey studio: a ribbon of steps over the work area, a status bar under it ────────── */
 .studio { display: grid; grid-template-rows: auto auto minmax(0, 1fr); min-height: 100%; }
 .studiohead { padding: 8px 18px 6px; display: flex; gap: 10px; align-items: center; flex-wrap: wrap; background: var(--panel); }

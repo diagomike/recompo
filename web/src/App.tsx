@@ -1,6 +1,6 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useState } from "react";
-import { Activity, Bot, ChevronsUpDown, Film, Home as HomeIcon, Keyboard, Layers, ListChecks, Menu as MenuIcon, Monitor, Moon, Plus,
-  Scissors, Search as SearchIcon, Share2, Sun, Upload } from "lucide-react";
+import { Activity, Bot, ChevronsUpDown, Film, Home as HomeIcon, Keyboard, Layers, Lightbulb, ListChecks, Menu as MenuIcon, Monitor, Moon, Plus,
+  Scissors, Search as SearchIcon, Share2, Sun, Upload, Users } from "lucide-react";
 import { must, setProject, subscribe, verb, type Ev } from "./api";
 import { ActionProvider, useActions, useHighlightScroll } from "./actions";
 import { Dialog, Menu, TooltipLayer, useWidth } from "./ui";
@@ -17,8 +17,12 @@ import Exports from "./views/Exports";
 import Hub from "./views/Hub";
 import AgentPanel from "./views/AgentPanel";
 import NewJourney from "./views/NewJourney";
+import Follows from "./views/Follows";
+import Topics from "./views/Topics";
 
 type Route = { project: string | null; view: string; arg: string | null; params: URLSearchParams };
+// Studio-level pages (the research wing): reachable without a project and from every project.
+const STUDIO_VIEWS = ["follows", "topics"];
 
 function parse(hash: string): Route {
   const [path, query] = hash.replace(/^#\/?/, "").split("?");
@@ -26,6 +30,7 @@ function parse(hash: string): Route {
   const params = new URLSearchParams(query || "");
   if (parts[0] === "p" && parts[1]) return { project: parts[1], view: parts[2] || "home", arg: parts[3] || null, params };
   if (parts[0] === "hub") return { project: null, view: "hub", arg: parts.slice(1).join("/") || null, params };
+  if (STUDIO_VIEWS.includes(parts[0])) return { project: null, view: parts[0], arg: parts[1] || null, params };
   return { project: null, view: "start", arg: null, params };
 }
 
@@ -46,10 +51,10 @@ export default function App() {
   return <ActionProvider><Shell /><TooltipLayer /></ActionProvider>;
 }
 
-const VIEWS = ["home", "sources", "cuts", "search", "journeys", "exports", "jobs", "activity"];
+const VIEWS = ["home", "sources", "cuts", "search", "journeys", "exports", "jobs", "activity", ...STUDIO_VIEWS];
 const TITLES: Record<string, string> = {
   home: "Home", sources: "Sources", room: "Source room", cuts: "Cut bin", search: "Search", journeys: "Journeys",
-  exports: "Exports", jobs: "Jobs", activity: "Activity", hub: "Community hub", start: "Projects",
+  exports: "Exports", jobs: "Jobs", activity: "Activity", hub: "Community hub", start: "Projects", follows: "Follows", topics: "Topics",
 };
 
 function Shell() {
@@ -137,6 +142,8 @@ function Shell() {
     } else if (/^J\d+(#\d+)?$/.test(ref)) go("journeys", ref.split("#")[0], { slot: ref.split("#")[1], ...(filter || {}) });
     else if (/^X\d+$/.test(ref)) go("exports", ref);
     else if (/^job\d+$/.test(ref)) go("jobs");
+    else if (/^T\d+$/.test(ref)) go("topics", null, { t: ref });
+    else if (/^[FI]\d+$/.test(ref)) go("follows", null, ref.startsWith("F") ? { tab: "following" } : {});
   };
 
   // Keyboard: g then h/s/c/f/j/e/b/a moves between views; n starts a journey; / focuses the filter; ? shows the keys.
@@ -174,6 +181,8 @@ function Shell() {
 
   const { data: notes } = useDataIn(version, route.project ? () => must<any>("ui.notes", { mark_seen: false }) : null, [route.project]);
   const { data: jobs } = useDataIn(version, route.project ? () => must<any>("job.list", { limit: 20 }) : null, [route.project]);
+  const { data: follows } = useDataIn(version, () => must<any[]>("follow.list"), [route.project, route.view]);
+  const inboxNew = (follows || []).reduce((n: number, x: any) => n + (x.inbox_new || 0), 0);
   const asks = (notes?.open_asks || []).length as number;
   const running = (jobs?.jobs || []).filter((j: any) => j.status === "running" || j.status === "queued").length as number;
 
@@ -212,6 +221,9 @@ function Shell() {
             {nav.slice(2, 5).map(([k, l, i, kk]) => navButton(k, l, i, kk))}
             <div className="navgroup">Deliver</div>
             {nav.slice(5).map(([k, l, i, kk]) => navButton(k, l, i, kk))}
+            <div className="navgroup">Research</div>
+            {navButton("follows", "Follows", <Users size={14} />, undefined, inboxNew)}
+            {navButton("topics", "Topics", <Lightbulb size={14} />)}
             <div className="navfoot">
               {navButton("jobs", "Jobs", <ListChecks size={14} />, "g b", running)}
               {navButton("activity", "Activity", <Activity size={14} />, "g a")}
@@ -232,7 +244,11 @@ function Shell() {
                 <Plus size={14} /><span className="hide-sm">New journey</span>
               </button>
             )}
-            {!route.project && v !== "hub" && <button className="btn ghost" onClick={() => (window.location.hash = "#/hub")}><Share2 size={14} />Community hub</button>}
+            {!route.project && <>
+              <button className={"btn ghost" + (v === "follows" ? " on" : "")} onClick={() => (window.location.hash = "#/follows")}><Users size={14} />Follows{!!inboxNew && <span className="badge">{inboxNew}</span>}</button>
+              <button className={"btn ghost" + (v === "topics" ? " on" : "")} onClick={() => (window.location.hash = "#/topics")}><Lightbulb size={14} />Topics</button>
+              {v !== "hub" && <button className="btn ghost" onClick={() => (window.location.hash = "#/hub")}><Share2 size={14} /><span className="hide-sm">Community hub</span></button>}
+            </>}
             <button className="btn ghost icon" onClick={cycleTheme} data-tip={`Theme: ${theme} (click to change)`} aria-label="Theme">{themeIcon}</button>
             {route.project && width > 700 && <button className="btn ghost icon" onClick={() => setHelp(true)} data-tip="Keyboard shortcuts" data-tip-key="?" aria-label="Keyboard shortcuts"><Keyboard size={14} /></button>}
             {route.project && (
@@ -243,9 +259,11 @@ function Shell() {
             )}
           </header>
           <div className={"workspace" + (docked ? " docked" : "")}>
-            <main className="main" id="main">
+            <main className="main" id="main" key={route.project || ""}>{/* a project change remounts every view */}
               {!route.project && v === "start" && <Start />}
               {v === "hub" && <Hub />}
+              {v === "follows" && <Follows key={route.project || ""} />}
+              {v === "topics" && <Topics key={route.project || ""} />}
               {route.project && v === "home" && <Home />}
               {route.project && v === "sources" && <Sources />}
               {route.project && v === "cuts" && <Cuts />}
@@ -305,6 +323,8 @@ function MoreNav({ go, running }: { go: (v: string) => void; running: number }) 
         { label: `Jobs${running ? ` (${running} running)` : ""}`, icon: <ListChecks size={14} />, onSelect: () => go("jobs") },
         { label: "Activity", icon: <Activity size={14} />, onSelect: () => go("activity") },
         "sep",
+        { label: "Follows", icon: <Users size={14} />, onSelect: () => go("follows") },
+        { label: "Topics", icon: <Lightbulb size={14} />, onSelect: () => go("topics") },
         { label: "Community hub", icon: <Share2 size={14} />, onSelect: () => (window.location.hash = "#/hub") },
         { label: "All projects", icon: <ChevronsUpDown size={14} />, onSelect: () => (window.location.hash = "#/") },
       ]} />

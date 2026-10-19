@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { Copy, FolderOpen, Play, RefreshCw, Upload } from "lucide-react";
+import { Copy, FolderOpen, Play, RefreshCw, Send, Upload } from "lucide-react";
 import { fileUrl, must } from "../api";
 import { useApp, useData } from "../App";
 import { Act, useActions } from "../actions";
 import { FilterBar, useFilters } from "../filters";
 import Translations from "./Translations";
+import PostQueue from "./PostQueue";
 import { Disclosure, Empty } from "../ui";
 
 export default function Exports() {
@@ -36,8 +37,9 @@ export default function Exports() {
       <div className="segmented" style={{ marginBottom: 20 }} role="tablist">
         <button className={tab === "renders" ? "on" : ""} onClick={() => setF("tab", null)}>Renders</button>
         <button className={tab === "translations" ? "on" : ""} onClick={() => setF("tab", "translations")}>Translations</button>
+        <button className={tab === "posts" ? "on" : ""} onClick={() => setF("tab", "posts")}>Posting</button>
       </div>
-      {tab === "translations" ? <Translations journeys={journeys || []} profiles={profs || []} /> : <>
+      {tab === "posts" ? <PostQueue /> : tab === "translations" ? <Translations journeys={journeys || []} profiles={profs || []} /> : <>
       <div className="callout" style={{ marginBottom: 16 }}>
         <Upload size={14} />
         <div className="grow">To export a journey, open it: its last step, <b>Export &amp; share</b>, renders every destination and language.
@@ -143,6 +145,9 @@ function ExportDetail({ xref }: { xref: string }) {
         <b className="h3" style={{ margin: 0 }}>{x.ref} · {x.title}</b><span className="chip">{x.profile} · {x.lang}</span><div className="spacer" />
         <Act verb="project.reveal" args={{ what: xref }} small ghost quiet icon={<FolderOpen size={12} />}>Folder</Act>
         <Act verb="export.check" args={{ ref: xref }} small icon={<RefreshCw size={12} />}>Re-check</Act>
+        {String(x.status).startsWith("done") && !x.preview && (
+          <Act verb="post.plan" args={{ ref: xref }} small icon={<Send size={12} />}
+               title="Queue it for your channel (only campaign or permitted sources; you upload it yourself)">Plan a post</Act>)}
       </div>
       {x.video ? (
         <video controls src={fileUrl(x.video)} style={vertical ? { height: "min(64vh, 560px)", maxWidth: "100%", display: "block", margin: "0 auto", background: "#000", borderRadius: 12 } : { width: "100%", maxHeight: 440, background: "#000", borderRadius: 12 }} />

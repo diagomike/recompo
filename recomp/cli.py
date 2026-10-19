@@ -300,6 +300,12 @@ def main(argv: list[str] | None = None) -> int:
             loaded = {"items": loaded}
         args.update(loaded)
     args.update(_coerce(v, vars(ns)))
+    # `--project P` is the global project switch, so a verb's own `project` field (follow add, inbox take, topic add…)
+    # can't be typed separately: on the command line it means that same project.
+    pf = v.model.model_fields.get("project")
+    if pf is not None and g["project"] and not args.get("project"):
+        ann, _ = _unwrap(pf.annotation)
+        args["project"] = [g["project"]] if typing.get_origin(ann) is list else g["project"]
     env = registry.run(name, args, actor=g["actor"], project_arg=g["project"], as_user=g["as_user"],
                        force=g["force"])
     _print(env, g["pretty"])

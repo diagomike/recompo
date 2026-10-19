@@ -2976,7 +2976,7 @@ Move the user's viewer to a ref or a view (optionally a time, list filters, and 
 
 | Field | Type | Default | Description |
 |---|---|---|---|
-| `<ref>` | string | required | What to show: S1, S1.c3, C17, J2, J2#3, X1 …, or a view: home, sources, cuts, search, journeys, exports, translations, jobs, activity |
+| `<ref>` | string | required | What to show: S1, S1.c3, C17, J2, J2#3, X1, T1 (a topic's brief), or a view: home, sources, cuts, search, journeys, exports, translations, jobs, activity, follows, topics |
 | `--at` | string | None | Time to seek to (source time for sources/chapters/cuts) |
 | `--play` | boolean | False | Start playing |
 | `--filter` | string | None | Filters for a list view, e.g. "source=S1&tag=fear" or "q=consciousness" |

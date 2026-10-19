@@ -13,6 +13,7 @@ import { Act, useActions } from "../actions";
 import { DESTINATIONS } from "../journeyMeta";
 import { Dialog, Disclosure, Empty, Menu, SrcBadge, mmss } from "../ui";
 import RecipePlayer from "./RecipePlayer";
+import PublishButton from "./PublishButton";
 
 type Guide = {
   journey: string; title: string; intent: string; formats: string[]; target: { min_s: number; max_s: number; hard_max_s: number | null } | null;
@@ -842,8 +843,8 @@ function ExportStep({ c }: { c: StepCtx }) {
           <div className="phead"><Share2 size={14} /><span className="h3 grow">Share with the community</span>{onHub && <span className="chip ok">on the hub</span>}</div>
           <div className="pbody row">
             <span className="muted2 grow" style={{ minWidth: 260 }}>Publishes the recipe (sources, timecodes, text and credits, never the media) to the hub, where others play it from the original videos and remix it.</span>
-            {onHub ? <><a className="btn small" href={`#/hub/r/${String(c.j.links.hub).split("/r/")[1]}`}>View it</a><Act verb="hub.publish" args={{ journey: c.jref }} small>Publish a new version</Act></>
-              : <Act verb="hub.publish" args={{ journey: c.jref }} small primary={hubWanted && !!done.length} icon={<Share2 size={13} />} title="Publish the recipe to the configured hub">Publish the recipe</Act>}
+            {onHub ? <><a className="btn small" href={`#/hub/r/${String(c.j.links.hub).split("/r/")[1]}`}>View it</a><PublishButton journey={c.jref} label="Publish a new version" /></>
+              : <PublishButton journey={c.jref} label="Publish the recipe" primary={hubWanted && !!done.length} />}
           </div>
         </div>
       </Stage>

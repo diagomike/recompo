@@ -129,13 +129,19 @@ def find_creators(ctx: Ctx, inp: FindIn):
     if inp.kind in ("podcasts", "all"):
         try:
             pods = podcasts.search(inp.query, inp.limit)
-            for k, p in enumerate(pods):
+            for p in pods:
                 p["route"] = None
-                if inp.routes and k < 5:
+            if inp.routes:
+                # Each feed's start, read side by side (sequentially five feeds took ~40 s here).
+                from concurrent.futures import ThreadPoolExecutor
+
+                def peek(p):
                     try:
                         p["route"] = podcasts.peek_route(p["feed"])
                     except RecompError as exc:
                         p["route_error"] = exc.message
+                with ThreadPoolExecutor(max_workers=5) as pool:
+                    list(pool.map(peek, pods[:5]))
             results += pods
         except RecompError as exc:
             warnings.append(f"podcast search: {exc.message}")
@@ -207,7 +213,7 @@ def follow_add(ctx: Ctx, inp: FollowAddIn):
                               hint="Run `recomp find creators \"…\"` again.")
         target = found.get("feed") or found.get("url") or ""
     if _is_feed(target):
-        show = podcasts.read(target)
+        show = podcasts.read_head(target)
         pod = {"feed": target, "title": show["title"], "author": show["author"],
                "route": (show["items"][0]["route"]["kind"] if show["items"] else "none")}
     elif target.startswith("@") or "youtube.com" in target or re.fullmatch(r"UC[\w-]{22}", target):
@@ -224,7 +230,7 @@ def follow_add(ctx: Ctx, inp: FollowAddIn):
             if not pods:
                 raise RecompError("E_NOT_FOUND", f"no podcast found for {inp.podcast!r}", hint="Give the feed URL instead.")
             feed_url = pods[0]["feed"]
-        show = podcasts.read(feed_url)
+        show = podcasts.read_head(feed_url)
         pod = {"feed": feed_url, "title": show["title"], "author": show["author"],
                "route": (show["items"][0]["route"]["kind"] if show["items"] else "none")}
     for other in db.rows("follow"):
@@ -240,13 +246,19 @@ def follow_add(ctx: Ctx, inp: FollowAddIn):
         except RecompError:
             projects = []
     name = inp.name or (yt or {}).get("channel") or (pod or {}).get("title") or target
-    if inp.appearances and not (inp.person or (pod or {}).get("author")):
+    # A show followed on its own speaks with its host's voice (the library and briefs name the person):
+    # "The Diary Of A CEO with Steven Bartlett" → Steven Bartlett, else the feed's author.
+    person = inp.person or ""
+    if not person and pod and not yt:
+        m = re.search(r"\bwith\s+([A-Z][\w.'-]+(?:\s+[A-Z][\w.'-]+){0,3})\s*$", pod.get("title") or "")
+        person = m.group(1) if m else (pod.get("author") or "")
+    if inp.appearances and not person:
         raise RecompError("E_INVALID", "--appearances needs --person (whose guest appearances to watch)")
     rights = {"status": inp.rights}
     if inp.evidence:
         rights["evidence"] = inp.evidence
     with ctx.studio_op(f"follow {name}") as tx:
-        row = tx.insert("follow", {"name": name, "person": inp.person or "", "projects": projects,
+        row = tx.insert("follow", {"name": name, "person": person, "projects": projects,
                                    "feeds": {"youtube": yt, "podcast": pod, "appearances": inp.appearances},
                                    "only_kind": inp.only, "match": inp.match or "", "rights": rights, "note": inp.note,
                                    "state": {}})
@@ -312,7 +324,7 @@ def follow_edit(ctx: Ctx, inp: FollowEditIn):
         feed_url = inp.podcast if _is_feed(inp.podcast) else (podcasts.search(inp.podcast, 1) or [{}])[0].get("feed")
         if not feed_url:
             raise RecompError("E_NOT_FOUND", f"no podcast found for {inp.podcast!r}")
-        show = podcasts.read(feed_url)
+        show = podcasts.read_head(feed_url)
         feeds_["podcast"] = {"feed": feed_url, "title": show["title"], "author": show["author"],
                              "route": show["items"][0]["route"]["kind"] if show["items"] else "none"}
     if feeds_ != (f["feeds"] or {}):
@@ -714,7 +726,7 @@ def follow_backfill(ctx: Ctx, inp: BackfillIn):
         with db.op(ctx.verb_name, "machine", ctx.args) as tx:
             tx.summary = f"library: {t['title'][:60]}"
             doc = library.add_doc(tx, f, t["key"], {"creator": f["person"] or f["name"], "title": t["title"],
-                                                   "published": t["published"], "url": t["url"],
+                                                   "published": t["published"] or got.get("published"), "url": t["url"],
                                                    "video_id": got.get("video_id") or t["video_id"],
                                                    "route": {**t["route"], "timing": got.get("timing")},
                                                    "chapters": got.get("chapters") or []}, got["segments"])

@@ -79,16 +79,16 @@ def fetch(route: dict) -> dict:
                               hint="The page layout may have changed; try the episode's captions instead.")
         return {**out, "timing": "video"}
     if kind == "captions":
-        return {"segments": youtube_captions(route["video_id"], route.get("language")), "timing": "video",
-                "video_id": route["video_id"]}
+        got = youtube_captions(route["video_id"], route.get("language"))
+        return {**got, "timing": "video", "video_id": route["video_id"]}
     if kind == "asr":
         raise RecompError("E_USAGE", "this episode has no published transcript; its words need local ASR",
                           hint="Take it into a project (`recomp inbox take <I>`), then `recomp transcript asr <S>`.")
     raise RecompError("E_NOT_FOUND", "no transcript route for this item")
 
 
-def youtube_captions(video_id: str, language: str | None = None) -> list[dict]:
-    """One video's captions (manual first, else automatic in its spoken language) as segments."""
+def youtube_captions(video_id: str, language: str | None = None) -> dict:
+    """One video's captions (manual first, else automatic in its spoken language): ``{segments, published, title}``."""
     from ..ingest import links
     url = f"https://www.youtube.com/watch?v={video_id}"
     info = links.extract(url)
@@ -111,4 +111,6 @@ def youtube_captions(video_id: str, language: str | None = None) -> list[dict]:
             raise RecompError("E_EXTERNAL", "no caption file was written")
         text = tparse.read_text(files[0])
         segs, _ = tparse.parse_json3(text) if files[0].suffix == ".json3" else tparse.parse_cues(text)
-    return segs
+    d = info.get("upload_date") or ""
+    return {"segments": segs, "published": f"{d[:4]}-{d[4:6]}-{d[6:]}" if len(d) == 8 else None,
+            "title": info.get("title")}

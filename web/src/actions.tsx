@@ -4,7 +4,7 @@ import { createContext, useCallback, useContext, useEffect, useRef, useState, ty
 import { Bot, Check, Undo2, X } from "lucide-react";
 import { verb, type Envelope } from "./api";
 
-type Toast = { id: number; ok: boolean; title: string; cli?: string; detail?: string; undo?: boolean; refs?: string[] };
+type Toast = { id: number; ok: boolean; title: string; cli?: string; detail?: string; undo?: boolean; studio?: boolean; refs?: string[] };
 type RunOpts = { label?: string; quiet?: boolean; undoable?: boolean };
 type Ctx = {
   run: (name: string, args?: Record<string, any>, opts?: RunOpts) => Promise<Envelope>;
@@ -18,6 +18,10 @@ const ActionCtx = createContext<Ctx>(null!);
 export const useActions = () => useContext(ActionCtx);
 
 const READ_ONLY = /\.(list|show|status|lines|read|outline|browse|checklist|selection|notes)$|^search$|^context$/;
+// Verbs that write the studio store (the research wing): their undo goes to `op undo --studio`.
+const STUDIO_UNDO = /^(follow|inbox|library|topic|channel)\.|^post\./;
+// Verbs that write both a project and the studio store in several ops: one Undo would undo only part of them.
+const MULTI_OP = /^(inbox\.take|journey\.from-topic|follow\.backfill|topic\.scan)$/;
 
 export function ActionProvider({ children }: { children: ReactNode }) {
   const [toasts, setToasts] = useState<Toast[]>([]);
@@ -39,7 +43,9 @@ export function ActionProvider({ children }: { children: ReactNode }) {
       toast({ ok: false, title: opts.label || name, cli, detail: `${env.error!.message}${env.error!.hint ? " — " + env.error!.hint : ""}` });
     } else if (!opts.quiet) {
       const write = !READ_ONLY.test(name);
-      toast({ ok: true, title: opts.label || name, cli, refs: env.refs, undo: write && !env.job && opts.undoable !== false && !!env.op,
+      toast({ ok: true, title: opts.label || name, cli, refs: env.refs,
+              undo: write && !env.job && opts.undoable !== false && !!env.op && !MULTI_OP.test(name),
+              studio: STUDIO_UNDO.test(name),
               detail: env.warnings?.length ? env.warnings.join(" ") : env.job ? `Queued as ${env.job}` : undefined });
     }
     return env;
@@ -62,7 +68,7 @@ export function ActionProvider({ children }: { children: ReactNode }) {
             <div className="thead">
               <span className="ticon">{t.ok ? <Check size={14} /> : <X size={14} />}</span>
               <b className="grow">{t.title}{t.refs?.length ? " → " + t.refs.slice(0, 4).join(", ") : ""}</b>
-              {t.undo && <button className="btn small" onClick={async () => { const e = await verb("op.undo", {}); toast(e.ok ? { ok: true, title: `Undone: ${e.data.verb}` } : { ok: false, title: "Undo", detail: e.error!.message + (e.error!.hint ? " — " + e.error!.hint : "") }); setToasts((xs) => xs.filter((x) => x.id !== t.id)); }}><Undo2 size={14} />Undo</button>}
+              {t.undo && <button className="btn small" onClick={async () => { const e = await verb("op.undo", t.studio ? { studio: true } : {}); toast(e.ok ? { ok: true, title: `Undone: ${e.data.verb}` } : { ok: false, title: "Undo", detail: e.error!.message + (e.error!.hint ? " — " + e.error!.hint : "") }); setToasts((xs) => xs.filter((x) => x.id !== t.id)); }}><Undo2 size={14} />Undo</button>}
               <button className="btn ghost small icon" aria-label="Dismiss" onClick={() => setToasts((xs) => xs.filter((x) => x.id !== t.id))}><X size={14} /></button>
             </div>
             {t.detail && <div className="tdetail">{t.detail}</div>}

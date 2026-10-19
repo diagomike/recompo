@@ -234,3 +234,22 @@ def test_dismiss_is_undoable(fake, OK):
     assert item not in [i["ref"] for i in OK("inbox.list", {})]
     OK("op.undo", {"studio": True}, actor="user")
     assert item in [i["ref"] for i in OK("inbox.list", {})]
+
+
+def test_cli_project_flag_reaches_studio_verbs(fake, proj, tmp_path, capsys):
+    import json as _json
+
+    from recomp import cli
+    other = tmp_path / "projects" / "p2"
+    cli.main(["project", "init", str(other), "--kind", "topic", "--no-agent-kit"])
+    capsys.readouterr()
+    # The global --project means this follow feeds p2 (not the current project).
+    assert cli.main(["--project", "p2", "follow", "add", LEX_FEED]) == 0
+    out = _json.loads(capsys.readouterr().out)
+    assert out["data"]["projects"] == ["p2"]
+
+
+def test_a_shows_person_is_its_host(fake, OK):
+    DOAC = "https://rss2.flightcast.com/xmsftuzjjykcmqwolaqn6mdn.xml"
+    assert OK("follow.add", {"target": DOAC})["person"] == "Steven Bartlett"
+    assert OK("follow.add", {"target": LEX_FEED})["person"] == "Lex Fridman"
