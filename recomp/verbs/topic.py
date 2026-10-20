@@ -586,6 +586,13 @@ def _podcast_shift(db, src: dict, doc: dict, segs: list[dict], warnings: list[st
     return shift
 
 
+def _guests(src: dict, ep: dict, creator: str) -> list[str]:
+    """Who is in a passage whose transcript names no speakers: the guest its title names, and the creator."""
+    from ..research.topics import guest_from_title
+    guest = guest_from_title(src.get("title") or "") or guest_from_title(ep.get("title") or "")
+    return [guest, creator] if guest and guest.lower() != creator.lower() else [creator]
+
+
 @verb("journey.from-topic", FromTopicIn, effect="write",
       examples=["recomp journey from-topic T1", "recomp journey from-topic T1 --passages p2,p5,p7,p9,p11,p12",
                 'recomp journey from-topic T1 --by stance --stances "p2=worried,p5=worried,p9=hopeful"'])
@@ -640,7 +647,7 @@ def journey_from_topic(ctx: Ctx, inp: FromTopicIn):
         env = registry.run("cut.add", {"ref": src["ref"], "from": f"{a:.2f}", "to": f"{z:.2f}",
                                        "title": f"{c['name']}: {words}…",
                                        "why": f"{c['name']} on \"{t['title']}\" ({e['title'][:80]}, {e['published'] or 'undated'})",
-                                       "people": p["speakers"] or [c["name"]], "tags": ["topic:" + t["ref"]] + p["terms"][:3],
+                                       "people": p["speakers"] or _guests(src, e, c["name"]), "tags": ["topic:" + t["ref"]] + p["terms"][:3],
                                        "note": f"{t['ref']}.{pid} score {p['score']}" + ("" if e["timing"] == "video" or not shift else f"; podcast clock shifted {shift:+.1f}s")},
                            actor=ctx.actor, project=proj)
         if not env["ok"]:

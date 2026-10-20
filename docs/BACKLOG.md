@@ -34,9 +34,14 @@ Every open task by priority. Done phases are summarised; their detail is in git 
   - [x] P17c rights and posting: `source rights --status --evidence`, `post plan/queue/open/link/cancel` with the
         E_RIGHTS gate, `channel set/show/stats`, `hub publish` private by default with the permission question (E_CONFIRM).
   - [x] P17d viewer: Follows and Topics pages, publish confirmation dialog, posting queue on the Exports page.
-  - [ ] M5 acceptance run (`docs/runs/M5-follows-and-topics.md`).
+  - [x] M5 acceptance run ([report](runs/M5-follows-and-topics.md), 2026-10-20): four follows, journeys from a taken
+        episode and from topic T1, shorts + landscape exports with credits, the posting gate. The live hub permission
+        step waits for you (below).
 
 ## Waiting on the user
+- [ ] M5's hub step, live: `recomp hub publish J3 --visibility public --project ai-and-ideas` stops with the
+      permission question; answer it yourself (`--confirm`), or publish private. Agent sessions are refused this command.
+- [ ] J4 in ai-and-ideas is a page test of "Draft journey" recorded as yours: delete it, or tell the agent to.
 - [ ] Name the channel you post to (P17-Q3; a placeholder is used until then).
 - [ ] F2 (The Diary of a CEO) is labelled "DOAC": rename it to Steven Bartlett? (`recomp follow edit F2 --person "Steven Bartlett" --as-user`)
 - [ ] Cookies for YouTube when it blocks: export a cookies.txt from Chrome (its background processes lock the database).

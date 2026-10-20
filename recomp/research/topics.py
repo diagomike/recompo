@@ -162,9 +162,39 @@ def score(text: str, rxs: list[tuple[str, re.Pattern]]) -> tuple[float, list[str
     return round(sc * (1 + 0.25 * max(0, len(found) - 1)), 2), found
 
 
+_NOT_A_NAME = re.compile(r"\d|\b(podcast|episode|show|clips?|live|part|full|interview|debate|ep)\b", re.I)
+
+
+def _name(s: str) -> str | None:
+    s = s.strip(" \"'“”")
+    words = s.split()
+    if not (2 <= len(words) <= 4) or len(s) > 40 or _NOT_A_NAME.search(s):
+        return None
+    return s if all(w[0].isupper() for w in words) else None
+
+
+def guest_from_title(title: str) -> str | None:
+    """The guest an episode title names: "#452 – Dario Amodei: …", "Dario Amodei: … | Lex Fridman Podcast #452",
+    "… | Jeffrey Ladish", "… - Michael Pollan". None when the title names no one."""
+    t = (title or "").strip()
+    m = re.match(r"#\d+\s*[–—-]\s*([^:|]+?):", t)
+    if m:
+        return _name(m.group(1))
+    m = re.match(r"([^:|]+?):.*\|\s*[^|]*Podcast\s*#?\d+\s*$", t)
+    if m:
+        return _name(m.group(1))
+    m = re.search(r"\s(?:\||-|–|—)\s*([^|–—-]+)$", t)
+    return _name(m.group(1)) if m else None
+
+
 def passages(segs: list[dict], terms: list[str], k: int = 3, min_s: float = 45, max_s: float = 90) -> list[dict]:
     """The best ``k`` non-overlapping 45–90 s windows of an episode for these terms."""
     rxs = [(t, term_rx(t)) for t in terms if t.strip()]
+    # A line without a speaker continues the one before (Lex Fridman's pages name a speaker only when it changes).
+    who, last = [], None
+    for s in segs:
+        last = s.get("speaker") or last
+        who.append(last)
     cands = []
     for i in range(len(segs)):
         j = i
@@ -174,7 +204,7 @@ def passages(segs: list[dict], terms: list[str], k: int = 3, min_s: float = 45, 
         sc, found = score(text, rxs)
         if sc > 0:
             cands.append({"start": segs[i]["start"], "end": segs[j]["end"], "text": text, "score": sc, "terms": found,
-                          "speakers": sorted({s["speaker"] for s in segs[i:j + 1] if s.get("speaker")})})
+                          "speakers": sorted({w for w in who[i:j + 1] if w})})
     out: list[dict] = []
     for p in sorted(cands, key=lambda x: -x["score"]):
         if all(p["end"] <= q["start"] or p["start"] >= q["end"] for q in out):

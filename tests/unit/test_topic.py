@@ -52,6 +52,27 @@ def test_news_parsers():
     assert ps and ps[0]["start"] <= 10 and "models" in ps[0]["terms"]
 
 
+def test_guest_from_title():
+    g = topics.guest_from_title
+    assert g("#452 – Dario Amodei: Anthropic CEO on Claude, AGI & the Future of AI & Humanity") == "Dario Amodei"
+    assert g("Dario Amodei: Anthropic CEO on Claude, AGI & the Future of AI & Humanity | Lex Fridman Podcast #452") == "Dario Amodei"
+    assert g('AI Whistleblower: "They Are Hiding What Is Really Happening" | Jeffrey Ladish') == "Jeffrey Ladish"
+    assert g("Are Plants Conscious? - Michael Pollan") == "Michael Pollan"
+    assert g("Psychiatry, Insane Asylums, ECT, Lobotomies, Freud & Jung | Lex Fridman Podcast #502") is None
+    assert g("AI Experts Debate: The AI Labs Are Lying To Everyone, Is There A 99% Chance Of Human Extinction?") is None
+    assert g("Why AI Will Never Be Conscious - Anil Seth") == "Anil Seth"
+
+
+def test_passage_speakers_carry_over_unnamed_lines():
+    segs = [{"start": 0, "end": 30, "speaker": "Dario Amodei", "text": "scaling laws"},
+            {"start": 30, "end": 60, "speaker": None, "text": "and more scaling"},
+            {"start": 60, "end": 61, "speaker": None, "text": "ok"}]
+    p = topics.passages(segs[1:], ["scaling"], k=1, min_s=10)[0]
+    assert p["speakers"] == []  # nobody named before it in what it was given
+    p = topics.passages(segs, ["scaling"], k=1, min_s=10)
+    assert all(q["speakers"] == ["Dario Amodei"] for q in p)
+
+
 def test_topic_suggest_scan_brief_and_journey(fake, proj, OK, R):
     from recomp.core import config
     no_contact = R("topic.suggest", {"sources": ["wikipedia"]})

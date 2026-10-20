@@ -2,14 +2,15 @@
 
 The build's working memory. If context runs short, resume from here.
 
-**Last updated:** 2026-10-19 (P17a–d built: find and follow, topics, rights and posting, the Follows and Topics pages)
+**Last updated:** 2026-10-20 (M5 run: podcast episodes matched to their uploads, journeys from a taken episode and
+from topic T1, shorts and landscape exports, the rights gate; lower-third credits and endcard layout fixed)
 
 | | |
 |---|---|
-| Phases | **P0–P16b built** (P16b awaits your review) · **P17 research wing** approved 2026-10-19 with defaults P17-Q1–Q6: **P17a–d built** (find, follow, inbox, library; topics, briefs, journeys from topics; rights, posting queue, hub permission; Follows and Topics pages); M5 next |
-| Milestones | **M1** ([report](runs/M1-dark-knight.md)) · **M2** ([report](runs/M2-alex-oconnor.md)) · **M3** am/sw/fr + om · **M4** local hub ([report](runs/M3-M4-languages-and-hub.md)): all done |
+| Phases | **P0–P16b built** (P16b awaits your review) · **P17 research wing** approved 2026-10-19 with defaults P17-Q1–Q6: **P17a–d built** (find, follow, inbox, library; topics, briefs, journeys from topics; rights, posting queue, hub permission; Follows and Topics pages) |
+| Milestones | **M1** ([report](runs/M1-dark-knight.md)) · **M2** ([report](runs/M2-alex-oconnor.md)) · **M3** am/sw/fr + om · **M4** local hub ([report](runs/M3-M4-languages-and-hub.md)) · **M5** follows and topics ([report](runs/M5-follows-and-topics.md); the live hub permission step is yours) |
 | Suite | 100+ fast tests (`pytest -q`), slow speaker test (`pytest -m slow`), live P17 sources (`pytest -m real tests/unit/test_follow_real.py`); the reorder-cache timing assert can flake under heavy load |
-| Projects | `C:\Recomposer\projects\dark-knight` (M1, M3), `alex-oconnor` (M2: 5 episodes, 12 cuts, 3 journeys); `_uitest` scratch folder (forgotten from the list; safe to delete) |
+| Projects | `C:\Recomposer\projects\dark-knight` (M1, M3), `alex-oconnor` (M2: 5 episodes, 12 cuts, 3 journeys), `ai-and-ideas` (M5: 7 sources, 11 cuts, J1–J4, X1–X4); `_uitest` scratch folder (forgotten from the list; safe to delete) |
 | Hub | `python -m hub` on 8790, data in `%USERPROFILE%\.recomp\hub`, seeded test users in `seed_users.json` there |
 
 ## Notes for the user
@@ -162,6 +163,21 @@ The build's working memory. If context runs short, resume from here.
 - F2's person is "DOAC" (set by your Follow click, so the agent may not change it): `recomp follow edit F2 --person
   "Steven Bartlett" --as-user` if you agree. New shows now default to the host named in the title.
 
+## M5 run (2026-10-20, [report](runs/M5-follows-and-topics.md))
+- `recomp/research/match.py`: a podcast-only brief episode is matched to its YouTube upload (search, the creator's
+  own channel, similar length, confirmed by ≥ 40 words lining up in podcast minutes 10–20). The captions come along
+  as the video's transcript; `journey from-topic` shifts each passage by an offset measured near it (inserted ads
+  move it: −20 s → −37.5 s within one DOAC episode). The match is stored on the library doc (`video_id`,
+  `route.video_offset_s`).
+- Credits: passages without speaker names credit the guest from the title plus the creator
+  (`topics.guest_from_title`); unnamed Lex transcript lines continue the previous speaker. Endcard credits wrap to
+  the width and never overlap (`ass.endcard_document`).
+- Follows: F4 Dwarkesh Patel (channel; his podcast feed answered 502). Journeys in ai-and-ideas: J1 topic (7 cuts,
+  landscape X4), J2 lobotomy (from the taken I1), J3 topic shorts (3 cuts, X3), J4 a page test of "Draft journey"
+  (yours by precedence: delete it or say so).
+- Runner note: `export run` spawns `recomp.exe` from the main venv, i.e. the **main checkout's** code. From a worktree,
+  run `RECOMP_JOBS=inline python -m recomp.cli export run …` (in the background) to render with the worktree's code.
+
 ## Lessons
 - `>>` marks name speakers for free only when dense (≥ 1/min); sparse marks swap every later line (M2: 86 % vs 50 %).
 - Ebrima's Ethiopic syllables are about Latin width: caption rows need no script-specific shortening (caption sheet).
@@ -174,4 +190,6 @@ The build's working memory. If context runs short, resume from here.
   the original voice; the agent shortens lines the check lists.
 - The runner process keeps old code loaded: after changing worker code, let it go idle (30 s) or stop it before re-queuing.
 - Shell heredoc edits mangle backslashes: use the Edit tool for code with `\b`, `\c`, `\n`.
+- Podcast and video copies of one conversation: match by words, not titles, and measure the offset per passage.
+- Check rendered frames, not only the checks: the endcard overlap passed every automatic check.
 - MCP SDK 2.x: low-level `Server(on_list_tools=…, on_call_tool=…)`, types in `mcp_types` with snake_case fields.

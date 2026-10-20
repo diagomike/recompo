@@ -63,3 +63,20 @@ def test_karaoke_untimed_text_has_no_giant_chunk():
     text = "Une phrase traduite assez longue pour plusieurs écrans dans un format vertical, vraiment."
     ev = ass.caption_events([{"start": 0.0, "end": 5.0, "text": text, "words": []}], "karaoke", 1080, 1920)
     assert len(ev) >= 2 and all(len(e.split(",", 9)[9]) <= 22 * 2 + 4 for e in ev)
+
+
+def test_endcard_credits_that_wrap_do_not_overlap():
+    import re
+    long = ['"The Man Who Calls BS On AI: They\'re LYING About AI, 2027 Is When It All Breaks! | Ed Zitron", '
+            'The Diary Of A CEO (Youtube, 2026)'] * 6
+    for w, h in ((1080, 1920), (1920, 1080)):
+        doc = ass.endcard_document(w, h, "What my creators think about AI models are getting good", long, 3.5, "recipe")
+        ends = [ln for ln in doc.splitlines() if ln.startswith("Dialogue:") and ",End,," in ln]
+        credits, link = ends[:-1], ends[-1]
+        ys = [int(re.search(r"\\pos\(\d+,(\d+)\)", ln).group(1)) for ln in ends]
+        size = round(min(w, h) * 0.048) * 1.1 * int(re.search(r"fscy(\d+)", credits[0]).group(1)) / 100
+        for ln, a, b in zip(credits, ys, ys[1:]):
+            assert b - a >= (ln.count(r"\N") + 1) * size  # the next credit starts below every row of this one
+        for ln in credits:  # wrapped here, not by libass (whose extra rows the layout would not know about)
+            assert all(len(row) * 0.52 * size <= w * 0.92 - 60 for row in ln.split("}", 1)[1].split(r"\N"))
+        assert ys[-1] < h * 0.95 and len(credits) >= 3

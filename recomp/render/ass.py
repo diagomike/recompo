@@ -275,13 +275,28 @@ def endcard_document(w: int, h: int, title: str, lines: list[str], dur: float, l
     sample = title + " ".join(lines)
     out = [header(w, h, sample)]
     vertical = h > w
+    x = round(w * 0.08)
+    room = w - x - 60  # the styles' right margin
+    base = round(min(w, h) * 0.048)  # as in styles(): End is 1.1×, EndTitle 1.5×
     y0 = round(h * (0.18 if vertical else 0.14))
-    out.append(dialogue(0, dur, "EndTitle", f"{{\\pos({round(w * 0.08)},{y0})\\fad(300,0)}}" + wrap(title, 22 if vertical else 40)))
-    step = round(min(w, h) * 0.055)
-    y = y0 + round(step * (3.2 if vertical else 2.4))
-    for line in lines[:9]:
-        out.append(dialogue(0, dur, "End", f"{{\\pos({round(w * 0.08)},{y})\\fad(400,0)\\fscx72\\fscy72}}" + esc(line)))
-        y += round(step * 0.85)
+    title_rows = wrap(title, 22 if vertical else 40)
+    out.append(dialogue(0, dur, "EndTitle", f"{{\\pos({x},{y0})\\fad(300,0)}}" + title_rows))
+    top = y0 + (title_rows.count("\\N") + 1) * round(base * 1.5 * 1.2) + round(base * 0.8)
+    bottom = round(h * 0.88) - (round(base * 1.1 * 0.8 * 2.4) if link_text else 0)
+    # Each credit wraps to the width there is (≈ 0.52 em per character) and the next starts below its last row;
+    # smaller type when they would not fit above the recipe line.
+    for scale in (72, 62, 54):
+        size = base * 1.1 * scale / 100
+        rows = [_rows(line, max(20, int(room / (0.52 * size)))) for line in lines[:9]]
+        lh = round(size * 1.22)
+        if top + sum(len(r) for r in rows) * lh + (len(rows) - 1) * round(lh * 0.35) <= bottom:
+            break
+    y = top
+    for r in rows:
+        if y + len(r) * lh > bottom:
+            break
+        out.append(dialogue(0, dur, "End", f"{{\\pos({x},{y})\\fad(400,0)\\fscx{scale}\\fscy{scale}}}" + "\\N".join(esc(t) for t in r)))
+        y += len(r) * lh + round(lh * 0.35)
     if link_text:
-        out.append(dialogue(0, dur, "End", f"{{\\pos({round(w * 0.08)},{y + step})\\fad(400,0)\\fscx80\\fscy80\\c&H9BE0C8&}}" + esc(link_text)))
+        out.append(dialogue(0, dur, "End", f"{{\\pos({x},{max(y, top) + round(lh * 0.6)})\\fad(400,0)\\fscx80\\fscy80\\c&H9BE0C8&}}" + esc(link_text)))
     return "\n".join(out) + "\n"

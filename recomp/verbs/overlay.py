@@ -81,7 +81,9 @@ def overlay_auto_lower_thirds(ctx: Ctx, inp: AutoIn):
                 # Episodes: the title says enough; add the channel only when nobody on screen is the channel.
                 name = src["title"]
                 for person in it["cut"]["people"] or []:
-                    name = name.replace(f" - {person}", "").replace(f" – {person}", "")
+                    for sep in (" - ", " – ", " | "):  # "… - Anil Seth", "… | Jeffrey Ladish": the guest ends the title
+                        if name.endswith(sep + person):
+                            name = name[: -len(sep + person)]
                 if src.get("creator") and src["creator"] not in name and src["creator"] not in people:
                     name = f"{src['creator']} · {name}"
             else:

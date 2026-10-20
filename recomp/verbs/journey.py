@@ -431,12 +431,20 @@ def validate(db, j: dict) -> dict:
     if not tl:
         problems.append("no slots")
     from pathlib import Path
+    from ..core import config
+    links_noted = set()
     for it in tl:
         src = it["source"]
         if src["kind"] == "file" and not (src["path"] and Path(src["path"]).exists()):
             problems.append(f"{it['ref']}: media for {src['ref']} is missing (relink it)")
-        if src["kind"] == "link" and not (src["path"] and Path(src["path"]).exists()):
-            notes.append(f"{it['ref']}: {src['ref']} is a link; export downloads only this slot's range")
+        if src["kind"] == "link" and src["id"] not in links_noted and not (src["path"] and Path(src["path"]).exists()):
+            links_noted.add(src["id"])
+            got = db.one("SELECT path FROM asset WHERE source_id=? AND role='video'", (src["id"],))
+            if (config.get("network.link_video") or "full") != "full":
+                notes.append(f"{src['ref']} is a link; export downloads only each slot's range")
+            elif not (got and Path(got["path"]).exists()):
+                notes.append(f"{src['ref']} is a link; export downloads its whole video once "
+                             f"(`recomp source fetch-video {src['ref']}` does it now)")
         if it["dur"] < 1.5:
             problems.append(f"{it['ref']}: only {it['dur']:.1f}s")
         if not it["cut"]["why"]:
