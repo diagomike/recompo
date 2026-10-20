@@ -107,3 +107,38 @@ def test_scan_fetches_the_most_on_topic_episode_first(fake, OK):
     OK("topic.scan", {"ref": "T1", "fetch": 1, "news": False})
     lib = OK("library.list", {})
     assert [d["title"][:4] for d in lib] == ["#501"]  # "AI" and "Programming" in its title, not the newest (#502)
+
+
+def test_podcast_passage_is_cut_from_its_youtube_upload(fake, proj, OK, monkeypatch):
+    """A feed-only episode is matched to its upload by words; the cut moves onto the video's clock."""
+    from recomp.research import transcripts as tr
+    from recomp.transcript import align, parse
+    DOAC = "https://rss2.flightcast.com/xmsftuzjjykcmqwolaqn6mdn.xml"
+    cues, _ = parse.parse_cues(text("doac.vtt"))
+    late = [{"start": c["start"] + 5, "end": c["end"] + 5, "text": c["text"]} for c in cues]  # the video runs 5 s later
+    for c in late:
+        c["words"] = align.proportional_words(c)
+    flat = youtube.flat
+
+    def fake_flat(url, limit=30):
+        if url.startswith("ytsearch10:"):
+            return {"entries": [{"id": "Up1oadVid01", "title": "Phone Addiction Scientist", "channel": "The Diary Of A CEO Clips"},
+                                {"id": "Up1oadVid02", "title": "Phone Addiction Scientist | Dr Sahar Yousef", "channel": "The Diary Of A CEO"}]}
+        return flat(url, limit)
+    monkeypatch.setattr(youtube, "flat", fake_flat)
+    monkeypatch.setattr(tr, "youtube_captions", lambda vid, language=None: {"segments": late, "published": None, "title": "x"})
+
+    OK("follow.add", {"target": DOAC, "project": [str(proj)]})
+    OK("topic.add", {"title": "Attention", "terms": ["attention", "multitasking"], "since": "2000-01-01"})
+    brief = OK("topic.scan", {"ref": "T1", "fetch": 1, "news": False})
+    assert brief["summary"]["passages"] >= 1
+    b = OK("topic.brief", {"ref": "T1"})
+    ep = b["creators"][0]["episodes"][0]
+    p = ep["passages"][0]
+    assert ep["timing"] == "podcast" and not ep["video_id"]
+    j = OK("journey.from-topic", {"topic": "T1", "passages": [p["id"]]}, proj)
+    src = OK("source.show", {"ref": list(j["sources"].values())[0]}, proj)
+    assert "Up1oadVid02" in src["uri"]  # the channel's own upload, not the clips channel
+    cut = OK("cut.show", {"ref": j["cuts"][0]}, proj)
+    assert abs(cut["start"] - (p["start"] + 5)) < 1.0  # snapped to words, within a second
+    assert OK("library.list", {})[0]["ref"] == ep["where"]

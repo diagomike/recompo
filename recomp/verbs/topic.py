@@ -483,15 +483,37 @@ class FromTopicIn(BaseModel):
     lower_thirds: bool = Field(True, description="Name who speaks on every slot")
 
 
-def _source_for(ctx: Ctx, proj: P.Project, ep: dict, creator: str, warnings: list[str]) -> tuple[dict, float]:
-    """The project source for a brief episode (added if needed) and the shift from the brief's clock to the source's."""
+def _source_for(ctx: Ctx, proj: P.Project, ep: dict, creator: str, warnings: list[str]):
+    """The project source for a brief episode (added if needed) and a function: brief time → its shift onto the
+    source's clock. A podcast-only episode is matched to its YouTube upload by words first (`research.match`)."""
+    from ..research import match
+    from ..transcript.store import add_transcript
     db = proj.db
+    zero = lambda t: 0.0  # noqa: E731
     if ep["where"].startswith(f"{proj.name}:"):
-        return db.by_ref("source", ep["where"].split(":", 1)[1]), 0.0
+        return db.by_ref("source", ep["where"].split(":", 1)[1]), zero
     sdb = ctx.studio
     doc = sdb.by_ref("lib_doc", ep["where"]) if re.fullmatch(r"L\d+", ep["where"]) else None
-    vid = ep.get("video_id")
-    src = None
+    segs = [dict(r) for r in sdb.all('SELECT start, "end", speaker, text FROM lib_seg WHERE doc_id=? ORDER BY idx',
+                                     (doc["id"],))] if doc else []
+    vid = ep.get("video_id") or (doc or {}).get("video_id")
+    found = None
+    if not vid and doc and ep["timing"] != "video":
+        f = sdb.get("follow", doc["follow_id"]) if doc["follow_id"] else None
+        names = [n for n in ((f or {}).get("name"), (f or {}).get("person"), creator) if n]
+        try:
+            found = match.find_upload(doc["title"], segs, names)
+        except RecompError as exc:
+            warnings.append(f"{doc['ref']}: YouTube refused the search for its upload ({exc.message})")
+        if found:
+            vid = found["video_id"]
+            with sdb.op("journey.from-topic", "machine", {"doc": doc["ref"]}) as tx:
+                tx.summary = f"{doc['ref']} is YouTube {vid}"
+                doc = tx.update("lib_doc", doc["id"], {"video_id": vid, "route": {**(doc["route"] or {}),
+                                                                                "video_offset_s": found["offset_s"]}})
+        else:
+            warnings.append(f"{doc['ref']}: no YouTube upload matched its words; cutting from the podcast audio")
+    pctx = Ctx(actor=ctx.actor, project=proj, verb_name="journey.from-topic", args={})
     if vid:
         row = db.one("SELECT id FROM source WHERE platform='youtube' AND platform_id=?", (vid,))
         if row:
@@ -499,60 +521,69 @@ def _source_for(ctx: Ctx, proj: P.Project, ep: dict, creator: str, warnings: lis
         else:
             from .ui import set_state
             url = f"https://www.youtube.com/watch?v={vid}"
-            set_state(db, "pick_list", {"url": url, "title": ep["title"], "channel": creator,
-                                        "entries": [{"n": 1, "id": vid, "title": ep["title"], "duration_s": None, "duration": None,
+            title = (found or {}).get("title") or ep["title"]
+            set_state(db, "pick_list", {"url": url, "title": title, "channel": creator,
+                                        "entries": [{"n": 1, "id": vid, "title": title, "duration_s": None, "duration": None,
                                                      "url": url, "views": None, "date": (ep.get("published") or "").replace("-", "") or None}]})
-            # Captions only when no transcript on the video's clock comes along from the library.
-            env = registry.run("source.add", {"pick": ["1"], "subtitles": not (doc and ep["timing"] == "video")},
+            # Captions only when no transcript on the video's clock comes along (the library's, or the match's).
+            env = registry.run("source.add", {"pick": ["1"], "subtitles": not (found or (doc and ep["timing"] == "video"))},
                                actor=ctx.actor, project=proj)
             if not env["ok"]:
                 raise RecompError(env["error"]["code"], env["error"]["message"], hint=env["error"].get("hint"))
             warnings += env.get("warnings") or []
             got = (env["data"]["added"] or env["data"]["skipped"])[0]
             src = db.by_ref("source", got["ref"])
+        if found and not db.one("SELECT 1 FROM transcript WHERE source_id=? AND origin='captions'", (src["id"],)):
+            with pctx.op(f"captions for {src['ref']}") as tx:
+                add_transcript(tx, src, found["captions"]["segments"], origin="captions", language=src.get("language") or "en",
+                               label="YouTube captions (matched to the podcast)",
+                               make_primary=not db.one("SELECT 1 FROM transcript WHERE source_id=? AND is_primary=1", (src["id"],)))
     else:
         from .follow import _add_episode
-        pctx = Ctx(actor=ctx.actor, project=proj, verb_name="journey.from-topic", args={})
         ref = _add_episode(pctx, {"meta": {"audio_url": ep["url"], "guid": doc["key"] if doc else None},
                                   "url": ep["url"], "channel": creator, "title": ep["title"], "published": ep.get("published"),
                                   "duration": None}, {"person": creator})
         src = db.by_ref("source", ref)
-    # The library transcript comes along (on the video's clock: primary; podcast clock: kept aside).
+    # The library transcript comes along (on the source's clock: primary when there is none; podcast clock: aside).
     has_primary = db.one("SELECT 1 FROM transcript WHERE source_id=? AND is_primary=1", (src["id"],))
     already = db.one("SELECT 1 FROM transcript WHERE source_id=? AND label LIKE ?", (src["id"], f"%library {doc['ref']}%")) if doc else True
-    # A transcript on the video's clock is already there (e.g. taken from the inbox): the library copy adds nothing.
     if doc and not already and not (has_primary and ep["timing"] == "video"):
-        segs = [dict(r) for r in sdb.all('SELECT start, "end", speaker, text FROM lib_seg WHERE doc_id=? ORDER BY idx', (doc["id"],))]
         on_clock = ep["timing"] == "video" or not vid
-        from ..transcript.store import add_transcript
-        pctx = Ctx(actor=ctx.actor, project=proj, verb_name="journey.from-topic", args={})
         with pctx.op(f"transcript for {src['ref']} from library {doc['ref']}") as tx:
             add_transcript(tx, src, segs, origin="published", language=src.get("language") or "en",
                            label=f"library {doc['ref']} ({(doc['route'] or {}).get('kind')})" + ("" if on_clock else " (podcast timing)"),
                            make_primary=on_clock and not has_primary,
                            stats={"timing": "video" if on_clock else "podcast", "library": doc["ref"]})
-    shift = 0.0
-    if vid and ep["timing"] != "video":
-        shift = _podcast_shift(db, src, doc, sdb, warnings)
-    return src, shift
+    if not vid or ep["timing"] == "video" or not doc:
+        return src, zero
+    return src, _podcast_shift(db, src, doc, segs, warnings)
 
 
-def _podcast_shift(db, src: dict, doc: dict | None, sdb, warnings: list[str]) -> float:
-    """Podcast clock → video clock, from a transcript of the video with word timings (captions or ASR)."""
+def _podcast_shift(db, src: dict, doc: dict, segs: list[dict], warnings: list[str]):
+    """Podcast clock → video clock: measured near each passage against the video's word-timed transcript (inserted
+    ads move the offset during an episode); the episode-wide offset where a passage can't be matched."""
+    from ..research import match
     from ..transcript import align
-    tr = db.one("SELECT id FROM transcript WHERE source_id=? AND has_words=1 AND origin<>'published' ORDER BY is_primary DESC", (src["id"],))
-    if not tr or not doc:
+    tr = db.one("SELECT id FROM transcript WHERE source_id=? AND has_words=1 AND origin<>'published' ORDER BY is_primary DESC",
+                (src["id"],))
+    if not tr:
         warnings.append(f"{src['ref']}: the passage times follow the podcast, and there is no video transcript to align them "
                         f"to yet; check the cut (`recomp transcript fetch-captions {src['ref']}`, then run this again)")
-        return 0.0
+        return lambda t: 0.0
     words = [dict(r) for r in db.all('SELECT w.start, w."end", w.text FROM word w JOIN segment s ON s.id=w.segment_id '
                                      "WHERE s.transcript_id=? ORDER BY w.start", (tr["id"],))]
-    segs = [dict(r) for r in sdb.all('SELECT start, "end", text FROM lib_seg WHERE doc_id=? ORDER BY idx', (doc["id"],))]
-    est = align.estimate_offset(segs, words)
-    if est.get("offset_s") is None:
+    base = (doc["route"] or {}).get("video_offset_s")
+    if base is None:
+        base = align.estimate_offset(match._window(segs, *match.PROBE) or segs[:200], words).get("offset_s")
+    if base is None:
         warnings.append(f"{src['ref']}: could not align the podcast transcript to the video; check the cut times")
-        return 0.0
-    return -float(est["offset_s"])
+        return lambda t: 0.0
+
+    def shift(t: float) -> float:
+        est = match.offset_near(segs, words, t, base)
+        off = est["offset_s"] if est.get("offset_s") is not None and est.get("matched", 0) >= 10 else base
+        return -float(off)
+    return shift
 
 
 @verb("journey.from-topic", FromTopicIn, effect="write",
@@ -597,12 +628,13 @@ def journey_from_topic(ctx: Ctx, inp: FromTopicIn):
     proj = ctx.project
     warnings: list[str] = []
     cuts: list[tuple[str, str]] = []  # (group, cut ref)
-    sources: dict[str, tuple[dict, float]] = {}
+    sources: dict[str, tuple] = {}  # brief episode → (project source, shift function)
     for pid in ids:
         c, e, p = index[pid]
         if e["where"] not in sources:
             sources[e["where"]] = _source_for(ctx, proj, e, c["name"], warnings)
-        src, shift = sources[e["where"]]
+        src, shifter = sources[e["where"]]
+        shift = shifter(p["start"])
         a, z = max(0.0, p["start"] + shift), p["end"] + shift
         words = " ".join(p["text"].split()[:9])
         env = registry.run("cut.add", {"ref": src["ref"], "from": f"{a:.2f}", "to": f"{z:.2f}",
