@@ -35,7 +35,8 @@ DEFAULTS: dict[str, Any] = {
         },
         "mms": {"om": "facebook/mms-tts-orm"},
     },
-    "render": {"cache_max_gb": 8},
+    # final_speed: normal | fast (the final pass at veryfast; slots unchanged) for `export run` without --speed.
+    "render": {"cache_max_gb": 8, "final_speed": "normal"},
     "network": {"yt_sleep_subtitles": 3, "yt_retries": 4, "link_video": "full", "link_video_height": 720},
     # P17 research wing: follow checks run this often while the studio is open (0 = only on request);
     # a follow's first check puts this many of the newest items in the inbox; backfill goes back this far;

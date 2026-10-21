@@ -46,6 +46,16 @@ SEEDS: dict[str, dict] = {
 }
 
 
+FINAL_SPEEDS = {"normal": None, "fast": ("superfast", -2)}  # preset and CRF change for the final pass
+
+
+def final_encoding(prof: dict) -> tuple[str, int]:
+    """Preset and CRF of the final pass (captions, overlays, sound over the whole timeline). Slots keep the
+    profile's own, so a fast re-export reuses every cached slot."""
+    fast = FINAL_SPEEDS.get(prof.get("final_speed") or "normal")
+    return (fast[0], int(prof["crf"]) + fast[1]) if fast else (prof["preset"], int(prof["crf"]))
+
+
 def resolve(settings: dict) -> dict:
     out = copy.deepcopy(BASE)
     out.update(settings or {})

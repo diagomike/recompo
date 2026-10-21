@@ -87,3 +87,10 @@ def test_endcard_credits_that_wrap_do_not_overlap():
         assert "".join(link_rows).replace("Recipe:", "").strip() == "http://127.0.0.1:8790/r/01M5DZ9J8SQZ5HE99XAHTD9XG9"
         assert all(len(row) * 0.52 * link_size <= w * 0.92 - 60 for row in link_rows)
         assert ys[-1] + len(link_rows) * link_size * 1.22 < h * 0.95
+
+
+def test_final_pass_speed():
+    from recomp.render import profiles
+    prof = profiles.resolve({})
+    assert profiles.final_encoding(prof) == ("medium", 20)
+    assert profiles.final_encoding({**prof, "final_speed": "fast"}) == ("superfast", 18)

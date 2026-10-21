@@ -19,7 +19,7 @@ from ..core import config
 from ..core.timecode import clock, srt_clock
 from ..envelope import RecompError
 from ..media import ff
-from . import ass
+from . import ass, profiles
 from .plan import slot_key
 
 ISO3 = {"en": "eng", "am": "amh", "sw": "swa", "fr": "fra", "om": "orm", "so": "som", "es": "spa", "ar": "ara",
@@ -277,8 +277,9 @@ def final(work: Path, body: Path, card: Path | None, plan: dict, prof: dict, out
         vmap, amap = "[vb]", "[mixn]"
     lang3 = ISO3.get((plan.get("lang") or "en")[:2], "und")
     url = (plan.get("links") or {}).get("hub") or ""
+    preset, crf = profiles.final_encoding(prof)
     args += ["-filter_complex", ";".join(fl), "-map", vmap, "-map", amap, "-t", f"{plan['total']:.3f}",
-             "-c:v", prof["video_codec"], "-preset", prof["preset"], "-crf", str(prof["crf"]), "-pix_fmt", "yuv420p",
+             "-c:v", prof["video_codec"], "-preset", preset, "-crf", str(crf), "-pix_fmt", "yuv420p",
              "-c:a", "aac", "-b:a", prof["audio_bitrate"], "-ar", "48000", "-movflags", "+faststart",
              "-metadata", f"title={plan['title']}", "-metadata", f"comment=Recomposer recipe {plan['recipe_hash']} {url}".strip(),
              "-metadata:s:a:0", f"language={lang3}", str(out)]

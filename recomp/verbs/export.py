@@ -165,22 +165,32 @@ class RunIn(BaseModel):
     profiles: list[str] = Field(default_factory=lambda: ["landscape"])
     langs: list[str] = Field(default_factory=list, description="Languages (default: the journey's)")
     dub: bool = Field(True, description="Dub languages other than the journey's (needs translations); false = subtitles only")
+    speed: str | None = Field(None, description="normal | fast: fast encodes the final pass (captions, overlays, sound) "
+                                                "at veryfast, CRF −1, for quick re-exports; slots stay cached. "
+                                                "Default: config render.final_speed")
 
 
 @verb("export.run", RunIn, effect="heavy",
-      examples=["recomp export run J1 --profiles shorts,landscape", "recomp export run J1 --profiles shorts --langs en,am,sw,fr"])
+      examples=["recomp export run J1 --profiles shorts,landscape", "recomp export run J1 --profiles shorts --langs en,am,sw,fr",
+                "recomp export run J1 --speed fast"])
 def export_run(ctx: Ctx, inp: RunIn):
     """Render a journey in every profile × language asked for (jobs). Outputs land in exports/<journey>/<profile>-<lang>/."""
+    from ..core import config
     db = ctx.db
     j = refs.resolve(db, inp.journey, "journey")[1]
     names = _profiles(db, inp.profiles)
     langs = inp.langs or [j["language"]]
+    speed = inp.speed or config.get("render.final_speed") or "normal"
+    if speed not in profiles.FINAL_SPEEDS:
+        raise RecompError("E_INVALID", f"speed {speed!r}: normal or fast", hint="`recomp export run J1 --speed fast`")
+    over = {"final_speed": speed} if speed != "normal" else {}
     queued = []
     with ctx.op(f"export {j['ref']}") as tx:
         rows = [(_export_row(ctx, tx, j, None, p, lang, False), lang) for p in names for lang in langs]
     for row, lang in rows:
         dub = inp.dub and lang != j["language"]
-        job = jobs.enqueue(db, "export", target=row["ref"], params={"export": row["id"], "dub": dub}, dedupe=False)
+        job = jobs.enqueue(db, "export", target=row["ref"], params={"export": row["id"], "dub": dub, "overrides": over},
+                           dedupe=False)
         with ctx.db.op("export.queue", "machine") as tx:
             tx.update("export", row["id"], {"job_id": job["ref"]}, log=False)
         queued.append({"export": row["ref"], "profile": row["profile"], "lang": lang, "job": job["ref"], "folder": row["folder"]})

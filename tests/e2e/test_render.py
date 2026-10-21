@@ -68,6 +68,14 @@ def test_shorts_blur_karaoke_and_reorder_cache(rproj, OK):
     j = OK("job.show", {"ref": res2["exports"][0]["job"]}, rproj)
     assert j["result"]["cache_hits"] == 3
     assert warm < cold
+    # --speed fast: same slots from cache, only the final pass is encoded faster; every check still passes
+    OK("journey.move", {"slot": "J1#3", "to": 1}, rproj)
+    res3 = OK("export.run", {"journey": "J1", "profiles": ["shorts"], "speed": "fast"}, rproj)
+    x3 = OK("export.show", {"ref": res3["exports"][0]["export"]}, rproj)
+    assert x3["status"] == "done", x3["checks"]
+    assert OK("job.show", {"ref": res3["exports"][0]["job"]}, rproj)["result"]["cache_hits"] == 3
+    plan = json.loads(next((rproj / "exports").rglob("plan.json")).read_text(encoding="utf-8"))
+    assert plan["profile"]["final_speed"] == "fast"
 
 
 def test_transitions_and_single_cut_export(rproj, OK):
