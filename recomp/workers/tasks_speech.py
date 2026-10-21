@@ -115,3 +115,14 @@ def sync_verdict(overall: dict, per: list[dict]) -> str:
     if abs(off) <= 0.3:
         return "in sync"
     return f"offset by {off:+.2f}s (subtitles {'late' if off > 0 else 'early'}): run with --fix to shift"
+
+
+@task("embed", lane="cpu")
+def job_embed(ctx: JobCtx):
+    """Semantic index of the source's primary transcript (transcript/semantic.py)."""
+    from ..transcript import semantic
+    src = ctx.source()
+    tr = primary(ctx.db, src["id"])
+    if tr is None:
+        raise RecompError("E_NOT_FOUND", f"{src['ref']} has no transcript", hint=f"`recomp transcript asr {src['ref']}`")
+    return {"transcript": tr["ref"], **semantic.build_index(ctx.project, ctx.db, tr["id"], ctx)}

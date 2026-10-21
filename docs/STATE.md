@@ -217,6 +217,14 @@ matching built)
   face (big, sure, central, near where it was) gives one steady crop per shot from the shot table, slow pans in a
   shot where it moves; ffmpeg `crop` takes a keyframed x expression. No face in a slot → blurred fill. ai-and-ideas
   J3 → X7: crops on Dario, Lex, Ladish, the DOAC host and Alex O'Connor; 258 s for 2:42 including detection.
+- P18g: `transcript/semantic.py` + `workers/scripts/embed.py` (multilingual-e5-small, transformers, mean pooling,
+  "passage:"/"query:" prefixes; in the worker HF cache, downloaded 2026-10-21 over plain HTTPS: Xet stalled here,
+  `HF_HUB_DISABLE_XET=1`). `transcript embed [S…]` queues one job per source (windows of ~40 words / 30 s, half
+  overlapping; `cache/semantic/<transcript>.npz` with a text hash); `search --semantic` ranks windows by cosine
+  (overlaps merged) and warns about missing or edited indexes. Search page: "By meaning" (`?m=1`) and an "Index every
+  transcript" button when nothing is indexed. ai-and-ideas: 7 sources indexed in ~8 min (while a clone dub ran);
+  "will machines take away people's work" → Ed Zitron on jobs (S5) first; an Amharic query finds related English
+  passages, less sharply. ~20–25 s per query (model load per process).
 
 ## Lessons
 - `>>` marks name speakers for free only when dense (≥ 1/min); sparse marks swap every later line (M2: 86 % vs 50 %).

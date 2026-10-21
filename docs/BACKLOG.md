@@ -49,7 +49,8 @@ Every open task by priority. Done phases are summarised; their detail is in git 
         0 overflowing lines in all four, every check passes (X36–X39).
   - [x] P18f face-centred vertical crop: the `shorts-face` profile (reframe `crop-face`), an extra option next to the
         blurred-fill Shorts; YuNet finds the speaker per shot (ai-and-ideas J3 → X7).
-  - [ ] P18g multilingual semantic search (multilingual-e5-small; download approved 2026-10-21).
+  - [x] P18g multilingual semantic search: `transcript embed` (jobs) and `search --semantic`, "By meaning" on the
+        Search page; multilingual-e5-small. A query takes ~20 s (the worker loads the model each time).
   - [ ] P18h voice-cloned dubs through OmniVoice, labelled as AI voices.
 
 ## Waiting on the user
@@ -62,5 +63,7 @@ Every open task by priority. Done phases are summarised; their detail is in git 
 - [ ] Rights holder for *The Dark Knight (2026)*: `recomp source rights S1 --owner …`.
 
 ## Next (after P18)
+0. Semantic search: keep the embedding model loaded (a resident worker) so a query takes a second, not ~20 s;
+   try a larger multilingual model for Amharic/Oromo queries (e5-small reaches across languages only moderately).
 1. Public hub deployment (host, Postgres, OAuth, moderation queue for reports): the user's decision.
 2. Offline music library seed (CC0 tracks downloaded once), so music search works without the network.

@@ -38,6 +38,8 @@ class SearchIn(BaseModel):
     mode: str = Field("auto", description="all (every word), any, or auto (all, then any if nothing found)")
     scope: str = Field("project", description="project (this project's sources) or library (followed creators' "
                                               "back catalogue in the studio library)")
+    semantic: bool = Field(False, description="By meaning, not words: finds the same idea in other words or another "
+                                              "language (needs `transcript embed` once)")
 
 
 def run_search(db, inp: SearchIn) -> tuple[list[dict], str]:
@@ -83,10 +85,14 @@ def run_search(db, inp: SearchIn) -> tuple[list[dict], str]:
 @verb("search", SearchIn, needs_project=False,
       examples=['recomp search "free will"', "recomp search forgiveness --sources S1,S4 --limit 10",
                 'recomp search "everlasting life" --speaker "Pastor Chris"',
-                'recomp search "copy itself" --scope library'])
+                'recomp search "copy itself" --scope library',
+                'recomp search "being afraid of dying" --semantic'])
 def search(ctx: Ctx, inp: SearchIn):
     """Find where something is said, across all sources. Each hit has its chapter, surrounding lines and a ready `cut add` command.
-    `--scope library` searches the followed creators' back catalogue instead (no project needed)."""
+    `--scope library` searches the followed creators' back catalogue instead (no project needed).
+    `--semantic` finds passages by meaning, in any language (after `transcript embed`)."""
+    if inp.semantic and inp.scope == "project":
+        return _semantic(ctx, inp)
     if inp.scope == "library":
         from ..research import library
         return library.search(ctx.studio, inp.query, None,
@@ -116,3 +122,31 @@ def search(ctx: Ctx, inp: SearchIn):
     for h in hits:
         by_source[h["source"]] = by_source.get(h["source"], 0) + 1
     return {"query": inp.query, "mode": used, "hits": hits, "by_source": by_source}
+
+
+def _semantic(ctx: Ctx, inp: SearchIn):
+    from ..envelope import Result
+    from ..transcript import semantic
+    db = ctx.db
+    ids = [refs.source(db, r)["id"] for r in inp.sources] if inp.sources else None
+    res = semantic.search(ctx.project, db, inp.query, ids, inp.limit)
+    hits = []
+    for h in res["hits"]:
+        ch = db.one('SELECT ref, title FROM chapter WHERE source_id=? AND start<=? AND "end">? ORDER BY start DESC LIMIT 1',
+                    (h["source_id"], h["start"], h["start"]))
+        rows = db.all('SELECT text, speaker FROM segment WHERE transcript_id=? AND idx BETWEEN ? AND ? ORDER BY idx',
+                      (h["transcript_id"], h["i0"], h["i1"]))
+        hits.append({"source": h["sref"], "title": h["stitle"], "at": clock(h["start"]), "start": round(h["start"], 2),
+                     "idx": h["i0"], "score": h["score"], "speaker": rows[0]["speaker"] if rows else None,
+                     "chapter": {"ref": ch["ref"], "title": ch["title"]} if ch else None,
+                     "context": " ".join(r["text"] for r in rows),
+                     "cut": f"recomp cut add {h['sref']} --segments {h['i0']}..{h['i1']}  # {clock(h['start'])}–{clock(h['end'])}"})
+    by_source: dict[str, int] = {}
+    for h in hits:
+        by_source[h["source"]] = by_source.get(h["source"], 0) + 1
+    warnings = []
+    if res["missing"]:
+        warnings.append(f"not indexed yet: {', '.join(res['missing'])} (`recomp transcript embed`)")
+    if res["stale"]:
+        warnings.append(f"edited since indexing: {', '.join(res['stale'])} (`recomp transcript embed` refreshes them)")
+    return Result(data={"query": inp.query, "mode": "semantic", "hits": hits, "by_source": by_source}, warnings=warnings)

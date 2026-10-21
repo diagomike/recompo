@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Layers, Play, Scissors, Search as SearchIcon } from "lucide-react";
-import { must } from "../api";
+import { must, VerbError } from "../api";
 import { useApp, useData } from "../App";
 import { Act, useActions } from "../actions";
 import { Empty, Menu, SrcBadge, useWidth } from "../ui";
@@ -11,6 +11,8 @@ export default function SearchView() {
   const { go, route, setParam } = useApp();
   const { run } = useActions();
   const q0 = route.params.get("q") || "";
+  const meaning = route.params.get("m") === "1";   // by meaning (semantic), not words
+  const [noIndex, setNoIndex] = useState(false);
   const [q, setQ] = useState(q0);
   const [res, setRes] = useState<any>(null);
   const [sug, setSug] = useState<any>(null);
@@ -22,10 +24,12 @@ export default function SearchView() {
   const wide = useWidth() > 1100;
   useEffect(() => {
     if (!q0.trim()) { setRes(null); setSug(null); return; }
-    setErr(null); setBusy(true);
-    Promise.all([must("search", { query: q0, limit: 40 }), must("cut.suggest", { query: q0, limit: 8 })])
-      .then(([r, s]) => { setRes(r); setSug(s); }).catch((e) => setErr(e.message)).finally(() => setBusy(false));
-  }, [q0]);
+    setErr(null); setNoIndex(false); setBusy(true);
+    Promise.all([must("search", { query: q0, limit: 40, ...(meaning ? { semantic: true } : {}) }), must("cut.suggest", { query: q0, limit: 8 })])
+      .then(([r, s]) => { setRes(r); setSug(s); })
+      .catch((e) => { if (meaning && e instanceof VerbError && e.env.error?.code === "E_NOT_FOUND") { setNoIndex(true); setRes(null); } else setErr(e.message); })
+      .finally(() => setBusy(false));
+  }, [q0, meaning]);
   const cutArgs = (c: any, journey?: string) => ({ ref: c.source, from: String(c.start), to: String(c.end), title: c.text.split(/(?<=[.?!])\s/)[0].slice(0, 60), why: `search: ${q0}`, ...(journey ? { journey } : {}) });
   return (
     <div className="page">
@@ -38,10 +42,16 @@ export default function SearchView() {
       <form className="filterbar" onSubmit={(e) => { e.preventDefault(); setParam("q", q.trim() || null); }}>
         <div className="search" style={{ maxWidth: "none" }}><SearchIcon size={14} />
           <input className="input" autoFocus value={q} data-filter="q" placeholder='e.g. forgiveness, "free will", everlasting life' onChange={(e) => setQ(e.target.value)} /></div>
+        <label className="row tight nowrap" style={{ cursor: "pointer" }} data-tip="Finds the same idea in other words, or in another language (Amharic, Oromo…)"
+               data-tip-cmd={`recomp search "${q}" --semantic`}>
+          <input type="checkbox" checked={meaning} onChange={(e) => setParam("m", e.target.checked ? "1" : null)} />By meaning</label>
         <button className="btn primary" type="submit" disabled={busy}>{busy ? "Searching…" : "Search"}</button>
         {res && <span className="muted2 nowrap">{res.hits.length} lines · {sug?.candidates.length || 0} moments</span>}
       </form>
       {err && <div className="err">{err}</div>}
+      {noIndex && <Empty icon={<SearchIcon size={16} />} title="Transcripts are not indexed for meaning yet"
+                         actions={<Act verb="transcript.embed" args={{}} primary agent>Index every transcript</Act>}>
+        A one-time job per source (a few minutes for a long film on this CPU). Search by words works meanwhile.</Empty>}
       {!q0 && <Empty icon={<SearchIcon size={16} />} title="Search every transcript at once">Type a word, a theme, or a phrase in quotes. Results show where it is said, and suggest whole moments to cut.</Empty>}
       {res && (
         <div style={{ display: "grid", gridTemplateColumns: wide ? "minmax(0, 1fr) minmax(0, 1fr)" : "minmax(0, 1fr)", gap: 12, alignItems: "start" }}>
@@ -70,7 +80,7 @@ export default function SearchView() {
           </section>
           <section className="panel">
             <div className="phead"><span className="h3 grow">{res.hits.length} lines</span>
-              <span className="muted2">{res.mode === "any" ? "any of the words" : "all the words"} · {Object.entries(res.by_source).map(([s, n]) => `${s}: ${n}`).join(" · ")}</span></div>
+              <span className="muted2">{res.mode === "semantic" ? "by meaning" : res.mode === "any" ? "any of the words" : "all the words"} · {Object.entries(res.by_source).map(([s, n]) => `${s}: ${n}`).join(" · ")}</span></div>
             <div className="reslist" style={{ border: 0 }}>
             {res.hits.map((h: any, i: number) => (
               <div key={i} className="res" style={{ cursor: "pointer", gridTemplateColumns: "minmax(0, 1fr)" }} onClick={() => go("room", h.source, { t: h.start, tq: q0 })}>

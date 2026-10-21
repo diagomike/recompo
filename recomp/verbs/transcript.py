@@ -220,6 +220,40 @@ def transcript_asr(ctx: Ctx, inp: AsrIn):
                   job=j["ref"], next=[f"recomp job wait {j['ref']} --timeout 90"])
 
 
+class EmbedIn(BaseModel):
+    sources: list[str] = Field(default_factory=list, description="Source refs (default: every source with a transcript)",
+                               json_schema_extra={"pos": 0})
+    force: bool = Field(False, description="Rebuild indexes that are current")
+
+
+@verb("transcript.embed", EmbedIn, effect="heavy",
+      examples=["recomp transcript embed", "recomp transcript embed S2 S5"])
+def transcript_embed(ctx: Ctx, inp: EmbedIn):
+    """Build the semantic index of primary transcripts (jobs), so `search --semantic` finds lines by meaning, in any
+    language (Amharic and Oromo too). Current indexes are skipped; an edited transcript is re-indexed."""
+    from ..transcript import semantic
+    db = ctx.db
+    srcs = [refs.source(db, r) for r in inp.sources] if inp.sources else db.rows("source", "ORDER BY created_at")
+    queued, current, none = [], [], []
+    for s in srcs:
+        tr = primary(db, s["id"])
+        if tr is None:
+            none.append(s["ref"])
+            continue
+        ix = semantic.load_index(ctx.project, tr["id"])
+        if (not inp.force and ix is not None and ix[1].get("model") == semantic.model_name()
+                and ix[1]["hash"] == semantic.text_hash(semantic.segments(db, tr["id"]))):
+            current.append(s["ref"])
+            continue
+        j = jobs.enqueue(db, "embed", target=s["ref"], source_id=s["id"])
+        queued.append({"source": s["ref"], "job": j["ref"]})
+    mode = jobs.kick(ctx.project) if queued else None
+    return Result(data={"queued": queued, "current": current, "no_transcript": none, "runner": mode},
+                  job=queued[0]["job"] if queued else None,
+                  next=[f"recomp job wait {' '.join(q['job'] for q in queued)} --timeout 120"] if queued else
+                       ['recomp search "…" --semantic'])
+
+
 class CaptionsIn(BaseModel):
     ref: str = Field(..., description="Link source ref", json_schema_extra={"pos": 0})
     language: str | None = Field(None, description="Caption language (default: the source's)")
