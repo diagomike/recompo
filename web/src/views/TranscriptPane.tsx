@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { ChevronDown, ChevronUp, Combine, Download, Eraser, FileText, ListFilter, Mic, Pencil, Replace, Search, Split, Trash2, Users, X } from "lucide-react";
 import { clock, verb } from "../api";
 import { Act, useActions } from "../actions";
-import { Dialog, Disclosure, Empty, Menu } from "../ui";
+import { Dialog, Disclosure, Empty, Menu, personColors } from "../ui";
 
 type Seg = { idx: number; start: number; end: number; text: string; speaker: string | null; words: [number, number, string][] | null };
 type Sel = { a: number; b: number } | null;
@@ -44,6 +44,10 @@ export default function TranscriptPane({ data, t, sel, seek, setSel, panel, quer
   const tr = data.transcript;
   const voices: Record<string, { name: string | null }> = data.voices || {};
   const who = (label: string | null) => (label ? voices[label]?.name || label : null);
+  // the same names as the room's lanes, so a person has one colour in both
+  const whoColor = useMemo(() => personColors([...(data.turns || []).map((x: any) => who(x.label)!),
+                                               ...segs.filter((s) => s.speaker).map((s) => who(s.speaker)!)]),
+                           [data.turns, segs, voices]);
 
   const cur = useMemo(() => {
     let lo = 0, hi = segs.length - 1, ans = -1;
@@ -239,7 +243,7 @@ export default function TranscriptPane({ data, t, sel, seek, setSel, panel, quer
                   </span>
                 ) : (
                   <span className="segtext">
-                    {s.speaker && <b className="who">{who(s.speaker)}: </b>}
+                    {s.speaker && <b className="who" style={{ "--who": whoColor[who(s.speaker)!] } as React.CSSProperties}>{who(s.speaker)}: </b>}
                     {i === cur && s.words && !hit ? s.words.map((w, k) => <span key={k} className={"w" + (t >= w[0] && t < w[1] ? " now" : "")}>{w[2]} </span>)
                       : <Marked text={s.text} ts={hit ? ts : []} />}
                     <button className="btn ghost small editbtn" title="Edit this line (or double-click)" onClick={(e) => { e.stopPropagation(); setEditing(s.idx); setDraft(s.text); }}><Pencil size={11} /></button>

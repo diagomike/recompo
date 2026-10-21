@@ -24,8 +24,8 @@ Every open task by priority. Done phases are summarised; their detail is in git 
 - [x] P16b follow-ups done 2026-10-16: the source room, transcript pane and translation editor in the P16b structure
       (command rows by task, ⋯ menus, dialogs for cut/chapter/replace/speakers/new language, folded caption box, phone
       layouts), studio keys `1`–`6` and `Enter` ([report](runs/P16b-ux-rework.md#follow-up-source-room-and-translation-editor-2026-10-16)).
-- [ ] Still open from P16b: a "Look" preview of lower thirds per slot (→ P18b); music search needs the network (no
-      offline library seed yet). (Fixed 2026-10-19: the room's command row stays on one line down to 1024 px.)
+- [ ] Still open from P16b: music search needs the network (no offline library seed yet). (Done in P18b: the
+      Look step previews each lower third on its slot.) (Fixed 2026-10-19: the room's command row stays on one line down to 1024 px.)
 - [ ] **P17 research wing** (approved 2026-10-19 with defaults P17-Q1–Q6; plan §6, [research](research/P17-research-wing.md)):
   - [x] P17a find and follow: `find creators`, follows, checks (every 2 h while the studio runs), inbox take
         (source, transcript by route, chapters, cut candidates on project themes), back-catalogue library and search.
@@ -39,8 +39,8 @@ Every open task by priority. Done phases are summarised; their detail is in git 
         live hub permission step: J3 public on the local hub after your yes.
 - [ ] **P18 backlog run** (organised 2026-10-21; plan §6 P18), in this order:
   - [x] P18a faster re-exports: `export run --speed fast` (final pass at `superfast`, CRF −2): 100 s vs 249 s on J2.
-  - [ ] P18b viewer: speaker lanes coloured by person, export matrix progress per language, Look-step lower-third
-        preview per slot (the last P16b leftover).
+  - [x] P18b viewer: speaker lanes and names coloured by person (same colour in every source), formats × languages
+        matrix with progress in the Export step, Look-step lower thirds previewed on a frame of their slot.
   - [x] P18c cross-release matching: recipes carry transcript anchors; importing on another copy shifts the cuts by
         the offset near each (edits and PAL drift too); `source match-release S…` re-runs it.
   - [ ] P18d recipe player seams: double-buffered video elements for gapless playback.

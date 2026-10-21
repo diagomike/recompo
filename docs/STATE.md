@@ -193,6 +193,14 @@ matching built)
   shifts the imported cuts at once if the copy has a transcript; `source match-release S…` (re)does it, moving cuts
   by the difference to what was applied (`meta.release_match.applied`). `relink --force` points at it.
 - Title matching allows 6 % length difference now (PAL runs 4 % short); year and title must still agree.
+- P18b (viewer): `personColors()` in `ui.tsx` (a hash of the name into 8 hues; a clash within one source takes the
+  next free one, in name order) colours the room's speech/speaker lanes and the transcript's names (`--who`, lifted
+  toward white in dark mode by `--who-lift`). Export step: `ExportMatrix` (formats × languages, newest export per
+  cell, a bar while rendering; shown from two languages) and the "Fast re-export" box. Look step: `LowerPreview`
+  draws each lower third over a frame of its slot at the "Lower" style's place and size, with the blurred fill on
+  vertical. Export rows show done-with-problems as a problem (was the blue running chip).
+- The user asked (2026-10-21) for a face-centred vertical crop as an extra export option next to the blurred fill:
+  that is P18f, done next.
 
 ## Lessons
 - `>>` marks name speakers for free only when dense (≥ 1/min); sparse marks swap every later line (M2: 86 % vs 50 %).

@@ -3,7 +3,7 @@ import { ArrowLeft, BookmarkPlus, ExternalLink, Film, Focus, Keyboard, Layers, M
 import { clock, frameUrl, mediaUrl, peaksUrl, room, thumbUrl, verb } from "../api";
 import { useApp } from "../App";
 import { Act, useActions } from "../actions";
-import { Dialog, Disclosure, Menu, SrcBadge } from "../ui";
+import { Dialog, Disclosure, Menu, SrcBadge, personColors } from "../ui";
 import YouTubePlayer, { type YTHandle } from "./YouTubePlayer";
 import TranscriptPane from "./TranscriptPane";
 
@@ -266,8 +266,6 @@ function laneDefs(data: RoomData, peaks: Uint8Array | null): LaneDef[] {
   return out;
 }
 
-const PALETTE = ["#2b62b8", "#c2410c", "#7c3aed", "#0f766e", "#b45309", "#be185d"];
-
 function Lanes(p: {
   data: RoomData; peaks: Uint8Array | null; t: number; view: [number, number]; setView: (v: [number, number]) => void;
   sel: { a: number; b: number } | null; setSel: (s: { a: number; b: number } | null) => void; seek: (t: number) => void;
@@ -288,8 +286,8 @@ function Lanes(p: {
   const top: Record<string, number> = {};
   lanes.reduce((y, l) => { top[l.key] = y; return y + l.h; }, 0);
   const voiceName = (l: string) => data.voices?.[l]?.name || l;
-  const speakerKeys: string[] = [];
-  for (const tr of data.turns) { const k = voiceName(tr.label); if (!speakerKeys.includes(k)) speakerKeys.push(k); }
+  const speakerColor = personColors([...data.turns.map((tr) => voiceName(tr.label)),
+                                     ...data.segments.filter((s) => s.speaker).map((s) => voiceName(s.speaker!))]);
 
   useEffect(() => {
     const ro = new ResizeObserver(() => wrap.current && setW(wrap.current.clientWidth));
@@ -364,7 +362,7 @@ function Lanes(p: {
       } else if (l.key === "speech") {
         for (const s of data.segments) {
           if (s.end < v0 || s.start > v1) continue;
-          g.fillStyle = s.speaker ? PALETTE[Math.max(0, speakerKeys.indexOf(voiceName(s.speaker))) % PALETTE.length] : col("--wave");
+          g.fillStyle = s.speaker ? speakerColor[voiceName(s.speaker)] : col("--wave");
           g.fillRect(t2x(s.start), y + 3, Math.max(1, t2x(s.end) - t2x(s.start) - 0.5), h - 6);
         }
       } else if (l.key === "shots") {
@@ -373,7 +371,7 @@ function Lanes(p: {
       } else if (l.key === "speakers") {
         for (const tr of data.turns) {
           if (tr.end < v0 || tr.start > v1) continue;
-          g.fillStyle = PALETTE[speakerKeys.indexOf(voiceName(tr.label)) % PALETTE.length];
+          g.fillStyle = speakerColor[voiceName(tr.label)];
           g.fillRect(t2x(tr.start), y + 2, Math.max(1, t2x(tr.end) - t2x(tr.start)), h - 4);
         }
       } else if (l.key === "chapters" || l.key === "cuts") {

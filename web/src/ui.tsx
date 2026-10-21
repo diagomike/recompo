@@ -181,6 +181,22 @@ const SRC_COLORS = ["#2a7f6f", "#3b63b8", "#9a5b12", "#7a4bb8", "#b0413e", "#2f7
 export const srcColor = (ref: string) => SRC_COLORS[(parseInt(ref.replace(/\D/g, ""), 10) - 1 + SRC_COLORS.length * 10) % SRC_COLORS.length];
 export const SrcBadge = ({ ref_ }: { ref_: string }) => <span className="srcbadge" style={{ background: srcColor(ref_) }}>{ref_}</span>;
 
+// A colour per person, by name, so the same person has the same colour in every source. Names that land on
+// the same colour within one source take the next free one (in name order, so it does not depend on who talks first).
+const PERSON_COLORS = ["#2b62b8", "#c2410c", "#7c3aed", "#0f766e", "#be185d", "#a16207", "#475569", "#65a30d"];
+const nameHash = (s: string) => { let h = 2166136261; for (const ch of s.trim().toLowerCase()) h = Math.imul(h ^ ch.charCodeAt(0), 16777619); return h >>> 0; };
+export function personColors(names: string[]): Record<string, string> {
+  const out: Record<string, string> = {};
+  const taken = new Set<number>();
+  for (const n of [...new Set(names)].sort()) {
+    let k = nameHash(n) % PERSON_COLORS.length;
+    for (let i = 0; i < PERSON_COLORS.length && taken.has(k); i++) k = (k + 1) % PERSON_COLORS.length;
+    taken.add(k);
+    out[n] = PERSON_COLORS[k];
+  }
+  return out;
+}
+
 export function mmss(s: number | null | undefined): string {
   if (s == null || isNaN(s)) return "";
   const t = Math.round(s);

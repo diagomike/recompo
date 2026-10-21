@@ -589,13 +589,16 @@ function LookStep({ c }: { c: StepCtx }) {
                 <Act verb="overlay.auto-lower-thirds" args={{ journey: c.jref }} small primary={!lowers.length} agent icon={<Wand2 size={13} />}>{lowers.length ? "Redo" : "Credit every speaker and source"}</Act>
               </div>
               {!!lowers.length && (
-                <Disclosure id="look.lowers" label="Edit them">
-                  <table className="table"><tbody>
+                <Disclosure id="look.lowers" label="See and edit them">
+                  <div className="lowergrid">
                     {lowers.map((o) => (
-                      <tr key={o.ref}><td className="mono faint" style={{ width: 50 }}>{o.slot}</td><td style={{ whiteSpace: "pre-line" }}>{o.text}</td>
-                        <td style={{ width: 30 }}><Act verb="overlay.remove" args={{ ref: o.ref }} small ghost icon={<Trash2 size={13} />} label={`Remove ${o.ref}`}>{""}</Act></td></tr>
+                      <div key={o.ref} className="stack sm">
+                        <LowerPreview c={c} o={o} />
+                        <div className="row nowrap"><span className="mono faint grow">{o.slot} · {o.ref}</span>
+                          <Act verb="overlay.remove" args={{ ref: o.ref }} small ghost icon={<Trash2 size={13} />} label={`Remove ${o.ref}`}>{""}</Act></div>
+                      </div>
                     ))}
-                  </tbody></table>
+                  </div>
                 </Disclosure>
               )}
             </div>
@@ -619,6 +622,28 @@ function LookStep({ c }: { c: StepCtx }) {
                 primary={s.state === "done" ? <NextButton c={c} /> :
                   <Act kbd="Enter" verb="journey.review" args={{ journey: c.jref, step:"look" }} primary onDone={() => c.setStep("check")}>Looks good<ArrowRight size={14} /></Act>} />
     </>
+  );
+}
+
+// A lower third drawn over a frame of its slot, at the burned-in style's place and size (render/ass.py "Lower":
+// top-left, 5 % in, 6 % down — 9 % on vertical —, 0.82 × 4.8 % of the short side, a dark box), in the journey's
+// first destination's shape. No render: a look before exporting.
+function LowerPreview({ c, o }: { c: StepCtx; o: any }) {
+  const slot = (c.j.slots as any[]).find((s) => s.slot === o.slot);
+  const vertical = c.g.formats[0] === "shorts";
+  const W = vertical ? 160 : 300, H = vertical ? W * 16 / 9 : W * 9 / 16, fullW = vertical ? 1080 : 1920;
+  const base = Math.min(W, H) * 0.048;
+  const [first, ...rest] = String(o.text || "").split("\n");
+  return (
+    <div className={"lowerprev" + (vertical ? " vertical" : "")} style={{ width: W, height: H }}>
+      {/* vertical exports fill with a blurred copy around the picture (fit-blur); landscape pads with black */}
+      {slot && vertical && <div className="fill"><Thumb c={c} source={slot.source} t={startOf(slot.span) + (Number(o.at) || 0) + 0.5} w={W} /></div>}
+      {slot && <div className="pic"><Thumb c={c} source={slot.source} t={startOf(slot.span) + (Number(o.at) || 0) + 0.5} w={W * 2} /></div>}
+      <div className="lt3" style={{ left: W * 0.05, top: H * (vertical ? 0.09 : 0.06), fontSize: base * 0.82, padding: base * 0.3,
+                                    maxWidth: W - W * 0.05 - 60 * W / fullW }}>
+        <b>{first}</b>{!!rest.length && <span>{rest.join(" · ")}</span>}
+      </div>
+    </div>
   );
 }
 
@@ -755,7 +780,7 @@ function ExportRow({ x, open }: { x: any; open?: boolean }) {
   const { data: d } = useData(() => (x.status === "done" && show ? must<any>("export.show", { ref: x.ref }) : Promise.resolve(null)), [x.ref, x.status, show]);
   const [copied, setCopied] = useState(false);
   const vertical = x.profile === "shorts";
-  const st = x.status === "done" ? "ok" : x.status === "failed" ? "problem" : "running";
+  const st = x.status === "done" ? "ok" : x.status === "failed" || x.status.includes("problem") ? "problem" : "running";
   return (
     <div className="stack sm">
       <div className="row nowrap">
@@ -766,7 +791,7 @@ function ExportRow({ x, open }: { x: any; open?: boolean }) {
         <Act verb="project.reveal" args={{ what: x.ref }} small ghost quiet icon={<FolderOpen size={13} />} label="Open the folder">{""}</Act>
         <button className="btn small ghost" onClick={() => go("exports", x.ref)}>Details</button>
       </div>
-      {x.status !== "done" && x.status !== "failed" && <div className="bar"><i style={{ width: `${Math.round((x.progress || 0) * 100)}%` }} /></div>}
+      {st === "running" && <div className="bar"><i style={{ width: `${Math.round((x.progress || 0) * 100)}%` }} /></div>}
       {x.error && <div className="err">{x.error}</div>}
       {!!x.problems?.length && <div className="warn">Checks: {x.problems.map((p: any) => p.check).join(", ")}</div>}
       {show && d?.video && <video controls src={fileUrl(d.video)} style={vertical ? { height: "min(56vh, 480px)", maxWidth: "100%", display: "block", background: "#000" }
@@ -781,6 +806,40 @@ function ExportRow({ x, open }: { x: any; open?: boolean }) {
   );
 }
 
+// Formats × languages: the newest export of each, its status, and progress while it renders. Shown once a
+// journey has more than one language, where a list of rows stops telling you which language is where.
+function ExportMatrix({ finals }: { finals: any[] }) {
+  const { go } = useApp();
+  const latest = new Map<string, any>();
+  for (const x of finals) if (!latest.has(`${x.profile}|${x.lang}`)) latest.set(`${x.profile}|${x.lang}`, x);  // newest first
+  const profiles = [...new Set(finals.map((x) => x.profile))];
+  const langs = [...new Set(finals.map((x) => x.lang))].sort();
+  if (langs.length < 2) return null;
+  return (
+    <table className="table matrix">
+      <thead><tr><th>Format</th>{langs.map((l) => <th key={l}>{l}</th>)}</tr></thead>
+      <tbody>
+        {profiles.map((p) => (
+          <tr key={p}>
+            <td>{DESTINATIONS.find((d) => d.profile === p)?.label || p}</td>
+            {langs.map((l) => {
+              const x = latest.get(`${p}|${l}`);
+              if (!x) return <td key={l} className="faint">—</td>;
+              const st = x.status === "done" ? "ok" : x.status === "failed" || x.status.includes("problem") ? "problem" : "running";
+              return (
+                <td key={l} className="click" onClick={() => go("exports", x.ref)} data-tip={`${x.ref} · ${x.status}${x.problems?.length ? ": " + x.problems.map((q: any) => q.check).join(", ") : ""}`}>
+                  {st === "running" ? <div className="bar"><i style={{ width: `${Math.round((x.progress || 0) * 100)}%` }} /></div>
+                    : <span className={"chip " + st}>{x.status === "done-with-problems" ? "problems" : x.status}</span>}
+                </td>
+              );
+            })}
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  );
+}
+
 // ── 6. Export & share ─────────────────────────────────────────────────────────────────────
 function ExportStep({ c }: { c: StepCtx }) {
   const { go, newJourney } = useApp();
@@ -789,7 +848,9 @@ function ExportStep({ c }: { c: StepCtx }) {
   const dest = c.g.formats.map((f) => DESTINATIONS.find((d) => d.key === f)?.profile).filter(Boolean) as string[];
   const [chosen, setChosen] = useState<string[]>(dest.length ? dest : ["landscape"]);
   const [langs, setLangs] = useState("");
+  const [fast, setFast] = useState(false);
   const langList = langs ? langs.split(/[,\s]+/).map((x) => x.trim()).filter(Boolean) : [];
+  const runArgs = { journey: c.jref, profiles: chosen, langs: langList, ...(fast ? { speed: "fast" } : {}) };
   const finals = (exps || []).filter((x) => !x.preview);
   const done = finals.filter((x) => x.status === "done");
   const hubWanted = c.g.formats.includes("hub");
@@ -823,6 +884,12 @@ function ExportStep({ c }: { c: StepCtx }) {
             <div className="grid2">{mainProfs.map(tile)}</div>
             <div className="row" style={{ gap: 16 }}>
               {!!others.length && <Disclosure id="export.more" label="More formats" count={others.filter((p) => chosen.includes(p.name)).length || undefined}><div className="grid2">{others.map(tile)}</div></Disclosure>}
+              {!!finals.length && (
+                <label className="row tight" style={{ cursor: "pointer" }} data-tip="The final pass (captions, overlays, sound) encodes at veryfast: quicker re-exports, slightly larger files. Unchanged clips come from the cache either way."
+                       data-tip-cmd="recomp export run … --speed fast">
+                  <input type="checkbox" checked={fast} onChange={(e) => setFast(e.target.checked)} />Fast re-export
+                </label>
+              )}
             </div>
             <Disclosure id="export.langs" label="Languages" count={langList.length || undefined}>
               <div className="row">
@@ -836,6 +903,7 @@ function ExportStep({ c }: { c: StepCtx }) {
           <div className="phead"><span className="h3 grow">Exports of this journey</span><span className="chip">{finals.length}</span></div>
           <div className="pbody stack">
             {!finals.length && <span className="muted2">None yet. Exports land in exports/{c.jref}-…/&lt;format&gt;-&lt;language&gt;/ with captions, description and recipe.</span>}
+            <ExportMatrix finals={finals} />
             {finals.slice(0, 10).map((x, k) => <div key={x.ref} style={k ? { borderTop: "1px solid var(--line)", paddingTop: 6 } : undefined}><ExportRow x={x} /></div>)}
           </div>
         </div>
@@ -849,7 +917,7 @@ function ExportStep({ c }: { c: StepCtx }) {
         </div>
       </Stage>
       <StepFoot c={c} what={done.length ? "Done. Change anything and export again: unchanged parts come from the cache." : `${n} video${n === 1 ? "" : "s"}: ${chosen.join(", ") || "pick a format"}${langList.length ? ` × ${langList.join(", ")}` : ""}`}
-                primary={<Act kbd="Enter" verb="export.run" args={{ journey: c.jref, profiles: chosen, langs: langList }} primary agent disabled={!chosen.length || !c.j.slots.length} icon={<Clapperboard size={14} />}>
+                primary={<Act kbd="Enter" verb="export.run" args={runArgs} primary agent disabled={!chosen.length || !c.j.slots.length} icon={<Clapperboard size={14} />}>
                   {`Export ${n} video${n === 1 ? "" : "s"}`}</Act>} />
     </>
   );
