@@ -45,8 +45,10 @@ Every open task by priority. Done phases are summarised; their detail is in git 
         the offset near each (edits and PAL drift too); `source match-release S…` re-runs it.
   - [x] P18d recipe player seams: two players take turns (local video and YouTube); the next slot waits loaded at
         its in point and starts on the out point.
-  - [ ] P18e dub fixes: the agent shortens the J1 bar-scene lines (am/sw/fr) and reviews the Oromo draft; re-dub.
-  - [ ] P18f face-aware reframe for vertical exports (YuNet ONNX face detector; download approved 2026-10-21).
+  - [x] P18e dub fixes: shortened the J1 lines the dub check flagged (am 2, sw 2, fr 4, om 15) and re-dubbed:
+        0 overflowing lines in all four, every check passes (X36–X39).
+  - [x] P18f face-centred vertical crop: the `shorts-face` profile (reframe `crop-face`), an extra option next to the
+        blurred-fill Shorts; YuNet finds the speaker per shot (ai-and-ideas J3 → X7).
   - [ ] P18g multilingual semantic search (multilingual-e5-small; download approved 2026-10-21).
   - [ ] P18h voice-cloned dubs through OmniVoice, labelled as AI voices.
 
@@ -55,7 +57,8 @@ Every open task by priority. Done phases are summarised; their detail is in git 
 - [ ] F2 (The Diary of a CEO) is labelled "DOAC": rename it to Steven Bartlett? (`recomp follow edit F2 --person "Steven Bartlett" --as-user`)
 - [ ] Cookies for YouTube when it blocks: export a cookies.txt from Chrome (its background processes lock the database).
 - [ ] Real Kaggle/Colab run of `notebooks/recomp_worker.ipynb` (the protocol is tested locally with a stand-in worker).
-- [ ] Listening check of the am/sw/fr/om dubs (automated checks pass; human ears decide).
+- [ ] Listening check of the am/sw/fr/om dubs (automated checks pass; human ears decide). Since 2026-10-21 the J1
+      Oromo bar scene is agent-shortened (15 lines): an Oromo speaker should read it (`recomp lang lines J1 om`).
 - [ ] Rights holder for *The Dark Knight (2026)*: `recomp source rights S1 --owner …`.
 
 ## Next (after P18)
