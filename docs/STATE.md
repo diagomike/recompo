@@ -199,8 +199,14 @@ matching built)
   cell, a bar while rendering; shown from two languages) and the "Fast re-export" box. Look step: `LowerPreview`
   draws each lower third over a frame of its slot at the "Lower" style's place and size, with the blurred fill on
   vertical. Export rows show done-with-problems as a problem (was the blue running chip).
+- P18d: `RecipePlayer.tsx` holds two players (a `<video>` and/or a YouTube embed each). While one plays slot n,
+  the other has slot n+1 loaded at its in point, paused (`YTHandle.cue`: loads muted, pauses at the time once it
+  plays, unmutes); at the out point they swap and the freed one loads n+2. Measured in the pane: local S2→S4 swap
+  with no frame of gap (7467.97 → 3006.61, ready state 4); YouTube swap shows the next slot's first frame at once
+  and moves ~0.3 s later (the embed's play start). The advance runs on a 20 ms interval (animation frames stop in a
+  hidden tab and the old player ran past its out point there).
 - The user asked (2026-10-21) for a face-centred vertical crop as an extra export option next to the blurred fill:
-  that is P18f, done next.
+  that is P18f (written into the plan), in its planned place after P18d and P18e.
 
 ## Lessons
 - `>>` marks name speakers for free only when dense (≥ 1/min); sparse marks swap every later line (M2: 86 % vs 50 %).

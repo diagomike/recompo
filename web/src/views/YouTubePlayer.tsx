@@ -9,6 +9,8 @@ export type YTHandle = {
   time: () => number;
   playing: () => boolean;
   load: (id: string, start: number) => void;
+  /** Load a video at a time without showing it play: muted until it buffers, then paused there (gapless swaps). */
+  cue: (id: string, start: number) => void;
 };
 
 declare global {
@@ -35,6 +37,9 @@ const YouTubePlayer = forwardRef<YTHandle, { videoId: string; start?: number; au
     const host = useRef<HTMLDivElement>(null);
     const player = useRef<any>(null);
     const ready = useRef(false);
+    const pending = useRef<(() => void) | null>(null);  // a call made before the player was ready
+    const pre = useRef<number | null>(null);            // cueing: pause at this time once it plays
+    const whenReady = (f: () => void) => { if (ready.current) f(); else pending.current = f; };
     useEffect(() => {
       let live = true;
       loadApi().then((YT) => {
@@ -43,8 +48,16 @@ const YouTubePlayer = forwardRef<YTHandle, { videoId: string; start?: number; au
           videoId, height, width: "100%",
           playerVars: { start: Math.floor(start), autoplay: autoplay ? 1 : 0, rel: 0, modestbranding: 1, playsinline: 1 },
           events: {
-            onReady: () => (ready.current = true),
-            onStateChange: (e: any) => { if (e.data === 0) onEnd?.(); },
+            onReady: () => { ready.current = true; const f = pending.current; pending.current = null; f?.(); },
+            onStateChange: (e: any) => {
+              if (e.data === 1 && pre.current != null) {
+                const p = player.current, t = pre.current;
+                pre.current = null;
+                p.pauseVideo(); p.seekTo(t, true); p.unMute();
+                return;
+              }
+              if (e.data === 0) onEnd?.();
+            },
           },
         });
       });
@@ -54,11 +67,12 @@ const YouTubePlayer = forwardRef<YTHandle, { videoId: string; start?: number; au
     useImperativeHandle(ref, () => ({
       seek: (s, play) => { if (!ready.current) return; player.current.seekTo(s, true); if (play) player.current.playVideo(); },
       toggle: () => { if (!ready.current) return; player.current.getPlayerState() === 1 ? player.current.pauseVideo() : player.current.playVideo(); },
-      play: () => ready.current && player.current.playVideo(),
+      play: () => whenReady(() => { if (pre.current != null) { pre.current = null; player.current.unMute(); } player.current.playVideo(); }),
       pause: () => ready.current && player.current.pauseVideo(),
       time: () => (ready.current ? player.current.getCurrentTime() || 0 : 0),
       playing: () => (ready.current ? player.current.getPlayerState() === 1 : false),
-      load: (id, s) => ready.current && player.current.loadVideoById({ videoId: id, startSeconds: s }),
+      load: (id, s) => whenReady(() => { pre.current = null; player.current.unMute(); player.current.loadVideoById({ videoId: id, startSeconds: s }); }),
+      cue: (id, s) => whenReady(() => { pre.current = s; player.current.mute(); player.current.loadVideoById({ videoId: id, startSeconds: s }); }),
     }));
     return <div style={{ width: "100%", aspectRatio: "16 / 9" }}><div ref={host} /></div>;
   },

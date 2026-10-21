@@ -679,7 +679,11 @@ download and no decision from you; each step ends with tests, VERBS.md, STATE/BA
   the agent, kept as agent edits), and reviews the Oromo draft into shorter lines; re-dub; the dub check lists no
   overflow > 0.3 s. Listening stays yours. `[auto]` + `[you]`
 - *P18f Face-aware reframe* (YuNet face detector, ONNX from the OpenCV model zoo, MIT; run with onnxruntime in the
-  worker env; download approved 2026-10-21). Per shot, face centres → `reframe_x` for vertical exports, smoothed, with the current crop as fallback.
+  worker env; download approved 2026-10-21). Per shot, face centres → `reframe_x` for vertical exports, smoothed,
+  with the current crop as fallback.
+  As the user asked (2026-10-21): an **additional** reframe option (`crop-face`), next to the blurred fill, that
+  crops the picture around the main person in the frame (face boxes) and fills the vertical frame with it; the
+  blurred fill stays the default.
 - *P18g Multilingual semantic search* (`intfloat/multilingual-e5-small`, MIT, ~470 MB; download approved 2026-10-21). `search
   --semantic` over transcripts in any language, Amharic and Oromo included, next to FTS.
 - *P18h Voice-cloned dubs* through OmniVoice (already in the worker env's model cache), from a clean reference of

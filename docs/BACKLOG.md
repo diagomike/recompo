@@ -43,7 +43,8 @@ Every open task by priority. Done phases are summarised; their detail is in git 
         matrix with progress in the Export step, Look-step lower thirds previewed on a frame of their slot.
   - [x] P18c cross-release matching: recipes carry transcript anchors; importing on another copy shifts the cuts by
         the offset near each (edits and PAL drift too); `source match-release S…` re-runs it.
-  - [ ] P18d recipe player seams: double-buffered video elements for gapless playback.
+  - [x] P18d recipe player seams: two players take turns (local video and YouTube); the next slot waits loaded at
+        its in point and starts on the out point.
   - [ ] P18e dub fixes: the agent shortens the J1 bar-scene lines (am/sw/fr) and reviews the Oromo draft; re-dub.
   - [ ] P18f face-aware reframe for vertical exports (YuNet ONNX face detector; download approved 2026-10-21).
   - [ ] P18g multilingual semantic search (multilingual-e5-small; download approved 2026-10-21).
