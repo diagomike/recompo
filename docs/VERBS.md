@@ -35,7 +35,7 @@ Effects: `read` (no changes) · `write` (undoable op) · `heavy` (starts a job) 
 | `recipe` | [`recipe.export`](#recipeexport), [`recipe.import`](#recipeimport), [`recipe.show`](#recipeshow) |
 | `search` | [`search`](#search) |
 | `setup` | [`setup.shim`](#setupshim) |
-| `source` | [`source.add`](#sourceadd), [`source.browse`](#sourcebrowse), [`source.fetch-audio`](#sourcefetch-audio), [`source.fetch-video`](#sourcefetch-video), [`source.list`](#sourcelist), [`source.process`](#sourceprocess), [`source.refresh`](#sourcerefresh), [`source.relink`](#sourcerelink), [`source.remove`](#sourceremove), [`source.rights`](#sourcerights), [`source.show`](#sourceshow), [`source.status`](#sourcestatus) |
+| `source` | [`source.add`](#sourceadd), [`source.browse`](#sourcebrowse), [`source.fetch-audio`](#sourcefetch-audio), [`source.fetch-video`](#sourcefetch-video), [`source.list`](#sourcelist), [`source.match-release`](#sourcematch-release), [`source.process`](#sourceprocess), [`source.refresh`](#sourcerefresh), [`source.relink`](#sourcerelink), [`source.remove`](#sourceremove), [`source.rights`](#sourcerights), [`source.show`](#sourceshow), [`source.status`](#sourcestatus) |
 | `speaker` | [`speaker.assign`](#speakerassign), [`speaker.diarize`](#speakerdiarize), [`speaker.list`](#speakerlist), [`speaker.match`](#speakermatch), [`speaker.merge`](#speakermerge), [`speaker.name`](#speakername), [`speaker.people`](#speakerpeople), [`speaker.unlink`](#speakerunlink) |
 | `topic` | [`topic.add`](#topicadd), [`topic.brief`](#topicbrief), [`topic.edit`](#topicedit), [`topic.list`](#topiclist), [`topic.remove`](#topicremove), [`topic.scan`](#topicscan), [`topic.suggest`](#topicsuggest) |
 | `transcript` | [`transcript.align`](#transcriptalign), [`transcript.asr`](#transcriptasr), [`transcript.clean`](#transcriptclean), [`transcript.delete`](#transcriptdelete), [`transcript.edit`](#transcriptedit), [`transcript.edit-segment`](#transcriptedit-segment), [`transcript.export`](#transcriptexport), [`transcript.fetch-captions`](#transcriptfetch-captions), [`transcript.import`](#transcriptimport), [`transcript.list`](#transcriptlist), [`transcript.merge`](#transcriptmerge), [`transcript.outline`](#transcriptoutline), [`transcript.read`](#transcriptread), [`transcript.replace`](#transcriptreplace), [`transcript.resegment`](#transcriptresegment), [`transcript.set-primary`](#transcriptset-primary), [`transcript.shift`](#transcriptshift), [`transcript.split`](#transcriptsplit), [`transcript.sync-check`](#transcriptsync-check) |
@@ -522,10 +522,12 @@ Render a journey in every profile × language asked for (jobs). Outputs land in 
 | `--profiles` | list[string] | None |  |
 | `--langs` | list[string] | None | Languages (default: the journey's) |
 | `--dub` | boolean | True | Dub languages other than the journey's (needs translations); false = subtitles only |
+| `--speed` | string | None | normal \| fast: fast encodes the final pass (captions, overlays, sound) at veryfast, CRF −1, for quick re-exports; slots stay cached. Default: config render.final_speed |
 
 ```
 recomp export run J1 --profiles shorts,landscape
 recomp export run J1 --profiles shorts --langs en,am,sw,fr
+recomp export run J1 --speed fast
 ```
 
 ### export.show
@@ -2163,6 +2165,24 @@ Sources with duration, transcript and counts.
 |---|---|---|---|
 | `--kind` | string | None | file or link |
 | `--match` | string | None | Title contains |
+
+### source.match-release
+
+`recomp source match-release <ref>` · effect: **write**
+
+Line up cuts imported from a recipe with this copy of the film (another release, a cut scene, PAL speed).
+Finds the recipe's anchor lines in this copy's transcript, measures the offset near each cut and shifts the
+imported cuts by it. Running it again after a better transcript moves them by the difference only.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<ref>` | string | required |  |
+| `--dry-run` | boolean | False | Measure and report; move nothing |
+
+```
+recomp source match-release S2
+recomp source match-release S2 --dry-run
+```
 
 ### source.process
 

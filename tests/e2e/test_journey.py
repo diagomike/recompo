@@ -81,6 +81,31 @@ def test_export_interchange_and_import_roundtrip(jproj, OK, tmp_path):
     assert [(s["in"], s["out"]) for s in a["slots"]] == [(s["in"], s["out"]) for s in b["slots"]]
 
 
+def test_recipe_from_another_release_lines_up(jproj, OK, R):
+    # A recipe made on another copy of the film: another fingerprint, every time 5 s later than in this copy.
+    OK("journey.new", {"title": "Other release", "cuts": ["C3", "C1"]}, jproj)
+    rec = json.loads(next((jproj / "recipes").glob("J1-*.recipe.json")).read_text(encoding="utf-8"))
+    src = rec["sources"]["S1"]
+    assert src.get("anchors"), "file sources carry transcript anchors"
+    src["fingerprint"] = "pf1:1:another-release"
+    src["anchors"] = [[t + 5.0, text] for t, text in src["anchors"]]
+    for sl in rec["slots"]:
+        sl["in"], sl["out"] = sl["in"] + 5.0, sl["out"] + 5.0
+    path = jproj / "other-release.recipe.json"
+    path.write_text(json.dumps(rec), encoding="utf-8")
+    env = R("recipe.import", {"file": str(path)}, jproj)
+    assert env["ok"], env
+    assert any("another copy" in w and "-5.00 s" in w for w in env.get("warnings", [])), env.get("warnings")
+    a = OK("recipe.show", {"journey": "J1"}, jproj)
+    b = OK("recipe.show", {"journey": "J2"}, jproj)
+    assert [(s["in"], s["out"]) for s in a["slots"]] == [(s["in"], s["out"]) for s in b["slots"]]
+    # running it again moves nothing more; the offset is kept on the source
+    again = OK("source.match-release", {"ref": "S1"}, jproj)
+    assert again["offset_s"] == -5.0
+    assert [(s["in"], s["out"]) for s in OK("recipe.show", {"journey": "J2"}, jproj)["slots"]] == \
+           [(s["in"], s["out"]) for s in a["slots"]]
+
+
 def test_from_search_drafts_cuts(jproj, OK):
     d = OK("journey.from-search", {"query": "world burn villain", "limit": 2, "min_s": 3}, jproj)
     assert d["ref"] == "J1" and 1 <= len(d["slots"]) <= 2

@@ -2,8 +2,8 @@
 
 The build's working memory. If context runs short, resume from here.
 
-**Last updated:** 2026-10-21 (M5 complete: the worktree branch merged into master, the full suite green, J3 public on
-the local hub after your yes, the endcard's recipe URL wraps on Shorts)
+**Last updated:** 2026-10-21 (M5 complete; P18 backlog run organised: P18a fast re-exports and P18c cross-release
+matching built)
 
 | | |
 |---|---|
@@ -182,6 +182,17 @@ the local hub after your yes, the endcard's recipe URL wraps on Shorts)
   `git restore` of uncommitted work (stash instead), and `hub publish --visibility public` until you have said yes.
 - Runner note: `export run` spawns `recomp.exe` from the main venv, i.e. the **main checkout's** code. From a worktree,
   run `RECOMP_JOBS=inline python -m recomp.cli export run …` (in the background) to render with the worktree's code.
+
+## P18 backlog run (2026-10-21; plan §6 P18)
+- P18a: `export run --speed fast` (or `config render.final_speed fast`) sets the profile's `final_speed`; only the
+  final pass reads it (`profiles.final_encoding`: `superfast`, CRF −2), so slot cache keys are unchanged. J2
+  landscape, all 11 slots cached: 249 s normal → 100 s fast, same loudness, all checks pass. The studio's Export
+  step has a "Fast re-export" box once a journey has exports.
+- P18c: `compose/release.py`. Recipes carry `anchors` on file sources (out of the hash). The importer keeps them on
+  the source (`meta.release_anchors`, `release_cuts`) when it finds the source by title rather than fingerprint, and
+  shifts the imported cuts at once if the copy has a transcript; `source match-release S…` (re)does it, moving cuts
+  by the difference to what was applied (`meta.release_match.applied`). `relink --force` points at it.
+- Title matching allows 6 % length difference now (PAL runs 4 % short); year and title must still agree.
 
 ## Lessons
 - `>>` marks name speakers for free only when dense (≥ 1/min); sparse marks swap every later line (M2: 86 % vs 50 %).

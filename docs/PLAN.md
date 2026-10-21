@@ -657,18 +657,21 @@ network source), VERBS.md regenerated, STATE/BACKLOG updated and a local commit.
 Every planned phase is built. P18 takes the BACKLOG's open items in an order that front-loads what needs no
 download and no decision from you; each step ends with tests, VERBS.md, STATE/BACKLOG and a local commit.
 
-- *P18a Faster re-exports.* `export run --speed fast` (and `config export.final_speed`): the final pass (captions,
-  overlays, music, loudness) encodes with `veryfast` at CRF −1, slots stay as cached. Measured on dark-knight J2
+- *P18a Faster re-exports.* `export run --speed fast` (and `config render.final_speed`): the final pass (captions,
+  overlays, music, loudness) encodes with `superfast` at CRF −2, slots stay as cached. Measured on dark-knight J2
   against M1's 265 s cold / 145–193 s warm. *Done when:* a warm reorder re-export is ≤ 40 % of cold and every export
-  check still passes. `[auto]`
+  check still passes. `[auto]` *Built 2026-10-21:* 100 s fast vs 249 s normal-warm on the same machine the same
+  day (40 %; 38 % of M1's cold), all checks pass, loudness identical.
 - *P18b Viewer polish.* Speaker lanes coloured by person (stable colour per person across sources); export matrix
   progress per language (Exports page); Look step previews each slot's lower third over its first frame (from the
   overlay text and the profile's layout, no render). *Done when:* checked in the browser pane. `[auto]`
 - *P18c Cross-release matching.* When a pulled recipe's file fingerprint differs but the title/length match, estimate
-  the offset between the two copies (subtitle text first, else audio cross-correlation of 3 windows), record it on
-  the source (`meta.release_offset_s`), shift imported cuts, and warn when the copies differ by an edit (offsets that
-  disagree). `source match-release S… --recipe …` re-runs it. *Done when:* tests over a fixture shifted by 7.3 s and
-  one with a cut-out scene. `[auto]`
+  the offset between the two copies, record it on the source (`meta.release_offset_s`), shift imported cuts, and
+  warn when the copies differ by an edit (offsets that disagree). `source match-release S…` re-runs it. *Done when:*
+  tests over a fixture shifted by 7.3 s and one with a cut-out scene. `[auto]` *Built 2026-10-21:* recipes carry
+  transcript **anchors** per file source (lines around each slot); the local copy's transcript is searched for them
+  and one pass picks a place per anchor keeping the offset steady (or drifting, for PAL speed), paying a penalty
+  where it changes (an edit). Text only: a recipe has no audio of the original copy to correlate against.
 - *P18d Recipe player seams.* Double-buffered video elements in the recipe player: the next slot preloads and seeks
   while the current one plays; the swap happens on its out-point. *Done when:* the hub's player crosses slots with
   no blank frame in the browser pane. `[auto]`

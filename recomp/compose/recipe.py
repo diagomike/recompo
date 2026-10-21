@@ -61,6 +61,16 @@ def build(db, journey: dict, project_meta: dict | None = None, author: str = "lo
     sources: dict[str, dict] = {}
     for item in tl:
         sources.setdefault(item["source"]["ref"], source_entry(item["source"]))
+    # File sources carry transcript anchors around their slots, so another copy of the film can be matched
+    # (compose/release.py). They are derived from the transcript, so the content hash leaves them out.
+    from . import release
+    for ref, e in sources.items():
+        if e["kind"] == "file":
+            src = next(it["source"] for it in tl if it["source"]["ref"] == ref)
+            spans = [(it["in"], it["out"]) for it in tl if it["source"]["ref"] == ref]
+            anc = release.anchors(release.segments(db, src["id"]), spans)
+            if anc:
+                e["anchors"] = anc
     overlays = {}
     for o in db.rows("overlay", "WHERE journey_id=? ORDER BY at", (journey["id"],)):
         slot_n = next((it["n"] for it in tl if it["id"] == o["slot_id"]), None)
@@ -97,6 +107,7 @@ def build(db, journey: dict, project_meta: dict | None = None, author: str = "lo
 
 def content_hash(content: dict) -> str:
     body = {k: v for k, v in content.items() if k not in ("hash", "links", "author", "credits", "duration", "id", "ref")}
+    body["sources"] = {r: {k: v for k, v in s.items() if k != "anchors"} for r, s in (body.get("sources") or {}).items()}
     return "sha256:" + hashlib.sha256(json.dumps(body, sort_keys=True, ensure_ascii=False).encode("utf-8")).hexdigest()[:32]
 
 
@@ -147,7 +158,10 @@ SCHEMA = {
             "type": "object", "required": ["kind", "title"],
             "properties": {"kind": {"enum": ["file", "link"]}, "title": {"type": "string"},
                            "platform": {"type": ["string", "null"]}, "id": {"type": ["string", "null"]},
-                           "url": {"type": ["string", "null"]}, "fingerprint": {"type": ["string", "null"]}}}},
+                           "url": {"type": ["string", "null"]}, "fingerprint": {"type": ["string", "null"]},
+                           "anchors": {"type": "array", "description": "[time, transcript line] around the slots, "
+                                                                       "for matching another copy of the film",
+                                       "items": {"type": "array", "prefixItems": [{"type": "number"}, {"type": "string"}]}}}}},
         "slots": {"type": "array", "items": {
             "type": "object", "required": ["source", "in", "out"],
             "properties": {"source": {"type": "string"}, "in": {"type": "number", "minimum": 0},

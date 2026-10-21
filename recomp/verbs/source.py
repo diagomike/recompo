@@ -306,7 +306,53 @@ def source_relink(ctx: Ctx, inp: RelinkIn):
                           hint="If it is the same work in another release, pass --force (timings may shift).")
     with ctx.op(f"relink {s['ref']}") as tx:
         tx.update("source", s["id"], {"path": str(p), "uri": p.as_uri(), "fingerprint": fp})
-    return {"ref": s["ref"], "path": str(p)}
+    nxt = []
+    if (s.get("meta") or {}).get("release_anchors") and fp != (s["meta"].get("release_fingerprint") or fp):
+        nxt.append(f"recomp source match-release {s['ref']}  (after its transcript is in: lines imported cuts up with this copy)")
+    return Result(data={"ref": s["ref"], "path": str(p)}, next=nxt)
+
+
+class MatchReleaseIn(BaseModel):
+    ref: str = Field(..., json_schema_extra={"pos": 0})
+    dry_run: bool = Field(False, description="Measure and report; move nothing")
+
+
+@verb("source.match-release", MatchReleaseIn, effect="write",
+      examples=["recomp source match-release S2", "recomp source match-release S2 --dry-run"])
+def source_match_release(ctx: Ctx, inp: MatchReleaseIn):
+    """Line up cuts imported from a recipe with this copy of the film (another release, a cut scene, PAL speed).
+    Finds the recipe's anchor lines in this copy's transcript, measures the offset near each cut and shifts the
+    imported cuts by it. Running it again after a better transcript moves them by the difference only."""
+    from ..compose import release
+    db = ctx.db
+    s = refs.source(db, inp.ref)
+    meta = s.get("meta") or {}
+    anchors = meta.get("release_anchors")
+    if not anchors:
+        raise RecompError("E_NOT_FOUND", f"{s['ref']} has no recipe anchors to match",
+                          hint="They come with a recipe imported or pulled for a copy whose fingerprint differs.")
+    segs = release.segments(db, s["id"])
+    if not segs:
+        raise RecompError("E_NOT_FOUND", f"{s['ref']} has no transcript yet",
+                          hint=f"Import its subtitles (`recomp transcript import {s['ref']} <file.srt>`) or run ASR first.")
+    m = release.match(anchors, segs)
+    if m["offset_s"] is None:
+        raise RecompError("E_NOT_FOUND", f"none of the {len(anchors)} anchor lines were found in {s['ref']}'s transcript",
+                          hint="Is it the same work? Check its language and transcript; or move the cuts by eye.")
+    imported = set(meta.get("release_cuts") or [])
+    cuts = [c for c in db.rows("cut", "WHERE source_id=?", (s["id"],))
+            if (c["ref"] in imported if imported else "imported" in (c.get("tags") or []))]
+    cut_ids = [c["id"] for c in cuts]
+    summary = {k: m[k] for k in ("offset_s", "matched", "anchors", "coverage", "spread_s", "edit", "confidence")}
+    if inp.dry_run:
+        applied = (meta.get("release_match") or {}).get("applied") or {}
+        per = [{"cut": c["ref"], "offset_s": release.offset_near(m, c["start"] - float(applied.get(c["id"], 0.0)))} for c in cuts]
+        return {**summary, "cuts": per, "dry_run": True}
+    with ctx.op(f"match {s['ref']} to the recipe's release") as tx:
+        moved = release.apply(tx, db, s, m, cut_ids)
+    warn = ["the offset changes along the film (a scene cut or added, or another speed): each cut took the offset "
+            "measured near it; check the cuts around the change"] if m["edit"] else []
+    return Result(data={**summary, "cuts": moved}, refs=[x["cut"] for x in moved], warnings=warn)
 
 
 class RightsIn(BaseModel):

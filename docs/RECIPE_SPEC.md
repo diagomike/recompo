@@ -16,7 +16,8 @@ and rebuilt with `recomp recipe import <file>` or `recomp hub pull <id>`.
   "sources": {
     "S1": {"kind": "file", "title": "The Dark Knight", "year": 2026, "creator": "", "duration": 5341.66,
            "language": "en", "fingerprint": "pf1:<size>:<sha256 of first+last 4 MB>",
-           "rights": {"owner": "", "notice": "The Dark Knight (2026)", "licence": "…"}},
+           "rights": {"owner": "", "notice": "The Dark Knight (2026)", "licence": "…"},
+           "anchors": [[371.2, "I'm not wearing hockey pads."], [389.9, "Everything that I do, I do for you…"]]},
     "S2": {"kind": "link", "platform": "youtube", "id": "T_7Fm1VujEs", "url": "https://www.youtube.com/watch?v=…",
            "title": "Are Plants Conscious? - Michael Pollan", "creator": "Alex O'Connor", "rights": {"owner": "Alex O'Connor"}}
   },
@@ -47,10 +48,14 @@ and rebuilt with `recomp recipe import <file>` or `recomp hub pull <id>`.
 - **Slots carry their own text** (`quote`, `title`, `why`), so a recipe stays readable without its sources.
 - **Credits are derived** from source rights and music licences; never typed by hand.
 - **`hash`** covers the content (title, intent, sources, slots, overlays, music, settings), not `links`, `author`,
-  `credits`, `id`, `ref` or `duration`. Two recipes with the same hash render the same.
+  `credits`, `id`, `ref`, `duration` or the sources' `anchors`. Two recipes with the same hash render the same.
 - **File sources** are identified by `fingerprint` (size and the hash of the first and last 4 MB). Importers
-  match by fingerprint, then by title, year and length (±3 s); otherwise the source is added as *missing* and
-  the user relinks their own copy.
+  match by fingerprint, then by title, year and length (±3 s, or 6 % for another release); otherwise the source is
+  added as *missing* and the user relinks their own copy.
+- **Anchors** (file sources, optional): `[time, line]` pairs from the transcript around each slot (up to four per
+  slot, lines of four words or more). A copy with another fingerprint is lined up by finding them in its own
+  transcript: the offset near each cut moves it (another release, a scene cut or added, PAL speed). Importers do
+  this when the copy has a transcript; otherwise `recomp source match-release S…` does it later.
 - **Link sources** are identified by `platform` + `id`. Players use the official embed with start and end times;
   renders fetch only the slot's range.
 - **No paths.** The hub refuses recipes containing local paths or `file://` URLs.

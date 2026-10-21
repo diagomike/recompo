@@ -38,10 +38,11 @@ Every open task by priority. Done phases are summarised; their detail is in git 
         episode and from topic T1, shorts + landscape exports with credits, the posting gate, and (2026-10-21) the
         live hub permission step: J3 public on the local hub after your yes.
 - [ ] **P18 backlog run** (organised 2026-10-21; plan §6 P18), in this order:
-  - [ ] P18a faster re-exports: `export run --speed fast` (final pass at `veryfast`); warm reorder ≤ 40 % of cold.
+  - [x] P18a faster re-exports: `export run --speed fast` (final pass at `superfast`, CRF −2): 100 s vs 249 s on J2.
   - [ ] P18b viewer: speaker lanes coloured by person, export matrix progress per language, Look-step lower-third
         preview per slot (the last P16b leftover).
-  - [ ] P18c cross-release matching: offset between two copies of a film when a pulled recipe's fingerprint differs.
+  - [x] P18c cross-release matching: recipes carry transcript anchors; importing on another copy shifts the cuts by
+        the offset near each (edits and PAL drift too); `source match-release S…` re-runs it.
   - [ ] P18d recipe player seams: double-buffered video elements for gapless playback.
   - [ ] P18e dub fixes: the agent shortens the J1 bar-scene lines (am/sw/fr) and reviews the Oromo draft; re-dub.
   - [ ] P18f face-aware reframe for vertical exports (YuNet ONNX face detector; download approved 2026-10-21).
