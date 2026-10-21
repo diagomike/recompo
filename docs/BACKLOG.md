@@ -24,8 +24,8 @@ Every open task by priority. Done phases are summarised; their detail is in git 
 - [x] P16b follow-ups done 2026-10-16: the source room, transcript pane and translation editor in the P16b structure
       (command rows by task, ⋯ menus, dialogs for cut/chapter/replace/speakers/new language, folded caption box, phone
       layouts), studio keys `1`–`6` and `Enter` ([report](runs/P16b-ux-rework.md#follow-up-source-room-and-translation-editor-2026-10-16)).
-- [ ] Still open from P16b: a "Look" preview of lower thirds per slot; music search needs the network (no offline
-      library seed yet). (Fixed 2026-10-19: the room's command row stays on one line down to 1024 px.)
+- [ ] Still open from P16b: a "Look" preview of lower thirds per slot (→ P18b); music search needs the network (no
+      offline library seed yet). (Fixed 2026-10-19: the room's command row stays on one line down to 1024 px.)
 - [ ] **P17 research wing** (approved 2026-10-19 with defaults P17-Q1–Q6; plan §6, [research](research/P17-research-wing.md)):
   - [x] P17a find and follow: `find creators`, follows, checks (every 2 h while the studio runs), inbox take
         (source, transcript by route, chapters, cut candidates on project themes), back-catalogue library and search.
@@ -35,13 +35,20 @@ Every open task by priority. Done phases are summarised; their detail is in git 
         E_RIGHTS gate, `channel set/show/stats`, `hub publish` private by default with the permission question (E_CONFIRM).
   - [x] P17d viewer: Follows and Topics pages, publish confirmation dialog, posting queue on the Exports page.
   - [x] M5 acceptance run ([report](runs/M5-follows-and-topics.md), 2026-10-20): four follows, journeys from a taken
-        episode and from topic T1, shorts + landscape exports with credits, the posting gate. The live hub permission
-        step waits for you (below).
+        episode and from topic T1, shorts + landscape exports with credits, the posting gate, and (2026-10-21) the
+        live hub permission step: J3 public on the local hub after your yes.
+- [ ] **P18 backlog run** (organised 2026-10-21; plan §6 P18), in this order:
+  - [ ] P18a faster re-exports: `export run --speed fast` (final pass at `veryfast`); warm reorder ≤ 40 % of cold.
+  - [ ] P18b viewer: speaker lanes coloured by person, export matrix progress per language, Look-step lower-third
+        preview per slot (the last P16b leftover).
+  - [ ] P18c cross-release matching: offset between two copies of a film when a pulled recipe's fingerprint differs.
+  - [ ] P18d recipe player seams: double-buffered video elements for gapless playback.
+  - [ ] P18e dub fixes: the agent shortens the J1 bar-scene lines (am/sw/fr) and reviews the Oromo draft; re-dub.
+  - [ ] P18f face-aware reframe for vertical exports (YuNet ONNX face detector; download approved 2026-10-21).
+  - [ ] P18g multilingual semantic search (multilingual-e5-small; download approved 2026-10-21).
+  - [ ] P18h voice-cloned dubs through OmniVoice, labelled as AI voices.
 
 ## Waiting on the user
-- [ ] M5's hub step, live: `recomp hub publish J3 --visibility public --project ai-and-ideas` stops with the
-      permission question; answer it yourself (`--confirm`), or publish private. Agent sessions are refused this command.
-- [ ] J4 in ai-and-ideas is a page test of "Draft journey" recorded as yours: delete it, or tell the agent to.
 - [ ] Name the channel you post to (P17-Q3; a placeholder is used until then).
 - [ ] F2 (The Diary of a CEO) is labelled "DOAC": rename it to Steven Bartlett? (`recomp follow edit F2 --person "Steven Bartlett" --as-user`)
 - [ ] Cookies for YouTube when it blocks: export a cookies.txt from Chrome (its background processes lock the database).
@@ -49,16 +56,6 @@ Every open task by priority. Done phases are summarised; their detail is in git 
 - [ ] Listening check of the am/sw/fr/om dubs (automated checks pass; human ears decide).
 - [ ] Rights holder for *The Dark Knight (2026)*: `recomp source rights S1 --owner …`.
 
-## Next (by priority)
-1. Dub: lines in the bar scene of J1 still overflow by 0.3–0.9 s in am/sw/fr; a human pass in the dub review panel
-   (Exports page) can close them.
-2. Oromo: an agent-reviewed translation (the Google draft runs long; MMS has no rate control → shorten lines).
-3. Final pass speed: optional faster preset for re-exports (reorder gate measured at 55–73 % of cold; see M1 report).
-4. Viewer: speaker lane colours by person, export matrix progress per language.
-5. Face-aware reframe for vertical exports (currently blurred fill or centre/offset crop).
-6. Voice cloning dubs through lang_bridge (OmniVoice / Seed-VC), labelled as AI voices in credits.
-7. Cross-release matching: estimate the offset between two copies of a film from subtitles/audio when a pulled recipe's
-   file fingerprint differs.
-8. Multilingual semantic search (embeddings) for Amharic/Oromo transcripts.
-9. Public hub deployment (host, Postgres, OAuth, moderation queue for reports): the user's decision.
-10. Recipe player seams: double-buffered video elements for gapless local playback.
+## Next (after P18)
+1. Public hub deployment (host, Postgres, OAuth, moderation queue for reports): the user's decision.
+2. Offline music library seed (CC0 tracks downloaded once), so music search works without the network.

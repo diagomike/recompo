@@ -652,6 +652,37 @@ network source), VERBS.md regenerated, STATE/BACKLOG updated and a local commit.
   Chrome locks its database while open.
 - P17-Q6 Background checks? *Default:* every 2 h while the studio runs; no Windows scheduled task unless asked.
 
+**P18 — Backlog run (organised 2026-10-21 at the user's request, after M5)**
+
+Every planned phase is built. P18 takes the BACKLOG's open items in an order that front-loads what needs no
+download and no decision from you; each step ends with tests, VERBS.md, STATE/BACKLOG and a local commit.
+
+- *P18a Faster re-exports.* `export run --speed fast` (and `config export.final_speed`): the final pass (captions,
+  overlays, music, loudness) encodes with `veryfast` at CRF −1, slots stay as cached. Measured on dark-knight J2
+  against M1's 265 s cold / 145–193 s warm. *Done when:* a warm reorder re-export is ≤ 40 % of cold and every export
+  check still passes. `[auto]`
+- *P18b Viewer polish.* Speaker lanes coloured by person (stable colour per person across sources); export matrix
+  progress per language (Exports page); Look step previews each slot's lower third over its first frame (from the
+  overlay text and the profile's layout, no render). *Done when:* checked in the browser pane. `[auto]`
+- *P18c Cross-release matching.* When a pulled recipe's file fingerprint differs but the title/length match, estimate
+  the offset between the two copies (subtitle text first, else audio cross-correlation of 3 windows), record it on
+  the source (`meta.release_offset_s`), shift imported cuts, and warn when the copies differ by an edit (offsets that
+  disagree). `source match-release S… --recipe …` re-runs it. *Done when:* tests over a fixture shifted by 7.3 s and
+  one with a cut-out scene. `[auto]`
+- *P18d Recipe player seams.* Double-buffered video elements in the recipe player: the next slot preloads and seeks
+  while the current one plays; the swap happens on its out-point. *Done when:* the hub's player crosses slots with
+  no blank frame in the browser pane. `[auto]`
+- *P18e Dub fixes.* The agent shortens the J1 bar-scene lines that overflow in am/sw/fr (reviewed translations, by
+  the agent, kept as agent edits), and reviews the Oromo draft into shorter lines; re-dub; the dub check lists no
+  overflow > 0.3 s. Listening stays yours. `[auto]` + `[you]`
+- *P18f Face-aware reframe* (YuNet face detector, ONNX from the OpenCV model zoo, MIT; run with onnxruntime in the
+  worker env; download approved 2026-10-21). Per shot, face centres → `reframe_x` for vertical exports, smoothed, with the current crop as fallback.
+- *P18g Multilingual semantic search* (`intfloat/multilingual-e5-small`, MIT, ~470 MB; download approved 2026-10-21). `search
+  --semantic` over transcripts in any language, Amharic and Oromo included, next to FTS.
+- *P18h Voice-cloned dubs* through OmniVoice (already in the worker env's model cache), from a clean reference of
+  each speaker; credits and descriptions label them as AI voices. Last: heaviest, and needs your listening.
+- Not in P18: public hub deployment (your decision), the offline music seed (needs CC0 tracks downloaded).
+
 ---
 
 ## 7. Acceptance runs (scripted)
