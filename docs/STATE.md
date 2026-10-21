@@ -2,12 +2,12 @@
 
 The build's working memory. If context runs short, resume from here.
 
-**Last updated:** 2026-10-21 (M5 complete; P18 backlog run organised: P18a fast re-exports and P18c cross-release
-matching built)
+**Last updated:** 2026-10-21 (M5 complete; P18 backlog run built: fast re-exports, viewer polish, cross-release
+matching, gapless recipe player, dub fixes, face-cropped Shorts, semantic search, cloned-voice dubs)
 
 | | |
 |---|---|
-| Phases | **P0–P16b built** (P16b awaits your review) · **P17 research wing** approved 2026-10-19 with defaults P17-Q1–Q6: **P17a–d built** (find, follow, inbox, library; topics, briefs, journeys from topics; rights, posting queue, hub permission; Follows and Topics pages) |
+| Phases | **P0–P16b built** (P16b awaits your review) · **P17 research wing** approved 2026-10-19 with defaults P17-Q1–Q6: **P17a–d built** (find, follow, inbox, library; topics, briefs, journeys from topics; rights, posting queue, hub permission; Follows and Topics pages) · **P18 backlog run built** 2026-10-21 (a–h) |
 | Milestones | **M1** ([report](runs/M1-dark-knight.md)) · **M2** ([report](runs/M2-alex-oconnor.md)) · **M3** am/sw/fr + om · **M4** local hub ([report](runs/M3-M4-languages-and-hub.md)) · **M5** follows and topics ([report](runs/M5-follows-and-topics.md)): all done |
 | Suite | 100+ fast tests (`pytest -q`), slow speaker test (`pytest -m slow`), live P17 sources (`pytest -m real tests/unit/test_follow_real.py`); the reorder-cache timing assert can flake under heavy load |
 | Projects | `C:\Recomposer\projects\dark-knight` (M1, M3), `alex-oconnor` (M2: 5 episodes, 12 cuts, 3 journeys), `ai-and-ideas` (M5: 7 sources, J1–J3, J3 public on the local hub); `_uitest` scratch folder (forgotten from the list; safe to delete) |
@@ -225,6 +225,15 @@ matching built)
   transcript" button when nothing is indexed. ai-and-ideas: 7 sources indexed in ~8 min (while a clone dub ran);
   "will machines take away people's work" → Ed Zitron on jobs (S5) first; an Amharic query finds related English
   passages, less sharply. ~20–25 s per query (model load per process).
+- P18h: `--voice clone` on `export run` (Export step › Languages › Voices: "Original voices (AI)"). `dub.clone_lines`
+  takes each translated line's original segment (widened with the same speaker's neighbours to 4–10 s) as the
+  voice reference and its text as the prompt, and `workers/scripts/tts_clone.py` (OmniVoice `k2-fsa/OmniVoice`,
+  CPU, 16 steps) speaks the line at its natural length, again to fit (≤ 1.4× squeeze) when it is too long; normal
+  placement and atempo follow. Lines without a reference use the language's voice. The export goes to
+  `<profile>-<lang>-clone` (beside the usual dub) and carries a "voice" credit ("AI voices cloned from the original
+  speakers (OmniVoice); not their recordings") in credits.json, the description and the endcard. Dark Knight J1 fr:
+  23 lines cloned in ~25 min; after shortening seg:126/183, 1 line over (0.99 s), round-trip WER 0.26 vs 0.04 for
+  the studio voice (X41 vs X42). The viewer marks these exports "original voices (AI)" with their own matrix row.
 
 ## Lessons
 - `>>` marks name speakers for free only when dense (≥ 1/min); sparse marks swap every later line (M2: 86 % vs 50 %).

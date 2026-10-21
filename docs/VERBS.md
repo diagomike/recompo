@@ -38,7 +38,7 @@ Effects: `read` (no changes) · `write` (undoable op) · `heavy` (starts a job) 
 | `source` | [`source.add`](#sourceadd), [`source.browse`](#sourcebrowse), [`source.fetch-audio`](#sourcefetch-audio), [`source.fetch-video`](#sourcefetch-video), [`source.list`](#sourcelist), [`source.match-release`](#sourcematch-release), [`source.process`](#sourceprocess), [`source.refresh`](#sourcerefresh), [`source.relink`](#sourcerelink), [`source.remove`](#sourceremove), [`source.rights`](#sourcerights), [`source.show`](#sourceshow), [`source.status`](#sourcestatus) |
 | `speaker` | [`speaker.assign`](#speakerassign), [`speaker.diarize`](#speakerdiarize), [`speaker.list`](#speakerlist), [`speaker.match`](#speakermatch), [`speaker.merge`](#speakermerge), [`speaker.name`](#speakername), [`speaker.people`](#speakerpeople), [`speaker.unlink`](#speakerunlink) |
 | `topic` | [`topic.add`](#topicadd), [`topic.brief`](#topicbrief), [`topic.edit`](#topicedit), [`topic.list`](#topiclist), [`topic.remove`](#topicremove), [`topic.scan`](#topicscan), [`topic.suggest`](#topicsuggest) |
-| `transcript` | [`transcript.align`](#transcriptalign), [`transcript.asr`](#transcriptasr), [`transcript.clean`](#transcriptclean), [`transcript.delete`](#transcriptdelete), [`transcript.edit`](#transcriptedit), [`transcript.edit-segment`](#transcriptedit-segment), [`transcript.export`](#transcriptexport), [`transcript.fetch-captions`](#transcriptfetch-captions), [`transcript.import`](#transcriptimport), [`transcript.list`](#transcriptlist), [`transcript.merge`](#transcriptmerge), [`transcript.outline`](#transcriptoutline), [`transcript.read`](#transcriptread), [`transcript.replace`](#transcriptreplace), [`transcript.resegment`](#transcriptresegment), [`transcript.set-primary`](#transcriptset-primary), [`transcript.shift`](#transcriptshift), [`transcript.split`](#transcriptsplit), [`transcript.sync-check`](#transcriptsync-check) |
+| `transcript` | [`transcript.align`](#transcriptalign), [`transcript.asr`](#transcriptasr), [`transcript.clean`](#transcriptclean), [`transcript.delete`](#transcriptdelete), [`transcript.edit`](#transcriptedit), [`transcript.edit-segment`](#transcriptedit-segment), [`transcript.embed`](#transcriptembed), [`transcript.export`](#transcriptexport), [`transcript.fetch-captions`](#transcriptfetch-captions), [`transcript.import`](#transcriptimport), [`transcript.list`](#transcriptlist), [`transcript.merge`](#transcriptmerge), [`transcript.outline`](#transcriptoutline), [`transcript.read`](#transcriptread), [`transcript.replace`](#transcriptreplace), [`transcript.resegment`](#transcriptresegment), [`transcript.set-primary`](#transcriptset-primary), [`transcript.shift`](#transcriptshift), [`transcript.split`](#transcriptsplit), [`transcript.sync-check`](#transcriptsync-check) |
 | `trends` | [`trends.channel`](#trendschannel), [`trends.search`](#trendssearch), [`trends.youtube`](#trendsyoutube) |
 | `ui` | [`ui.answer`](#uianswer), [`ui.ask`](#uiask), [`ui.note`](#uinote), [`ui.notes`](#uinotes), [`ui.select`](#uiselect), [`ui.selection`](#uiselection), [`ui.show`](#uishow) |
 | `version` | [`version`](#version) |
@@ -522,6 +522,7 @@ Render a journey in every profile × language asked for (jobs). Outputs land in 
 | `--profiles` | list[string] | None |  |
 | `--langs` | list[string] | None | Languages (default: the journey's) |
 | `--dub` | boolean | True | Dub languages other than the journey's (needs translations); false = subtitles only |
+| `--voice` | string | None | Dub voice: clone (each line in its original speaker's voice, OmniVoice; credited as AI voices), an edge voice name, mms:<model>. Default: the language's configured voice |
 | `--speed` | string | None | normal \| fast: fast encodes the final pass (captions, overlays, sound) at veryfast, CRF −1, for quick re-exports; slots stay cached. Default: config render.final_speed |
 
 ```
@@ -529,6 +530,7 @@ recomp export run J1 --profiles shorts,landscape
 recomp export run J1 --profiles shorts --langs en,am,sw,fr
 recomp export run J1 --speed fast
 recomp export run J1 --profiles shorts,shorts-face
+recomp export run J1 --profiles shorts --langs fr --voice clone
 ```
 
 ### export.show
@@ -2049,6 +2051,7 @@ recomp recipe show J1
 
 Find where something is said, across all sources. Each hit has its chapter, surrounding lines and a ready `cut add` command.
 `--scope library` searches the followed creators' back catalogue instead (no project needed).
+`--semantic` finds passages by meaning, in any language (after `transcript embed`).
 
 | Field | Type | Default | Description |
 |---|---|---|---|
@@ -2061,12 +2064,14 @@ Find where something is said, across all sources. Each hit has its chapter, surr
 | `--limit` | integer | 20 |  |
 | `--mode` | string | 'auto' | all (every word), any, or auto (all, then any if nothing found) |
 | `--scope` | string | 'project' | project (this project's sources) or library (followed creators' back catalogue in the studio library) |
+| `--semantic` | boolean | False | By meaning, not words: finds the same idea in other words or another language (needs `transcript embed` once) |
 
 ```
 recomp search "free will"
 recomp search forgiveness --sources S1,S4 --limit 10
 recomp search "everlasting life" --speaker "Pastor Chris"
 recomp search "copy itself" --scope library
+recomp search "being afraid of dying" --semantic
 ```
 
 ## setup
@@ -2634,6 +2639,23 @@ Correct one segment's text, timing or speaker (word timings are re-spread if the
 
 ```
 recomp transcript edit-segment S1 412 --text "Why so serious?"
+```
+
+### transcript.embed
+
+`recomp transcript embed <sources>` · effect: **heavy**
+
+Build the semantic index of primary transcripts (jobs), so `search --semantic` finds lines by meaning, in any
+language (Amharic and Oromo too). Current indexes are skipped; an edited transcript is re-indexed.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<sources>` | list[string] | None | Source refs (default: every source with a transcript) |
+| `--force` | boolean | False | Rebuild indexes that are current |
+
+```
+recomp transcript embed
+recomp transcript embed S2 S5
 ```
 
 ### transcript.export

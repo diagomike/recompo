@@ -319,6 +319,8 @@ def description(plan: dict) -> str:
         for c in mus:
             out.append(f"- {c['text']}" + (f" {c['url']}" if c.get("url") else "") + (f" · licence {c['licence_url']}" if c.get("licence_url") else ""))
         out.append("")
+    for c in (c for c in plan["credits"] if c["type"] == "voice"):
+        out += [c["text"], ""]
     url = (plan.get("links") or {}).get("hub")
     out.append(f"Recipe (sources and timecodes): {url}" if url else f"Recomposer recipe {plan['recipe_hash']}")
     out.append("Made with Recomposer. Excerpts are used for commentary and are credited to their owners above.")

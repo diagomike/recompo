@@ -149,10 +149,12 @@ def profile_edit(ctx: Ctx, inp: ProfileIn):
     return profile_show(ctx, NameIn(name=inp.name))
 
 
-def _export_row(ctx: Ctx, tx, journey: dict | None, cut: dict | None, profile: str, lang: str, preview: bool) -> dict:
+def _export_row(ctx: Ctx, tx, journey: dict | None, cut: dict | None, profile: str, lang: str, preview: bool,
+                variant: str = "") -> dict:
     name = journey["ref"] if journey else cut["ref"]
     title = journey["title"] if journey else cut["title"]
-    folder = ctx.project.dir("exports", f"{name}-{R.slug(title)}", f"{'preview-' if preview else ''}{profile}-{lang}")
+    folder = ctx.project.dir("exports", f"{name}-{R.slug(title)}",
+                             f"{'preview-' if preview else ''}{profile}-{lang}{'-' + variant if variant else ''}")
     return tx.insert("export", {"journey_id": journey["id"] if journey else None, "cut_id": cut["id"] if cut else None,
                                 "profile": profile, "lang": lang, "status": "queued", "folder": str(folder)})
 
@@ -180,6 +182,9 @@ class RunIn(BaseModel):
     profiles: list[str] = Field(default_factory=lambda: ["landscape"])
     langs: list[str] = Field(default_factory=list, description="Languages (default: the journey's)")
     dub: bool = Field(True, description="Dub languages other than the journey's (needs translations); false = subtitles only")
+    voice: str | None = Field(None, description="Dub voice: clone (each line in its original speaker's voice, OmniVoice; "
+                                                "credited as AI voices), an edge voice name, mms:<model>. Default: the "
+                                                "language's configured voice")
     speed: str | None = Field(None, description="normal | fast: fast encodes the final pass (captions, overlays, sound) "
                                                 "at veryfast, CRF −1, for quick re-exports; slots stay cached. "
                                                 "Default: config render.final_speed")
@@ -187,7 +192,8 @@ class RunIn(BaseModel):
 
 @verb("export.run", RunIn, effect="heavy",
       examples=["recomp export run J1 --profiles shorts,landscape", "recomp export run J1 --profiles shorts --langs en,am,sw,fr",
-                "recomp export run J1 --speed fast", "recomp export run J1 --profiles shorts,shorts-face"])
+                "recomp export run J1 --speed fast", "recomp export run J1 --profiles shorts,shorts-face",
+                "recomp export run J1 --profiles shorts --langs fr --voice clone"])
 def export_run(ctx: Ctx, inp: RunIn):
     """Render a journey in every profile × language asked for (jobs). Outputs land in exports/<journey>/<profile>-<lang>/."""
     from ..core import config
@@ -205,10 +211,14 @@ def export_run(ctx: Ctx, inp: RunIn):
         faces.model_path()  # say now, not in the job, when the face detector is missing
     queued = []
     with ctx.op(f"export {j['ref']}") as tx:
-        rows = [(_export_row(ctx, tx, j, None, p, lang, False), lang) for p in names for lang in langs]
+        # cloned voices are another version beside the usual dub, not a replacement: their own folder
+        rows = [(_export_row(ctx, tx, j, None, p, lang, False,
+                             "clone" if inp.voice == "clone" and inp.dub and lang != j["language"] else ""), lang)
+                for p in names for lang in langs]
     for row, lang in rows:
         dub = inp.dub and lang != j["language"]
-        job = jobs.enqueue(db, "export", target=row["ref"], params={"export": row["id"], "dub": dub, "overrides": over},
+        params = {"export": row["id"], "dub": dub, "overrides": over, **({"voice": inp.voice} if inp.voice and dub else {})}
+        job = jobs.enqueue(db, "export", target=row["ref"], params=params,
                            dedupe=False)
         with ctx.db.op("export.queue", "machine") as tx:
             tx.update("export", row["id"], {"job_id": job["ref"]}, log=False)

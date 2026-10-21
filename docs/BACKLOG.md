@@ -37,7 +37,7 @@ Every open task by priority. Done phases are summarised; their detail is in git 
   - [x] M5 acceptance run ([report](runs/M5-follows-and-topics.md), 2026-10-20): four follows, journeys from a taken
         episode and from topic T1, shorts + landscape exports with credits, the posting gate, and (2026-10-21) the
         live hub permission step: J3 public on the local hub after your yes.
-- [ ] **P18 backlog run** (organised 2026-10-21; plan §6 P18), in this order:
+- [x] **P18 backlog run** (organised 2026-10-21; plan §6 P18; all built 2026-10-21), in this order:
   - [x] P18a faster re-exports: `export run --speed fast` (final pass at `superfast`, CRF −2): 100 s vs 249 s on J2.
   - [x] P18b viewer: speaker lanes and names coloured by person (same colour in every source), formats × languages
         matrix with progress in the Export step, Look-step lower thirds previewed on a frame of their slot.
@@ -51,7 +51,9 @@ Every open task by priority. Done phases are summarised; their detail is in git 
         blurred-fill Shorts; YuNet finds the speaker per shot (ai-and-ideas J3 → X7).
   - [x] P18g multilingual semantic search: `transcript embed` (jobs) and `search --semantic`, "By meaning" on the
         Search page; multilingual-e5-small. A query takes ~20 s (the worker loads the model each time).
-  - [ ] P18h voice-cloned dubs through OmniVoice, labelled as AI voices.
+  - [x] P18h voice-cloned dubs: `export run --voice clone` ("Original voices (AI)" in the Export step) voices each
+        line from its speaker's own audio with OmniVoice, saved beside the usual dub (`…-clone`), credited as AI
+        voices. Dark Knight J1 fr: 1 line over, round-trip WER 0.26 (studio voice: 0 over, 0.04). Your ears decide.
 
 ## Waiting on the user
 - [ ] Name the channel you post to (P17-Q3; a placeholder is used until then).
@@ -63,6 +65,8 @@ Every open task by priority. Done phases are summarised; their detail is in git 
 - [ ] Rights holder for *The Dark Knight (2026)*: `recomp source rights S1 --owner …`.
 
 ## Next (after P18)
+0. Cloned dubs: ~1 min per line on this CPU and slower speech than the studio voices; on a GPU (the Colab worker)
+   or with fewer steps, and line shortening aimed at the cloned voice's pace.
 0. Semantic search: keep the embedding model loaded (a resident worker) so a query takes a second, not ~20 s;
    try a larger multilingual model for Amharic/Oromo queries (e5-small reaches across languages only moderately).
 1. Public hub deployment (host, Postgres, OAuth, moderation queue for reports): the user's decision.

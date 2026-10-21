@@ -69,6 +69,30 @@ def test_dubbed_export_language_track_and_captions(dproj, OK):
     assert tone_share(fr["video"], 0.3, 3.0) > 0.2 > tone_share(en["video"], 0.3, 3.0)
 
 
+@pytest.mark.slow
+def test_cloned_voices_are_another_version_and_say_so(dproj, OK, monkeypatch):
+    # OmniVoice on the CPU, voicing each line from the original audio of that line (the fixture's tones)
+    monkeypatch.delenv("RECOMP_TTS", raising=False)
+    t = OK("lang.translate", {"journey": "J1", "to": "fr", "template": True}, dproj)
+    OK("lang.translate", {"journey": "J1", "to": "fr",
+                          "translations": {l["key"]: "Bonjour " + l["text"] for l in t["lines"]}}, dproj)
+    res = OK("export.run", {"journey": "J1", "profiles": ["landscape"], "langs": ["fr"], "voice": "clone"}, dproj)
+    x = OK("export.show", {"ref": res["exports"][0]["export"]}, dproj)
+    assert x["folder"].endswith("landscape-fr-clone") and x["status"] in ("done", "done-with-problems"), x["checks"]
+    assert "AI voices cloned from the original speakers" in x["description"]
+    dub = __import__("json").loads((__import__("pathlib").Path(x["folder"]) / "dub.json").read_text(encoding="utf-8"))
+    assert dub["backend"] == "clone" and dub["voice"].startswith("omnivoice (cloned ")
+
+
+def test_dub_voice_credit_reaches_the_description():
+    from recomp.render import engine
+    plan = {"title": "T", "credits": [{"type": "source", "ref": "S1", "text": "Film (2026)", "url": None},
+                                      {"type": "voice", "ref": "dub", "url": None,
+                                       "text": "fr voices: AI voices cloned from the original speakers (OmniVoice); not their recordings"}],
+            "recipe_hash": "sha256:x", "links": {}}
+    assert "fr voices: AI voices cloned" in engine.description(plan)
+
+
 def test_untranslated_language_is_reported(dproj, OK):
     res = OK("export.run", {"journey": "J1", "profiles": ["landscape"], "langs": ["sw"]}, dproj)
     x = OK("export.show", {"ref": res["exports"][0]["export"]}, dproj)

@@ -786,7 +786,7 @@ function ExportRow({ x, open }: { x: any; open?: boolean }) {
       <div className="row nowrap">
         <span className={"chip " + st}>{x.status}</span>
         <span className="mono faint">{x.ref}</span>
-        <b className="grow ellipsis">{x.preview ? "preview · " : ""}{x.profile} · {x.lang}</b>
+        <b className="grow ellipsis">{x.preview ? "preview · " : ""}{x.profile} · {x.lang}{cloned(x) ? " · original voices (AI)" : ""}</b>
         {x.status === "done" && <button className="btn small" onClick={() => setShow(!show)}>{show ? "Hide" : <><Play size={12} />Watch</>}</button>}
         <Act verb="project.reveal" args={{ what: x.ref }} small ghost quiet icon={<FolderOpen size={13} />} label="Open the folder">{""}</Act>
         <button className="btn small ghost" onClick={() => go("exports", x.ref)}>Details</button>
@@ -806,13 +806,17 @@ function ExportRow({ x, open }: { x: any; open?: boolean }) {
   );
 }
 
+// An export in the original speakers' cloned voices sits in its own "…-clone" folder beside the usual dub.
+const cloned = (x: any) => /-clone$/.test(String(x.folder || ""));
+
 // Formats × languages: the newest export of each, its status, and progress while it renders. Shown once a
 // journey has more than one language, where a list of rows stops telling you which language is where.
 function ExportMatrix({ finals }: { finals: any[] }) {
   const { go } = useApp();
   const latest = new Map<string, any>();
-  for (const x of finals) if (!latest.has(`${x.profile}|${x.lang}`)) latest.set(`${x.profile}|${x.lang}`, x);  // newest first
-  const profiles = [...new Set(finals.map((x) => x.profile))];
+  const row = (x: any) => x.profile + (cloned(x) ? "|clone" : "");
+  for (const x of finals) if (!latest.has(`${row(x)}|${x.lang}`)) latest.set(`${row(x)}|${x.lang}`, x);  // newest first
+  const profiles = [...new Set(finals.map(row))];
   const langs = [...new Set(finals.map((x) => x.lang))].sort();
   if (langs.length < 2) return null;
   return (
@@ -821,7 +825,7 @@ function ExportMatrix({ finals }: { finals: any[] }) {
       <tbody>
         {profiles.map((p) => (
           <tr key={p}>
-            <td>{profileLabel(p)}</td>
+            <td>{profileLabel(p.replace(/\|clone$/, ""))}{p.endsWith("|clone") ? " · original voices (AI)" : ""}</td>
             {langs.map((l) => {
               const x = latest.get(`${p}|${l}`);
               if (!x) return <td key={l} className="faint">—</td>;
@@ -849,8 +853,9 @@ function ExportStep({ c }: { c: StepCtx }) {
   const [chosen, setChosen] = useState<string[]>(dest.length ? dest : ["landscape"]);
   const [langs, setLangs] = useState("");
   const [fast, setFast] = useState(false);
+  const [clone, setClone] = useState(false);   // dub in the original speakers' voices (AI, credited as such)
   const langList = langs ? langs.split(/[,\s]+/).map((x) => x.trim()).filter(Boolean) : [];
-  const runArgs = { journey: c.jref, profiles: chosen, langs: langList, ...(fast ? { speed: "fast" } : {}) };
+  const runArgs = { journey: c.jref, profiles: chosen, langs: langList, ...(fast ? { speed: "fast" } : {}), ...(clone ? { voice: "clone" } : {}) };
   const finals = (exps || []).filter((x) => !x.preview);
   const done = finals.filter((x) => x.status === "done");
   const hubWanted = c.g.formats.includes("hub");
@@ -896,6 +901,15 @@ function ExportStep({ c }: { c: StepCtx }) {
               <div className="row">
                 <input className="input" style={{ width: 280 }} placeholder={`${c.j.language} (default); more: ${c.j.language},fr,sw`} value={langs} onChange={(e) => setLangs(e.target.value)} />
                 <span className="muted2">Other languages are dubbed from their translations. <a href="#" onClick={(e) => { e.preventDefault(); go("exports", null, { tab: "translations", journey: c.jref }); }}>Prepare translations</a></span>
+              </div>
+              <div className="row" style={{ marginTop: 6 }}>
+                <span className="muted2">Voices</span>
+                <div className="segmented" role="radiogroup" aria-label="Dub voices">
+                  <button type="button" className={clone ? "" : "on"} onClick={() => setClone(false)}>Studio voice</button>
+                  <button type="button" className={clone ? "on" : ""} onClick={() => setClone(true)}
+                          data-tip="Each line in the voice of the person who said it (OmniVoice, cloned from the original audio). Credited as AI voices; saved beside the usual dub (…-clone). Slow on this CPU: ~1 min per line."
+                          data-tip-cmd="recomp export run … --voice clone">Original voices (AI)</button>
+                </div>
               </div>
             </Disclosure>
           </div>
