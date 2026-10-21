@@ -528,6 +528,7 @@ Render a journey in every profile × language asked for (jobs). Outputs land in 
 recomp export run J1 --profiles shorts,landscape
 recomp export run J1 --profiles shorts --langs en,am,sw,fr
 recomp export run J1 --speed fast
+recomp export run J1 --profiles shorts,shorts-face
 ```
 
 ### export.show
@@ -1806,7 +1807,7 @@ Change an export profile.
 | `--width` | integer | None |  |
 | `--height` | integer | None |  |
 | `--fps` | integer | None |  |
-| `--reframe` | string | None | fit-blur \| fit-pad \| crop-center \| crop-x |
+| `--reframe` | string | None | fit-blur \| fit-pad \| crop-center \| crop-x \| crop-face |
 | `--captions` | string | None | burn \| sidecar \| off |
 | `--caption-style` | string | None | clean \| karaoke |
 | `--caption-max-chars` | integer | None | Characters per caption row (0 = automatic by format and script) |
@@ -1845,7 +1846,7 @@ Create an export profile (optionally from another).
 | `--width` | integer | None |  |
 | `--height` | integer | None |  |
 | `--fps` | integer | None |  |
-| `--reframe` | string | None | fit-blur \| fit-pad \| crop-center \| crop-x |
+| `--reframe` | string | None | fit-blur \| fit-pad \| crop-center \| crop-x \| crop-face |
 | `--captions` | string | None | burn \| sidecar \| off |
 | `--caption-style` | string | None | clean \| karaoke |
 | `--caption-max-chars` | integer | None | Characters per caption row (0 = automatic by format and script) |

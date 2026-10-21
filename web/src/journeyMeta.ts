@@ -7,6 +7,13 @@ export const DESTINATIONS: { key: string; label: string; note: string; ideal?: [
   { key: "hub", label: "Community hub", note: "Share the recipe: others play it from the original sources; no media is copied" },
 ];
 
+// A profile's name for people: its destination's label, and "-face" variants (cropped around the speaker) after it.
+export function profileLabel(name: string): string {
+  const base = name.endsWith("-face") ? name.slice(0, -5) : name;
+  const label = DESTINATIONS.find((d) => d.profile === base)?.label || base;
+  return name.endsWith("-face") ? `${label} · cropped to the speaker` : label;
+}
+
 export const STEP_HELP: Record<string, { title: string; verb: string }> = {
   purpose: { title: "Purpose", verb: "What it is for and where it goes" },
   gather: { title: "Gather cuts", verb: "Moments from any of your sources" },

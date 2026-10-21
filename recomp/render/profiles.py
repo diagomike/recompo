@@ -10,7 +10,7 @@ import copy
 
 BASE: dict = {
     "width": 1920, "height": 1080, "fps": 30,
-    "reframe": "fit-pad",            # fit-blur | fit-pad | crop-center | crop-x
+    "reframe": "fit-pad",            # fit-blur | fit-pad | crop-center | crop-x | crop-face
     "captions": "burn",              # burn | sidecar | off
     "caption_style": "clean",        # clean | karaoke | quote
     "caption_max_chars": None,       # characters per caption row (None: by format and script)
@@ -37,6 +37,9 @@ SEEDS: dict[str, dict] = {
                "description": "Vertical 9:16 for Shorts/Reels/TikTok: blurred-fill reframe, word-highlight captions"},
     "landscape": {"width": 1920, "height": 1080, "reframe": "fit-pad", "caption_style": "clean",
                   "description": "16:9 for YouTube: clean captions, lower thirds, endcard"},
+    "shorts-face": {"width": 1080, "height": 1920, "reframe": "crop-face", "caption_style": "karaoke",
+                    "description": "Vertical 9:16 cropped around the person speaking (a face found per shot); "
+                                   "blurred fill where no face is"},
     "square": {"width": 1080, "height": 1080, "reframe": "fit-blur", "caption_style": "clean",
                "description": "1:1 for feeds"},
     "clip": {"width": 1920, "height": 1080, "reframe": "fit-pad", "caption_style": "clean", "title_card": False,

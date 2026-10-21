@@ -213,4 +213,6 @@ def slot_key(item: dict, prof: dict) -> str:
             "w": prof["width"], "h": prof["height"], "fps": prof["fps"], "reframe": prof["reframe"],
             "x": item.get("reframe_x"), "crf": prof["crf"], "preset": prof["preset"], "v": PLAN_VERSION,
             "path": item.get("path")}
+    if item.get("face_crop") is not None:  # only crop-face slots carry it, so other keys stay as they were
+        body["face"] = item["face_crop"]
     return hashlib.sha256(json.dumps(body, sort_keys=True).encode()).hexdigest()[:20]

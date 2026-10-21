@@ -78,6 +78,25 @@ def test_shorts_blur_karaoke_and_reorder_cache(rproj, OK):
     assert plan["profile"]["final_speed"] == "fast"
 
 
+def test_face_crop_profile_needs_the_model_and_falls_back_without_faces(rproj, OK, R, recomp_home):
+    import shutil
+    from pathlib import Path
+    from recomp.render import faces
+    assert "shorts-face" in [p["name"] for p in OK("profile.list", {}, rproj)]  # seeded into an existing project
+    env = R("export.run", {"journey": "J1", "profiles": ["shorts-face"]}, rproj)
+    assert not env["ok"] and env["error"]["code"] == "E_NOT_FOUND" and "face" in env["error"]["message"]
+    real = Path.home() / ".recomp" / "models" / "yunet" / faces.MODEL_NAME
+    if not real.exists():
+        pytest.skip("face model not installed on this machine")
+    dest = recomp_home / "models" / "yunet"
+    dest.mkdir(parents=True)
+    shutil.copy(real, dest / faces.MODEL_NAME)
+    res = OK("export.run", {"journey": "J1", "profiles": ["shorts-face"]}, rproj)
+    x = OK("export.show", {"ref": res["exports"][0]["export"]}, rproj)
+    assert x["status"] == "done", x["checks"]  # the fixture has no faces: every slot used the blurred fill
+    assert any(c["check"] == "frame size" and c["detail"] == "1080x1920" for c in x["checks"])
+
+
 def test_transitions_and_single_cut_export(rproj, OK):
     OK("journey.transition", {"slot": "J1#2", "type": "fade", "dur": 0.5}, rproj)
     OK("journey.transition", {"slot": "J1#3", "type": "dip", "dur": 0.4}, rproj)

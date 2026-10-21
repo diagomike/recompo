@@ -10,7 +10,7 @@ import { AlertTriangle, ArrowDown, ArrowLeft, ArrowRight, ArrowUp, Check, CheckC
 import { clock, fileUrl, frameUrl, must } from "../api";
 import { useApp, useData } from "../App";
 import { Act, useActions } from "../actions";
-import { DESTINATIONS } from "../journeyMeta";
+import { DESTINATIONS, profileLabel } from "../journeyMeta";
 import { Dialog, Disclosure, Empty, Menu, SrcBadge, mmss } from "../ui";
 import RecipePlayer from "./RecipePlayer";
 import PublishButton from "./PublishButton";
@@ -821,7 +821,7 @@ function ExportMatrix({ finals }: { finals: any[] }) {
       <tbody>
         {profiles.map((p) => (
           <tr key={p}>
-            <td>{DESTINATIONS.find((d) => d.profile === p)?.label || p}</td>
+            <td>{profileLabel(p)}</td>
             {langs.map((l) => {
               const x = latest.get(`${p}|${l}`);
               if (!x) return <td key={l} className="faint">—</td>;
@@ -855,13 +855,14 @@ function ExportStep({ c }: { c: StepCtx }) {
   const done = finals.filter((x) => x.status === "done");
   const hubWanted = c.g.formats.includes("hub");
   const onHub = !!c.j.links?.hub;
-  const mainProfs = (profs || []).filter((p) => dest.includes(p.name) || (!dest.length && p.name === "landscape"));
+  // a destination's own profile, and its variant cropped around the speaker (shorts-face) next to it
+  const mainProfs = (profs || []).filter((p) => dest.includes(p.name) || dest.includes(p.name.replace(/-face$/, "")) || (!dest.length && p.name === "landscape"));
   const others = (profs || []).filter((p) => !["preview", "clip"].includes(p.name) && !mainProfs.includes(p));
   const n = chosen.length * Math.max(1, langList.length);
   const tile = (p: any) => (
     <button key={p.name} type="button" className={"tile" + (chosen.includes(p.name) ? " on" : "")} aria-pressed={chosen.includes(p.name)}
             onClick={() => setChosen(chosen.includes(p.name) ? chosen.filter((x) => x !== p.name) : [...chosen, p.name])}>
-      <span className="tt"><input type="checkbox" readOnly checked={chosen.includes(p.name)} tabIndex={-1} />{DESTINATIONS.find((d) => d.profile === p.name)?.label || p.name}<span className="chip">{p.size}</span></span>
+      <span className="tt"><input type="checkbox" readOnly checked={chosen.includes(p.name)} tabIndex={-1} />{profileLabel(p.name)}<span className="chip">{p.size}</span></span>
       <span className="td">{p.description}</span>
     </button>
   );

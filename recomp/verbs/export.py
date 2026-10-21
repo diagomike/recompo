@@ -15,6 +15,9 @@ from ..registry import Ctx, NoInput, verb
 from ..render import profiles
 from ..workers import jobs
 
+# How a picture of another shape fills the frame. crop-face: crop around the main person (face boxes, per shot),
+# the blurred fill where no face is found.
+REFRAMES = ("fit-blur", "fit-pad", "crop-center", "crop-x", "crop-face")
 PROFILE_FIELDS = ("width", "height", "fps", "reframe", "captions", "caption_style", "caption_max_chars",
                   "caption_max_lines", "caption_scale", "caption_margin", "overlays", "lower_thirds", "music",
                   "endcard", "endcard_seconds", "title_card", "loudness", "crf", "preset", "dub_mode", "multitrack")
@@ -23,6 +26,7 @@ PROFILE_FIELDS = ("width", "height", "fps", "reframe", "captions", "caption_styl
 @verb("profile.list", NoInput)
 def profile_list(ctx: Ctx, inp: NoInput):
     """Export profiles: format and treatment, separate from journey content."""
+    _seed_missing(ctx)
     out = []
     for p in ctx.db.rows("profile", "ORDER BY created_at"):
         s = p["settings"]
@@ -51,7 +55,7 @@ class ProfileIn(BaseModel):
     width: int | None = None
     height: int | None = None
     fps: int | None = None
-    reframe: str | None = Field(None, description="fit-blur | fit-pad | crop-center | crop-x")
+    reframe: str | None = Field(None, description="fit-blur | fit-pad | crop-center | crop-x | crop-face")
     captions: str | None = Field(None, description="burn | sidecar | off")
     caption_style: str | None = Field(None, description="clean | karaoke")
     caption_max_chars: int | None = Field(None, description="Characters per caption row (0 = automatic by format and script)")
@@ -107,8 +111,8 @@ def _settings(inp: ProfileIn, base: dict) -> dict:
         s["caption_max_chars"] = None
     if inp.caption_lang:
         s["caption_lang"] = _caption_lang(dict(s.get("caption_lang") or {}), inp.caption_lang)
-    if s["reframe"] not in ("fit-blur", "fit-pad", "crop-center", "crop-x"):
-        raise RecompError("E_INVALID", "reframe must be fit-blur, fit-pad, crop-center or crop-x")
+    if s["reframe"] not in REFRAMES:
+        raise RecompError("E_INVALID", f"reframe must be one of {', '.join(REFRAMES)}")
     if s["captions"] not in ("burn", "sidecar", "off") or s["caption_style"] not in ("clean", "karaoke"):
         raise RecompError("E_INVALID", "captions: burn|sidecar|off; caption_style: clean|karaoke")
     s["width"], s["height"] = int(s["width"]) // 2 * 2, int(s["height"]) // 2 * 2
@@ -153,6 +157,17 @@ def _export_row(ctx: Ctx, tx, journey: dict | None, cut: dict | None, profile: s
                                 "profile": profile, "lang": lang, "status": "queued", "folder": str(folder)})
 
 
+def _seed_missing(ctx: Ctx) -> None:
+    """Default profiles added after a project was made (shorts-face) appear in it the first time they are listed."""
+    if any(not ctx.db.one("SELECT 1 FROM profile WHERE name=?", (n,)) for n in profiles.SEEDS):
+        profiles.seed_profiles(ctx.project)
+
+
+def _settings_of(db, name: str) -> dict:
+    row = db.rows("profile", "WHERE name=?", (name,))
+    return row[0]["settings"] if row else {}
+
+
 def _profiles(db, names: list[str]) -> list[str]:
     for n in names:
         if not db.rows("profile", "WHERE name=?", (n,)):
@@ -172,18 +187,22 @@ class RunIn(BaseModel):
 
 @verb("export.run", RunIn, effect="heavy",
       examples=["recomp export run J1 --profiles shorts,landscape", "recomp export run J1 --profiles shorts --langs en,am,sw,fr",
-                "recomp export run J1 --speed fast"])
+                "recomp export run J1 --speed fast", "recomp export run J1 --profiles shorts,shorts-face"])
 def export_run(ctx: Ctx, inp: RunIn):
     """Render a journey in every profile × language asked for (jobs). Outputs land in exports/<journey>/<profile>-<lang>/."""
     from ..core import config
     db = ctx.db
     j = refs.resolve(db, inp.journey, "journey")[1]
+    _seed_missing(ctx)
     names = _profiles(db, inp.profiles)
     langs = inp.langs or [j["language"]]
     speed = inp.speed or config.get("render.final_speed") or "normal"
     if speed not in profiles.FINAL_SPEEDS:
         raise RecompError("E_INVALID", f"speed {speed!r}: normal or fast", hint="`recomp export run J1 --speed fast`")
     over = {"final_speed": speed} if speed != "normal" else {}
+    if any(_settings_of(db, n).get("reframe") == "crop-face" for n in names):
+        from ..render import faces
+        faces.model_path()  # say now, not in the job, when the face detector is missing
     queued = []
     with ctx.op(f"export {j['ref']}") as tx:
         rows = [(_export_row(ctx, tx, j, None, p, lang, False), lang) for p in names for lang in langs]

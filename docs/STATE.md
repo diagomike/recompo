@@ -205,8 +205,18 @@ matching built)
   with no frame of gap (7467.97 → 3006.61, ready state 4); YouTube swap shows the next slot's first frame at once
   and moves ~0.3 s later (the embed's play start). The advance runs on a 20 ms interval (animation frames stop in a
   hidden tab and the old player ran past its out point there).
-- The user asked (2026-10-21) for a face-centred vertical crop as an extra export option next to the blurred fill:
-  that is P18f (written into the plan), in its planned place after P18d and P18e.
+- P18e: Dark Knight J1, the lines the dub check flagged, shortened with `lang edit` (by the agent): am 456/457,
+  sw 456/457, fr 455–458, om 15 lines of the bar scene and the closing question (also fixed the draft's "'em" and
+  "'Sababni"). Re-dub: 0 overflow in am/sw/fr/om, all checks pass (X36–X39; am round trip CER 0.12). French keeps
+  "Sérieux ?" and "Bonne soirée." in the original voice. The Oromo lines need an Oromo speaker's reading.
+- P18f (the user's request, 2026-10-21): profile **`shorts-face`** (reframe `crop-face`) is an extra option next to
+  `shorts` (blurred fill), shown beside it in the Export step as "Shorts, Reels, TikTok · cropped to the speaker".
+  Default profiles added later are seeded into a project when profiles are listed or exported. `render/faces.py`:
+  YuNet (`~/.recomp/models/yunet/`, 230 KB, MIT, sha256 8f2383e4…) runs under the worker python over each slot's
+  range at 4 fps (`workers/scripts/faces.py`, frames from ffmpeg, no OpenCV), cached in `cache/faces/`; the main
+  face (big, sure, central, near where it was) gives one steady crop per shot from the shot table, slow pans in a
+  shot where it moves; ffmpeg `crop` takes a keyframed x expression. No face in a slot → blurred fill. ai-and-ideas
+  J3 → X7: crops on Dario, Lex, Ladish, the DOAC host and Alex O'Connor; 258 s for 2:42 including detection.
 
 ## Lessons
 - `>>` marks name speakers for free only when dense (≥ 1/min); sparse marks swap every later line (M2: 86 % vs 50 %).

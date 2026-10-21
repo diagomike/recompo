@@ -19,7 +19,7 @@ from ..core import config
 from ..core.timecode import clock, srt_clock
 from ..envelope import RecompError
 from ..media import ff
-from . import ass, profiles
+from . import ass, faces, profiles
 from .plan import slot_key
 
 ISO3 = {"en": "eng", "am": "amh", "sw": "swa", "fr": "fra", "om": "orm", "so": "som", "es": "spa", "ar": "ara",
@@ -46,7 +46,10 @@ def reframe_filter(item: dict, prof: dict) -> str:
         x = item.get("reframe_x")
         x = 0.5 if x is None else float(x)
         return f"[0:v]scale={w}:{h}:force_original_aspect_ratio=increase,crop={w}:{h}:(iw-{w})*{x:.3f}:(ih-{h})/2"
-    if mode == "fit-blur":
+    if mode == "crop-face" and item.get("face_crop"):
+        # full height, cropped to the frame's width around the main face (keyframes from render/faces.py)
+        return f"[0:v]scale=-2:{h},crop={w}:{h}:x='{faces.crop_expr(item['face_crop'])}':y=0"
+    if mode in ("fit-blur", "crop-face"):  # crop-face without a face found: the blurred fill
         sw, sh = _even(w / 8), _even(h / 8)
         return (f"[0:v]split=2[bga][fga];[bga]scale={sw}:{sh}:force_original_aspect_ratio=increase,crop={sw}:{sh},"
                 f"boxblur=8:2,eq=brightness=-0.10:saturation=0.85,scale={w}:{h}[bg];"
@@ -337,6 +340,10 @@ def render(project, plan: dict, out_dir: Path, c: Ctx | None = None) -> dict:
         if item.get("needs_fetch"):
             from ..ingest import links
             item["path"] = str(links.ensure_section(project, item, prof, log=c.log))
+        if prof["reframe"] == "crop-face":
+            item["face_crop"] = faces.crop_for(project, item, prof, log=c.log)
+            if item["face_crop"] is None:
+                c.log(f"{item['ref']}: no face found, blurred fill")
         before = time.time()
         parts.append(render_slot(project, item, prof, c))
         if time.time() - before < 0.05:
