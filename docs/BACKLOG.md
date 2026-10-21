@@ -50,7 +50,8 @@ Every open task by priority. Done phases are summarised; their detail is in git 
   - [x] P18f face-centred vertical crop: the `shorts-face` profile (reframe `crop-face`), an extra option next to the
         blurred-fill Shorts; YuNet finds the speaker per shot (ai-and-ideas J3 → X7).
   - [x] P18g multilingual semantic search: `transcript embed` (jobs) and `search --semantic`, "By meaning" on the
-        Search page; multilingual-e5-small. A query takes ~20 s (the worker loads the model each time).
+        Search page; multilingual-e5-small. Queries go to a resident embedder that keeps the model loaded: the first
+        waits ~9 s for it, later ones take ~0.6 s from the CLI (it stops after 10 idle minutes).
   - [x] P18h voice-cloned dubs: `export run --voice clone` ("Original voices (AI)" in the Export step) voices each
         line from its speaker's own audio with OmniVoice, saved beside the usual dub (`…-clone`), credited as AI
         voices. Dark Knight J1 fr: 1 line over, round-trip WER 0.26 (studio voice: 0 over, 0.04). Your ears decide.
@@ -67,7 +68,7 @@ Every open task by priority. Done phases are summarised; their detail is in git 
 ## Next (after P18)
 0. Cloned dubs: ~1 min per line on this CPU and slower speech than the studio voices; on a GPU (the Colab worker)
    or with fewer steps, and line shortening aimed at the cloned voice's pace.
-0. Semantic search: keep the embedding model loaded (a resident worker) so a query takes a second, not ~20 s;
-   try a larger multilingual model for Amharic/Oromo queries (e5-small reaches across languages only moderately).
+0. Semantic search: try a larger multilingual model for Amharic/Oromo queries (e5-small reaches across languages
+   only moderately). (Done 2026-10-21: the resident embedder, ~0.6 s per query instead of ~20 s.)
 1. Public hub deployment (host, Postgres, OAuth, moderation queue for reports): the user's decision.
 2. Offline music library seed (CC0 tracks downloaded once), so music search works without the network.

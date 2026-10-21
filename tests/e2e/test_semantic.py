@@ -39,7 +39,15 @@ def test_search_by_meaning_across_languages(proj, OK, R, tmp_path, monkeypatch, 
     assert not env["ok"] and env["error"]["code"] == "E_NOT_FOUND"            # nothing indexed yet
     OK("transcript.embed", {}, proj)
     assert OK("transcript.embed", {}, proj)["current"] == ["S1"]              # a current index is skipped
-    for q in ("falling down and getting back up", "pourquoi tombons-nous ? pour apprendre à nous relever"):
-        hits = OK("search", {"query": q, "semantic": True, "limit": 3}, proj)["hits"]
-        assert hits and "fall" in hits[0]["context"].lower(), (q, hits)
-        assert hits[0]["cut"].startswith("recomp cut add S1 --segments ")
+    import time
+    try:
+        for q in ("falling down and getting back up", "pourquoi tombons-nous ? pour apprendre à nous relever"):
+            t0 = time.time()
+            hits = OK("search", {"query": q, "semantic": True, "limit": 3}, proj)["hits"]
+            took = time.time() - t0
+            assert hits and "fall" in hits[0]["context"].lower(), (q, hits)
+            assert hits[0]["cut"].startswith("recomp cut add S1 --segments ")
+            assert semantic.last_via == "resident"
+        assert took < 5, took                                                  # the second query finds the model loaded
+    finally:
+        semantic.stop_resident()

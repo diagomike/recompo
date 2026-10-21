@@ -224,7 +224,11 @@ matching, gapless recipe player, dub fixes, face-cropped Shorts, semantic search
   (overlaps merged) and warns about missing or edited indexes. Search page: "By meaning" (`?m=1`) and an "Index every
   transcript" button when nothing is indexed. ai-and-ideas: 7 sources indexed in ~8 min (while a clone dub ran);
   "will machines take away people's work" → Ed Zitron on jobs (S5) first; an Amharic query finds related English
-  passages, less sharply. ~20–25 s per query (model load per process).
+  passages, less sharply. Queries (2026-10-21) go to a resident embedder: `embed.py --serve`, one detached
+  worker-python process per studio home (HF_HOME from `worker.hf_home`, offline), started by the first query from
+  any caller (CLI, MCP, studio), JSON lines on 127.0.0.1 with a token from `<home>/run/embed.json`, exits after
+  `search.embed_idle_s` (600) without a query (`search.resident false` turns it off); a failed start falls back to the one-shot script (index building
+  stays a job on the one-shot script). ai-and-ideas from the CLI: first query 9 s (start), then 0.6 s each.
 - P18h: `--voice clone` on `export run` (Export step › Languages › Voices: "Original voices (AI)"). `dub.clone_lines`
   takes each translated line's original segment (widened with the same speaker's neighbours to 4–10 s) as the
   voice reference and its text as the prompt, and `workers/scripts/tts_clone.py` (OmniVoice `k2-fsa/OmniVoice`,
