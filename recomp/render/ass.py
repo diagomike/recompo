@@ -282,7 +282,16 @@ def endcard_document(w: int, h: int, title: str, lines: list[str], dur: float, l
     title_rows = wrap(title, 22 if vertical else 40)
     out.append(dialogue(0, dur, "EndTitle", f"{{\\pos({x},{y0})\\fad(300,0)}}" + title_rows))
     top = y0 + (title_rows.count("\\N") + 1) * round(base * 1.5 * 1.2) + round(base * 0.8)
-    bottom = round(h * 0.88) - (round(base * 1.1 * 0.8 * 2.4) if link_text else 0)
+    # The recipe link at 80 %: a URL longer than the row breaks after its last "/" that fits (or at the edge).
+    link_size = base * 1.1 * 0.8
+    n, link_rows = max(20, int(room / (0.52 * link_size))), []
+    for row in _rows(link_text, n):
+        while len(row) > n:
+            cut = row.rfind("/", 0, n) + 1 or n
+            link_rows.append(row[:cut])
+            row = row[cut:]
+        link_rows.append(row)
+    bottom = round(h * 0.88) - (round(link_size * 1.2 * (len(link_rows) + 1)) if link_rows else 0)
     # Each credit wraps to the width there is (≈ 0.52 em per character) and the next starts below its last row;
     # smaller type when they would not fit above the recipe line.
     for scale in (72, 62, 54):
@@ -297,6 +306,7 @@ def endcard_document(w: int, h: int, title: str, lines: list[str], dur: float, l
             break
         out.append(dialogue(0, dur, "End", f"{{\\pos({x},{y})\\fad(400,0)\\fscx{scale}\\fscy{scale}}}" + "\\N".join(esc(t) for t in r)))
         y += len(r) * lh + round(lh * 0.35)
-    if link_text:
-        out.append(dialogue(0, dur, "End", f"{{\\pos({x},{max(y, top) + round(lh * 0.6)})\\fad(400,0)\\fscx80\\fscy80\\c&H9BE0C8&}}" + esc(link_text)))
+    if link_rows:
+        out.append(dialogue(0, dur, "End", f"{{\\pos({x},{max(y, top) + round(lh * 0.6)})\\fad(400,0)\\fscx80\\fscy80\\c&H9BE0C8&}}"
+                            + "\\N".join(esc(t) for t in link_rows)))
     return "\n".join(out) + "\n"

@@ -2,15 +2,15 @@
 
 The build's working memory. If context runs short, resume from here.
 
-**Last updated:** 2026-10-20 (M5 run: podcast episodes matched to their uploads, journeys from a taken episode and
-from topic T1, shorts and landscape exports, the rights gate; lower-third credits and endcard layout fixed)
+**Last updated:** 2026-10-21 (M5 complete: the worktree branch merged into master, the full suite green, J3 public on
+the local hub after your yes, the endcard's recipe URL wraps on Shorts)
 
 | | |
 |---|---|
 | Phases | **P0–P16b built** (P16b awaits your review) · **P17 research wing** approved 2026-10-19 with defaults P17-Q1–Q6: **P17a–d built** (find, follow, inbox, library; topics, briefs, journeys from topics; rights, posting queue, hub permission; Follows and Topics pages) |
-| Milestones | **M1** ([report](runs/M1-dark-knight.md)) · **M2** ([report](runs/M2-alex-oconnor.md)) · **M3** am/sw/fr + om · **M4** local hub ([report](runs/M3-M4-languages-and-hub.md)) · **M5** follows and topics ([report](runs/M5-follows-and-topics.md); the live hub permission step is yours) |
+| Milestones | **M1** ([report](runs/M1-dark-knight.md)) · **M2** ([report](runs/M2-alex-oconnor.md)) · **M3** am/sw/fr + om · **M4** local hub ([report](runs/M3-M4-languages-and-hub.md)) · **M5** follows and topics ([report](runs/M5-follows-and-topics.md)): all done |
 | Suite | 100+ fast tests (`pytest -q`), slow speaker test (`pytest -m slow`), live P17 sources (`pytest -m real tests/unit/test_follow_real.py`); the reorder-cache timing assert can flake under heavy load |
-| Projects | `C:\Recomposer\projects\dark-knight` (M1, M3), `alex-oconnor` (M2: 5 episodes, 12 cuts, 3 journeys), `ai-and-ideas` (M5: 7 sources, 11 cuts, J1–J4, X1–X4); `_uitest` scratch folder (forgotten from the list; safe to delete) |
+| Projects | `C:\Recomposer\projects\dark-knight` (M1, M3), `alex-oconnor` (M2: 5 episodes, 12 cuts, 3 journeys), `ai-and-ideas` (M5: 7 sources, J1–J3, J3 public on the local hub); `_uitest` scratch folder (forgotten from the list; safe to delete) |
 | Hub | `python -m hub` on 8790, data in `%USERPROFILE%\.recomp\hub`, seeded test users in `seed_users.json` there |
 
 ## Notes for the user
@@ -173,8 +173,13 @@ from topic T1, shorts and landscape exports, the rights gate; lower-third credit
   (`topics.guest_from_title`); unnamed Lex transcript lines continue the previous speaker. Endcard credits wrap to
   the width and never overlap (`ass.endcard_document`).
 - Follows: F4 Dwarkesh Patel (channel; his podcast feed answered 502). Journeys in ai-and-ideas: J1 topic (7 cuts,
-  landscape X4), J2 lobotomy (from the taken I1), J3 topic shorts (3 cuts, X3), J4 a page test of "Draft journey"
-  (yours by precedence: delete it or say so).
+  landscape X4), J2 lobotomy (from the taken I1), J3 topic shorts (3 cuts). J4, the page test of "Draft journey",
+  you deleted on 2026-10-21.
+- Hub step, live 2026-10-21: you answered the permission question for J3 (three private sources) with a yes in chat;
+  `hub publish J3 --visibility public --confirm --as-user` → local hub `/r/01M5DZ9J8SQZ5HE99XAHTD9XG9` v1. The
+  Shorts re-export carries the link and QR code; `ass.endcard_document` breaks a URL longer than the row after a "/".
+- Agent sessions here are refused by the permission classifier for: deleting files or journeys (even with a yes),
+  `git restore` of uncommitted work (stash instead), and `hub publish --visibility public` until you have said yes.
 - Runner note: `export run` spawns `recomp.exe` from the main venv, i.e. the **main checkout's** code. From a worktree,
   run `RECOMP_JOBS=inline python -m recomp.cli export run …` (in the background) to render with the worktree's code.
 

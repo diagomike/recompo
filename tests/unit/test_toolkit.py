@@ -70,7 +70,8 @@ def test_endcard_credits_that_wrap_do_not_overlap():
     long = ['"The Man Who Calls BS On AI: They\'re LYING About AI, 2027 Is When It All Breaks! | Ed Zitron", '
             'The Diary Of A CEO (Youtube, 2026)'] * 6
     for w, h in ((1080, 1920), (1920, 1080)):
-        doc = ass.endcard_document(w, h, "What my creators think about AI models are getting good", long, 3.5, "recipe")
+        doc = ass.endcard_document(w, h, "What my creators think about AI models are getting good", long, 3.5,
+                                   "Recipe: http://127.0.0.1:8790/r/01M5DZ9J8SQZ5HE99XAHTD9XG9")
         ends = [ln for ln in doc.splitlines() if ln.startswith("Dialogue:") and ",End,," in ln]
         credits, link = ends[:-1], ends[-1]
         ys = [int(re.search(r"\\pos\(\d+,(\d+)\)", ln).group(1)) for ln in ends]
@@ -80,3 +81,9 @@ def test_endcard_credits_that_wrap_do_not_overlap():
         for ln in credits:  # wrapped here, not by libass (whose extra rows the layout would not know about)
             assert all(len(row) * 0.52 * size <= w * 0.92 - 60 for row in ln.split("}", 1)[1].split(r"\N"))
         assert ys[-1] < h * 0.95 and len(credits) >= 3
+        # the recipe URL breaks to the width too (after a "/"), and its last row stays on the frame
+        link_size = round(min(w, h) * 0.048) * 1.1 * 0.8
+        link_rows = link.split("}", 1)[1].split(r"\N")
+        assert "".join(link_rows).replace("Recipe:", "").strip() == "http://127.0.0.1:8790/r/01M5DZ9J8SQZ5HE99XAHTD9XG9"
+        assert all(len(row) * 0.52 * link_size <= w * 0.92 - 60 for row in link_rows)
+        assert ys[-1] + len(link_rows) * link_size * 1.22 < h * 0.95
