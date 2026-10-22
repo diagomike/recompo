@@ -27,7 +27,17 @@ def base(url: str | None = None) -> str:
 
 
 def is_local(url: str) -> bool:
-    return (urlparse(url).hostname or "") in ("127.0.0.1", "localhost", "::1")
+    """This machine or your own network (a hub on another PC of yours on the LAN: 192.168.x, 10.x, 172.16–31.x).
+    A hub on a public address is someone's server: publishing and registering there stay the user's decision."""
+    import ipaddress
+    host = urlparse(url).hostname or ""
+    if host in ("localhost",):
+        return True
+    try:
+        ip = ipaddress.ip_address(host)
+    except ValueError:
+        return False
+    return ip.is_loopback or (ip.is_private and not ip.is_link_local)
 
 
 def _tokens() -> dict:

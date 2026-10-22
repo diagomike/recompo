@@ -59,6 +59,32 @@ edge-tts voices need network access to `speech.platform.bing.com`.
 - **Remote GPU:** `recomp config set worker.remote_folder <shared folder>`, run `notebooks/recomp_worker.ipynb` on
   Kaggle or Colab against the same folder, then `recomp transcript asr S3 --on remote`.
 
+## Two PCs on one network (a shared hub)
+
+One PC runs the hub for everyone on the network; every PC runs its own studio and projects (media stays where it is).
+
+- **Hub PC:** `Recomposer.cmd hub-lan` (or `python -m hub --host 0.0.0.0 --port 8790`). Windows asks once to allow
+  Python through the firewall. Its address: `ipconfig` (e.g. `http://192.168.1.100:8790`).
+- **Each other PC:**
+  ```
+  git clone https://github.com/diagomike/recompo.git D:\py_self\execute_v0   # same path: .claude/launch.json uses it
+  cd D:\py_self\execute_v0
+  py -3.13 -m venv .venv && .venv\Scripts\python.exe -m pip install -e .[dev]
+  npm --prefix web install && npm --prefix web run build
+  .venv\Scripts\recomp.exe config set hub.url http://192.168.1.100:8790
+  .venv\Scripts\recomp.exe config set worker.python <a python with faster-whisper, torch, onnxruntime, omnivoice>
+  .venv\Scripts\recomp.exe doctor
+  set RECOMP_HUB_PASSWORD=<your password> && .venv\Scripts\recomp.exe hub login --handle <you> --register
+  ```
+  A hub on your own network (192.168.x, 10.x, 172.16–31.x) counts as local: registering and publishing work as on
+  this PC (private by default; public still asks the permission question). A public hub address asks you first.
+- **Models** come per PC (not in git): the face detector for `shorts-face` (`recomp doctor` names the file and URL;
+  it goes in `%USERPROFILE%\.recomp\models\yunet\`), and in the worker's Hugging Face cache faster-whisper,
+  `intfloat/multilingual-e5-small` (semantic search) and `k2-fsa/OmniVoice` (cloned voices). If a download stalls at
+  0 bytes, set `HF_HUB_DISABLE_XET=1`.
+- **Movies and podcasts on that PC:** `recomp project init <folder> --kind movies` then
+  `recomp source add "<path or glob>"` (files are referenced in place; sidecar subtitles come along).
+
 ## Docs
 
 - [docs/PLAN.md](docs/PLAN.md) the plan · [docs/STATE.md](docs/STATE.md) where things stand · [docs/BACKLOG.md](docs/BACKLOG.md) what's next

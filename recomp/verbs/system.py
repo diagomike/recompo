@@ -111,10 +111,12 @@ def doctor(ctx: Ctx, inp: DoctorIn):
     """Check the tools, worker environment, models, disk and (optionally) network this app needs."""
     checks: list[dict] = []
 
-    def add(name, ok, detail="", fix=""):
+    def add(name, ok, detail="", fix="", optional=False):
         item = {"check": name, "ok": bool(ok), "detail": detail}
         if not ok and fix:
             item["fix"] = fix
+        if optional:
+            item["optional"] = True  # a feature's extra (face crop, meaning search, cloned voices): not a problem
         checks.append(item)
 
     for tool in ("ffmpeg", "ffprobe"):
@@ -134,14 +136,25 @@ def doctor(ctx: Ctx, inp: DoctorIn):
         add("worker python", wpy.exists(), str(wpy), "recomp config set worker.python <path to a python with faster-whisper>")
         if wpy.exists():
             code, out = _run([str(wpy), "-c",
-                              "import importlib.util as u;print(','.join(m for m in ('faster_whisper','pyannote.audio','transformers','torch') if u.find_spec(m.split('.')[0])))"], 60)
+                              "import importlib.util as u;print(','.join(m for m in ('faster_whisper','pyannote.audio','transformers','torch','onnxruntime','omnivoice') if u.find_spec(m.split('.')[0])))"], 60)
             have = set(out.split(",")) if code == 0 else set()
             add("worker faster_whisper", "faster_whisper" in have, out)
             add("worker pyannote (speakers)", "pyannote.audio" in have or "pyannote" in out, out)
+            add("worker onnxruntime (shorts-face)", "onnxruntime" in have, "", "pip install onnxruntime (worker python)", True)
+            add("worker omnivoice (cloned voices)", "omnivoice" in have, "", "pip install omnivoice (worker python)", True)
         hf = Path(config.get("worker.hf_home")) / "hub"
         model = config.get("worker.asr_model").replace("/", "--")
         add("ASR model cached", (hf / f"models--{model}").exists(), str(hf / f"models--{model}"),
             "The first ASR job downloads it (about 1.6 GB).")
+        from ..render import faces
+        from ..transcript import semantic
+        face = config.home() / "models" / "yunet" / faces.MODEL_NAME
+        add("face detector (shorts-face)", face.exists(), str(face), f"download {faces.MODEL_URL} to that path (230 KB)", True)
+        for label, name in (("embedding model (search --semantic)", semantic.model_name()),
+                            ("voice clone model (--voice clone)", config.get("tts.clone_model") or "k2-fsa/OmniVoice")):
+            path = hf / f"models--{name.replace('/', '--')}"
+            add(label, path.exists(), str(path),
+                f"with the worker python: huggingface_hub.snapshot_download('{name}') (HF_HUB_DISABLE_XET=1 if it stalls)", True)
     root = Path(config.get("projects_root"))
     anchor = Path(root.anchor or ".")
     try:
@@ -150,6 +163,15 @@ def doctor(ctx: Ctx, inp: DoctorIn):
     except OSError as exc:
         add("disk free (projects root)", False, str(exc))
     add("node (viewer build)", shutil.which("node") is not None, shutil.which("node") or "")
+    hub = config.get("hub.url") or ""
+    if hub:
+        import httpx
+        try:
+            r = httpx.get(hub.rstrip("/") + "/api/hub/feed", timeout=5)
+            add("hub reachable", r.status_code < 500, f"{hub} HTTP {r.status_code}", optional=True)
+        except httpx.HTTPError as exc:
+            add("hub reachable", False, f"{hub}: {str(exc)[:100]}",
+                "Start it (`Recomposer.cmd hub`, or `hub-lan` on the hub PC) or set hub.url", True)
     if inp.net:
         import httpx
         for name, url in (("openverse", "https://api.openverse.org/v1/audio/?q=piano&page_size=1"),
@@ -160,7 +182,7 @@ def doctor(ctx: Ctx, inp: DoctorIn):
                 add(f"net {name}", r.status_code < 500, f"HTTP {r.status_code}")
             except httpx.HTTPError as exc:
                 add(f"net {name}", False, str(exc)[:120], "The sandbox may block this host; allow it when prompted")
-    bad = [c for c in checks if not c["ok"]]
+    bad = [c for c in checks if not c["ok"] and not c.get("optional")]
     return {"version": __version__, "ok": not bad, "problems": len(bad), "checks": checks}
 
 

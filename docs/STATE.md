@@ -11,7 +11,8 @@ matching, gapless recipe player, dub fixes, face-cropped Shorts, semantic search
 | Milestones | **M1** ([report](runs/M1-dark-knight.md)) · **M2** ([report](runs/M2-alex-oconnor.md)) · **M3** am/sw/fr + om · **M4** local hub ([report](runs/M3-M4-languages-and-hub.md)) · **M5** follows and topics ([report](runs/M5-follows-and-topics.md)): all done |
 | Suite | 100+ fast tests (`pytest -q`), slow speaker test (`pytest -m slow`), live P17 sources (`pytest -m real tests/unit/test_follow_real.py`); the reorder-cache timing assert can flake under heavy load |
 | Projects | `C:\Recomposer\projects\dark-knight` (M1, M3), `alex-oconnor` (M2: 5 episodes, 12 cuts, 3 journeys), `ai-and-ideas` (M5: 7 sources, J1–J3, J3 public on the local hub); `_uitest` scratch folder (forgotten from the list; safe to delete) |
-| Hub | `python -m hub` on 8790, data in `%USERPROFILE%\.recomp\hub`, seeded test users in `seed_users.json` there |
+| Hub | `python -m hub` on 8790, data in `%USERPROFILE%\.recomp\hub`, seeded test users in `seed_users.json` there. Since 2026-10-22 this PC is the **central hub for the LAN**: `Recomposer.cmd hub-lan` / launch `hub-lan` (0.0.0.0:8790, http://192.168.1.100:8790); other PCs run their own studio with `hub.url` pointing here (README "Two PCs") |
+| Remote | `origin` = https://github.com/diagomike/recompo.git, branch `main` (local `master` renamed 2026-10-22) |
 
 ## Notes for the user
 - YouTube blocked per-video requests from this machine from ~06:30 until the evening of 2026-10-15, and again from

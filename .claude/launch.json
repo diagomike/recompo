@@ -18,6 +18,12 @@
       "runtimeExecutable": "D:/py_self/execute_v0/.venv/Scripts/python.exe",
       "runtimeArgs": ["-m", "hub", "--port", "8790"],
       "port": 8790
+    },
+    {
+      "name": "hub-lan",
+      "runtimeExecutable": "D:/py_self/execute_v0/.venv/Scripts/python.exe",
+      "runtimeArgs": ["-m", "hub", "--host", "0.0.0.0", "--port", "8790"],
+      "port": 8790
     }
   ]
 }

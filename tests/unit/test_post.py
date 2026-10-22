@@ -71,3 +71,12 @@ def test_credits_added_when_the_description_lacks_a_creator(proj, tmp_path, OK):
     assert OK("post.queue", {}) == []
     OK("op.undo", {"studio": True})
     assert OK("post.queue", {})[0]["status"] == "opened"
+
+
+def test_a_hub_on_your_own_network_counts_as_local():
+    from recomp.verbs.hub import is_local
+    for url in ("http://127.0.0.1:8790", "http://localhost:8790", "http://192.168.1.20:8790", "http://10.0.0.5:8790",
+                "http://172.20.1.2:8790", "http://[::1]:8790"):
+        assert is_local(url), url
+    for url in ("https://hub.example.com", "http://8.8.8.8:8790", "http://169.254.10.1:8790", "http://172.32.0.1:8790"):
+        assert not is_local(url), url
