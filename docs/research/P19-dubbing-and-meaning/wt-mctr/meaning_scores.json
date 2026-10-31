@@ -1,0 +1,37 @@
+{
+ "PLAIN": {
+  "lines": 45,
+  "weighted_coverage": 0.998,
+  "core_kept": 1.0,
+  "additions_per_line": 0.0,
+  "errors_per_line": 0.0
+ },
+ "R6": {
+  "lines": 45,
+  "weighted_coverage": 0.993,
+  "core_kept": 1.0,
+  "additions_per_line": 0.22,
+  "errors_per_line": 0.02
+ },
+ "ALGO": {
+  "lines": 45,
+  "weighted_coverage": 0.926,
+  "core_kept": 0.923,
+  "additions_per_line": 0.04,
+  "errors_per_line": 0.38
+ },
+ "MCTR": {
+  "lines": 45,
+  "weighted_coverage": 0.986,
+  "core_kept": 0.992,
+  "additions_per_line": 0.16,
+  "errors_per_line": 0.02
+ },
+ "MCTR-conserve": {
+  "lines": 45,
+  "weighted_coverage": 0.986,
+  "core_kept": 0.992,
+  "additions_per_line": 0.07,
+  "errors_per_line": 0.02
+ }
+}
