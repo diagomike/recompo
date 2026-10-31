@@ -1,0 +1,98 @@
+{
+ "ALGO+voicev2[\u03bb=0.03](R0)": {
+  "n": 45,
+  "speech_overlap": 0.8616,
+  "duration_overlap": 0.8804,
+  "slc_0.2": 0.8148,
+  "segments_needing_speedup_over_1.1x": 0.141,
+  "median_tts_over_real": 0.966
+ },
+ "ALGOv2[\u03bb=0.03](R0)": {
+  "n": 45,
+  "speech_overlap": 0.8402,
+  "duration_overlap": 0.863,
+  "slc_0.2": 0.7111,
+  "segments_needing_speedup_over_1.1x": 0.212,
+  "median_tts_over_real": 0.962
+ },
+ "R0": {
+  "n": 45,
+  "speech_overlap": 0.7253,
+  "duration_overlap": 0.8411,
+  "slc_0.2": 0.1556,
+  "segments_needing_speedup_over_1.1x": 0.711,
+  "median_tts_over_real": 1.614
+ },
+ "R0+place": {
+  "n": 45,
+  "speech_overlap": 0.8216,
+  "duration_overlap": 0.8475,
+  "slc_0.2": 0.6185,
+  "segments_needing_speedup_over_1.1x": 0.224,
+  "median_tts_over_real": 0.955
+ },
+ "R1": {
+  "n": 45,
+  "speech_overlap": 0.9021,
+  "duration_overlap": 0.9029,
+  "slc_0.2": 0.8519,
+  "segments_needing_speedup_over_1.1x": 0.4,
+  "median_tts_over_real": 1.054
+ },
+ "R2": {
+  "n": 45,
+  "speech_overlap": 0.908,
+  "duration_overlap": 0.9091,
+  "slc_0.2": 0.8593,
+  "segments_needing_speedup_over_1.1x": 0.4,
+  "median_tts_over_real": 1.054
+ },
+ "R3": {
+  "n": 45,
+  "speech_overlap": 0.9194,
+  "duration_overlap": 0.9373,
+  "slc_0.2": 0.9074,
+  "segments_needing_speedup_over_1.1x": 0.06,
+  "median_tts_over_real": 0.972
+ },
+ "R4": {
+  "n": 45,
+  "speech_overlap": 0.9098,
+  "duration_overlap": 0.9254,
+  "slc_0.2": 0.9185,
+  "segments_needing_speedup_over_1.1x": 0.036,
+  "median_tts_over_real": 0.945
+ },
+ "R5": {
+  "n": 45,
+  "speech_overlap": 0.9179,
+  "duration_overlap": 0.9275,
+  "slc_0.2": 0.9741,
+  "segments_needing_speedup_over_1.1x": 0.012,
+  "median_tts_over_real": 0.941
+ },
+ "R6": {
+  "n": 45,
+  "speech_overlap": 0.9196,
+  "duration_overlap": 0.9285,
+  "slc_0.2": 0.9741,
+  "segments_needing_speedup_over_1.1x": 0.012,
+  "median_tts_over_real": 0.941
+ },
+ "REF": {
+  "n": 45,
+  "speech_overlap": 0.8023,
+  "duration_overlap": 0.8246,
+  "slc_0.2": 0.5815,
+  "segments_needing_speedup_over_1.1x": 0.282,
+  "median_tts_over_real": 0.947
+ },
+ "TRAINED_MT": {
+  "n": 45,
+  "speech_overlap": 0.7988,
+  "duration_overlap": 0.8202,
+  "slc_0.2": 0.4296,
+  "segments_needing_speedup_over_1.1x": 0.143,
+  "median_tts_over_real": 0.847
+ }
+}
