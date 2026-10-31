@@ -1,0 +1,2136 @@
+{
+ "subset2-3": {
+  "1": [
+   {
+    "src": "Die Amsel beobachtete das alles vom Baum,",
+    "units": [
+     "u1",
+     "u2"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "Die Amsel sah alles vom Baum aus,",
+    "units": [
+     "u1",
+     "u2"
+    ],
+    "strategy": "plain"
+   },
+   {
+    "src": "Die Amsel beobachtete alles,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "compact"
+   },
+   {
+    "src": "Der schwarze Vogel beobachtete das alles vom Baum aus,",
+    "units": [
+     "u1",
+     "u2"
+    ],
+    "strategy": "steer"
+   },
+   {
+    "src": "Die Amsel saß im Baum und beobachtete alles,",
+    "units": [
+     "u1",
+     "u2"
+    ],
+    "strategy": "steer"
+   }
+  ],
+  "2": [
+   {
+    "src": "bewegte ihren Kopf nach links und rechts,",
+    "units": [
+     "u3"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "drehte den Kopf nach links und rechts,",
+    "units": [
+     "u3"
+    ],
+    "strategy": "plain"
+   },
+   {
+    "src": "drehte den Kopf hin und her,",
+    "units": [
+     "u3"
+    ],
+    "strategy": "steer"
+   },
+   {
+    "src": "sah nach links und rechts,",
+    "units": [
+     "u3"
+    ],
+    "strategy": "steer"
+   },
+   {
+    "src": "drehte den Kopf nach rechts und links,",
+    "units": [
+     "u3"
+    ],
+    "strategy": "steer"
+   },
+   {
+    "src": "schaute nach links und nach rechts,",
+    "units": [
+     "u3"
+    ],
+    "strategy": "steer"
+   }
+  ],
+  "3": [
+   {
+    "src": "blinzelte und testete ihre Flügel, bevor sie schließlich in die Luft ging.",
+    "units": [
+     "u4",
+     "u5",
+     "u6",
+     "u7"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "blinzelte, testete ihre Flügel und flog dann endlich los.",
+    "units": [
+     "u4",
+     "u5",
+     "u6",
+     "u7"
+    ],
+    "strategy": "plain"
+   },
+   {
+    "src": "testete ihre Flügel und flog los.",
+    "units": [
+     "u5",
+     "u6"
+    ],
+    "strategy": "compact"
+   }
+  ]
+ },
+ "subset2-4": {
+  "1": [
+   {
+    "src": "Sie wiederholt immer, dass sie es nicht bereut, wieder nach Hause zu ziehen,",
+    "units": [
+     "u1",
+     "u2",
+     "u3"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "Sie sagt immer, dass sie den Umzug nach Hause nicht bereut,",
+    "units": [
+     "u1",
+     "u2",
+     "u3"
+    ],
+    "strategy": "plain"
+   }
+  ],
+  "2": [
+   {
+    "src": "aber ich kann nicht so sicher sein, ob das vollkommen wahr ist.",
+    "units": [
+     "u4",
+     "u5",
+     "u6"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "aber ich bin nicht sicher, ob das wahr ist.",
+    "units": [
+     "u4",
+     "u5"
+    ],
+    "strategy": "compact"
+   },
+   {
+    "src": "aber ich bin mir nicht sicher, ob das ganz wahr ist.",
+    "units": [
+     "u4",
+     "u5",
+     "u6"
+    ],
+    "strategy": "plain"
+   }
+  ]
+ },
+ "subset2-5": {
+  "1": [
+   {
+    "src": "Schließlich nahm er eines der Bretter in die Höhe und nachdem er es vorsichtig weggelegt hatte,",
+    "units": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "Schließlich hob er eines der Bretter hoch und legte es vorsichtig weg,",
+    "units": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "strategy": "plain"
+   },
+   {
+    "src": "Er hob ein Brett hoch und legte es weg,",
+    "units": [
+     "u2",
+     "u3"
+    ],
+    "strategy": "compact"
+   }
+  ],
+  "2": [
+   {
+    "src": "schaute er in den Raum unter dem Boden.",
+    "units": [
+     "u5"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "dann schaute er in den Raum unter dem Boden.",
+    "units": [
+     "u5"
+    ],
+    "strategy": "plain"
+   },
+   {
+    "src": "dann sah er unter den Boden.",
+    "units": [
+     "u5"
+    ],
+    "strategy": "compact"
+   }
+  ]
+ },
+ "subset2-6": {
+  "1": [
+   {
+    "src": "Ich freue mich auch, von anderen zu hören;",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "Ich höre auch gern von anderen,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "plain"
+   }
+  ],
+  "2": [
+   {
+    "src": "poste also deine eigenen Ideen in den Kommentaren und sage mir, was ich besser machen könnte.",
+    "units": [
+     "u2",
+     "u3",
+     "u4",
+     "u5"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "also schreib deine Ideen in die Kommentare und sag mir, was ich besser machen kann.",
+    "units": [
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "strategy": "plain"
+   },
+   {
+    "src": "also poste deine Ideen und sag mir, was besser geht.",
+    "units": [
+     "u2",
+     "u4"
+    ],
+    "strategy": "compact"
+   }
+  ]
+ },
+ "subset2-7": {
+  "1": [
+   {
+    "src": "Etwas bewegte sich tief unter der Erde",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "Tief unter der Erde bewegte sich etwas",
+    "units": [
+     "u1"
+    ],
+    "strategy": "plain"
+   }
+  ],
+  "2": [
+   {
+    "src": "und verursachte Vibrationen, die stark genug waren,",
+    "units": [
+     "u2",
+     "u3"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "und verursachte starke Vibrationen,",
+    "units": [
+     "u2",
+     "u3"
+    ],
+    "strategy": "compact"
+   }
+  ],
+  "3": [
+   {
+    "src": "dass sie von den Erdbebenfrüherkennungs-Mechanismen hunderte Meilen entfernt gemessen wurden.",
+    "units": [
+     "u4",
+     "u5"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "dass Erdbeben-Warnsysteme sie hunderte Meilen entfernt messen konnten.",
+    "units": [
+     "u4",
+     "u5"
+    ],
+    "strategy": "plain"
+   },
+   {
+    "src": "dass Warnsysteme sie weit entfernt messen konnten.",
+    "units": [
+     "u4"
+    ],
+    "strategy": "compact"
+   }
+  ]
+ },
+ "subset2-8": {
+  "1": [
+   {
+    "src": "Er hielt inne, blickte auf das Haus zurück,",
+    "units": [
+     "u1",
+     "u2"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "Er blieb stehen und sah zum Haus zurück,",
+    "units": [
+     "u1",
+     "u2"
+    ],
+    "strategy": "plain"
+   }
+  ],
+  "2": [
+   {
+    "src": "steckte seine Schlüssel dann aber ein,",
+    "units": [
+     "u3"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "aber dann steckte er die Schlüssel ein,",
+    "units": [
+     "u3"
+    ],
+    "strategy": "plain"
+   },
+   {
+    "src": "steckte die Schlüssel weg,",
+    "units": [
+     "u3"
+    ],
+    "strategy": "steer"
+   },
+   {
+    "src": "steckte die Schlüssel in die Tasche,",
+    "units": [
+     "u3"
+    ],
+    "strategy": "steer"
+   },
+   {
+    "src": "nahm die Schlüssel an sich,",
+    "units": [
+     "u3"
+    ],
+    "strategy": "steer"
+   },
+   {
+    "src": "packte dann die Schlüssel ein,",
+    "units": [
+     "u3"
+    ],
+    "strategy": "steer"
+   }
+  ],
+  "3": [
+   {
+    "src": "öffnete das Tor und ging schnell den Weg hinab.",
+    "units": [
+     "u4",
+     "u5",
+     "u6"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "öffnete das Tor und ging schnell den Weg hinunter.",
+    "units": [
+     "u4",
+     "u5",
+     "u6"
+    ],
+    "strategy": "plain"
+   },
+   {
+    "src": "öffnete das Tor und ging los.",
+    "units": [
+     "u4",
+     "u5"
+    ],
+    "strategy": "compact"
+   },
+   {
+    "src": "öffnete das Tor und eilte hinaus.",
+    "units": [
+     "u4",
+     "u5",
+     "u6"
+    ],
+    "strategy": "steer"
+   },
+   {
+    "src": "öffnete das Tor und ging schnell.",
+    "units": [
+     "u4",
+     "u5",
+     "u6"
+    ],
+    "strategy": "steer"
+   }
+  ]
+ },
+ "subset2-9": {
+  "1": [
+   {
+    "src": "Wir vermissen Sie",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "Wir vermissen Sie sehr",
+    "units": [
+     "u1"
+    ],
+    "strategy": "full",
+    "added": [
+     "sehr"
+    ]
+   },
+   {
+    "src": "Wir vermissen dich wirklich sehr",
+    "units": [
+     "u1"
+    ],
+    "strategy": "steer",
+    "added": [
+     "wirklich sehr"
+    ]
+   }
+  ],
+  "2": [
+   {
+    "src": "und vermissen es, einen Freund wie Sie zu haben,",
+    "units": [
+     "u2"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "und wir vermissen einen Freund wie Sie,",
+    "units": [
+     "u2"
+    ],
+    "strategy": "plain"
+   }
+  ],
+  "3": [
+   {
+    "src": "und ich bin so froh, dass Sie beide das nachholen konnten.",
+    "units": [
+     "u3",
+     "u4"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "und ich bin froh, dass Sie beide sich treffen konnten.",
+    "units": [
+     "u3",
+     "u4"
+    ],
+    "strategy": "plain"
+   },
+   {
+    "src": "und ich bin wirklich sehr froh, dass Sie beide sich wiedersehen konnten.",
+    "units": [
+     "u3",
+     "u4"
+    ],
+    "strategy": "steer",
+    "added": [
+     "wirklich"
+    ]
+   },
+   {
+    "src": "und ich bin so froh, dass ihr beide euch endlich wieder getroffen habt.",
+    "units": [
+     "u3",
+     "u4"
+    ],
+    "strategy": "steer"
+   }
+  ]
+ },
+ "subset2-10": {
+  "1": [
+   {
+    "src": "Bevor Sie diesen Post lesen,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "Bevor Sie diesen Beitrag lesen,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "plain"
+   },
+   {
+    "src": "Bevor Sie das lesen,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "steer"
+   },
+   {
+    "src": "Bevor Sie das hier lesen,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "steer"
+   }
+  ],
+  "2": [
+   {
+    "src": "lesen Sie bitte mein Handbuch Erste Schritte",
+    "units": [
+     "u2",
+     "u3"
+    ],
+    "strategy": "plain"
+   },
+   {
+    "src": "machen Sie sich bitte mit meinem Handbuch Erste Schritte vertraut",
+    "units": [
+     "u2",
+     "u3"
+    ],
+    "strategy": "orig"
+   }
+  ],
+  "3": [
+   {
+    "src": "und mit der Aktion, eine Datei schnell zu verschieben.",
+    "units": [
+     "u4",
+     "u5"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "und mit der Aktion zum schnellen Verschieben einer Datei.",
+    "units": [
+     "u4",
+     "u5"
+    ],
+    "strategy": "plain"
+   },
+   {
+    "src": "und auch mit der Aktion, mit der man eine Datei schnell verschieben kann.",
+    "units": [
+     "u4",
+     "u5"
+    ],
+    "strategy": "steer"
+   },
+   {
+    "src": "und mit der Aktion, eine Datei schnell zu verschieben, vertraut.",
+    "units": [
+     "u4",
+     "u5"
+    ],
+    "strategy": "steer"
+   }
+  ]
+ },
+ "subset2-11": {
+  "1": [
+   {
+    "src": "Ich könnte einfach meinen Code veröffentlichen,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig"
+   }
+  ],
+  "2": [
+   {
+    "src": "aber das würde nicht all die kleinen Lektionen aufzeigen, die ich auf dem Weg dorthin gelernt habe.",
+    "units": [
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "aber das würde nicht die kleinen Lektionen zeigen, die ich unterwegs gelernt habe.",
+    "units": [
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "strategy": "plain"
+   },
+   {
+    "src": "aber das würde die kleinen Lektionen nicht zeigen.",
+    "units": [
+     "u2",
+     "u3"
+    ],
+    "strategy": "compact"
+   }
+  ]
+ },
+ "subset2-12": {
+  "1": [
+   {
+    "src": "In dem Moment, in dem Sie ein Wort buchstabieren,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "Sobald Sie ein Wort buchstabieren,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "plain"
+   }
+  ],
+  "2": [
+   {
+    "src": "hören Sie sofort damit auf und fügen Sie dieses Wort dem Vokabeleditor hinzu.",
+    "units": [
+     "u2",
+     "u3"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "hören Sie sofort auf und fügen Sie das Wort dem Vokabeleditor hinzu.",
+    "units": [
+     "u2",
+     "u3"
+    ],
+    "strategy": "plain"
+   }
+  ]
+ },
+ "subset2-13": {
+  "1": [
+   {
+    "src": "Früher haben Eye Tracker mehrere tausend Dollar gekostet, aber jetzt können Sie einen billigen für weniger als ein paar hundert Dollar ergattern.",
+    "units": [
+     "u1",
+     "u2",
+     "u3"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "Früher kosteten Eye Tracker mehrere tausend Dollar, aber heute bekommen Sie einen billigen für weniger als ein paar hundert Dollar.",
+    "units": [
+     "u1",
+     "u2",
+     "u3"
+    ],
+    "strategy": "plain"
+   },
+   {
+    "src": "Früher kosteten Eye Tracker Tausende Dollar, aber heute bekommen Sie einen billigen für ein paar hundert.",
+    "units": [
+     "u1",
+     "u2",
+     "u3"
+    ],
+    "strategy": "steer"
+   }
+  ]
+ },
+ "subset2-14": {
+  "1": [
+   {
+    "src": "Der Junge sah sich nach den Öfen und anderen Gerätschaften um, wie sie in der Alchemie verwendet wurden, konnte aber keine sehen.",
+    "units": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "Der Junge suchte nach den Öfen und anderen Geräten der Alchemie, aber er konnte keine sehen.",
+    "units": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "strategy": "plain"
+   },
+   {
+    "src": "Der Junge sah sich nach den Öfen und den anderen Geräten um, die man in der Alchemie benutzt, aber er konnte keine davon sehen.",
+    "units": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "strategy": "steer"
+   }
+  ]
+ },
+ "subset2-15": {
+  "1": [
+   {
+    "src": "Es hat einige grundlegende Funktionen für die Verbindung mit Eye Tracker,",
+    "units": [
+     "u1",
+     "u2"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "Es hat einige Grundfunktionen, um sich mit einem Eye Tracker zu verbinden,",
+    "units": [
+     "u1",
+     "u2"
+    ],
+    "strategy": "plain"
+   }
+  ],
+  "2": [
+   {
+    "src": "den Erhalt von Positionsdaten und die Aktivierung des aktuellen Gaze Points.",
+    "units": [
+     "u3",
+     "u4"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "um Positionsdaten zu bekommen und den aktuellen Gaze Point zu aktivieren.",
+    "units": [
+     "u3",
+     "u4"
+    ],
+    "strategy": "plain"
+   }
+  ]
+ },
+ "subset2-16": {
+  "1": [
+   {
+    "src": "Sie holten Disorder Drummer Virus in die Band, um Schlagzeug zu spielen,",
+    "units": [
+     "u1",
+     "u2"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "Sie holten den Schlagzeuger Virus von Disorder in die Band,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "plain"
+   }
+  ],
+  "2": [
+   {
+    "src": "und hatten schließlich eine mehr oder weniger zuverlässige Besetzung.",
+    "units": [
+     "u3",
+     "u4"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "und hatten endlich eine ziemlich zuverlässige Besetzung.",
+    "units": [
+     "u3",
+     "u4"
+    ],
+    "strategy": "plain"
+   }
+  ]
+ },
+ "subset2-17": {
+  "1": [
+   {
+    "src": "Ich war erst Anfang des Jahres in der Stadt,",
+    "units": [
+     "u1",
+     "u2"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "Ich war Anfang des Jahres in der Stadt,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "compact"
+   },
+   {
+    "src": "Ich war Anfang des Jahres dort,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "steer"
+   },
+   {
+    "src": "Ich war im Januar in der Stadt,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "steer",
+    "added": [
+     "Januar"
+    ]
+   }
+  ],
+  "2": [
+   {
+    "src": "daher ist es irgendwie verrückt, daran zu denken, was unmittelbar danach geschah.",
+    "units": [
+     "u3",
+     "u4",
+     "u5"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "deshalb ist es verrückt, an das zu denken, was danach passiert ist.",
+    "units": [
+     "u3",
+     "u5"
+    ],
+    "strategy": "plain"
+   }
+  ]
+ },
+ "subset2-18": {
+  "1": [
+   {
+    "src": "Stell dir jetzt mal einen Typ vor,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "Stell dir jetzt einen Mann vor, der durch diese Tür kommt",
+    "units": [
+     "u1",
+     "u2"
+    ],
+    "strategy": "plain"
+   },
+   {
+    "src": "Stell dir einen Mann vor, der hereinkommt",
+    "units": [
+     "u1",
+     "u2"
+    ],
+    "strategy": "steer"
+   },
+   {
+    "src": "Stell dir einen Mann an dieser Tür vor",
+    "units": [
+     "u1",
+     "u2"
+    ],
+    "strategy": "steer"
+   }
+  ],
+  "2": [
+   {
+    "src": "der durch diese Tür kommt und mit einem starken Akzent anfängt Befehle zu geben.",
+    "units": [
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "und mit einem starken Akzent Befehle gibt.",
+    "units": [
+     "u3",
+     "u4"
+    ],
+    "strategy": "plain"
+   }
+  ]
+ },
+ "subset2-19": {
+  "1": [
+   {
+    "src": "Ich glaube, dass die Party für die meisten Gäste ein Vergnügen war,",
+    "units": [
+     "u1",
+     "u2"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "Ich glaube, die meisten Gäste hatten Spaß auf der Party,",
+    "units": [
+     "u1",
+     "u2"
+    ],
+    "strategy": "plain"
+   }
+  ],
+  "2": [
+   {
+    "src": "aber Mirco fühlte sich wirklich fehl am Platz.",
+    "units": [
+     "u3",
+     "u4"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "aber Mirco fühlte sich nicht wohl.",
+    "units": [
+     "u3"
+    ],
+    "strategy": "plain"
+   },
+   {
+    "src": "aber Mirco fühlte sich fremd.",
+    "units": [
+     "u3"
+    ],
+    "strategy": "steer"
+   },
+   {
+    "src": "aber Mirco fühlte sich dort nicht wohl.",
+    "units": [
+     "u3"
+    ],
+    "strategy": "steer"
+   }
+  ]
+ },
+ "subset2-20": {
+  "1": [
+   {
+    "src": "Sie hat seit langem nicht mehr Chekhov gelesen",
+    "units": [
+     "u1",
+     "u2"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "Sie hat lange kein Chekhov mehr gelesen",
+    "units": [
+     "u1",
+     "u2"
+    ],
+    "strategy": "plain"
+   }
+  ],
+  "2": [
+   {
+    "src": "und deswegen fühlt sie sich nicht mehr wie die Heldin ihrer eigenen Geschichte.",
+    "units": [
+     "u3",
+     "u4"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "deshalb fühlt sie sich nicht mehr wie die Heldin ihrer Geschichte.",
+    "units": [
+     "u3",
+     "u4"
+    ],
+    "strategy": "plain"
+   }
+  ]
+ },
+ "subset2-21": {
+  "1": [
+   {
+    "src": "Nicht gerade nein,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "Nicht wirklich,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "plain"
+   },
+   {
+    "src": "Nein, nicht wirklich,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "steer"
+   },
+   {
+    "src": "Nicht ganz, nein,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "steer"
+   }
+  ],
+  "2": [
+   {
+    "src": "er gab mir aber nur die wichtigsten Aspekte seiner Forschung, als ich das eine Mal mit ihm redete.",
+    "units": [
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "aber er hat mir nur die wichtigsten Punkte seiner Forschung erzählt, als ich einmal mit ihm sprach.",
+    "units": [
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "strategy": "plain"
+   }
+  ]
+ },
+ "subset2-22": {
+  "1": [
+   {
+    "src": "Es ist unhöflich, einen Baum nach seinem Lebenslauf zu fragen,",
+    "units": [
+     "u1",
+     "u2"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "Es ist unhöflich, einen Baum nach seiner Lebensgeschichte zu fragen,",
+    "units": [
+     "u1",
+     "u2"
+    ],
+    "strategy": "plain"
+   }
+  ],
+  "2": [
+   {
+    "src": "wenn man nicht bereit ist, ihn in voller Länge zu hören.",
+    "units": [
+     "u3",
+     "u4"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "wenn man nicht bereit ist, sie ganz zu hören.",
+    "units": [
+     "u3",
+     "u4"
+    ],
+    "strategy": "plain"
+   }
+  ]
+ },
+ "subset2-23": {
+  "1": [
+   {
+    "src": "Ich habe mich gefragt, ob Sie mir etwas mehr darüber erzählen könnten, wie es ist, dort zu leben",
+    "units": [
+     "u1",
+     "u2",
+     "u3"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "Könnten Sie mir etwas mehr darüber erzählen, wie es ist, dort zu leben",
+    "units": [
+     "u1",
+     "u2",
+     "u3"
+    ],
+    "strategy": "plain"
+   }
+  ],
+  "2": [
+   {
+    "src": "und zu arbeiten.",
+    "units": [
+     "u4"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "und dort zu arbeiten.",
+    "units": [
+     "u4"
+    ],
+    "strategy": "full"
+   }
+  ]
+ },
+ "subset2-24": {
+  "1": [
+   {
+    "src": "",
+    "units": [],
+    "strategy": "orig"
+   }
+  ],
+  "2": [
+   {
+    "src": "Wenn Sie diesen Tunnel unter dem Gebäude graben, wird es einstürzen.",
+    "units": [
+     "u1",
+     "u2"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "Wenn Sie den Tunnel unter dem Haus graben, stürzt es ein.",
+    "units": [
+     "u1",
+     "u2"
+    ],
+    "strategy": "plain"
+   },
+   {
+    "src": "Graben Sie den Tunnel unter dem Haus, stürzt es ein.",
+    "units": [
+     "u1",
+     "u2"
+    ],
+    "strategy": "steer"
+   },
+   {
+    "src": "Ein Tunnel unter dem Haus lässt es einstürzen.",
+    "units": [
+     "u1",
+     "u2"
+    ],
+    "strategy": "steer"
+   }
+  ],
+  "3": [
+   {
+    "src": "Ich fordere Sie daher dringend auf, dies nicht zu tun.",
+    "units": [
+     "u3",
+     "u4"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "Deshalb bitte ich Sie dringend, das nicht zu tun.",
+    "units": [
+     "u3",
+     "u4"
+    ],
+    "strategy": "plain"
+   }
+  ]
+ },
+ "subset2-25": {
+  "1": [
+   {
+    "src": "Wagen Sie es nicht wegzuschalten.",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "Schalten Sie bloß nicht ab.",
+    "units": [
+     "u1"
+    ],
+    "strategy": "plain"
+   }
+  ],
+  "2": [
+   {
+    "src": "Ich finde Reime in Ordnung, da sie nie vergehen, ich könnte das den ganzen Tag machen.",
+    "units": [
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "Ich mag Reime, weil sie nie alt werden, und ich könnte das den ganzen Tag machen.",
+    "units": [
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "strategy": "plain"
+   }
+  ]
+ },
+ "subset2-26": {
+  "1": [
+   {
+    "src": "„Ich bin nicht hergekommen, um mir von Ihnen aus der Hand lesen zu lassen“,",
+    "units": [
+     "u1",
+     "u2"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "„Ich bin nicht gekommen, damit Sie mir aus der Hand lesen“,",
+    "units": [
+     "u1",
+     "u2"
+    ],
+    "strategy": "plain"
+   }
+  ],
+  "2": [
+   {
+    "src": "sagte er",
+    "units": [
+     "u3"
+    ],
+    "strategy": "orig"
+   }
+  ],
+  "3": [
+   {
+    "src": "und bedauerte bereits sein Kommen.",
+    "units": [
+     "u4"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "und bereute schon, dass er gekommen war.",
+    "units": [
+     "u4"
+    ],
+    "strategy": "plain"
+   },
+   {
+    "src": "und bereute es schon.",
+    "units": [
+     "u4"
+    ],
+    "strategy": "steer"
+   },
+   {
+    "src": "und bereute sein Kommen schon.",
+    "units": [
+     "u4"
+    ],
+    "strategy": "steer"
+   }
+  ]
+ },
+ "subset2-27": {
+  "1": [
+   {
+    "src": "Auf einer Skala von eins (ich empfinde überhaupt nichts) bis zehn (ich empfinde sehr viel),",
+    "units": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "Auf einer Skala von eins, gar nichts, bis zehn, sehr viel,",
+    "units": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "strategy": "plain"
+   }
+  ],
+  "2": [
+   {
+    "src": "wie viel Schmerz empfinden Sie?",
+    "units": [
+     "u5"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "wie stark sind Ihre Schmerzen?",
+    "units": [
+     "u5"
+    ],
+    "strategy": "plain"
+   },
+   {
+    "src": "wie viel Schmerz spüren Sie gerade?",
+    "units": [
+     "u5"
+    ],
+    "strategy": "steer"
+   },
+   {
+    "src": "wie stark ist Ihr Schmerz?",
+    "units": [
+     "u5"
+    ],
+    "strategy": "steer"
+   }
+  ]
+ },
+ "subset2-28": {
+  "1": [
+   {
+    "src": "Als er ihr einen Kuss auf die Wange gab, errötete sie plötzlich",
+    "units": [
+     "u1",
+     "u2",
+     "u3"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "Als er sie auf die Wange küsste, wurde sie plötzlich rot",
+    "units": [
+     "u1",
+     "u2",
+     "u3"
+    ],
+    "strategy": "plain"
+   }
+  ],
+  "2": [
+   {
+    "src": "und änderte ihre Farbe schneller als ein Chamäleon.",
+    "units": [
+     "u4"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "und wechselte die Farbe schneller als ein Chamäleon.",
+    "units": [
+     "u4"
+    ],
+    "strategy": "plain"
+   },
+   {
+    "src": "und wechselte ihre Farbe noch schneller als ein Chamäleon.",
+    "units": [
+     "u4"
+    ],
+    "strategy": "steer"
+   },
+   {
+    "src": "und ihre Farbe änderte sich so schnell wie bei einem Chamäleon.",
+    "units": [
+     "u4"
+    ],
+    "strategy": "steer"
+   }
+  ]
+ },
+ "subset2-29": {
+  "1": [
+   {
+    "src": "Wenn ein Fuchs ein Kaninchen schreien hört, läuft er zu ihm –",
+    "units": [
+     "u1",
+     "u2"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "Hört ein Fuchs ein Kaninchen schreien, rennt er hin –",
+    "units": [
+     "u1",
+     "u2"
+    ],
+    "strategy": "plain"
+   }
+  ],
+  "2": [
+   {
+    "src": "aber nicht, um ihm zu helfen.",
+    "units": [
+     "u3"
+    ],
+    "strategy": "plain"
+   },
+   {
+    "src": "aber nicht, um ihm zu Hilfe zu kommen.",
+    "units": [
+     "u3"
+    ],
+    "strategy": "orig"
+   }
+  ]
+ },
+ "subset2-30": {
+  "1": [
+   {
+    "src": "Kurzzeitig hatte ich den Drang, zurückzugehen und ihm zu helfen,",
+    "units": [
+     "u1",
+     "u2",
+     "u3"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "Für einen Moment wollte ich zurückgehen und ihm helfen,",
+    "units": [
+     "u1",
+     "u2",
+     "u3"
+    ],
+    "strategy": "plain"
+   }
+  ],
+  "2": [
+   {
+    "src": "aber ich hatte zu viel Angst, um irgendetwas zu unternehmen.",
+    "units": [
+     "u4",
+     "u5"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "aber ich hatte zu viel Angst, etwas zu tun.",
+    "units": [
+     "u4",
+     "u5"
+    ],
+    "strategy": "plain"
+   },
+   {
+    "src": "aber ich hatte viel zu viel Angst, um etwas zu tun.",
+    "units": [
+     "u4",
+     "u5"
+    ],
+    "strategy": "steer"
+   }
+  ]
+ },
+ "subset2-31": {
+  "1": [
+   {
+    "src": "Ich dachte immer, dass ich verärgert sein sollte,",
+    "units": [
+     "u1",
+     "u2"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "Ich dachte immer, ich sollte wütend sein,",
+    "units": [
+     "u1",
+     "u2"
+    ],
+    "strategy": "plain"
+   },
+   {
+    "src": "Immer dachte ich, ich sollte böse sein,",
+    "units": [
+     "u1",
+     "u2"
+    ],
+    "strategy": "steer"
+   },
+   {
+    "src": "Ich dachte immer, ich müsste sauer sein,",
+    "units": [
+     "u1",
+     "u2"
+    ],
+    "strategy": "steer"
+   },
+   {
+    "src": "Ich dachte immer, ich sollte verärgert sein,",
+    "units": [
+     "u1",
+     "u2"
+    ],
+    "strategy": "steer"
+   }
+  ],
+  "2": [
+   {
+    "src": "aber die Wahrheit ist, dass es mich wirklich nicht weniger interessieren könnte.",
+    "units": [
+     "u3",
+     "u4",
+     "u5"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "aber die Wahrheit ist, dass es mir wirklich völlig egal ist.",
+    "units": [
+     "u3",
+     "u4",
+     "u5"
+    ],
+    "strategy": "plain"
+   },
+   {
+    "src": "aber ehrlich gesagt ist es mir wirklich völlig gleichgültig.",
+    "units": [
+     "u3",
+     "u4",
+     "u5"
+    ],
+    "strategy": "steer"
+   },
+   {
+    "src": "aber die Wahrheit ist, dass mir das wirklich völlig egal ist.",
+    "units": [
+     "u3",
+     "u4",
+     "u5"
+    ],
+    "strategy": "steer"
+   },
+   {
+    "src": "aber in Wahrheit könnte es mir wirklich nicht gleichgültiger sein.",
+    "units": [
+     "u3",
+     "u4",
+     "u5"
+    ],
+    "strategy": "steer"
+   }
+  ]
+ },
+ "subset2-32": {
+  "1": [
+   {
+    "src": "Er stand auf,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig"
+   }
+  ],
+  "2": [
+   {
+    "src": "und als er zu seinem Platz zurückkehrte,",
+    "units": [
+     "u2"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "und als er zu seinem Platz zurückging,",
+    "units": [
+     "u2"
+    ],
+    "strategy": "plain"
+   }
+  ],
+  "3": [
+   {
+    "src": "stellten alle im Raum den Sinn des Lebens in Frage.",
+    "units": [
+     "u3",
+     "u4"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "fragten sich alle im Raum nach dem Sinn des Lebens.",
+    "units": [
+     "u3",
+     "u4"
+    ],
+    "strategy": "plain"
+   }
+  ]
+ },
+ "subset1-3": {
+  "1": [
+   {
+    "src": "Er studierte Philosophie und theoretische Biologie.",
+    "units": [
+     "u1",
+     "u2"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "Er hat Philosophie und theoretische Biologie studiert.",
+    "units": [
+     "u1",
+     "u2"
+    ],
+    "strategy": "plain"
+   }
+  ]
+ },
+ "subset1-4": {
+  "1": [
+   {
+    "src": "Das Paar hatte eine Tochter, Grace, und einen Sohn, Henry.",
+    "units": [
+     "u1",
+     "u2"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "Das Paar hatte eine Tochter namens Grace und einen Sohn namens Henry.",
+    "units": [
+     "u1",
+     "u2"
+    ],
+    "strategy": "full"
+   }
+  ]
+ },
+ "subset1-5": {
+  "1": [
+   {
+    "src": "Diese Art von Überbietungen",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "Dieses ständige Übertrumpfen",
+    "units": [
+     "u1"
+    ],
+    "strategy": "plain"
+   },
+   {
+    "src": "Diese Art von gegenseitigem Übertrumpfen",
+    "units": [
+     "u1"
+    ],
+    "strategy": "steer"
+   }
+  ],
+  "2": [
+   {
+    "src": "wird ihre Freundschaft noch in den Ruin treiben.",
+    "units": [
+     "u2",
+     "u3"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "wird ihre Freundschaft am Ende zerstören.",
+    "units": [
+     "u2",
+     "u3"
+    ],
+    "strategy": "plain"
+   },
+   {
+    "src": "wird ihre Freundschaft früher oder später kaputt machen.",
+    "units": [
+     "u2",
+     "u3"
+    ],
+    "strategy": "steer"
+   },
+   {
+    "src": "wird ihre Freundschaft am Ende noch völlig zerstören.",
+    "units": [
+     "u2",
+     "u3"
+    ],
+    "strategy": "steer"
+   }
+  ]
+ },
+ "subset1-6": {
+  "1": [
+   {
+    "src": "Diese verdammte Maus konnte meine Wut spüren.",
+    "units": [
+     "u1",
+     "u2"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "Diese verdammte Maus hat gespürt, wie wütend ich war.",
+    "units": [
+     "u1",
+     "u2"
+    ],
+    "strategy": "full"
+   }
+  ]
+ },
+ "subset1-7": {
+  "1": [
+   {
+    "src": "Ich werde ihn vollends aufhalten.",
+    "units": [
+     "u1",
+     "u2"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "Ich werde ihn ganz und gar aufhalten.",
+    "units": [
+     "u1",
+     "u2"
+    ],
+    "strategy": "full"
+   }
+  ]
+ },
+ "subset1-8": {
+  "1": [
+   {
+    "src": "Was erwarten Sie von mir?",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "Was wollen Sie von mir?",
+    "units": [
+     "u1"
+    ],
+    "strategy": "steer"
+   }
+  ]
+ },
+ "subset1-9": {
+  "1": [
+   {
+    "src": "Alle Vögel begannen im ersten Licht der Dämmerung zu singen.",
+    "units": [
+     "u1",
+     "u2"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "Im ersten Licht der Dämmerung begannen alle Vögel zu singen.",
+    "units": [
+     "u1",
+     "u2"
+    ],
+    "strategy": "plain"
+   },
+   {
+    "src": "Alle Vögel fingen an zu singen, als das erste Licht der Dämmerung kam.",
+    "units": [
+     "u1",
+     "u2"
+    ],
+    "strategy": "steer"
+   },
+   {
+    "src": "Beim allerersten Licht der Morgendämmerung begannen alle Vögel zu singen.",
+    "units": [
+     "u1",
+     "u2"
+    ],
+    "strategy": "steer",
+    "added": [
+     "allerersten"
+    ]
+   },
+   {
+    "src": "Alle Vögel begannen zu singen, als das erste Licht der Morgendämmerung erschien.",
+    "units": [
+     "u1",
+     "u2"
+    ],
+    "strategy": "steer"
+   }
+  ]
+ },
+ "subset1-10": {
+  "1": [
+   {
+    "src": "Nach dem Äußeren kann man nicht urteilen.",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "Man kann niemanden nach seinem Aussehen beurteilen.",
+    "units": [
+     "u1"
+    ],
+    "strategy": "plain"
+   }
+  ]
+ },
+ "subset1-11": {
+  "1": [
+   {
+    "src": "Hören Sie auf, mich wie ein kleines Kind zu behandeln.",
+    "units": [
+     "u1",
+     "u2"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "Behandeln Sie mich nicht länger wie ein kleines Kind.",
+    "units": [
+     "u1",
+     "u2"
+    ],
+    "strategy": "steer"
+   },
+   {
+    "src": "Hören Sie bitte auf, mich wie ein kleines Kind zu behandeln.",
+    "units": [
+     "u1",
+     "u2"
+    ],
+    "strategy": "steer",
+    "added": [
+     "bitte"
+    ]
+   }
+  ]
+ },
+ "subset1-12": {
+  "1": [
+   {
+    "src": "Das erste Weihnachtsfest",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "Das allererste Weihnachtsfest",
+    "units": [
+     "u1"
+    ],
+    "strategy": "full",
+    "added": [
+     "allererste"
+    ]
+   }
+  ]
+ },
+ "subset1-13": {
+  "1": [
+   {
+    "src": "Ich bin mir noch über die lyrische Richtung sicher.",
+    "units": [
+     "u1",
+     "u2"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "Ich bin mir bei der Richtung der Texte noch sicher.",
+    "units": [
+     "u1",
+     "u2"
+    ],
+    "strategy": "plain"
+   }
+  ]
+ },
+ "subset1-14": {
+  "1": [
+   {
+    "src": "Joan Lindros, Bill Holsworth",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "Joan Lindros und Bill Holsworth",
+    "units": [
+     "u1"
+    ],
+    "strategy": "steer"
+   },
+   {
+    "src": "Sowohl Joan Lindros als auch Bill Holsworth",
+    "units": [
+     "u1"
+    ],
+    "strategy": "steer"
+   },
+   {
+    "src": "Joan Lindros, Bill Holsworth und Malcolm Calder",
+    "units": [
+     "u1",
+     "u2"
+    ],
+    "strategy": "steer"
+   }
+  ],
+  "2": [
+   {
+    "src": "und Malcolm Calder waren auch altgediente Repräsentanten.",
+    "units": [
+     "u2",
+     "u3"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "und Malcolm Calder waren auch erfahrene Vertreter.",
+    "units": [
+     "u2",
+     "u3"
+    ],
+    "strategy": "plain"
+   },
+   {
+    "src": "waren ebenfalls langjährige, erfahrene Vertreter.",
+    "units": [
+     "u3"
+    ],
+    "strategy": "steer"
+   }
+  ]
+ },
+ "subset1-15": {
+  "1": [
+   {
+    "src": "„Siehe“ analytische Fortsetzung.",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "Siehe: analytische Fortsetzung.",
+    "units": [
+     "u1"
+    ],
+    "strategy": "steer"
+   },
+   {
+    "src": "„Siehe auch“ analytische Fortsetzung.",
+    "units": [
+     "u1"
+    ],
+    "strategy": "steer",
+    "added": [
+     "auch"
+    ]
+   }
+  ]
+ },
+ "subset1-16": {
+  "1": [
+   {
+    "src": "Die Stadtmauer ist eines der Wahrzeichen",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "Die Mauer um die Stadt ist eines der Wahrzeichen",
+    "units": [
+     "u1"
+    ],
+    "strategy": "steer"
+   },
+   {
+    "src": "Die alte Stadtmauer ist eines der Wahrzeichen",
+    "units": [
+     "u1"
+    ],
+    "strategy": "steer",
+    "added": [
+     "alte"
+    ]
+   },
+   {
+    "src": "Die Mauer, die die Stadt umgibt, ist eines der Wahrzeichen",
+    "units": [
+     "u1"
+    ],
+    "strategy": "steer"
+   }
+  ],
+  "2": [
+   {
+    "src": "der Stadt.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "orig"
+   }
+  ]
+ },
+ "subset1-17": {
+  "1": [
+   {
+    "src": "Dogstar überprüft derzeit Material für ein Projekt,",
+    "units": [
+     "u1",
+     "u2"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "Dogstar sieht gerade Material für ein Projekt durch,",
+    "units": [
+     "u1",
+     "u2"
+    ],
+    "strategy": "plain"
+   },
+   {
+    "src": "Die Band Dogstar überprüft gerade Material für ein Projekt,",
+    "units": [
+     "u1",
+     "u2"
+    ],
+    "strategy": "steer",
+    "added": [
+     "Die Band"
+    ]
+   },
+   {
+    "src": "Dogstar sieht derzeit Material für ein neues Projekt durch,",
+    "units": [
+     "u1",
+     "u2"
+    ],
+    "strategy": "steer",
+    "added": [
+     "neues"
+    ]
+   },
+   {
+    "src": "Dogstar sieht zurzeit Material für ein Projekt durch,",
+    "units": [
+     "u1",
+     "u2"
+    ],
+    "strategy": "steer"
+   },
+   {
+    "src": "Dogstar geht derzeit Material für ein geplantes Projekt durch,",
+    "units": [
+     "u1",
+     "u2"
+    ],
+    "strategy": "steer",
+    "added": [
+     "geplantes"
+    ]
+   }
+  ],
+  "2": [
+   {
+    "src": "das ihre Jahre des Herumtourens widerspiegelt.",
+    "units": [
+     "u3"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "das ihre Jahre auf Tour zeigt.",
+    "units": [
+     "u3"
+    ],
+    "strategy": "plain"
+   }
+  ]
+ }
+}

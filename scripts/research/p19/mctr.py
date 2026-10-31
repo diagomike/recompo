@@ -46,7 +46,8 @@ TIER_W = {"core": 3.0, "support": 2.0, "colour": 1.0}
 BAND = (0.8, 1.05)
 ALPHA, BETA = 4.0, 1.0
 GAMMA = 0.0        # cost per piece of content a variant adds beyond the source (meaning-conserving mode: 2.0)
-SOFT_FLOOR = None  # meaning-conserving mode: under-fill down to this ratio is cheap (silence beats invention)
+SOFT_FLOOR = None
+ERR_COST = 3.0     # cost per verified meaning error in a variant (wrong word, polarity, garbling)  # meaning-conserving mode: under-fill down to this ratio is cheap (silence beats invention)
 
 PROMPTS = {
     "understand": (
@@ -161,11 +162,12 @@ def select(line: Line, variants: dict[int, list[dict]], dur) -> dict:
     wt = {u.id: u.w for u in line.units}
     best, best_any = None, None
     for combo in itertools.product(*pools):
-        cov, dup, fit, adds = set(), 0, 0.0, 0
+        cov, dup, fit, adds, errs = set(), 0, 0.0, 0, 0
         ratios = []
         for k, v in zip(segs, combo):
             us = set(v.get("units", []))
             adds += len(v.get("added", []))
+            errs += len(v.get("errors", []))
             dup += len(cov & us)
             cov |= us
             r = dur(v["text"]) / line.segs[k]["dur"] if v["text"].strip() else 0.0
@@ -173,7 +175,7 @@ def select(line: Line, variants: dict[int, list[dict]], dur) -> dict:
             if not v["text"].strip() and line.segs[k]["dur"] < 0.3:
                 continue  # a breath-length segment may stay silent
             fit += fit_penalty(r)
-        score = sum(wt.get(u, 0) for u in cov) - ALPHA * fit - BETA * dup - GAMMA * adds
+        score = sum(wt.get(u, 0) for u in cov) - ALPHA * fit - BETA * dup - GAMMA * adds - ERR_COST * errs
         cand = {"score": round(score, 3), "phrases": [v["text"] for v in combo], "units": sorted(cov),
                 "ratios": ratios, "missing_core": sorted(core - cov), "added": adds}
         if best_any is None or score > best_any["score"]:
