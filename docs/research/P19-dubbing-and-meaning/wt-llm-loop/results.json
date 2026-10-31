@@ -1,0 +1,2739 @@
+{
+ "summary": {
+  "R0": {
+   "n": 45,
+   "speech_overlap": 0.6888,
+   "duration_overlap": 0.8236,
+   "slc_0.2": 0.0889,
+   "chrF": 70.71
+  },
+  "R1": {
+   "n": 45,
+   "speech_overlap": 0.9206,
+   "duration_overlap": 0.9306,
+   "slc_0.2": 0.9111,
+   "chrF": 64.99
+  },
+  "R2": {
+   "n": 45,
+   "speech_overlap": 0.9285,
+   "duration_overlap": 0.9402,
+   "slc_0.2": 0.9852,
+   "chrF": 64.92
+  },
+  "R3": {
+   "n": 45,
+   "speech_overlap": 0.8894,
+   "duration_overlap": 0.8974,
+   "slc_0.2": 0.8185,
+   "chrF": 63.49
+  },
+  "R0+place": {
+   "n": 45,
+   "speech_overlap": 0.8076,
+   "duration_overlap": 0.8236,
+   "slc_0.2": 0.537,
+   "chrF": 70.71
+  },
+  "REF": {
+   "n": 45,
+   "speech_overlap": 0.7799,
+   "duration_overlap": 0.7958,
+   "slc_0.2": 0.5333,
+   "chrF": 100.0
+  },
+  "_ruler_check": "duration ruler: phone means from real English speech (wt-duration)"
+ },
+ "detail": {
+  "subset1-3": {
+   "R0": {
+    "phrases": [
+     "He studied philosophy and theoretical biology."
+    ],
+    "ratio": [
+     0.756
+    ]
+   },
+   "R1": {
+    "phrases": [
+     "He studied philosophy and theoretical biology."
+    ],
+    "ratio": [
+     0.756
+    ]
+   },
+   "R2": {
+    "phrases": [
+     "He studied both philosophy and theoretical biology."
+    ],
+    "ratio": [
+     0.84
+    ]
+   },
+   "R3": {
+    "phrases": [
+     "He studied both philosophy and theoretical biology."
+    ],
+    "ratio": [
+     0.84
+    ]
+   },
+   "R0+place": {
+    "phrases": [
+     "He studied philosophy and theoretical biology."
+    ],
+    "ratio": [
+     0.756
+    ]
+   },
+   "REF": {
+    "phrases": [
+     "He studied philosophy and theoretical biology."
+    ],
+    "ratio": [
+     0.756
+    ]
+   }
+  },
+  "subset1-4": {
+   "R0": {
+    "phrases": [
+     "The couple had a daughter, Grace, and a son, Henry."
+    ],
+    "ratio": [
+     0.598
+    ]
+   },
+   "R1": {
+    "phrases": [
+     "The couple had two children: a daughter named Grace, and a son named Henry."
+    ],
+    "ratio": [
+     0.925
+    ]
+   },
+   "R2": {
+    "phrases": [
+     "The couple had two children: a daughter named Grace, and a son named Henry."
+    ],
+    "ratio": [
+     0.925
+    ]
+   },
+   "R3": {
+    "phrases": [
+     "The couple had a daughter, Grace, and also a son, Henry."
+    ],
+    "ratio": [
+     0.688
+    ]
+   },
+   "R0+place": {
+    "phrases": [
+     "The couple had a daughter, Grace, and a son, Henry."
+    ],
+    "ratio": [
+     0.598
+    ]
+   },
+   "REF": {
+    "phrases": [
+     "The couple had a daughter, Grace, and a son, Henry."
+    ],
+    "ratio": [
+     0.598
+    ]
+   }
+  },
+  "subset1-5": {
+   "R0": {
+    "phrases": [
+     "This kind of one-upmanship is going to ruin their friendship."
+    ],
+    "ratio": [
+     1.441,
+     0.0
+    ]
+   },
+   "R1": {
+    "phrases": [
+     "All of this constant one-upmanship",
+     "is going to drive their friendship to ruin sooner or later."
+    ],
+    "ratio": [
+     0.853,
+     0.876
+    ]
+   },
+   "R2": {
+    "phrases": [
+     "All of this constant one-upmanship",
+     "is going to drive their friendship to ruin sooner or later."
+    ],
+    "ratio": [
+     0.853,
+     0.876
+    ]
+   },
+   "R3": {
+    "phrases": [
+     "All of this constant one-upmanship",
+     "is going to drive their friendship to ruin sooner or later."
+    ],
+    "ratio": [
+     0.853,
+     0.876
+    ]
+   },
+   "R0+place": {
+    "phrases": [
+     "This kind of one-upmanship",
+     "is going to ruin their friendship."
+    ],
+    "ratio": [
+     0.669,
+     0.489
+    ]
+   },
+   "REF": {
+    "phrases": [
+     "That kind of one-upmanship",
+     "will ruin their friendship."
+    ],
+    "ratio": [
+     0.669,
+     0.355
+    ]
+   }
+  },
+  "subset1-6": {
+   "R0": {
+    "phrases": [
+     "That damn mouse could sense my anger."
+    ],
+    "ratio": [
+     0.603
+    ]
+   },
+   "R1": {
+    "phrases": [
+     "That damned little mouse could actually sense how angry I was."
+    ],
+    "ratio": [
+     1.038
+    ]
+   },
+   "R2": {
+    "phrases": [
+     "That damned little mouse could actually sense how angry I was."
+    ],
+    "ratio": [
+     1.038
+    ]
+   },
+   "R3": {
+    "phrases": [
+     "That damn little mouse could sense how angry I was."
+    ],
+    "ratio": [
+     0.851
+    ]
+   },
+   "R0+place": {
+    "phrases": [
+     "That damn mouse could sense my anger."
+    ],
+    "ratio": [
+     0.603
+    ]
+   },
+   "REF": {
+    "phrases": [
+     "That damn mouse could sense my anger."
+    ],
+    "ratio": [
+     0.603
+    ]
+   }
+  },
+  "subset1-7": {
+   "R0": {
+    "phrases": [
+     "I'll stop him completely."
+    ],
+    "ratio": [
+     0.639
+    ]
+   },
+   "R1": {
+    "phrases": [
+     "I am going to stop him once and for all."
+    ],
+    "ratio": [
+     1.096
+    ]
+   },
+   "R2": {
+    "phrases": [
+     "I am going to stop him once and for all."
+    ],
+    "ratio": [
+     1.096
+    ]
+   },
+   "R3": {
+    "phrases": [
+     "I'm going to stop him once and for all."
+    ],
+    "ratio": [
+     1.033
+    ]
+   },
+   "R0+place": {
+    "phrases": [
+     "I'll stop him completely."
+    ],
+    "ratio": [
+     0.639
+    ]
+   },
+   "REF": {
+    "phrases": [
+     "I'll stop him cold."
+    ],
+    "ratio": [
+     0.505
+    ]
+   }
+  },
+  "subset1-8": {
+   "R0": {
+    "phrases": [
+     "What do you expect of me?"
+    ],
+    "ratio": [
+     1.158
+    ]
+   },
+   "R1": {
+    "phrases": [
+     "What do you expect of me?"
+    ],
+    "ratio": [
+     1.158
+    ]
+   },
+   "R2": {
+    "phrases": [
+     "What do you expect of me?"
+    ],
+    "ratio": [
+     1.158
+    ]
+   },
+   "R3": {
+    "phrases": [
+     "What do you expect of me?"
+    ],
+    "ratio": [
+     1.158
+    ]
+   },
+   "R0+place": {
+    "phrases": [
+     "What do you expect of me?"
+    ],
+    "ratio": [
+     1.158
+    ]
+   },
+   "REF": {
+    "phrases": [
+     "What do you want me to do?"
+    ],
+    "ratio": [
+     1.14
+    ]
+   }
+  },
+  "subset1-9": {
+   "R0": {
+    "phrases": [
+     "All the birds began to sing in the first light of dawn."
+    ],
+    "ratio": [
+     0.67
+    ]
+   },
+   "R1": {
+    "phrases": [
+     "All of the birds began singing together in the very first light of the dawn."
+    ],
+    "ratio": [
+     0.887
+    ]
+   },
+   "R2": {
+    "phrases": [
+     "All of the birds began singing together in the very first light of the dawn."
+    ],
+    "ratio": [
+     0.887
+    ]
+   },
+   "R3": {
+    "phrases": [
+     "All of the birds began singing together in the very first light of the dawn."
+    ],
+    "ratio": [
+     0.887
+    ]
+   },
+   "R0+place": {
+    "phrases": [
+     "All the birds began to sing in the first light of dawn."
+    ],
+    "ratio": [
+     0.67
+    ]
+   },
+   "REF": {
+    "phrases": [
+     "All the birds began to sing at the first light of dawn."
+    ],
+    "ratio": [
+     0.678
+    ]
+   }
+  },
+  "subset1-10": {
+   "R0": {
+    "phrases": [
+     "You can't judge by appearances."
+    ],
+    "ratio": [
+     0.564
+    ]
+   },
+   "R1": {
+    "phrases": [
+     "You can't judge someone just by the way that they look."
+    ],
+    "ratio": [
+     0.976
+    ]
+   },
+   "R2": {
+    "phrases": [
+     "You can't judge someone just by the way that they look."
+    ],
+    "ratio": [
+     0.976
+    ]
+   },
+   "R3": {
+    "phrases": [
+     "You can't judge someone just by the way that they look."
+    ],
+    "ratio": [
+     0.976
+    ]
+   },
+   "R0+place": {
+    "phrases": [
+     "You can't judge by appearances."
+    ],
+    "ratio": [
+     0.564
+    ]
+   },
+   "REF": {
+    "phrases": [
+     "Beauty is but skin deep."
+    ],
+    "ratio": [
+     0.489
+    ]
+   }
+  },
+  "subset1-11": {
+   "R0": {
+    "phrases": [
+     "Stop treating me like a little child."
+    ],
+    "ratio": [
+     0.719
+    ]
+   },
+   "R1": {
+    "phrases": [
+     "Will you stop treating me like I'm a little child?"
+    ],
+    "ratio": [
+     0.937
+    ]
+   },
+   "R2": {
+    "phrases": [
+     "Will you stop treating me like I'm a little child?"
+    ],
+    "ratio": [
+     0.937
+    ]
+   },
+   "R3": {
+    "phrases": [
+     "Will you stop treating me like I'm a little child?"
+    ],
+    "ratio": [
+     0.937
+    ]
+   },
+   "R0+place": {
+    "phrases": [
+     "Stop treating me like a little child."
+    ],
+    "ratio": [
+     0.719
+    ]
+   },
+   "REF": {
+    "phrases": [
+     "Stop treating me like a child."
+    ],
+    "ratio": [
+     0.599
+    ]
+   }
+  },
+  "subset1-12": {
+   "R0": {
+    "phrases": [
+     "The first Christmas"
+    ],
+    "ratio": [
+     0.579
+    ]
+   },
+   "R1": {
+    "phrases": [
+     "The very first Christmas celebration"
+    ],
+    "ratio": [
+     1.139
+    ]
+   },
+   "R2": {
+    "phrases": [
+     "The very first Christmas celebration"
+    ],
+    "ratio": [
+     1.139
+    ]
+   },
+   "R3": {
+    "phrases": [
+     "The first Christmas celebration"
+    ],
+    "ratio": [
+     0.969
+    ]
+   },
+   "R0+place": {
+    "phrases": [
+     "The first Christmas"
+    ],
+    "ratio": [
+     0.579
+    ]
+   },
+   "REF": {
+    "phrases": [
+     "The first Noel."
+    ],
+    "ratio": [
+     0.473
+    ]
+   }
+  },
+  "subset1-13": {
+   "R0": {
+    "phrases": [
+     "I'm still sure about the lyrical direction."
+    ],
+    "ratio": [
+     0.795
+    ]
+   },
+   "R1": {
+    "phrases": [
+     "I'm still sure about the lyrical direction."
+    ],
+    "ratio": [
+     0.795
+    ]
+   },
+   "R2": {
+    "phrases": [
+     "I am still quite sure about the lyrical direction."
+    ],
+    "ratio": [
+     0.966
+    ]
+   },
+   "R3": {
+    "phrases": [
+     "I am still quite sure about the lyrical direction."
+    ],
+    "ratio": [
+     0.966
+    ]
+   },
+   "R0+place": {
+    "phrases": [
+     "I'm still sure about the lyrical direction."
+    ],
+    "ratio": [
+     0.795
+    ]
+   },
+   "REF": {
+    "phrases": [
+     "I'm not sure yet on the lyrical direction."
+    ],
+    "ratio": [
+     0.801
+    ]
+   }
+  },
+  "subset1-14": {
+   "R0": {
+    "phrases": [
+     "Joan Lindros, Bill Holsworth and Malcolm Calder were also veteran representatives."
+    ],
+    "ratio": [
+     1.921,
+     0.0
+    ]
+   },
+   "R1": {
+    "phrases": [
+     "Joan Lindros, Bill Holsworth, and Malcolm Calder",
+     "were also veteran representatives who had served for a long time."
+    ],
+    "ratio": [
+     1.078,
+     0.916
+    ]
+   },
+   "R2": {
+    "phrases": [
+     "Joan Lindros, Bill Holsworth, and Malcolm Calder",
+     "were also veteran representatives who had served for a long time."
+    ],
+    "ratio": [
+     1.078,
+     0.916
+    ]
+   },
+   "R3": {
+    "phrases": [
+     "Joan Lindros, Bill Holsworth,",
+     "and Malcolm Calder were also veteran representatives."
+    ],
+    "ratio": [
+     0.601,
+     0.758
+    ]
+   },
+   "R0+place": {
+    "phrases": [
+     "Joan Lindros, Bill Holsworth and",
+     "Malcolm Calder were also veteran representatives."
+    ],
+    "ratio": [
+     0.699,
+     0.701
+    ]
+   },
+   "REF": {
+    "phrases": [
+     "Joan Lindros, Bill Holsworth and Malcolm",
+     "Calder were also long serving representatives."
+    ],
+    "ratio": [
+     0.898,
+     0.657
+    ]
+   }
+  },
+  "subset1-15": {
+   "R0": {
+    "phrases": [
+     "\"See\" analytic continuation."
+    ],
+    "ratio": [
+     0.775
+    ]
+   },
+   "R1": {
+    "phrases": [
+     "\"See\" analytic continuation."
+    ],
+    "ratio": [
+     0.775
+    ]
+   },
+   "R2": {
+    "phrases": [
+     "\"See\" analytical continuation."
+    ],
+    "ratio": [
+     0.829
+    ]
+   },
+   "R3": {
+    "phrases": [
+     "\"See\" analytical continuation."
+    ],
+    "ratio": [
+     0.829
+    ]
+   },
+   "R0+place": {
+    "phrases": [
+     "\"See\" analytic continuation."
+    ],
+    "ratio": [
+     0.775
+    ]
+   },
+   "REF": {
+    "phrases": [
+     "See\"\" analytic continuation."
+    ],
+    "ratio": [
+     0.775
+    ]
+   }
+  },
+  "subset1-16": {
+   "R0": {
+    "phrases": [
+     "The city wall is one of the city's landmarks."
+    ],
+    "ratio": [
+     0.763,
+     0.0
+    ]
+   },
+   "R1": {
+    "phrases": [
+     "The old city wall is one of the most famous landmarks",
+     "of the city."
+    ],
+    "ratio": [
+     0.959,
+     1.08
+    ]
+   },
+   "R2": {
+    "phrases": [
+     "The old city wall is one of the most famous landmarks",
+     "of the city."
+    ],
+    "ratio": [
+     0.959,
+     1.08
+    ]
+   },
+   "R3": {
+    "phrases": [
+     "The old city wall is one of the most famous landmarks",
+     "in town."
+    ],
+    "ratio": [
+     0.959,
+     0.758
+    ]
+   },
+   "R0+place": {
+    "phrases": [
+     "The city wall is one of the city's",
+     "landmarks."
+    ],
+    "ratio": [
+     0.568,
+     1.07
+    ]
+   },
+   "REF": {
+    "phrases": [
+     "One of the town's landmarks is the",
+     "city-wall."
+    ],
+    "ratio": [
+     0.572,
+     0.973
+    ]
+   }
+  },
+  "subset1-17": {
+   "R0": {
+    "phrases": [
+     "Dogstar is currently reviewing material for a project reflecting their years of touring."
+    ],
+    "ratio": [
+     1.119,
+     0.0
+    ]
+   },
+   "R1": {
+    "phrases": [
+     "Dogstar is currently going through material for a brand new project",
+     "that reflects all of their years spent touring around."
+    ],
+    "ratio": [
+     0.876,
+     1.094
+    ]
+   },
+   "R2": {
+    "phrases": [
+     "Dogstar is currently going through material for a brand new project",
+     "that reflects all of their years spent touring around."
+    ],
+    "ratio": [
+     0.876,
+     1.094
+    ]
+   },
+   "R3": {
+    "phrases": [
+     "Dogstar is currently going through material for a brand new project",
+     "reflecting their years on tour."
+    ],
+    "ratio": [
+     0.876,
+     0.601
+    ]
+   },
+   "R0+place": {
+    "phrases": [
+     "Dogstar is currently reviewing material for a project",
+     "reflecting their years of touring."
+    ],
+    "ratio": [
+     0.715,
+     0.643
+    ]
+   },
+   "REF": {
+    "phrases": [
+     "Dogstar is currently reviewing footage for a project",
+     "that reflects their years touring."
+    ],
+    "ratio": [
+     0.678,
+     0.65
+    ]
+   }
+  },
+  "subset2-3": {
+   "R0": {
+    "phrases": [
+     "The blackbird watched it all from the tree, turning its head left and right, blinking and testing its wings, before it finally took to the air."
+    ],
+    "ratio": [
+     3.303,
+     0.0,
+     0.0
+    ]
+   },
+   "R1": {
+    "phrases": [
+     "The blackbird watched it all from up in the tree,",
+     "turning its head left and right,",
+     "blinked and tested its wings, before it finally took to the air."
+    ],
+    "ratio": [
+     1.096,
+     1.043,
+     1.061
+    ]
+   },
+   "R2": {
+    "phrases": [
+     "The blackbird watched it all from up in the tree,",
+     "turning its head left and right,",
+     "blinked and tested its wings, before it finally took to the air."
+    ],
+    "ratio": [
+     1.096,
+     1.043,
+     1.061
+    ]
+   },
+   "R3": {
+    "phrases": [
+     "The blackbird watched it all from the tree,",
+     "turning its head left and right,",
+     "blinked, tested its wings, and finally took to the air."
+    ],
+    "ratio": [
+     0.936,
+     1.043,
+     0.893
+    ]
+   },
+   "R0+place": {
+    "phrases": [
+     "The blackbird watched it all from the tree,",
+     "turning its head left and right,",
+     "blinking and testing its wings, before it finally took to the air."
+    ],
+    "ratio": [
+     0.936,
+     1.043,
+     1.084
+    ]
+   },
+   "REF": {
+    "phrases": [
+     "The blackbird watched all this from the tree twisting its head left and right,",
+     "blinking and testing its wings,",
+     "before finally taking to the air."
+    ],
+    "ratio": [
+     1.771,
+     1.081,
+     0.541
+    ]
+   }
+  },
+  "subset2-4": {
+   "R0": {
+    "phrases": [
+     "She keeps saying she doesn't regret moving back home, but I can't be so sure that's entirely true."
+    ],
+    "ratio": [
+     1.719,
+     0.0
+    ]
+   },
+   "R1": {
+    "phrases": [
+     "She keeps saying she has no regrets about moving back home,",
+     "but I can't be so sure that's entirely true."
+    ],
+    "ratio": [
+     1.067,
+     1.055
+    ]
+   },
+   "R2": {
+    "phrases": [
+     "She keeps saying she has no regrets about moving back home,",
+     "but I can't be so sure that's entirely true."
+    ],
+    "ratio": [
+     1.067,
+     1.055
+    ]
+   },
+   "R3": {
+    "phrases": [
+     "She keeps saying she doesn't regret moving back home,",
+     "but I'm not so sure that's quite true."
+    ],
+    "ratio": [
+     0.919,
+     0.887
+    ]
+   },
+   "R0+place": {
+    "phrases": [
+     "She keeps saying she doesn't regret moving back home,",
+     "but I can't be so sure that's entirely true."
+    ],
+    "ratio": [
+     0.919,
+     1.055
+    ]
+   },
+   "REF": {
+    "phrases": [
+     "She keeps saying that she has no regrets about moving back home,",
+     "but I’m not sure if it’s entirely true."
+    ],
+    "ratio": [
+     1.14,
+     1.03
+    ]
+   }
+  },
+  "subset2-5": {
+   "R0": {
+    "phrases": [
+     "Finally he lifted one of the boards, and after carefully setting it aside, he looked into the space under the floor."
+    ],
+    "ratio": [
+     1.481,
+     0.0
+    ]
+   },
+   "R1": {
+    "phrases": [
+     "Finally he lifted one of the boards, and after carefully setting it aside,",
+     "he looked into the space beneath the floor."
+    ],
+    "ratio": [
+     0.974,
+     1.171
+    ]
+   },
+   "R2": {
+    "phrases": [
+     "Finally he lifted one of the boards, and after carefully setting it aside,",
+     "he looked into the space beneath the floor."
+    ],
+    "ratio": [
+     0.974,
+     1.171
+    ]
+   },
+   "R3": {
+    "phrases": [
+     "Finally he lifted one of the boards, and after carefully setting it aside,",
+     "he looked beneath the floor."
+    ],
+    "ratio": [
+     0.974,
+     0.718
+    ]
+   },
+   "R0+place": {
+    "phrases": [
+     "Finally he lifted one of the boards, and after carefully setting it aside,",
+     "he looked into the space under the floor."
+    ],
+    "ratio": [
+     0.974,
+     1.137
+    ]
+   },
+   "REF": {
+    "phrases": [
+     "Finally, he lifted one of the boards and after setting it aside carefully,",
+     "looked into the space beneath the floor."
+    ],
+    "ratio": [
+     0.974,
+     1.079
+    ]
+   }
+  },
+  "subset2-6": {
+   "R0": {
+    "phrases": [
+     "I also love hearing from others, so post your own ideas in the comments and tell me what I could do better."
+    ],
+    "ratio": [
+     2.783,
+     0.0
+    ]
+   },
+   "R1": {
+    "phrases": [
+     "I also love to hear from others,",
+     "so post your own ideas in the comments and tell me what I could do better."
+    ],
+    "ratio": [
+     0.862,
+     1.034
+    ]
+   },
+   "R2": {
+    "phrases": [
+     "I also love to hear from others,",
+     "so post your own ideas in the comments and tell me what I could do better."
+    ],
+    "ratio": [
+     0.862,
+     1.034
+    ]
+   },
+   "R3": {
+    "phrases": [
+     "I also love to hear from others,",
+     "so post your own ideas in the comments and tell me what I could do better."
+    ],
+    "ratio": [
+     0.862,
+     1.034
+    ]
+   },
+   "R0+place": {
+    "phrases": [
+     "I also love hearing from others,",
+     "so post your own ideas in the comments and tell me what I could do better."
+    ],
+    "ratio": [
+     0.827,
+     1.034
+    ]
+   },
+   "REF": {
+    "phrases": [
+     "I'm also hoping to hear from others,",
+     "so please post your own ideas in the comments and tell me what I could do better!"
+    ],
+    "ratio": [
+     0.957,
+     1.121
+    ]
+   }
+  },
+  "subset2-7": {
+   "R0": {
+    "phrases": [
+     "Something moved deep underground and caused vibrations strong enough to be measured by earthquake early-warning systems hundreds of miles away."
+    ],
+    "ratio": [
+     3.874,
+     0.0,
+     0.0
+    ]
+   },
+   "R1": {
+    "phrases": [
+     "Something moved deep down beneath the earth,",
+     "and it set off vibrations strong enough",
+     "to be picked up by earthquake early-warning systems hundreds of miles away."
+    ],
+    "ratio": [
+     1.045,
+     1.017,
+     1.008
+    ]
+   },
+   "R2": {
+    "phrases": [
+     "Something moved deep down beneath the earth,",
+     "and it set off vibrations strong enough",
+     "to be picked up by earthquake early-warning systems hundreds of miles away."
+    ],
+    "ratio": [
+     1.045,
+     1.017,
+     1.008
+    ]
+   },
+   "R3": {
+    "phrases": [
+     "Something stirred deep underground,",
+     "and it set off vibrations strong enough",
+     "to be picked up by earthquake early-warning systems hundreds of miles away."
+    ],
+    "ratio": [
+     0.872,
+     1.017,
+     1.008
+    ]
+   },
+   "R0+place": {
+    "phrases": [
+     "Something moved deep underground and",
+     "caused vibrations strong enough to be",
+     "measured by earthquake early-warning systems hundreds of miles away."
+    ],
+    "ratio": [
+     0.956,
+     0.942,
+     0.885
+    ]
+   },
+   "REF": {
+    "phrases": [
+     "Something deep beneath the earth shifted,",
+     "sending vibrations strong enough to",
+     "register on earthquake detection mechanisms hundreds of miles away."
+    ],
+    "ratio": [
+     0.975,
+     0.904,
+     0.908
+    ]
+   }
+  },
+  "subset2-8": {
+   "R0": {
+    "phrases": [
+     "He paused, looked back at the house, but then pocketed his keys, opened the gate and walked quickly down the path."
+    ],
+    "ratio": [
+     2.263,
+     0.0,
+     0.0
+    ]
+   },
+   "R1": {
+    "phrases": [
+     "He stopped for a moment and looked back at the house,",
+     "but then he pocketed his keys,",
+     "opened the gate and hurried down the path."
+    ],
+    "ratio": [
+     1.129,
+     0.991,
+     0.955
+    ]
+   },
+   "R2": {
+    "phrases": [
+     "He stopped for a moment and looked back at the house,",
+     "but then he pocketed his keys,",
+     "opened the gate and hurried down the path."
+    ],
+    "ratio": [
+     1.129,
+     0.991,
+     0.955
+    ]
+   },
+   "R3": {
+    "phrases": [
+     "He paused and looked back at the house,",
+     "but then pocketed his keys,",
+     "opened the gate and hurried down the path."
+    ],
+    "ratio": [
+     0.773,
+     0.887,
+     0.955
+    ]
+   },
+   "R0+place": {
+    "phrases": [
+     "He paused, looked back at the house,",
+     "but then pocketed his keys,",
+     "opened the gate and walked quickly down the path."
+    ],
+    "ratio": [
+     0.684,
+     0.887,
+     1.165
+    ]
+   },
+   "REF": {
+    "phrases": [
+     "He paused, looked back at the house,",
+     "but then pocketed the keys,",
+     "opened the gate and strode down the path quickly."
+    ],
+    "ratio": [
+     0.684,
+     0.83,
+     1.206
+    ]
+   }
+  },
+  "subset2-9": {
+   "R0": {
+    "phrases": [
+     "We miss you and we miss having a friend like you, and I'm so glad the two of you were able to catch up."
+    ],
+    "ratio": [
+     5.631,
+     0.0,
+     0.0
+    ]
+   },
+   "R1": {
+    "phrases": [
+     "We really miss you",
+     "and we miss having a friend like you,",
+     "and I'm so glad the two of you were able to catch up."
+    ],
+    "ratio": [
+     0.961,
+     0.948,
+     0.965
+    ]
+   },
+   "R2": {
+    "phrases": [
+     "We really miss you",
+     "and we miss having a friend like you,",
+     "and I'm so glad the two of you were able to catch up."
+    ],
+    "ratio": [
+     0.961,
+     0.948,
+     0.965
+    ]
+   },
+   "R3": {
+    "phrases": [
+     "We really miss you",
+     "and miss having a friend like you,",
+     "and I'm so glad the two of you were able to catch up."
+    ],
+    "ratio": [
+     0.961,
+     0.858,
+     0.965
+    ]
+   },
+   "R0+place": {
+    "phrases": [
+     "We miss you and",
+     "we miss having a friend like you,",
+     "and I'm so glad the two of you were able to catch up."
+    ],
+    "ratio": [
+     0.874,
+     0.843,
+     0.965
+    ]
+   },
+   "REF": {
+    "phrases": [
+     "We miss you and",
+     "miss having a friend like you,",
+     "and I am so happy that you two got to catch up."
+    ],
+    "ratio": [
+     0.874,
+     0.752,
+     0.891
+    ]
+   }
+  },
+  "subset2-10": {
+   "R0": {
+    "phrases": [
+     "Before you read this post, please familiarize yourself with my Getting Started guide and with the action for quickly moving a file."
+    ],
+    "ratio": [
+     4.25,
+     0.0,
+     0.0
+    ]
+   },
+   "R1": {
+    "phrases": [
+     "Before reading this blog post,",
+     "please get familiar with my Getting Started guide,",
+     "and also with the action that lets you move a file really quickly."
+    ],
+    "ratio": [
+     1.011,
+     1.105,
+     0.997
+    ]
+   },
+   "R2": {
+    "phrases": [
+     "Before reading this blog post,",
+     "please get familiar with my Getting Started guide,",
+     "and also with the action that lets you move a file really quickly."
+    ],
+    "ratio": [
+     1.011,
+     1.105,
+     0.997
+    ]
+   },
+   "R3": {
+    "phrases": [
+     "Before reading this post,",
+     "please check out my Getting Started guide,",
+     "and also with the action that lets you move a file really quickly."
+    ],
+    "ratio": [
+     0.822,
+     0.932,
+     0.997
+    ]
+   },
+   "R0+place": {
+    "phrases": [
+     "Before you read this post,",
+     "please familiarize yourself with my Getting",
+     "Started guide and with the action for quickly moving a file."
+    ],
+    "ratio": [
+     0.853,
+     0.958,
+     0.92
+    ]
+   },
+   "REF": {
+    "phrases": [
+     "Before reading this post,",
+     "please familiarize yourself with my getting",
+     "started guide and how to move around a file quickly."
+    ],
+    "ratio": [
+     0.822,
+     0.958,
+     0.813
+    ]
+   }
+  },
+  "subset2-11": {
+   "R0": {
+    "phrases": [
+     "I could just publish my code, but that wouldn't show all the little lessons I learned along the way."
+    ],
+    "ratio": [
+     2.403,
+     0.0
+    ]
+   },
+   "R1": {
+    "phrases": [
+     "I could just go and publish my code,",
+     "but that wouldn't show you all the little lessons that I picked up along the way."
+    ],
+    "ratio": [
+     1.003,
+     0.92
+    ]
+   },
+   "R2": {
+    "phrases": [
+     "I could just go and publish my code,",
+     "but that wouldn't show you all the little lessons that I picked up along the way."
+    ],
+    "ratio": [
+     1.003,
+     0.92
+    ]
+   },
+   "R3": {
+    "phrases": [
+     "I could just publish my code,",
+     "but that wouldn't show you all the little lessons that I picked up along the way."
+    ],
+    "ratio": [
+     0.798,
+     0.92
+    ]
+   },
+   "R0+place": {
+    "phrases": [
+     "I could just publish my code,",
+     "but that wouldn't show all the little lessons I learned along the way."
+    ],
+    "ratio": [
+     0.798,
+     0.783
+    ]
+   },
+   "REF": {
+    "phrases": [
+     "I could just publish my code,",
+     "but that wouldn't reveal all the little lessons I learned along the way."
+    ],
+    "ratio": [
+     0.798,
+     0.807
+    ]
+   }
+  },
+  "subset2-12": {
+   "R0": {
+    "phrases": [
+     "The moment you spell out a word, stop immediately and add that word to the vocabulary editor."
+    ],
+    "ratio": [
+     2.164,
+     0.0
+    ]
+   },
+   "R1": {
+    "phrases": [
+     "The moment you start spelling out a word,",
+     "stop right away and add that word to the vocabulary editor."
+    ],
+    "ratio": [
+     0.959,
+     0.897
+    ]
+   },
+   "R2": {
+    "phrases": [
+     "The moment you start spelling out a word,",
+     "stop right away and add that word to the vocabulary editor."
+    ],
+    "ratio": [
+     0.959,
+     0.897
+    ]
+   },
+   "R3": {
+    "phrases": [
+     "The moment you start spelling out a word,",
+     "stop right away and add that word to the vocabulary editor."
+    ],
+    "ratio": [
+     0.959,
+     0.897
+    ]
+   },
+   "R0+place": {
+    "phrases": [
+     "The moment you spell out a word,",
+     "stop immediately and add that word to the vocabulary editor."
+    ],
+    "ratio": [
+     0.739,
+     0.919
+    ]
+   },
+   "REF": {
+    "phrases": [
+     "The moment you find yourself spelling out a word,",
+     "stop right away and add this word to the Vocabulary Editor."
+    ],
+    "ratio": [
+     1.148,
+     0.897
+    ]
+   }
+  },
+  "subset2-13": {
+   "R0": {
+    "phrases": [
+     "Eye trackers used to cost several thousand dollars, but now you can pick up a cheap one for less than a few hundred dollars."
+    ],
+    "ratio": [
+     1.081
+    ]
+   },
+   "R1": {
+    "phrases": [
+     "Eye trackers used to cost several thousand dollars, but now you can pick up a cheap one for less than a few hundred dollars."
+    ],
+    "ratio": [
+     1.081
+    ]
+   },
+   "R2": {
+    "phrases": [
+     "Eye trackers used to cost several thousand dollars, but now you can pick up a cheap one for less than a few hundred dollars."
+    ],
+    "ratio": [
+     1.081
+    ]
+   },
+   "R3": {
+    "phrases": [
+     "Eye trackers used to cost thousands of dollars, but now you can get a cheap one for under a few hundred."
+    ],
+    "ratio": [
+     0.926
+    ]
+   },
+   "R0+place": {
+    "phrases": [
+     "Eye trackers used to cost several thousand dollars, but now you can pick up a cheap one for less than a few hundred dollars."
+    ],
+    "ratio": [
+     1.081
+    ]
+   },
+   "REF": {
+    "phrases": [
+     "Eye trackers used to cost several thousand dollars, but now you can grab a cheap one for less than a couple hundred bucks."
+    ],
+    "ratio": [
+     1.062
+    ]
+   }
+  },
+  "subset2-14": {
+   "R0": {
+    "phrases": [
+     "The boy looked around for the furnaces and other equipment used in alchemy, but he couldn't see any."
+    ],
+    "ratio": [
+     0.88
+    ]
+   },
+   "R1": {
+    "phrases": [
+     "The boy looked around for the furnaces and other equipment used in alchemy, but he couldn't see any."
+    ],
+    "ratio": [
+     0.88
+    ]
+   },
+   "R2": {
+    "phrases": [
+     "The boy looked around for the furnaces and other equipment used in alchemy, but he couldn't see any."
+    ],
+    "ratio": [
+     0.88
+    ]
+   },
+   "R3": {
+    "phrases": [
+     "The boy looked around for the furnaces and other equipment used in alchemy, but he couldn't see any."
+    ],
+    "ratio": [
+     0.88
+    ]
+   },
+   "R0+place": {
+    "phrases": [
+     "The boy looked around for the furnaces and other equipment used in alchemy, but he couldn't see any."
+    ],
+    "ratio": [
+     0.88
+    ]
+   },
+   "REF": {
+    "phrases": [
+     "The boy looked around for the ovens and other apparatus used in alchemy, but saw none."
+    ],
+    "ratio": [
+     0.743
+    ]
+   }
+  },
+  "subset2-15": {
+   "R0": {
+    "phrases": [
+     "It has some basic functions for connecting to an eye tracker, getting position data and activating the current gaze point."
+    ],
+    "ratio": [
+     1.754,
+     0.0
+    ]
+   },
+   "R1": {
+    "phrases": [
+     "It has a number of basic functions for connecting to an eye tracker,",
+     "for getting hold of position data, and for activating the current gaze point."
+    ],
+    "ratio": [
+     1.006,
+     0.96
+    ]
+   },
+   "R2": {
+    "phrases": [
+     "It has a number of basic functions for connecting to an eye tracker,",
+     "for getting hold of position data, and for activating the current gaze point."
+    ],
+    "ratio": [
+     1.006,
+     0.96
+    ]
+   },
+   "R3": {
+    "phrases": [
+     "It has a number of basic functions for connecting to an eye tracker,",
+     "for getting hold of position data, and for activating the current gaze point."
+    ],
+    "ratio": [
+     1.006,
+     0.96
+    ]
+   },
+   "R0+place": {
+    "phrases": [
+     "It has some basic functions for connecting to an eye tracker,",
+     "getting position data and activating the current gaze point."
+    ],
+    "ratio": [
+     0.906,
+     0.732
+    ]
+   },
+   "REF": {
+    "phrases": [
+     "It has a few basic functions to connect to the eye tracker,",
+     "get position data, and activate the current gaze point."
+    ],
+    "ratio": [
+     0.868,
+     0.678
+    ]
+   }
+  },
+  "subset2-16": {
+   "R0": {
+    "phrases": [
+     "They brought Disorder drummer Virus into the band to play drums, and finally had a more or less reliable lineup."
+    ],
+    "ratio": [
+     1.686,
+     0.0
+    ]
+   },
+   "R1": {
+    "phrases": [
+     "They brought Disorder's drummer Virus into the band to play drums,",
+     "and finally had a more or less reliable lineup."
+    ],
+    "ratio": [
+     0.902,
+     0.906
+    ]
+   },
+   "R2": {
+    "phrases": [
+     "They brought Disorder's drummer Virus into the band to play drums,",
+     "and finally had a more or less reliable lineup."
+    ],
+    "ratio": [
+     0.902,
+     0.906
+    ]
+   },
+   "R3": {
+    "phrases": [
+     "They brought Disorder's drummer Virus into the band to play drums,",
+     "and finally had a more or less reliable lineup."
+    ],
+    "ratio": [
+     0.902,
+     0.906
+    ]
+   },
+   "R0+place": {
+    "phrases": [
+     "They brought Disorder drummer Virus into the band to play drums,",
+     "and finally had a more or less reliable lineup."
+    ],
+    "ratio": [
+     0.935,
+     0.906
+    ]
+   },
+   "REF": {
+    "phrases": [
+     "They recruited Disorder drummer Virus to play drums",
+     "and finally had a semi-stable line-up."
+    ],
+    "ratio": [
+     0.789,
+     0.78
+    ]
+   }
+  },
+  "subset2-17": {
+   "R0": {
+    "phrases": [
+     "I was only in the city at the start of the year, so it's kind of crazy to think about what happened right after."
+    ],
+    "ratio": [
+     3.281,
+     0.0
+    ]
+   },
+   "R1": {
+    "phrases": [
+     "I was in town at the start of the year,",
+     "so it's kind of crazy to think about what happened right after."
+    ],
+    "ratio": [
+     1.124,
+     1.058
+    ]
+   },
+   "R2": {
+    "phrases": [
+     "I was in town at the start of the year,",
+     "so it's kind of crazy to think about what happened right after."
+    ],
+    "ratio": [
+     1.124,
+     1.058
+    ]
+   },
+   "R3": {
+    "phrases": [
+     "I was in town early this year,",
+     "so it's kind of crazy to think about what happened right after."
+    ],
+    "ratio": [
+     0.853,
+     1.058
+    ]
+   },
+   "R0+place": {
+    "phrases": [
+     "I was only in the city at the start of the year,",
+     "so it's kind of crazy to think about what happened right after."
+    ],
+    "ratio": [
+     1.402,
+     1.058
+    ]
+   },
+   "REF": {
+    "phrases": [
+     "I was just in town earlier this year,",
+     "so it is kind of crazy to think about what took place right after."
+    ],
+    "ratio": [
+     1.07,
+     1.154
+    ]
+   }
+  },
+  "subset2-18": {
+   "R0": {
+    "phrases": [
+     "Now picture a guy who comes through that door and starts giving orders in a heavy accent."
+    ],
+    "ratio": [
+     1.828,
+     0.0
+    ]
+   },
+   "R1": {
+    "phrases": [
+     "Now picture some guy who walks in through that door",
+     "and starts giving orders in a heavy accent."
+    ],
+    "ratio": [
+     1.001,
+     0.982
+    ]
+   },
+   "R2": {
+    "phrases": [
+     "Now picture some guy who walks in through that door",
+     "and starts giving orders in a heavy accent."
+    ],
+    "ratio": [
+     1.001,
+     0.982
+    ]
+   },
+   "R3": {
+    "phrases": [
+     "Picture a guy who walks through that door",
+     "and starts giving orders in a heavy accent."
+    ],
+    "ratio": [
+     0.785,
+     0.982
+    ]
+   },
+   "R0+place": {
+    "phrases": [
+     "Now picture a guy who comes through that door and",
+     "starts giving orders in a heavy accent."
+    ],
+    "ratio": [
+     0.956,
+     0.893
+    ]
+   },
+   "REF": {
+    "phrases": [
+     "Now, imagine a guy walking through that door and",
+     "starting to give orders with a heavy accent."
+    ],
+    "ratio": [
+     0.912,
+     0.95
+    ]
+   }
+  },
+  "subset2-19": {
+   "R0": {
+    "phrases": [
+     "I think the party was fun for most of the guests, but Mirco really felt out of place."
+    ],
+    "ratio": [
+     1.578,
+     0.0
+    ]
+   },
+   "R1": {
+    "phrases": [
+     "I think the party was a lot of fun for most of the guests,",
+     "but Mirco really felt out of place."
+    ],
+    "ratio": [
+     1.14,
+     0.906
+    ]
+   },
+   "R2": {
+    "phrases": [
+     "I think the party was a lot of fun for most of the guests,",
+     "but Mirco really felt out of place."
+    ],
+    "ratio": [
+     1.14,
+     0.906
+    ]
+   },
+   "R3": {
+    "phrases": [
+     "I think the party was a lot of fun for most of the guests,",
+     "but Mirco really felt out of place."
+    ],
+    "ratio": [
+     1.14,
+     0.906
+    ]
+   },
+   "R0+place": {
+    "phrases": [
+     "I think the party was fun for most of the guests,",
+     "but Mirco really felt out of place."
+    ],
+    "ratio": [
+     0.96,
+     0.906
+    ]
+   },
+   "REF": {
+    "phrases": [
+     "I think the party was an amusement for most of the guests,",
+     "but Mirco felt really out of place."
+    ],
+    "ratio": [
+     1.139,
+     0.906
+    ]
+   }
+  },
+  "subset2-20": {
+   "R0": {
+    "phrases": [
+     "She hasn't read Chekhov in a long time, and that's why she no longer feels like the heroine of her own story."
+    ],
+    "ratio": [
+     2.747,
+     0.0
+    ]
+   },
+   "R1": {
+    "phrases": [
+     "She hasn't read Chekhov in ages,",
+     "and that's why she no longer feels like the heroine of her own story."
+    ],
+    "ratio": [
+     0.843,
+     1.016
+    ]
+   },
+   "R2": {
+    "phrases": [
+     "She hasn't read Chekhov in ages,",
+     "and that's why she no longer feels like the heroine of her own story."
+    ],
+    "ratio": [
+     0.843,
+     1.016
+    ]
+   },
+   "R3": {
+    "phrases": [
+     "She hasn't read Chekhov in ages,",
+     "and that's why she no longer feels like the heroine of her own story."
+    ],
+    "ratio": [
+     0.843,
+     1.016
+    ]
+   },
+   "R0+place": {
+    "phrases": [
+     "She hasn't read Chekhov in a long time,",
+     "and that's why she no longer feels like the heroine of her own story."
+    ],
+    "ratio": [
+     0.987,
+     1.016
+    ]
+   },
+   "REF": {
+    "phrases": [
+     "It’s been a long time since she last read Chekhov,",
+     "and because of that, she no longer feels like the heroine of her own story."
+    ],
+    "ratio": [
+     1.325,
+     1.088
+    ]
+   }
+  },
+  "subset2-21": {
+   "R0": {
+    "phrases": [
+     "Not exactly no, but he only gave me the main points of his research, the one time I talked to him."
+    ],
+    "ratio": [
+     4.944,
+     0.0
+    ]
+   },
+   "R1": {
+    "phrases": [
+     "Not exactly, no,",
+     "but he only gave me the most important points of his research, the one time I talked with him."
+    ],
+    "ratio": [
+     0.935,
+     1.087
+    ]
+   },
+   "R2": {
+    "phrases": [
+     "Not exactly, no,",
+     "but he only gave me the most important points of his research, the one time I talked with him."
+    ],
+    "ratio": [
+     0.935,
+     1.087
+    ]
+   },
+   "R3": {
+    "phrases": [
+     "Not really, no,",
+     "but he only gave me the most important points of his research, the one time I talked with him."
+    ],
+    "ratio": [
+     0.684,
+     1.087
+    ]
+   },
+   "R0+place": {
+    "phrases": [
+     "Not exactly no,",
+     "but he only gave me the main points of his research, the one time I talked to him."
+    ],
+    "ratio": [
+     0.935,
+     0.943
+    ]
+   },
+   "REF": {
+    "phrases": [
+     "Not specifically no,",
+     "he only gave me the gist of his research the one time I spoke to him."
+    ],
+    "ratio": [
+     1.066,
+     0.82
+    ]
+   }
+  },
+  "subset2-22": {
+   "R0": {
+    "phrases": [
+     "It's rude to ask a tree for its life story if you're not prepared to hear it in full."
+    ],
+    "ratio": [
+     1.562,
+     0.0
+    ]
+   },
+   "R1": {
+    "phrases": [
+     "It's impolite to ask a tree to tell you its life story",
+     "if you're not ready to hear it from start to end."
+    ],
+    "ratio": [
+     1.058,
+     1.019
+    ]
+   },
+   "R2": {
+    "phrases": [
+     "It's impolite to ask a tree to tell you its life story",
+     "if you're not ready to hear it from start to end."
+    ],
+    "ratio": [
+     1.058,
+     1.019
+    ]
+   },
+   "R3": {
+    "phrases": [
+     "It's rude to ask a tree for its life story",
+     "if you're not ready to hear it from start to end."
+    ],
+    "ratio": [
+     0.851,
+     1.019
+    ]
+   },
+   "R0+place": {
+    "phrases": [
+     "It's rude to ask a tree for its life story",
+     "if you're not prepared to hear it in full."
+    ],
+    "ratio": [
+     0.851,
+     0.821
+    ]
+   },
+   "REF": {
+    "phrases": [
+     "It's impolite to ask a tree for its story",
+     "unless you are ready to hear it in full length."
+    ],
+    "ratio": [
+     0.841,
+     0.933
+    ]
+   }
+  },
+  "subset2-23": {
+   "R0": {
+    "phrases": [
+     "I was wondering if you could tell me a little more about what it's like to live and work there."
+    ],
+    "ratio": [
+     1.129,
+     0.0
+    ]
+   },
+   "R1": {
+    "phrases": [
+     "I was wondering if you could tell me a bit more about what it's like to live there",
+     "and to work there."
+    ],
+    "ratio": [
+     0.987,
+     1.114
+    ]
+   },
+   "R2": {
+    "phrases": [
+     "I was wondering if you could tell me a bit more about what it's like to live there",
+     "and to work there."
+    ],
+    "ratio": [
+     0.987,
+     1.114
+    ]
+   },
+   "R3": {
+    "phrases": [
+     "I was wondering if you could tell me a bit more about what it's like to live there",
+     "and work."
+    ],
+    "ratio": [
+     0.987,
+     0.623
+    ]
+   },
+   "R0+place": {
+    "phrases": [
+     "I was wondering if you could tell me a little more about what it's like to live",
+     "and work there."
+    ],
+    "ratio": [
+     0.969,
+     0.875
+    ]
+   },
+   "REF": {
+    "phrases": [
+     "I was wondering if you could tell me a bit more about what it's like to live",
+     "and work there."
+    ],
+    "ratio": [
+     0.941,
+     0.875
+    ]
+   }
+  },
+  "subset2-24": {
+   "R0": {
+    "phrases": [
+     "If you dig this tunnel under the building, it will collapse. So I strongly urge you not to do it."
+    ],
+    "ratio": [
+     26.021,
+     0.0,
+     0.0
+    ]
+   },
+   "R1": {
+    "phrases": [
+     "Look,",
+     "if you dig this tunnel under the building, it'll collapse.",
+     "So I would very strongly urge you not to go ahead with it."
+    ],
+    "ratio": [
+     1.245,
+     0.922,
+     0.996
+    ]
+   },
+   "R2": {
+    "phrases": [
+     "Look,",
+     "if you dig this tunnel under the building, it'll collapse.",
+     "So I would very strongly urge you not to go ahead with it."
+    ],
+    "ratio": [
+     1.245,
+     0.922,
+     0.996
+    ]
+   },
+   "R3": {
+    "phrases": [
+     "",
+     "if you dig this tunnel under the building, it'll collapse.",
+     "and I'd strongly urge you not to go ahead with it."
+    ],
+    "ratio": [
+     0.0,
+     0.922,
+     0.843
+    ]
+   },
+   "R0+place": {
+    "phrases": [
+     "If",
+     "you dig this tunnel under the building, it will collapse.",
+     "So I strongly urge you not to do it."
+    ],
+    "ratio": [
+     1.006,
+     0.898,
+     0.682
+    ]
+   },
+   "REF": {
+    "phrases": [
+     "If",
+     "you dig this tunnel below the building it will collapse,",
+     "so I urge you to not do it."
+    ],
+    "ratio": [
+     1.006,
+     0.901,
+     0.512
+    ]
+   }
+  },
+  "subset2-25": {
+   "R0": {
+    "phrases": [
+     "Don't you dare switch off. I think rhymes are fine, since they never get old, I could do this all day."
+    ],
+    "ratio": [
+     3.115,
+     0.0
+    ]
+   },
+   "R1": {
+    "phrases": [
+     "Don't you dare change the channel.",
+     "I think rhymes are just fine, since they never go out of style, I could do this all day."
+    ],
+    "ratio": [
+     0.995,
+     1.127
+    ]
+   },
+   "R2": {
+    "phrases": [
+     "Don't you dare change the channel.",
+     "I think rhymes are just fine, since they never go out of style, I could do this all day."
+    ],
+    "ratio": [
+     0.995,
+     1.127
+    ]
+   },
+   "R3": {
+    "phrases": [
+     "Don't you dare change the channel.",
+     "Rhymes are fine by me, they never get old, I could do this all day."
+    ],
+    "ratio": [
+     0.995,
+     0.827
+    ]
+   },
+   "R0+place": {
+    "phrases": [
+     "Don't you dare switch off.",
+     "I think rhymes are fine, since they never get old, I could do this all day."
+    ],
+    "ratio": [
+     0.781,
+     0.931
+    ]
+   },
+   "REF": {
+    "phrases": [
+     "Don't you dare switch away,",
+     "I think rhymes are okay, since they never decay, I could do this all day."
+    ],
+    "ratio": [
+     0.804,
+     0.892
+    ]
+   }
+  },
+  "subset2-26": {
+   "R0": {
+    "phrases": [
+     "\"I didn't come here to have you read my palm,\" he said, already regretting that he had come."
+    ],
+    "ratio": [
+     1.583,
+     0.0,
+     0.0
+    ]
+   },
+   "R1": {
+    "phrases": [
+     "\"I did not come all the way here to have you read my palm,\"",
+     "he said,",
+     "already regretting he came."
+    ],
+    "ratio": [
+     1.027,
+     0.65,
+     0.905
+    ]
+   },
+   "R2": {
+    "phrases": [
+     "\"I did not come all the way here to have you read my palm,\"",
+     "he then said,",
+     "already regretting he came."
+    ],
+    "ratio": [
+     1.027,
+     0.965,
+     0.905
+    ]
+   },
+   "R3": {
+    "phrases": [
+     "\"I didn't come here to have you read my palm,\"",
+     "he said,",
+     "already sorry he came."
+    ],
+    "ratio": [
+     0.811,
+     0.65,
+     0.794
+    ]
+   },
+   "R0+place": {
+    "phrases": [
+     "\"I didn't come here to have you read my",
+     "palm,\" he said,",
+     "already regretting that he had come."
+    ],
+    "ratio": [
+     0.72,
+     1.045,
+     1.18
+    ]
+   },
+   "REF": {
+    "phrases": [
+     "I didn't come here to have you read my",
+     "palm,\"\" he said,",
+     "already regretting having come."
+    ],
+    "ratio": [
+     0.72,
+     1.045,
+     1.0
+    ]
+   }
+  },
+  "subset2-27": {
+   "R0": {
+    "phrases": [
+     "On a scale from one (I feel nothing at all) to ten (I feel a great deal), how much pain are you feeling?"
+    ],
+    "ratio": [
+     1.276,
+     0.0
+    ]
+   },
+   "R1": {
+    "phrases": [
+     "On a scale of one, meaning I feel nothing at all, to ten, I feel a great deal,",
+     "how much pain are you feeling?"
+    ],
+    "ratio": [
+     0.978,
+     1.038
+    ]
+   },
+   "R2": {
+    "phrases": [
+     "On a scale of one, meaning I feel nothing at all, to ten, I feel a great deal,",
+     "how much pain are you feeling?"
+    ],
+    "ratio": [
+     0.978,
+     1.038
+    ]
+   },
+   "R3": {
+    "phrases": [
+     "On a scale from one, I feel nothing, to ten, I feel a lot,",
+     "how much pain are you in?"
+    ],
+    "ratio": [
+     0.754,
+     0.88
+    ]
+   },
+   "R0+place": {
+    "phrases": [
+     "On a scale from one (I feel nothing at all) to ten (I feel a great deal),",
+     "how much pain are you feeling?"
+    ],
+    "ratio": [
+     0.922,
+     1.038
+    ]
+   },
+   "REF": {
+    "phrases": [
+     "On a scale from one (for not at all) and ten (for very much),",
+     "how much pain do you feel?"
+    ],
+    "ratio": [
+     0.795,
+     0.959
+    ]
+   }
+  },
+  "subset2-28": {
+   "R0": {
+    "phrases": [
+     "When he kissed her on the cheek, she suddenly blushed and changed color faster than a chameleon."
+    ],
+    "ratio": [
+     1.51,
+     0.0
+    ]
+   },
+   "R1": {
+    "phrases": [
+     "When he gave her a kiss on the cheek, all of a sudden she blushed",
+     "and changed color faster than a chameleon."
+    ],
+    "ratio": [
+     1.011,
+     0.834
+    ]
+   },
+   "R2": {
+    "phrases": [
+     "When he gave her a kiss on the cheek, all of a sudden she blushed",
+     "and changed color faster than a chameleon."
+    ],
+    "ratio": [
+     1.011,
+     0.834
+    ]
+   },
+   "R3": {
+    "phrases": [
+     "When he gave her a kiss on the cheek, all of a sudden she blushed",
+     "and changed color faster than a chameleon."
+    ],
+    "ratio": [
+     1.011,
+     0.834
+    ]
+   },
+   "R0+place": {
+    "phrases": [
+     "When he kissed her on the cheek,",
+     "she suddenly blushed and changed color faster than a chameleon."
+    ],
+    "ratio": [
+     0.471,
+     1.235
+    ]
+   },
+   "REF": {
+    "phrases": [
+     "When he kissed her cheek, she suddenly blushed,",
+     "changing her color faster than a chameleon."
+    ],
+    "ratio": [
+     0.71,
+     0.847
+    ]
+   }
+  },
+  "subset2-29": {
+   "R0": {
+    "phrases": [
+     "When a fox hears a rabbit scream, it runs to it – but not to help it."
+    ],
+    "ratio": [
+     1.39,
+     0.0
+    ]
+   },
+   "R1": {
+    "phrases": [
+     "When a fox hears a rabbit scream, it runs to it –",
+     "but not to come to its aid."
+    ],
+    "ratio": [
+     0.981,
+     0.984
+    ]
+   },
+   "R2": {
+    "phrases": [
+     "When a fox hears a rabbit scream, it runs to it –",
+     "but not to come to its aid."
+    ],
+    "ratio": [
+     0.981,
+     0.984
+    ]
+   },
+   "R3": {
+    "phrases": [
+     "When a fox hears a rabbit scream, it runs over –",
+     "but not to help it."
+    ],
+    "ratio": [
+     0.951,
+     0.704
+    ]
+   },
+   "R0+place": {
+    "phrases": [
+     "When a fox hears a rabbit scream,",
+     "it runs to it – but not to help it."
+    ],
+    "ratio": [
+     0.672,
+     1.234
+    ]
+   },
+   "REF": {
+    "phrases": [
+     "When a fox hears a rabbit screaming it comes running,",
+     "but not to help."
+    ],
+    "ratio": [
+     1.023,
+     0.593
+    ]
+   }
+  },
+  "subset2-30": {
+   "R0": {
+    "phrases": [
+     "For a moment I had the urge to go back and help him, but I was too scared to do anything."
+    ],
+    "ratio": [
+     1.753,
+     0.0
+    ]
+   },
+   "R1": {
+    "phrases": [
+     "For a moment I felt the urge to go back and help him,",
+     "but I was too afraid to do anything at all."
+    ],
+    "ratio": [
+     1.067,
+     0.926
+    ]
+   },
+   "R2": {
+    "phrases": [
+     "For a moment I felt the urge to go back and help him,",
+     "but I was too afraid to do anything at all."
+    ],
+    "ratio": [
+     1.067,
+     0.926
+    ]
+   },
+   "R3": {
+    "phrases": [
+     "For a moment I wanted to go back and help him,",
+     "but I was too afraid to do anything at all."
+    ],
+    "ratio": [
+     0.967,
+     0.926
+    ]
+   },
+   "R0+place": {
+    "phrases": [
+     "For a moment I had the urge to go back and help him,",
+     "but I was too scared to do anything."
+    ],
+    "ratio": [
+     1.034,
+     0.774
+    ]
+   },
+   "REF": {
+    "phrases": [
+     "I had a momentary impulse to go back and help him,",
+     "but I was too scared to do anything."
+    ],
+    "ratio": [
+     1.025,
+     0.774
+    ]
+   }
+  },
+  "subset2-31": {
+   "R0": {
+    "phrases": [
+     "I always thought I should be upset, but the truth is I really couldn't care less."
+    ],
+    "ratio": [
+     2.121,
+     0.0
+    ]
+   },
+   "R1": {
+    "phrases": [
+     "I always thought I should be upset,",
+     "but the truth of the matter is that I really couldn't care any less."
+    ],
+    "ratio": [
+     0.95,
+     0.908
+    ]
+   },
+   "R2": {
+    "phrases": [
+     "I always thought I should be upset,",
+     "but the truth of the matter is that I really couldn't care any less."
+    ],
+    "ratio": [
+     0.95,
+     0.908
+    ]
+   },
+   "R3": {
+    "phrases": [
+     "I always thought I should be mad,",
+     "but the truth of the matter is that I really couldn't care any less."
+    ],
+    "ratio": [
+     0.884,
+     0.908
+    ]
+   },
+   "R0+place": {
+    "phrases": [
+     "I always thought I should be upset,",
+     "but the truth is I really couldn't care less."
+    ],
+    "ratio": [
+     0.95,
+     0.605
+    ]
+   },
+   "REF": {
+    "phrases": [
+     "I kept thinking that I should be upset,",
+     "but the truth is I really just couldn't care less."
+    ],
+    "ratio": [
+     1.119,
+     0.696
+    ]
+   }
+  },
+  "subset2-32": {
+   "R0": {
+    "phrases": [
+     "He stood up, and as he went back to his seat, everyone in the room questioned the meaning of life."
+    ],
+    "ratio": [
+     5.929,
+     0.0,
+     0.0
+    ]
+   },
+   "R1": {
+    "phrases": [
+     "He got to his feet,",
+     "and as he made his way back to his seat,",
+     "everyone in the room questioned the meaning of life."
+    ],
+    "ratio": [
+     1.29,
+     1.109,
+     1.065
+    ]
+   },
+   "R2": {
+    "phrases": [
+     "He stood up,",
+     "and as he made his way back to his seat,",
+     "everyone in the room questioned the meaning of life."
+    ],
+    "ratio": [
+     0.773,
+     1.109,
+     1.065
+    ]
+   },
+   "R3": {
+    "phrases": [
+     "He stood up,",
+     "and as he went back to his seat,",
+     "the whole room questioned the meaning of life."
+    ],
+    "ratio": [
+     0.773,
+     0.908,
+     0.907
+    ]
+   },
+   "R0+place": {
+    "phrases": [
+     "He stood up,",
+     "and as he went back to his seat,",
+     "everyone in the room questioned the meaning of life."
+    ],
+    "ratio": [
+     0.773,
+     0.908,
+     1.065
+    ]
+   },
+   "REF": {
+    "phrases": [
+     "He stood up,",
+     "and by the time he went back to his seat",
+     "everybody in the room was questioning the meaning of life."
+    ],
+    "ratio": [
+     0.773,
+     1.109,
+     1.23
+    ]
+   }
+  }
+ }
+}
