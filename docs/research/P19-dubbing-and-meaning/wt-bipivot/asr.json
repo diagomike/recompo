@@ -1,0 +1,2118 @@
+{
+ "subset2-81": {
+  "segments": [
+   "Wenn Sie mit dem Satz fertig sind.",
+   "Klicken Sie zum Beenden der Aufnahme auf die untere rote Schaltfläche."
+  ],
+  "whole": "Wenn Sie mit dem Satz fertig sind. Klicken Sie zum Beenden der Aufnahme auf die untere rote Schaltfläche.",
+  "words": [
+   {
+    "text": "Wenn",
+    "start": 0.726,
+    "end": 0.966
+   },
+   {
+    "text": "Sie",
+    "start": 0.966,
+    "end": 1.126
+   },
+   {
+    "text": "mit",
+    "start": 1.126,
+    "end": 1.286
+   },
+   {
+    "text": "dem",
+    "start": 1.286,
+    "end": 1.446
+   },
+   {
+    "text": "Satz",
+    "start": 1.446,
+    "end": 1.846
+   },
+   {
+    "text": "fertig",
+    "start": 1.846,
+    "end": 2.246
+   },
+   {
+    "text": "sind.",
+    "start": 2.246,
+    "end": 2.726
+   },
+   {
+    "text": "Klicken",
+    "start": 3.526,
+    "end": 4.086
+   },
+   {
+    "text": "Sie",
+    "start": 4.086,
+    "end": 4.406
+   },
+   {
+    "text": "zum",
+    "start": 4.406,
+    "end": 4.646
+   },
+   {
+    "text": "Beenden",
+    "start": 4.646,
+    "end": 5.046
+   },
+   {
+    "text": "der",
+    "start": 5.206,
+    "end": 5.446
+   },
+   {
+    "text": "Aufnahme",
+    "start": 5.446,
+    "end": 6.086
+   },
+   {
+    "text": "auf",
+    "start": 6.086,
+    "end": 6.246
+   },
+   {
+    "text": "die",
+    "start": 6.246,
+    "end": 6.406
+   },
+   {
+    "text": "untere",
+    "start": 6.406,
+    "end": 6.806
+   },
+   {
+    "text": "rote",
+    "start": 6.806,
+    "end": 7.286
+   },
+   {
+    "text": "Schaltfläche.",
+    "start": 7.286,
+    "end": 8.246
+   }
+  ]
+ },
+ "subset2-82": {
+  "segments": [
+   "Er erinnerte sich an etwas, das sein Großvater einst von ihm gesagt hatte.",
+   "Schmetterlinge sind ein gutes Vorzeichen."
+  ],
+  "whole": "Er erinnerte sich an etwas, das sein Großvater einst von ihm gesagt hatte. Schmetterlinge sind ein gutes Vorzeichen.",
+  "words": [
+   {
+    "text": "Er",
+    "start": 0.486,
+    "end": 0.806
+   },
+   {
+    "text": "erinnerte",
+    "start": 0.806,
+    "end": 1.286
+   },
+   {
+    "text": "sich",
+    "start": 1.446,
+    "end": 1.686
+   },
+   {
+    "text": "an",
+    "start": 1.686,
+    "end": 1.846
+   },
+   {
+    "text": "etwas,",
+    "start": 1.846,
+    "end": 2.246
+   },
+   {
+    "text": "das",
+    "start": 2.326,
+    "end": 2.566
+   },
+   {
+    "text": "sein",
+    "start": 2.566,
+    "end": 2.806
+   },
+   {
+    "text": "Großvater",
+    "start": 2.886,
+    "end": 3.606
+   },
+   {
+    "text": "einst",
+    "start": 3.606,
+    "end": 4.166
+   },
+   {
+    "text": "von",
+    "start": 4.166,
+    "end": 4.406
+   },
+   {
+    "text": "ihm",
+    "start": 4.406,
+    "end": 4.646
+   },
+   {
+    "text": "gesagt",
+    "start": 4.646,
+    "end": 5.126
+   },
+   {
+    "text": "hatte.",
+    "start": 5.126,
+    "end": 5.446
+   },
+   {
+    "text": "Schmetterlinge",
+    "start": 6.694,
+    "end": 7.654
+   },
+   {
+    "text": "sind",
+    "start": 7.654,
+    "end": 7.814
+   },
+   {
+    "text": "ein",
+    "start": 7.814,
+    "end": 8.054
+   },
+   {
+    "text": "gutes",
+    "start": 8.054,
+    "end": 8.454
+   },
+   {
+    "text": "Vorzeichen.",
+    "start": 8.454,
+    "end": 9.174
+   }
+  ]
+ },
+ "subset2-83": {
+  "segments": [
+   "Schmerzen mit etwas essen.",
+   "Brot.",
+   "sind weniger erträglich.",
+   "Kummer und Fett ist besser als Kummer und Mager."
+  ],
+  "whole": "Schmerzen mit etwas essen. Brot. sind weniger erträglich. Kummer und Fett ist besser als Kummer und Mager.",
+  "words": [
+   {
+    "text": "Schmerzen",
+    "start": 0.79,
+    "end": 1.51
+   },
+   {
+    "text": "mit",
+    "start": 1.51,
+    "end": 1.75
+   },
+   {
+    "text": "etwas",
+    "start": 1.75,
+    "end": 1.99
+   },
+   {
+    "text": "essen.",
+    "start": 2.23,
+    "end": 2.63
+   },
+   {
+    "text": "Brot.",
+    "start": 2.95,
+    "end": 3.35
+   },
+   {
+    "text": "sind",
+    "start": 4.038,
+    "end": 4.118
+   },
+   {
+    "text": "weniger",
+    "start": 4.278,
+    "end": 4.678
+   },
+   {
+    "text": "erträglich.",
+    "start": 4.758,
+    "end": 5.478
+   },
+   {
+    "text": "Kummer",
+    "start": 6.166,
+    "end": 6.566
+   },
+   {
+    "text": "und",
+    "start": 6.566,
+    "end": 6.726
+   },
+   {
+    "text": "Fett",
+    "start": 6.726,
+    "end": 7.126
+   },
+   {
+    "text": "ist",
+    "start": 7.286,
+    "end": 7.446
+   },
+   {
+    "text": "besser",
+    "start": 7.446,
+    "end": 7.686
+   },
+   {
+    "text": "als",
+    "start": 7.686,
+    "end": 7.846
+   },
+   {
+    "text": "Kummer",
+    "start": 7.846,
+    "end": 8.326
+   },
+   {
+    "text": "und",
+    "start": 8.326,
+    "end": 8.486
+   },
+   {
+    "text": "Mager.",
+    "start": 8.486,
+    "end": 9.046
+   }
+  ]
+ },
+ "subset2-84": {
+  "segments": [
+   "Selbst ich.",
+   "Ich habe nicht an andere Frauen gedacht.",
+   "seit ich die Tochter des Kaufmanns kennengelernt habe."
+  ],
+  "whole": "Selbst ich. Ich habe nicht an andere Frauen gedacht. seit ich die Tochter des Kaufmanns kennengelernt habe.",
+  "words": [
+   {
+    "text": "Selbst",
+    "start": 0.774,
+    "end": 1.174
+   },
+   {
+    "text": "ich.",
+    "start": 1.174,
+    "end": 1.494
+   },
+   {
+    "text": "Ich",
+    "start": 2.774,
+    "end": 3.014
+   },
+   {
+    "text": "habe",
+    "start": 3.014,
+    "end": 3.334
+   },
+   {
+    "text": "nicht",
+    "start": 3.334,
+    "end": 3.574
+   },
+   {
+    "text": "an",
+    "start": 3.574,
+    "end": 3.814
+   },
+   {
+    "text": "andere",
+    "start": 3.814,
+    "end": 4.134
+   },
+   {
+    "text": "Frauen",
+    "start": 4.214,
+    "end": 4.614
+   },
+   {
+    "text": "gedacht.",
+    "start": 4.614,
+    "end": 5.094
+   },
+   {
+    "text": "seit",
+    "start": 5.734,
+    "end": 6.054
+   },
+   {
+    "text": "ich",
+    "start": 6.054,
+    "end": 6.214
+   },
+   {
+    "text": "die",
+    "start": 6.214,
+    "end": 6.374
+   },
+   {
+    "text": "Tochter",
+    "start": 6.374,
+    "end": 6.694
+   },
+   {
+    "text": "des",
+    "start": 6.694,
+    "end": 6.854
+   },
+   {
+    "text": "Kaufmanns",
+    "start": 6.854,
+    "end": 7.494
+   },
+   {
+    "text": "kennengelernt",
+    "start": 7.654,
+    "end": 8.374
+   },
+   {
+    "text": "habe.",
+    "start": 8.374,
+    "end": 8.694
+   }
+  ]
+ },
+ "subset2-85": {
+  "segments": [
+   "Sehr nützlich wäre es, wenn mein Webbrowser die Möglichkeit hätte, alle seine Präferenzen zu synchronisieren.",
+   "Nicht nur einige."
+  ],
+  "whole": "Sehr nützlich wäre es, wenn mein Webbrowser die Möglichkeit hätte, alle seine Präferenzen zu synchronisieren. Nicht nur einige.",
+  "words": [
+   {
+    "text": "Sehr",
+    "start": 0.87,
+    "end": 1.19
+   },
+   {
+    "text": "nützlich",
+    "start": 1.19,
+    "end": 1.75
+   },
+   {
+    "text": "wäre",
+    "start": 1.75,
+    "end": 2.15
+   },
+   {
+    "text": "es,",
+    "start": 2.07,
+    "end": 2.39
+   },
+   {
+    "text": "wenn",
+    "start": 2.39,
+    "end": 2.63
+   },
+   {
+    "text": "mein",
+    "start": 2.63,
+    "end": 2.95
+   },
+   {
+    "text": "Webbrowser",
+    "start": 2.95,
+    "end": 3.91
+   },
+   {
+    "text": "die",
+    "start": 3.91,
+    "end": 4.07
+   },
+   {
+    "text": "Möglichkeit",
+    "start": 4.07,
+    "end": 4.63
+   },
+   {
+    "text": "hätte,",
+    "start": 4.63,
+    "end": 5.19
+   },
+   {
+    "text": "alle",
+    "start": 5.19,
+    "end": 5.51
+   },
+   {
+    "text": "seine",
+    "start": 5.51,
+    "end": 5.83
+   },
+   {
+    "text": "Präferenzen",
+    "start": 5.83,
+    "end": 6.55
+   },
+   {
+    "text": "zu",
+    "start": 6.55,
+    "end": 6.71
+   },
+   {
+    "text": "synchronisieren.",
+    "start": 6.71,
+    "end": 7.59
+   },
+   {
+    "text": "Nicht",
+    "start": 8.614,
+    "end": 8.854
+   },
+   {
+    "text": "nur",
+    "start": 8.854,
+    "end": 9.014
+   },
+   {
+    "text": "einige.",
+    "start": 9.014,
+    "end": 9.494
+   }
+  ]
+ },
+ "subset2-86": {
+  "segments": [
+   "Macht die Fensterläden auf und das Licht aus.",
+   "Wir können es uns nicht leisten, Strom zu vergolden."
+  ],
+  "whole": "Macht die Fensterläden auf und das Licht aus. Wir können es uns nicht leisten, Strom zu vergolden.",
+  "words": [
+   {
+    "text": "Macht",
+    "start": 0.966,
+    "end": 1.286
+   },
+   {
+    "text": "die",
+    "start": 1.286,
+    "end": 1.446
+   },
+   {
+    "text": "Fensterläden",
+    "start": 1.446,
+    "end": 2.566
+   },
+   {
+    "text": "auf",
+    "start": 2.566,
+    "end": 2.806
+   },
+   {
+    "text": "und",
+    "start": 2.806,
+    "end": 3.046
+   },
+   {
+    "text": "das",
+    "start": 3.046,
+    "end": 3.206
+   },
+   {
+    "text": "Licht",
+    "start": 3.206,
+    "end": 3.606
+   },
+   {
+    "text": "aus.",
+    "start": 3.606,
+    "end": 4.006
+   },
+   {
+    "text": "Wir",
+    "start": 5.158,
+    "end": 5.398
+   },
+   {
+    "text": "können",
+    "start": 5.398,
+    "end": 5.638
+   },
+   {
+    "text": "es",
+    "start": 5.638,
+    "end": 5.878
+   },
+   {
+    "text": "uns",
+    "start": 5.878,
+    "end": 6.118
+   },
+   {
+    "text": "nicht",
+    "start": 6.118,
+    "end": 6.278
+   },
+   {
+    "text": "leisten,",
+    "start": 6.278,
+    "end": 6.838
+   },
+   {
+    "text": "Strom",
+    "start": 6.838,
+    "end": 7.238
+   },
+   {
+    "text": "zu",
+    "start": 7.238,
+    "end": 7.398
+   },
+   {
+    "text": "vergolden.",
+    "start": 7.398,
+    "end": 7.958
+   }
+  ]
+ },
+ "subset2-87": {
+  "segments": [
+   "Als sie etwas Geld von ihrem Bankkonto abheben wollte,",
+   "zeigte der Geldautomat an, dass ihre Karte ungültig war."
+  ],
+  "whole": "Als sie etwas Geld von ihrem Bankkonto abheben wollte, zeigte der Geldautomat an, dass ihre Karte ungültig war.",
+  "words": [
+   {
+    "text": "Als",
+    "start": 1.286,
+    "end": 1.446
+   },
+   {
+    "text": "sie",
+    "start": 1.606,
+    "end": 1.846
+   },
+   {
+    "text": "etwas",
+    "start": 1.846,
+    "end": 2.166
+   },
+   {
+    "text": "Geld",
+    "start": 2.166,
+    "end": 2.486
+   },
+   {
+    "text": "von",
+    "start": 2.486,
+    "end": 2.726
+   },
+   {
+    "text": "ihrem",
+    "start": 2.726,
+    "end": 3.046
+   },
+   {
+    "text": "Bankkonto",
+    "start": 3.046,
+    "end": 3.766
+   },
+   {
+    "text": "abheben",
+    "start": 4.006,
+    "end": 4.726
+   },
+   {
+    "text": "wollte,",
+    "start": 4.726,
+    "end": 5.286
+   },
+   {
+    "text": "zeigte",
+    "start": 6.79,
+    "end": 7.19
+   },
+   {
+    "text": "der",
+    "start": 7.19,
+    "end": 7.35
+   },
+   {
+    "text": "Geldautomat",
+    "start": 7.35,
+    "end": 8.31
+   },
+   {
+    "text": "an,",
+    "start": 8.31,
+    "end": 8.63
+   },
+   {
+    "text": "dass",
+    "start": 8.63,
+    "end": 8.79
+   },
+   {
+    "text": "ihre",
+    "start": 8.79,
+    "end": 8.95
+   },
+   {
+    "text": "Karte",
+    "start": 9.19,
+    "end": 9.43
+   },
+   {
+    "text": "ungültig",
+    "start": 9.59,
+    "end": 10.23
+   },
+   {
+    "text": "war.",
+    "start": 10.23,
+    "end": 10.55
+   }
+  ]
+ },
+ "subset2-88": {
+  "segments": [
+   "Sie war nicht zu Hause.",
+   "Ein Nachbar vermutete, dass sie letzte Nacht wahrscheinlich nicht nach Hause gekommen sei."
+  ],
+  "whole": "Sie war nicht zu Hause. Ein Nachbar vermutete, dass sie letzte Nacht wahrscheinlich nicht nach Hause gekommen sei.",
+  "words": [
+   {
+    "text": "Sie",
+    "start": 0.55,
+    "end": 0.71
+   },
+   {
+    "text": "war",
+    "start": 0.71,
+    "end": 0.87
+   },
+   {
+    "text": "nicht",
+    "start": 0.87,
+    "end": 1.11
+   },
+   {
+    "text": "zu",
+    "start": 1.11,
+    "end": 1.27
+   },
+   {
+    "text": "Hause.",
+    "start": 1.27,
+    "end": 1.67
+   },
+   {
+    "text": "Ein",
+    "start": 3.142,
+    "end": 3.462
+   },
+   {
+    "text": "Nachbar",
+    "start": 3.462,
+    "end": 4.022
+   },
+   {
+    "text": "vermutete,",
+    "start": 4.022,
+    "end": 4.902
+   },
+   {
+    "text": "dass",
+    "start": 4.902,
+    "end": 5.142
+   },
+   {
+    "text": "sie",
+    "start": 5.142,
+    "end": 5.462
+   },
+   {
+    "text": "letzte",
+    "start": 5.462,
+    "end": 5.862
+   },
+   {
+    "text": "Nacht",
+    "start": 5.862,
+    "end": 6.182
+   },
+   {
+    "text": "wahrscheinlich",
+    "start": 6.182,
+    "end": 6.822
+   },
+   {
+    "text": "nicht",
+    "start": 6.822,
+    "end": 7.062
+   },
+   {
+    "text": "nach",
+    "start": 7.062,
+    "end": 7.302
+   },
+   {
+    "text": "Hause",
+    "start": 7.302,
+    "end": 7.622
+   },
+   {
+    "text": "gekommen",
+    "start": 7.622,
+    "end": 8.022
+   },
+   {
+    "text": "sei.",
+    "start": 8.022,
+    "end": 8.342
+   }
+  ]
+ },
+ "subset2-89": {
+  "segments": [
+   "Der Junge bemerkte, dass der Besitzer der Bar in der Nähe stand.",
+   "aufmerksam Ihrem Gespräch zuhört."
+  ],
+  "whole": "Der Junge bemerkte, dass der Besitzer der Bar in der Nähe stand. aufmerksam Ihrem Gespräch zuhört.",
+  "words": [
+   {
+    "text": "Der",
+    "start": 0.838,
+    "end": 1.078
+   },
+   {
+    "text": "Junge",
+    "start": 1.078,
+    "end": 1.558
+   },
+   {
+    "text": "bemerkte,",
+    "start": 1.558,
+    "end": 2.118
+   },
+   {
+    "text": "dass",
+    "start": 2.118,
+    "end": 2.278
+   },
+   {
+    "text": "der",
+    "start": 2.278,
+    "end": 2.438
+   },
+   {
+    "text": "Besitzer",
+    "start": 2.438,
+    "end": 2.998
+   },
+   {
+    "text": "der",
+    "start": 2.998,
+    "end": 3.158
+   },
+   {
+    "text": "Bar",
+    "start": 3.158,
+    "end": 3.318
+   },
+   {
+    "text": "in",
+    "start": 3.398,
+    "end": 3.558
+   },
+   {
+    "text": "der",
+    "start": 3.558,
+    "end": 3.798
+   },
+   {
+    "text": "Nähe",
+    "start": 3.798,
+    "end": 4.118
+   },
+   {
+    "text": "stand.",
+    "start": 4.118,
+    "end": 4.518
+   },
+   {
+    "text": "aufmerksam",
+    "start": 5.718,
+    "end": 6.518
+   },
+   {
+    "text": "Ihrem",
+    "start": 6.678,
+    "end": 6.998
+   },
+   {
+    "text": "Gespräch",
+    "start": 6.998,
+    "end": 7.478
+   },
+   {
+    "text": "zuhört.",
+    "start": 7.478,
+    "end": 8.198
+   }
+  ]
+ },
+ "subset2-90": {
+  "segments": [
+   "Die Region ist für ihr reiches Kupfervorkommen bekannt.",
+   "so dass hier Bergbau in großem Stil betrieben wird."
+  ],
+  "whole": "Die Region ist für ihr reiches Kupfervorkommen bekannt. so dass hier Bergbau in großem Stil betrieben wird.",
+  "words": [
+   {
+    "text": "Die",
+    "start": 0.358,
+    "end": 0.598
+   },
+   {
+    "text": "Region",
+    "start": 0.598,
+    "end": 1.158
+   },
+   {
+    "text": "ist",
+    "start": 1.158,
+    "end": 1.318
+   },
+   {
+    "text": "für",
+    "start": 1.318,
+    "end": 1.558
+   },
+   {
+    "text": "ihr",
+    "start": 1.558,
+    "end": 1.798
+   },
+   {
+    "text": "reiches",
+    "start": 1.798,
+    "end": 2.278
+   },
+   {
+    "text": "Kupfervorkommen",
+    "start": 2.278,
+    "end": 3.398
+   },
+   {
+    "text": "bekannt.",
+    "start": 3.398,
+    "end": 3.798
+   },
+   {
+    "text": "so",
+    "start": 5.062,
+    "end": 5.142
+   },
+   {
+    "text": "dass",
+    "start": 5.302,
+    "end": 5.462
+   },
+   {
+    "text": "hier",
+    "start": 5.462,
+    "end": 5.542
+   },
+   {
+    "text": "Bergbau",
+    "start": 5.782,
+    "end": 6.582
+   },
+   {
+    "text": "in",
+    "start": 6.582,
+    "end": 6.902
+   },
+   {
+    "text": "großem",
+    "start": 6.902,
+    "end": 7.382
+   },
+   {
+    "text": "Stil",
+    "start": 7.382,
+    "end": 7.702
+   },
+   {
+    "text": "betrieben",
+    "start": 7.862,
+    "end": 8.342
+   },
+   {
+    "text": "wird.",
+    "start": 8.342,
+    "end": 8.582
+   }
+  ]
+ },
+ "subset2-91": {
+  "segments": [
+   "Die Frau sagte, dass sie noch nie von einer solchen Person gehört hat.",
+   "ging schnell weg."
+  ],
+  "whole": "Die Frau sagte, dass sie noch nie von einer solchen Person gehört hat. ging schnell weg.",
+  "words": [
+   {
+    "text": "Die",
+    "start": 0.646,
+    "end": 0.886
+   },
+   {
+    "text": "Frau",
+    "start": 0.886,
+    "end": 1.286
+   },
+   {
+    "text": "sagte,",
+    "start": 1.286,
+    "end": 1.846
+   },
+   {
+    "text": "dass",
+    "start": 1.846,
+    "end": 2.006
+   },
+   {
+    "text": "sie",
+    "start": 2.006,
+    "end": 2.246
+   },
+   {
+    "text": "noch",
+    "start": 2.246,
+    "end": 2.486
+   },
+   {
+    "text": "nie",
+    "start": 2.486,
+    "end": 2.806
+   },
+   {
+    "text": "von",
+    "start": 2.806,
+    "end": 3.126
+   },
+   {
+    "text": "einer",
+    "start": 3.126,
+    "end": 3.446
+   },
+   {
+    "text": "solchen",
+    "start": 3.526,
+    "end": 4.006
+   },
+   {
+    "text": "Person",
+    "start": 4.006,
+    "end": 4.486
+   },
+   {
+    "text": "gehört",
+    "start": 4.486,
+    "end": 4.966
+   },
+   {
+    "text": "hat.",
+    "start": 4.966,
+    "end": 5.366
+   },
+   {
+    "text": "ging",
+    "start": 6.518,
+    "end": 6.918
+   },
+   {
+    "text": "schnell",
+    "start": 6.918,
+    "end": 7.398
+   },
+   {
+    "text": "weg.",
+    "start": 7.398,
+    "end": 7.718
+   }
+  ]
+ },
+ "subset2-92": {
+  "segments": [
+   "Der Junge trat an das Mädchen näher heran.",
+   "Und als sie lächelte,",
+   "Tat er es ihr gleich."
+  ],
+  "whole": "Der Junge trat an das Mädchen näher heran. Und als sie lächelte, Tat er es ihr gleich.",
+  "words": [
+   {
+    "text": "Der",
+    "start": 0.934,
+    "end": 1.174
+   },
+   {
+    "text": "Junge",
+    "start": 1.174,
+    "end": 1.654
+   },
+   {
+    "text": "trat",
+    "start": 1.654,
+    "end": 2.054
+   },
+   {
+    "text": "an",
+    "start": 2.054,
+    "end": 2.214
+   },
+   {
+    "text": "das",
+    "start": 2.214,
+    "end": 2.374
+   },
+   {
+    "text": "Mädchen",
+    "start": 2.374,
+    "end": 2.934
+   },
+   {
+    "text": "näher",
+    "start": 2.934,
+    "end": 3.334
+   },
+   {
+    "text": "heran.",
+    "start": 3.334,
+    "end": 3.734
+   },
+   {
+    "text": "Und",
+    "start": 5.126,
+    "end": 5.206
+   },
+   {
+    "text": "als",
+    "start": 5.366,
+    "end": 5.526
+   },
+   {
+    "text": "sie",
+    "start": 5.526,
+    "end": 5.686
+   },
+   {
+    "text": "lächelte,",
+    "start": 5.686,
+    "end": 6.326
+   },
+   {
+    "text": "Tat",
+    "start": 6.918,
+    "end": 7.238
+   },
+   {
+    "text": "er",
+    "start": 7.238,
+    "end": 7.398
+   },
+   {
+    "text": "es",
+    "start": 7.398,
+    "end": 7.638
+   },
+   {
+    "text": "ihr",
+    "start": 7.638,
+    "end": 7.798
+   },
+   {
+    "text": "gleich.",
+    "start": 7.958,
+    "end": 8.518
+   }
+  ]
+ },
+ "subset2-93": {
+  "segments": [
+   "Wenn Sie etwas sehen, das Ihnen gefällt.",
+   "Dann nehmen sie es sich.",
+   "Und machen Sie es besser."
+  ],
+  "whole": "Wenn Sie etwas sehen, das Ihnen gefällt. Dann nehmen sie es sich. Und machen Sie es besser.",
+  "words": [
+   {
+    "text": "Wenn",
+    "start": 0.71,
+    "end": 1.03
+   },
+   {
+    "text": "Sie",
+    "start": 1.03,
+    "end": 1.27
+   },
+   {
+    "text": "etwas",
+    "start": 1.27,
+    "end": 1.59
+   },
+   {
+    "text": "sehen,",
+    "start": 1.59,
+    "end": 1.99
+   },
+   {
+    "text": "das",
+    "start": 1.99,
+    "end": 2.23
+   },
+   {
+    "text": "Ihnen",
+    "start": 2.23,
+    "end": 2.47
+   },
+   {
+    "text": "gefällt.",
+    "start": 2.47,
+    "end": 3.11
+   },
+   {
+    "text": "Dann",
+    "start": 4.566,
+    "end": 4.806
+   },
+   {
+    "text": "nehmen",
+    "start": 4.806,
+    "end": 5.126
+   },
+   {
+    "text": "sie",
+    "start": 5.126,
+    "end": 5.366
+   },
+   {
+    "text": "es",
+    "start": 5.366,
+    "end": 5.606
+   },
+   {
+    "text": "sich.",
+    "start": 5.606,
+    "end": 5.926
+   },
+   {
+    "text": "Und",
+    "start": 6.326,
+    "end": 6.486
+   },
+   {
+    "text": "machen",
+    "start": 6.486,
+    "end": 6.806
+   },
+   {
+    "text": "Sie",
+    "start": 6.806,
+    "end": 6.966
+   },
+   {
+    "text": "es",
+    "start": 6.966,
+    "end": 7.126
+   },
+   {
+    "text": "besser.",
+    "start": 7.126,
+    "end": 7.526
+   }
+  ]
+ },
+ "subset2-94": {
+  "segments": [
+   "Er machte einen Moment Pause.",
+   "Um zu prüfen.",
+   "ob die Frau über den ägyptischen Pyramiden Bescheid wusste."
+  ],
+  "whole": "Er machte einen Moment Pause. Um zu prüfen. ob die Frau über den ägyptischen Pyramiden Bescheid wusste.",
+  "words": [
+   {
+    "text": "Er",
+    "start": 1.27,
+    "end": 1.51
+   },
+   {
+    "text": "machte",
+    "start": 1.51,
+    "end": 1.91
+   },
+   {
+    "text": "einen",
+    "start": 1.91,
+    "end": 2.23
+   },
+   {
+    "text": "Moment",
+    "start": 2.23,
+    "end": 2.63
+   },
+   {
+    "text": "Pause.",
+    "start": 2.63,
+    "end": 3.11
+   },
+   {
+    "text": "Um",
+    "start": 4.838,
+    "end": 4.998
+   },
+   {
+    "text": "zu",
+    "start": 4.998,
+    "end": 5.158
+   },
+   {
+    "text": "prüfen.",
+    "start": 5.158,
+    "end": 5.558
+   },
+   {
+    "text": "ob",
+    "start": 5.83,
+    "end": 5.91
+   },
+   {
+    "text": "die",
+    "start": 6.15,
+    "end": 6.31
+   },
+   {
+    "text": "Frau",
+    "start": 6.31,
+    "end": 6.71
+   },
+   {
+    "text": "über",
+    "start": 6.71,
+    "end": 6.87
+   },
+   {
+    "text": "den",
+    "start": 6.87,
+    "end": 7.11
+   },
+   {
+    "text": "ägyptischen",
+    "start": 7.11,
+    "end": 7.75
+   },
+   {
+    "text": "Pyramiden",
+    "start": 7.75,
+    "end": 8.39
+   },
+   {
+    "text": "Bescheid",
+    "start": 8.39,
+    "end": 8.87
+   },
+   {
+    "text": "wusste.",
+    "start": 8.87,
+    "end": 9.43
+   }
+  ]
+ },
+ "subset2-95": {
+  "segments": [
+   "Nachdem allerdings die Labour Party an die Macht gekommen war.",
+   "ebte das engagement gegen die Apparte ab."
+  ],
+  "whole": "Nachdem allerdings die Labour Party an die Macht gekommen war. ebte das engagement gegen die Apparte ab.",
+  "words": [
+   {
+    "text": "Nachdem",
+    "start": 0.742,
+    "end": 1.382
+   },
+   {
+    "text": "allerdings",
+    "start": 1.382,
+    "end": 1.862
+   },
+   {
+    "text": "die",
+    "start": 1.862,
+    "end": 2.022
+   },
+   {
+    "text": "Labour",
+    "start": 2.022,
+    "end": 2.582
+   },
+   {
+    "text": "Party",
+    "start": 2.582,
+    "end": 3.222
+   },
+   {
+    "text": "an",
+    "start": 3.222,
+    "end": 3.542
+   },
+   {
+    "text": "die",
+    "start": 3.542,
+    "end": 3.702
+   },
+   {
+    "text": "Macht",
+    "start": 3.702,
+    "end": 4.022
+   },
+   {
+    "text": "gekommen",
+    "start": 4.022,
+    "end": 4.502
+   },
+   {
+    "text": "war.",
+    "start": 4.502,
+    "end": 4.822
+   },
+   {
+    "text": "ebte",
+    "start": 6.214,
+    "end": 6.854
+   },
+   {
+    "text": "das",
+    "start": 6.854,
+    "end": 7.174
+   },
+   {
+    "text": "engagement",
+    "start": 7.174,
+    "end": 7.974
+   },
+   {
+    "text": "gegen",
+    "start": 7.974,
+    "end": 8.374
+   },
+   {
+    "text": "die",
+    "start": 8.374,
+    "end": 8.614
+   },
+   {
+    "text": "Apparte",
+    "start": 8.614,
+    "end": 9.094
+   },
+   {
+    "text": "ab.",
+    "start": 9.494,
+    "end": 9.814
+   }
+  ]
+ },
+ "subset2-96": {
+  "segments": [
+   "Er machte sich bei Chentaffe einen Namen.",
+   "nachdem er aus den Cantera von Real Madrid gekommen war."
+  ],
+  "whole": "Er machte sich bei Chentaffe einen Namen. nachdem er aus den Cantera von Real Madrid gekommen war.",
+  "words": [
+   {
+    "text": "Er",
+    "start": 0.918,
+    "end": 1.078
+   },
+   {
+    "text": "machte",
+    "start": 1.078,
+    "end": 1.478
+   },
+   {
+    "text": "sich",
+    "start": 1.478,
+    "end": 1.638
+   },
+   {
+    "text": "bei",
+    "start": 1.638,
+    "end": 1.798
+   },
+   {
+    "text": "Chentaffe",
+    "start": 1.798,
+    "end": 2.758
+   },
+   {
+    "text": "einen",
+    "start": 2.758,
+    "end": 2.998
+   },
+   {
+    "text": "Namen.",
+    "start": 2.998,
+    "end": 3.478
+   },
+   {
+    "text": "nachdem",
+    "start": 4.566,
+    "end": 5.046
+   },
+   {
+    "text": "er",
+    "start": 5.046,
+    "end": 5.286
+   },
+   {
+    "text": "aus",
+    "start": 5.286,
+    "end": 5.526
+   },
+   {
+    "text": "den",
+    "start": 5.526,
+    "end": 5.766
+   },
+   {
+    "text": "Cantera",
+    "start": 5.766,
+    "end": 6.646
+   },
+   {
+    "text": "von",
+    "start": 6.646,
+    "end": 6.806
+   },
+   {
+    "text": "Real",
+    "start": 6.806,
+    "end": 7.206
+   },
+   {
+    "text": "Madrid",
+    "start": 7.206,
+    "end": 7.766
+   },
+   {
+    "text": "gekommen",
+    "start": 7.766,
+    "end": 8.086
+   },
+   {
+    "text": "war.",
+    "start": 8.086,
+    "end": 8.406
+   }
+  ]
+ },
+ "subset2-97": {
+  "segments": [
+   "Experten der Geologie sind sich einig.",
+   "Der Tsunami von gestern war nur ein Vorbote der bevorstehenden Apokalypse."
+  ],
+  "whole": "Experten der Geologie sind sich einig. Der Tsunami von gestern war nur ein Vorbote der bevorstehenden Apokalypse.",
+  "words": [
+   {
+    "text": "Experten",
+    "start": 0.582,
+    "end": 1.142
+   },
+   {
+    "text": "der",
+    "start": 1.142,
+    "end": 1.382
+   },
+   {
+    "text": "Geologie",
+    "start": 1.382,
+    "end": 2.262
+   },
+   {
+    "text": "sind",
+    "start": 2.262,
+    "end": 2.422
+   },
+   {
+    "text": "sich",
+    "start": 2.662,
+    "end": 2.902
+   },
+   {
+    "text": "einig.",
+    "start": 2.902,
+    "end": 3.542
+   },
+   {
+    "text": "Der",
+    "start": 4.518,
+    "end": 4.678
+   },
+   {
+    "text": "Tsunami",
+    "start": 4.678,
+    "end": 5.318
+   },
+   {
+    "text": "von",
+    "start": 5.398,
+    "end": 5.558
+   },
+   {
+    "text": "gestern",
+    "start": 5.558,
+    "end": 6.118
+   },
+   {
+    "text": "war",
+    "start": 6.118,
+    "end": 6.358
+   },
+   {
+    "text": "nur",
+    "start": 6.358,
+    "end": 6.678
+   },
+   {
+    "text": "ein",
+    "start": 6.678,
+    "end": 6.998
+   },
+   {
+    "text": "Vorbote",
+    "start": 6.998,
+    "end": 7.798
+   },
+   {
+    "text": "der",
+    "start": 8.038,
+    "end": 8.278
+   },
+   {
+    "text": "bevorstehenden",
+    "start": 8.278,
+    "end": 9.398
+   },
+   {
+    "text": "Apokalypse.",
+    "start": 9.398,
+    "end": 10.278
+   }
+  ]
+ },
+ "subset2-98": {
+  "segments": [
+   "Es gibt eine Moschee.",
+   "die in Richtung eines javanischen Alun Alun zeigt.",
+   "typische Anordnung einer jawanischen Stadt."
+  ],
+  "whole": "Es gibt eine Moschee. die in Richtung eines javanischen Alun Alun zeigt. typische Anordnung einer jawanischen Stadt.",
+  "words": [
+   {
+    "text": "Es",
+    "start": 1.03,
+    "end": 1.11
+   },
+   {
+    "text": "gibt",
+    "start": 1.11,
+    "end": 1.27
+   },
+   {
+    "text": "eine",
+    "start": 1.35,
+    "end": 1.51
+   },
+   {
+    "text": "Moschee.",
+    "start": 1.51,
+    "end": 2.23
+   },
+   {
+    "text": "die",
+    "start": 2.55,
+    "end": 2.79
+   },
+   {
+    "text": "in",
+    "start": 2.79,
+    "end": 2.95
+   },
+   {
+    "text": "Richtung",
+    "start": 2.95,
+    "end": 3.27
+   },
+   {
+    "text": "eines",
+    "start": 3.27,
+    "end": 3.59
+   },
+   {
+    "text": "javanischen",
+    "start": 3.59,
+    "end": 4.31
+   },
+   {
+    "text": "Alun",
+    "start": 4.31,
+    "end": 4.63
+   },
+   {
+    "text": "Alun",
+    "start": 4.79,
+    "end": 5.19
+   },
+   {
+    "text": "zeigt.",
+    "start": 5.27,
+    "end": 5.51
+   },
+   {
+    "text": "typische",
+    "start": 6.31,
+    "end": 6.79
+   },
+   {
+    "text": "Anordnung",
+    "start": 6.79,
+    "end": 7.35
+   },
+   {
+    "text": "einer",
+    "start": 7.35,
+    "end": 7.51
+   },
+   {
+    "text": "jawanischen",
+    "start": 7.51,
+    "end": 8.31
+   },
+   {
+    "text": "Stadt.",
+    "start": 8.31,
+    "end": 8.63
+   }
+  ]
+ },
+ "subset2-99": {
+  "segments": [
+   "obwohl einige den Propheten bewunderten,",
+   "beschuldigten ihn andere der Gotteslästerung.",
+   "Und er sucht jetzt Zuflucht im Ausland."
+  ],
+  "whole": "obwohl einige den Propheten bewunderten, beschuldigten ihn andere der Gotteslästerung. Und er sucht jetzt Zuflucht im Ausland.",
+  "words": [
+   {
+    "text": "obwohl",
+    "start": 0.63,
+    "end": 1.27
+   },
+   {
+    "text": "einige",
+    "start": 1.27,
+    "end": 1.75
+   },
+   {
+    "text": "den",
+    "start": 1.75,
+    "end": 2.07
+   },
+   {
+    "text": "Propheten",
+    "start": 2.07,
+    "end": 2.71
+   },
+   {
+    "text": "bewunderten,",
+    "start": 2.71,
+    "end": 3.59
+   },
+   {
+    "text": "beschuldigten",
+    "start": 4.966,
+    "end": 5.766
+   },
+   {
+    "text": "ihn",
+    "start": 5.766,
+    "end": 6.086
+   },
+   {
+    "text": "andere",
+    "start": 6.086,
+    "end": 6.406
+   },
+   {
+    "text": "der",
+    "start": 6.566,
+    "end": 6.806
+   },
+   {
+    "text": "Gotteslästerung.",
+    "start": 6.806,
+    "end": 8.006
+   },
+   {
+    "text": "Und",
+    "start": 8.486,
+    "end": 8.726
+   },
+   {
+    "text": "er",
+    "start": 8.726,
+    "end": 8.966
+   },
+   {
+    "text": "sucht",
+    "start": 8.966,
+    "end": 9.366
+   },
+   {
+    "text": "jetzt",
+    "start": 9.366,
+    "end": 9.606
+   },
+   {
+    "text": "Zuflucht",
+    "start": 9.606,
+    "end": 10.326
+   },
+   {
+    "text": "im",
+    "start": 10.326,
+    "end": 10.486
+   },
+   {
+    "text": "Ausland.",
+    "start": 10.486,
+    "end": 11.206
+   }
+  ]
+ },
+ "subset2-100": {
+  "segments": [
+   "Als der Junge auf den Löffel sah, den er hielt,",
+   "erkannte er, dass das Öl weg war."
+  ],
+  "whole": "Als der Junge auf den Löffel sah, den er hielt, erkannte er, dass das Öl weg war.",
+  "words": [
+   {
+    "text": "Als",
+    "start": 0.534,
+    "end": 0.774
+   },
+   {
+    "text": "der",
+    "start": 0.774,
+    "end": 0.934
+   },
+   {
+    "text": "Junge",
+    "start": 0.934,
+    "end": 1.334
+   },
+   {
+    "text": "auf",
+    "start": 1.334,
+    "end": 1.494
+   },
+   {
+    "text": "den",
+    "start": 1.494,
+    "end": 1.654
+   },
+   {
+    "text": "Löffel",
+    "start": 1.654,
+    "end": 2.214
+   },
+   {
+    "text": "sah,",
+    "start": 2.214,
+    "end": 2.614
+   },
+   {
+    "text": "den",
+    "start": 2.614,
+    "end": 2.854
+   },
+   {
+    "text": "er",
+    "start": 2.854,
+    "end": 3.014
+   },
+   {
+    "text": "hielt,",
+    "start": 3.014,
+    "end": 3.654
+   },
+   {
+    "text": "erkannte",
+    "start": 4.374,
+    "end": 4.854
+   },
+   {
+    "text": "er,",
+    "start": 4.854,
+    "end": 5.174
+   },
+   {
+    "text": "dass",
+    "start": 5.174,
+    "end": 5.334
+   },
+   {
+    "text": "das Öl",
+    "start": 5.334,
+    "end": 5.974
+   },
+   {
+    "text": "weg",
+    "start": 5.974,
+    "end": 6.214
+   },
+   {
+    "text": "war.",
+    "start": 6.214,
+    "end": 6.534
+   }
+  ]
+ },
+ "subset1-18": {
+  "segments": [
+   "Das aberhaupt der Czechoslovakischen",
+   "Husiten Kirsche wird auch als Patriarch bezeichnet."
+  ],
+  "whole": "Das aberhaupt der Czechoslovakischen Husiten Kirsche wird auch als Patriarch bezeichnet.",
+  "words": [
+   {
+    "text": "Das",
+    "start": 0.838,
+    "end": 1.078
+   },
+   {
+    "text": "aberhaupt",
+    "start": 1.238,
+    "end": 1.958
+   },
+   {
+    "text": "der",
+    "start": 1.958,
+    "end": 2.118
+   },
+   {
+    "text": "Czechoslovakischen",
+    "start": 2.278,
+    "end": 3.318
+   },
+   {
+    "text": "Husiten",
+    "start": 4.006,
+    "end": 4.566
+   },
+   {
+    "text": "Kirsche",
+    "start": 4.806,
+    "end": 5.366
+   },
+   {
+    "text": "wird",
+    "start": 5.526,
+    "end": 5.846
+   },
+   {
+    "text": "auch",
+    "start": 5.846,
+    "end": 6.166
+   },
+   {
+    "text": "als",
+    "start": 6.166,
+    "end": 6.406
+   },
+   {
+    "text": "Patriarch",
+    "start": 6.406,
+    "end": 7.446
+   },
+   {
+    "text": "bezeichnet.",
+    "start": 7.446,
+    "end": 8.246
+   }
+  ]
+ },
+ "subset1-19": {
+  "segments": [
+   "Wir sind nur Reisende, antwortete the alchemist."
+  ],
+  "whole": "Wir sind nur Reisende, antwortete the alchemist.",
+  "words": [
+   {
+    "text": "Wir",
+    "start": 0.278,
+    "end": 0.438
+   },
+   {
+    "text": "sind",
+    "start": 0.598,
+    "end": 0.838
+   },
+   {
+    "text": "nur",
+    "start": 0.838,
+    "end": 1.158
+   },
+   {
+    "text": "Reisende,",
+    "start": 1.158,
+    "end": 1.878
+   },
+   {
+    "text": "antwortete",
+    "start": 1.878,
+    "end": 2.598
+   },
+   {
+    "text": "the",
+    "start": 2.598,
+    "end": 2.758
+   },
+   {
+    "text": "alchemist.",
+    "start": 2.758,
+    "end": 3.638
+   }
+  ]
+ },
+ "subset1-20": {
+  "segments": [
+   "Siehst du nicht, was da vor es dich geht?"
+  ],
+  "whole": "Siehst du nicht, was da vor es dich geht?",
+  "words": [
+   {
+    "text": "Siehst",
+    "start": 0.08,
+    "end": 0.32
+   },
+   {
+    "text": "du",
+    "start": 0.32,
+    "end": 0.4
+   },
+   {
+    "text": "nicht,",
+    "start": 0.56,
+    "end": 0.96
+   },
+   {
+    "text": "was",
+    "start": 0.96,
+    "end": 1.2
+   },
+   {
+    "text": "da",
+    "start": 1.2,
+    "end": 1.36
+   },
+   {
+    "text": "vor",
+    "start": 1.52,
+    "end": 1.6
+   },
+   {
+    "text": "es",
+    "start": 1.76,
+    "end": 1.92
+   },
+   {
+    "text": "dich",
+    "start": 1.92,
+    "end": 2.16
+   },
+   {
+    "text": "geht?",
+    "start": 2.16,
+    "end": 2.64
+   }
+  ]
+ },
+ "subset1-21": {
+  "segments": [
+   "Siehst du gerne richtige Bücher oder bevorzugst du digitale Versionen?"
+  ],
+  "whole": "Siehst du gerne richtige Bücher oder bevorzugst du digitale Versionen?",
+  "words": [
+   {
+    "text": "Siehst",
+    "start": 0.0,
+    "end": 0.32
+   },
+   {
+    "text": "du",
+    "start": 0.32,
+    "end": 0.4
+   },
+   {
+    "text": "gerne",
+    "start": 0.4,
+    "end": 0.72
+   },
+   {
+    "text": "richtige",
+    "start": 0.72,
+    "end": 1.2
+   },
+   {
+    "text": "Bücher",
+    "start": 1.2,
+    "end": 1.68
+   },
+   {
+    "text": "oder",
+    "start": 1.84,
+    "end": 2.16
+   },
+   {
+    "text": "bevorzugst",
+    "start": 2.16,
+    "end": 3.2
+   },
+   {
+    "text": "du",
+    "start": 3.2,
+    "end": 3.44
+   },
+   {
+    "text": "digitale",
+    "start": 3.44,
+    "end": 4.08
+   },
+   {
+    "text": "Versionen?",
+    "start": 4.08,
+    "end": 5.04
+   }
+  ]
+ }
+}
