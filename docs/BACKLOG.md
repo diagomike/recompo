@@ -56,6 +56,13 @@ Every open task by priority. Done phases are summarised; their detail is in git 
         line from its speaker's own audio with OmniVoice, saved beside the usual dub (`…-clone`), credited as AI
         voices. Dark Knight J1 fr: 1 line over, round-trip WER 0.26 (studio voice: 0 over, 0.04). Your ears decide.
 
+## Research (P19, 2026-10-31; research only)
+- [x] Literature and feasibility report: `docs/research/P19-dubbing-and-meaning/` (tracks 1 and 3 here, track 2 on
+      branch `ccr-327cc642-xnfs3i-track2-models`); pilot on two real en→es dubbed excerpts.
+- [ ] Corpus pilot on 20–50 of your dual-audio titles (needs: language pairs, a list of files).
+- [ ] Track 1 A/B on 10 held-out dubbed titles (Claude's timed script vs today's pipeline vs the human dub's words).
+- [ ] Track 3 blind comparison: unit cards + LLM selection vs `cut suggest` on alex-oconnor and ai-and-ideas.
+
 ## Waiting on the user
 - [ ] Name the channel you post to (P17-Q3; a placeholder is used until then).
 - [ ] F2 (The Diary of a CEO) is labelled "DOAC": rename it to Steven Bartlett? (`recomp follow edit F2 --person "Steven Bartlett" --as-user`)

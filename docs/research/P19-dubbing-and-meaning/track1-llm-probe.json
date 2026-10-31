@@ -1,0 +1,82 @@
+[
+ {
+  "run": "r1",
+  "dur": 1.12,
+  "en": "Good afternoon, sir.",
+  "en_syl": 5.0,
+  "fr": "Bonjour, monsieur.",
+  "fr_syl": 4.0,
+  "am": "ደህና ዋሉ፣ ጌታዬ።",
+  "am_syl": 7.4
+ },
+ {
+  "run": "r2",
+  "dur": 1.68,
+  "en": "I am Ambrose Chappell.",
+  "en_syl": 6.0,
+  "fr": "Je suis Ambrose Chappell.",
+  "fr_syl": 6.0,
+  "am": "እኔ አምብሮስ ቻፕል ነኝ።",
+  "am_syl": 7.199999999999999
+ },
+ {
+  "run": "r3",
+  "dur": 1.12,
+  "en": "What can I do for you?",
+  "en_syl": 6.0,
+  "fr": "Que puis-je pour vous ?",
+  "fr_syl": 5.0,
+  "am": "ምን ልርዳዎት?",
+  "am_syl": 4.0
+ },
+ {
+  "run": "r4",
+  "dur": 0.24,
+  "en": "Well",
+  "en_syl": 1.0,
+  "fr": "Eh bien",
+  "fr_syl": 2.0,
+  "am": "እንግዲህ",
+  "am_syl": 2.4000000000000004
+ },
+ {
+  "run": "r5",
+  "dur": 0.08,
+  "en": "I",
+  "en_syl": 1.0,
+  "fr": "je…",
+  "fr_syl": 1.0,
+  "am": "እኔ…",
+  "am_syl": 1.4
+ },
+ {
+  "run": "r6",
+  "dur": 1.04,
+  "en": "If you gave me your name that",
+  "en_syl": 7.0,
+  "fr": "Dites-moi votre nom,",
+  "fr_syl": 5.0,
+  "am": "ስምዎን ይንገሩኝና",
+  "am_syl": 6.199999999999999
+ },
+ {
+  "run": "r7",
+  "dur": 0.08,
+  "en": "might be a start",
+  "en_syl": 4.0,
+  "fr": "on commence.",
+  "fr_syl": 3.0,
+  "am": "እንጀምር።",
+  "am_syl": 2.4000000000000004
+ },
+ {
+  "run": "r8",
+  "dur": 6.96,
+  "en": "Oh yes, of course. My name is McKenna. Dr. Benjamin McKenna. I phoned you. Oh yes, yes.",
+  "en_syl": 22.0,
+  "fr": "Ah oui, bien sûr. Je m'appelle McKenna. Docteur Benjamin McKenna. Je vous ai appelé. Ah oui, oui.",
+  "fr_syl": 27.0,
+  "am": "አዎ፣ እርግጥ ነው። ስሜ ማኬና ነው። ዶክተር ቤንጃሚን ማኬና። ደውዬልዎት ነበር። አዎ፣ አዎ።",
+  "am_syl": 29.6
+ }
+]

@@ -1,0 +1,2343 @@
+[
+ {
+  "id": "theman",
+  "duration_s": 17.72,
+  "E1_tracks": {
+   "offset_coarse_s": -0.18,
+   "offset_s": -0.1865,
+   "envelope_corr": 0.411,
+   "waveform_peak": 0.018,
+   "gain": -0.027,
+   "quiet_s": 1.77,
+   "kept_db_gain": 0.1,
+   "kept_db_fir": -0.0,
+   "speech_kept_db_fir": 0.0
+  },
+  "E2_isochrony": {
+   "speech_overlap": 0.716,
+   "pause_compliance": 0.5,
+   "source_speech_s": 12.32,
+   "dub_speech_s": 13.17,
+   "slc_0.2": 1.0,
+   "slc_0.4": 1.0,
+   "duration_overlap": 0.927,
+   "pause_compliance_0.25": 0.429,
+   "pairs": 4,
+   "src_utterances": 5,
+   "dub_utterances": 5,
+   "dub_start_delay_s_median": 0.082,
+   "dub_end_delay_s_median": -0.037,
+   "duration_ratio_median": 0.969,
+   "rate_src_syl_s": 4.14,
+   "rate_dub_syl_s": 4.56,
+   "tempo_src": 0.75,
+   "tempo_dub": 0.75
+  },
+  "E3_subtitle_vs_dub": {
+   "dub_lang_subtitle_vs_dub_asr_wer": 0.216,
+   "src_lang_subtitle_vs_src_asr_wer (ASR-error control)": 0.143,
+   "dub_words_spoken": 37,
+   "dub_subtitle_words": 36,
+   "src_words_spoken": 42,
+   "src_subtitle_words": 43,
+   "samples": [
+    {
+     "subtitle": "Buenas tardes, señor.",
+     "dub_says": "Buenas tardes, señor. Yo"
+    },
+    {
+     "subtitle": "Yo soy Ambrose Chappell. ¿Qué se le ofrece?",
+     "dub_says": "señor. Yo soy Ambrose Chapel. ¿Qué se le ofrece?"
+    },
+    {
+     "subtitle": "Pues, yo--",
+     "dub_says": "Pues yo eh Dígame"
+    },
+    {
+     "subtitle": "Diga me su nombre y podemos empezar.",
+     "dub_says": "Dígame su nombre y podemos empezar."
+    },
+    {
+     "subtitle": "Oh Sí, claro. Me llamo McKenna.",
+     "dub_says": "empezar. Oh sí, claro, me llamo Maken."
+    },
+    {
+     "subtitle": "Soy el Dr. Benjamín McKenna.",
+     "dub_says": "Soy el doctor Benjamín Masquena."
+    },
+    {
+     "subtitle": "- Le telefoneé. - Oh Sí, Sí.",
+     "dub_says": "Masquena. Le he telefoneado. Oh, sí, sí."
+    }
+   ]
+  },
+  "E4_budget": {
+   "pairs": 4,
+   "mape_tempo_budget": 0.425,
+   "mape_flat_rate": 0.899,
+   "mape_isometric_chars": 0.175,
+   "rows": [
+    {
+     "src": "Good afternoon, sir. I am Ambrose Jackle.",
+     "dub": "Buenas tardes, señor. Yo soy Ambrose Chapel.",
+     "dur_s": 3.2,
+     "budget": 18.8,
+     "flat_rate": 25.0,
+     "isometric": 11.0,
+     "actual": 12.0
+    },
+    {
+     "src": "What can I do for you?",
+     "dub": "¿Qué se le ofrece?",
+     "dur_s": 1.12,
+     "budget": 6.6,
+     "flat_rate": 8.8,
+     "isometric": 6.2,
+     "actual": 5.0
+    },
+    {
+     "src": "Well I",
+     "dub": "Pues yo eh",
+     "dur_s": 0.72,
+     "budget": 4.2,
+     "flat_rate": 5.6,
+     "isometric": 1.9,
+     "actual": 3.0
+    },
+    {
+     "src": "If you gave me your name that you're not going Oh yes, of course. My name is McKenna. Dr. Benjamin McKenna. I phon you. Oh yes, yes.",
+     "dub": "Dígame su nombre y podemos empezar. Oh sí, claro, me llamo Maken. Soy el doctor Benjamín Masquena. Le he telefoneado. Oh, sí, sí.",
+     "dur_s": 9.65,
+     "budget": 56.6,
+     "flat_rate": 75.4,
+     "isometric": 39.6,
+     "actual": 40.0
+    }
+   ]
+  },
+  "E5_breaks": {
+   "utterances_same_run_count": 1,
+   "breaks": 2,
+   "exact": 0.5,
+   "within_1_word": 0.5,
+   "detail": [
+    {
+     "dub": "Dígame su nombre y podemos empezar. Oh sí, claro, me llamo Maken. Soy el doctor Benjamín Masquena. Le he telefoneado. Oh, sí, sí.",
+     "pred": [
+      5.0,
+      6.0
+     ],
+     "true": [
+      5,
+      11
+     ]
+    }
+   ]
+  },
+  "transcripts": {
+   "src": "Good afternoon, sir. I am Ambrose Jackle. What can I do for you? Well I If you gave me your name that you're not going Oh yes, of course. My name is McKenna. Dr. Benjamin McKenna. I phon you. Oh yes, yes.",
+   "dub": "Buenas tardes, señor. Yo soy Ambrose Chapel. ¿Qué se le ofrece? Pues yo eh Dígame su nombre y podemos empezar. Oh sí, claro, me llamo Maken. Soy el doctor Benjamín Masquena. Le he telefoneado. Oh, sí, sí."
+  },
+  "words": {
+   "src": [
+    {
+     "text": "Good",
+     "start": 0.196,
+     "end": 0.436
+    },
+    {
+     "text": "afternoon,",
+     "start": 0.436,
+     "end": 0.996
+    },
+    {
+     "text": "sir.",
+     "start": 0.996,
+     "end": 1.316
+    },
+    {
+     "text": "I",
+     "start": 1.716,
+     "end": 1.876
+    },
+    {
+     "text": "am",
+     "start": 1.876,
+     "end": 2.036
+    },
+    {
+     "text": "Ambrose",
+     "start": 2.036,
+     "end": 2.516
+    },
+    {
+     "text": "Jackle.",
+     "start": 2.596,
+     "end": 3.396
+    },
+    {
+     "text": "What",
+     "start": 4.036,
+     "end": 4.196
+    },
+    {
+     "text": "can",
+     "start": 4.196,
+     "end": 4.356
+    },
+    {
+     "text": "I",
+     "start": 4.356,
+     "end": 4.516
+    },
+    {
+     "text": "do",
+     "start": 4.516,
+     "end": 4.676
+    },
+    {
+     "text": "for",
+     "start": 4.676,
+     "end": 4.836
+    },
+    {
+     "text": "you?",
+     "start": 4.836,
+     "end": 5.156
+    },
+    {
+     "text": "Well",
+     "start": 6.052,
+     "end": 6.292
+    },
+    {
+     "text": "I",
+     "start": 6.692,
+     "end": 6.772
+    },
+    {
+     "text": "If",
+     "start": 7.988,
+     "end": 8.148
+    },
+    {
+     "text": "you",
+     "start": 8.148,
+     "end": 8.228
+    },
+    {
+     "text": "gave",
+     "start": 8.228,
+     "end": 8.388
+    },
+    {
+     "text": "me",
+     "start": 8.388,
+     "end": 8.548
+    },
+    {
+     "text": "your",
+     "start": 8.548,
+     "end": 8.708
+    },
+    {
+     "text": "name",
+     "start": 8.708,
+     "end": 8.868
+    },
+    {
+     "text": "that",
+     "start": 8.948,
+     "end": 9.028
+    },
+    {
+     "text": "you're",
+     "start": 9.508,
+     "end": 9.588
+    },
+    {
+     "text": "not",
+     "start": 9.508,
+     "end": 9.588
+    },
+    {
+     "text": "going",
+     "start": 9.508,
+     "end": 9.588
+    },
+    {
+     "text": "Oh",
+     "start": 10.676,
+     "end": 10.756
+    },
+    {
+     "text": "yes,",
+     "start": 10.836,
+     "end": 11.156
+    },
+    {
+     "text": "of",
+     "start": 11.156,
+     "end": 11.236
+    },
+    {
+     "text": "course.",
+     "start": 11.236,
+     "end": 11.556
+    },
+    {
+     "text": "My",
+     "start": 11.556,
+     "end": 11.716
+    },
+    {
+     "text": "name",
+     "start": 11.716,
+     "end": 11.876
+    },
+    {
+     "text": "is",
+     "start": 11.876,
+     "end": 12.116
+    },
+    {
+     "text": "McKenna.",
+     "start": 12.116,
+     "end": 13.476
+    },
+    {
+     "text": "Dr.",
+     "start": 13.476,
+     "end": 13.956
+    },
+    {
+     "text": "Benjamin",
+     "start": 13.956,
+     "end": 14.516
+    },
+    {
+     "text": "McKenna.",
+     "start": 14.516,
+     "end": 15.556
+    },
+    {
+     "text": "I",
+     "start": 15.556,
+     "end": 15.796
+    },
+    {
+     "text": "phon",
+     "start": 15.796,
+     "end": 16.196
+    },
+    {
+     "text": "you.",
+     "start": 16.196,
+     "end": 16.596
+    },
+    {
+     "text": "Oh",
+     "start": 16.596,
+     "end": 16.756
+    },
+    {
+     "text": "yes,",
+     "start": 16.836,
+     "end": 17.236
+    },
+    {
+     "text": "yes.",
+     "start": 17.236,
+     "end": 17.636
+    }
+   ],
+   "dub": [
+    {
+     "text": "Buenas",
+     "start": 0.494,
+     "end": 0.975
+    },
+    {
+     "text": "tardes,",
+     "start": 0.975,
+     "end": 1.374
+    },
+    {
+     "text": "señor.",
+     "start": 1.374,
+     "end": 1.854
+    },
+    {
+     "text": "Yo",
+     "start": 1.854,
+     "end": 2.014
+    },
+    {
+     "text": "soy",
+     "start": 2.014,
+     "end": 2.255
+    },
+    {
+     "text": "Ambrose",
+     "start": 2.255,
+     "end": 2.735
+    },
+    {
+     "text": "Chapel.",
+     "start": 2.735,
+     "end": 3.375
+    },
+    {
+     "text": "¿Qué",
+     "start": 4.062,
+     "end": 4.302
+    },
+    {
+     "text": "se",
+     "start": 4.302,
+     "end": 4.382
+    },
+    {
+     "text": "le",
+     "start": 4.382,
+     "end": 4.542
+    },
+    {
+     "text": "ofrece?",
+     "start": 4.542,
+     "end": 5.103
+    },
+    {
+     "text": "Pues",
+     "start": 6.19,
+     "end": 6.51
+    },
+    {
+     "text": "yo",
+     "start": 6.51,
+     "end": 6.75
+    },
+    {
+     "text": "eh",
+     "start": 6.83,
+     "end": 6.99
+    },
+    {
+     "text": "Dígame",
+     "start": 7.822,
+     "end": 8.463
+    },
+    {
+     "text": "su",
+     "start": 8.463,
+     "end": 8.623
+    },
+    {
+     "text": "nombre",
+     "start": 8.623,
+     "end": 8.863
+    },
+    {
+     "text": "y",
+     "start": 9.103,
+     "end": 9.343
+    },
+    {
+     "text": "podemos",
+     "start": 9.343,
+     "end": 9.822
+    },
+    {
+     "text": "empezar.",
+     "start": 9.822,
+     "end": 10.463
+    },
+    {
+     "text": "Oh",
+     "start": 10.831,
+     "end": 10.911
+    },
+    {
+     "text": "sí,",
+     "start": 11.151,
+     "end": 11.311
+    },
+    {
+     "text": "claro,",
+     "start": 11.311,
+     "end": 11.71
+    },
+    {
+     "text": "me",
+     "start": 11.71,
+     "end": 11.79
+    },
+    {
+     "text": "llamo",
+     "start": 11.79,
+     "end": 12.111
+    },
+    {
+     "text": "Maken.",
+     "start": 12.111,
+     "end": 12.831
+    },
+    {
+     "text": "Soy",
+     "start": 13.742,
+     "end": 13.902
+    },
+    {
+     "text": "el",
+     "start": 13.902,
+     "end": 13.982
+    },
+    {
+     "text": "doctor",
+     "start": 13.982,
+     "end": 14.303
+    },
+    {
+     "text": "Benjamín",
+     "start": 14.303,
+     "end": 14.783
+    },
+    {
+     "text": "Masquena.",
+     "start": 14.783,
+     "end": 15.583
+    },
+    {
+     "text": "Le",
+     "start": 15.71,
+     "end": 15.79
+    },
+    {
+     "text": "he",
+     "start": 15.87,
+     "end": 15.95
+    },
+    {
+     "text": "telefoneado.",
+     "start": 15.95,
+     "end": 16.671
+    },
+    {
+     "text": "Oh,",
+     "start": 16.83,
+     "end": 17.07
+    },
+    {
+     "text": "sí,",
+     "start": 17.07,
+     "end": 17.31
+    },
+    {
+     "text": "sí.",
+     "start": 17.31,
+     "end": 17.55
+    }
+   ]
+  }
+ },
+ {
+  "id": "heroes_s2e7",
+  "duration_s": 60.96,
+  "E1_tracks": {
+   "offset_coarse_s": 0.0,
+   "offset_s": -0.00019,
+   "envelope_corr": 0.566,
+   "waveform_peak": 0.272,
+   "gain": 0.639,
+   "quiet_s": 4.01,
+   "kept_db_gain": -0.9,
+   "kept_db_fir": -3.9,
+   "speech_kept_db_fir": 2.5
+  },
+  "E2_isochrony": {
+   "speech_overlap": 0.809,
+   "pause_compliance": 0.2,
+   "source_speech_s": 46.88,
+   "dub_speech_s": 54.13,
+   "slc_0.2": 0.667,
+   "slc_0.4": 1.0,
+   "duration_overlap": 0.87,
+   "pause_compliance_0.25": 0.222,
+   "pairs": 3,
+   "src_utterances": 5,
+   "dub_utterances": 6,
+   "dub_start_delay_s_median": -0.656,
+   "dub_end_delay_s_median": 0.56,
+   "duration_ratio_median": 1.107,
+   "rate_src_syl_s": 4.8,
+   "rate_dub_syl_s": 5.17,
+   "tempo_src": 0.775,
+   "tempo_dub": 0.75
+  },
+  "E3_subtitle_vs_dub": {
+   "dub_lang_subtitle_vs_dub_asr_wer": 0.29,
+   "src_lang_subtitle_vs_src_asr_wer (ASR-error control)": 0.31,
+   "dub_words_spoken": 162,
+   "dub_subtitle_words": 127,
+   "src_words_spoken": 155,
+   "src_subtitle_words": 190,
+   "samples": [
+    {
+     "subtitle": "El billete de avión, el cuadro todo apunta a Montreal.",
+     "dub_says": "El billete de avión, el cuadro, todo apunta a Montreal. ¿Qué"
+    },
+    {
+     "subtitle": "Qué es este sitio?",
+     "dub_says": "Montreal. ¿Qué es este sitio? Era cierto"
+    },
+    {
+     "subtitle": "Era cierto lo de la compañía.",
+     "dub_says": "sitio? Era cierto lo de la compañía. El mundo"
+    },
+    {
+     "subtitle": "El mundo esta en peligro. Adam\".",
+     "dub_says": "compañía. El mundo está en peligro. Adam. Por"
+    },
+    {
+     "subtitle": "Por favor, dime quién soy, qué nos deparara el futuro.",
+     "dub_says": "Adam. Por favor, dime quién soy. Que nos deparará el futuro. Ya"
+    },
+    {
+     "subtitle": "Ya se nos ocurriré algo.",
+     "dub_says": "futuro. Ya se nos ocurriera. Es Nueva"
+    },
+    {
+     "subtitle": "-Es en Nueva York. -Donde están todos?",
+     "dub_says": "Es Nueva York. ¿Dónde están todos? Una"
+    },
+    {
+     "subtitle": "Una orden de evacuación.",
+     "dub_says": "todos? Una orden de evacuación. 14"
+    },
+    {
+     "subtitle": "14 de junio de 2008. Es este año.",
+     "dub_says": "evacuación. 14 de junio de 2008. Es este año. Eso"
+    },
+    {
+     "subtitle": "Eso que hacemos? Empieza por leer la mente...",
+     "dub_says": "este año. Eso que hacemos. Empieza por leer la mente y luego"
+    },
+    {
+     "subtitle": "y luego se convierte en mucho mas.",
+     "dub_says": "la mente y luego se convierte en mucho más. Mi"
+    },
+    {
+     "subtitle": "Mi padre puede hacer que piense lo que él quiera.",
+     "dub_says": "más. Mi padre puede hacer que piensen lo que él quiera."
+    }
+   ]
+  },
+  "E4_budget": {
+   "pairs": 3,
+   "mape_tempo_budget": 0.1,
+   "mape_flat_rate": 0.419,
+   "mape_isometric_chars": 0.079,
+   "rows": [
+    {
+     "src": "He does know Zen Kai Mather, City. Plane ticket? Painting? It all points to Montreal. What is this place? We were right about the company. The world is in danger. Adam. Please tell me who I am. The future holds. We'll figure it out. York. Where is everyone? Evacuation order. June 14th, 2008. This is next year. This thing we can do. It only begins at breeding minds, and then it becomes so much more into anyone's head.",
+     "dub": "Heroes know Zen Kai Mathen or a CG El billete de avión, el cuadro, todo apunta a Montreal. ¿Qué es este sitio? Era cierto lo de la compañía. El mundo está en peligro. Adam. Por favor, dime quién soy. Que nos deparará el futuro. Ya se nos ocurriera. Es Nueva York. ¿Dónde están todos? Una orden de evacuación. 14 de junio de 2008. Es este año. Eso que hacemos. Empieza por leer la mente y luego se convierte en mucho más. Mi padre puede hacer que piensen lo que él quiera. ¡Para!",
+     "dur_s": 28.14,
+     "budget": 170.6,
+     "flat_rate": 220.1,
+     "isometric": 131.0,
+     "actual": 149.0
+    },
+    {
+     "src": "That's Bob. He runs the company. Looks like he's next. Are you sure you're gonna be able to cure me? In exchange, we're going to want a little something from you. Hello, Dr. Suresh. Are you your new partner.",
+     "dub": "Por eso morirme llaman el hombre de las pesadillas. Spob. Dirige la compañía. Es el siguiente. Seguro que va a poder curarme. A cambio, necesitamos que usted también nos dé algo. Hola, Dr. Suresh. Tú eres tu compañera.",
+     "dur_s": 11.6,
+     "budget": 70.3,
+     "flat_rate": 90.7,
+     "isometric": 60.2,
+     "actual": 66.0
+    },
+    {
+     "src": "Did you see her face? Somebody could have seen us. Relax. Just think of it as a lesson in humility. What's on your neck? Last thing I remember, this man stepping out of the bushes calling my name. What are you talking about? What man?",
+     "dub": "¿Has visto la cara? ¡Podían habernos visto! Tranquila, tú piensa que solo es una cura de humildad. ¿Qué tienes en el cuello? Recuerdo un hombre que salía de entre los arbustos y me llamaba. ¿De qué hablas? ¿Qué hombre? El hombre.",
+     "dur_s": 11.68,
+     "budget": 70.8,
+     "flat_rate": 91.3,
+     "isometric": 66.9,
+     "actual": 65.0
+    }
+   ]
+  },
+  "E5_breaks": {
+   "utterances_same_run_count": 1,
+   "breaks": 1,
+   "exact": 0.0,
+   "within_1_word": 0.0,
+   "detail": [
+    {
+     "dub": "¿Has visto la cara? ¡Podían habernos visto! Tranquila, tú piensa que solo es una cura de humildad. ¿Qué tienes en el cuello? Recuerdo un hombre que salía de entre los arbustos y me llamaba. ¿De qué hablas? ¿Qué hombre? El hombre.",
+     "pred": [
+      3.0
+     ],
+     "true": [
+      16
+     ]
+    }
+   ]
+  },
+  "transcripts": {
+   "src": "He does know Zen Kai Mather, City. Plane ticket? Painting? It all points to Montreal. What is this place? We were right about the company. The world is in danger. Adam. Please tell me who I am. The future holds. We'll figure it out. York. Where is everyone? Evacuation order. June 14th, 2008. This is next year. This thing we can do. It only begins at breeding minds, and then it becomes so much more into anyone's head. That's Bob. He runs the company. Looks like he's next. Are you sure you're gonna be able to cure me? In exchange, we're going to want a little something from you. Hello, Dr. Suresh. Are you your new partner. Did you see her face? Somebody could have seen us. Relax. Just think of it as a lesson in humility. What's on your neck? Last thing I remember, this man stepping out of the bushes calling my name. What are you talking about? What man?",
+   "dub": "Heroes know Zen Kai Mathen or a CG El billete de avión, el cuadro, todo apunta a Montreal. ¿Qué es este sitio? Era cierto lo de la compañía. El mundo está en peligro. Adam. Por favor, dime quién soy. Que nos deparará el futuro. Ya se nos ocurriera. Es Nueva York. ¿Dónde están todos? Una orden de evacuación. 14 de junio de 2008. Es este año. Eso que hacemos. Empieza por leer la mente y luego se convierte en mucho más. Mi padre puede hacer que piensen lo que él quiera. ¡Para! Por eso morirme llaman el hombre de las pesadillas. Spob. Dirige la compañía. Es el siguiente. Seguro que va a poder curarme. A cambio, necesitamos que usted también nos dé algo. Hola, Dr. Suresh. Tú eres tu compañera. ¿Has visto la cara? ¡Podían habernos visto! Tranquila, tú piensa que solo es una cura de humildad. ¿Qué tienes en el cuello? Recuerdo un hombre que salía de entre los arbustos y me llamaba. ¿De qué hablas? ¿Qué hombre? El hombre."
+  },
+  "words": {
+   "src": [
+    {
+     "text": "He",
+     "start": 0.532,
+     "end": 0.692
+    },
+    {
+     "text": "does",
+     "start": 0.772,
+     "end": 1.012
+    },
+    {
+     "text": "know",
+     "start": 1.092,
+     "end": 1.172
+    },
+    {
+     "text": "Zen",
+     "start": 1.332,
+     "end": 1.492
+    },
+    {
+     "text": "Kai",
+     "start": 1.492,
+     "end": 1.572
+    },
+    {
+     "text": "Mather,",
+     "start": 1.732,
+     "end": 2.052
+    },
+    {
+     "text": "City.",
+     "start": 2.292,
+     "end": 2.772
+    },
+    {
+     "text": "Plane",
+     "start": 3.092,
+     "end": 3.492
+    },
+    {
+     "text": "ticket?",
+     "start": 3.492,
+     "end": 3.892
+    },
+    {
+     "text": "Painting?",
+     "start": 3.892,
+     "end": 4.292
+    },
+    {
+     "text": "It",
+     "start": 4.292,
+     "end": 4.452
+    },
+    {
+     "text": "all",
+     "start": 4.452,
+     "end": 4.612
+    },
+    {
+     "text": "points",
+     "start": 4.612,
+     "end": 4.852
+    },
+    {
+     "text": "to",
+     "start": 4.852,
+     "end": 5.012
+    },
+    {
+     "text": "Montreal.",
+     "start": 5.012,
+     "end": 5.732
+    },
+    {
+     "text": "What",
+     "start": 5.732,
+     "end": 5.892
+    },
+    {
+     "text": "is",
+     "start": 5.892,
+     "end": 6.052
+    },
+    {
+     "text": "this",
+     "start": 6.052,
+     "end": 6.212
+    },
+    {
+     "text": "place?",
+     "start": 6.212,
+     "end": 6.692
+    },
+    {
+     "text": "We",
+     "start": 6.692,
+     "end": 6.852
+    },
+    {
+     "text": "were",
+     "start": 6.852,
+     "end": 7.092
+    },
+    {
+     "text": "right",
+     "start": 7.092,
+     "end": 7.252
+    },
+    {
+     "text": "about",
+     "start": 7.332,
+     "end": 7.492
+    },
+    {
+     "text": "the",
+     "start": 7.492,
+     "end": 7.572
+    },
+    {
+     "text": "company.",
+     "start": 7.572,
+     "end": 8.132
+    },
+    {
+     "text": "The",
+     "start": 8.132,
+     "end": 8.292
+    },
+    {
+     "text": "world",
+     "start": 8.292,
+     "end": 8.532
+    },
+    {
+     "text": "is",
+     "start": 8.532,
+     "end": 8.692
+    },
+    {
+     "text": "in",
+     "start": 8.692,
+     "end": 8.852
+    },
+    {
+     "text": "danger.",
+     "start": 8.852,
+     "end": 9.332
+    },
+    {
+     "text": "Adam.",
+     "start": 9.332,
+     "end": 9.972
+    },
+    {
+     "text": "Please",
+     "start": 9.972,
+     "end": 10.292
+    },
+    {
+     "text": "tell",
+     "start": 10.292,
+     "end": 10.452
+    },
+    {
+     "text": "me",
+     "start": 10.452,
+     "end": 10.532
+    },
+    {
+     "text": "who",
+     "start": 10.532,
+     "end": 10.692
+    },
+    {
+     "text": "I",
+     "start": 10.692,
+     "end": 10.852
+    },
+    {
+     "text": "am.",
+     "start": 10.852,
+     "end": 11.092
+    },
+    {
+     "text": "The",
+     "start": 11.252,
+     "end": 11.412
+    },
+    {
+     "text": "future",
+     "start": 11.412,
+     "end": 11.812
+    },
+    {
+     "text": "holds.",
+     "start": 11.812,
+     "end": 12.452
+    },
+    {
+     "text": "We'll",
+     "start": 12.452,
+     "end": 12.772
+    },
+    {
+     "text": "figure",
+     "start": 12.772,
+     "end": 13.092
+    },
+    {
+     "text": "it",
+     "start": 13.092,
+     "end": 13.332
+    },
+    {
+     "text": "out.",
+     "start": 13.332,
+     "end": 13.972
+    },
+    {
+     "text": "York.",
+     "start": 15.316,
+     "end": 15.716
+    },
+    {
+     "text": "Where",
+     "start": 15.716,
+     "end": 15.876
+    },
+    {
+     "text": "is",
+     "start": 15.876,
+     "end": 16.036
+    },
+    {
+     "text": "everyone?",
+     "start": 16.036,
+     "end": 16.516
+    },
+    {
+     "text": "Evacuation",
+     "start": 16.916,
+     "end": 17.476
+    },
+    {
+     "text": "order.",
+     "start": 17.476,
+     "end": 17.956
+    },
+    {
+     "text": "June 14th, 2008.",
+     "start": 17.956,
+     "end": 19.556
+    },
+    {
+     "text": "This",
+     "start": 19.556,
+     "end": 19.716
+    },
+    {
+     "text": "is",
+     "start": 19.716,
+     "end": 19.876
+    },
+    {
+     "text": "next",
+     "start": 19.876,
+     "end": 20.196
+    },
+    {
+     "text": "year.",
+     "start": 20.196,
+     "end": 20.756
+    },
+    {
+     "text": "This",
+     "start": 20.836,
+     "end": 20.916
+    },
+    {
+     "text": "thing",
+     "start": 21.156,
+     "end": 21.316
+    },
+    {
+     "text": "we",
+     "start": 21.316,
+     "end": 21.396
+    },
+    {
+     "text": "can",
+     "start": 21.396,
+     "end": 21.556
+    },
+    {
+     "text": "do.",
+     "start": 21.556,
+     "end": 21.876
+    },
+    {
+     "text": "It",
+     "start": 21.876,
+     "end": 22.036
+    },
+    {
+     "text": "only",
+     "start": 22.036,
+     "end": 22.276
+    },
+    {
+     "text": "begins",
+     "start": 22.276,
+     "end": 22.596
+    },
+    {
+     "text": "at",
+     "start": 22.596,
+     "end": 22.836
+    },
+    {
+     "text": "breeding",
+     "start": 22.836,
+     "end": 23.396
+    },
+    {
+     "text": "minds,",
+     "start": 23.396,
+     "end": 23.876
+    },
+    {
+     "text": "and",
+     "start": 23.876,
+     "end": 23.956
+    },
+    {
+     "text": "then",
+     "start": 23.956,
+     "end": 24.116
+    },
+    {
+     "text": "it",
+     "start": 24.116,
+     "end": 24.276
+    },
+    {
+     "text": "becomes",
+     "start": 24.276,
+     "end": 24.676
+    },
+    {
+     "text": "so",
+     "start": 24.996,
+     "end": 25.316
+    },
+    {
+     "text": "much",
+     "start": 25.316,
+     "end": 25.636
+    },
+    {
+     "text": "more",
+     "start": 25.636,
+     "end": 25.956
+    },
+    {
+     "text": "into",
+     "start": 27.396,
+     "end": 27.476
+    },
+    {
+     "text": "anyone's",
+     "start": 27.636,
+     "end": 28.036
+    },
+    {
+     "text": "head.",
+     "start": 28.036,
+     "end": 28.676
+    },
+    {
+     "text": "That's",
+     "start": 32.724,
+     "end": 32.964
+    },
+    {
+     "text": "Bob.",
+     "start": 33.124,
+     "end": 33.764
+    },
+    {
+     "text": "He",
+     "start": 33.764,
+     "end": 33.924
+    },
+    {
+     "text": "runs",
+     "start": 33.924,
+     "end": 34.244
+    },
+    {
+     "text": "the",
+     "start": 34.244,
+     "end": 34.324
+    },
+    {
+     "text": "company.",
+     "start": 34.324,
+     "end": 34.804
+    },
+    {
+     "text": "Looks",
+     "start": 34.804,
+     "end": 35.044
+    },
+    {
+     "text": "like",
+     "start": 35.044,
+     "end": 35.124
+    },
+    {
+     "text": "he's",
+     "start": 35.124,
+     "end": 35.444
+    },
+    {
+     "text": "next.",
+     "start": 35.444,
+     "end": 35.924
+    },
+    {
+     "text": "Are",
+     "start": 35.924,
+     "end": 36.084
+    },
+    {
+     "text": "you",
+     "start": 36.084,
+     "end": 36.244
+    },
+    {
+     "text": "sure",
+     "start": 36.244,
+     "end": 36.404
+    },
+    {
+     "text": "you're",
+     "start": 36.404,
+     "end": 36.644
+    },
+    {
+     "text": "gonna",
+     "start": 36.564,
+     "end": 36.724
+    },
+    {
+     "text": "be",
+     "start": 36.724,
+     "end": 36.884
+    },
+    {
+     "text": "able",
+     "start": 36.884,
+     "end": 37.044
+    },
+    {
+     "text": "to",
+     "start": 37.044,
+     "end": 37.124
+    },
+    {
+     "text": "cure",
+     "start": 37.124,
+     "end": 37.364
+    },
+    {
+     "text": "me?",
+     "start": 37.364,
+     "end": 37.844
+    },
+    {
+     "text": "In",
+     "start": 37.844,
+     "end": 38.004
+    },
+    {
+     "text": "exchange,",
+     "start": 38.004,
+     "end": 38.804
+    },
+    {
+     "text": "we're",
+     "start": 38.804,
+     "end": 39.204
+    },
+    {
+     "text": "going",
+     "start": 39.204,
+     "end": 39.364
+    },
+    {
+     "text": "to",
+     "start": 39.364,
+     "end": 39.604
+    },
+    {
+     "text": "want",
+     "start": 39.604,
+     "end": 39.844
+    },
+    {
+     "text": "a",
+     "start": 39.844,
+     "end": 40.004
+    },
+    {
+     "text": "little",
+     "start": 40.004,
+     "end": 40.324
+    },
+    {
+     "text": "something",
+     "start": 40.324,
+     "end": 40.644
+    },
+    {
+     "text": "from",
+     "start": 40.644,
+     "end": 40.804
+    },
+    {
+     "text": "you.",
+     "start": 40.804,
+     "end": 40.964
+    },
+    {
+     "text": "Hello,",
+     "start": 41.204,
+     "end": 41.524
+    },
+    {
+     "text": "Dr.",
+     "start": 41.524,
+     "end": 41.764
+    },
+    {
+     "text": "Suresh.",
+     "start": 41.764,
+     "end": 42.404
+    },
+    {
+     "text": "Are",
+     "start": 42.564,
+     "end": 42.724
+    },
+    {
+     "text": "you",
+     "start": 42.724,
+     "end": 42.804
+    },
+    {
+     "text": "your",
+     "start": 43.124,
+     "end": 43.204
+    },
+    {
+     "text": "new",
+     "start": 43.284,
+     "end": 43.524
+    },
+    {
+     "text": "partner.",
+     "start": 43.524,
+     "end": 44.324
+    },
+    {
+     "text": "Did",
+     "start": 48.692,
+     "end": 48.932
+    },
+    {
+     "text": "you",
+     "start": 48.932,
+     "end": 49.092
+    },
+    {
+     "text": "see",
+     "start": 49.092,
+     "end": 49.172
+    },
+    {
+     "text": "her",
+     "start": 49.172,
+     "end": 49.332
+    },
+    {
+     "text": "face?",
+     "start": 49.332,
+     "end": 49.572
+    },
+    {
+     "text": "Somebody",
+     "start": 49.972,
+     "end": 50.212
+    },
+    {
+     "text": "could",
+     "start": 50.212,
+     "end": 50.292
+    },
+    {
+     "text": "have",
+     "start": 50.372,
+     "end": 50.452
+    },
+    {
+     "text": "seen",
+     "start": 50.532,
+     "end": 50.772
+    },
+    {
+     "text": "us.",
+     "start": 50.772,
+     "end": 51.012
+    },
+    {
+     "text": "Relax.",
+     "start": 51.252,
+     "end": 51.972
+    },
+    {
+     "text": "Just",
+     "start": 51.972,
+     "end": 52.212
+    },
+    {
+     "text": "think",
+     "start": 52.212,
+     "end": 52.372
+    },
+    {
+     "text": "of",
+     "start": 52.372,
+     "end": 52.532
+    },
+    {
+     "text": "it",
+     "start": 52.532,
+     "end": 52.612
+    },
+    {
+     "text": "as",
+     "start": 52.612,
+     "end": 52.772
+    },
+    {
+     "text": "a",
+     "start": 52.772,
+     "end": 52.852
+    },
+    {
+     "text": "lesson",
+     "start": 52.852,
+     "end": 53.172
+    },
+    {
+     "text": "in",
+     "start": 53.172,
+     "end": 53.332
+    },
+    {
+     "text": "humility.",
+     "start": 53.332,
+     "end": 54.212
+    },
+    {
+     "text": "What's",
+     "start": 54.212,
+     "end": 54.692
+    },
+    {
+     "text": "on",
+     "start": 54.612,
+     "end": 54.772
+    },
+    {
+     "text": "your",
+     "start": 54.772,
+     "end": 54.932
+    },
+    {
+     "text": "neck?",
+     "start": 54.932,
+     "end": 55.572
+    },
+    {
+     "text": "Last",
+     "start": 55.572,
+     "end": 55.892
+    },
+    {
+     "text": "thing",
+     "start": 55.892,
+     "end": 56.052
+    },
+    {
+     "text": "I",
+     "start": 56.052,
+     "end": 56.212
+    },
+    {
+     "text": "remember,",
+     "start": 56.212,
+     "end": 56.772
+    },
+    {
+     "text": "this",
+     "start": 56.772,
+     "end": 57.012
+    },
+    {
+     "text": "man",
+     "start": 57.012,
+     "end": 57.172
+    },
+    {
+     "text": "stepping",
+     "start": 57.332,
+     "end": 57.732
+    },
+    {
+     "text": "out",
+     "start": 57.732,
+     "end": 57.892
+    },
+    {
+     "text": "of",
+     "start": 57.892,
+     "end": 57.972
+    },
+    {
+     "text": "the",
+     "start": 57.972,
+     "end": 58.052
+    },
+    {
+     "text": "bushes",
+     "start": 58.052,
+     "end": 58.292
+    },
+    {
+     "text": "calling",
+     "start": 58.372,
+     "end": 58.612
+    },
+    {
+     "text": "my",
+     "start": 58.612,
+     "end": 58.772
+    },
+    {
+     "text": "name.",
+     "start": 58.772,
+     "end": 59.092
+    },
+    {
+     "text": "What",
+     "start": 59.092,
+     "end": 59.252
+    },
+    {
+     "text": "are",
+     "start": 59.252,
+     "end": 59.332
+    },
+    {
+     "text": "you",
+     "start": 59.332,
+     "end": 59.412
+    },
+    {
+     "text": "talking",
+     "start": 59.412,
+     "end": 59.652
+    },
+    {
+     "text": "about?",
+     "start": 59.652,
+     "end": 59.892
+    },
+    {
+     "text": "What",
+     "start": 59.892,
+     "end": 60.132
+    },
+    {
+     "text": "man?",
+     "start": 60.132,
+     "end": 60.372
+    }
+   ],
+   "dub": [
+    {
+     "text": "Heroes",
+     "start": 0.436,
+     "end": 0.996
+    },
+    {
+     "text": "know",
+     "start": 1.076,
+     "end": 1.156
+    },
+    {
+     "text": "Zen",
+     "start": 1.316,
+     "end": 1.476
+    },
+    {
+     "text": "Kai",
+     "start": 1.556,
+     "end": 1.636
+    },
+    {
+     "text": "Mathen",
+     "start": 1.716,
+     "end": 1.956
+    },
+    {
+     "text": "or",
+     "start": 2.116,
+     "end": 2.196
+    },
+    {
+     "text": "a",
+     "start": 2.196,
+     "end": 2.276
+    },
+    {
+     "text": "CG",
+     "start": 2.356,
+     "end": 2.596
+    },
+    {
+     "text": "El",
+     "start": 3.108,
+     "end": 3.268
+    },
+    {
+     "text": "billete",
+     "start": 3.268,
+     "end": 3.668
+    },
+    {
+     "text": "de",
+     "start": 3.668,
+     "end": 3.748
+    },
+    {
+     "text": "avión,",
+     "start": 3.748,
+     "end": 4.148
+    },
+    {
+     "text": "el",
+     "start": 4.148,
+     "end": 4.228
+    },
+    {
+     "text": "cuadro,",
+     "start": 4.308,
+     "end": 4.628
+    },
+    {
+     "text": "todo",
+     "start": 4.628,
+     "end": 4.708
+    },
+    {
+     "text": "apunta",
+     "start": 4.868,
+     "end": 5.028
+    },
+    {
+     "text": "a",
+     "start": 5.188,
+     "end": 5.268
+    },
+    {
+     "text": "Montreal.",
+     "start": 5.268,
+     "end": 5.668
+    },
+    {
+     "text": "¿Qué",
+     "start": 5.828,
+     "end": 6.068
+    },
+    {
+     "text": "es",
+     "start": 5.988,
+     "end": 6.068
+    },
+    {
+     "text": "este",
+     "start": 6.148,
+     "end": 6.388
+    },
+    {
+     "text": "sitio?",
+     "start": 6.388,
+     "end": 6.708
+    },
+    {
+     "text": "Era",
+     "start": 6.836,
+     "end": 7.156
+    },
+    {
+     "text": "cierto",
+     "start": 7.156,
+     "end": 7.476
+    },
+    {
+     "text": "lo",
+     "start": 7.476,
+     "end": 7.556
+    },
+    {
+     "text": "de",
+     "start": 7.556,
+     "end": 7.716
+    },
+    {
+     "text": "la",
+     "start": 7.716,
+     "end": 7.796
+    },
+    {
+     "text": "compañía.",
+     "start": 7.796,
+     "end": 8.356
+    },
+    {
+     "text": "El",
+     "start": 8.356,
+     "end": 8.516
+    },
+    {
+     "text": "mundo",
+     "start": 8.516,
+     "end": 8.756
+    },
+    {
+     "text": "está",
+     "start": 8.756,
+     "end": 8.996
+    },
+    {
+     "text": "en",
+     "start": 8.996,
+     "end": 9.076
+    },
+    {
+     "text": "peligro.",
+     "start": 9.076,
+     "end": 9.476
+    },
+    {
+     "text": "Adam.",
+     "start": 9.476,
+     "end": 10.116
+    },
+    {
+     "text": "Por",
+     "start": 10.116,
+     "end": 10.196
+    },
+    {
+     "text": "favor,",
+     "start": 10.196,
+     "end": 10.436
+    },
+    {
+     "text": "dime",
+     "start": 10.436,
+     "end": 10.836
+    },
+    {
+     "text": "quién",
+     "start": 10.836,
+     "end": 10.996
+    },
+    {
+     "text": "soy.",
+     "start": 10.996,
+     "end": 11.316
+    },
+    {
+     "text": "Que",
+     "start": 11.316,
+     "end": 11.476
+    },
+    {
+     "text": "nos",
+     "start": 11.476,
+     "end": 11.556
+    },
+    {
+     "text": "deparará",
+     "start": 11.636,
+     "end": 12.036
+    },
+    {
+     "text": "el",
+     "start": 12.116,
+     "end": 12.196
+    },
+    {
+     "text": "futuro.",
+     "start": 12.196,
+     "end": 12.596
+    },
+    {
+     "text": "Ya",
+     "start": 12.596,
+     "end": 12.836
+    },
+    {
+     "text": "se",
+     "start": 12.836,
+     "end": 12.916
+    },
+    {
+     "text": "nos",
+     "start": 12.916,
+     "end": 12.996
+    },
+    {
+     "text": "ocurriera.",
+     "start": 13.156,
+     "end": 14.196
+    },
+    {
+     "text": "Es",
+     "start": 14.436,
+     "end": 14.596
+    },
+    {
+     "text": "Nueva",
+     "start": 14.836,
+     "end": 15.236
+    },
+    {
+     "text": "York.",
+     "start": 15.236,
+     "end": 15.636
+    },
+    {
+     "text": "¿Dónde",
+     "start": 15.716,
+     "end": 16.036
+    },
+    {
+     "text": "están",
+     "start": 16.196,
+     "end": 16.436
+    },
+    {
+     "text": "todos?",
+     "start": 16.436,
+     "end": 16.836
+    },
+    {
+     "text": "Una",
+     "start": 16.916,
+     "end": 17.156
+    },
+    {
+     "text": "orden",
+     "start": 17.156,
+     "end": 17.396
+    },
+    {
+     "text": "de",
+     "start": 17.396,
+     "end": 17.476
+    },
+    {
+     "text": "evacuación. 14",
+     "start": 17.476,
+     "end": 18.436
+    },
+    {
+     "text": "de",
+     "start": 18.596,
+     "end": 18.676
+    },
+    {
+     "text": "junio",
+     "start": 18.676,
+     "end": 18.996
+    },
+    {
+     "text": "de 2008.",
+     "start": 18.996,
+     "end": 19.556
+    },
+    {
+     "text": "Es",
+     "start": 19.636,
+     "end": 19.796
+    },
+    {
+     "text": "este",
+     "start": 19.796,
+     "end": 20.036
+    },
+    {
+     "text": "año.",
+     "start": 20.036,
+     "end": 20.276
+    },
+    {
+     "text": "Eso",
+     "start": 20.436,
+     "end": 20.676
+    },
+    {
+     "text": "que",
+     "start": 20.676,
+     "end": 20.836
+    },
+    {
+     "text": "hacemos.",
+     "start": 20.836,
+     "end": 21.396
+    },
+    {
+     "text": "Empieza",
+     "start": 21.716,
+     "end": 22.276
+    },
+    {
+     "text": "por",
+     "start": 22.276,
+     "end": 22.436
+    },
+    {
+     "text": "leer",
+     "start": 22.436,
+     "end": 22.836
+    },
+    {
+     "text": "la",
+     "start": 22.836,
+     "end": 22.996
+    },
+    {
+     "text": "mente",
+     "start": 22.996,
+     "end": 23.316
+    },
+    {
+     "text": "y",
+     "start": 23.316,
+     "end": 23.476
+    },
+    {
+     "text": "luego",
+     "start": 23.476,
+     "end": 23.716
+    },
+    {
+     "text": "se",
+     "start": 23.716,
+     "end": 23.876
+    },
+    {
+     "text": "convierte",
+     "start": 23.876,
+     "end": 24.356
+    },
+    {
+     "text": "en",
+     "start": 24.356,
+     "end": 24.516
+    },
+    {
+     "text": "mucho",
+     "start": 24.516,
+     "end": 24.676
+    },
+    {
+     "text": "más.",
+     "start": 24.916,
+     "end": 25.156
+    },
+    {
+     "text": "Mi",
+     "start": 25.316,
+     "end": 25.476
+    },
+    {
+     "text": "padre",
+     "start": 25.476,
+     "end": 25.716
+    },
+    {
+     "text": "puede",
+     "start": 25.716,
+     "end": 25.956
+    },
+    {
+     "text": "hacer",
+     "start": 25.956,
+     "end": 26.196
+    },
+    {
+     "text": "que",
+     "start": 26.196,
+     "end": 26.276
+    },
+    {
+     "text": "piensen",
+     "start": 26.276,
+     "end": 26.596
+    },
+    {
+     "text": "lo",
+     "start": 26.756,
+     "end": 26.836
+    },
+    {
+     "text": "que",
+     "start": 26.836,
+     "end": 26.916
+    },
+    {
+     "text": "él",
+     "start": 26.916,
+     "end": 27.076
+    },
+    {
+     "text": "quiera.",
+     "start": 27.076,
+     "end": 27.716
+    },
+    {
+     "text": "¡Para!",
+     "start": 27.716,
+     "end": 29.236
+    },
+    {
+     "text": "Por",
+     "start": 29.972,
+     "end": 30.132
+    },
+    {
+     "text": "eso",
+     "start": 30.132,
+     "end": 30.292
+    },
+    {
+     "text": "morirme",
+     "start": 30.292,
+     "end": 30.772
+    },
+    {
+     "text": "llaman",
+     "start": 30.852,
+     "end": 31.172
+    },
+    {
+     "text": "el",
+     "start": 31.252,
+     "end": 31.412
+    },
+    {
+     "text": "hombre",
+     "start": 31.412,
+     "end": 31.572
+    },
+    {
+     "text": "de",
+     "start": 31.652,
+     "end": 31.732
+    },
+    {
+     "text": "las",
+     "start": 31.732,
+     "end": 31.812
+    },
+    {
+     "text": "pesadillas.",
+     "start": 31.812,
+     "end": 32.532
+    },
+    {
+     "text": "Spob.",
+     "start": 33.124,
+     "end": 33.764
+    },
+    {
+     "text": "Dirige",
+     "start": 33.764,
+     "end": 34.084
+    },
+    {
+     "text": "la",
+     "start": 34.164,
+     "end": 34.244
+    },
+    {
+     "text": "compañía.",
+     "start": 34.244,
+     "end": 34.804
+    },
+    {
+     "text": "Es",
+     "start": 34.804,
+     "end": 34.964
+    },
+    {
+     "text": "el",
+     "start": 34.964,
+     "end": 35.124
+    },
+    {
+     "text": "siguiente.",
+     "start": 35.124,
+     "end": 35.684
+    },
+    {
+     "text": "Seguro",
+     "start": 36.196,
+     "end": 36.676
+    },
+    {
+     "text": "que",
+     "start": 36.676,
+     "end": 36.836
+    },
+    {
+     "text": "va",
+     "start": 36.836,
+     "end": 36.916
+    },
+    {
+     "text": "a",
+     "start": 36.916,
+     "end": 36.996
+    },
+    {
+     "text": "poder",
+     "start": 36.996,
+     "end": 37.236
+    },
+    {
+     "text": "curarme.",
+     "start": 37.236,
+     "end": 38.036
+    },
+    {
+     "text": "A",
+     "start": 38.036,
+     "end": 38.196
+    },
+    {
+     "text": "cambio,",
+     "start": 38.196,
+     "end": 38.916
+    },
+    {
+     "text": "necesitamos",
+     "start": 38.916,
+     "end": 39.556
+    },
+    {
+     "text": "que",
+     "start": 39.556,
+     "end": 39.716
+    },
+    {
+     "text": "usted",
+     "start": 39.716,
+     "end": 39.956
+    },
+    {
+     "text": "también",
+     "start": 39.956,
+     "end": 40.116
+    },
+    {
+     "text": "nos",
+     "start": 40.276,
+     "end": 40.516
+    },
+    {
+     "text": "dé",
+     "start": 40.516,
+     "end": 40.676
+    },
+    {
+     "text": "algo.",
+     "start": 40.756,
+     "end": 41.156
+    },
+    {
+     "text": "Hola,",
+     "start": 41.156,
+     "end": 41.476
+    },
+    {
+     "text": "Dr.",
+     "start": 41.476,
+     "end": 41.796
+    },
+    {
+     "text": "Suresh.",
+     "start": 41.796,
+     "end": 42.596
+    },
+    {
+     "text": "Tú",
+     "start": 42.596,
+     "end": 42.756
+    },
+    {
+     "text": "eres",
+     "start": 42.756,
+     "end": 43.076
+    },
+    {
+     "text": "tu",
+     "start": 43.236,
+     "end": 43.476
+    },
+    {
+     "text": "compañera.",
+     "start": 43.476,
+     "end": 44.596
+    },
+    {
+     "text": "¿Has",
+     "start": 48.036,
+     "end": 48.676
+    },
+    {
+     "text": "visto",
+     "start": 48.836,
+     "end": 49.076
+    },
+    {
+     "text": "la",
+     "start": 49.076,
+     "end": 49.236
+    },
+    {
+     "text": "cara?",
+     "start": 49.236,
+     "end": 49.716
+    },
+    {
+     "text": "¡Podían",
+     "start": 49.908,
+     "end": 50.468
+    },
+    {
+     "text": "habernos",
+     "start": 50.468,
+     "end": 50.868
+    },
+    {
+     "text": "visto!",
+     "start": 50.868,
+     "end": 51.108
+    },
+    {
+     "text": "Tranquila,",
+     "start": 51.268,
+     "end": 51.828
+    },
+    {
+     "text": "tú",
+     "start": 51.828,
+     "end": 51.908
+    },
+    {
+     "text": "piensa",
+     "start": 51.988,
+     "end": 52.228
+    },
+    {
+     "text": "que",
+     "start": 52.308,
+     "end": 52.468
+    },
+    {
+     "text": "solo",
+     "start": 52.468,
+     "end": 52.548
+    },
+    {
+     "text": "es",
+     "start": 52.708,
+     "end": 52.788
+    },
+    {
+     "text": "una",
+     "start": 52.788,
+     "end": 52.948
+    },
+    {
+     "text": "cura",
+     "start": 52.948,
+     "end": 53.188
+    },
+    {
+     "text": "de",
+     "start": 53.188,
+     "end": 53.348
+    },
+    {
+     "text": "humildad.",
+     "start": 53.348,
+     "end": 53.908
+    },
+    {
+     "text": "¿Qué",
+     "start": 54.196,
+     "end": 54.596
+    },
+    {
+     "text": "tienes",
+     "start": 54.516,
+     "end": 54.756
+    },
+    {
+     "text": "en",
+     "start": 54.756,
+     "end": 54.916
+    },
+    {
+     "text": "el",
+     "start": 54.916,
+     "end": 54.996
+    },
+    {
+     "text": "cuello?",
+     "start": 54.996,
+     "end": 55.716
+    },
+    {
+     "text": "Recuerdo",
+     "start": 55.716,
+     "end": 56.276
+    },
+    {
+     "text": "un",
+     "start": 56.276,
+     "end": 56.436
+    },
+    {
+     "text": "hombre",
+     "start": 56.436,
+     "end": 56.676
+    },
+    {
+     "text": "que",
+     "start": 56.836,
+     "end": 56.996
+    },
+    {
+     "text": "salía",
+     "start": 56.996,
+     "end": 57.316
+    },
+    {
+     "text": "de",
+     "start": 57.316,
+     "end": 57.396
+    },
+    {
+     "text": "entre",
+     "start": 57.396,
+     "end": 57.636
+    },
+    {
+     "text": "los",
+     "start": 57.636,
+     "end": 57.796
+    },
+    {
+     "text": "arbustos",
+     "start": 57.796,
+     "end": 58.356
+    },
+    {
+     "text": "y",
+     "start": 58.356,
+     "end": 58.436
+    },
+    {
+     "text": "me",
+     "start": 58.436,
+     "end": 58.516
+    },
+    {
+     "text": "llamaba.",
+     "start": 58.516,
+     "end": 59.076
+    },
+    {
+     "text": "¿De",
+     "start": 59.124,
+     "end": 59.364
+    },
+    {
+     "text": "qué",
+     "start": 59.364,
+     "end": 59.524
+    },
+    {
+     "text": "hablas?",
+     "start": 59.524,
+     "end": 59.844
+    },
+    {
+     "text": "¿Qué",
+     "start": 59.844,
+     "end": 60.084
+    },
+    {
+     "text": "hombre?",
+     "start": 60.084,
+     "end": 60.324
+    },
+    {
+     "text": "El",
+     "start": 60.484,
+     "end": 60.564
+    },
+    {
+     "text": "hombre.",
+     "start": 60.724,
+     "end": 60.964
+    }
+   ]
+  }
+ }
+]

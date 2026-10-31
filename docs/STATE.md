@@ -2,7 +2,7 @@
 
 The build's working memory. If context runs short, resume from here.
 
-**Last updated:** 2026-10-21 (M5 complete; P18 backlog run built: fast re-exports, viewer polish, cross-release
+**Last updated:** 2026-10-31 (P19 research started: LLM-timed dubbing, dub-trained models, LLM cuts — research only; before that 2026-10-21: M5 complete; P18 backlog run built: fast re-exports, viewer polish, cross-release
 matching, gapless recipe player, dub fixes, face-cropped Shorts, semantic search, cloned-voice dubs)
 
 | | |
@@ -239,6 +239,20 @@ matching, gapless recipe player, dub fixes, face-cropped Shorts, semantic search
   speakers (OmniVoice); not their recordings") in credits.json, the description and the endcard. Dark Knight J1 fr:
   23 lines cloned in ~25 min; after shortening seg:126/183, 1 line over (0.99 s), round-trip WER 0.26 vs 0.04 for
   the studio voice (X41 vs X42). The viewer marks these exports "original voices (AI)" with their own matrix row.
+
+## P19 research (2026-10-31, research only — no app changes)
+- Your direction: explore (1) Claude-written timed dubbing scripts, (2) a model / no-training path learned from your
+  dual-audio movies (own branch `ccr-327cc642-xnfs3i-track2-models`), (3) LLM cut creation. Mid-run you asked for
+  feasibility research instead of app building: the `lang frame`/`lang fit` verb prototype was removed again.
+- Report: `docs/research/P19-dubbing-and-meaning/README.md` (verdicts, literature, pilot, go/no-go experiments).
+- Pilot on two real dual-audio excerpts (movie2parallelDB samples, en→es): `scripts/research/p19/pilot_dub_pairs.py`
+  (sherpa-onnx Parakeet TDT v3 + Silero VAD, CPU, ~0.25 RTF). Human-dub speech overlap 0.72/0.81; dialogue rates
+  far below read-speech tables; dub says up to 28 % more words than the subtitle; subtracting tracks does not isolate
+  the dub voice; token times too coarse for pauses (needs forced alignment + diarisation).
+- Sandbox notes: HuggingFace, arXiv, ACL Anthology are blocked here; GitHub (git and release assets) and PyPI work.
+- Open questions for you: language pairs in the library; lip-synced vs narrated dubs; agent vs API mode for films.
+- `tests/unit/test_contract.py::test_verbs_doc_is_current` fails on Linux only (VERBS.md holds the Windows default
+  `C:\Users\pc\bin`); unrelated to P19.
 
 ## Lessons
 - `>>` marks name speakers for free only when dense (≥ 1/min); sparse marks swap every later line (M2: 86 % vs 50 %).
