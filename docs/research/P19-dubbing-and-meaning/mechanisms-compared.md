@@ -16,6 +16,7 @@ has its own branch and worktree. All of them are scored on one benchmark built f
 | `ccr-327cc642-xnfs3i-p19-placement` | No-training prosodic alignment: split a line onto a speaker's segments | yes | Rate-matching DP: **94–97 % of breaks within one word** of the real pause (59–69 % exact). Lexical priors add a little exactness but hurt elsewhere. |
 | `ccr-327cc642-xnfs3i-p19-llm-loop` | LLM (Claude) writes per segment against budgets, then revises with measured durations | yes | **0.92 speech overlap** with a real TTS voice, 5 % of segments needing > 1.1× speed-up, at −7 chrF vs the reference |
 | `ccr-327cc642-xnfs3i-p19-trained-mt` | Trained duration-aware NMT (IWSLT Sockeye baseline: phonemes + durations, time counters) | yes (after your OK) | **0.80** speech overlap with a real voice (0.86 with its own durations), normalised chrF **53.5**: fits like placement alone, loses the most meaning |
+| `ccr-327cc642-xnfs3i-p19-algorithmic` | Fully algorithmic rephrasing: placement + rule/WordNet edits judged by a trigram LM (no neural model) | yes | Safe edits: **0.85** overlap (+0.02 over placement), 94 % fluent segments; aggressive edits: 0.90 but only 73 % fluent (blind check). chrF misses the damage |
 
 ## The comparison that matters (45 German-speaker lines, measured with a real TTS voice)
 
@@ -25,6 +26,8 @@ has its own branch and worktree. All of them are scored on one benchmark built f
 | Human reference translation + placement | 0.80 | 51 % | 26 % | 100 (is the reference) |
 | Plain translation + **placement** (no rewording) | 0.82 | 62 % | 21 % | 70.7 |
 | **Trained duration-aware NMT** (IWSLT baseline) | 0.80 | 49 % | 12 % | 47.8 (53.5 normalised) |
+| Fully algorithmic edits, safe (v2) | 0.85 | 66 % | 18 % | 69.8 |
+| Fully algorithmic edits, aggressive (v1) | 0.90 | 89 % | 19 % | 68.2 (but 27 % of segments ungrammatical) |
 | **LLM timed** (one pass) | 0.91 | 88 % | 35 % | 65.0 |
 | LLM timed + revision against the text ruler | 0.91 | 88 % | 35 % | 64.9 |
 | **LLM timed + revision against the voice** | **0.92** | **89 %** | **5 %** | 63.5 |
@@ -60,6 +63,15 @@ The professional-dub reference point is speech overlap ~0.7–0.8 (Brannon 2023;
    countdown counters) is sound. The model to train on your corpus is a **pretrained** multilingual model (NLLB/mT5
    or an LLM) fine-tuned with timing tokens or preference-tuned for duration (SSPO-style), scored against the
    real voice.
+
+7. **Fully algorithmic rephrasing is not competitive** (worktree `algorithmic`). Safe rule/synonym edits change a
+   phrase by ~5 % and add +0.02 overlap. Forcing bigger changes breaks the English (blind fluency check: 73 %
+   fluent segments vs 100 % for the LLM loop and 99 % for placement only). chrF hides it. The weak part is the
+   trigram-LM judge; a pretrained masked LM (XLM-R/BERT) plugged into the same search is the variant to test on
+   your PC (HuggingFace is blocked here).
+
+**Blind fluency** (Claude judging 290 shuffled unlabelled phrases): LLM loop R3 100 % fluent segments, placement
+only 99 %, algorithmic safe 94 %, algorithmic + voice 81 %, algorithmic aggressive 73 %, trained NMT 28 %.
 
 Numbers from a second run of the voice check (`wt-trained-mt/compare.json`, VITS sampling ±0.01): R3 0.92 overlap,
 93 % within ±20 %, 6 % needing speed-up.

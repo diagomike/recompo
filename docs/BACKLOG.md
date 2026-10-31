@@ -62,6 +62,9 @@ Every open task by priority. Done phases are summarised; their detail is in git 
 - [x] Mechanisms compared in worktrees (duration, placement, LLM loop, trained MT):
       `docs/research/P19-dubbing-and-meaning/mechanisms-compared.md`.
 - [x] Trained duration-aware MT (IWSLT Sockeye) on the same bench (2026-10-31): 0.80 voice overlap, chrF 53.5.
+- [x] Fully algorithmic rephrasing (worktree `algorithmic`, 2026-10-31): not competitive without a neural judge.
+- [ ] BERT-pluggable rephrasing (XLM-R masked-LM edits + LaBSE/e5 meaning check) and NLLB n-best + rerank — need
+      HuggingFace: run on your PC (`D:\LangBridgeLocal\cache\hf`) or with huggingface.co allowed in the cloud env.
 - [ ] LLM loop with a budget floor (allow silence instead of padding) to recover meaning.
 - [ ] Corpus pilot on 20–50 of your dual-audio titles (needs: language pairs, a list of files).
 - [ ] Track 1 A/B on 10 held-out dubbed titles (Claude's timed script vs today's pipeline vs the human dub's words).
