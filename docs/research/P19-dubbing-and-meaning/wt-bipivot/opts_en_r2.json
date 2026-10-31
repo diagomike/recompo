@@ -1,0 +1,1517 @@
+{
+ "subset2-81": {
+  "1": [
+   {
+    "src": "When you've finished the sentence,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "Once you have finished the sentence,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   }
+  ],
+  "2": [
+   {
+    "src": "click the red button below to end the recording.",
+    "units": [
+     "u2",
+     "u3"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "click the lower red button to stop the recording.",
+    "units": [
+     "u2",
+     "u3"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   }
+  ]
+ },
+ "subset2-82": {
+  "1": [
+   {
+    "src": "He remembered something his grandfather had once told him:",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "He remembered what his grandfather had once told him:",
+    "units": [
+     "u1"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   },
+   {
+    "src": "He suddenly remembered something that his grandfather had once told him long ago:",
+    "units": [
+     "u1"
+    ],
+    "strategy": "steer",
+    "lang": "en"
+   },
+   {
+    "src": "He remembered something his old grandfather had told him once:",
+    "units": [
+     "u1"
+    ],
+    "strategy": "steer",
+    "lang": "en"
+   }
+  ],
+  "2": [
+   {
+    "src": "butterflies are a good sign.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "butterflies are a good omen.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   },
+   {
+    "src": "butterflies are always a good sign.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "steer",
+    "lang": "en"
+   },
+   {
+    "src": "that butterflies are a good sign.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "steer",
+    "lang": "en"
+   }
+  ]
+ },
+ "subset2-83": {
+  "1": [
+   {
+    "src": "Sorrows with something to eat",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "All sorrows with food",
+    "units": [
+     "u1"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   }
+  ],
+  "2": [
+   {
+    "src": "bread",
+    "units": [
+     "u2"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "",
+    "units": [],
+    "strategy": "alt",
+    "lang": "en"
+   }
+  ],
+  "3": [
+   {
+    "src": "are easier to bear,",
+    "units": [
+     "u3"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "are lighter,",
+    "units": [
+     "u3"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   }
+  ],
+  "4": [
+   {
+    "src": "better grief with fat than grief with lean.",
+    "units": [
+     "u4"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "a fat sorrow beats a lean one.",
+    "units": [
+     "u4"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   },
+   {
+    "src": "fat grief beats lean grief.",
+    "units": [
+     "u4"
+    ],
+    "strategy": "steer",
+    "lang": "en"
+   },
+   {
+    "src": "grief with fat is better.",
+    "units": [
+     "u4"
+    ],
+    "strategy": "steer",
+    "lang": "en"
+   }
+  ]
+ },
+ "subset2-84": {
+  "1": [
+   {
+    "src": "Even I",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "Not even I",
+    "units": [
+     "u1"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   }
+  ],
+  "2": [
+   {
+    "src": "haven't thought of other women",
+    "units": [
+     "u2"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "have thought of other women",
+    "units": [
+     "u2"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   },
+   {
+    "src": "I have not thought of other women at all",
+    "units": [
+     "u2"
+    ],
+    "strategy": "steer",
+    "lang": "en"
+   },
+   {
+    "src": "I haven't thought about any other woman",
+    "units": [
+     "u2"
+    ],
+    "strategy": "steer",
+    "lang": "en"
+   }
+  ],
+  "3": [
+   {
+    "src": "since I met the merchant's daughter.",
+    "units": [
+     "u3"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "since meeting the merchant's daughter.",
+    "units": [
+     "u3"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   },
+   {
+    "src": "ever since I met the daughter of the merchant.",
+    "units": [
+     "u3"
+    ],
+    "strategy": "steer",
+    "lang": "en"
+   },
+   {
+    "src": "since the day I met the merchant's daughter.",
+    "units": [
+     "u3"
+    ],
+    "strategy": "steer",
+    "lang": "en"
+   }
+  ]
+ },
+ "subset2-85": {
+  "1": [
+   {
+    "src": "It would be very useful if my web browser could synchronize all its preferences,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "It would be really useful if my browser could sync all of its settings,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   },
+   {
+    "src": "It would be really very useful if my web browser were able to synchronize all of its preferences,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "steer",
+    "lang": "en"
+   }
+  ],
+  "2": [
+   {
+    "src": "not just a few.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "not just some.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   },
+   {
+    "src": "not a few.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "steer",
+    "lang": "en"
+   },
+   {
+    "src": "not only some.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "steer",
+    "lang": "en"
+   }
+  ]
+ },
+ "subset2-86": {
+  "1": [
+   {
+    "src": "Open the shutters and turn off the lights,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "Open the shutters, switch off the lights,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   }
+  ],
+  "2": [
+   {
+    "src": "we can't afford to waste electricity.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "we can't afford electricity.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   }
+  ]
+ },
+ "subset2-87": {
+  "1": [
+   {
+    "src": "When she wanted to withdraw money from her bank account,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "When she tried to take money out of her account,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   },
+   {
+    "src": "When she wanted to withdraw some money from her own bank account,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "steer",
+    "lang": "en"
+   },
+   {
+    "src": "When the woman wanted to withdraw money from her bank account,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "steer",
+    "lang": "en"
+   }
+  ],
+  "2": [
+   {
+    "src": "the cash machine said her card was invalid.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "the ATM said her card was not valid.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   }
+  ]
+ },
+ "subset2-88": {
+  "1": [
+   {
+    "src": "She wasn't home;",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "She was not at home;",
+    "units": [
+     "u1"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   }
+  ],
+  "2": [
+   {
+    "src": "a neighbour suspected she probably hadn't come home last night.",
+    "units": [
+     "u2",
+     "u3"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "a neighbour thought she hadn't come home last night.",
+    "units": [
+     "u2",
+     "u3"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   },
+   {
+    "src": "one of the neighbours suspected that she had probably not come home last night.",
+    "units": [
+     "u2",
+     "u3"
+    ],
+    "strategy": "steer",
+    "lang": "en"
+   },
+   {
+    "src": "a neighbour suspected that she probably had not come back home last night.",
+    "units": [
+     "u2",
+     "u3"
+    ],
+    "strategy": "steer",
+    "lang": "en"
+   }
+  ]
+ },
+ "subset2-89": {
+  "1": [
+   {
+    "src": "The boy noticed that the bar owner was standing nearby,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "The boy saw that the owner of the bar stood close by,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   }
+  ],
+  "2": [
+   {
+    "src": "listening closely to their conversation.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "listening to what they said.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   },
+   {
+    "src": "listening very closely to their conversation.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "steer",
+    "lang": "en"
+   },
+   {
+    "src": "and listening carefully to what they were saying.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "steer",
+    "lang": "en"
+   }
+  ]
+ },
+ "subset2-90": {
+  "1": [
+   {
+    "src": "The region is known for its rich copper deposits,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "The region is famous for its rich copper deposits,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   }
+  ],
+  "2": [
+   {
+    "src": "so mining is carried out on a large scale.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "so there is a lot of mining here.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   }
+  ]
+ },
+ "subset2-91": {
+  "1": [
+   {
+    "src": "The woman said she had never heard of such a person",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "The woman said that she had never heard of anyone like that",
+    "units": [
+     "u1"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   },
+   {
+    "src": "The woman said that she had never in her life heard of such a person",
+    "units": [
+     "u1"
+    ],
+    "strategy": "steer",
+    "lang": "en"
+   },
+   {
+    "src": "The woman told him she had never heard of such a person",
+    "units": [
+     "u1"
+    ],
+    "strategy": "steer",
+    "lang": "en"
+   }
+  ],
+  "2": [
+   {
+    "src": "and quickly walked away.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "and hurried off.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   },
+   {
+    "src": "and she hurried away.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "steer",
+    "lang": "en"
+   },
+   {
+    "src": "and the woman left quickly.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "steer",
+    "lang": "en"
+   }
+  ]
+ },
+ "subset2-92": {
+  "1": [
+   {
+    "src": "The boy stepped closer to the girl,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "The boy moved closer to the girl,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   },
+   {
+    "src": "The boy took a step closer to the young girl,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "steer",
+    "lang": "en"
+   },
+   {
+    "src": "The boy moved a little closer to the girl,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "steer",
+    "lang": "en"
+   }
+  ],
+  "2": [
+   {
+    "src": "and when she smiled,",
+    "units": [
+     "u2"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "and as she smiled,",
+    "units": [
+     "u2"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   },
+   {
+    "src": "and when she smiled at him,",
+    "units": [
+     "u2"
+    ],
+    "strategy": "steer",
+    "lang": "en"
+   }
+  ],
+  "3": [
+   {
+    "src": "he did the same.",
+    "units": [
+     "u3"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "he smiled back.",
+    "units": [
+     "u3"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   },
+   {
+    "src": "he smiled at her too.",
+    "units": [
+     "u3"
+    ],
+    "strategy": "steer",
+    "lang": "en"
+   },
+   {
+    "src": "he did exactly the same.",
+    "units": [
+     "u3"
+    ],
+    "strategy": "steer",
+    "lang": "en"
+   }
+  ]
+ },
+ "subset2-93": {
+  "1": [
+   {
+    "src": "If you see something you like,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "If you see anything you like,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   },
+   {
+    "src": "If you happen to see something that you like,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "steer",
+    "lang": "en"
+   }
+  ],
+  "2": [
+   {
+    "src": "take it",
+    "units": [
+     "u2"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "then take it",
+    "units": [
+     "u2"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   },
+   {
+    "src": "then just take it",
+    "units": [
+     "u2"
+    ],
+    "strategy": "steer",
+    "lang": "en"
+   },
+   {
+    "src": "take it for yourself",
+    "units": [
+     "u2"
+    ],
+    "strategy": "steer",
+    "lang": "en"
+   }
+  ],
+  "3": [
+   {
+    "src": "and make it better.",
+    "units": [
+     "u3"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "and improve it.",
+    "units": [
+     "u3"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   },
+   {
+    "src": "improve it.",
+    "units": [
+     "u3"
+    ],
+    "strategy": "steer",
+    "lang": "en"
+   },
+   {
+    "src": "make it better.",
+    "units": [
+     "u3"
+    ],
+    "strategy": "steer",
+    "lang": "en"
+   }
+  ]
+ },
+ "subset2-94": {
+  "1": [
+   {
+    "src": "He paused for a moment",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "He stopped for a moment",
+    "units": [
+     "u1"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   },
+   {
+    "src": "He paused for a short moment",
+    "units": [
+     "u1"
+    ],
+    "strategy": "steer",
+    "lang": "en"
+   },
+   {
+    "src": "He stopped for just a moment",
+    "units": [
+     "u1"
+    ],
+    "strategy": "steer",
+    "lang": "en"
+   }
+  ],
+  "2": [
+   {
+    "src": "to check",
+    "units": [
+     "u2"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "to see",
+    "units": [
+     "u2"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   },
+   {
+    "src": "in order to check",
+    "units": [
+     "u2"
+    ],
+    "strategy": "steer",
+    "lang": "en"
+   },
+   {
+    "src": "to find out",
+    "units": [
+     "u2"
+    ],
+    "strategy": "steer",
+    "lang": "en"
+   }
+  ],
+  "3": [
+   {
+    "src": "whether the woman knew about the Egyptian pyramids.",
+    "units": [
+     "u3"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "if the woman knew of the Egyptian pyramids.",
+    "units": [
+     "u3"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   },
+   {
+    "src": "whether the woman had heard of the Egyptian pyramids.",
+    "units": [
+     "u3"
+    ],
+    "strategy": "steer",
+    "lang": "en"
+   },
+   {
+    "src": "whether or not the woman knew about the Egyptian pyramids.",
+    "units": [
+     "u3"
+    ],
+    "strategy": "steer",
+    "lang": "en"
+   }
+  ]
+ },
+ "subset2-95": {
+  "1": [
+   {
+    "src": "However, after the Labour Party came to power,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "But after the Labour Party came to power,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   },
+   {
+    "src": "However, after the Labour Party had come to power in the country,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "steer",
+    "lang": "en"
+   }
+  ],
+  "2": [
+   {
+    "src": "the commitment against apartheid was dropped.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "the commitment against apartheid faded away.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   },
+   {
+    "src": "the commitment against apartheid was simply dropped.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "steer",
+    "lang": "en"
+   },
+   {
+    "src": "the commitment to fight apartheid was abandoned.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "steer",
+    "lang": "en"
+   }
+  ]
+ },
+ "subset2-96": {
+  "1": [
+   {
+    "src": "He made a name for himself at Getafe",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "He became known at Getafe",
+    "units": [
+     "u1"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   },
+   {
+    "src": "He made a real name for himself at Getafe",
+    "units": [
+     "u1"
+    ],
+    "strategy": "steer",
+    "lang": "en"
+   },
+   {
+    "src": "He made a name for himself playing at Getafe",
+    "units": [
+     "u1"
+    ],
+    "strategy": "steer",
+    "lang": "en"
+   }
+  ],
+  "2": [
+   {
+    "src": "after coming up through Real Madrid's youth academy.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "after coming from the Real Madrid youth academy.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   }
+  ]
+ },
+ "subset2-97": {
+  "1": [
+   {
+    "src": "Geology experts agree:",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "Experts in geology agree:",
+    "units": [
+     "u1"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   },
+   {
+    "src": "All the experts in geology agree on this:",
+    "units": [
+     "u1"
+    ],
+    "strategy": "steer",
+    "lang": "en"
+   },
+   {
+    "src": "Experts in geology are in agreement:",
+    "units": [
+     "u1"
+    ],
+    "strategy": "steer",
+    "lang": "en"
+   }
+  ],
+  "2": [
+   {
+    "src": "yesterday's tsunami was only a harbinger of the coming apocalypse.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "yesterday's tsunami was just a sign of the coming apocalypse.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   },
+   {
+    "src": "yesterday's tsunami was nothing more than a harbinger of the apocalypse that is coming.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "steer",
+    "lang": "en"
+   },
+   {
+    "src": "yesterday's tsunami was only an early warning sign of the coming apocalypse.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "steer",
+    "lang": "en"
+   }
+  ]
+ },
+ "subset2-98": {
+  "1": [
+   {
+    "src": "There is a mosque",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "There's a mosque",
+    "units": [
+     "u1"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   },
+   {
+    "src": "There is also a mosque",
+    "units": [
+     "u1"
+    ],
+    "strategy": "steer",
+    "lang": "en"
+   },
+   {
+    "src": "There stands a mosque",
+    "units": [
+     "u1"
+    ],
+    "strategy": "steer",
+    "lang": "en"
+   }
+  ],
+  "2": [
+   {
+    "src": "facing a Javanese alun-alun,",
+    "units": [
+     "u2"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "that faces a Javanese town square,",
+    "units": [
+     "u2"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   }
+  ],
+  "3": [
+   {
+    "src": "the typical layout of a Javanese town.",
+    "units": [
+     "u3"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "typical of a Javanese city.",
+    "units": [
+     "u3"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   },
+   {
+    "src": "typical of a Javanese town.",
+    "units": [
+     "u3"
+    ],
+    "strategy": "steer",
+    "lang": "en"
+   }
+  ]
+ },
+ "subset2-99": {
+  "1": [
+   {
+    "src": "Although some admired the prophet,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "Some admired the prophet,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   },
+   {
+    "src": "Although some people admired the prophet,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "steer",
+    "lang": "en"
+   }
+  ],
+  "2": [
+   {
+    "src": "others accused him of blasphemy,",
+    "units": [
+     "u2"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "but others accused him of blasphemy,",
+    "units": [
+     "u2"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   },
+   {
+    "src": "other people accused him of blasphemy,",
+    "units": [
+     "u2"
+    ],
+    "strategy": "steer",
+    "lang": "en"
+   },
+   {
+    "src": "but others openly accused him of blasphemy,",
+    "units": [
+     "u2"
+    ],
+    "strategy": "steer",
+    "lang": "en"
+   }
+  ],
+  "3": [
+   {
+    "src": "and he now seeks refuge abroad.",
+    "units": [
+     "u3"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "and now he is seeking refuge abroad.",
+    "units": [
+     "u3"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   }
+  ]
+ },
+ "subset2-100": {
+  "1": [
+   {
+    "src": "When the boy looked at the spoon he was holding,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "When the boy looked at the spoon in his hand,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   },
+   {
+    "src": "When the boy looked down at the spoon he was holding,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "steer",
+    "lang": "en"
+   },
+   {
+    "src": "When the boy looked at the spoon he was holding in his hand,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "steer",
+    "lang": "en"
+   }
+  ],
+  "2": [
+   {
+    "src": "he realized the oil was gone.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "he saw that the oil was gone.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   }
+  ]
+ },
+ "subset1-18": {
+  "1": [
+   {
+    "src": "The head of the Czechoslovak",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "The leader of the Czechoslovak",
+    "units": [
+     "u1"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   },
+   {
+    "src": "The head of the Czechoslovak Hussite Church",
+    "units": [
+     "u1"
+    ],
+    "strategy": "steer",
+    "lang": "en"
+   },
+   {
+    "src": "The man at the head of the Czechoslovak",
+    "units": [
+     "u1"
+    ],
+    "strategy": "steer",
+    "lang": "en"
+   }
+  ],
+  "2": [
+   {
+    "src": "Hussite Church is also called the Patriarch.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "Hussite Church is also known as the Patriarch.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   },
+   {
+    "src": "is also called the Patriarch.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "steer",
+    "lang": "en"
+   },
+   {
+    "src": "Hussite Church is also known by the title of Patriarch.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "steer",
+    "lang": "en"
+   }
+  ]
+ },
+ "subset1-19": {
+  "1": [
+   {
+    "src": "We're only travellers, replied the alchemist.",
+    "units": [
+     "u1",
+     "u2"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "We are just travellers, the alchemist answered.",
+    "units": [
+     "u1",
+     "u2"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   }
+  ]
+ },
+ "subset1-20": {
+  "1": [
+   {
+    "src": "Don't you see what's happening?",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "Can't you see what is going on?",
+    "units": [
+     "u1"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   },
+   {
+    "src": "Don't you see what is happening here right now?",
+    "units": [
+     "u1"
+    ],
+    "strategy": "steer",
+    "lang": "en"
+   },
+   {
+    "src": "Can't you see what's happening around you?",
+    "units": [
+     "u1"
+    ],
+    "strategy": "steer",
+    "lang": "en"
+   }
+  ]
+ },
+ "subset1-21": {
+  "1": [
+   {
+    "src": "Do you like real books, or do you prefer digital versions?",
+    "units": [
+     "u1",
+     "u2"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "Do you like reading printed books, or do you prefer digital ones?",
+    "units": [
+     "u1",
+     "u2"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   },
+   {
+    "src": "Do you like reading real printed books, or do you prefer the digital versions?",
+    "units": [
+     "u1",
+     "u2"
+    ],
+    "strategy": "steer",
+    "lang": "en"
+   }
+  ]
+ }
+}

@@ -1,0 +1,77 @@
+=== subset2-81 EN-B whole: When you're done with the sentence. Click the red button below to finish the recording.
+   [1] When you're done with the sentence.
+   [2] Click the red button below to end the recording.
+=== subset2-82 EN-B whole: He remembered something his grandfather had once said of him. Butterflies are a good sign.
+   [1] He remembered something his grandfather had once said of him.
+   [2] Butterflies are a good sign.
+=== subset2-83 EN-B whole: Eat pain with something. Bread. are less tolerable. Grief and fat is better than grief and lean.
+   [1] Eat pain with something.
+   [2] Bread.
+   [3] are less tolerable.
+   [4] Grief and fat is better than grief and lean.
+=== subset2-84 EN-B whole: Even me. I haven't thought about other women since I met the merchant's daughter.
+   [1] Even me.
+   [2] I didn't think about other women.
+   [3] Since I met the merchant's daughter.
+=== subset2-85 EN-B whole: It would be very useful if my web browser had the ability to synchronize all its preferences. Not just a few.
+   [1] It would be very useful if my web browser had the ability to synchronize all its preferences.
+   [2] Not just a few.
+=== subset2-86 EN-B whole: Open the shutters and turn off the lights. We can't afford to gild electricity.
+   [1] Open the shutters and turn off the lights.
+   [2] We can't afford to gild electricity.
+=== subset2-87 EN-B whole: When she wanted to withdraw some money from her bank account, the ATM indicated that her card was invalid.
+   [1] When she wanted to withdraw some money from her bank account,
+   [2] The ATM indicated that her card was invalid.
+=== subset2-88 EN-B whole: She wasn't home. One neighbor suspected she probably hadn't come home last night.
+   [1] She wasn't home.
+   [2] One neighbor suspected she probably hadn't come home last night.
+=== subset2-89 EN-B whole: The boy noticed that the owner of the bar was standing nearby. attentively listening to your conversation.
+   [1] The boy noticed that the owner of the bar was standing nearby.
+   [2] attentively listening to your conversation.
+=== subset2-90 EN-B whole: The region is known for its rich copper deposit, so that mining is operated on a large scale.
+   [1] The region is known for its rich copper deposit.
+   [2] so that mining is operated on a large scale.
+=== subset2-91 EN-B whole: The woman said that she has never heard of such a person. left quickly.
+   [1] The woman said she has never heard of such a person.
+   [2] went away quickly.
+=== subset2-92 EN-B whole: The boy approached the girl. And when she smiled, he did it to her.
+   [1] The boy approached the girl.
+   [2] And when she smiled,
+   [3] He did it to her.
+=== subset2-93 EN-B whole: If you see something you like. Then they'll take it. And make it better.
+   [1] If you see something you like.
+   [2] Then they'll take it.
+   [3] And make it better.
+=== subset2-94 EN-B whole: He took a moment off. To check if the woman knew about the Egyptian pyramids.
+   [1] He took a moment off.
+   [2] To check.
+   [3] If the woman knew about the Egyptian pyramid.
+=== subset2-95 EN-B whole: However, after the Labour Party came to power, the commitment against the apartment was abolished.
+   [1] After the Labour Party came to power.
+   [2] Just the commitment against the apparte.
+=== subset2-96 EN-B whole: He made a name for himself at Chentaffe after coming out of the Real Madrid cantera.
+   [1] He made a name for himself at Chentaffe.
+   [2] After coming out of the Real Madrid cantera.
+=== subset2-97 EN-B whole: Geology experts agree. Yesterday's tsunami was just a harbinger of the upcoming apocalypse.
+   [1] Geology experts agree.
+   [2] Yesterday's tsunami was just a harbinger of the upcoming apocalypse.
+=== subset2-98 EN-B whole: There is a mosque pointing towards a Javanese Alun Alun. typical arrangement of a javenan city.
+   [1] There is a mosque.
+   [2] which points in the direction of a Javanese Alun Alun.
+   [3] Typical arrangement of a javenan city.
+=== subset2-99 EN-B whole: Although some admired the Prophet, others accused him of blasphemy. And he's seeking refuge abroad now.
+   [1] Though some admired the prophet,
+   [2] Accused him of others of blasphemy.
+   [3] And he's seeking refuge abroad now.
+=== subset2-100 EN-B whole: When the boy looked at the spoon he was holding, he realized the oil was gone.
+   [1] When the boy looked at the spoon he was holding,
+   [2] He realized the oil was gone.
+=== subset1-18 EN-B whole: But the head of the Czechoslovak Husite Cherry is also referred to as a patriarch.
+   [1] But the head of the Czechoslovak
+   [2] Husiten Cherry is also known as Patriarch.
+=== subset1-19 EN-B whole: We're just travelers, the alchemist replied.
+   [1] We're just travelers, the alchemist replied.
+=== subset1-20 EN-B whole: Don't you see what's going on?
+   [1] Don't you see what's going on?
+=== subset1-21 EN-B whole: Do you like to see correct books or do you prefer digital versions?
+   [1] Do you like to see correct books or do you prefer digital versions?

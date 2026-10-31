@@ -1,0 +1,1123 @@
+{
+ "subset1-18|El jefe de la Iglesia": {
+  "covered": [
+   "u1"
+  ],
+  "errors": []
+ },
+ "subset1-18|Hussite Church is also known as the Patriarch.": {
+  "covered": [
+   "u2"
+  ],
+  "errors": []
+ },
+ "subset1-18|The head of the Czechoslovak": {
+  "covered": [
+   "u1"
+  ],
+  "errors": []
+ },
+ "subset1-18|husita checoslovaca recibe también el nombre de Patriarca.": {
+  "covered": [],
+  "errors": [
+   "'Church' lost: reads as a Hussite person"
+  ]
+ },
+ "subset1-18|husita checoslovaca también se llama Patriarca.": {
+  "covered": [
+   "u2"
+  ],
+  "errors": []
+ },
+ "subset1-19|Solo somos viajeros, respondió el alquimista.": {
+  "covered": [
+   "u1",
+   "u2"
+  ],
+  "errors": []
+ },
+ "subset1-19|We're only travellers, replied the alchemist.": {
+  "covered": [
+   "u1",
+   "u2"
+  ],
+  "errors": []
+ },
+ "subset1-20|Don't you see what's happening?": {
+  "covered": [
+   "u1"
+  ],
+  "errors": []
+ },
+ "subset1-20|¿Es que no ves lo que pasa?": {
+  "covered": [
+   "u1"
+  ],
+  "errors": []
+ },
+ "subset1-21|Do you like reading printed books, or do you prefer digital ones?": {
+  "covered": [
+   "u1",
+   "u2"
+  ],
+  "errors": []
+ },
+ "subset1-21|¿Te gusta leer libros en papel o prefieres las versiones digitales?": {
+  "covered": [
+   "u1",
+   "u2"
+  ],
+  "errors": []
+ },
+ "subset2-100|Cuando el chico miró la cuchara que sostenía,": {
+  "covered": [
+   "u1"
+  ],
+  "errors": []
+ },
+ "subset2-100|When the boy looked at the spoon in his hand,": {
+  "covered": [
+   "u1"
+  ],
+  "errors": []
+ },
+ "subset2-100|he saw that the oil was gone.": {
+  "covered": [
+   "u2"
+  ],
+  "errors": []
+ },
+ "subset2-100|se dio cuenta de que el aceite había desaparecido.": {
+  "covered": [
+   "u2"
+  ],
+  "errors": []
+ },
+ "subset2-81|Cuando hayas terminado la frase,": {
+  "covered": [
+   "u1"
+  ],
+  "errors": []
+ },
+ "subset2-81|When you've finished the sentence,": {
+  "covered": [
+   "u1"
+  ],
+  "errors": []
+ },
+ "subset2-81|click the red button below to end the recording.": {
+  "covered": [
+   "u2",
+   "u3"
+  ],
+  "errors": []
+ },
+ "subset2-81|haz clic en el botón rojo de abajo para terminar la grabación.": {
+  "covered": [
+   "u2",
+   "u3"
+  ],
+  "errors": []
+ },
+ "subset2-82|He remembered something his grandfather had once told him:": {
+  "covered": [
+   "u1"
+  ],
+  "errors": []
+ },
+ "subset2-82|Recordó algo que su abuelo le había dicho una vez:": {
+  "covered": [
+   "u1"
+  ],
+  "errors": []
+ },
+ "subset2-82|butterflies are a good omen.": {
+  "covered": [
+   "u2"
+  ],
+  "errors": []
+ },
+ "subset2-82|las mariposas traen buena suerte.": {
+  "covered": [
+   "u2"
+  ],
+  "errors": []
+ },
+ "subset2-83|All sorrows with food": {
+  "covered": [
+   "u1"
+  ],
+  "errors": []
+ },
+ "subset2-83|Todas las penas con comida": {
+  "covered": [
+   "u1"
+  ],
+  "errors": []
+ },
+ "subset2-83|are easier to bear,": {
+  "covered": [
+   "u3"
+  ],
+  "errors": []
+ },
+ "subset2-83|better grief with fat than grief with lean.": {
+  "covered": [
+   "u4"
+  ],
+  "errors": []
+ },
+ "subset2-83|bread": {
+  "covered": [
+   "u2"
+  ],
+  "errors": []
+ },
+ "subset2-83|mejor una pena gorda que una pena flaca.": {
+  "covered": [],
+  "errors": [
+   "'shame' for sorrow"
+  ]
+ },
+ "subset2-83|pan": {
+  "covered": [
+   "u2"
+  ],
+  "errors": []
+ },
+ "subset2-83|se llevan mejor,": {
+  "covered": [],
+  "errors": [
+   "'get along better' for 'easier to bear'"
+  ]
+ },
+ "subset2-84|Ni siquiera yo": {
+  "covered": [
+   "u1"
+  ],
+  "errors": []
+ },
+ "subset2-84|Not even I": {
+  "covered": [
+   "u1"
+  ],
+  "errors": []
+ },
+ "subset2-84|desde que conocí a la hija del comerciante.": {
+  "covered": [
+   "u3"
+  ],
+  "errors": []
+ },
+ "subset2-84|have thought of other women": {
+  "covered": [],
+  "errors": [
+   "subject 'he' + negation lost"
+  ]
+ },
+ "subset2-84|he pensado en otras mujeres": {
+  "covered": [],
+  "errors": [
+   "negation lost (positive 'I've thought')"
+  ]
+ },
+ "subset2-84|since I met the merchant's daughter.": {
+  "covered": [
+   "u3"
+  ],
+  "errors": []
+ },
+ "subset2-85|It would be really useful if my browser could sync all of its settings,": {
+  "covered": [
+   "u1"
+  ],
+  "errors": []
+ },
+ "subset2-85|Sería muy práctico que mi navegador web sincronizara todos sus ajustes,": {
+  "covered": [
+   "u1"
+  ],
+  "errors": []
+ },
+ "subset2-85|no solo algunas.": {
+  "covered": [
+   "u2"
+  ],
+  "errors": []
+ },
+ "subset2-85|not just some.": {
+  "covered": [
+   "u2"
+  ],
+  "errors": []
+ },
+ "subset2-86|Abre las persianas y apaga las luces,": {
+  "covered": [
+   "u1"
+  ],
+  "errors": []
+ },
+ "subset2-86|Open the shutters and turn off the lights,": {
+  "covered": [
+   "u1"
+  ],
+  "errors": []
+ },
+ "subset2-86|la electricidad no nos la podemos permitir.": {
+  "covered": [],
+  "errors": [
+   "'electricity cannot afford it'"
+  ]
+ },
+ "subset2-86|we can't afford electricity.": {
+  "covered": [
+   "u2"
+  ],
+  "errors": []
+ },
+ "subset2-87|Cuando intentó retirar dinero de su cuenta,": {
+  "covered": [],
+  "errors": [
+   "subject 'he' for she"
+  ]
+ },
+ "subset2-87|When she wanted to withdraw money from her bank account,": {
+  "covered": [
+   "u1"
+  ],
+  "errors": []
+ },
+ "subset2-87|el cajero automático le dijo que su tarjeta no era válida.": {
+  "covered": [
+   "u2"
+  ],
+  "errors": []
+ },
+ "subset2-87|the ATM said her card was not valid.": {
+  "covered": [
+   "u2"
+  ],
+  "errors": []
+ },
+ "subset2-88|No estaba en casa;": {
+  "covered": [],
+  "errors": [
+   "subject 'I' for she"
+  ]
+ },
+ "subset2-88|She wasn't home;": {
+  "covered": [
+   "u1"
+  ],
+  "errors": []
+ },
+ "subset2-88|a neighbour suspected she probably hadn't come home last night.": {
+  "covered": [
+   "u2",
+   "u3"
+  ],
+  "errors": []
+ },
+ "subset2-88|un vecino sospechaba que probablemente no había vuelto a casa anoche.": {
+  "covered": [],
+  "errors": [
+   "subject 'he' for she"
+  ]
+ },
+ "subset2-89|El chico notó que el dueño del bar estaba cerca,": {
+  "covered": [
+   "u1"
+  ],
+  "errors": []
+ },
+ "subset2-89|The boy saw that the owner of the bar stood close by,": {
+  "covered": [
+   "u1"
+  ],
+  "errors": []
+ },
+ "subset2-89|escuchando atentamente su conversación.": {
+  "covered": [
+   "u2"
+  ],
+  "errors": []
+ },
+ "subset2-89|listening closely to their conversation.": {
+  "covered": [
+   "u2"
+  ],
+  "errors": []
+ },
+ "subset2-90|La región es conocida por sus ricos yacimientos de cobre,": {
+  "covered": [
+   "u1"
+  ],
+  "errors": []
+ },
+ "subset2-90|The region is known for its rich copper deposits,": {
+  "covered": [
+   "u1"
+  ],
+  "errors": []
+ },
+ "subset2-90|por eso la minería se practica a gran escala.": {
+  "covered": [
+   "u2"
+  ],
+  "errors": []
+ },
+ "subset2-90|so mining is carried out on a large scale.": {
+  "covered": [
+   "u2"
+  ],
+  "errors": []
+ },
+ "subset2-91|La mujer dijo que jamás había oído hablar de alguien así": {
+  "covered": [
+   "u1"
+  ],
+  "errors": []
+ },
+ "subset2-91|The woman said that she had never heard of anyone like that": {
+  "covered": [
+   "u1"
+  ],
+  "errors": []
+ },
+ "subset2-91|and quickly walked away.": {
+  "covered": [
+   "u2"
+  ],
+  "errors": []
+ },
+ "subset2-91|y se fue rápido.": {
+  "covered": [],
+  "errors": [
+   "subject 'he' for the woman"
+  ]
+ },
+ "subset2-92|El muchacho se acercó más a la muchacha,": {
+  "covered": [],
+  "errors": [
+   "'brought the girl closer' (he moved her)"
+  ]
+ },
+ "subset2-92|The boy stepped closer to the girl,": {
+  "covered": [],
+  "errors": [
+   "'brought the girl closer' (he moved her)"
+  ]
+ },
+ "subset2-92|and when she smiled,": {
+  "covered": [
+   "u2"
+  ],
+  "errors": []
+ },
+ "subset2-92|he smiled back.": {
+  "covered": [
+   "u3"
+  ],
+  "errors": []
+ },
+ "subset2-92|y cuando ella sonrió,": {
+  "covered": [
+   "u2"
+  ],
+  "errors": []
+ },
+ "subset2-92|él también sonrió.": {
+  "covered": [
+   "u3"
+  ],
+  "errors": []
+ },
+ "subset2-93|If you see something you like,": {
+  "covered": [
+   "u1"
+  ],
+  "errors": []
+ },
+ "subset2-93|Si ves algo que te gusta,": {
+  "covered": [
+   "u1"
+  ],
+  "errors": []
+ },
+ "subset2-93|and make it better.": {
+  "covered": [
+   "u3"
+  ],
+  "errors": []
+ },
+ "subset2-93|then take it": {
+  "covered": [
+   "u2"
+  ],
+  "errors": []
+ },
+ "subset2-93|tómalo": {
+  "covered": [
+   "u2"
+  ],
+  "errors": []
+ },
+ "subset2-93|y mejóralo.": {
+  "covered": [
+   "u3"
+  ],
+  "errors": []
+ },
+ "subset2-94|He paused for a moment": {
+  "covered": [
+   "u1"
+  ],
+  "errors": []
+ },
+ "subset2-94|Se detuvo un momento": {
+  "covered": [
+   "u1"
+  ],
+  "errors": []
+ },
+ "subset2-94|if the woman knew of the Egyptian pyramids.": {
+  "covered": [
+   "u3"
+  ],
+  "errors": []
+ },
+ "subset2-94|para comprobar": {
+  "covered": [
+   "u2"
+  ],
+  "errors": []
+ },
+ "subset2-94|si la mujer conocía las pirámides egipcias.": {
+  "covered": [
+   "u3"
+  ],
+  "errors": []
+ },
+ "subset2-94|to check": {
+  "covered": [
+   "u2"
+  ],
+  "errors": []
+ },
+ "subset2-95|However, after the Labour Party came to power,": {
+  "covered": [
+   "u1"
+  ],
+  "errors": []
+ },
+ "subset2-95|Sin embargo, cuando el Partido Laborista llegó al poder,": {
+  "covered": [
+   "u1"
+  ],
+  "errors": []
+ },
+ "subset2-95|el compromiso contra el apartheid se abandonó.": {
+  "covered": [
+   "u2"
+  ],
+  "errors": []
+ },
+ "subset2-95|the commitment against apartheid was dropped.": {
+  "covered": [
+   "u2"
+  ],
+  "errors": []
+ },
+ "subset2-96|He became known at Getafe": {
+  "covered": [
+   "u1"
+  ],
+  "errors": []
+ },
+ "subset2-96|Se hizo un nombre en el Getafe": {
+  "covered": [
+   "u1"
+  ],
+  "errors": []
+ },
+ "subset2-96|after coming from the Real Madrid youth academy.": {
+  "covered": [
+   "u2"
+  ],
+  "errors": []
+ },
+ "subset2-96|tras salir de la cantera del Real Madrid.": {
+  "covered": [],
+  "errors": [
+   "'Real Madrid's career' for youth academy"
+  ]
+ },
+ "subset2-97|Geology experts agree:": {
+  "covered": [
+   "u1"
+  ],
+  "errors": []
+ },
+ "subset2-97|Los expertos en geología coinciden:": {
+  "covered": [
+   "u1"
+  ],
+  "errors": []
+ },
+ "subset2-97|el tsunami de ayer fue solo un presagio del apocalipsis que se avecina.": {
+  "covered": [
+   "u2"
+  ],
+  "errors": []
+ },
+ "subset2-97|yesterday's tsunami was only a harbinger of the coming apocalypse.": {
+  "covered": [
+   "u2"
+  ],
+  "errors": []
+ },
+ "subset2-98|Hay una mezquita": {
+  "covered": [
+   "u1"
+  ],
+  "errors": []
+ },
+ "subset2-98|There is a mosque": {
+  "covered": [
+   "u1"
+  ],
+  "errors": []
+ },
+ "subset2-98|frente a un alun-alun javanés,": {
+  "covered": [
+   "u2"
+  ],
+  "errors": []
+ },
+ "subset2-98|la disposición típica de una ciudad javanesa.": {
+  "covered": [
+   "u3"
+  ],
+  "errors": []
+ },
+ "subset2-98|that faces a Javanese town square,": {
+  "covered": [
+   "u2"
+  ],
+  "errors": []
+ },
+ "subset2-98|typical of a Javanese city.": {
+  "covered": [
+   "u3"
+  ],
+  "errors": []
+ },
+ "subset2-99|Although some admired the prophet,": {
+  "covered": [
+   "u1"
+  ],
+  "errors": []
+ },
+ "subset2-99|Aunque algunos admiraban al profeta,": {
+  "covered": [
+   "u1"
+  ],
+  "errors": []
+ },
+ "subset2-99|and now he is seeking refuge abroad.": {
+  "covered": [
+   "u3"
+  ],
+  "errors": []
+ },
+ "subset2-99|but others accused him of blasphemy,": {
+  "covered": [
+   "u2"
+  ],
+  "errors": []
+ },
+ "subset2-99|pero otros lo acusaron de blasfemia,": {
+  "covered": [
+   "u2"
+  ],
+  "errors": []
+ },
+ "subset2-99|y ahora busca refugio en el extranjero.": {
+  "covered": [
+   "u3"
+  ],
+  "errors": []
+ },
+ "subset2-83|más vale pena gorda que pena flaca.": {
+  "covered": [],
+  "errors": [
+   "garbled proverb"
+  ]
+ },
+ "subset2-83|son menos,": {
+  "covered": [],
+  "errors": [
+   "'they are less' (bear lost)"
+  ]
+ },
+ "subset2-84|haven't thought of other women": {
+  "covered": [
+   "u2"
+  ],
+  "errors": []
+ },
+ "subset2-84|no he pensado en otras mujeres": {
+  "covered": [
+   "u2"
+  ],
+  "errors": []
+ },
+ "subset2-86|no podemos permitirnos gastar electricidad.": {
+  "covered": [
+   "u2"
+  ],
+  "errors": []
+ },
+ "subset2-87|Cuando quiso sacar dinero de su cuenta bancaria,": {
+  "covered": [],
+  "errors": [
+   "'get out of his bank account', subject 'he'"
+  ]
+ },
+ "subset2-88|Ella no estaba en casa;": {
+  "covered": [
+   "u1"
+  ],
+  "errors": []
+ },
+ "subset2-88|un vecino creía que anoche no había vuelto a casa.": {
+  "covered": [],
+  "errors": [
+   "subject 'he' for she"
+  ]
+ },
+ "subset2-91|y se marchó deprisa.": {
+  "covered": [],
+  "errors": [
+   "subject 'he' for the woman"
+  ]
+ },
+ "subset2-92|El chico se acercó a la chica,": {
+  "covered": [
+   "u1"
+  ],
+  "errors": []
+ },
+ "subset2-96|después de formarse en la cantera del Real Madrid.": {
+  "covered": [],
+  "errors": [
+   "'Real Madrid's career' for youth academy"
+  ]
+ },
+ "subset1-18|El jefe de la Iglesia husita": {
+  "covered": [
+   "u1"
+  ],
+  "errors": []
+ },
+ "subset1-18|Hussite Church is also called the Patriarch.": {
+  "covered": [
+   "u2"
+  ],
+  "errors": []
+ },
+ "subset1-18|The head of the Czechoslovak Hussite Church": {
+  "covered": [],
+  "errors": [
+   "name garbled (Chistoslovak)"
+  ]
+ },
+ "subset1-20|Don't you see what is happening here right now?": {
+  "covered": [
+   "u1"
+  ],
+  "errors": []
+ },
+ "subset1-20|¿No ves lo que está pasando aquí ahora mismo?": {
+  "covered": [
+   "u1"
+  ],
+  "errors": []
+ },
+ "subset1-21|Do you like reading real printed books, or do you prefer the digital versions?": {
+  "covered": [
+   "u1",
+   "u2"
+  ],
+  "errors": []
+ },
+ "subset1-21|¿Te gusta leer libros de verdad en papel, o prefieres las versiones digitales?": {
+  "covered": [
+   "u1",
+   "u2"
+  ],
+  "errors": []
+ },
+ "subset2-100|Cuando el chico miró la cuchara que tenía en la mano,": {
+  "covered": [
+   "u1"
+  ],
+  "errors": []
+ },
+ "subset2-100|When the boy looked at the spoon he was holding in his hand,": {
+  "covered": [
+   "u1"
+  ],
+  "errors": []
+ },
+ "subset2-100|he realized the oil was gone.": {
+  "covered": [
+   "u2"
+  ],
+  "errors": []
+ },
+ "subset2-100|vio que el aceite ya no estaba.": {
+  "covered": [
+   "u2"
+  ],
+  "errors": []
+ },
+ "subset2-82|De pronto recordó algo que su abuelo le había dicho una vez hace tiempo:": {
+  "covered": [
+   "u1"
+  ],
+  "errors": []
+ },
+ "subset2-82|He remembered something his old grandfather had told him once:": {
+  "covered": [
+   "u1"
+  ],
+  "errors": []
+ },
+ "subset2-82|butterflies are always a good sign.": {
+  "covered": [
+   "u2"
+  ],
+  "errors": []
+ },
+ "subset2-83|grief with fat is better.": {
+  "covered": [
+   "u4"
+  ],
+  "errors": []
+ },
+ "subset2-83|mejor pena gorda que flaca.": {
+  "covered": [],
+  "errors": [
+   "'shame/skin' for grief"
+  ]
+ },
+ "subset2-83|se llevan mucho mejor,": {
+  "covered": [],
+  "errors": [
+   "'get along better' for 'easier to bear'"
+  ]
+ },
+ "subset2-84|I have not thought of other women at all": {
+  "covered": [
+   "u2"
+  ],
+  "errors": []
+ },
+ "subset2-84|desde el día en que conocí a la hija del comerciante.": {
+  "covered": [
+   "u3"
+  ],
+  "errors": []
+ },
+ "subset2-84|no he pensado en ninguna otra mujer": {
+  "covered": [
+   "u2"
+  ],
+  "errors": []
+ },
+ "subset2-84|since the day I met the merchant's daughter.": {
+  "covered": [
+   "u3"
+  ],
+  "errors": []
+ },
+ "subset2-85|It would be really very useful if my web browser were able to synchronize all of its preferences,": {
+  "covered": [
+   "u1"
+  ],
+  "errors": []
+ },
+ "subset2-85|no unas pocas.": {
+  "covered": [],
+  "errors": [
+   "'not a few' (= many)"
+  ]
+ },
+ "subset2-85|not a few.": {
+  "covered": [],
+  "errors": [
+   "'not a few' (= many)"
+  ]
+ },
+ "subset2-86|no podemos gastar luz.": {
+  "covered": [],
+  "errors": [
+   "'you can't spend the light'"
+  ]
+ },
+ "subset2-87|Cuando ella quiso sacar algo de dinero de su cuenta del banco,": {
+  "covered": [],
+  "errors": [
+   "'get out of her bank account'"
+  ]
+ },
+ "subset2-87|When she wanted to withdraw some money from her own bank account,": {
+  "covered": [
+   "u1"
+  ],
+  "errors": []
+ },
+ "subset2-88|a neighbour suspected that she probably had not come back home last night.": {
+  "covered": [
+   "u2",
+   "u3"
+  ],
+  "errors": []
+ },
+ "subset2-88|una vecina sospechaba que ella probablemente no había vuelto a casa anoche.": {
+  "covered": [
+   "u2",
+   "u3"
+  ],
+  "errors": []
+ },
+ "subset2-89|escuchando con mucha atención su conversación.": {
+  "covered": [
+   "u2"
+  ],
+  "errors": []
+ },
+ "subset2-89|listening very closely to their conversation.": {
+  "covered": [
+   "u2"
+  ],
+  "errors": []
+ },
+ "subset2-91|The woman said that she had never in her life heard of such a person": {
+  "covered": [
+   "u1"
+  ],
+  "errors": []
+ },
+ "subset2-91|and she hurried away.": {
+  "covered": [
+   "u2"
+  ],
+  "errors": []
+ },
+ "subset2-91|y ella se fue rápido.": {
+  "covered": [
+   "u2"
+  ],
+  "errors": []
+ },
+ "subset2-92|El chico dio un paso hacia la chica para acercarse,": {
+  "covered": [
+   "u1"
+  ],
+  "errors": []
+ },
+ "subset2-92|The boy took a step closer to the young girl,": {
+  "covered": [
+   "u1"
+  ],
+  "errors": []
+ },
+ "subset2-92|and when she smiled at him,": {
+  "covered": [
+   "u2"
+  ],
+  "errors": []
+ },
+ "subset2-92|él también le sonrió a ella.": {
+  "covered": [
+   "u3"
+  ],
+  "errors": []
+ },
+ "subset2-93|entonces tómalo": {
+  "covered": [
+   "u2"
+  ],
+  "errors": []
+ },
+ "subset2-93|make it better.": {
+  "covered": [
+   "u3"
+  ],
+  "errors": []
+ },
+ "subset2-93|y luego mejóralo.": {
+  "covered": [
+   "u3"
+  ],
+  "errors": []
+ },
+ "subset2-94|He paused for a short moment": {
+  "covered": [
+   "u1"
+  ],
+  "errors": []
+ },
+ "subset2-94|Se detuvo un momento corto": {
+  "covered": [
+   "u1"
+  ],
+  "errors": []
+ },
+ "subset2-94|para comprobarlo": {
+  "covered": [
+   "u2"
+  ],
+  "errors": []
+ },
+ "subset2-94|si la mujer sabía algo de las pirámides de Egipto.": {
+  "covered": [
+   "u3"
+  ],
+  "errors": []
+ },
+ "subset2-94|to find out": {
+  "covered": [
+   "u2"
+  ],
+  "errors": []
+ },
+ "subset2-94|whether the woman had heard of the Egyptian pyramids.": {
+  "covered": [
+   "u3"
+  ],
+  "errors": []
+ },
+ "subset2-95|However, after the Labour Party had come to power in the country,": {
+  "covered": [
+   "u1"
+  ],
+  "errors": []
+ },
+ "subset2-95|el compromiso contra el apartheid simplemente se abandonó.": {
+  "covered": [
+   "u2"
+  ],
+  "errors": []
+ },
+ "subset2-95|the commitment against apartheid was simply dropped.": {
+  "covered": [
+   "u2"
+  ],
+  "errors": []
+ },
+ "subset2-96|He made a name for himself playing at Getafe": {
+  "covered": [],
+  "errors": [
+   "'playing Getafe' (against Getafe)"
+  ]
+ },
+ "subset2-96|Se hizo un buen nombre jugando en el Getafe": {
+  "covered": [
+   "u1"
+  ],
+  "errors": []
+ },
+ "subset2-96|after coming up through Real Madrid's youth academy.": {
+  "covered": [
+   "u2"
+  ],
+  "errors": []
+ },
+ "subset2-96|después de salir de la cantera juvenil del Real Madrid.": {
+  "covered": [],
+  "errors": [
+   "'career of a young person' for youth academy"
+  ]
+ },
+ "subset2-97|All the experts in geology agree on this:": {
+  "covered": [
+   "u1"
+  ],
+  "errors": []
+ },
+ "subset2-97|Todos los expertos en geología están de acuerdo:": {
+  "covered": [
+   "u1"
+  ],
+  "errors": []
+ },
+ "subset2-97|yesterday's tsunami was nothing more than a harbinger of the apocalypse that is coming.": {
+  "covered": [
+   "u2"
+  ],
+  "errors": []
+ },
+ "subset2-98|Hay también una mezquita": {
+  "covered": [
+   "u1"
+  ],
+  "errors": []
+ },
+ "subset2-98|There is also a mosque": {
+  "covered": [
+   "u1"
+  ],
+  "errors": []
+ },
+ "subset2-98|típica de una ciudad javanesa.": {
+  "covered": [
+   "u3"
+  ],
+  "errors": []
+ },
+ "subset2-99|Although some people admired the prophet,": {
+  "covered": [
+   "u1"
+  ],
+  "errors": []
+ },
+ "subset2-99|Aunque algunas personas admiraban al profeta,": {
+  "covered": [
+   "u1"
+  ],
+  "errors": []
+ },
+ "subset2-99|but others openly accused him of blasphemy,": {
+  "covered": [
+   "u2"
+  ],
+  "errors": []
+ },
+ "subset2-99|otras personas lo acusaron de blasfemia,": {
+  "covered": [
+   "u2"
+  ],
+  "errors": []
+ },
+ "subset1-18|Hussite Church is also known by the title of Patriarch.": {
+  "covered": [
+   "u2"
+  ],
+  "errors": []
+ },
+ "subset1-18|The man at the head of the Czechoslovak": {
+  "covered": [
+   "u1"
+  ],
+  "errors": []
+ },
+ "subset2-86|no podemos pagar la luz.": {
+  "covered": [
+   "u2"
+  ],
+  "errors": []
+ }
+}

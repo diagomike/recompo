@@ -1,0 +1,512 @@
+{
+ "subset2-81": {
+  "best_en": "When you've finished the sentence, click the lower red button to end the recording.",
+  "confidence": "high",
+  "notes": "'shot' = button/press | EN-B agrees",
+  "units": [
+   {
+    "id": "u1",
+    "text": "when you've finished the sentence",
+    "tier": "core",
+    "seg": 1
+   },
+   {
+    "id": "u2",
+    "text": "click the lower red button",
+    "tier": "core",
+    "seg": 2
+   },
+   {
+    "id": "u3",
+    "text": "to end the recording",
+    "tier": "core",
+    "seg": 2
+   }
+  ]
+ },
+ "subset2-82": {
+  "best_en": "He remembered something his grandfather had once told him: butterflies are a good sign.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "he remembered something his grandfather once told him",
+    "tier": "core",
+    "seg": 1
+   },
+   {
+    "id": "u2",
+    "text": "butterflies are a good sign",
+    "tier": "core",
+    "seg": 2
+   }
+  ]
+ },
+ "subset2-83": {
+  "best_en": "With bread, sorrows are easier to bear: better grief with fat than grief with lean.",
+  "confidence": "medium",
+  "notes": "EN-B 'grief and fat is better than grief and lean' makes the proverb (sorrows with bread are less) recognisable",
+  "units": [
+   {
+    "id": "u1",
+    "text": "sorrows with something to eat",
+    "tier": "core",
+    "seg": 1
+   },
+   {
+    "id": "u2",
+    "text": "bread",
+    "tier": "core",
+    "seg": 2
+   },
+   {
+    "id": "u3",
+    "text": "are easier to bear",
+    "tier": "core",
+    "seg": 3
+   },
+   {
+    "id": "u4",
+    "text": "better grief with fat than grief with lean",
+    "tier": "core",
+    "seg": 4
+   }
+  ]
+ },
+ "subset2-84": {
+  "best_en": "I haven't even thought of other women since I met the merchant's daughter.",
+  "confidence": "medium",
+  "notes": "'even I' read as 'not even'",
+  "units": [
+   {
+    "id": "u1",
+    "text": "I haven't even",
+    "tier": "core",
+    "seg": 1
+   },
+   {
+    "id": "u2",
+    "text": "thought of other women",
+    "tier": "core",
+    "seg": 2
+   },
+   {
+    "id": "u3",
+    "text": "since I met the merchant's daughter",
+    "tier": "core",
+    "seg": 3
+   }
+  ]
+ },
+ "subset2-85": {
+  "best_en": "It would be very useful if my web browser could synchronize all its preferences, not just a few.",
+  "confidence": "high",
+  "notes": "ES-B 'no sólo unos pocos' resolves seg2",
+  "units": [
+   {
+    "id": "u1",
+    "text": "it would be very useful if my web browser could synchronize all its preferences",
+    "tier": "core",
+    "seg": 1
+   },
+   {
+    "id": "u2",
+    "text": "not just a few",
+    "tier": "core",
+    "seg": 2
+   }
+  ]
+ },
+ "subset2-86": {
+  "best_en": "Open the shutters and turn off the light; we can't afford to pay for electricity.",
+  "confidence": "medium",
+  "notes": "ES-B 'abra las persianas y apague las luces' (EN-A 'turn over'); 'gold electricity' = pay for power",
+  "units": [
+   {
+    "id": "u1",
+    "text": "open the window shutters and turn off the light",
+    "tier": "core",
+    "seg": 1
+   },
+   {
+    "id": "u2",
+    "text": "we can't afford electricity",
+    "tier": "core",
+    "seg": 2
+   }
+  ]
+ },
+ "subset2-87": {
+  "best_en": "When she wanted to withdraw money from her bank account, the cash machine said her card was invalid.",
+  "confidence": "high",
+  "notes": "'map' = card (Karte)",
+  "units": [
+   {
+    "id": "u1",
+    "text": "when she wanted to withdraw from her bank account",
+    "tier": "core",
+    "seg": 1
+   },
+   {
+    "id": "u2",
+    "text": "the cash machine said her card was invalid",
+    "tier": "core",
+    "seg": 2
+   }
+  ]
+ },
+ "subset2-88": {
+  "best_en": "She wasn't at home; a neighbour suspected she probably hadn't come home last night.",
+  "confidence": "high",
+  "notes": " | ES-B agrees",
+  "units": [
+   {
+    "id": "u1",
+    "text": "she wasn't at home",
+    "tier": "core",
+    "seg": 1
+   },
+   {
+    "id": "u2",
+    "text": "a neighbour suspected",
+    "tier": "core",
+    "seg": 2
+   },
+   {
+    "id": "u3",
+    "text": "she probably hadn't come home last night",
+    "tier": "core",
+    "seg": 2
+   }
+  ]
+ },
+ "subset2-89": {
+  "best_en": "The boy noticed that the bar owner, standing nearby, was listening closely to their conversation.",
+  "confidence": "high",
+  "notes": "'your' likely 'their' | ES-B agrees",
+  "units": [
+   {
+    "id": "u1",
+    "text": "the boy noticed the bar owner standing close by",
+    "tier": "core",
+    "seg": 1
+   },
+   {
+    "id": "u2",
+    "text": "was listening closely to their conversation",
+    "tier": "core",
+    "seg": 2
+   }
+  ]
+ },
+ "subset2-90": {
+  "best_en": "The region is known for its rich copper deposits, so mining is carried out on a large scale.",
+  "confidence": "high",
+  "notes": " | EN-B agrees",
+  "units": [
+   {
+    "id": "u1",
+    "text": "the region is known for its rich copper deposits",
+    "tier": "core",
+    "seg": 1
+   },
+   {
+    "id": "u2",
+    "text": "so mining is done on a large scale",
+    "tier": "core",
+    "seg": 2
+   }
+  ]
+ },
+ "subset2-91": {
+  "best_en": "The woman said she had never heard of such a person and quickly walked away.",
+  "confidence": "high",
+  "notes": "'belonging' = heard of | ES-B agrees",
+  "units": [
+   {
+    "id": "u1",
+    "text": "the woman said she had never heard of such a person",
+    "tier": "core",
+    "seg": 1
+   },
+   {
+    "id": "u2",
+    "text": "and quickly walked away",
+    "tier": "core",
+    "seg": 2
+   }
+  ]
+ },
+ "subset2-92": {
+  "best_en": "The boy stepped closer to the girl, and when she smiled, he did the same.",
+  "confidence": "medium",
+  "notes": "'same to her' = did the same",
+  "units": [
+   {
+    "id": "u1",
+    "text": "the boy stepped closer to the girl",
+    "tier": "core",
+    "seg": 1
+   },
+   {
+    "id": "u2",
+    "text": "and when she smiled",
+    "tier": "core",
+    "seg": 2
+   },
+   {
+    "id": "u3",
+    "text": "he did the same",
+    "tier": "core",
+    "seg": 3
+   }
+  ]
+ },
+ "subset2-93": {
+  "best_en": "If you see something you like, take it and make it better.",
+  "confidence": "high",
+  "notes": " | ES-B agrees",
+  "units": [
+   {
+    "id": "u1",
+    "text": "if you see something you like",
+    "tier": "core",
+    "seg": 1
+   },
+   {
+    "id": "u2",
+    "text": "take it",
+    "tier": "core",
+    "seg": 2
+   },
+   {
+    "id": "u3",
+    "text": "and make it better",
+    "tier": "core",
+    "seg": 3
+   }
+  ]
+ },
+ "subset2-94": {
+  "best_en": "He paused for a moment to check whether the woman knew about the Egyptian pyramids.",
+  "confidence": "high",
+  "notes": " | ES-B agrees",
+  "units": [
+   {
+    "id": "u1",
+    "text": "he paused for a moment",
+    "tier": "core",
+    "seg": 1
+   },
+   {
+    "id": "u2",
+    "text": "to check",
+    "tier": "core",
+    "seg": 2
+   },
+   {
+    "id": "u3",
+    "text": "whether the woman knew about the Egyptian pyramids",
+    "tier": "core",
+    "seg": 3
+   }
+  ]
+ },
+ "subset2-95": {
+  "best_en": "However, after the Labour Party came to power, the commitment against apartheid was dropped.",
+  "confidence": "medium",
+  "notes": "'apart' = apartheid; ES-B 'fue abolido' gives the verb EN-A lacked",
+  "units": [
+   {
+    "id": "u1",
+    "text": "however after the Labour Party came to power",
+    "tier": "core",
+    "seg": 1
+   },
+   {
+    "id": "u2",
+    "text": "the commitment against apartheid was dropped",
+    "tier": "core",
+    "seg": 2
+   }
+  ]
+ },
+ "subset2-96": {
+  "best_en": "He made a name for himself at Getafe after coming up through Real Madrid's youth academy.",
+  "confidence": "medium",
+  "notes": "'chentaff' = Getafe; cantera = youth academy",
+  "units": [
+   {
+    "id": "u1",
+    "text": "he made a name for himself at Getafe",
+    "tier": "core",
+    "seg": 1
+   },
+   {
+    "id": "u2",
+    "text": "after coming from Real Madrid's youth academy",
+    "tier": "core",
+    "seg": 2
+   }
+  ]
+ },
+ "subset2-97": {
+  "best_en": "Geology experts agree: yesterday's tsunami was only a harbinger of the coming apocalypse.",
+  "confidence": "high",
+  "notes": "'precursor' (short view) | ES-B agrees",
+  "units": [
+   {
+    "id": "u1",
+    "text": "geology experts agree",
+    "tier": "core",
+    "seg": 1
+   },
+   {
+    "id": "u2",
+    "text": "yesterday's tsunami was only a harbinger of the coming apocalypse",
+    "tier": "core",
+    "seg": 2
+   }
+  ]
+ },
+ "subset2-98": {
+  "best_en": "There is a mosque facing a Javanese alun-alun, the typical layout of a Javanese town.",
+  "confidence": "medium",
+  "notes": "ES-B 'apunta hacia un Alun Alun javanés' confirms",
+  "units": [
+   {
+    "id": "u1",
+    "text": "there is a mosque",
+    "tier": "core",
+    "seg": 1
+   },
+   {
+    "id": "u2",
+    "text": "facing the Javanese town square",
+    "tier": "core",
+    "seg": 2
+   },
+   {
+    "id": "u3",
+    "text": "the typical layout of a Javanese city",
+    "tier": "core",
+    "seg": 3
+   }
+  ]
+ },
+ "subset2-99": {
+  "best_en": "Although some admired the prophet, others accused him of blasphemy, and he now seeks refuge abroad.",
+  "confidence": "medium",
+  "notes": "ES-B 'lo acusaron de blasfemia' ('god's environment' = Gotteslästerung); 'busca refugio en el extranjero'",
+  "units": [
+   {
+    "id": "u1",
+    "text": "although some admired the prophet",
+    "tier": "core",
+    "seg": 1
+   },
+   {
+    "id": "u2",
+    "text": "others accused him of blasphemy",
+    "tier": "core",
+    "seg": 2
+   },
+   {
+    "id": "u3",
+    "text": "and he now seeks refuge abroad",
+    "tier": "core",
+    "seg": 3
+   }
+  ]
+ },
+ "subset2-100": {
+  "best_en": "When the boy looked at the spoon he was holding, he realized the oil was gone.",
+  "confidence": "high",
+  "notes": " | EN-B agrees",
+  "units": [
+   {
+    "id": "u1",
+    "text": "when the boy looked at the spoon he was holding",
+    "tier": "core",
+    "seg": 1
+   },
+   {
+    "id": "u2",
+    "text": "he realized the oil was gone",
+    "tier": "core",
+    "seg": 2
+   }
+  ]
+ },
+ "subset1-18": {
+  "best_en": "The head of the Czechoslovak Hussite Church is also called the Patriarch.",
+  "confidence": "high",
+  "notes": "'cherries' = church",
+  "units": [
+   {
+    "id": "u1",
+    "text": "the head of the Czechoslovak",
+    "tier": "core",
+    "seg": 1
+   },
+   {
+    "id": "u2",
+    "text": "Hussite Church is also called the Patriarch",
+    "tier": "core",
+    "seg": 2
+   }
+  ]
+ },
+ "subset1-19": {
+  "best_en": "'We're only travellers,' replied the alchemist.",
+  "confidence": "high",
+  "notes": " | EN-B agrees",
+  "units": [
+   {
+    "id": "u1",
+    "text": "we're only travellers",
+    "tier": "core",
+    "seg": 1
+   },
+   {
+    "id": "u2",
+    "text": "replied the alchemist",
+    "tier": "core",
+    "seg": 1
+   }
+  ]
+ },
+ "subset1-20": {
+  "best_en": "Don't you see what's happening?",
+  "confidence": "medium",
+  "notes": "EN-A 'what are you going to' vs ES-B 'lo que está pasando': B is the more fluent system",
+  "units": [
+   {
+    "id": "u1",
+    "text": "don't you see what's happening",
+    "tier": "core",
+    "seg": 1
+   }
+  ]
+ },
+ "subset1-21": {
+  "best_en": "Do you like real books, or do you prefer digital versions?",
+  "confidence": "medium",
+  "notes": "'see' unclear (read?)",
+  "units": [
+   {
+    "id": "u1",
+    "text": "do you like real books",
+    "tier": "core",
+    "seg": 1
+   },
+   {
+    "id": "u2",
+    "text": "or do you prefer digital versions",
+    "tier": "core",
+    "seg": 1
+   }
+  ]
+ }
+}

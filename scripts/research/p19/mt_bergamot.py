@@ -39,17 +39,32 @@ alignment: soft
 """
 
 
+def _engine():
+    """The compiled engine only: the package __init__ fetches online model catalogues, which are not needed (and may be
+    unreachable) when the model files are local."""
+    import importlib.machinery
+    import importlib.util
+    import site
+    so = next(Path(d, "bergamot").glob("_bergamot*.so") for d in site.getsitepackages() if Path(d, "bergamot").exists())
+    so = next(so)
+    spec = importlib.util.spec_from_loader("_bergamot", importlib.machinery.ExtensionFileLoader("_bergamot", str(so)))
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    return mod
+
+
+B = None
+
+
 def load(service, folder: Path):
-    import bergamot
     cfg = CFG.format(model=next(folder.glob("model.*.bin")), vocab=next(folder.glob("vocab.*.spm")),
                      lex=next(folder.glob("lex.*.bin")))
     return service.modelFromConfig(cfg)
 
 
 def translate(service, model, texts: list[str]) -> list[str]:
-    import bergamot
-    opts = bergamot.VectorResponseOptions([bergamot.ResponseOptions() for _ in texts])
-    out = service.translate(model, bergamot.VectorString(texts), opts)
+    bergamot = B
+    out = service.translate(model, bergamot.VectorString(texts), bergamot.ResponseOptions())
     return [r.target.text for r in out]
 
 
@@ -60,7 +75,8 @@ def main():
     ap.add_argument("--in", dest="inp", type=Path, required=True)
     ap.add_argument("--out", type=Path, required=True)
     a = ap.parse_args()
-    import bergamot
+    global B
+    B = bergamot = _engine()
     service = bergamot.Service(bergamot.ServiceConfig(numWorkers=4, cacheSize=0, logLevel="off"))
     jobs = [json.loads(l) for l in a.inp.read_text(encoding="utf-8").splitlines() if l.strip()]
     texts = [j["text"] for j in jobs]
