@@ -59,9 +59,9 @@ Every open task by priority. Done phases are summarised; their detail is in git 
 ## Research (P19, 2026-10-31; research only)
 - [x] Literature and feasibility report: `docs/research/P19-dubbing-and-meaning/` (tracks 1 and 3 here, track 2 on
       branch `ccr-327cc642-xnfs3i-track2-models`); pilot on two real en→es dubbed excerpts.
-- [x] Mechanisms compared in worktrees (duration, placement, LLM loop; trained MT pending permission):
+- [x] Mechanisms compared in worktrees (duration, placement, LLM loop, trained MT):
       `docs/research/P19-dubbing-and-meaning/mechanisms-compared.md`.
-- [ ] Trained duration-aware MT (IWSLT Sockeye) on the same bench — needs your OK to install its GitHub fork.
+- [x] Trained duration-aware MT (IWSLT Sockeye) on the same bench (2026-10-31): 0.80 voice overlap, chrF 53.5.
 - [ ] LLM loop with a budget floor (allow silence instead of padding) to recover meaning.
 - [ ] Corpus pilot on 20–50 of your dual-audio titles (needs: language pairs, a list of files).
 - [ ] Track 1 A/B on 10 held-out dubbed titles (Claude's timed script vs today's pipeline vs the human dub's words).

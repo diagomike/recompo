@@ -15,7 +15,7 @@ has its own branch and worktree. All of them are scored on one benchmark built f
 | `ccr-327cc642-xnfs3i-p19-duration` | Text → duration models (syllables, phones, learned phone means, ridge, boosting) | yes | All within **15–18 % error**; learning gains ~2 points. Text cannot predict a person's timing better than ~15 %. |
 | `ccr-327cc642-xnfs3i-p19-placement` | No-training prosodic alignment: split a line onto a speaker's segments | yes | Rate-matching DP: **94–97 % of breaks within one word** of the real pause (59–69 % exact). Lexical priors add a little exactness but hurt elsewhere. |
 | `ccr-327cc642-xnfs3i-p19-llm-loop` | LLM (Claude) writes per segment against budgets, then revises with measured durations | yes | **0.92 speech overlap** with a real TTS voice, 5 % of segments needing > 1.1× speed-up, at −7 chrF vs the reference |
-| `ccr-327cc642-xnfs3i-p19-trained-mt` | Trained duration-aware NMT (IWSLT Sockeye baseline: phonemes + durations, time counters) | **no** | Model and data downloaded. Installing its Sockeye fork from GitHub was refused by this session's safety check: needs your OK |
+| `ccr-327cc642-xnfs3i-p19-trained-mt` | Trained duration-aware NMT (IWSLT Sockeye baseline: phonemes + durations, time counters) | yes (after your OK) | **0.80** speech overlap with a real voice (0.86 with its own durations), normalised chrF **53.5**: fits like placement alone, loses the most meaning |
 
 ## The comparison that matters (45 German-speaker lines, measured with a real TTS voice)
 
@@ -24,6 +24,7 @@ has its own branch and worktree. All of them are scored on one benchmark built f
 | Plain translation | 0.72 | 13 % | 69 % | 70.7 |
 | Human reference translation + placement | 0.80 | 51 % | 26 % | 100 (is the reference) |
 | Plain translation + **placement** (no rewording) | 0.82 | 62 % | 21 % | 70.7 |
+| **Trained duration-aware NMT** (IWSLT baseline) | 0.80 | 49 % | 12 % | 47.8 (53.5 normalised) |
 | **LLM timed** (one pass) | 0.91 | 88 % | 35 % | 65.0 |
 | LLM timed + revision against the text ruler | 0.91 | 88 % | 35 % | 64.9 |
 | **LLM timed + revision against the voice** | **0.92** | **89 %** | **5 %** | 63.5 |
@@ -53,11 +54,17 @@ The professional-dub reference point is speech overlap ~0.7–0.8 (Brannon 2023;
 
    Those are the trained-model experiments to run on your library.
 
-## Next steps
+6. **A from-scratch trained model is not the way to train.** The IWSLT duration-aware baseline (trained on
+   CoVoST, ~300 k sentences) keeps its own clocks (0.86) but, with a real voice, fits no better than placement
+   alone (0.80). It loses the most meaning (normalised chrF 53.5 vs 65–72). The architecture idea (timing tokens,
+   countdown counters) is sound. The model to train on your corpus is a **pretrained** multilingual model (NLLB/mT5
+   or an LLM) fine-tuned with timing tokens or preference-tuned for duration (SSPO-style), scored against the
+   real voice.
 
-- **Trained-mt worktree:** say "allow installing the IWSLT Sockeye fork" and I run it on the same 45 lines (or all
-  192), so a trained duration-aware model sits in the same table. Or run it on your PC or Colab
-  (`wt-trained-mt/README.md`).
+Numbers from a second run of the voice check (`wt-trained-mt/compare.json`, VITS sampling ±0.01): R3 0.92 overlap,
+93 % within ±20 %, 6 % needing speed-up.
+
+## Next steps
 - **Budget floor experiment** (llm-loop): allow up to ~25 % silence per segment instead of padding; expect chrF to
   recover with little loss of overlap.
 - **On your library:** the same loop with the dub corpus as few-shot examples (retrieval) and as training data, in
