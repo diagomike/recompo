@@ -249,6 +249,13 @@ matching, gapless recipe player, dub fixes, face-cropped Shorts, semantic search
   (sherpa-onnx Parakeet TDT v3 + Silero VAD, CPU, ~0.25 RTF). Human-dub speech overlap 0.72/0.81; dialogue rates
   far below read-speech tables; dub says up to 28 % more words than the subtitle; subtracting tracks does not isolate
   the dub voice; token times too coarse for pauses (needs forced alignment + diarisation).
+- **Mechanisms round (2026-10-31, worktrees):** one branch per timed-rephrasal mechanism, all on a shared bench
+  (IWSLT 2023 de→en test lines, German speakers' real speech frames; 30 k forced-aligned English utterances):
+  `…-p19-duration` (text→duration floor ~15 % MAPE), `…-p19-placement` (rate DP: 94–97 % of breaks within a word),
+  `…-p19-llm-loop` (Claude timed lines: 0.92 overlap with a real TTS voice, 5 % needing >1.1× speed-up, −7 chrF),
+  `…-p19-trained-mt` (IWSLT Sockeye baseline downloaded; installing its GitHub fork was refused by the session's
+  safety check — needs your OK). Summary: `docs/research/P19-dubbing-and-meaning/mechanisms-compared.md`.
+  Worktrees live at `/home/user/recompo-wt-*` in the cloud session only.
 - Sandbox notes: HuggingFace, arXiv, ACL Anthology are blocked here; GitHub (git and release assets) and PyPI work.
 - Open questions for you: language pairs in the library; lip-synced vs narrated dubs; agent vs API mode for films.
 - `tests/unit/test_contract.py::test_verbs_doc_is_current` fails on Linux only (VERBS.md holds the Windows default
