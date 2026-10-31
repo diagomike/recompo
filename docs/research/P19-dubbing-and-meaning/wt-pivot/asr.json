@@ -1,0 +1,2510 @@
+{
+ "subset2-33": {
+  "segments": [
+   "Moonrakers sind relativ ungewöhnliche Segel, die nur auf Schiffen eingesetzt werden.",
+   "die in erster Linie für die Geschwindigkeit gebaut werden."
+  ],
+  "whole": "Moonrakers sind relativ ungewöhnliche Segel, die nur auf Schiffen eingesetzt werden. die in erster Linie für die Geschwindigkeit gebaut werden.",
+  "words": [
+   {
+    "text": "Moonrakers",
+    "start": 0.486,
+    "end": 1.606
+   },
+   {
+    "text": "sind",
+    "start": 1.606,
+    "end": 1.846
+   },
+   {
+    "text": "relativ",
+    "start": 1.846,
+    "end": 2.246
+   },
+   {
+    "text": "ungewöhnliche",
+    "start": 2.246,
+    "end": 3.046
+   },
+   {
+    "text": "Segel,",
+    "start": 3.046,
+    "end": 3.526
+   },
+   {
+    "text": "die",
+    "start": 3.526,
+    "end": 3.686
+   },
+   {
+    "text": "nur",
+    "start": 3.686,
+    "end": 3.846
+   },
+   {
+    "text": "auf",
+    "start": 3.846,
+    "end": 4.006
+   },
+   {
+    "text": "Schiffen",
+    "start": 4.006,
+    "end": 4.326
+   },
+   {
+    "text": "eingesetzt",
+    "start": 4.406,
+    "end": 5.206
+   },
+   {
+    "text": "werden.",
+    "start": 5.206,
+    "end": 5.606
+   },
+   {
+    "text": "die",
+    "start": 6.55,
+    "end": 6.79
+   },
+   {
+    "text": "in",
+    "start": 6.79,
+    "end": 6.87
+   },
+   {
+    "text": "erster",
+    "start": 6.87,
+    "end": 7.19
+   },
+   {
+    "text": "Linie",
+    "start": 7.19,
+    "end": 7.51
+   },
+   {
+    "text": "für",
+    "start": 7.51,
+    "end": 7.67
+   },
+   {
+    "text": "die",
+    "start": 7.67,
+    "end": 7.75
+   },
+   {
+    "text": "Geschwindigkeit",
+    "start": 7.75,
+    "end": 8.63
+   },
+   {
+    "text": "gebaut",
+    "start": 8.63,
+    "end": 9.03
+   },
+   {
+    "text": "werden.",
+    "start": 9.03,
+    "end": 9.35
+   }
+  ]
+ },
+ "subset2-34": {
+  "segments": [
+   "Nachdem Peter auf dem Weg nach draußen auf einen Teilnehmer namens William gestoßen ist.",
+   "fühlt es sich der Ohnmacht nahe."
+  ],
+  "whole": "Nachdem Peter auf dem Weg nach draußen auf einen Teilnehmer namens William gestoßen ist. fühlt es sich der Ohnmacht nahe.",
+  "words": [
+   {
+    "text": "Nachdem",
+    "start": 1.062,
+    "end": 1.542
+   },
+   {
+    "text": "Peter",
+    "start": 1.542,
+    "end": 1.942
+   },
+   {
+    "text": "auf",
+    "start": 1.942,
+    "end": 2.022
+   },
+   {
+    "text": "dem",
+    "start": 2.022,
+    "end": 2.182
+   },
+   {
+    "text": "Weg",
+    "start": 2.182,
+    "end": 2.342
+   },
+   {
+    "text": "nach",
+    "start": 2.342,
+    "end": 2.502
+   },
+   {
+    "text": "draußen",
+    "start": 2.502,
+    "end": 2.902
+   },
+   {
+    "text": "auf",
+    "start": 2.902,
+    "end": 3.062
+   },
+   {
+    "text": "einen",
+    "start": 3.062,
+    "end": 3.222
+   },
+   {
+    "text": "Teilnehmer",
+    "start": 3.222,
+    "end": 3.782
+   },
+   {
+    "text": "namens",
+    "start": 3.782,
+    "end": 4.182
+   },
+   {
+    "text": "William",
+    "start": 4.182,
+    "end": 4.662
+   },
+   {
+    "text": "gestoßen",
+    "start": 4.662,
+    "end": 5.222
+   },
+   {
+    "text": "ist.",
+    "start": 5.222,
+    "end": 5.622
+   },
+   {
+    "text": "fühlt",
+    "start": 6.838,
+    "end": 7.158
+   },
+   {
+    "text": "es",
+    "start": 7.158,
+    "end": 7.238
+   },
+   {
+    "text": "sich",
+    "start": 7.238,
+    "end": 7.398
+   },
+   {
+    "text": "der",
+    "start": 7.398,
+    "end": 7.558
+   },
+   {
+    "text": "Ohnmacht",
+    "start": 7.558,
+    "end": 8.198
+   },
+   {
+    "text": "nahe.",
+    "start": 8.198,
+    "end": 8.758
+   }
+  ]
+ },
+ "subset2-35": {
+  "segments": [
+   "Es ist besser zu schweigen und als Dummkopf angesehen zu werden.",
+   "als den Mund aufzumachen und alle Zweifel zu beseitigen."
+  ],
+  "whole": "Es ist besser zu schweigen und als Dummkopf angesehen zu werden. als den Mund aufzumachen und alle Zweifel zu beseitigen.",
+  "words": [
+   {
+    "text": "Es",
+    "start": 1.126,
+    "end": 1.206
+   },
+   {
+    "text": "ist",
+    "start": 1.366,
+    "end": 1.606
+   },
+   {
+    "text": "besser",
+    "start": 1.606,
+    "end": 1.846
+   },
+   {
+    "text": "zu",
+    "start": 1.846,
+    "end": 2.006
+   },
+   {
+    "text": "schweigen",
+    "start": 2.006,
+    "end": 2.566
+   },
+   {
+    "text": "und",
+    "start": 2.566,
+    "end": 2.726
+   },
+   {
+    "text": "als",
+    "start": 2.726,
+    "end": 2.966
+   },
+   {
+    "text": "Dummkopf",
+    "start": 2.966,
+    "end": 3.686
+   },
+   {
+    "text": "angesehen",
+    "start": 3.686,
+    "end": 4.166
+   },
+   {
+    "text": "zu",
+    "start": 4.246,
+    "end": 4.406
+   },
+   {
+    "text": "werden.",
+    "start": 4.406,
+    "end": 4.806
+   },
+   {
+    "text": "als",
+    "start": 6.182,
+    "end": 6.342
+   },
+   {
+    "text": "den",
+    "start": 6.422,
+    "end": 6.582
+   },
+   {
+    "text": "Mund",
+    "start": 6.582,
+    "end": 6.902
+   },
+   {
+    "text": "aufzumachen",
+    "start": 6.902,
+    "end": 7.462
+   },
+   {
+    "text": "und",
+    "start": 7.462,
+    "end": 7.622
+   },
+   {
+    "text": "alle",
+    "start": 7.622,
+    "end": 7.942
+   },
+   {
+    "text": "Zweifel",
+    "start": 7.942,
+    "end": 8.582
+   },
+   {
+    "text": "zu",
+    "start": 8.582,
+    "end": 8.742
+   },
+   {
+    "text": "beseitigen.",
+    "start": 8.742,
+    "end": 9.462
+   }
+  ]
+ },
+ "subset2-36": {
+  "segments": [
+   "Es ist wahr.",
+   "Das Leben ist wirklich großzügig zu jenen, die dem Ruf ihres Schicksals folgen.",
+   "Dachte der Junge."
+  ],
+  "whole": "Es ist wahr. Das Leben ist wirklich großzügig zu jenen, die dem Ruf ihres Schicksals folgen. Dachte der Junge.",
+  "words": [
+   {
+    "text": "Es",
+    "start": 1.11,
+    "end": 1.35
+   },
+   {
+    "text": "ist",
+    "start": 1.35,
+    "end": 1.51
+   },
+   {
+    "text": "wahr.",
+    "start": 1.51,
+    "end": 1.91
+   },
+   {
+    "text": "Das",
+    "start": 3.046,
+    "end": 3.286
+   },
+   {
+    "text": "Leben",
+    "start": 3.286,
+    "end": 3.686
+   },
+   {
+    "text": "ist",
+    "start": 3.686,
+    "end": 3.846
+   },
+   {
+    "text": "wirklich",
+    "start": 3.846,
+    "end": 4.166
+   },
+   {
+    "text": "großzügig",
+    "start": 4.166,
+    "end": 4.806
+   },
+   {
+    "text": "zu",
+    "start": 4.806,
+    "end": 4.966
+   },
+   {
+    "text": "jenen,",
+    "start": 4.966,
+    "end": 5.286
+   },
+   {
+    "text": "die",
+    "start": 5.286,
+    "end": 5.446
+   },
+   {
+    "text": "dem",
+    "start": 5.446,
+    "end": 5.686
+   },
+   {
+    "text": "Ruf",
+    "start": 5.686,
+    "end": 5.926
+   },
+   {
+    "text": "ihres",
+    "start": 5.926,
+    "end": 6.086
+   },
+   {
+    "text": "Schicksals",
+    "start": 6.166,
+    "end": 6.806
+   },
+   {
+    "text": "folgen.",
+    "start": 6.886,
+    "end": 7.366
+   },
+   {
+    "text": "Dachte",
+    "start": 7.622,
+    "end": 7.862
+   },
+   {
+    "text": "der",
+    "start": 7.942,
+    "end": 8.022
+   },
+   {
+    "text": "Junge.",
+    "start": 8.102,
+    "end": 8.422
+   }
+  ]
+ },
+ "subset2-37": {
+  "segments": [
+   "Wenn du mir erzählst, warum du hier bist.",
+   "Werde ich dir das Projekt zeigen, an dem ich gearbeitet habe."
+  ],
+  "whole": "Wenn du mir erzählst, warum du hier bist. Werde ich dir das Projekt zeigen, an dem ich gearbeitet habe.",
+  "words": [
+   {
+    "text": "Wenn",
+    "start": 1.318,
+    "end": 1.558
+   },
+   {
+    "text": "du",
+    "start": 1.558,
+    "end": 1.718
+   },
+   {
+    "text": "mir",
+    "start": 1.718,
+    "end": 1.878
+   },
+   {
+    "text": "erzählst,",
+    "start": 1.878,
+    "end": 2.278
+   },
+   {
+    "text": "warum",
+    "start": 2.278,
+    "end": 2.598
+   },
+   {
+    "text": "du",
+    "start": 2.598,
+    "end": 2.758
+   },
+   {
+    "text": "hier",
+    "start": 2.758,
+    "end": 2.998
+   },
+   {
+    "text": "bist.",
+    "start": 2.998,
+    "end": 3.478
+   },
+   {
+    "text": "Werde",
+    "start": 4.374,
+    "end": 4.614
+   },
+   {
+    "text": "ich",
+    "start": 4.694,
+    "end": 4.854
+   },
+   {
+    "text": "dir",
+    "start": 4.854,
+    "end": 5.014
+   },
+   {
+    "text": "das",
+    "start": 5.014,
+    "end": 5.174
+   },
+   {
+    "text": "Projekt",
+    "start": 5.174,
+    "end": 5.574
+   },
+   {
+    "text": "zeigen,",
+    "start": 5.574,
+    "end": 5.894
+   },
+   {
+    "text": "an",
+    "start": 5.894,
+    "end": 6.134
+   },
+   {
+    "text": "dem",
+    "start": 6.134,
+    "end": 6.294
+   },
+   {
+    "text": "ich",
+    "start": 6.294,
+    "end": 6.454
+   },
+   {
+    "text": "gearbeitet",
+    "start": 6.454,
+    "end": 7.094
+   },
+   {
+    "text": "habe.",
+    "start": 7.094,
+    "end": 7.494
+   }
+  ]
+ },
+ "subset2-38": {
+  "segments": [
+   "Der Junge bot dem alten Mann seine Flasche an.",
+   "in der Hoffnung, dass er ihm in Ruhe lassen würde."
+  ],
+  "whole": "Der Junge bot dem alten Mann seine Flasche an. in der Hoffnung, dass er ihm in Ruhe lassen würde.",
+  "words": [
+   {
+    "text": "Der",
+    "start": 1.51,
+    "end": 1.67
+   },
+   {
+    "text": "Junge",
+    "start": 1.67,
+    "end": 1.99
+   },
+   {
+    "text": "bot",
+    "start": 1.99,
+    "end": 2.31
+   },
+   {
+    "text": "dem",
+    "start": 2.31,
+    "end": 2.47
+   },
+   {
+    "text": "alten",
+    "start": 2.47,
+    "end": 2.71
+   },
+   {
+    "text": "Mann",
+    "start": 2.71,
+    "end": 2.95
+   },
+   {
+    "text": "seine",
+    "start": 2.95,
+    "end": 3.19
+   },
+   {
+    "text": "Flasche",
+    "start": 3.19,
+    "end": 3.67
+   },
+   {
+    "text": "an.",
+    "start": 3.67,
+    "end": 3.99
+   },
+   {
+    "text": "in",
+    "start": 4.87,
+    "end": 4.95
+   },
+   {
+    "text": "der",
+    "start": 4.95,
+    "end": 5.11
+   },
+   {
+    "text": "Hoffnung,",
+    "start": 5.11,
+    "end": 5.75
+   },
+   {
+    "text": "dass",
+    "start": 5.75,
+    "end": 5.99
+   },
+   {
+    "text": "er",
+    "start": 5.99,
+    "end": 6.15
+   },
+   {
+    "text": "ihm",
+    "start": 6.15,
+    "end": 6.47
+   },
+   {
+    "text": "in",
+    "start": 6.47,
+    "end": 6.63
+   },
+   {
+    "text": "Ruhe",
+    "start": 6.63,
+    "end": 7.03
+   },
+   {
+    "text": "lassen",
+    "start": 7.03,
+    "end": 7.35
+   },
+   {
+    "text": "würde.",
+    "start": 7.35,
+    "end": 7.75
+   }
+  ]
+ },
+ "subset2-39": {
+  "segments": [
+   "Es wäre ein Gefallen, den Sie sich selbst tun können.",
+   "Lernen Sie die Sprache und unterhalten Sie sich."
+  ],
+  "whole": "Es wäre ein Gefallen, den Sie sich selbst tun können. Lernen Sie die Sprache und unterhalten Sie sich.",
+  "words": [
+   {
+    "text": "Es",
+    "start": 1.654,
+    "end": 1.814
+   },
+   {
+    "text": "wäre",
+    "start": 1.814,
+    "end": 2.134
+   },
+   {
+    "text": "ein",
+    "start": 2.134,
+    "end": 2.294
+   },
+   {
+    "text": "Gefallen,",
+    "start": 2.294,
+    "end": 2.774
+   },
+   {
+    "text": "den",
+    "start": 2.854,
+    "end": 2.934
+   },
+   {
+    "text": "Sie",
+    "start": 3.094,
+    "end": 3.334
+   },
+   {
+    "text": "sich",
+    "start": 3.334,
+    "end": 3.494
+   },
+   {
+    "text": "selbst",
+    "start": 3.494,
+    "end": 3.894
+   },
+   {
+    "text": "tun",
+    "start": 3.894,
+    "end": 4.134
+   },
+   {
+    "text": "können.",
+    "start": 4.134,
+    "end": 4.534
+   },
+   {
+    "text": "Lernen",
+    "start": 5.286,
+    "end": 5.926
+   },
+   {
+    "text": "Sie",
+    "start": 5.926,
+    "end": 6.086
+   },
+   {
+    "text": "die",
+    "start": 6.086,
+    "end": 6.326
+   },
+   {
+    "text": "Sprache",
+    "start": 6.326,
+    "end": 6.886
+   },
+   {
+    "text": "und",
+    "start": 6.886,
+    "end": 7.126
+   },
+   {
+    "text": "unterhalten",
+    "start": 7.126,
+    "end": 7.766
+   },
+   {
+    "text": "Sie",
+    "start": 7.766,
+    "end": 7.926
+   },
+   {
+    "text": "sich.",
+    "start": 7.926,
+    "end": 8.246
+   }
+  ]
+ },
+ "subset2-40": {
+  "segments": [
+   "Es gab jedoch keinen Text, in dem erklärt wurde, an welchem Zeitpunkt",
+   "Und für welchen Grund?",
+   "sie gestorben sind."
+  ],
+  "whole": "Es gab jedoch keinen Text, in dem erklärt wurde, an welchem Zeitpunkt Und für welchen Grund? sie gestorben sind.",
+  "words": [
+   {
+    "text": "Es",
+    "start": 0.614,
+    "end": 0.934
+   },
+   {
+    "text": "gab",
+    "start": 0.934,
+    "end": 1.254
+   },
+   {
+    "text": "jedoch",
+    "start": 1.254,
+    "end": 1.734
+   },
+   {
+    "text": "keinen",
+    "start": 1.734,
+    "end": 2.134
+   },
+   {
+    "text": "Text,",
+    "start": 2.134,
+    "end": 2.694
+   },
+   {
+    "text": "in",
+    "start": 2.694,
+    "end": 2.934
+   },
+   {
+    "text": "dem",
+    "start": 2.934,
+    "end": 3.174
+   },
+   {
+    "text": "erklärt",
+    "start": 3.174,
+    "end": 3.974
+   },
+   {
+    "text": "wurde,",
+    "start": 3.974,
+    "end": 4.294
+   },
+   {
+    "text": "an",
+    "start": 4.294,
+    "end": 4.534
+   },
+   {
+    "text": "welchem",
+    "start": 4.534,
+    "end": 5.014
+   },
+   {
+    "text": "Zeitpunkt",
+    "start": 5.014,
+    "end": 5.814
+   },
+   {
+    "text": "Und",
+    "start": 6.646,
+    "end": 6.886
+   },
+   {
+    "text": "für",
+    "start": 6.886,
+    "end": 7.046
+   },
+   {
+    "text": "welchen",
+    "start": 7.046,
+    "end": 7.446
+   },
+   {
+    "text": "Grund?",
+    "start": 7.446,
+    "end": 7.926
+   },
+   {
+    "text": "sie",
+    "start": 8.998,
+    "end": 9.158
+   },
+   {
+    "text": "gestorben",
+    "start": 9.158,
+    "end": 9.718
+   },
+   {
+    "text": "sind.",
+    "start": 9.718,
+    "end": 9.958
+   }
+  ]
+ },
+ "subset2-41": {
+  "segments": [
+   "Also",
+   "Da du keine Maus benutzen kannst.",
+   "kannst du nicht einfach auf dem Ort klicken.",
+   "um dorthin zu gelangen."
+  ],
+  "whole": "Also Da du keine Maus benutzen kannst. kannst du nicht einfach auf dem Ort klicken. um dorthin zu gelangen.",
+  "words": [
+   {
+    "text": "Also",
+    "start": 0.998,
+    "end": 1.398
+   },
+   {
+    "text": "Da",
+    "start": 1.974,
+    "end": 2.054
+   },
+   {
+    "text": "du",
+    "start": 2.214,
+    "end": 2.454
+   },
+   {
+    "text": "keine",
+    "start": 2.454,
+    "end": 2.694
+   },
+   {
+    "text": "Maus",
+    "start": 2.694,
+    "end": 3.014
+   },
+   {
+    "text": "benutzen",
+    "start": 3.014,
+    "end": 3.494
+   },
+   {
+    "text": "kannst.",
+    "start": 3.494,
+    "end": 3.974
+   },
+   {
+    "text": "kannst",
+    "start": 4.998,
+    "end": 5.318
+   },
+   {
+    "text": "du",
+    "start": 5.318,
+    "end": 5.478
+   },
+   {
+    "text": "nicht",
+    "start": 5.478,
+    "end": 5.718
+   },
+   {
+    "text": "einfach",
+    "start": 5.718,
+    "end": 6.038
+   },
+   {
+    "text": "auf",
+    "start": 6.118,
+    "end": 6.278
+   },
+   {
+    "text": "dem",
+    "start": 6.278,
+    "end": 6.518
+   },
+   {
+    "text": "Ort",
+    "start": 6.518,
+    "end": 6.918
+   },
+   {
+    "text": "klicken.",
+    "start": 6.998,
+    "end": 7.558
+   },
+   {
+    "text": "um",
+    "start": 7.91,
+    "end": 8.15
+   },
+   {
+    "text": "dorthin",
+    "start": 8.15,
+    "end": 8.63
+   },
+   {
+    "text": "zu",
+    "start": 8.63,
+    "end": 8.79
+   },
+   {
+    "text": "gelangen.",
+    "start": 8.79,
+    "end": 9.27
+   }
+  ]
+ },
+ "subset2-42": {
+  "segments": [
+   "Einige Tricks können in Stunden erlernt werden.",
+   "währenddessen bei anderen Jahre dauern kann.",
+   "sie wirklich zu beherrschen."
+  ],
+  "whole": "Einige Tricks können in Stunden erlernt werden. währenddessen bei anderen Jahre dauern kann. sie wirklich zu beherrschen.",
+  "words": [
+   {
+    "text": "Einige",
+    "start": 0.486,
+    "end": 1.046
+   },
+   {
+    "text": "Tricks",
+    "start": 1.046,
+    "end": 1.526
+   },
+   {
+    "text": "können",
+    "start": 1.526,
+    "end": 1.846
+   },
+   {
+    "text": "in",
+    "start": 1.846,
+    "end": 2.006
+   },
+   {
+    "text": "Stunden",
+    "start": 2.006,
+    "end": 2.486
+   },
+   {
+    "text": "erlernt",
+    "start": 2.486,
+    "end": 3.126
+   },
+   {
+    "text": "werden.",
+    "start": 3.126,
+    "end": 3.446
+   },
+   {
+    "text": "währenddessen",
+    "start": 4.294,
+    "end": 5.494
+   },
+   {
+    "text": "bei",
+    "start": 5.494,
+    "end": 5.654
+   },
+   {
+    "text": "anderen",
+    "start": 5.654,
+    "end": 5.894
+   },
+   {
+    "text": "Jahre",
+    "start": 6.214,
+    "end": 6.614
+   },
+   {
+    "text": "dauern",
+    "start": 6.614,
+    "end": 7.094
+   },
+   {
+    "text": "kann.",
+    "start": 7.094,
+    "end": 7.494
+   },
+   {
+    "text": "sie",
+    "start": 8.006,
+    "end": 8.086
+   },
+   {
+    "text": "wirklich",
+    "start": 8.406,
+    "end": 8.566
+   },
+   {
+    "text": "zu",
+    "start": 8.726,
+    "end": 8.886
+   },
+   {
+    "text": "beherrschen.",
+    "start": 8.886,
+    "end": 9.526
+   }
+  ]
+ },
+ "subset2-43": {
+  "segments": [
+   "Palmöl ist günstig.",
+   "Aber die Arbeiter auf den illegalen Plantagen",
+   "werden ausgenutzt und riesengroße Dschungelgebiete für die Produktion zerstört."
+  ],
+  "whole": "Palmöl ist günstig. Aber die Arbeiter auf den illegalen Plantagen werden ausgenutzt und riesengroße Dschungelgebiete für die Produktion zerstört.",
+  "words": [
+   {
+    "text": "Palmöl",
+    "start": 1.222,
+    "end": 1.782
+   },
+   {
+    "text": "ist",
+    "start": 2.022,
+    "end": 2.182
+   },
+   {
+    "text": "günstig.",
+    "start": 2.182,
+    "end": 2.742
+   },
+   {
+    "text": "Aber",
+    "start": 3.718,
+    "end": 3.798
+   },
+   {
+    "text": "die",
+    "start": 4.118,
+    "end": 4.278
+   },
+   {
+    "text": "Arbeiter",
+    "start": 4.278,
+    "end": 4.918
+   },
+   {
+    "text": "auf",
+    "start": 4.918,
+    "end": 5.078
+   },
+   {
+    "text": "den",
+    "start": 5.078,
+    "end": 5.238
+   },
+   {
+    "text": "illegalen",
+    "start": 5.238,
+    "end": 5.878
+   },
+   {
+    "text": "Plantagen",
+    "start": 5.878,
+    "end": 6.598
+   },
+   {
+    "text": "werden",
+    "start": 7.11,
+    "end": 7.27
+   },
+   {
+    "text": "ausgenutzt",
+    "start": 7.35,
+    "end": 8.07
+   },
+   {
+    "text": "und",
+    "start": 8.15,
+    "end": 8.39
+   },
+   {
+    "text": "riesengroße",
+    "start": 8.39,
+    "end": 9.27
+   },
+   {
+    "text": "Dschungelgebiete",
+    "start": 9.27,
+    "end": 10.15
+   },
+   {
+    "text": "für",
+    "start": 10.31,
+    "end": 10.55
+   },
+   {
+    "text": "die",
+    "start": 10.55,
+    "end": 10.71
+   },
+   {
+    "text": "Produktion",
+    "start": 10.71,
+    "end": 11.27
+   },
+   {
+    "text": "zerstört.",
+    "start": 11.27,
+    "end": 12.15
+   }
+  ]
+ },
+ "subset2-44": {
+  "segments": [
+   "Die gesamte Musik stammt von John Petrucci,",
+   "John Me Young, Jordan Rudez.",
+   "Mike Potnoi.",
+   "Also",
+   "Wo anderweitig vermerkt."
+  ],
+  "whole": "Die gesamte Musik stammt von John Petrucci, John Me Young, Jordan Rudez. Mike Potnoi. Also Wo anderweitig vermerkt.",
+  "words": [
+   {
+    "text": "Die",
+    "start": 1.318,
+    "end": 1.478
+   },
+   {
+    "text": "gesamte",
+    "start": 1.638,
+    "end": 2.198
+   },
+   {
+    "text": "Musik",
+    "start": 2.198,
+    "end": 2.758
+   },
+   {
+    "text": "stammt",
+    "start": 2.758,
+    "end": 3.238
+   },
+   {
+    "text": "von",
+    "start": 3.238,
+    "end": 3.398
+   },
+   {
+    "text": "John",
+    "start": 3.398,
+    "end": 3.638
+   },
+   {
+    "text": "Petrucci,",
+    "start": 3.798,
+    "end": 4.758
+   },
+   {
+    "text": "John",
+    "start": 5.462,
+    "end": 5.542
+   },
+   {
+    "text": "Me",
+    "start": 5.702,
+    "end": 5.862
+   },
+   {
+    "text": "Young,",
+    "start": 5.942,
+    "end": 6.342
+   },
+   {
+    "text": "Jordan",
+    "start": 6.342,
+    "end": 6.742
+   },
+   {
+    "text": "Rudez.",
+    "start": 6.902,
+    "end": 7.462
+   },
+   {
+    "text": "Mike",
+    "start": 8.086,
+    "end": 8.246
+   },
+   {
+    "text": "Potnoi.",
+    "start": 8.486,
+    "end": 9.206
+   },
+   {
+    "text": "Also",
+    "start": 10.086,
+    "end": 10.406
+   },
+   {
+    "text": "Wo",
+    "start": 11.414,
+    "end": 11.494
+   },
+   {
+    "text": "anderweitig",
+    "start": 11.734,
+    "end": 12.694
+   },
+   {
+    "text": "vermerkt.",
+    "start": 12.694,
+    "end": 13.254
+   }
+  ]
+ },
+ "subset2-45": {
+  "segments": [
+   "Der Spiel kontrolliert valient, wodurch es ihm ermöglicht wird,",
+   "Zu gehen.",
+   "zu springen.",
+   "und Dinge auf Gegner zu werfen."
+  ],
+  "whole": "Der Spiel kontrolliert valient, wodurch es ihm ermöglicht wird, Zu gehen. zu springen. und Dinge auf Gegner zu werfen.",
+  "words": [
+   {
+    "text": "Der",
+    "start": 0.838,
+    "end": 1.158
+   },
+   {
+    "text": "Spiel",
+    "start": 1.158,
+    "end": 1.558
+   },
+   {
+    "text": "kontrolliert",
+    "start": 1.558,
+    "end": 2.198
+   },
+   {
+    "text": "valient,",
+    "start": 2.198,
+    "end": 3.078
+   },
+   {
+    "text": "wodurch",
+    "start": 3.078,
+    "end": 3.638
+   },
+   {
+    "text": "es",
+    "start": 3.638,
+    "end": 3.878
+   },
+   {
+    "text": "ihm",
+    "start": 3.878,
+    "end": 4.118
+   },
+   {
+    "text": "ermöglicht",
+    "start": 4.118,
+    "end": 4.678
+   },
+   {
+    "text": "wird,",
+    "start": 4.678,
+    "end": 5.078
+   },
+   {
+    "text": "Zu",
+    "start": 5.478,
+    "end": 5.638
+   },
+   {
+    "text": "gehen.",
+    "start": 5.638,
+    "end": 6.038
+   },
+   {
+    "text": "zu",
+    "start": 7.318,
+    "end": 7.478
+   },
+   {
+    "text": "springen.",
+    "start": 7.558,
+    "end": 8.118
+   },
+   {
+    "text": "und",
+    "start": 9.206,
+    "end": 9.446
+   },
+   {
+    "text": "Dinge",
+    "start": 9.446,
+    "end": 9.846
+   },
+   {
+    "text": "auf",
+    "start": 9.926,
+    "end": 10.166
+   },
+   {
+    "text": "Gegner",
+    "start": 10.166,
+    "end": 10.566
+   },
+   {
+    "text": "zu",
+    "start": 10.726,
+    "end": 10.886
+   },
+   {
+    "text": "werfen.",
+    "start": 10.886,
+    "end": 11.206
+   }
+  ]
+ },
+ "subset2-46": {
+  "segments": [
+   "Kein Mann und keine Frau ist deine Tränen wert.",
+   "Und der, der es ist.",
+   "wird dir deine Tränen ersparen."
+  ],
+  "whole": "Kein Mann und keine Frau ist deine Tränen wert. Und der, der es ist. wird dir deine Tränen ersparen.",
+  "words": [
+   {
+    "text": "Kein",
+    "start": 0.79,
+    "end": 1.11
+   },
+   {
+    "text": "Mann",
+    "start": 1.11,
+    "end": 1.43
+   },
+   {
+    "text": "und",
+    "start": 1.43,
+    "end": 1.67
+   },
+   {
+    "text": "keine",
+    "start": 1.67,
+    "end": 1.99
+   },
+   {
+    "text": "Frau",
+    "start": 1.99,
+    "end": 2.39
+   },
+   {
+    "text": "ist",
+    "start": 2.39,
+    "end": 2.55
+   },
+   {
+    "text": "deine",
+    "start": 2.55,
+    "end": 2.95
+   },
+   {
+    "text": "Tränen",
+    "start": 2.95,
+    "end": 3.43
+   },
+   {
+    "text": "wert.",
+    "start": 3.43,
+    "end": 3.83
+   },
+   {
+    "text": "Und",
+    "start": 4.742,
+    "end": 4.982
+   },
+   {
+    "text": "der,",
+    "start": 4.982,
+    "end": 5.302
+   },
+   {
+    "text": "der",
+    "start": 5.462,
+    "end": 5.702
+   },
+   {
+    "text": "es",
+    "start": 5.702,
+    "end": 5.782
+   },
+   {
+    "text": "ist.",
+    "start": 5.782,
+    "end": 6.262
+   },
+   {
+    "text": "wird",
+    "start": 6.518,
+    "end": 6.678
+   },
+   {
+    "text": "dir",
+    "start": 6.838,
+    "end": 6.998
+   },
+   {
+    "text": "deine",
+    "start": 6.998,
+    "end": 7.238
+   },
+   {
+    "text": "Tränen",
+    "start": 7.238,
+    "end": 7.718
+   },
+   {
+    "text": "ersparen.",
+    "start": 7.718,
+    "end": 8.198
+   }
+  ]
+ },
+ "subset2-47": {
+  "segments": [
+   "Ein Mädchen hat ihren Kopf in einem Holz, das aus einem Piratenschiff ausgeschnitten wurde.",
+   "Während die Leute Tomaten werfen."
+  ],
+  "whole": "Ein Mädchen hat ihren Kopf in einem Holz, das aus einem Piratenschiff ausgeschnitten wurde. Während die Leute Tomaten werfen.",
+  "words": [
+   {
+    "text": "Ein",
+    "start": 0.678,
+    "end": 0.998
+   },
+   {
+    "text": "Mädchen",
+    "start": 0.998,
+    "end": 1.478
+   },
+   {
+    "text": "hat",
+    "start": 1.478,
+    "end": 1.798
+   },
+   {
+    "text": "ihren",
+    "start": 1.798,
+    "end": 2.118
+   },
+   {
+    "text": "Kopf",
+    "start": 2.118,
+    "end": 2.598
+   },
+   {
+    "text": "in",
+    "start": 2.598,
+    "end": 2.838
+   },
+   {
+    "text": "einem",
+    "start": 2.838,
+    "end": 3.078
+   },
+   {
+    "text": "Holz,",
+    "start": 3.078,
+    "end": 3.798
+   },
+   {
+    "text": "das",
+    "start": 3.798,
+    "end": 4.118
+   },
+   {
+    "text": "aus",
+    "start": 4.118,
+    "end": 4.358
+   },
+   {
+    "text": "einem",
+    "start": 4.358,
+    "end": 4.598
+   },
+   {
+    "text": "Piratenschiff",
+    "start": 4.598,
+    "end": 5.558
+   },
+   {
+    "text": "ausgeschnitten",
+    "start": 5.558,
+    "end": 6.358
+   },
+   {
+    "text": "wurde.",
+    "start": 6.358,
+    "end": 6.678
+   },
+   {
+    "text": "Während",
+    "start": 7.926,
+    "end": 8.326
+   },
+   {
+    "text": "die",
+    "start": 8.326,
+    "end": 8.486
+   },
+   {
+    "text": "Leute",
+    "start": 8.486,
+    "end": 8.886
+   },
+   {
+    "text": "Tomaten",
+    "start": 8.886,
+    "end": 9.446
+   },
+   {
+    "text": "werfen.",
+    "start": 9.446,
+    "end": 9.926
+   }
+  ]
+ },
+ "subset2-48": {
+  "segments": [
+   "Er schrieb zahlreiche Messen.",
+   "Viele davon mit Basso Continuo.",
+   "Dies stellte seine Vertrautheit",
+   "mit der zeitgenössischen Praxis unter Beweis."
+  ],
+  "whole": "Er schrieb zahlreiche Messen. Viele davon mit Basso Continuo. Dies stellte seine Vertrautheit mit der zeitgenössischen Praxis unter Beweis.",
+  "words": [
+   {
+    "text": "Er",
+    "start": 0.422,
+    "end": 0.742
+   },
+   {
+    "text": "schrieb",
+    "start": 0.742,
+    "end": 1.222
+   },
+   {
+    "text": "zahlreiche",
+    "start": 1.222,
+    "end": 1.862
+   },
+   {
+    "text": "Messen.",
+    "start": 1.862,
+    "end": 2.502
+   },
+   {
+    "text": "Viele",
+    "start": 2.758,
+    "end": 3.078
+   },
+   {
+    "text": "davon",
+    "start": 3.078,
+    "end": 3.398
+   },
+   {
+    "text": "mit",
+    "start": 3.398,
+    "end": 3.558
+   },
+   {
+    "text": "Basso",
+    "start": 3.558,
+    "end": 4.038
+   },
+   {
+    "text": "Continuo.",
+    "start": 4.198,
+    "end": 4.838
+   },
+   {
+    "text": "Dies",
+    "start": 6.614,
+    "end": 6.934
+   },
+   {
+    "text": "stellte",
+    "start": 6.934,
+    "end": 7.414
+   },
+   {
+    "text": "seine",
+    "start": 7.414,
+    "end": 7.654
+   },
+   {
+    "text": "Vertrautheit",
+    "start": 7.814,
+    "end": 8.774
+   },
+   {
+    "text": "mit",
+    "start": 9.238,
+    "end": 9.478
+   },
+   {
+    "text": "der",
+    "start": 9.478,
+    "end": 9.638
+   },
+   {
+    "text": "zeitgenössischen",
+    "start": 9.638,
+    "end": 10.758
+   },
+   {
+    "text": "Praxis",
+    "start": 10.998,
+    "end": 11.558
+   },
+   {
+    "text": "unter",
+    "start": 11.558,
+    "end": 11.718
+   },
+   {
+    "text": "Beweis.",
+    "start": 11.878,
+    "end": 12.438
+   }
+  ]
+ },
+ "subset2-49": {
+  "segments": [
+   "Es gibt keine universelle Definition von Intelligenz.",
+   "Allerdings stimmen wohl alle überein.",
+   "dass die Fähigkeit zu lernen dazu gehört."
+  ],
+  "whole": "Es gibt keine universelle Definition von Intelligenz. Allerdings stimmen wohl alle überein. dass die Fähigkeit zu lernen dazu gehört.",
+  "words": [
+   {
+    "text": "Es",
+    "start": 0.326,
+    "end": 0.646
+   },
+   {
+    "text": "gibt",
+    "start": 0.646,
+    "end": 0.966
+   },
+   {
+    "text": "keine",
+    "start": 0.966,
+    "end": 1.286
+   },
+   {
+    "text": "universelle",
+    "start": 1.446,
+    "end": 2.246
+   },
+   {
+    "text": "Definition",
+    "start": 2.246,
+    "end": 2.966
+   },
+   {
+    "text": "von",
+    "start": 2.966,
+    "end": 3.286
+   },
+   {
+    "text": "Intelligenz.",
+    "start": 3.286,
+    "end": 4.246
+   },
+   {
+    "text": "Allerdings",
+    "start": 4.998,
+    "end": 5.878
+   },
+   {
+    "text": "stimmen",
+    "start": 5.878,
+    "end": 6.278
+   },
+   {
+    "text": "wohl",
+    "start": 6.438,
+    "end": 6.678
+   },
+   {
+    "text": "alle",
+    "start": 6.678,
+    "end": 6.998
+   },
+   {
+    "text": "überein.",
+    "start": 6.998,
+    "end": 7.718
+   },
+   {
+    "text": "dass",
+    "start": 8.102,
+    "end": 8.262
+   },
+   {
+    "text": "die",
+    "start": 8.342,
+    "end": 8.502
+   },
+   {
+    "text": "Fähigkeit",
+    "start": 8.502,
+    "end": 9.062
+   },
+   {
+    "text": "zu",
+    "start": 9.142,
+    "end": 9.382
+   },
+   {
+    "text": "lernen",
+    "start": 9.382,
+    "end": 9.782
+   },
+   {
+    "text": "dazu",
+    "start": 9.782,
+    "end": 10.182
+   },
+   {
+    "text": "gehört.",
+    "start": 10.182,
+    "end": 10.742
+   }
+  ]
+ },
+ "subset2-50": {
+  "segments": [
+   "Der Mann schaute von seinem Buch auf und bemerkte nichts Berichtenswertes.",
+   "blinkte zurück auf die Seite und las weit."
+  ],
+  "whole": "Der Mann schaute von seinem Buch auf und bemerkte nichts Berichtenswertes. blinkte zurück auf die Seite und las weit.",
+  "words": [
+   {
+    "text": "Der",
+    "start": 0.006,
+    "end": 0.246
+   },
+   {
+    "text": "Mann",
+    "start": 0.246,
+    "end": 0.566
+   },
+   {
+    "text": "schaute",
+    "start": 0.566,
+    "end": 1.046
+   },
+   {
+    "text": "von",
+    "start": 1.046,
+    "end": 1.286
+   },
+   {
+    "text": "seinem",
+    "start": 1.286,
+    "end": 1.526
+   },
+   {
+    "text": "Buch",
+    "start": 1.526,
+    "end": 1.926
+   },
+   {
+    "text": "auf",
+    "start": 1.926,
+    "end": 2.166
+   },
+   {
+    "text": "und",
+    "start": 2.166,
+    "end": 2.326
+   },
+   {
+    "text": "bemerkte",
+    "start": 2.326,
+    "end": 2.806
+   },
+   {
+    "text": "nichts",
+    "start": 2.966,
+    "end": 3.366
+   },
+   {
+    "text": "Berichtenswertes.",
+    "start": 3.366,
+    "end": 4.646
+   },
+   {
+    "text": "blinkte",
+    "start": 5.494,
+    "end": 6.054
+   },
+   {
+    "text": "zurück",
+    "start": 6.054,
+    "end": 6.534
+   },
+   {
+    "text": "auf",
+    "start": 6.534,
+    "end": 6.694
+   },
+   {
+    "text": "die",
+    "start": 6.694,
+    "end": 6.854
+   },
+   {
+    "text": "Seite",
+    "start": 6.854,
+    "end": 7.254
+   },
+   {
+    "text": "und",
+    "start": 7.254,
+    "end": 7.494
+   },
+   {
+    "text": "las",
+    "start": 7.494,
+    "end": 7.734
+   },
+   {
+    "text": "weit.",
+    "start": 7.974,
+    "end": 8.374
+   }
+  ]
+ },
+ "subset2-51": {
+  "segments": [
+   "Beide gelten als gefährdet.",
+   "Grund dessen es illegal ist, sie zu belästigen, zu töten.",
+   "zu sammeln oder zu besitzen."
+  ],
+  "whole": "Beide gelten als gefährdet. Grund dessen es illegal ist, sie zu belästigen, zu töten. zu sammeln oder zu besitzen.",
+  "words": [
+   {
+    "text": "Beide",
+    "start": 0.102,
+    "end": 0.582
+   },
+   {
+    "text": "gelten",
+    "start": 0.582,
+    "end": 1.062
+   },
+   {
+    "text": "als",
+    "start": 1.062,
+    "end": 1.302
+   },
+   {
+    "text": "gefährdet.",
+    "start": 1.302,
+    "end": 2.022
+   },
+   {
+    "text": "Grund",
+    "start": 2.518,
+    "end": 2.758
+   },
+   {
+    "text": "dessen",
+    "start": 2.758,
+    "end": 2.998
+   },
+   {
+    "text": "es",
+    "start": 3.078,
+    "end": 3.318
+   },
+   {
+    "text": "illegal",
+    "start": 3.318,
+    "end": 3.878
+   },
+   {
+    "text": "ist,",
+    "start": 3.878,
+    "end": 4.198
+   },
+   {
+    "text": "sie",
+    "start": 4.198,
+    "end": 4.438
+   },
+   {
+    "text": "zu",
+    "start": 4.438,
+    "end": 4.598
+   },
+   {
+    "text": "belästigen,",
+    "start": 4.598,
+    "end": 5.318
+   },
+   {
+    "text": "zu",
+    "start": 5.318,
+    "end": 5.558
+   },
+   {
+    "text": "töten.",
+    "start": 5.558,
+    "end": 6.118
+   },
+   {
+    "text": "zu",
+    "start": 7.142,
+    "end": 7.222
+   },
+   {
+    "text": "sammeln",
+    "start": 7.302,
+    "end": 7.862
+   },
+   {
+    "text": "oder",
+    "start": 7.862,
+    "end": 8.182
+   },
+   {
+    "text": "zu",
+    "start": 8.182,
+    "end": 8.422
+   },
+   {
+    "text": "besitzen.",
+    "start": 8.422,
+    "end": 8.982
+   }
+  ]
+ },
+ "subset2-52": {
+  "segments": [
+   "Im Schwung ihrer eigenen Zerstörung sah ich sie Tarmel und Fallen.",
+   "und ihre Anhänger suchten ihr Heil im Flucht."
+  ],
+  "whole": "Im Schwung ihrer eigenen Zerstörung sah ich sie Tarmel und Fallen. und ihre Anhänger suchten ihr Heil im Flucht.",
+  "words": [
+   {
+    "text": "Im",
+    "start": 0.646,
+    "end": 0.806
+   },
+   {
+    "text": "Schwung",
+    "start": 0.966,
+    "end": 1.446
+   },
+   {
+    "text": "ihrer",
+    "start": 1.446,
+    "end": 1.686
+   },
+   {
+    "text": "eigenen",
+    "start": 1.766,
+    "end": 2.166
+   },
+   {
+    "text": "Zerstörung",
+    "start": 2.166,
+    "end": 2.806
+   },
+   {
+    "text": "sah",
+    "start": 2.966,
+    "end": 3.286
+   },
+   {
+    "text": "ich",
+    "start": 3.286,
+    "end": 3.446
+   },
+   {
+    "text": "sie",
+    "start": 3.446,
+    "end": 3.686
+   },
+   {
+    "text": "Tarmel",
+    "start": 3.686,
+    "end": 4.086
+   },
+   {
+    "text": "und",
+    "start": 4.246,
+    "end": 4.406
+   },
+   {
+    "text": "Fallen.",
+    "start": 4.406,
+    "end": 4.806
+   },
+   {
+    "text": "und",
+    "start": 5.926,
+    "end": 6.086
+   },
+   {
+    "text": "ihre",
+    "start": 6.086,
+    "end": 6.246
+   },
+   {
+    "text": "Anhänger",
+    "start": 6.406,
+    "end": 6.966
+   },
+   {
+    "text": "suchten",
+    "start": 6.966,
+    "end": 7.366
+   },
+   {
+    "text": "ihr",
+    "start": 7.366,
+    "end": 7.526
+   },
+   {
+    "text": "Heil",
+    "start": 7.606,
+    "end": 7.926
+   },
+   {
+    "text": "im",
+    "start": 8.006,
+    "end": 8.086
+   },
+   {
+    "text": "Flucht.",
+    "start": 8.166,
+    "end": 8.566
+   }
+  ]
+ },
+ "subset2-53": {
+  "segments": [
+   "Das Innere der Bibliothek",
+   "weist ein geometrisches Design auf.",
+   "das typisch für den Stil der früher italienischen Renaissance ist."
+  ],
+  "whole": "Das Innere der Bibliothek weist ein geometrisches Design auf. das typisch für den Stil der früher italienischen Renaissance ist.",
+  "words": [
+   {
+    "text": "Das",
+    "start": 1.094,
+    "end": 1.334
+   },
+   {
+    "text": "Innere",
+    "start": 1.334,
+    "end": 1.814
+   },
+   {
+    "text": "der",
+    "start": 1.814,
+    "end": 1.974
+   },
+   {
+    "text": "Bibliothek",
+    "start": 1.974,
+    "end": 2.774
+   },
+   {
+    "text": "weist",
+    "start": 3.222,
+    "end": 3.622
+   },
+   {
+    "text": "ein",
+    "start": 3.622,
+    "end": 3.782
+   },
+   {
+    "text": "geometrisches",
+    "start": 3.782,
+    "end": 4.662
+   },
+   {
+    "text": "Design",
+    "start": 4.662,
+    "end": 5.062
+   },
+   {
+    "text": "auf.",
+    "start": 5.062,
+    "end": 5.302
+   },
+   {
+    "text": "das",
+    "start": 6.246,
+    "end": 6.406
+   },
+   {
+    "text": "typisch",
+    "start": 6.646,
+    "end": 7.206
+   },
+   {
+    "text": "für",
+    "start": 7.206,
+    "end": 7.366
+   },
+   {
+    "text": "den",
+    "start": 7.366,
+    "end": 7.526
+   },
+   {
+    "text": "Stil",
+    "start": 7.526,
+    "end": 7.766
+   },
+   {
+    "text": "der",
+    "start": 7.926,
+    "end": 8.086
+   },
+   {
+    "text": "früher",
+    "start": 8.086,
+    "end": 8.646
+   },
+   {
+    "text": "italienischen",
+    "start": 8.646,
+    "end": 9.366
+   },
+   {
+    "text": "Renaissance",
+    "start": 9.366,
+    "end": 10.086
+   },
+   {
+    "text": "ist.",
+    "start": 10.246,
+    "end": 10.566
+   }
+  ]
+ },
+ "subset2-54": {
+  "segments": [
+   "Die folgenden Statistiken beziehen sich auf Siege und Niederlagen in Serien.",
+   "Nicht auf Siege und Niederlagen in einzelnen Spielen."
+  ],
+  "whole": "Die folgenden Statistiken beziehen sich auf Siege und Niederlagen in Serien. Nicht auf Siege und Niederlagen in einzelnen Spielen.",
+  "words": [
+   {
+    "text": "Die",
+    "start": 0.742,
+    "end": 0.982
+   },
+   {
+    "text": "folgenden",
+    "start": 0.982,
+    "end": 1.622
+   },
+   {
+    "text": "Statistiken",
+    "start": 1.622,
+    "end": 2.422
+   },
+   {
+    "text": "beziehen",
+    "start": 2.422,
+    "end": 2.982
+   },
+   {
+    "text": "sich",
+    "start": 2.982,
+    "end": 3.142
+   },
+   {
+    "text": "auf",
+    "start": 3.142,
+    "end": 3.462
+   },
+   {
+    "text": "Siege",
+    "start": 3.462,
+    "end": 3.942
+   },
+   {
+    "text": "und",
+    "start": 3.942,
+    "end": 4.182
+   },
+   {
+    "text": "Niederlagen",
+    "start": 4.182,
+    "end": 4.902
+   },
+   {
+    "text": "in",
+    "start": 4.902,
+    "end": 5.062
+   },
+   {
+    "text": "Serien.",
+    "start": 5.062,
+    "end": 5.702
+   },
+   {
+    "text": "Nicht",
+    "start": 6.71,
+    "end": 6.95
+   },
+   {
+    "text": "auf",
+    "start": 6.95,
+    "end": 7.19
+   },
+   {
+    "text": "Siege",
+    "start": 7.19,
+    "end": 7.67
+   },
+   {
+    "text": "und",
+    "start": 7.67,
+    "end": 7.83
+   },
+   {
+    "text": "Niederlagen",
+    "start": 7.83,
+    "end": 8.55
+   },
+   {
+    "text": "in",
+    "start": 8.55,
+    "end": 8.79
+   },
+   {
+    "text": "einzelnen",
+    "start": 8.79,
+    "end": 9.35
+   },
+   {
+    "text": "Spielen.",
+    "start": 9.35,
+    "end": 9.91
+   }
+  ]
+ },
+ "subset2-55": {
+  "segments": [
+   "Der Junge begann wieder, sein Buch zu lesen.",
+   "Aber er war nicht mehr in der Lage, sich zu konzentrieren."
+  ],
+  "whole": "Der Junge begann wieder, sein Buch zu lesen. Aber er war nicht mehr in der Lage, sich zu konzentrieren.",
+  "words": [
+   {
+    "text": "Der",
+    "start": 1.526,
+    "end": 1.686
+   },
+   {
+    "text": "Junge",
+    "start": 1.686,
+    "end": 2.086
+   },
+   {
+    "text": "begann",
+    "start": 2.086,
+    "end": 2.486
+   },
+   {
+    "text": "wieder,",
+    "start": 2.486,
+    "end": 2.806
+   },
+   {
+    "text": "sein",
+    "start": 2.806,
+    "end": 3.046
+   },
+   {
+    "text": "Buch",
+    "start": 3.046,
+    "end": 3.366
+   },
+   {
+    "text": "zu",
+    "start": 3.366,
+    "end": 3.526
+   },
+   {
+    "text": "lesen.",
+    "start": 3.526,
+    "end": 4.006
+   },
+   {
+    "text": "Aber",
+    "start": 4.806,
+    "end": 5.046
+   },
+   {
+    "text": "er",
+    "start": 5.046,
+    "end": 5.286
+   },
+   {
+    "text": "war",
+    "start": 5.286,
+    "end": 5.606
+   },
+   {
+    "text": "nicht",
+    "start": 5.606,
+    "end": 5.846
+   },
+   {
+    "text": "mehr",
+    "start": 5.846,
+    "end": 6.086
+   },
+   {
+    "text": "in",
+    "start": 6.086,
+    "end": 6.326
+   },
+   {
+    "text": "der",
+    "start": 6.326,
+    "end": 6.486
+   },
+   {
+    "text": "Lage,",
+    "start": 6.486,
+    "end": 6.966
+   },
+   {
+    "text": "sich",
+    "start": 6.966,
+    "end": 7.206
+   },
+   {
+    "text": "zu",
+    "start": 7.206,
+    "end": 7.366
+   },
+   {
+    "text": "konzentrieren.",
+    "start": 7.366,
+    "end": 8.166
+   }
+  ]
+ },
+ "subset2-56": {
+  "segments": [
+   "Nicht alles, was vor uns liegt, kann geändert werden.",
+   "Aber nichts kann geändert werden, bis es vor uns liegt."
+  ],
+  "whole": "Nicht alles, was vor uns liegt, kann geändert werden. Aber nichts kann geändert werden, bis es vor uns liegt.",
+  "words": [
+   {
+    "text": "Nicht",
+    "start": 0.854,
+    "end": 1.174
+   },
+   {
+    "text": "alles,",
+    "start": 1.174,
+    "end": 1.574
+   },
+   {
+    "text": "was",
+    "start": 1.574,
+    "end": 1.814
+   },
+   {
+    "text": "vor",
+    "start": 1.814,
+    "end": 2.054
+   },
+   {
+    "text": "uns",
+    "start": 2.054,
+    "end": 2.374
+   },
+   {
+    "text": "liegt,",
+    "start": 2.374,
+    "end": 2.774
+   },
+   {
+    "text": "kann",
+    "start": 2.774,
+    "end": 3.014
+   },
+   {
+    "text": "geändert",
+    "start": 3.014,
+    "end": 3.654
+   },
+   {
+    "text": "werden.",
+    "start": 3.654,
+    "end": 4.054
+   },
+   {
+    "text": "Aber",
+    "start": 5.19,
+    "end": 5.51
+   },
+   {
+    "text": "nichts",
+    "start": 5.59,
+    "end": 5.99
+   },
+   {
+    "text": "kann",
+    "start": 5.99,
+    "end": 6.23
+   },
+   {
+    "text": "geändert",
+    "start": 6.23,
+    "end": 6.87
+   },
+   {
+    "text": "werden,",
+    "start": 6.87,
+    "end": 7.27
+   },
+   {
+    "text": "bis",
+    "start": 7.27,
+    "end": 7.51
+   },
+   {
+    "text": "es",
+    "start": 7.51,
+    "end": 7.75
+   },
+   {
+    "text": "vor",
+    "start": 7.75,
+    "end": 7.99
+   },
+   {
+    "text": "uns",
+    "start": 7.99,
+    "end": 8.23
+   },
+   {
+    "text": "liegt.",
+    "start": 8.23,
+    "end": 8.71
+   }
+  ]
+ }
+}

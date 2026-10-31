@@ -1,0 +1,6 @@
+subset2-34[2] 1.72s target×1.11 | src 'he felt close to fainting.' (6 syl) → MT 'se sintió a punto de desmayarse.' | expansion 0.237s/syl → write source of ~7 syl; units here: ['u3:core']
+subset2-36[3] 0.79s target×1.19 | src 'the boy thought.' (3 syl) → MT 'pensó el chico.' | expansion 0.249s/syl → write source of ~3 syl; units here: ['u4:core']
+subset2-38[1] 2.23s target×1.11 | src 'The boy gave the old man his bottle,' (9 syl) → MT 'El chico le dio al anciano su botella,' | expansion 0.233s/syl → write source of ~9 syl; units here: ['u1:core']
+subset2-41[3] 2.49s target×1.05 | src 'you can't just click there' (6 syl) → MT 'no puedes simplemente hacer clic allí' | expansion 0.274s/syl → write source of ~9 syl; units here: ['u3:core']
+subset2-44[4] 0.82s target×0.00 | src '' (0 syl) → MT '' | expansion 0.225s/syl → write source of ~3 syl; units here: []
+subset2-46[1] 2.87s target×1.08 | src 'No man or woman is worth your tears,' (9 syl) → MT 'Ningún hombre ni ninguna mujer vale tus lágrimas,' | expansion 0.241s/syl → write source of ~11 syl; units here: ['u1:core']

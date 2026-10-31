@@ -211,9 +211,13 @@ def load_lines(maps_path: Path, frames_path: Path, ids: list[str] | None = None)
     for i, m in maps.items():
         if ids and i not in ids:
             continue
-        ln = Line(i, frames[i].get("de") or frames[i].get("en"), m["gist"], m.get("keep", []),
-                  [Unit(u["id"], u["text"], u["src"], u["tier"]) for u in m["units"]], frames[i]["segments"])
-        allocate(ln)
+        ln = Line(i, frames[i].get("de") or frames[i].get("en"), m.get("gist") or m.get("best_en", ""), m.get("keep", []),
+                  [Unit(u["id"], u["text"], u.get("src", ""), u["tier"]) for u in m["units"]], frames[i]["segments"])
+        if all("seg" in u for u in m["units"]):  # pivot maps pin units to segments from per-segment MT views
+            for un, u in zip(ln.units, m["units"]):
+                un.seg = int(u["seg"]) - 1
+        else:
+            allocate(ln)
         out[i] = ln
     return out
 

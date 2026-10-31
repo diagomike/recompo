@@ -1,0 +1,70 @@
+{
+ "subset2-33": {"best_en": "Moonrakers are relatively unusual sails, used only on ships built mainly for speed.", "confidence": "medium", "notes": "'sales'→'sails' (sailing context: moonraker, vessels); seg2 'constructed for the speed' → ships built for speed", "units": [
+  {"id": "u1", "text": "moonrakers are relatively unusual sails", "tier": "core", "seg": 1}, {"id": "u2", "text": "used only on ships", "tier": "core", "seg": 1},
+  {"id": "u3", "text": "built mainly for speed", "tier": "core", "seg": 2}]},
+ "subset2-34": {"best_en": "After Peter went outside with a participant named William, he felt close to fainting.", "confidence": "low", "notes": "views disagree; 'close to faint' vs 'located nearby'; subject of fainting unclear (Peter?)", "units": [
+  {"id": "u1", "text": "after Peter (went) outside", "tier": "core", "seg": 1}, {"id": "u2", "text": "with a participant named William", "tier": "support", "seg": 1},
+  {"id": "u3", "text": "he felt close to fainting", "tier": "core", "seg": 2}]},
+ "subset2-35": {"best_en": "It's better to stay silent and be thought a fool than to open your mouth and remove all doubt.", "confidence": "high", "notes": "views + known saying ('dumhead'/'stupid', 'mouth', 'eliminate all doubt')", "units": [
+  {"id": "u1", "text": "it's better to stay silent", "tier": "core", "seg": 1}, {"id": "u2", "text": "and be thought a fool", "tier": "core", "seg": 1},
+  {"id": "u3", "text": "than to open your mouth", "tier": "core", "seg": 2}, {"id": "u4", "text": "and remove all doubt", "tier": "core", "seg": 2}]},
+ "subset2-36": {"best_en": "It's true, life is truly generous to those who follow their destiny, the boy thought.", "confidence": "medium", "notes": "'its true' emphasised; 'destiny' in long view + gloss; seg3 'the boys thought' = reported thought", "units": [
+  {"id": "u1", "text": "it's true", "tier": "core", "seg": 1}, {"id": "u2", "text": "life is truly generous", "tier": "core", "seg": 2},
+  {"id": "u3", "text": "to those who follow their destiny", "tier": "core", "seg": 2}, {"id": "u4", "text": "the boy thought", "tier": "core", "seg": 3}]},
+ "subset2-37": {"best_en": "If you tell me why you're here, I'll show you the project I've been working on.", "confidence": "high", "notes": "seg1 rise = conditional, not a question", "units": [
+  {"id": "u1", "text": "if you tell me why you're here", "tier": "core", "seg": 1}, {"id": "u2", "text": "I'll show you the project", "tier": "core", "seg": 2},
+  {"id": "u3", "text": "I've been working on", "tier": "support", "seg": 2}]},
+ "subset2-38": {"best_en": "The boy offered his bottle to the old man, hoping he would leave him alone.", "confidence": "medium", "notes": "'calm him' vs 'let him quiet' → leave him in peace (ambiguous: calm the old man?)", "units": [
+  {"id": "u1", "text": "the boy offered his bottle to the old man", "tier": "core", "seg": 1}, {"id": "u2", "text": "hoping he would leave him alone", "tier": "core", "seg": 2}]},
+ "subset2-39": {"best_en": "It would be a favor you could do yourself: learn the language and speak it.", "confidence": "medium", "notes": "seg2 'learn the language and conversation' + gloss 'learning'", "units": [
+  {"id": "u1", "text": "it would be a favor you could do yourself", "tier": "core", "seg": 1}, {"id": "u2", "text": "learn the language", "tier": "core", "seg": 2},
+  {"id": "u3", "text": "and speak it", "tier": "support", "seg": 2}]},
+ "subset2-40": {"best_en": "However, there was no text explaining when and why they died.", "confidence": "high", "notes": "", "units": [
+  {"id": "u1", "text": "however there was no text explaining when", "tier": "core", "seg": 1}, {"id": "u2", "text": "and why", "tier": "core", "seg": 2},
+  {"id": "u3", "text": "they died", "tier": "core", "seg": 3}]},
+ "subset2-41": {"best_en": "So, since you can't use a mouse, you can't just click on the spot to get there.", "confidence": "medium", "notes": "seg3 'can't you just click' — statement or question; read as consequence", "units": [
+  {"id": "u1", "text": "so", "tier": "colour", "seg": 1}, {"id": "u2", "text": "since you can't use a mouse", "tier": "core", "seg": 2},
+  {"id": "u3", "text": "you can't just click on the spot", "tier": "core", "seg": 3}, {"id": "u4", "text": "to get there", "tier": "core", "seg": 4}]},
+ "subset2-42": {"best_en": "Some tricks can be learned in hours, while others take years to truly master.", "confidence": "high", "notes": "", "units": [
+  {"id": "u1", "text": "some tricks can be learned in hours", "tier": "core", "seg": 1}, {"id": "u2", "text": "while others take years", "tier": "core", "seg": 2},
+  {"id": "u3", "text": "to truly master", "tier": "core", "seg": 3}]},
+ "subset2-43": {"best_en": "Palm oil is cheap, but workers on illegal plantations are exploited, and huge jungle areas are destroyed for production.", "confidence": "high", "notes": "'favorable'=cheap; seg3 exploited + jungle destroyed", "units": [
+  {"id": "u1", "text": "palm oil is cheap", "tier": "core", "seg": 1}, {"id": "u2", "text": "but workers on illegal plantations", "tier": "core", "seg": 2},
+  {"id": "u3", "text": "are exploited", "tier": "core", "seg": 3}, {"id": "u4", "text": "and huge jungle areas are destroyed for production", "tier": "core", "seg": 3}]},
+ "subset2-44": {"best_en": "All music by John Petrucci, John Myung, Jordan Rudess and Mike Portnoy, unless otherwise noted.", "confidence": "high", "notes": "names resolved (MT: 'john me young', 'rudesmike potnoy')", "units": [
+  {"id": "u1", "text": "all music by John Petrucci", "tier": "core", "seg": 1}, {"id": "u2", "text": "John Myung, Jordan Rudess", "tier": "core", "seg": 2},
+  {"id": "u3", "text": "Mike Portnoy", "tier": "core", "seg": 3}, {"id": "u4", "text": "unless otherwise noted", "tier": "core", "seg": 5}]},
+ "subset2-45": {"best_en": "The player controls Vaillant, who can run, jump and throw things at opponents.", "confidence": "medium", "notes": "'to go' = walk/run", "units": [
+  {"id": "u1", "text": "the game controls Vaillant, which makes it possible", "tier": "core", "seg": 1}, {"id": "u2", "text": "to run", "tier": "core", "seg": 2},
+  {"id": "u3", "text": "to jump", "tier": "core", "seg": 3}, {"id": "u4", "text": "and throw things at opponents", "tier": "core", "seg": 4}]},
+ "subset2-46": {"best_en": "No man or woman is worth your tears, and the one who is won't make you cry.", "confidence": "medium", "notes": "known saying; seg3 'save your tears to you' = won't make you cry", "units": [
+  {"id": "u1", "text": "no man and no woman is worth your tears", "tier": "core", "seg": 1}, {"id": "u2", "text": "and the one who is", "tier": "core", "seg": 2},
+  {"id": "u3", "text": "won't make you cry", "tier": "core", "seg": 3}]},
+ "subset2-47": {"best_en": "A girl puts her head through a wooden cut-out of a pirate ship while people throw tomatoes.", "confidence": "high", "notes": "", "units": [
+  {"id": "u1", "text": "a girl has her head in a wooden cut-out", "tier": "core", "seg": 1}, {"id": "u2", "text": "of a pirate ship", "tier": "core", "seg": 1},
+  {"id": "u3", "text": "while people throw tomatoes", "tier": "core", "seg": 2}]},
+ "subset2-48": {"best_en": "He wrote numerous pieces, many with basso continuo, which proved his familiarity with contemporary practice.", "confidence": "medium", "notes": "'knives'/'measures' → pieces; 'baso continuo' = basso continuo", "units": [
+  {"id": "u1", "text": "he wrote numerous pieces", "tier": "core", "seg": 1}, {"id": "u2", "text": "many with basso continuo", "tier": "core", "seg": 2},
+  {"id": "u3", "text": "which proved his familiarity", "tier": "core", "seg": 3}, {"id": "u4", "text": "with contemporary practice", "tier": "core", "seg": 4}]},
+ "subset2-49": {"best_en": "There is no universal definition of intelligence, but everyone agrees it includes the ability to learn.", "confidence": "high", "notes": "", "units": [
+  {"id": "u1", "text": "there is no universal definition of intelligence", "tier": "core", "seg": 1}, {"id": "u2", "text": "however everybody agrees", "tier": "core", "seg": 2},
+  {"id": "u3", "text": "it includes the ability to learn", "tier": "core", "seg": 3}]},
+ "subset2-50": {"best_en": "The man looked up from his book, noticed nothing of the sort, glanced back at the page and read on.", "confidence": "medium", "notes": "'red far' = read on; 'court sort' = of the sort", "units": [
+  {"id": "u1", "text": "the man looked up from his book", "tier": "core", "seg": 1}, {"id": "u2", "text": "and noticed nothing of the sort", "tier": "support", "seg": 1},
+  {"id": "u3", "text": "glanced back at the page", "tier": "core", "seg": 2}, {"id": "u4", "text": "and read on", "tier": "core", "seg": 2}]},
+ "subset2-51": {"best_en": "Both are considered vulnerable, so it is illegal to harass, kill, collect or possess them.", "confidence": "high", "notes": "", "units": [
+  {"id": "u1", "text": "both are considered vulnerable", "tier": "core", "seg": 1}, {"id": "u2", "text": "so it is illegal to harass or kill them", "tier": "core", "seg": 2},
+  {"id": "u3", "text": "to collect or possess them", "tier": "core", "seg": 3}]},
+ "subset2-52": {"best_en": "In her own destruction I saw her momentum and her traps, and her followers sought rescue in flight.", "confidence": "low", "notes": "views garbled ('tarmel', 'trailers/trapping'); only the frame is recoverable", "units": [
+  {"id": "u1", "text": "in her own destruction I saw her ...", "tier": "core", "seg": 1}, {"id": "u2", "text": "and her followers sought rescue in flight", "tier": "core", "seg": 2}]},
+ "subset2-53": {"best_en": "The library's interior has a geometric design typical of the early Italian Renaissance.", "confidence": "high", "notes": "", "units": [
+  {"id": "u1", "text": "the interior of the library", "tier": "core", "seg": 1}, {"id": "u2", "text": "has a geometric design", "tier": "core", "seg": 2},
+  {"id": "u3", "text": "typical of the early Italian Renaissance style", "tier": "core", "seg": 3}]},
+ "subset2-54": {"best_en": "The following statistics refer to series wins and losses, not wins and losses in individual games.", "confidence": "high", "notes": "", "units": [
+  {"id": "u1", "text": "the following statistics refer to series wins and losses", "tier": "core", "seg": 1}, {"id": "u2", "text": "not to wins and losses in individual games", "tier": "core", "seg": 2}]},
+ "subset2-55": {"best_en": "The boy started reading his book again, but he could no longer concentrate.", "confidence": "high", "notes": "seg views add 'again', 'no longer'", "units": [
+  {"id": "u1", "text": "the boy began to read his book", "tier": "core", "seg": 1}, {"id": "u2", "text": "again", "tier": "support", "seg": 1},
+  {"id": "u3", "text": "but he could no longer concentrate", "tier": "core", "seg": 2}]},
+ "subset2-56": {"best_en": "Not everything we face can be changed, but nothing can be changed until it is faced.", "confidence": "medium", "notes": "known saying (Baldwin); 'before us' = faced", "units": [
+  {"id": "u1", "text": "not everything we face can be changed", "tier": "core", "seg": 1}, {"id": "u2", "text": "but nothing can be changed until it is faced", "tier": "core", "seg": 2}]}
+}

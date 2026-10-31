@@ -48,7 +48,7 @@ def main():
         td = Path(td)
         with open(td / "in.json", "w", encoding="utf-8") as f:
             for r in rows:
-                fr = natural_frames(r["text"])
+                fr = max(20, round(natural_frames(r["text"]) * float(r.get("scale", 1.0))))
                 text = " ".join(bpe.process_line(r["text"].strip()).split())
                 f.write(json.dumps({"text": f"{text} <||> {b.find_bin([fr])[0]}", "target_prefix": "<shift>",
                                     "target_prefix_factors": ["0", str(fr), str(fr), "0"],
