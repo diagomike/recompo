@@ -75,6 +75,9 @@ Every open task by priority. Done phases are summarised; their detail is in git 
 - [ ] Pivot run Amharic → Oromo on your PC: Ethio-ASR, `mt_google.py` am→en views (or NLLB short/long), en→om,
       MMS orm voice, om→en back-translation; a human reviews low-confidence lines.
 - [ ] Calibrate the prosody question cue per speaker (it over-fires on read speech).
+- [x] Working-language routing (worktree `routes`): `routes.py plan`, economy/quality budgets, route prior for pooling.
+- [ ] Adaptive MT views (extra views only where whole-line and per-segment views disagree) to cut understanding tokens.
+- [ ] Quality-mode pivot on your PC: am→om through English + Spanish pooled (Google/NLLB both hops, MMS orm voice).
 - [ ] Two-sided run on Amharic/Oromo on your PC: `mt_google.py` (forward + back-translation), edge-tts am / MMS orm voice.
 - [ ] Corpus pilot on 20–50 of your dual-audio titles (needs: language pairs, a list of files).
 - [ ] Track 1 A/B on 10 held-out dubbed titles (Claude's timed script vs today's pipeline vs the human dub's words).
