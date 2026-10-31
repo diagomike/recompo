@@ -256,7 +256,9 @@ matching, gapless recipe player, dub fixes, face-cropped Shorts, semantic search
   `…-p19-trained-mt` (IWSLT duration-aware Sockeye baseline, run after your OK: 0.80 voice overlap, normalised chrF
   53.5 — fits like placement alone and loses the most meaning; train pretrained models, not from scratch),
   `…-p19-algorithmic` (rules + WordNet + trigram LM, no neural model: safe edits +0.02 overlap; aggressive ones
-  0.90 but 27 % of segments ungrammatical in a blind check; next: an XLM-R masked LM as the judge, on your PC). Summary: `docs/research/P19-dubbing-and-meaning/mechanisms-compared.md`.
+  0.90 but 27 % of segments ungrammatical in a blind check; next: an XLM-R masked LM as the judge, on your PC),
+  `…-p19-llm-multiround` (**best**: multi-round LLM refinement measured with the voice — 98 % of segments in band,
+  0 % needing >1.1× speed-up, 98 % fluent, converges in 3 rounds). Summary: `docs/research/P19-dubbing-and-meaning/mechanisms-compared.md`.
   Worktrees live at `/home/user/recompo-wt-*` in the cloud session only.
 - Sandbox notes: HuggingFace, arXiv, ACL Anthology are blocked here; GitHub (git and release assets) and PyPI work.
 - Open questions for you: language pairs in the library; lip-synced vs narrated dubs; agent vs API mode for films.

@@ -17,6 +17,7 @@ has its own branch and worktree. All of them are scored on one benchmark built f
 | `ccr-327cc642-xnfs3i-p19-llm-loop` | LLM (Claude) writes per segment against budgets, then revises with measured durations | yes | **0.92 speech overlap** with a real TTS voice, 5 % of segments needing > 1.1× speed-up, at −7 chrF vs the reference |
 | `ccr-327cc642-xnfs3i-p19-trained-mt` | Trained duration-aware NMT (IWSLT Sockeye baseline: phonemes + durations, time counters) | yes (after your OK) | **0.80** speech overlap with a real voice (0.86 with its own durations), normalised chrF **53.5**: fits like placement alone, loses the most meaning |
 | `ccr-327cc642-xnfs3i-p19-algorithmic` | Fully algorithmic rephrasing: placement + rule/WordNet edits judged by a trigram LM (no neural model) | yes | Safe edits: **0.85** overlap (+0.02 over placement), 94 % fluent segments; aggressive edits: 0.90 but only 73 % fluent (blind check). chrF misses the damage |
+| `ccr-327cc642-xnfs3i-p19-llm-multiround` | **Multi-round LLM refinement**: each round measures every segment with the voice; the LLM rewrites only out-of-band ones from 2–4 measured alternatives and restores plain wording where possible | yes | **Best overall:** 98 % of segments in band (0.8–1.05×), 0 % over 1.1×, 0.92–0.93 overlap, 98 % fluent, chrF 64.1; converges in 3 rounds |
 
 ## The comparison that matters (45 German-speaker lines, measured with a real TTS voice)
 
@@ -30,7 +31,8 @@ has its own branch and worktree. All of them are scored on one benchmark built f
 | Fully algorithmic edits, aggressive (v1) | 0.90 | 89 % | 19 % | 68.2 (but 27 % of segments ungrammatical) |
 | **LLM timed** (one pass) | 0.91 | 88 % | 35 % | 65.0 |
 | LLM timed + revision against the text ruler | 0.91 | 88 % | 35 % | 64.9 |
-| **LLM timed + revision against the voice** | **0.92** | **89 %** | **5 %** | 63.5 |
+| LLM timed + revision against the voice (one round, R3) | 0.92 | 89 % | 5 % | 63.5 |
+| **LLM multi-round refinement (R6)** | **0.92** | **97 %** | **1 %** | 64.1 |
 
 The professional-dub reference point is speech overlap ~0.7–0.8 (Brannon 2023; our film pilot 0.72 / 0.81).
 
@@ -69,6 +71,11 @@ The professional-dub reference point is speech overlap ~0.7–0.8 (Brannon 2023;
    fluent segments vs 100 % for the LLM loop and 99 % for placement only). chrF hides it. The weak part is the
    trigram-LM judge; a pretrained masked LM (XLM-R/BERT) plugged into the same search is the variant to test on
    your PC (HuggingFace is blocked here).
+
+8. **Multi-round LLM refinement is the strongest method** (worktree `llm-multiround`). Three more measured rounds
+   after R3 took segments in band from 74 % to 98 % and cut overruns to zero, with fluency at 98 % and slightly
+   better chrF (de-padding). Each round only touches what the voice flags (22 → 9 → 3 segments). Overlap plateaus
+   near 0.93 because of the frame itself (a voice cannot fill "he said," in 0.73 s without padding).
 
 **Blind fluency** (Claude judging 290 shuffled unlabelled phrases): LLM loop R3 100 % fluent segments, placement
 only 99 %, algorithmic safe 94 %, algorithmic + voice 81 %, algorithmic aggressive 73 %, trained NMT 28 %.

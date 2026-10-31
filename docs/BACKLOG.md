@@ -65,7 +65,8 @@ Every open task by priority. Done phases are summarised; their detail is in git 
 - [x] Fully algorithmic rephrasing (worktree `algorithmic`, 2026-10-31): not competitive without a neural judge.
 - [ ] BERT-pluggable rephrasing (XLM-R masked-LM edits + LaBSE/e5 meaning check) and NLLB n-best + rerank — need
       HuggingFace: run on your PC (`D:\LangBridgeLocal\cache\hf`) or with huggingface.co allowed in the cloud env.
-- [ ] LLM loop with a budget floor (allow silence instead of padding) to recover meaning.
+- [x] Multi-round LLM refinement with a band (0.8–1.05×, silence allowed) and de-padding (worktree `llm-multiround`):
+      best method so far. Next: a meaning check beyond one-reference chrF (human or LLM judge).
 - [ ] Corpus pilot on 20–50 of your dual-audio titles (needs: language pairs, a list of files).
 - [ ] Track 1 A/B on 10 held-out dubbed titles (Claude's timed script vs today's pipeline vs the human dub's words).
 - [ ] Track 3 blind comparison: unit cards + LLM selection vs `cut suggest` on alex-oconnor and ai-and-ideas.
