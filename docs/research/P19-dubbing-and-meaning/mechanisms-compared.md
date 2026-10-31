@@ -22,6 +22,7 @@ has its own branch and worktree. All of them are scored on one benchmark built f
 | `ccr-327cc642-xnfs3i-p19-twosided` | **Two-sided optimiser for MT-only targets** (Amharic/Oromo path): LLM writes source-side options (compact, MT-friendly, steered to measured MT expansion, MT-robust) → black-box MT → target voice timing → exact selection with lazy target-side verification | yes (de→en real MT; en→es stand-in MT) | de→en: within ±20 % 57 → **87 %**, meaning kept 73 → **93 %**, MT errors/line 1.13 → 0.40; en→es: >1.1× speed-up 55 → **0 %**, within ±20 % 59 → 93 % |
 | `ccr-327cc642-xnfs3i-p19-pivot` | **End to end between two MT-only languages through English**: source ASR → several independent English MT views (whole, per segment, terse/full, glosses) + prosody cues → LLM pivot meaning map pinned to source segments, with confidence → two-sided timing into the target on the source speaker's segments | yes (de→en real ASR+MT as the "low-resource" source; en→es stand-in MT) | 24 unseen lines, blind adequacy 0–3: naive cascade **1.17** (71 % badly wrong) → **2.71**; within ±20 % 52 → **88 %**, 0.81 → 0.88 overlap; confidence predicts failures (high 3.0, low 1.5) |
 | `ccr-327cc642-xnfs3i-p19-routes` | **Working-language routing**: the LLM reads and writes only in languages it is strong in; per pair a route (direct / target-direct / source-side / pivot) and a budget (economy = one writing language, quality = two pooled) | yes (24 fresh de-speech lines → es) | Target-direct vs pivot route: within ±20 % **91 vs 86 %**, natural Spanish **88 vs 50 %**, same meaning (2.58 vs 2.54); pooled two languages **95 %** fit, needs a route prior to keep fluency; understanding is ~⅔ of tokens |
+| `ccr-327cc642-xnfs3i-p19-bipivot` | **Two middle languages**: the source read through English (Sockeye) and Spanish (a second MT system, Mozilla/bergamot) before writing; French target with real MT and back-translation checks | yes (24 fresh de-speech lines → fr) | Understanding: English only **2.54** → English + Spanish **2.88**/3 (major loss 17 → 4 %); French dub **2.83** with 0 % major loss vs 2.42 for the best plain cascade, 79–81 % within ±20 % vs 38 % |
 
 ## The comparison that matters (45 German-speaker lines, measured with a real TTS voice)
 
@@ -108,6 +109,12 @@ The professional-dub reference point is speech overlap ~0.7–0.8 (Brannon 2023;
     pooled give the best fit (95 % within ±20 %) for ~35 % more tokens; give MT-route options a small prior so the
     fluency-blind selector prefers directly written lines on near-ties. Save tokens in understanding (adaptive views),
     which is about two-thirds of the cost.
+
+13. **Read the source through two middle languages** (worktree `bipivot`). A second, independent MT system read in
+    Spanish fixed what an English-only pivot passed on silently (a reversed polarity, a wrong action, a lost key
+    word): adequacy 2.54 → 2.88, with calibrated confidence. The gain comes from the independent MT path; the
+    language it is read in matters less. Writing in a second language helps only where its MT into the target is
+    direct. On the PC: Google am→en + NLLB am→spa for understanding, back-translation through both for checks.
 
 **Blind fluency** (Claude judging 290 shuffled unlabelled phrases): LLM loop R3 100 % fluent segments, placement
 only 99 %, algorithmic safe 94 %, algorithmic + voice 81 %, algorithmic aggressive 73 %, trained NMT 28 %.

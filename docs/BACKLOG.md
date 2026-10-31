@@ -77,6 +77,8 @@ Every open task by priority. Done phases are summarised; their detail is in git 
 - [ ] Calibrate the prosody question cue per speaker (it over-fires on read speech).
 - [x] Working-language routing (worktree `routes`): `routes.py plan`, economy/quality budgets, route prior for pooling.
 - [ ] Adaptive MT views (extra views only where whole-line and per-segment views disagree) to cut understanding tokens.
+- [x] Two middle languages for understanding (worktree `bipivot`): English + Spanish from two MT systems, French target.
+- [ ] On your PC: understanding am→en (Google) + am→spa (NLLB, direct); verification om→en and om→spa through both systems.
 - [ ] Quality-mode pivot on your PC: am→om through English + Spanish pooled (Google/NLLB both hops, MMS orm voice).
 - [ ] Two-sided run on Amharic/Oromo on your PC: `mt_google.py` (forward + back-translation), edge-tts am / MMS orm voice.
 - [ ] Corpus pilot on 20–50 of your dual-audio titles (needs: language pairs, a list of files).

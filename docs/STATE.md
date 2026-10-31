@@ -269,7 +269,10 @@ matching, gapless recipe player, dub fixes, face-cropped Shorts, semantic search
   ±20 % fit 52 → 88 %; low-confidence lines flagged for a human; am→om steps in its README),
   `…-p19-routes` (**working-language routing**: the LLM works only in languages it is strong in — direct /
   target-direct / source-side / pivot, economy or quality budget; target-direct beats the pivot route on fit 91 vs
-  86 % and fluency 88 vs 50 % natural; pooled two languages 95 % fit with a route prior). Summary: `docs/research/P19-dubbing-and-meaning/mechanisms-compared.md`.
+  86 % and fluency 88 vs 50 % natural; pooled two languages 95 % fit with a route prior),
+  `…-p19-bipivot` (**two middle languages**: English + Spanish views from two MT systems; understanding 2.54 → 2.88/3,
+  French dub with real Mozilla MT + back-translation checks 2.83 vs 2.42 for the best cascade; Mozilla models run
+  offline via `mt_bergamot.py`). Summary: `docs/research/P19-dubbing-and-meaning/mechanisms-compared.md`.
   Worktrees live at `/home/user/recompo-wt-*` in the cloud session only.
 - Sandbox notes: HuggingFace, arXiv, ACL Anthology are blocked here; GitHub (git and release assets) and PyPI work.
 - Open questions for you: language pairs in the library; lip-synced vs narrated dubs; agent vs API mode for films.
