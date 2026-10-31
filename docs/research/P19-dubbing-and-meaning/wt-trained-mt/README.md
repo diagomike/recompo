@@ -1,32 +1,54 @@
-# Worktree `trained-mt`: a trained duration-aware translation model (not run yet: needs your permission)
+# Worktree `trained-mt`: a trained duration-aware NMT on the P19 bench
 
-**What it would test:** the strongest published *trained* mechanism that is publicly available. The IWSLT 2023
-dubbing baseline is a Sockeye transformer, German text with speech-segment durations → English phonemes with a
-duration per phoneme. Target factors plus auxiliary counters ("time left in this segment", "pauses left") let the
-decoder see the clock as it writes; Pal et al. 2023 report ~0.99 speech overlap on CoVoST.
+**What it is:** the public IWSLT 2023 automatic-dubbing baseline (`baseline_factored_noised0.1`, Amazon), the
+published form of the *trained* mechanism.
 
-Comparing it with the LLM loop and the no-training placement on the same German speaker frames answers the
-question: does a model trained on timing beat an LLM told the timing?
+- A Sockeye transformer reads German BPE text plus one duration bin per speech segment.
+- It writes English **phonemes with a duration per phoneme** (target factors) while counting down auxiliary clocks:
+  frames left in the line, frames left in the segment, pauses left (Chronopoulou et al. 2023; Pal et al. 2023).
+- It was trained on CoVoST2 de→en with real English phone timings and noise (σ = 0.1) on the target durations.
+- A second Sockeye model turns phonemes back into words.
 
-**Fetched and ready** (from the public `amazon-science/iwslt-autodub-task` release via GitHub media downloads):
-- `models/sockeye/trained_baselines/baseline_factored_noised0.1/model/params.00078` (381 MB) and its vocabularies;
-- `models/phoneme_to_grapheme/params.00048` (218 MB), the phoneme → word model used to score translation quality;
-- BPE codes, the test sets, and the 192 German test recordings (frames in `bench_frames.py`).
+**How it ran here** (you allowed installing the authors' fork, 2026-10-31):
 
-**Blocked step:** the model needs the authors' Sockeye fork (`github.com/Proyag/sockeye@factor-pe`) and PyTorch in
-a Python 3.10 environment. Installing that fork from GitHub was refused in this session by the auto-mode safety
-check ("code from external"). Nothing was worked around.
+- Environment: Python 3.10, torch 1.13.1 (CPU), `github.com/Proyag/sockeye@factor-pe`, under the session
+  scratchpad.
+- Duration bins: rebuilt from 150,000 training alignments (175,063 segments) with the authors' own code, because
+  the original bin file is not in the release.
+- Input: the **same 45 lines and the same German speaker frames** the LLM loop wrote for (`in.json`), decoded with
+  beam 5 and `--force-factors-stepwise frames total_remaining segment_remaining pauses_remaining`, in 89 s on CPU.
+- Output: phonemes converted to words per segment (`segments.words`), scored with the same ruler, the same real
+  voice (VITS LJSpeech) and chrF. Normalised chrF (lower case, no punctuation) is the fair column, because the
+  phoneme→word model outputs neither.
 
-**To run it**, either:
-1. allow it here (say so in chat, or add a permission rule), and I install the fork into a separate environment
-   under the scratchpad and decode the 192 test lines on CPU (expected minutes to an hour); or
-2. run on your PC or Colab:
-   ```
-   conda env create -f environment.yml   # from the iwslt-autodub-task repo
-   bash sockeye_scripts/decoding/...      # decode subset1/subset2 with the factored baseline
-   ```
-   then score the output with `scripts/research/p19/wt_llm_loop.py score` (same frames, same ruler).
+Script: `scripts/research/p19/wt_trained_mt.py` (bins, inputs, post, collect) and `wt_compare_all.py`; numbers:
+`compare.json`.
 
-**What we already know from the literature** (track2-models.md): trained duration-aware models reach near-perfect
-isochrony on read speech, with a 3–9 % translation-quality cost (Chronopoulou 2023). They need phoneme-level target
-durations to train, which your dub audio would provide via forced alignment.
+| Condition | Speech overlap (voice) | Within ±20 % (voice) | Segments needing > 1.1× speed-up | chrF normalised |
+|---|---|---|---|---|
+| R0 plain LLM translation | 0.72 | 16 % | 69 % | 72.3 |
+| REF human translation + placement | 0.81 | 61 % | 23 % | 100 |
+| R0 + placement | 0.83 | 64 % | 19 % | 72.3 |
+| **TRAINED_MT** (IWSLT duration-aware baseline) | 0.80 | 49 % | 12 % | **53.5** |
+| R1 LLM timed | 0.91 | 86 % | 40 % | 66.9 |
+| **R3 LLM timed + voice revision** | **0.92** | **93 %** | **6 %** | 65.2 |
+
+Speech overlap of TRAINED_MT using **its own predicted phoneme durations**: 0.855. In the authors' pipeline a
+FastSpeech2 voice speaks those durations directly; any other voice gets 0.80.
+
+**Findings**
+
+- The published trained model fits the timing about as well as **placement alone** (0.80 vs 0.83 with a real
+  voice). It is far below an LLM told the budgets (0.92).
+- It loses the most meaning of all conditions (normalised chrF 53.5 vs 65–72). Sample: "the amsl watched it all
+  from the tree / moved her head to the left / blind and tested her wings before eventually went into the air".
+  It was trained from scratch on CoVoST-sized data (~300 k sentences), with no pretrained language knowledge.
+- Its durations are internally consistent (0.855 with its own clocks) but tied to its phoneme timings. They do not
+  transfer to another voice, the same "the ruler must be the voice" lesson as the LLM loop.
+- **What this means for training on your corpus:** the duration-aware architecture works, but a model trained from
+  scratch lacks the language quality. The trained path worth pursuing is **a pretrained multilingual model
+  (NLLB/mT5 or an LLM) fine-tuned with timing tokens or preference-tuned for duration** (SSPO-style), not a
+  from-scratch transformer. Train against the voice that will speak.
+
+Caveats: 45 read sentences, German speaker frames from VAD (not the frames the model was tuned on), bins rebuilt
+from a sample, one voice. Phoneme→word conversion adds errors (e.g. "amsl" for "blackbird"'s German "Amsel").

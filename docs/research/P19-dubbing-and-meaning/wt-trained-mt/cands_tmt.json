@@ -1,0 +1,356 @@
+{
+ "TRAINED_MT": {
+  "subset2-3": [
+   "the amsl watched it all from the tree",
+   "moved her head to the left",
+   "blind and tested her wings before eventually went into the air"
+  ],
+  "subset2-4": [
+   "she always repeats that she didn't move it up home",
+   "but i can't be so certain whether this is true"
+  ],
+  "subset2-5": [
+   "eventually he took high boards and after laying it carefully",
+   "looked into the room under the ground"
+  ],
+  "subset2-6": [
+   "i also glad to hear others",
+   "so post your own ideas in the comments and tell me what i could better"
+  ],
+  "subset2-7": [
+   "something moved deep underground",
+   "causing vibrations strongly enough",
+   "that they were removed from the earthquake mechanisms hundreds of miles"
+  ],
+  "subset2-8": [
+   "he paused looking back at the house",
+   "but inside the gate",
+   "and quickly opened the gate went down"
+  ],
+  "subset2-9": [
+   "we miss you",
+   "and miss you to have a friend and",
+   "i am so glad you could pick up that"
+  ],
+  "subset2-10": [
+   "before reading that post",
+   "please get yourself with my first step manual",
+   "and action to send a file quickly"
+  ],
+  "subset2-11": [
+   "i simply could publish my code",
+   "but that wasn't show all the little lessons i learned there"
+  ],
+  "subset2-12": [
+   "the moment you spell a word",
+   "immediately stop adding this word to the vocabuleditor"
+  ],
+  "subset2-13": [
+   "i used to cost several thousand dollars but you can squatter a cheap for less than a few hundred dollars"
+  ],
+  "subset2-14": [
+   "the boy looked round after the ovens and other devices used in alchemistry but could not see"
+  ],
+  "subset2-15": [
+   "it has some basic functions for connecting eye tracker",
+   "position data and activating current gaze points"
+  ],
+  "subset2-16": [
+   "they picked disorder virus into the band to play drums",
+   "and eventually had more or less reliable cast"
+  ],
+  "subset2-17": [
+   "i wasn't in town only beginning of the year",
+   "so i crazy to think about what immediately later"
+  ],
+  "subset2-18": [
+   "now start a guy that comes through this door",
+   "and starts commands with a strong accent"
+  ],
+  "subset2-19": [
+   "i think the party was a luster for most guests",
+   "but murco felt really missing the square"
+  ],
+  "subset2-20": [
+   "she has long red chekhov",
+   "and therefore feels like the hero of her own story"
+  ],
+  "subset2-21": [
+   "not just no",
+   "he gave me the most important aspects of his research when i talked with him"
+  ],
+  "subset2-22": [
+   "it is rude to ask a tree for its curriculum",
+   "when you are not prepared to hear it fulllength"
+  ],
+  "subset2-23": [
+   "i wondered if you could tell me a little more about how it is living and working",
+   "there"
+  ],
+  "subset2-24": [
+   "if",
+   "you dig this tunnel under the building therefore",
+   "i collapse you urgently do not to do that"
+  ],
+  "subset2-25": [
+   "don't turn away from all rhyme",
+   "as they never forgo i could make that all day"
+  ],
+  "subset2-26": [
+   "i haven't come here to let me hand from you",
+   "said he",
+   "regretting his coming"
+  ],
+  "subset2-27": [
+   "one colla from one to find nothing very much to ten",
+   "how much pain do you find"
+  ],
+  "subset2-28": [
+   "when suddenly giving her a kiss on cheek she blushed",
+   "and changed her colour faster than a chameleon"
+  ],
+  "subset2-29": [
+   "when a fox hears a rabbit screams it runs to him",
+   "but not to come to help"
+  ],
+  "subset2-30": [
+   "recently i had the drive to go back and help him",
+   "but i was too much fear to make something"
+  ],
+  "subset2-31": [
+   "i always thought that i should be angered",
+   "but the truth is it really can't take me interest"
+  ],
+  "subset2-32": [
+   "he rose to his",
+   "place and he returned to all",
+   "questioned the meaning of life in the room"
+  ],
+  "subset1-3": [
+   "he studied philosophy and theoretical biology"
+  ],
+  "subset1-4": [
+   "the couple had one daughter grace and a son henry"
+  ],
+  "subset1-5": [
+   "this type of overbiddings",
+   "will still drive their friendship into the ruin"
+  ],
+  "subset1-6": [
+   "this damn mouse could feel my rage"
+  ],
+  "subset1-7": [
+   "i will keep him completely"
+  ],
+  "subset1-8": [
+   "what do you expect of me"
+  ],
+  "subset1-9": [
+   "all birds started to sing in the first light of dusk"
+  ],
+  "subset1-10": [
+   "you can't judge following the exterior"
+  ],
+  "subset1-11": [
+   "stop handing me like a young child"
+  ],
+  "subset1-12": [
+   "the first christmas carol"
+  ],
+  "subset1-13": [
+   "i'm still sure of the lyrical direction"
+  ],
+  "subset1-14": [
+   "joan lindros bill holsworth",
+   "and malcolm calder were also old service representatives"
+  ],
+  "subset1-15": [
+   "see analytical sequel"
+  ],
+  "subset1-16": [
+   "the city wall is one of the town's landmarks",
+   "angen"
+  ],
+  "subset1-17": [
+   "dogstar currently revues material for a project",
+   "that reflects their years of the tour"
+  ]
+ },
+ "_model_durations_s": {
+  "subset2-3": [
+   2.194,
+   1.498,
+   3.611
+  ],
+  "subset2-4": [
+   2.647,
+   2.554
+  ],
+  "subset2-5": [
+   3.611,
+   1.95
+  ],
+  "subset2-6": [
+   1.672,
+   3.738
+  ],
+  "subset2-7": [
+   2.02,
+   2.403,
+   4.447
+  ],
+  "subset2-8": [
+   2.601,
+   1.37,
+   2.136
+  ],
+  "subset2-9": [
+   0.778,
+   2.171,
+   2.937
+  ],
+  "subset2-10": [
+   1.614,
+   2.798,
+   3.367
+  ],
+  "subset2-11": [
+   2.357,
+   3.727
+  ],
+  "subset2-12": [
+   1.8,
+   3.471
+  ],
+  "subset2-13": [
+   6.118
+  ],
+  "subset2-14": [
+   5.457
+  ],
+  "subset2-15": [
+   3.355,
+   3.704
+  ],
+  "subset2-16": [
+   3.541,
+   2.995
+  ],
+  "subset2-17": [
+   2.415,
+   3.17
+  ],
+  "subset2-18": [
+   2.032,
+   2.322
+  ],
+  "subset2-19": [
+   2.914,
+   2.392
+  ],
+  "subset2-20": [
+   1.823,
+   3.1
+  ],
+  "subset2-21": [
+   1.196,
+   4.725
+  ],
+  "subset2-22": [
+   2.961,
+   2.67
+  ],
+  "subset2-23": [
+   4.377,
+   0.662
+  ],
+  "subset2-24": [
+   0.058,
+   3.402,
+   3.425
+  ],
+  "subset2-25": [
+   1.916,
+   3.924
+  ],
+  "subset2-26": [
+   2.38,
+   0.836,
+   1.544
+  ],
+  "subset2-27": [
+   4.18,
+   1.509
+  ],
+  "subset2-28": [
+   3.17,
+   2.937
+  ],
+  "subset2-29": [
+   3.239,
+   1.591
+  ],
+  "subset2-30": [
+   2.995,
+   2.229
+  ],
+  "subset2-31": [
+   2.218,
+   3.042
+  ],
+  "subset2-32": [
+   1.01,
+   1.927,
+   2.566
+  ],
+  "subset1-3": [
+   3.216
+  ],
+  "subset1-4": [
+   3.959
+  ],
+  "subset1-5": [
+   1.881,
+   3.274
+  ],
+  "subset1-6": [
+   2.937
+  ],
+  "subset1-7": [
+   1.974
+  ],
+  "subset1-8": [
+   1.161
+  ],
+  "subset1-9": [
+   4.029
+  ],
+  "subset1-10": [
+   2.403
+  ],
+  "subset1-11": [
+   2.496
+  ],
+  "subset1-12": [
+   1.765
+  ],
+  "subset1-13": [
+   2.566
+  ],
+  "subset1-14": [
+   2.287,
+   3.866
+  ],
+  "subset1-15": [
+   1.858
+  ],
+  "subset1-16": [
+   3.216,
+   0.29
+  ],
+  "subset1-17": [
+   3.344,
+   2.241
+  ]
+ }
+}
