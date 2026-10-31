@@ -1,0 +1,276 @@
+{
+ "subset2-3": {
+  "en": "The blackbird watched all this from the tree twisting its head left and right, blinking and testing its wings, before finally taking to the air.",
+  "segments": [
+   {
+    "start": 2.78,
+    "end": 9.65,
+    "dur": 6.87,
+    "pause_after": null
+   }
+  ]
+ },
+ "subset2-4": {
+  "en": "She keeps saying that she has no regrets about moving back home, but I’m not sure if it’s entirely true.",
+  "segments": [
+   {
+    "start": 0.57,
+    "end": 3.99,
+    "dur": 3.42,
+    "pause_after": 0.53
+   },
+   {
+    "start": 4.52,
+    "end": 6.8,
+    "dur": 2.28,
+    "pause_after": null
+   }
+  ]
+ },
+ "subset2-5": {
+  "en": "Finally, he lifted one of the boards and after setting it aside carefully, looked into the space beneath the floor.",
+  "segments": [
+   {
+    "start": 0.61,
+    "end": 4.91,
+    "dur": 4.3,
+    "pause_after": 0.41
+   },
+   {
+    "start": 5.32,
+    "end": 7.11,
+    "dur": 1.79,
+    "pause_after": null
+   }
+  ]
+ },
+ "subset2-6": {
+  "en": "I'm also hoping to hear from others, so please post your own ideas in the comments and tell me what I could do better!",
+  "segments": [
+   {
+    "start": 0.61,
+    "end": 5.43,
+    "dur": 4.82,
+    "pause_after": null
+   }
+  ]
+ },
+ "subset2-7": {
+  "en": "Something deep beneath the earth shifted, sending vibrations strong enough to register on earthquake detection mechanisms hundreds of miles away.",
+  "segments": [
+   {
+    "start": 0.54,
+    "end": 8.68,
+    "dur": 8.14,
+    "pause_after": null
+   }
+  ]
+ },
+ "subset2-8": {
+  "en": "He paused, looked back at the house, but then pocketed the keys, opened the gate and strode down the path quickly.",
+  "segments": [
+   {
+    "start": 0.81,
+    "end": 8.09,
+    "dur": 7.28,
+    "pause_after": null
+   }
+  ]
+ },
+ "subset2-9": {
+  "en": "We miss you and miss having a friend like you, and I am so happy that you two got to catch up.",
+  "segments": [
+   {
+    "start": 1.47,
+    "end": 7.04,
+    "dur": 5.57,
+    "pause_after": null
+   }
+  ]
+ },
+ "subset2-10": {
+  "en": "Before reading this post, please familiarize yourself with my getting started guide and how to move around a file quickly.",
+  "segments": [
+   {
+    "start": 1.33,
+    "end": 8.55,
+    "dur": 7.22,
+    "pause_after": null
+   }
+  ]
+ },
+ "subset2-11": {
+  "en": "I could just publish my code, but that wouldn't reveal all the little lessons I learned along the way.",
+  "segments": [
+   {
+    "start": 0.79,
+    "end": 2.67,
+    "dur": 1.88,
+    "pause_after": 0.36
+   },
+   {
+    "start": 3.03,
+    "end": 6.79,
+    "dur": 3.76,
+    "pause_after": null
+   }
+  ]
+ },
+ "subset2-12": {
+  "en": "The moment you find yourself spelling out a word, stop right away and add this word to the Vocabulary Editor.",
+  "segments": [
+   {
+    "start": 0.88,
+    "end": 5.72,
+    "dur": 4.84,
+    "pause_after": null
+   }
+  ]
+ },
+ "subset2-13": {
+  "en": "Eye trackers used to cost several thousand dollars, but now you can grab a cheap one for less than a couple hundred bucks.",
+  "segments": [
+   {
+    "start": 1.53,
+    "end": 8.39,
+    "dur": 6.86,
+    "pause_after": null
+   }
+  ]
+ },
+ "subset2-14": {
+  "en": "The boy looked around for the ovens and other apparatus used in alchemy, but saw none.",
+  "segments": [
+   {
+    "start": 0.33,
+    "end": 1.81,
+    "dur": 1.48,
+    "pause_after": 0.38
+   },
+   {
+    "start": 2.19,
+    "end": 6.8,
+    "dur": 4.61,
+    "pause_after": null
+   }
+  ]
+ },
+ "subset2-15": {
+  "en": "It has a few basic functions to connect to the eye tracker, get position data, and activate the current gaze point.",
+  "segments": [
+   {
+    "start": 1.1,
+    "end": 4.53,
+    "dur": 3.43,
+    "pause_after": 0.35
+   },
+   {
+    "start": 4.88,
+    "end": 7.9,
+    "dur": 3.02,
+    "pause_after": null
+   }
+  ]
+ },
+ "subset2-16": {
+  "en": "They recruited Disorder drummer Virus to play drums and finally had a semi-stable line-up.",
+  "segments": [
+   {
+    "start": 1.02,
+    "end": 6.93,
+    "dur": 5.91,
+    "pause_after": 0.45
+   },
+   {
+    "start": 7.38,
+    "end": 7.86,
+    "dur": 0.48,
+    "pause_after": null
+   }
+  ]
+ },
+ "subset2-17": {
+  "en": "I was just in town earlier this year, so it is kind of crazy to think about what took place right after.",
+  "segments": [
+   {
+    "start": 1.31,
+    "end": 7.18,
+    "dur": 5.87,
+    "pause_after": null
+   }
+  ]
+ },
+ "subset2-18": {
+  "en": "Now, imagine a guy walking through that door and starting to give orders with a heavy accent.",
+  "segments": [
+   {
+    "start": 0.36,
+    "end": 4.44,
+    "dur": 4.08,
+    "pause_after": null
+   }
+  ]
+ },
+ "subset2-19": {
+  "en": "I think the party was an amusement for most of the guests, but Mirco felt really out of place.",
+  "segments": [
+   {
+    "start": 0.81,
+    "end": 7.54,
+    "dur": 6.73,
+    "pause_after": null
+   }
+  ]
+ },
+ "subset2-20": {
+  "en": "It’s been a long time since she last read Chekhov, and because of that, she no longer feels like the heroine of her own story.",
+  "segments": [
+   {
+    "start": 1.06,
+    "end": 4.1,
+    "dur": 3.04,
+    "pause_after": 0.96
+   },
+   {
+    "start": 5.06,
+    "end": 6.29,
+    "dur": 1.23,
+    "pause_after": 0.34
+   },
+   {
+    "start": 6.63,
+    "end": 10.13,
+    "dur": 3.5,
+    "pause_after": null
+   }
+  ]
+ },
+ "subset2-21": {
+  "en": "Not specifically no, he only gave me the gist of his research the one time I spoke to him.",
+  "segments": [
+   {
+    "start": 1.31,
+    "end": 3.03,
+    "dur": 1.72,
+    "pause_after": 0.57
+   },
+   {
+    "start": 3.6,
+    "end": 8.15,
+    "dur": 4.55,
+    "pause_after": null
+   }
+  ]
+ },
+ "subset2-22": {
+  "en": "It's impolite to ask a tree for its story unless you are ready to hear it in full length.",
+  "segments": [
+   {
+    "start": 1.85,
+    "end": 7.76,
+    "dur": 5.91,
+    "pause_after": null
+   }
+  ]
+ }
+}

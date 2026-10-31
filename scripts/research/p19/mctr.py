@@ -211,7 +211,7 @@ def load_lines(maps_path: Path, frames_path: Path, ids: list[str] | None = None)
     for i, m in maps.items():
         if ids and i not in ids:
             continue
-        ln = Line(i, frames[i]["de"], m["gist"], m.get("keep", []),
+        ln = Line(i, frames[i].get("de") or frames[i].get("en"), m["gist"], m.get("keep", []),
                   [Unit(u["id"], u["text"], u["src"], u["tier"]) for u in m["units"]], frames[i]["segments"])
         allocate(ln)
         out[i] = ln

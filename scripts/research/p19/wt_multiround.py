@@ -18,8 +18,11 @@ import bench as B  # noqa: E402
 class Voice:
     def __init__(self, vdir: Path, cache: Path):
         import sherpa_onnx as so
-        vits = so.OfflineTtsVitsModelConfig(model=str(next(vdir.glob("*.onnx"))), lexicon=str(vdir / "lexicon.txt"),
-                                            tokens=str(vdir / "tokens.txt"))
+        kw = {"model": str(next(vdir.glob("*.onnx"))), "tokens": str(vdir / "tokens.txt")}
+        if (vdir / "lexicon.txt").exists():
+            kw["lexicon"] = str(vdir / "lexicon.txt")
+        self.chars = "lexicon" not in kw  # MMS voices read characters: lower case, no punctuation
+        vits = so.OfflineTtsVitsModelConfig(**kw)
         self.tts = so.OfflineTts(so.OfflineTtsConfig(model=so.OfflineTtsModelConfig(vits=vits, num_threads=4)))
         self.path = cache
         self.cache = json.loads(cache.read_text()) if cache.exists() else {}
@@ -29,7 +32,8 @@ class Voice:
         if not t:
             return 0.0
         if t not in self.cache:
-            au = self.tts.generate(t, sid=0, speed=1.0)
+            say = " ".join(__import__("re").sub(r"[^\w\s']", " ", t.lower()).split()) if self.chars else t
+            au = self.tts.generate(say, sid=0, speed=1.0)
             x = np.abs(np.array(au.samples, dtype=np.float32))
             idx = np.flatnonzero(x > 0.02 * x.max()) if x.size else []
             self.cache[t] = round(float((idx[-1] - idx[0]) / au.sample_rate), 3) if len(idx) else 0.0

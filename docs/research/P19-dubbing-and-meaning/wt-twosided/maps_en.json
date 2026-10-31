@@ -1,0 +1,106 @@
+{
+ "subset2-3": {"gist": "A blackbird watched, looked around, blinked, tested its wings and flew off.", "keep": [], "units": [
+  {"id": "u1", "text": "the blackbird watched all this", "src": "The blackbird watched all this", "tier": "core"},
+  {"id": "u2", "text": "from the tree", "src": "from the tree", "tier": "support"},
+  {"id": "u3", "text": "twisting its head left and right", "src": "twisting its head left and right", "tier": "core"},
+  {"id": "u4", "text": "blinking", "src": "blinking", "tier": "support"},
+  {"id": "u5", "text": "testing its wings", "src": "testing its wings", "tier": "core"},
+  {"id": "u6", "text": "before taking to the air", "src": "before finally taking to the air", "tier": "core"},
+  {"id": "u7", "text": "finally", "src": "finally", "tier": "colour"}]},
+ "subset2-4": {"gist": "She says she doesn't regret moving home; I doubt it.", "keep": [], "units": [
+  {"id": "u1", "text": "she keeps saying", "src": "She keeps saying", "tier": "core"},
+  {"id": "u2", "text": "she has no regrets", "src": "that she has no regrets", "tier": "core"},
+  {"id": "u3", "text": "about moving back home", "src": "about moving back home", "tier": "core"},
+  {"id": "u4", "text": "but I'm not sure it's true", "src": "but I’m not sure if it’s", "tier": "core"},
+  {"id": "u5", "text": "entirely", "src": "entirely true", "tier": "colour"}]},
+ "subset2-5": {"gist": "He lifted a board, set it aside, and looked under the floor.", "keep": [], "units": [
+  {"id": "u1", "text": "finally", "src": "Finally", "tier": "colour"},
+  {"id": "u2", "text": "he lifted one of the boards", "src": "he lifted one of the boards", "tier": "core"},
+  {"id": "u3", "text": "after setting it aside", "src": "and after setting it aside", "tier": "support"},
+  {"id": "u4", "text": "carefully", "src": "carefully", "tier": "colour"},
+  {"id": "u5", "text": "looked into the space beneath the floor", "src": "looked into the space beneath the floor", "tier": "core"}]},
+ "subset2-6": {"gist": "I hope to hear from others; post ideas in the comments and tell me what to improve.", "keep": [], "units": [
+  {"id": "u1", "text": "I'm also hoping to hear from others", "src": "I'm also hoping to hear from others", "tier": "core"},
+  {"id": "u2", "text": "so please post your ideas", "src": "so please post your own ideas", "tier": "core"},
+  {"id": "u3", "text": "in the comments", "src": "in the comments", "tier": "support"},
+  {"id": "u4", "text": "tell me what I could do better", "src": "and tell me what I could do better", "tier": "core"}]},
+ "subset2-7": {"gist": "Something shifted deep underground, with vibrations measurable by distant earthquake detectors.", "keep": [], "units": [
+  {"id": "u1", "text": "something deep beneath the earth shifted", "src": "Something deep beneath the earth shifted", "tier": "core"},
+  {"id": "u2", "text": "sending vibrations strong enough", "src": "sending vibrations strong enough", "tier": "core"},
+  {"id": "u3", "text": "to register on earthquake detection mechanisms", "src": "to register on earthquake detection mechanisms", "tier": "core"},
+  {"id": "u4", "text": "hundreds of miles away", "src": "hundreds of miles away", "tier": "support"}]},
+ "subset2-8": {"gist": "He paused, looked back, pocketed the keys, opened the gate and walked off quickly.", "keep": [], "units": [
+  {"id": "u1", "text": "he paused", "src": "He paused", "tier": "core"},
+  {"id": "u2", "text": "looked back at the house", "src": "looked back at the house", "tier": "core"},
+  {"id": "u3", "text": "but then pocketed the keys", "src": "but then pocketed the keys", "tier": "core"},
+  {"id": "u4", "text": "opened the gate", "src": "opened the gate", "tier": "core"},
+  {"id": "u5", "text": "and strode down the path", "src": "and strode down the path", "tier": "core"},
+  {"id": "u6", "text": "quickly", "src": "quickly", "tier": "support"}]},
+ "subset2-9": {"gist": "We miss you and having you as a friend; glad you two caught up.", "keep": [], "units": [
+  {"id": "u1", "text": "we miss you", "src": "We miss you", "tier": "core"},
+  {"id": "u2", "text": "and miss having a friend like you", "src": "and miss having a friend like you", "tier": "core"},
+  {"id": "u3", "text": "I am so happy", "src": "and I am so happy", "tier": "core"},
+  {"id": "u4", "text": "that you two got to catch up", "src": "that you two got to catch up", "tier": "core"}]},
+ "subset2-10": {"gist": "Before reading, read my getting started guide and how to move a file quickly.", "keep": [], "units": [
+  {"id": "u1", "text": "before reading this post", "src": "Before reading this post", "tier": "core"},
+  {"id": "u2", "text": "please familiarize yourself with", "src": "please familiarize yourself with", "tier": "core"},
+  {"id": "u3", "text": "my getting started guide", "src": "my getting started guide", "tier": "core"},
+  {"id": "u4", "text": "and how to move a file quickly", "src": "and how to move around a file quickly", "tier": "core"}]},
+ "subset2-11": {"gist": "I could publish my code, but it wouldn't show the lessons I learned.", "keep": [], "units": [
+  {"id": "u1", "text": "I could just publish my code", "src": "I could just publish my code", "tier": "core"},
+  {"id": "u2", "text": "but that wouldn't reveal", "src": "but that wouldn't reveal", "tier": "core"},
+  {"id": "u3", "text": "all the little lessons", "src": "all the little lessons", "tier": "core"},
+  {"id": "u4", "text": "I learned along the way", "src": "I learned along the way", "tier": "support"}]},
+ "subset2-12": {"gist": "When you spell out a word, stop and add it to the Vocabulary Editor.", "keep": ["Vocabulary Editor"], "units": [
+  {"id": "u1", "text": "the moment you find yourself spelling out a word", "src": "The moment you find yourself spelling out a word", "tier": "core"},
+  {"id": "u2", "text": "stop right away", "src": "stop right away", "tier": "core"},
+  {"id": "u3", "text": "and add this word to the Vocabulary Editor", "src": "and add this word to the Vocabulary Editor", "tier": "core"}]},
+ "subset2-13": {"gist": "Eye trackers used to cost thousands; now a cheap one costs under a couple hundred.", "keep": ["eye tracker"], "units": [
+  {"id": "u1", "text": "eye trackers used to cost several thousand dollars", "src": "Eye trackers used to cost several thousand dollars", "tier": "core"},
+  {"id": "u2", "text": "but now you can grab a cheap one", "src": "but now you can grab a cheap one", "tier": "core"},
+  {"id": "u3", "text": "for less than a couple hundred bucks", "src": "for less than a couple hundred bucks", "tier": "core"}]},
+ "subset2-14": {"gist": "The boy looked for the alchemy ovens and apparatus but saw none.", "keep": [], "units": [
+  {"id": "u1", "text": "the boy looked around for the ovens", "src": "The boy looked around for the ovens", "tier": "core"},
+  {"id": "u2", "text": "and other apparatus", "src": "and other apparatus", "tier": "support"},
+  {"id": "u3", "text": "used in alchemy", "src": "used in alchemy", "tier": "core"},
+  {"id": "u4", "text": "but saw none", "src": "but saw none", "tier": "core"}]},
+ "subset2-15": {"gist": "It has basic functions to connect to the eye tracker, get position data, activate the gaze point.", "keep": ["eye tracker", "gaze point"], "units": [
+  {"id": "u1", "text": "it has a few basic functions", "src": "It has a few basic functions", "tier": "core"},
+  {"id": "u2", "text": "to connect to the eye tracker", "src": "to connect to the eye tracker", "tier": "core"},
+  {"id": "u3", "text": "get position data", "src": "get position data", "tier": "core"},
+  {"id": "u4", "text": "and activate the current gaze point", "src": "and activate the current gaze point", "tier": "core"}]},
+ "subset2-16": {"gist": "They recruited Disorder drummer Virus and finally had a semi-stable line-up.", "keep": ["Disorder", "Virus"], "units": [
+  {"id": "u1", "text": "they recruited Disorder drummer Virus", "src": "They recruited Disorder drummer Virus", "tier": "core"},
+  {"id": "u2", "text": "to play drums", "src": "to play drums", "tier": "support"},
+  {"id": "u3", "text": "and finally had a semi-stable line-up", "src": "and finally had a semi-stable line-up", "tier": "core"}]},
+ "subset2-17": {"gist": "I was in town earlier this year, so what happened right after is crazy to think about.", "keep": [], "units": [
+  {"id": "u1", "text": "I was just in town earlier this year", "src": "I was just in town earlier this year", "tier": "core"},
+  {"id": "u2", "text": "so it is crazy to think about", "src": "so it is kind of crazy to think about", "tier": "core"},
+  {"id": "u3", "text": "kind of", "src": "kind of", "tier": "colour"},
+  {"id": "u4", "text": "what took place right after", "src": "what took place right after", "tier": "core"}]},
+ "subset2-18": {"gist": "Imagine a guy coming through the door giving orders in a heavy accent.", "keep": [], "units": [
+  {"id": "u1", "text": "now imagine a guy", "src": "Now, imagine a guy", "tier": "core"},
+  {"id": "u2", "text": "walking through that door", "src": "walking through that door", "tier": "core"},
+  {"id": "u3", "text": "and starting to give orders", "src": "and starting to give orders", "tier": "core"},
+  {"id": "u4", "text": "with a heavy accent", "src": "with a heavy accent", "tier": "core"}]},
+ "subset2-19": {"gist": "The party amused most guests, but Mirco felt out of place.", "keep": ["Mirco"], "units": [
+  {"id": "u1", "text": "I think", "src": "I think", "tier": "support"},
+  {"id": "u2", "text": "the party was an amusement for most of the guests", "src": "the party was an amusement for most of the guests", "tier": "core"},
+  {"id": "u3", "text": "but Mirco felt out of place", "src": "but Mirco felt really out of place", "tier": "core"},
+  {"id": "u4", "text": "really", "src": "really", "tier": "colour"}]},
+ "subset2-20": {"gist": "She hasn't read Chekhov in a long time, so she no longer feels like her story's heroine.", "keep": ["Chekhov"], "units": [
+  {"id": "u1", "text": "it's been a long time", "src": "It’s been a long time", "tier": "core"},
+  {"id": "u2", "text": "since she last read Chekhov", "src": "since she last read Chekhov", "tier": "core"},
+  {"id": "u3", "text": "and because of that", "src": "and because of that", "tier": "core"},
+  {"id": "u4", "text": "she no longer feels like the heroine of her own story", "src": "she no longer feels like the heroine of her own story", "tier": "core"}]},
+ "subset2-21": {"gist": "Not exactly no; he only gave me the gist of his research the one time we spoke.", "keep": [], "units": [
+  {"id": "u1", "text": "not specifically no", "src": "Not specifically no", "tier": "core"},
+  {"id": "u2", "text": "he only gave me the gist", "src": "he only gave me the gist", "tier": "core"},
+  {"id": "u3", "text": "of his research", "src": "of his research", "tier": "core"},
+  {"id": "u4", "text": "the one time I spoke to him", "src": "the one time I spoke to him", "tier": "support"}]},
+ "subset2-22": {"gist": "It's impolite to ask a tree for its story unless you're ready to hear all of it.", "keep": [], "units": [
+  {"id": "u1", "text": "it's impolite", "src": "It's impolite", "tier": "core"},
+  {"id": "u2", "text": "to ask a tree for its story", "src": "to ask a tree for its story", "tier": "core"},
+  {"id": "u3", "text": "unless you are ready", "src": "unless you are ready", "tier": "core"},
+  {"id": "u4", "text": "to hear it in full length", "src": "to hear it in full length", "tier": "core"}]}
+}
