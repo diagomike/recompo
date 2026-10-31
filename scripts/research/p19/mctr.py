@@ -162,12 +162,13 @@ def select(line: Line, variants: dict[int, list[dict]], dur) -> dict:
     wt = {u.id: u.w for u in line.units}
     best, best_any = None, None
     for combo in itertools.product(*pools):
-        cov, dup, fit, adds, errs = set(), 0, 0.0, 0, 0
+        cov, dup, fit, adds, errs, pen = set(), 0, 0.0, 0, 0, 0.0
         ratios = []
         for k, v in zip(segs, combo):
             us = set(v.get("units", []))
             adds += len(v.get("added", []))
             errs += len(v.get("errors", []))
+            pen += float(v.get("penalty", 0.0))  # e.g. a route prior: MT output reads less naturally
             dup += len(cov & us)
             cov |= us
             r = dur(v["text"]) / line.segs[k]["dur"] if v["text"].strip() else 0.0
@@ -175,7 +176,7 @@ def select(line: Line, variants: dict[int, list[dict]], dur) -> dict:
             if not v["text"].strip() and line.segs[k]["dur"] < 0.3:
                 continue  # a breath-length segment may stay silent
             fit += fit_penalty(r)
-        score = sum(wt.get(u, 0) for u in cov) - ALPHA * fit - BETA * dup - GAMMA * adds - ERR_COST * errs
+        score = sum(wt.get(u, 0) for u in cov) - ALPHA * fit - BETA * dup - GAMMA * adds - ERR_COST * errs - pen
         cand = {"score": round(score, 3), "phrases": [v["text"] for v in combo], "units": sorted(cov),
                 "ratios": ratios, "missing_core": sorted(core - cov), "added": adds}
         if best_any is None or score > best_any["score"]:

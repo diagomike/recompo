@@ -1,0 +1,67 @@
+{
+ "subset2-57": {"best_en": "By train you can get almost anywhere quite easily, a very relaxing and inexpensive way to travel.", "confidence": "medium", "notes": "whole view 'expensive' vs long/seg view 'inexpensive': 'relaxing and inexpensive' fits", "units": [
+  {"id": "u1", "text": "by train you can get everywhere", "tier": "core", "seg": 1}, {"id": "u2", "text": "quite easily", "tier": "support", "seg": 1},
+  {"id": "u3", "text": "a very relaxing way to travel", "tier": "core", "seg": 2}, {"id": "u4", "text": "and inexpensive", "tier": "core", "seg": 2}]},
+ "subset2-58": {"best_en": "At first I heard they'd be back soon, but now I'm starting to worry.", "confidence": "medium", "notes": "'about myself' = reflexive 'mir'; seg2 rise not a question", "units": [
+  {"id": "u1", "text": "at first I heard", "tier": "core", "seg": 1}, {"id": "u2", "text": "they'd be back soon", "tier": "core", "seg": 1},
+  {"id": "u3", "text": "now I'm starting to worry", "tier": "core", "seg": 2}]},
+ "subset2-59": {"best_en": "To read more about my story, check out my first post, 'Adventures in Free Coding'.", "confidence": "medium", "notes": "'contribution' = post; the title is uncertain ('adventures enhanced free coding')", "units": [
+  {"id": "u1", "text": "to read more about my story", "tier": "core", "seg": 1}, {"id": "u2", "text": "check out my first post", "tier": "core", "seg": 2},
+  {"id": "u3", "text": "titled Adventures in Free Coding", "tier": "support", "seg": 2}]},
+ "subset2-60": {"best_en": "'That's right,' said the old gentleman, who was able to read the boy's thoughts.", "confidence": "high", "notes": "", "units": [
+  {"id": "u1", "text": "that's right", "tier": "core", "seg": 1}, {"id": "u2", "text": "said the old gentleman", "tier": "core", "seg": 2},
+  {"id": "u3", "text": "who could read the boy's thoughts", "tier": "core", "seg": 3}]},
+ "subset2-61": {"best_en": "The plain stretched as far as the eye could reach, and something still rose from it.", "confidence": "low", "notes": "views garbled ('plain floor so far from the eye', 'still got up from him'); only the frame is recoverable", "units": [
+  {"id": "u1", "text": "the plain stretched as far as the eye could reach", "tier": "core", "seg": 1}, {"id": "u2", "text": "and still something rose from it", "tier": "core", "seg": 2}]},
+ "subset2-62": {"best_en": "One of the best reasons to write Dragonfly macros is being able to browse the web by voice.", "confidence": "medium", "notes": "Dragonfly = speech-control framework: 'mccrosse/macross' = macros, 'by language' = by voice", "units": [
+  {"id": "u1", "text": "one of the best reasons", "tier": "core", "seg": 1}, {"id": "u2", "text": "to write Dragonfly macros", "tier": "core", "seg": 1},
+  {"id": "u3", "text": "is being able to browse the web by voice", "tier": "core", "seg": 2}]},
+ "subset2-63": {"best_en": "Perhaps we could meet at the institute around midday; I have a lot to do before then.", "confidence": "high", "notes": "", "units": [
+  {"id": "u1", "text": "perhaps we could meet at the institute", "tier": "core", "seg": 1}, {"id": "u2", "text": "around midday", "tier": "core", "seg": 1},
+  {"id": "u3", "text": "I have a lot to do before then", "tier": "core", "seg": 2}]},
+ "subset2-64": {"best_en": "The police found that her account was contradictory and contained no evidence, and in the end she retracted it.", "confidence": "low", "notes": "seg3 'contracted him' / 'opposed him' / gloss 'contradicted': retracted? subject 'she' from seg view", "units": [
+  {"id": "u1", "text": "the police found her account contradictory", "tier": "core", "seg": 1}, {"id": "u2", "text": "it contained no evidence", "tier": "core", "seg": 2},
+  {"id": "u3", "text": "and she eventually retracted it", "tier": "core", "seg": 3}]},
+ "subset2-65": {"best_en": "Make fun of millennials all you like, you'll regret all the karate lessons you bought them.", "confidence": "low", "notes": "'get funny yourself' = make fun; 'karate hours' = lessons; 'repented' = regret; structure guessed", "units": [
+  {"id": "u1", "text": "make fun of the millennials all you like", "tier": "core", "seg": 1}, {"id": "u2", "text": "all the karate lessons", "tier": "core", "seg": 2},
+  {"id": "u3", "text": "you bought them, you'll regret", "tier": "core", "seg": 3}]},
+ "subset2-66": {"best_en": "Across this typical terrain the drivers carried the cargo themselves, then loaded the camels again.", "confidence": "medium", "notes": "'underground' = ground/terrain; 'luding' = loaded", "units": [
+  {"id": "u1", "text": "across this typical terrain", "tier": "core", "seg": 1}, {"id": "u2", "text": "the drivers carried the cargo themselves", "tier": "core", "seg": 2},
+  {"id": "u3", "text": "then loaded the camels again", "tier": "core", "seg": 3}]},
+ "subset2-67": {"best_en": "Looking for a film by Asim Bakan? It's featured on the best Netflix channel.", "confidence": "low", "notes": "'movement' unclear (film? work?); name uncertain (Bakan/Bankon)", "units": [
+  {"id": "u1", "text": "looking for a work by Asim Bakan", "tier": "core", "seg": 1}, {"id": "u2", "text": "it's featured on the best Netflix channel", "tier": "core", "seg": 2}]},
+ "subset2-68": {"best_en": "The waitress was carrying an impressive stack of dishes, but then an earthquake struck and she dropped everything.", "confidence": "medium", "notes": "'strawberry' vs gloss 'earthquakes' (Erdbeere/Erdbeben ASR slip); 'wore' = carried", "units": [
+  {"id": "u1", "text": "the waitress was carrying an impressive stack of dishes", "tier": "core", "seg": 1}, {"id": "u2", "text": "then an earthquake struck", "tier": "core", "seg": 2},
+  {"id": "u3", "text": "and she dropped everything", "tier": "core", "seg": 2}]},
+ "subset2-69": {"best_en": "The view of the town from there is not bad, and it's easy to find, too.", "confidence": "high", "notes": "'no poor' = not bad", "units": [
+  {"id": "u1", "text": "the view of the town from there is not bad", "tier": "core", "seg": 1}, {"id": "u2", "text": "and it's easy to find too", "tier": "core", "seg": 2}]},
+ "subset2-70": {"best_en": "I'm happy to be gaining more and more stability in my position on this, now the whole process is finished.", "confidence": "low", "notes": "views disagree; 'finished with the entire process' in seg3", "units": [
+  {"id": "u1", "text": "I'm glad to be gaining stability in my position", "tier": "core", "seg": 1}, {"id": "u2", "text": "on this", "tier": "support", "seg": 2},
+  {"id": "u3", "text": "with the whole process finished", "tier": "core", "seg": 3}]},
+ "subset2-71": {"best_en": "There the old man began to inspect the sheep, and he saw that one of them was limping.", "confidence": "medium", "notes": "long view 'limbing' = limping; seg3 'read' is ASR noise", "units": [
+  {"id": "u1", "text": "the old man began to inspect the sheep", "tier": "core", "seg": 1}, {"id": "u2", "text": "and he saw", "tier": "core", "seg": 2},
+  {"id": "u3", "text": "that one of them was limping", "tier": "core", "seg": 3}]},
+ "subset2-72": {"best_en": "A man in a blue shirt stands holding his umbrella as the water rises around him.", "confidence": "high", "notes": "", "units": [
+  {"id": "u1", "text": "a man in a blue shirt stands holding his umbrella", "tier": "core", "seg": 1}, {"id": "u2", "text": "as the water rises around him", "tier": "core", "seg": 2}]},
+ "subset2-73": {"best_en": "He went to the nearby Horton School and later studied at Acadia University.", "confidence": "high", "notes": "", "units": [
+  {"id": "u1", "text": "he went to school at the nearby Horton School", "tier": "core", "seg": 1}, {"id": "u2", "text": "and later studied at Acadia University", "tier": "core", "seg": 2}]},
+ "subset2-74": {"best_en": "A group of people in white robes with a flame pattern pose for a picture at some kind of festival.", "confidence": "high", "notes": "", "units": [
+  {"id": "u1", "text": "a group of people in white robes with a flame pattern", "tier": "core", "seg": 1}, {"id": "u2", "text": "pose for a picture", "tier": "core", "seg": 2},
+  {"id": "u3", "text": "at some kind of festival", "tier": "core", "seg": 2}]},
+ "subset2-75": {"best_en": "I was wondering if you'd work on this project with me, because I can't find anyone.", "confidence": "medium", "notes": "seg3 'can find' vs short view 'can't find': negation from the short view and sense", "units": [
+  {"id": "u1", "text": "I was wondering", "tier": "core", "seg": 1}, {"id": "u2", "text": "if you'd work on this project with me", "tier": "core", "seg": 2},
+  {"id": "u3", "text": "because I can't find anyone", "tier": "core", "seg": 3}]},
+ "subset2-76": {"best_en": "This will help them collaborate effectively with developers and coordinate team projects throughout their career.", "confidence": "medium", "notes": "'teamstyling/teeming' = team(-wide)", "units": [
+  {"id": "u1", "text": "this will help them work effectively with developers", "tier": "core", "seg": 1}, {"id": "u2", "text": "and coordinate team projects", "tier": "core", "seg": 2},
+  {"id": "u3", "text": "throughout their career", "tier": "core", "seg": 2}]},
+ "subset2-77": {"best_en": "I understand that the hobbits' homeland, the Shire, was actually filmed in New Zealand.", "confidence": "high", "notes": "'Auenland' = German for the Shire", "units": [
+  {"id": "u1", "text": "I understand that the land where the hobbits live, the Shire,", "tier": "core", "seg": 1}, {"id": "u2", "text": "was actually filmed in New Zealand", "tier": "core", "seg": 2}]},
+ "subset2-78": {"best_en": "Even if you're a real expert, you can't read all the old material, for lack of time.", "confidence": "medium", "notes": "", "units": [
+  {"id": "u1", "text": "even if you're a real expert", "tier": "core", "seg": 1}, {"id": "u2", "text": "for lack of time you can't read the old material", "tier": "core", "seg": 2}]},
+ "subset2-79": {"best_en": "It was really, I think, two or three hundred people elbowing each other in the ribs.", "confidence": "medium", "notes": "'framed elbows into ribs' = elbowing each other (a crush)", "units": [
+  {"id": "u1", "text": "it was really", "tier": "support", "seg": 1}, {"id": "u2", "text": "I think two or three hundred people", "tier": "core", "seg": 2},
+  {"id": "u3", "text": "elbowing each other in the ribs", "tier": "core", "seg": 3}]},
+ "subset2-80": {"best_en": "She was sent to the Bougainville roadstead and again made many contacts, but without result.", "confidence": "medium", "notes": "a ship: 'road' = roadstead (anchorage), contacts = radar/sonar contacts", "units": [
+  {"id": "u1", "text": "she was sent to Bougainville", "tier": "core", "seg": 1}, {"id": "u2", "text": "and again made many contacts", "tier": "core", "seg": 1},
+  {"id": "u3", "text": "but without any results", "tier": "core", "seg": 2}]}
+}

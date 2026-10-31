@@ -1,0 +1,394 @@
+{
+ "subset2-57": [
+  {
+   "final_pitch_ratio": 0.88,
+   "loudness_db": 0.4,
+   "flags": []
+  },
+  {
+   "final_pitch_ratio": 0.92,
+   "loudness_db": -0.4,
+   "flags": []
+  }
+ ],
+ "subset2-58": [
+  {
+   "final_pitch_ratio": 0.68,
+   "loudness_db": 0.9,
+   "flags": []
+  },
+  {
+   "final_pitch_ratio": 3.19,
+   "loudness_db": -1.0,
+   "flags": [
+    "final rise (question?)"
+   ]
+  }
+ ],
+ "subset2-59": [
+  {
+   "final_pitch_ratio": 1.11,
+   "loudness_db": 0.9,
+   "flags": []
+  },
+  {
+   "final_pitch_ratio": 2.43,
+   "loudness_db": -1.0,
+   "flags": [
+    "final rise (question?)"
+   ]
+  }
+ ],
+ "subset2-60": [
+  {
+   "final_pitch_ratio": 3.15,
+   "loudness_db": 3.7,
+   "flags": [
+    "final rise (question?)",
+    "emphasis"
+   ]
+  },
+  {
+   "final_pitch_ratio": 1.38,
+   "loudness_db": -3.0,
+   "flags": [
+    "final rise (question?)"
+   ]
+  },
+  {
+   "final_pitch_ratio": 4.71,
+   "loudness_db": -2.3,
+   "flags": [
+    "final rise (question?)"
+   ]
+  }
+ ],
+ "subset2-61": [
+  {
+   "final_pitch_ratio": 4.58,
+   "loudness_db": 1.2,
+   "flags": [
+    "final rise (question?)"
+   ]
+  },
+  {
+   "final_pitch_ratio": 0.9,
+   "loudness_db": -1.5,
+   "flags": []
+  }
+ ],
+ "subset2-62": [
+  {
+   "final_pitch_ratio": 1.0,
+   "loudness_db": 0.2,
+   "flags": []
+  },
+  {
+   "final_pitch_ratio": 4.85,
+   "loudness_db": -0.2,
+   "flags": [
+    "final rise (question?)"
+   ]
+  }
+ ],
+ "subset2-63": [
+  {
+   "final_pitch_ratio": 3.42,
+   "loudness_db": -0.4,
+   "flags": [
+    "final rise (question?)"
+   ]
+  },
+  {
+   "final_pitch_ratio": 0.94,
+   "loudness_db": 0.4,
+   "flags": []
+  }
+ ],
+ "subset2-64": [
+  {
+   "final_pitch_ratio": 0.91,
+   "loudness_db": -0.7,
+   "flags": []
+  },
+  {
+   "final_pitch_ratio": 4.66,
+   "loudness_db": 3.4,
+   "flags": [
+    "final rise (question?)",
+    "emphasis"
+   ]
+  },
+  {
+   "final_pitch_ratio": 4.44,
+   "loudness_db": -4.4,
+   "flags": [
+    "final rise (question?)"
+   ]
+  }
+ ],
+ "subset2-65": [
+  {
+   "final_pitch_ratio": 3.66,
+   "loudness_db": -0.4,
+   "flags": [
+    "final rise (question?)"
+   ]
+  },
+  {
+   "final_pitch_ratio": 1.01,
+   "loudness_db": 2.5,
+   "flags": []
+  },
+  {
+   "final_pitch_ratio": 4.45,
+   "loudness_db": -3.0,
+   "flags": [
+    "final rise (question?)"
+   ]
+  }
+ ],
+ "subset2-66": [
+  {
+   "final_pitch_ratio": 0.84,
+   "loudness_db": -0.6,
+   "flags": []
+  },
+  {
+   "final_pitch_ratio": 1.2,
+   "loudness_db": -0.1,
+   "flags": [
+    "final rise (question?)"
+   ]
+  },
+  {
+   "final_pitch_ratio": 0.95,
+   "loudness_db": 0.7,
+   "flags": []
+  }
+ ],
+ "subset2-67": [
+  {
+   "final_pitch_ratio": 1.04,
+   "loudness_db": 0.3,
+   "flags": []
+  },
+  {
+   "final_pitch_ratio": 3.49,
+   "loudness_db": -0.3,
+   "flags": [
+    "final rise (question?)"
+   ]
+  }
+ ],
+ "subset2-68": [
+  {
+   "final_pitch_ratio": 0.89,
+   "loudness_db": 1.1,
+   "flags": []
+  },
+  {
+   "final_pitch_ratio": 3.93,
+   "loudness_db": -1.3,
+   "flags": [
+    "final rise (question?)"
+   ]
+  }
+ ],
+ "subset2-69": [
+  {
+   "final_pitch_ratio": 3.48,
+   "loudness_db": 0.6,
+   "flags": [
+    "final rise (question?)"
+   ]
+  },
+  {
+   "final_pitch_ratio": 0.99,
+   "loudness_db": -0.6,
+   "flags": []
+  }
+ ],
+ "subset2-70": [
+  {
+   "final_pitch_ratio": 0.78,
+   "loudness_db": -1.8,
+   "flags": []
+  },
+  {
+   "final_pitch_ratio": 1.43,
+   "loudness_db": 1.4,
+   "flags": [
+    "final rise (question?)"
+   ]
+  },
+  {
+   "final_pitch_ratio": 4.36,
+   "loudness_db": 0.0,
+   "flags": [
+    "final rise (question?)"
+   ]
+  }
+ ],
+ "subset2-71": [
+  {
+   "final_pitch_ratio": 0.84,
+   "loudness_db": 0.8,
+   "flags": []
+  },
+  {
+   "final_pitch_ratio": 1.16,
+   "loudness_db": 0.5,
+   "flags": [
+    "final rise (question?)"
+   ]
+  },
+  {
+   "final_pitch_ratio": 4.58,
+   "loudness_db": -1.5,
+   "flags": [
+    "final rise (question?)"
+   ]
+  }
+ ],
+ "subset2-72": [
+  {
+   "final_pitch_ratio": 1.02,
+   "loudness_db": -0.0,
+   "flags": []
+  },
+  {
+   "final_pitch_ratio": 3.7,
+   "loudness_db": 0.0,
+   "flags": [
+    "final rise (question?)"
+   ]
+  }
+ ],
+ "subset2-73": [
+  {
+   "final_pitch_ratio": 1.12,
+   "loudness_db": -1.6,
+   "flags": []
+  },
+  {
+   "final_pitch_ratio": 4.85,
+   "loudness_db": 1.3,
+   "flags": [
+    "final rise (question?)"
+   ]
+  }
+ ],
+ "subset2-74": [
+  {
+   "final_pitch_ratio": 1.04,
+   "loudness_db": 1.8,
+   "flags": []
+  },
+  {
+   "final_pitch_ratio": 3.13,
+   "loudness_db": -2.3,
+   "flags": [
+    "final rise (question?)"
+   ]
+  }
+ ],
+ "subset2-75": [
+  {
+   "final_pitch_ratio": 0.68,
+   "loudness_db": 4.1,
+   "flags": [
+    "emphasis"
+   ]
+  },
+  {
+   "final_pitch_ratio": 4.64,
+   "loudness_db": -4.2,
+   "flags": [
+    "final rise (question?)"
+   ]
+  },
+  {
+   "final_pitch_ratio": 0.93,
+   "loudness_db": -2.1,
+   "flags": []
+  }
+ ],
+ "subset2-76": [
+  {
+   "final_pitch_ratio": 4.06,
+   "loudness_db": 0.6,
+   "flags": [
+    "final rise (question?)"
+   ]
+  },
+  {
+   "final_pitch_ratio": 0.88,
+   "loudness_db": -0.6,
+   "flags": []
+  }
+ ],
+ "subset2-77": [
+  {
+   "final_pitch_ratio": 1.07,
+   "loudness_db": 0.1,
+   "flags": []
+  },
+  {
+   "final_pitch_ratio": 1.41,
+   "loudness_db": -0.1,
+   "flags": [
+    "final rise (question?)"
+   ]
+  }
+ ],
+ "subset2-78": [
+  {
+   "final_pitch_ratio": 1.1,
+   "loudness_db": 1.6,
+   "flags": []
+  },
+  {
+   "final_pitch_ratio": 3.84,
+   "loudness_db": -2.0,
+   "flags": [
+    "final rise (question?)"
+   ]
+  }
+ ],
+ "subset2-79": [
+  {
+   "final_pitch_ratio": 1.49,
+   "loudness_db": 0.6,
+   "flags": [
+    "final rise (question?)"
+   ]
+  },
+  {
+   "final_pitch_ratio": 0.86,
+   "loudness_db": 0.8,
+   "flags": []
+  },
+  {
+   "final_pitch_ratio": 1.11,
+   "loudness_db": -1.5,
+   "flags": []
+  }
+ ],
+ "subset2-80": [
+  {
+   "final_pitch_ratio": 3.71,
+   "loudness_db": -1.2,
+   "flags": [
+    "final rise (question?)"
+   ]
+  },
+  {
+   "final_pitch_ratio": 3.69,
+   "loudness_db": 1.1,
+   "flags": [
+    "final rise (question?)"
+   ]
+  }
+ ]
+}
