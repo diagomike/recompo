@@ -18,6 +18,7 @@ has its own branch and worktree. All of them are scored on one benchmark built f
 | `ccr-327cc642-xnfs3i-p19-trained-mt` | Trained duration-aware NMT (IWSLT Sockeye baseline: phonemes + durations, time counters) | yes (after your OK) | **0.80** speech overlap with a real voice (0.86 with its own durations), normalised chrF **53.5**: fits like placement alone, loses the most meaning |
 | `ccr-327cc642-xnfs3i-p19-algorithmic` | Fully algorithmic rephrasing: placement + rule/WordNet edits judged by a trigram LM (no neural model) | yes | Safe edits: **0.85** overlap (+0.02 over placement), 94 % fluent segments; aggressive edits: 0.90 but only 73 % fluent (blind check). chrF misses the damage |
 | `ccr-327cc642-xnfs3i-p19-llm-multiround` | **Multi-round LLM refinement**: each round measures every segment with the voice; the LLM rewrites only out-of-band ones from 2–4 measured alternatives and restores plain wording where possible | yes | **Best overall:** 98 % of segments in band (0.8–1.05×), 0 % over 1.1×, 0.92–0.93 overlap, 98 % fluent, chrF 64.1; converges in 3 rounds |
+| `ccr-327cc642-xnfs3i-p19-mctr` | **Meaning-conserving top-down rephrasing (MCTR)**: meaning units with tiers → units allocated to speech segments → unit-labelled variants → voice-measured exact selection (max meaning, band, core kept, optional cost on added content) → targeted revisions | yes | **Same fit as multi-round in 2 rounds instead of 6** (98 % within ±20 %, 2 % >1.1×), fewer additions (0.16/line; **0.07 in conserve mode** vs 0.22), 98.6 % of meaning units kept (blind), overlap 0.90–0.91 |
 
 ## The comparison that matters (45 German-speaker lines, measured with a real TTS voice)
 
@@ -76,6 +77,13 @@ The professional-dub reference point is speech overlap ~0.7–0.8 (Brannon 2023;
    after R3 took segments in band from 74 % to 98 % and cut overruns to zero, with fluency at 98 % and slightly
    better chrF (de-padding). Each round only touches what the voice flags (22 → 9 → 3 segments). Overlap plateaus
    near 0.93 because of the frame itself (a voice cannot fill "he said," in 0.73 s without padding).
+
+9. **Top-down, meaning-conserving rephrasing (MCTR) is the implementable form** (worktree `mctr`). Starting from
+   a meaning map (units tiered core/support/colour) and allocating units to segments before writing, it reaches
+   the multi-round result in 2 rounds, chooses variants by exact optimisation, and in conserve mode prefers a
+   short silence to invented words. A blind unit-coverage check (the meaning measure chrF could not give):
+   plain 99.8 %, R6 99.3 % (+0.22 additions/line), MCTR 98.6 % (+0.16; conserve +0.07), algorithmic 92.6 % (0.38
+   errors/line). Spec, module, tests and the integration plan: `wt-mctr/README.md` on its branch.
 
 **Blind fluency** (Claude judging 290 shuffled unlabelled phrases): LLM loop R3 100 % fluent segments, placement
 only 99 %, algorithmic safe 94 %, algorithmic + voice 81 %, algorithmic aggressive 73 %, trained NMT 28 %.
