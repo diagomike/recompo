@@ -263,7 +263,10 @@ matching, gapless recipe player, dub fixes, face-cropped Shorts, semantic search
   variants → voice-measured exact selection; same fit in 2 rounds, fewer additions, optional conserve mode),
   `…-p19-twosided` (**MT-only targets**: LLM rephrases the source, MT translates, target voice times, exact
   selection with target-side verification; de→en real MT: ±20 % fit 57→87 %, meaning 73→93 %; en→es: speed-up 55→0 %;
-  transfer guide for am/om in its README). Summary: `docs/research/P19-dubbing-and-meaning/mechanisms-compared.md`.
+  transfer guide for am/om in its README),
+  `…-p19-pivot` (**end to end between two MT-only languages via English**: multi-view MT understanding + prosody →
+  pivot meaning map pinned to source segments → two-sided timing; 24 unseen de→es lines: blind adequacy 1.17 → 2.71/3,
+  ±20 % fit 52 → 88 %; low-confidence lines flagged for a human; am→om steps in its README). Summary: `docs/research/P19-dubbing-and-meaning/mechanisms-compared.md`.
   Worktrees live at `/home/user/recompo-wt-*` in the cloud session only.
 - Sandbox notes: HuggingFace, arXiv, ACL Anthology are blocked here; GitHub (git and release assets) and PyPI work.
 - Open questions for you: language pairs in the library; lip-synced vs narrated dubs; agent vs API mode for films.

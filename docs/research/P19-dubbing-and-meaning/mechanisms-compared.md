@@ -20,6 +20,7 @@ has its own branch and worktree. All of them are scored on one benchmark built f
 | `ccr-327cc642-xnfs3i-p19-llm-multiround` | **Multi-round LLM refinement**: each round measures every segment with the voice; the LLM rewrites only out-of-band ones from 2–4 measured alternatives and restores plain wording where possible | yes | **Best overall:** 98 % of segments in band (0.8–1.05×), 0 % over 1.1×, 0.92–0.93 overlap, 98 % fluent, chrF 64.1; converges in 3 rounds |
 | `ccr-327cc642-xnfs3i-p19-mctr` | **Meaning-conserving top-down rephrasing (MCTR)**: meaning units with tiers → units allocated to speech segments → unit-labelled variants → voice-measured exact selection (max meaning, band, core kept, optional cost on added content) → targeted revisions | yes | **Same fit as multi-round in 2 rounds instead of 6** (98 % within ±20 %, 2 % >1.1×), fewer additions (0.16/line; **0.07 in conserve mode** vs 0.22), 98.6 % of meaning units kept (blind), overlap 0.90–0.91 |
 | `ccr-327cc642-xnfs3i-p19-twosided` | **Two-sided optimiser for MT-only targets** (Amharic/Oromo path): LLM writes source-side options (compact, MT-friendly, steered to measured MT expansion, MT-robust) → black-box MT → target voice timing → exact selection with lazy target-side verification | yes (de→en real MT; en→es stand-in MT) | de→en: within ±20 % 57 → **87 %**, meaning kept 73 → **93 %**, MT errors/line 1.13 → 0.40; en→es: >1.1× speed-up 55 → **0 %**, within ±20 % 59 → 93 % |
+| `ccr-327cc642-xnfs3i-p19-pivot` | **End to end between two MT-only languages through English**: source ASR → several independent English MT views (whole, per segment, terse/full, glosses) + prosody cues → LLM pivot meaning map pinned to source segments, with confidence → two-sided timing into the target on the source speaker's segments | yes (de→en real ASR+MT as the "low-resource" source; en→es stand-in MT) | 24 unseen lines, blind adequacy 0–3: naive cascade **1.17** (71 % badly wrong) → **2.71**; within ±20 % 52 → **88 %**, 0.81 → 0.88 overlap; confidence predicts failures (high 3.0, low 1.5) |
 
 ## The comparison that matters (45 German-speaker lines, measured with a real TTS voice)
 
@@ -91,6 +92,15 @@ The professional-dub reference point is speech overlap ~0.7–0.8 (Brannon 2023;
     exact optimiser selects, and a lazy target-side check (back-translation on the PC) removes what MT garbled. The
     check is essential: without it timing improves but meaning stays at plain-MT level. Transfer steps for Amharic
     and Oromo (Google MT via the repo client, edge-tts/MMS voices, back-translation) are in its README.
+
+11. **End to end between two MT-only languages works through an English meaning pivot** (worktree `pivot`). The
+    LLM never reads either language: it understands the source by triangulating independent English MT views (whole
+    line, each speech segment, terse and full renderings, word glosses) plus language-free prosody cues, and writes a
+    meaning map whose units are pinned to the source speaker's segments by the per-segment views. Understanding is
+    the meaning win (blind adequacy 1.17 → 2.75 of 3); two-sided timing is the fit win (52 → 88 % within ±20 %) at
+    almost no meaning cost (2.71). Its own confidence flag is calibrated (high 3.0, low 1.5), so low-confidence lines
+    go to a human. The pitch-rise question cue over-fires on read speech; use it as weak evidence. Amharic → Oromo
+    steps are in its README.
 
 **Blind fluency** (Claude judging 290 shuffled unlabelled phrases): LLM loop R3 100 % fluent segments, placement
 only 99 %, algorithmic safe 94 %, algorithmic + voice 81 %, algorithmic aggressive 73 %, trained NMT 28 %.

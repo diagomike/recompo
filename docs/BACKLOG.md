@@ -70,6 +70,11 @@ Every open task by priority. Done phases are summarised; their detail is in git 
 - [x] MCTR, meaning-conserving top-down rephrasing (worktree `mctr`): spec, module, tests, blind meaning check.
       When building resumes: verbs `lang understand/variants/revise/verify`, per-run dub placement (see its README §3).
 - [x] Two-sided optimiser for MT-only languages (worktree `twosided`), proven on de→en (real MT) and en→es.
+- [x] End to end between two MT-only languages through an English pivot (worktree `pivot`), proven on
+      German speech → Spanish: multi-view understanding, units pinned to source segments, two-sided timing.
+- [ ] Pivot run Amharic → Oromo on your PC: Ethio-ASR, `mt_google.py` am→en views (or NLLB short/long), en→om,
+      MMS orm voice, om→en back-translation; a human reviews low-confidence lines.
+- [ ] Calibrate the prosody question cue per speaker (it over-fires on read speech).
 - [ ] Two-sided run on Amharic/Oromo on your PC: `mt_google.py` (forward + back-translation), edge-tts am / MMS orm voice.
 - [ ] Corpus pilot on 20–50 of your dual-audio titles (needs: language pairs, a list of files).
 - [ ] Track 1 A/B on 10 held-out dubbed titles (Claude's timed script vs today's pipeline vs the human dub's words).
