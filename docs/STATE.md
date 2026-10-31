@@ -260,7 +260,10 @@ matching, gapless recipe player, dub fixes, face-cropped Shorts, semantic search
   `…-p19-llm-multiround` (**best**: multi-round LLM refinement measured with the voice — 98 % of segments in band,
   0 % needing >1.1× speed-up, 98 % fluent, converges in 3 rounds),
   `…-p19-mctr` (**implementable form**: meaning-conserving top-down rephrasing — meaning units → allocation →
-  variants → voice-measured exact selection; same fit in 2 rounds, fewer additions, optional conserve mode). Summary: `docs/research/P19-dubbing-and-meaning/mechanisms-compared.md`.
+  variants → voice-measured exact selection; same fit in 2 rounds, fewer additions, optional conserve mode),
+  `…-p19-twosided` (**MT-only targets**: LLM rephrases the source, MT translates, target voice times, exact
+  selection with target-side verification; de→en real MT: ±20 % fit 57→87 %, meaning 73→93 %; en→es: speed-up 55→0 %;
+  transfer guide for am/om in its README). Summary: `docs/research/P19-dubbing-and-meaning/mechanisms-compared.md`.
   Worktrees live at `/home/user/recompo-wt-*` in the cloud session only.
 - Sandbox notes: HuggingFace, arXiv, ACL Anthology are blocked here; GitHub (git and release assets) and PyPI work.
 - Open questions for you: language pairs in the library; lip-synced vs narrated dubs; agent vs API mode for films.

@@ -69,6 +69,8 @@ Every open task by priority. Done phases are summarised; their detail is in git 
       best method so far.
 - [x] MCTR, meaning-conserving top-down rephrasing (worktree `mctr`): spec, module, tests, blind meaning check.
       When building resumes: verbs `lang understand/variants/revise/verify`, per-run dub placement (see its README §3).
+- [x] Two-sided optimiser for MT-only languages (worktree `twosided`), proven on de→en (real MT) and en→es.
+- [ ] Two-sided run on Amharic/Oromo on your PC: `mt_google.py` (forward + back-translation), edge-tts am / MMS orm voice.
 - [ ] Corpus pilot on 20–50 of your dual-audio titles (needs: language pairs, a list of files).
 - [ ] Track 1 A/B on 10 held-out dubbed titles (Claude's timed script vs today's pipeline vs the human dub's words).
 - [ ] Track 3 blind comparison: unit cards + LLM selection vs `cut suggest` on alex-oconnor and ai-and-ideas.
