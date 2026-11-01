@@ -1,0 +1,8 @@
+subset2-3[3] 3.58s ×1.07: 'blinked and tested its wings, before it finally took to the air.' → Shorten by ~2 syllables: drop colour, then support units; core ['u5', 'u6']; optional ['u4(support)', 'u7(colour)']
+subset2-19[2] 2.26s ×0.79: 'but Mirco really felt out of place.' → Lengthen by ~1 syllables: add support/colour units first, no new content; core ['u3']; optional ['u4(colour)']
+subset2-26[2] 0.73s ×0.77: 'he said,' → Lengthen by ~0 syllables: add support/colour units first, no new content; core ['u3']; optional []
+subset2-29[1] 3.06s ×1.06: 'When foxes hear a rabbit scream, they run' → Shorten by ~2 syllables: drop colour, then support units; core ['u1', 'u2']; optional []
+subset1-5[1] 2.55s ×0.77: 'This kind of one-upmanship' → Lengthen by ~2 syllables: add support/colour units first, no new content; core ['u1']; optional []
+subset1-5[2] 4.02s ×0.68: 'is going to ruin their friendship sooner or later.' → Lengthen by ~4 syllables: add support/colour units first, no new content; core ['u2']; optional ['u3(colour)']
+subset1-8[1] 1.43s ×1.09: 'What do you expect of me?' → Shorten by ~1 syllables: drop colour, then support units; core ['u1']; optional []
+subset1-17[1] 4.47s ×0.78: 'Dogstar is currently going through material for a project' → Lengthen by ~3 syllables: add support/colour units first, no new content; core ['u1', 'u2']; optional []

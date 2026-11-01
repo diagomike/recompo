@@ -1,0 +1,208 @@
+{
+ "subset2-3": {"gist": "A blackbird watched, looked around, tested its wings and flew off.", "keep": ["blackbird"], "units": [
+  {"id": "u1", "text": "the blackbird watched it all", "src": "Die Amsel beobachtete das alles", "tier": "core"},
+  {"id": "u2", "text": "from the tree", "src": "vom Baum", "tier": "support"},
+  {"id": "u3", "text": "moved its head left and right", "src": "bewegte ihren Kopf nach links und rechts", "tier": "core"},
+  {"id": "u4", "text": "blinked", "src": "blinzelte", "tier": "support"},
+  {"id": "u5", "text": "tested its wings", "src": "testete ihre Flügel", "tier": "core"},
+  {"id": "u6", "text": "before finally taking to the air", "src": "bevor sie schließlich in die Luft ging", "tier": "core"},
+  {"id": "u7", "text": "finally", "src": "schließlich", "tier": "colour"}]},
+ "subset2-4": {"gist": "She says she doesn't regret moving back home; I doubt it.", "keep": [], "units": [
+  {"id": "u1", "text": "she keeps saying", "src": "Sie wiederholt immer", "tier": "core"},
+  {"id": "u2", "text": "she doesn't regret it", "src": "dass sie es nicht bereut", "tier": "core"},
+  {"id": "u3", "text": "moving back home", "src": "wieder nach Hause zu ziehen", "tier": "core"},
+  {"id": "u4", "text": "but I can't be so sure", "src": "aber ich kann nicht so sicher sein", "tier": "core"},
+  {"id": "u5", "text": "that it's true", "src": "ob das vollkommen wahr ist", "tier": "core"},
+  {"id": "u6", "text": "entirely", "src": "vollkommen", "tier": "colour"}]},
+ "subset2-5": {"gist": "He lifted a board, set it aside carefully, and looked under the floor.", "keep": [], "units": [
+  {"id": "u1", "text": "finally", "src": "Schließlich", "tier": "colour"},
+  {"id": "u2", "text": "he lifted one of the boards", "src": "nahm er eines der Bretter in die Höhe", "tier": "core"},
+  {"id": "u3", "text": "after setting it aside", "src": "nachdem er es vorsichtig weggelegt hatte", "tier": "support"},
+  {"id": "u4", "text": "carefully", "src": "vorsichtig", "tier": "colour"},
+  {"id": "u5", "text": "he looked into the space under the floor", "src": "schaute er in den Raum unter dem Boden", "tier": "core"}]},
+ "subset2-6": {"gist": "I like hearing from others; post ideas in the comments and tell me what to improve.", "keep": [], "units": [
+  {"id": "u1", "text": "I'm happy to hear from others too", "src": "Ich freue mich auch, von anderen zu hören", "tier": "core"},
+  {"id": "u2", "text": "so post your own ideas", "src": "poste also deine eigenen Ideen", "tier": "core"},
+  {"id": "u3", "text": "in the comments", "src": "in den Kommentaren", "tier": "support"},
+  {"id": "u4", "text": "tell me what I could do better", "src": "sage mir, was ich besser machen könnte", "tier": "core"},
+  {"id": "u5", "text": "own", "src": "eigenen", "tier": "colour"}]},
+ "subset2-7": {"gist": "Something moved deep underground, causing vibrations strong enough to be measured by distant earthquake early-warning systems.", "keep": [], "units": [
+  {"id": "u1", "text": "something moved deep underground", "src": "Etwas bewegte sich tief unter der Erde", "tier": "core"},
+  {"id": "u2", "text": "and caused vibrations", "src": "verursachte Vibrationen", "tier": "core"},
+  {"id": "u3", "text": "strong enough", "src": "die stark genug waren", "tier": "core"},
+  {"id": "u4", "text": "to be measured by earthquake early-warning systems", "src": "von den Erdbebenfrüherkennungs-Mechanismen", "tier": "core"},
+  {"id": "u5", "text": "hundreds of miles away", "src": "hunderte Meilen entfernt gemessen wurden", "tier": "support"}]},
+ "subset2-8": {"gist": "He paused, looked back, then pocketed his keys, opened the gate and went quickly down the path.", "keep": [], "units": [
+  {"id": "u1", "text": "he paused", "src": "Er hielt inne", "tier": "core"},
+  {"id": "u2", "text": "looked back at the house", "src": "blickte auf das Haus zurück", "tier": "core"},
+  {"id": "u3", "text": "but then put his keys away", "src": "stecke seine Schlüssel dann aber ein", "tier": "core"},
+  {"id": "u4", "text": "opened the gate", "src": "öffnete das Tor", "tier": "core"},
+  {"id": "u5", "text": "and went down the path", "src": "und ging schnell den Weg hinab", "tier": "core"},
+  {"id": "u6", "text": "quickly", "src": "schnell", "tier": "support"}]},
+ "subset2-9": {"gist": "We miss you and having you as a friend; glad you two caught up.", "keep": [], "units": [
+  {"id": "u1", "text": "we miss you", "src": "Wir vermissen Sie", "tier": "core"},
+  {"id": "u2", "text": "and miss having a friend like you", "src": "und vermissen es, einen Freund wie Sie zu haben", "tier": "core"},
+  {"id": "u3", "text": "I'm so glad", "src": "und ich bin so froh", "tier": "core"},
+  {"id": "u4", "text": "that you two could catch up", "src": "dass Sie beide das nachholen konnten", "tier": "core"}]},
+ "subset2-10": {"gist": "Before reading, get familiar with my Getting Started guide and the quick-move-file action.", "keep": ["Getting Started"], "units": [
+  {"id": "u1", "text": "before you read this post", "src": "Bevor Sie diesen Post lesen", "tier": "core"},
+  {"id": "u2", "text": "please get familiar with", "src": "machen Sie sich bitte mit", "tier": "core"},
+  {"id": "u3", "text": "my Getting Started guide", "src": "meinen Erste Schritte-Handbuch", "tier": "core"},
+  {"id": "u4", "text": "and with the action for moving a file", "src": "sowie mit der Aktion, eine Datei", "tier": "core"},
+  {"id": "u5", "text": "quickly", "src": "schnell zu verschieben, vertraut", "tier": "support"}]},
+ "subset2-11": {"gist": "I could publish my code, but that wouldn't show the small lessons I learned along the way.", "keep": [], "units": [
+  {"id": "u1", "text": "I could just publish my code", "src": "Ich könnte einfach meinen Code veröffentlichen", "tier": "core"},
+  {"id": "u2", "text": "but that wouldn't show", "src": "aber das würde nicht", "tier": "core"},
+  {"id": "u3", "text": "all the little lessons", "src": "all die kleinen Lektionen aufzeigen", "tier": "core"},
+  {"id": "u4", "text": "I learned along the way", "src": "die ich auf dem Weg dorthin gelernt habe", "tier": "support"}]},
+ "subset2-12": {"gist": "As soon as you spell a word, stop and add it to the vocabulary editor.", "keep": ["vocabulary editor"], "units": [
+  {"id": "u1", "text": "the moment you spell a word", "src": "In dem Moment, in dem Sie ein Wort buchstabieren", "tier": "core"},
+  {"id": "u2", "text": "stop immediately", "src": "hören Sie sofort damit auf", "tier": "core"},
+  {"id": "u3", "text": "and add that word to the vocabulary editor", "src": "und fügen Sie dieses Wort dem Vokabeleditor hinzu", "tier": "core"}]},
+ "subset2-13": {"gist": "Eye trackers used to cost thousands; now a cheap one costs under a few hundred dollars.", "keep": ["eye tracker"], "units": [
+  {"id": "u1", "text": "eye trackers used to cost several thousand dollars", "src": "Früher haben Eye Tracker mehrere tausend Dollar gekostet", "tier": "core"},
+  {"id": "u2", "text": "but now you can get a cheap one", "src": "aber jetzt können Sie einen billigen", "tier": "core"},
+  {"id": "u3", "text": "for less than a few hundred dollars", "src": "für weniger als ein paar hundert Dollar ergattern", "tier": "core"}]},
+ "subset2-14": {"gist": "The boy looked for alchemy furnaces and equipment but saw none.", "keep": [], "units": [
+  {"id": "u1", "text": "the boy looked around for the furnaces", "src": "Der Junge sah sich nach den Öfen", "tier": "core"},
+  {"id": "u2", "text": "and other equipment", "src": "und anderen Gerätschaften um", "tier": "support"},
+  {"id": "u3", "text": "used in alchemy", "src": "wie sie in der Alchemie verwendet wurden", "tier": "core"},
+  {"id": "u4", "text": "but couldn't see any", "src": "konnte aber keine sehen", "tier": "core"}]},
+ "subset2-15": {"gist": "It has basic functions: connect to an eye tracker, get position data, activate the gaze point.", "keep": ["eye tracker", "gaze point"], "units": [
+  {"id": "u1", "text": "it has some basic functions", "src": "Es hat einige grundlegende Funktionen", "tier": "core"},
+  {"id": "u2", "text": "for connecting to an eye tracker", "src": "für die Verbindung mit Eye Tracker", "tier": "core"},
+  {"id": "u3", "text": "getting position data", "src": "den Erhalt von Positionsdaten", "tier": "core"},
+  {"id": "u4", "text": "and activating the current gaze point", "src": "und die Aktivierung des aktuellen Gaze Points", "tier": "core"}]},
+ "subset2-16": {"gist": "They brought in Disorder's drummer Virus and finally had a fairly reliable lineup.", "keep": ["Disorder", "Virus"], "units": [
+  {"id": "u1", "text": "they brought Disorder drummer Virus into the band", "src": "Sie holten Disorder Drummer Virus in die Band", "tier": "core"},
+  {"id": "u2", "text": "to play drums", "src": "um Schlagzeug zu spielen", "tier": "support"},
+  {"id": "u3", "text": "and finally had a lineup", "src": "und hatten schließlich eine", "tier": "core"},
+  {"id": "u4", "text": "more or less reliable", "src": "mehr oder weniger zuverlässige Besetzung", "tier": "core"}]},
+ "subset2-17": {"gist": "I was in the city only at the start of the year, so what happened right after feels crazy.", "keep": [], "units": [
+  {"id": "u1", "text": "I was in the city at the start of the year", "src": "Ich war erst Anfang des Jahres in der Stadt", "tier": "core"},
+  {"id": "u2", "text": "only (just recently)", "src": "erst", "tier": "support"},
+  {"id": "u3", "text": "so it's crazy to think about", "src": "daher ist es irgendwie verrückt, daran zu denken", "tier": "core"},
+  {"id": "u4", "text": "kind of", "src": "irgendwie", "tier": "colour"},
+  {"id": "u5", "text": "what happened right after", "src": "was unmittelbar danach geschah", "tier": "core"}]},
+ "subset2-18": {"gist": "Picture a guy coming through the door and giving orders in a strong accent.", "keep": [], "units": [
+  {"id": "u1", "text": "now imagine a guy", "src": "Stell dir jetzt mal einen Typ vor", "tier": "core"},
+  {"id": "u2", "text": "who comes through this door", "src": "der durch diese Tür kommt", "tier": "core"},
+  {"id": "u3", "text": "and starts giving orders", "src": "anfängt Befehle zu geben", "tier": "core"},
+  {"id": "u4", "text": "with a strong accent", "src": "mit einem starken Akzent", "tier": "core"}]},
+ "subset2-19": {"gist": "The party amused most guests, but Mirco felt out of place.", "keep": ["Mirco"], "units": [
+  {"id": "u1", "text": "I think", "src": "Ich glaube", "tier": "support"},
+  {"id": "u2", "text": "the party was fun for most of the guests", "src": "dass die Party war für die meisten Gäste ein Belustigung war", "tier": "core"},
+  {"id": "u3", "text": "but Mirco felt out of place", "src": "aber Mirco fühlte sich wirklich fehl am Platz", "tier": "core"},
+  {"id": "u4", "text": "really", "src": "wirklich", "tier": "colour"}]},
+ "subset2-20": {"gist": "She hasn't read Chekhov in a long time, so she no longer feels like the heroine of her story.", "keep": ["Chekhov"], "units": [
+  {"id": "u1", "text": "she hasn't read Chekhov", "src": "Sie hat seit langem nicht mehr Chekhov gelesen", "tier": "core"},
+  {"id": "u2", "text": "in a long time", "src": "seit langem", "tier": "support"},
+  {"id": "u3", "text": "and that's why", "src": "und deswegen", "tier": "core"},
+  {"id": "u4", "text": "she no longer feels like the heroine of her own story", "src": "fühlt sie sich nicht mehr wie die Heldin ihrer eigenen Geschichte", "tier": "core"}]},
+ "subset2-21": {"gist": "Not exactly no, but he only gave me the main points of his research the one time we talked.", "keep": [], "units": [
+  {"id": "u1", "text": "not exactly no", "src": "Nicht gerade nein", "tier": "core"},
+  {"id": "u2", "text": "but he only gave me the main points", "src": "er gab mir aber nur die wichtigsten Aspekte", "tier": "core"},
+  {"id": "u3", "text": "of his research", "src": "seiner Forschung", "tier": "core"},
+  {"id": "u4", "text": "the one time I talked to him", "src": "als ich das eine Mal mit ihm redete", "tier": "support"}]},
+ "subset2-22": {"gist": "It's rude to ask a tree its life story unless you're ready to hear all of it.", "keep": [], "units": [
+  {"id": "u1", "text": "it's rude", "src": "Es ist unhöflich", "tier": "core"},
+  {"id": "u2", "text": "to ask a tree for its life story", "src": "einen Baum nach seinem Lebenslauf zu fragen", "tier": "core"},
+  {"id": "u3", "text": "if you're not ready", "src": "wenn man nicht bereit ist", "tier": "core"},
+  {"id": "u4", "text": "to hear it in full", "src": "ihn in voller Länge zu hören", "tier": "core"}]},
+ "subset2-23": {"gist": "Could you tell me more about living and working there?", "keep": [], "units": [
+  {"id": "u1", "text": "I was wondering if you could tell me", "src": "Ich habe mich gefragt, ob Sie mir", "tier": "core"},
+  {"id": "u2", "text": "a little more", "src": "etwas mehr darüber erzählen könnten", "tier": "support"},
+  {"id": "u3", "text": "what it's like to live there", "src": "wie es ist, dort zu leben", "tier": "core"},
+  {"id": "u4", "text": "and to work", "src": "und zu arbeiten", "tier": "core"}]},
+ "subset2-24": {"gist": "Digging the tunnel will collapse the building, so I urge you not to.", "keep": [], "units": [
+  {"id": "u1", "text": "if you dig this tunnel under the building", "src": "Wenn Sie diesen Tunnel unter dem Gebäude graben", "tier": "core"},
+  {"id": "u2", "text": "it will collapse", "src": "wird es einstürzen", "tier": "core"},
+  {"id": "u3", "text": "so I strongly urge you", "src": "Ich fordere Sie daher dringend auf", "tier": "core"},
+  {"id": "u4", "text": "not to do it", "src": "dies nicht zu tun", "tier": "core"}]},
+ "subset2-25": {"gist": "Don't switch off; rhymes are fine, they never get old, I could do this all day.", "keep": [], "units": [
+  {"id": "u1", "text": "don't you dare switch off", "src": "Wagen Sie es nicht wegzuschalten", "tier": "core"},
+  {"id": "u2", "text": "I think rhymes are fine", "src": "Ich finde Reime in Ordnung", "tier": "core"},
+  {"id": "u3", "text": "since they never get old", "src": "da sie nie vergehen", "tier": "support"},
+  {"id": "u4", "text": "I could do this all day", "src": "ich könnte das den ganzen Tag machen", "tier": "core"}]},
+ "subset2-26": {"gist": "\"I didn't come to have my palm read,\" he said, already regretting coming.", "keep": [], "units": [
+  {"id": "u1", "text": "I didn't come here", "src": "Ich bin nicht hergekommen", "tier": "core"},
+  {"id": "u2", "text": "to have you read my palm", "src": "um mir von Ihnen aus der Hand lesen zu lassen", "tier": "core"},
+  {"id": "u3", "text": "he said", "src": "sagte er", "tier": "core"},
+  {"id": "u4", "text": "already regretting coming", "src": "und bedauerte bereits sein Kommen", "tier": "core"}]},
+ "subset2-27": {"gist": "On a scale from one (nothing) to ten (a lot), how much pain do you feel?", "keep": ["one", "ten"], "units": [
+  {"id": "u1", "text": "on a scale from one", "src": "Auf einer Skala von eins", "tier": "core"},
+  {"id": "u2", "text": "(I feel nothing at all)", "src": "ich empfinde überhaupt nichts", "tier": "support"},
+  {"id": "u3", "text": "to ten", "src": "bis zehn", "tier": "core"},
+  {"id": "u4", "text": "(I feel a great deal)", "src": "ich empfinde sehr viel", "tier": "support"},
+  {"id": "u5", "text": "how much pain do you feel", "src": "wie viel Schmerz empfinden Sie", "tier": "core"}]},
+ "subset2-28": {"gist": "When he kissed her cheek she blushed suddenly, changing colour faster than a chameleon.", "keep": ["chameleon"], "units": [
+  {"id": "u1", "text": "when he kissed her on the cheek", "src": "Als er ihr einen Kuss auf die Wange gab", "tier": "core"},
+  {"id": "u2", "text": "she blushed", "src": "errötete sie", "tier": "core"},
+  {"id": "u3", "text": "suddenly", "src": "plötzlich", "tier": "support"},
+  {"id": "u4", "text": "and changed colour faster than a chameleon", "src": "und änderte ihre Farbe schneller als ein Chamäleon", "tier": "core"}]},
+ "subset2-29": {"gist": "A fox that hears a rabbit scream runs to it, but not to help.", "keep": [], "units": [
+  {"id": "u1", "text": "when a fox hears a rabbit scream", "src": "Wenn ein Fuchs ein Kaninchen schreien hört", "tier": "core"},
+  {"id": "u2", "text": "it runs to it", "src": "läuft es zu ihm", "tier": "core"},
+  {"id": "u3", "text": "but not to help it", "src": "aber nicht, um ihm zu Hilfe zu kommen", "tier": "core"}]},
+ "subset2-30": {"gist": "Briefly I wanted to go back and help him, but I was too scared to act.", "keep": [], "units": [
+  {"id": "u1", "text": "for a moment", "src": "Kurzzeitig", "tier": "support"},
+  {"id": "u2", "text": "I had the urge to go back", "src": "hatte ich den Drang, zurückzugehen", "tier": "core"},
+  {"id": "u3", "text": "and help him", "src": "und ihm zu helfen", "tier": "core"},
+  {"id": "u4", "text": "but I was too scared", "src": "aber ich hatte zu viel Angst", "tier": "core"},
+  {"id": "u5", "text": "to do anything", "src": "um irgendetwas zu unternehmen", "tier": "core"}]},
+ "subset2-31": {"gist": "I thought I should be upset, but honestly I couldn't care less.", "keep": [], "units": [
+  {"id": "u1", "text": "I always thought", "src": "Ich dachte immer", "tier": "core"},
+  {"id": "u2", "text": "I should be upset", "src": "dass ich verärgert sein sollte", "tier": "core"},
+  {"id": "u3", "text": "but the truth is", "src": "aber die Wahrheit ist", "tier": "core"},
+  {"id": "u4", "text": "I really couldn't care less", "src": "dass es mich wirklich nicht weniger interessieren könnte", "tier": "core"},
+  {"id": "u5", "text": "really", "src": "wirklich", "tier": "colour"}]},
+ "subset2-32": {"gist": "He stood up, and as he returned to his seat, everyone questioned the meaning of life.", "keep": [], "units": [
+  {"id": "u1", "text": "he stood up", "src": "Er stand auf", "tier": "core"},
+  {"id": "u2", "text": "and as he went back to his seat", "src": "und als er zu seinem Platz zurückkehrte", "tier": "core"},
+  {"id": "u3", "text": "everyone in the room", "src": "stellten alle im Raum", "tier": "core"},
+  {"id": "u4", "text": "questioned the meaning of life", "src": "den Sinn des Lebens in Frage", "tier": "core"}]},
+ "subset1-3": {"gist": "He studied philosophy and theoretical biology.", "keep": [], "units": [
+  {"id": "u1", "text": "he studied philosophy", "src": "Er studierte Philosophie", "tier": "core"},
+  {"id": "u2", "text": "and theoretical biology", "src": "und theoretische Biologie", "tier": "core"}]},
+ "subset1-4": {"gist": "The couple had a daughter Grace and a son Henry.", "keep": ["Grace", "Henry"], "units": [
+  {"id": "u1", "text": "the couple had a daughter, Grace", "src": "Das Paar hatte eine Tochter, Grace", "tier": "core"},
+  {"id": "u2", "text": "and a son, Henry", "src": "und einen Sohn, Henry", "tier": "core"}]},
+ "subset1-5": {"gist": "This kind of one-upmanship will eventually ruin their friendship.", "keep": [], "units": [
+  {"id": "u1", "text": "this kind of one-upmanship", "src": "Diese Art von Überbietungen", "tier": "core"},
+  {"id": "u2", "text": "will ruin their friendship", "src": "wird ihre Freundschaft noch in den Ruin treiben", "tier": "core"},
+  {"id": "u3", "text": "eventually (noch)", "src": "noch", "tier": "colour"}]},
+ "subset1-6": {"gist": "That damn mouse could sense my anger.", "keep": [], "units": [
+  {"id": "u1", "text": "that damn mouse", "src": "Diese verdammte Maus", "tier": "core"},
+  {"id": "u2", "text": "could sense my anger", "src": "konnte meine Wut spüren", "tier": "core"}]},
+ "subset1-7": {"gist": "I will stop him completely.", "keep": [], "units": [
+  {"id": "u1", "text": "I will stop him", "src": "Ich werde ihn", "tier": "core"},
+  {"id": "u2", "text": "completely", "src": "vollends aufhalten", "tier": "support"}]},
+ "subset1-8": {"gist": "What do you expect of me?", "keep": [], "units": [
+  {"id": "u1", "text": "what do you expect of me", "src": "Was erwarten Sie von mir", "tier": "core"}]},
+ "subset1-9": {"gist": "All the birds started singing at first light of dawn.", "keep": [], "units": [
+  {"id": "u1", "text": "all the birds began to sing", "src": "Alle Vögel begannen", "tier": "core"},
+  {"id": "u2", "text": "in the first light of dawn", "src": "im ersten Licht der Dämmerung zu singen", "tier": "core"}]},
+ "subset1-10": {"gist": "You can't judge by appearances.", "keep": [], "units": [
+  {"id": "u1", "text": "you can't judge by appearances", "src": "Nach dem Äußeren kann man nicht urteilen", "tier": "core"}]},
+ "subset1-11": {"gist": "Stop treating me like a little child.", "keep": [], "units": [
+  {"id": "u1", "text": "stop treating me", "src": "Hören Sie auf, mich", "tier": "core"},
+  {"id": "u2", "text": "like a little child", "src": "wie ein kleines Kind zu behandeln", "tier": "core"}]},
+ "subset1-12": {"gist": "The first Christmas.", "keep": [], "units": [
+  {"id": "u1", "text": "the first Christmas (celebration)", "src": "Das erste Weihnachtsfest", "tier": "core"}]},
+ "subset1-13": {"gist": "I'm still sure about the lyrical direction.", "keep": [], "units": [
+  {"id": "u1", "text": "I'm still sure", "src": "Ich bin mir noch", "tier": "core"},
+  {"id": "u2", "text": "about the lyrical direction", "src": "über die lyrische Richtung sicher", "tier": "core"}]},
+ "subset1-14": {"gist": "Lindros, Holsworth and Calder were also veteran representatives.", "keep": ["Joan Lindros", "Bill Holsworth", "Malcolm Calder"], "units": [
+  {"id": "u1", "text": "Joan Lindros, Bill Holsworth", "src": "Joan Lindros, Bill Holsworth", "tier": "core"},
+  {"id": "u2", "text": "and Malcolm Calder", "src": "und Malcolm Calder", "tier": "core"},
+  {"id": "u3", "text": "were also veteran representatives", "src": "waren auch altgediente Repräsentanten", "tier": "core"}]},
+ "subset1-15": {"gist": "\"See\" analytic continuation.", "keep": ["analytic continuation"], "units": [
+  {"id": "u1", "text": "see: analytic continuation", "src": "Siehe analytische Fortsetzung", "tier": "core"}]},
+ "subset1-16": {"gist": "The city wall is one of the city's landmarks.", "keep": [], "units": [
+  {"id": "u1", "text": "the city wall is one of the landmarks", "src": "Die Stadtmauer ist eines der Wahrzeichen", "tier": "core"},
+  {"id": "u2", "text": "of the city", "src": "der Stadt", "tier": "support"}]},
+ "subset1-17": {"gist": "Dogstar is reviewing material for a project reflecting their touring years.", "keep": ["Dogstar"], "units": [
+  {"id": "u1", "text": "Dogstar is currently reviewing material", "src": "Dogstar überprüft derzeit Material", "tier": "core"},
+  {"id": "u2", "text": "for a project", "src": "für ein Projekt", "tier": "core"},
+  {"id": "u3", "text": "that reflects their years of touring", "src": "das ihre Jahre des Herumtourens widerspiegelt", "tier": "core"}]}
+}

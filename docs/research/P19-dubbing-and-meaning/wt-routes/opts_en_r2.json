@@ -1,0 +1,21 @@
+{
+ "subset2-58": {"1": [{"src": "At first I heard they'd be back,", "units": ["u1","u2"], "strategy": "steer"}, {"src": "First I heard they'd return soon,", "units": ["u1","u2"], "strategy": "steer"}]},
+ "subset2-59": {"1": [{"src": "To read a little more about my story,", "units": ["u1"], "strategy": "steer"}],
+  "2": [{"src": "check out my first post, which is called Adventures in Free Coding.", "units": ["u2","u3"], "strategy": "steer"}, {"src": "have a look at my first post, Adventures in Free Coding.", "units": ["u2","u3"], "strategy": "steer"}]},
+ "subset2-60": {"1": [{"src": "Yes, that's right,", "units": ["u1"], "strategy": "steer"}, {"src": "That is right,", "units": ["u1"], "strategy": "steer"}],
+  "2": [{"src": "said the old gentleman,", "units": ["u2"], "strategy": "steer"}]},
+ "subset2-61": {"2": [{"src": "and something was still rising from it.", "units": ["u2"], "strategy": "steer"}]},
+ "subset2-62": {"2": [{"src": "is being able to browse the internet using only your voice.", "units": ["u3"], "strategy": "steer"}, {"src": "is that you can browse the web with just your voice.", "units": ["u3"], "strategy": "steer"}]},
+ "subset2-63": {"1": [{"src": "Maybe we could meet at the institute at midday,", "units": ["u1","u2"], "strategy": "steer"}, {"src": "We could meet at the institute around noon,", "units": ["u1","u2"], "strategy": "steer"}]},
+ "subset2-64": {"2": [{"src": "it contained no evidence at all,", "units": ["u2"], "strategy": "steer"}]},
+ "subset2-66": {"1": [{"src": "Across this kind of terrain, so typical of the area,", "units": ["u1"], "strategy": "steer"}],
+  "2": [{"src": "the drivers carried the cargo,", "units": ["u2"], "strategy": "steer"}, {"src": "drivers carried the load,", "units": ["u2"], "strategy": "steer"}]},
+ "subset2-69": {"2": [{"src": "and it is easy to find, too.", "units": ["u2"], "strategy": "steer"}]},
+ "subset2-71": {"2": [{"src": "and then he saw", "units": ["u2"], "strategy": "steer"}],
+  "3": [{"src": "that one of the sheep was limping.", "units": ["u3"], "strategy": "steer"}]},
+ "subset2-73": {"1": [{"src": "He went to school at the Horton School, which was nearby,", "units": ["u1"], "strategy": "steer"}, {"src": "He went to school at the nearby Horton School in town", "units": ["u1"], "strategy": "steer"}]},
+ "subset2-75": {"1": [{"src": "I wondered", "units": ["u1"], "strategy": "steer"}, {"src": "I'd like to ask", "units": ["u1"], "strategy": "steer"}]},
+ "subset2-76": {"2": [{"src": "and to coordinate all of their team projects throughout the whole of their career.", "units": ["u2","u3"], "strategy": "steer"}]},
+ "subset2-77": {"1": [{"src": "I understand that the land where the hobbits live, which is called the Shire,", "units": ["u1"], "strategy": "steer"}, {"src": "As I understand it, the land where the hobbits live, the Shire,", "units": ["u1"], "strategy": "steer"}]},
+ "subset2-79": {"3": [{"src": "elbowing one another in the ribs.", "units": ["u3"], "strategy": "steer"}, {"src": "all elbowing each other in the ribs.", "units": ["u3"], "strategy": "steer"}]}
+}

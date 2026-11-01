@@ -1,0 +1,670 @@
+{
+ "R0": {
+  "subset2-3": [
+   "The blackbird watched it all from the tree, turning its head left and right, blinking and testing its wings, before it finally took to the air."
+  ],
+  "subset2-4": [
+   "She keeps saying she doesn't regret moving back home, but I can't be so sure that's entirely true."
+  ],
+  "subset2-5": [
+   "Finally he lifted one of the boards, and after carefully setting it aside, he looked into the space under the floor."
+  ],
+  "subset2-6": [
+   "I also love hearing from others, so post your own ideas in the comments and tell me what I could do better."
+  ],
+  "subset2-7": [
+   "Something moved deep underground and caused vibrations strong enough to be measured by earthquake early-warning systems hundreds of miles away."
+  ],
+  "subset2-8": [
+   "He paused, looked back at the house, but then pocketed his keys, opened the gate and walked quickly down the path."
+  ],
+  "subset2-9": [
+   "We miss you and we miss having a friend like you, and I'm so glad the two of you were able to catch up."
+  ],
+  "subset2-10": [
+   "Before you read this post, please familiarize yourself with my Getting Started guide and with the action for quickly moving a file."
+  ],
+  "subset2-11": [
+   "I could just publish my code, but that wouldn't show all the little lessons I learned along the way."
+  ],
+  "subset2-12": [
+   "The moment you spell out a word, stop immediately and add that word to the vocabulary editor."
+  ],
+  "subset2-13": [
+   "Eye trackers used to cost several thousand dollars, but now you can pick up a cheap one for less than a few hundred dollars."
+  ],
+  "subset2-14": [
+   "The boy looked around for the furnaces and other equipment used in alchemy, but he couldn't see any."
+  ],
+  "subset2-15": [
+   "It has some basic functions for connecting to an eye tracker, getting position data and activating the current gaze point."
+  ],
+  "subset2-16": [
+   "They brought Disorder drummer Virus into the band to play drums, and finally had a more or less reliable lineup."
+  ],
+  "subset2-17": [
+   "I was only in the city at the start of the year, so it's kind of crazy to think about what happened right after."
+  ],
+  "subset2-18": [
+   "Now picture a guy who comes through that door and starts giving orders in a heavy accent."
+  ],
+  "subset2-19": [
+   "I think the party was fun for most of the guests, but Mirco really felt out of place."
+  ],
+  "subset2-20": [
+   "She hasn't read Chekhov in a long time, and that's why she no longer feels like the heroine of her own story."
+  ],
+  "subset2-21": [
+   "Not exactly no, but he only gave me the main points of his research, the one time I talked to him."
+  ],
+  "subset2-22": [
+   "It's rude to ask a tree for its life story if you're not prepared to hear it in full."
+  ],
+  "subset2-23": [
+   "I was wondering if you could tell me a little more about what it's like to live and work there."
+  ],
+  "subset2-24": [
+   "If you dig this tunnel under the building, it will collapse. So I strongly urge you not to do it."
+  ],
+  "subset2-25": [
+   "Don't you dare switch off. I think rhymes are fine, since they never get old, I could do this all day."
+  ],
+  "subset2-26": [
+   "\"I didn't come here to have you read my palm,\" he said, already regretting that he had come."
+  ],
+  "subset2-27": [
+   "On a scale from one (I feel nothing at all) to ten (I feel a great deal), how much pain are you feeling?"
+  ],
+  "subset2-28": [
+   "When he kissed her on the cheek, she suddenly blushed and changed color faster than a chameleon."
+  ],
+  "subset2-29": [
+   "When a fox hears a rabbit scream, it runs to it – but not to help it."
+  ],
+  "subset2-30": [
+   "For a moment I had the urge to go back and help him, but I was too scared to do anything."
+  ],
+  "subset2-31": [
+   "I always thought I should be upset, but the truth is I really couldn't care less."
+  ],
+  "subset2-32": [
+   "He stood up, and as he went back to his seat, everyone in the room questioned the meaning of life."
+  ],
+  "subset1-3": [
+   "He studied philosophy and theoretical biology."
+  ],
+  "subset1-4": [
+   "The couple had a daughter, Grace, and a son, Henry."
+  ],
+  "subset1-5": [
+   "This kind of one-upmanship is going to ruin their friendship."
+  ],
+  "subset1-6": [
+   "That damn mouse could sense my anger."
+  ],
+  "subset1-7": [
+   "I'll stop him completely."
+  ],
+  "subset1-8": [
+   "What do you expect of me?"
+  ],
+  "subset1-9": [
+   "All the birds began to sing in the first light of dawn."
+  ],
+  "subset1-10": [
+   "You can't judge by appearances."
+  ],
+  "subset1-11": [
+   "Stop treating me like a little child."
+  ],
+  "subset1-12": [
+   "The first Christmas"
+  ],
+  "subset1-13": [
+   "I'm still sure about the lyrical direction."
+  ],
+  "subset1-14": [
+   "Joan Lindros, Bill Holsworth and Malcolm Calder were also veteran representatives."
+  ],
+  "subset1-15": [
+   "\"See\" analytic continuation."
+  ],
+  "subset1-16": [
+   "The city wall is one of the city's landmarks."
+  ],
+  "subset1-17": [
+   "Dogstar is currently reviewing material for a project reflecting their years of touring."
+  ]
+ },
+ "R1": {
+  "subset2-3": [
+   "The blackbird watched it all from up in the tree,",
+   "turning its head left and right,",
+   "blinked and tested its wings, before it finally took to the air."
+  ],
+  "subset2-4": [
+   "She keeps saying she has no regrets about moving back home,",
+   "but I can't be so sure that's entirely true."
+  ],
+  "subset2-5": [
+   "Finally he lifted one of the boards, and after carefully setting it aside,",
+   "he looked into the space beneath the floor."
+  ],
+  "subset2-6": [
+   "I also love to hear from others,",
+   "so post your own ideas in the comments and tell me what I could do better."
+  ],
+  "subset2-7": [
+   "Something moved deep down beneath the earth,",
+   "and it set off vibrations strong enough",
+   "to be picked up by earthquake early-warning systems hundreds of miles away."
+  ],
+  "subset2-8": [
+   "He stopped for a moment and looked back at the house,",
+   "but then he pocketed his keys,",
+   "opened the gate and hurried down the path."
+  ],
+  "subset2-9": [
+   "We really miss you",
+   "and we miss having a friend like you,",
+   "and I'm so glad the two of you were able to catch up."
+  ],
+  "subset2-10": [
+   "Before reading this blog post,",
+   "please get familiar with my Getting Started guide,",
+   "and also with the action that lets you move a file really quickly."
+  ],
+  "subset2-11": [
+   "I could just go and publish my code,",
+   "but that wouldn't show you all the little lessons that I picked up along the way."
+  ],
+  "subset2-12": [
+   "The moment you start spelling out a word,",
+   "stop right away and add that word to the vocabulary editor."
+  ],
+  "subset2-13": [
+   "Eye trackers used to cost several thousand dollars, but now you can pick up a cheap one for less than a few hundred dollars."
+  ],
+  "subset2-14": [
+   "The boy looked around for the furnaces and other equipment used in alchemy, but he couldn't see any."
+  ],
+  "subset2-15": [
+   "It has a number of basic functions for connecting to an eye tracker,",
+   "for getting hold of position data, and for activating the current gaze point."
+  ],
+  "subset2-16": [
+   "They brought Disorder's drummer Virus into the band to play drums,",
+   "and finally had a more or less reliable lineup."
+  ],
+  "subset2-17": [
+   "I was in town at the start of the year,",
+   "so it's kind of crazy to think about what happened right after."
+  ],
+  "subset2-18": [
+   "Now picture some guy who walks in through that door",
+   "and starts giving orders in a heavy accent."
+  ],
+  "subset2-19": [
+   "I think the party was a lot of fun for most of the guests,",
+   "but Mirco really felt out of place."
+  ],
+  "subset2-20": [
+   "She hasn't read Chekhov in ages,",
+   "and that's why she no longer feels like the heroine of her own story."
+  ],
+  "subset2-21": [
+   "Not exactly, no,",
+   "but he only gave me the most important points of his research, the one time I talked with him."
+  ],
+  "subset2-22": [
+   "It's impolite to ask a tree to tell you its life story",
+   "if you're not ready to hear it from start to end."
+  ],
+  "subset2-23": [
+   "I was wondering if you could tell me a bit more about what it's like to live there",
+   "and to work there."
+  ],
+  "subset2-24": [
+   "Look,",
+   "if you dig this tunnel under the building, it'll collapse.",
+   "So I would very strongly urge you not to go ahead with it."
+  ],
+  "subset2-25": [
+   "Don't you dare change the channel.",
+   "I think rhymes are just fine, since they never go out of style, I could do this all day."
+  ],
+  "subset2-26": [
+   "\"I did not come all the way here to have you read my palm,\"",
+   "he said,",
+   "already regretting he came."
+  ],
+  "subset2-27": [
+   "On a scale of one, meaning I feel nothing at all, to ten, I feel a great deal,",
+   "how much pain are you feeling?"
+  ],
+  "subset2-28": [
+   "When he gave her a kiss on the cheek, all of a sudden she blushed",
+   "and changed color faster than a chameleon."
+  ],
+  "subset2-29": [
+   "When a fox hears a rabbit scream, it runs to it –",
+   "but not to come to its aid."
+  ],
+  "subset2-30": [
+   "For a moment I felt the urge to go back and help him,",
+   "but I was too afraid to do anything at all."
+  ],
+  "subset2-31": [
+   "I always thought I should be upset,",
+   "but the truth of the matter is that I really couldn't care any less."
+  ],
+  "subset2-32": [
+   "He got to his feet,",
+   "and as he made his way back to his seat,",
+   "everyone in the room questioned the meaning of life."
+  ],
+  "subset1-3": [
+   "He studied philosophy and theoretical biology."
+  ],
+  "subset1-4": [
+   "The couple had two children: a daughter named Grace, and a son named Henry."
+  ],
+  "subset1-5": [
+   "All of this constant one-upmanship",
+   "is going to drive their friendship to ruin sooner or later."
+  ],
+  "subset1-6": [
+   "That damned little mouse could actually sense how angry I was."
+  ],
+  "subset1-7": [
+   "I am going to stop him once and for all."
+  ],
+  "subset1-8": [
+   "What do you expect of me?"
+  ],
+  "subset1-9": [
+   "All of the birds began singing together in the very first light of the dawn."
+  ],
+  "subset1-10": [
+   "You can't judge someone just by the way that they look."
+  ],
+  "subset1-11": [
+   "Will you stop treating me like I'm a little child?"
+  ],
+  "subset1-12": [
+   "The very first Christmas celebration"
+  ],
+  "subset1-13": [
+   "I'm still sure about the lyrical direction."
+  ],
+  "subset1-14": [
+   "Joan Lindros, Bill Holsworth, and Malcolm Calder",
+   "were also veteran representatives who had served for a long time."
+  ],
+  "subset1-15": [
+   "\"See\" analytic continuation."
+  ],
+  "subset1-16": [
+   "The old city wall is one of the most famous landmarks",
+   "of the city."
+  ],
+  "subset1-17": [
+   "Dogstar is currently going through material for a brand new project",
+   "that reflects all of their years spent touring around."
+  ]
+ },
+ "R2": {
+  "subset2-3": [
+   "The blackbird watched it all from up in the tree,",
+   "turning its head left and right,",
+   "blinked and tested its wings, before it finally took to the air."
+  ],
+  "subset2-4": [
+   "She keeps saying she has no regrets about moving back home,",
+   "but I can't be so sure that's entirely true."
+  ],
+  "subset2-5": [
+   "Finally he lifted one of the boards, and after carefully setting it aside,",
+   "he looked into the space beneath the floor."
+  ],
+  "subset2-6": [
+   "I also love to hear from others,",
+   "so post your own ideas in the comments and tell me what I could do better."
+  ],
+  "subset2-7": [
+   "Something moved deep down beneath the earth,",
+   "and it set off vibrations strong enough",
+   "to be picked up by earthquake early-warning systems hundreds of miles away."
+  ],
+  "subset2-8": [
+   "He stopped for a moment and looked back at the house,",
+   "but then he pocketed his keys,",
+   "opened the gate and hurried down the path."
+  ],
+  "subset2-9": [
+   "We really miss you",
+   "and we miss having a friend like you,",
+   "and I'm so glad the two of you were able to catch up."
+  ],
+  "subset2-10": [
+   "Before reading this blog post,",
+   "please get familiar with my Getting Started guide,",
+   "and also with the action that lets you move a file really quickly."
+  ],
+  "subset2-11": [
+   "I could just go and publish my code,",
+   "but that wouldn't show you all the little lessons that I picked up along the way."
+  ],
+  "subset2-12": [
+   "The moment you start spelling out a word,",
+   "stop right away and add that word to the vocabulary editor."
+  ],
+  "subset2-13": [
+   "Eye trackers used to cost several thousand dollars, but now you can pick up a cheap one for less than a few hundred dollars."
+  ],
+  "subset2-14": [
+   "The boy looked around for the furnaces and other equipment used in alchemy, but he couldn't see any."
+  ],
+  "subset2-15": [
+   "It has a number of basic functions for connecting to an eye tracker,",
+   "for getting hold of position data, and for activating the current gaze point."
+  ],
+  "subset2-16": [
+   "They brought Disorder's drummer Virus into the band to play drums,",
+   "and finally had a more or less reliable lineup."
+  ],
+  "subset2-17": [
+   "I was in town at the start of the year,",
+   "so it's kind of crazy to think about what happened right after."
+  ],
+  "subset2-18": [
+   "Now picture some guy who walks in through that door",
+   "and starts giving orders in a heavy accent."
+  ],
+  "subset2-19": [
+   "I think the party was a lot of fun for most of the guests,",
+   "but Mirco really felt out of place."
+  ],
+  "subset2-20": [
+   "She hasn't read Chekhov in ages,",
+   "and that's why she no longer feels like the heroine of her own story."
+  ],
+  "subset2-21": [
+   "Not exactly, no,",
+   "but he only gave me the most important points of his research, the one time I talked with him."
+  ],
+  "subset2-22": [
+   "It's impolite to ask a tree to tell you its life story",
+   "if you're not ready to hear it from start to end."
+  ],
+  "subset2-23": [
+   "I was wondering if you could tell me a bit more about what it's like to live there",
+   "and to work there."
+  ],
+  "subset2-24": [
+   "Look,",
+   "if you dig this tunnel under the building, it'll collapse.",
+   "So I would very strongly urge you not to go ahead with it."
+  ],
+  "subset2-25": [
+   "Don't you dare change the channel.",
+   "I think rhymes are just fine, since they never go out of style, I could do this all day."
+  ],
+  "subset2-26": [
+   "\"I did not come all the way here to have you read my palm,\"",
+   "he then said,",
+   "already regretting he came."
+  ],
+  "subset2-27": [
+   "On a scale of one, meaning I feel nothing at all, to ten, I feel a great deal,",
+   "how much pain are you feeling?"
+  ],
+  "subset2-28": [
+   "When he gave her a kiss on the cheek, all of a sudden she blushed",
+   "and changed color faster than a chameleon."
+  ],
+  "subset2-29": [
+   "When a fox hears a rabbit scream, it runs to it –",
+   "but not to come to its aid."
+  ],
+  "subset2-30": [
+   "For a moment I felt the urge to go back and help him,",
+   "but I was too afraid to do anything at all."
+  ],
+  "subset2-31": [
+   "I always thought I should be upset,",
+   "but the truth of the matter is that I really couldn't care any less."
+  ],
+  "subset2-32": [
+   "He stood up,",
+   "and as he made his way back to his seat,",
+   "everyone in the room questioned the meaning of life."
+  ],
+  "subset1-3": [
+   "He studied both philosophy and theoretical biology."
+  ],
+  "subset1-4": [
+   "The couple had two children: a daughter named Grace, and a son named Henry."
+  ],
+  "subset1-5": [
+   "All of this constant one-upmanship",
+   "is going to drive their friendship to ruin sooner or later."
+  ],
+  "subset1-6": [
+   "That damned little mouse could actually sense how angry I was."
+  ],
+  "subset1-7": [
+   "I am going to stop him once and for all."
+  ],
+  "subset1-8": [
+   "What do you expect of me?"
+  ],
+  "subset1-9": [
+   "All of the birds began singing together in the very first light of the dawn."
+  ],
+  "subset1-10": [
+   "You can't judge someone just by the way that they look."
+  ],
+  "subset1-11": [
+   "Will you stop treating me like I'm a little child?"
+  ],
+  "subset1-12": [
+   "The very first Christmas celebration"
+  ],
+  "subset1-13": [
+   "I am still quite sure about the lyrical direction."
+  ],
+  "subset1-14": [
+   "Joan Lindros, Bill Holsworth, and Malcolm Calder",
+   "were also veteran representatives who had served for a long time."
+  ],
+  "subset1-15": [
+   "\"See\" analytical continuation."
+  ],
+  "subset1-16": [
+   "The old city wall is one of the most famous landmarks",
+   "of the city."
+  ],
+  "subset1-17": [
+   "Dogstar is currently going through material for a brand new project",
+   "that reflects all of their years spent touring around."
+  ]
+ },
+ "R3": {
+  "subset2-3": [
+   "The blackbird watched it all from the tree,",
+   "turning its head left and right,",
+   "blinked, tested its wings, and finally took to the air."
+  ],
+  "subset2-4": [
+   "She keeps saying she doesn't regret moving back home,",
+   "but I'm not so sure that's quite true."
+  ],
+  "subset2-5": [
+   "Finally he lifted one of the boards, and after carefully setting it aside,",
+   "he looked beneath the floor."
+  ],
+  "subset2-6": [
+   "I also love to hear from others,",
+   "so post your own ideas in the comments and tell me what I could do better."
+  ],
+  "subset2-7": [
+   "Something stirred deep underground,",
+   "and it set off vibrations strong enough",
+   "to be picked up by earthquake early-warning systems hundreds of miles away."
+  ],
+  "subset2-8": [
+   "He paused and looked back at the house,",
+   "but then pocketed his keys,",
+   "opened the gate and hurried down the path."
+  ],
+  "subset2-9": [
+   "We really miss you",
+   "and miss having a friend like you,",
+   "and I'm so glad the two of you were able to catch up."
+  ],
+  "subset2-10": [
+   "Before reading this post,",
+   "please check out my Getting Started guide,",
+   "and also with the action that lets you move a file really quickly."
+  ],
+  "subset2-11": [
+   "I could just publish my code,",
+   "but that wouldn't show you all the little lessons that I picked up along the way."
+  ],
+  "subset2-12": [
+   "The moment you start spelling out a word,",
+   "stop right away and add that word to the vocabulary editor."
+  ],
+  "subset2-13": [
+   "Eye trackers used to cost thousands of dollars, but now you can get a cheap one for under a few hundred."
+  ],
+  "subset2-14": [
+   "The boy looked around for the furnaces and other equipment used in alchemy, but he couldn't see any."
+  ],
+  "subset2-15": [
+   "It has a number of basic functions for connecting to an eye tracker,",
+   "for getting hold of position data, and for activating the current gaze point."
+  ],
+  "subset2-16": [
+   "They brought Disorder's drummer Virus into the band to play drums,",
+   "and finally had a more or less reliable lineup."
+  ],
+  "subset2-17": [
+   "I was in town early this year,",
+   "so it's kind of crazy to think about what happened right after."
+  ],
+  "subset2-18": [
+   "Picture a guy who walks through that door",
+   "and starts giving orders in a heavy accent."
+  ],
+  "subset2-19": [
+   "I think the party was a lot of fun for most of the guests,",
+   "but Mirco really felt out of place."
+  ],
+  "subset2-20": [
+   "She hasn't read Chekhov in ages,",
+   "and that's why she no longer feels like the heroine of her own story."
+  ],
+  "subset2-21": [
+   "Not really, no,",
+   "but he only gave me the most important points of his research, the one time I talked with him."
+  ],
+  "subset2-22": [
+   "It's rude to ask a tree for its life story",
+   "if you're not ready to hear it from start to end."
+  ],
+  "subset2-23": [
+   "I was wondering if you could tell me a bit more about what it's like to live there",
+   "and work."
+  ],
+  "subset2-24": [
+   "",
+   "if you dig this tunnel under the building, it'll collapse.",
+   "and I'd strongly urge you not to go ahead with it."
+  ],
+  "subset2-25": [
+   "Don't you dare change the channel.",
+   "Rhymes are fine by me, they never get old, I could do this all day."
+  ],
+  "subset2-26": [
+   "\"I didn't come here to have you read my palm,\"",
+   "he said,",
+   "already sorry he came."
+  ],
+  "subset2-27": [
+   "On a scale from one, I feel nothing, to ten, I feel a lot,",
+   "how much pain are you in?"
+  ],
+  "subset2-28": [
+   "When he gave her a kiss on the cheek, all of a sudden she blushed",
+   "and changed color faster than a chameleon."
+  ],
+  "subset2-29": [
+   "When a fox hears a rabbit scream, it runs over –",
+   "but not to help it."
+  ],
+  "subset2-30": [
+   "For a moment I wanted to go back and help him,",
+   "but I was too afraid to do anything at all."
+  ],
+  "subset2-31": [
+   "I always thought I should be mad,",
+   "but the truth of the matter is that I really couldn't care any less."
+  ],
+  "subset2-32": [
+   "He stood up,",
+   "and as he went back to his seat,",
+   "the whole room questioned the meaning of life."
+  ],
+  "subset1-3": [
+   "He studied both philosophy and theoretical biology."
+  ],
+  "subset1-4": [
+   "The couple had a daughter, Grace, and also a son, Henry."
+  ],
+  "subset1-5": [
+   "All of this constant one-upmanship",
+   "is going to drive their friendship to ruin sooner or later."
+  ],
+  "subset1-6": [
+   "That damn little mouse could sense how angry I was."
+  ],
+  "subset1-7": [
+   "I'm going to stop him once and for all."
+  ],
+  "subset1-8": [
+   "What do you expect of me?"
+  ],
+  "subset1-9": [
+   "All of the birds began singing together in the very first light of the dawn."
+  ],
+  "subset1-10": [
+   "You can't judge someone just by the way that they look."
+  ],
+  "subset1-11": [
+   "Will you stop treating me like I'm a little child?"
+  ],
+  "subset1-12": [
+   "The first Christmas celebration"
+  ],
+  "subset1-13": [
+   "I am still quite sure about the lyrical direction."
+  ],
+  "subset1-14": [
+   "Joan Lindros, Bill Holsworth,",
+   "and Malcolm Calder were also veteran representatives."
+  ],
+  "subset1-15": [
+   "\"See\" analytical continuation."
+  ],
+  "subset1-16": [
+   "The old city wall is one of the most famous landmarks",
+   "in town."
+  ],
+  "subset1-17": [
+   "Dogstar is currently going through material for a brand new project",
+   "reflecting their years on tour."
+  ]
+ }
+}

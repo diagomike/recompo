@@ -1,0 +1,425 @@
+{
+ "subset2-3": {
+  "covered": [
+   "u1",
+   "u3",
+   "u5",
+   "u7"
+  ],
+  "errors": [
+   "err",
+   "err",
+   "err"
+  ]
+ },
+ "subset2-4": {
+  "covered": [
+   "u1",
+   "u4",
+   "u5"
+  ],
+  "errors": [
+   "err",
+   "err"
+  ]
+ },
+ "subset2-5": {
+  "covered": [
+   "u1",
+   "u2",
+   "u3",
+   "u4",
+   "u5"
+  ],
+  "errors": [
+   "err"
+  ]
+ },
+ "subset2-6": {
+  "covered": [
+   "u1",
+   "u2",
+   "u3",
+   "u4",
+   "u5"
+  ],
+  "errors": [
+   "err",
+   "err"
+  ]
+ },
+ "subset2-7": {
+  "covered": [
+   "u2",
+   "u3",
+   "u4"
+  ],
+  "errors": [
+   "err",
+   "err"
+  ]
+ },
+ "subset2-8": {
+  "covered": [
+   "u1",
+   "u2",
+   "u3",
+   "u4",
+   "u5",
+   "u6"
+  ],
+  "errors": [
+   "err"
+  ]
+ },
+ "subset2-9": {
+  "covered": [
+   "u1",
+   "u3"
+  ],
+  "errors": [
+   "err",
+   "err"
+  ]
+ },
+ "subset2-10": {
+  "covered": [
+   "u1",
+   "u3",
+   "u5"
+  ],
+  "errors": [
+   "err",
+   "err"
+  ]
+ },
+ "subset2-11": {
+  "covered": [
+   "u1",
+   "u2",
+   "u3",
+   "u4"
+  ],
+  "errors": [
+   "err"
+  ]
+ },
+ "subset2-12": {
+  "covered": [
+   "u1",
+   "u2",
+   "u3"
+  ],
+  "errors": []
+ },
+ "subset2-13": {
+  "covered": [
+   "u3"
+  ],
+  "errors": [
+   "err",
+   "err"
+  ]
+ },
+ "subset2-14": {
+  "covered": [
+   "u1",
+   "u2",
+   "u3",
+   "u4"
+  ],
+  "errors": [
+   "err"
+  ]
+ },
+ "subset2-15": {
+  "covered": [
+   "u1",
+   "u2",
+   "u3",
+   "u4"
+  ],
+  "errors": [
+   "err"
+  ]
+ },
+ "subset2-16": {
+  "covered": [
+   "u1",
+   "u2",
+   "u3",
+   "u4"
+  ],
+  "errors": [
+   "err"
+  ]
+ },
+ "subset2-17": {
+  "covered": [
+   "u3",
+   "u4",
+   "u5"
+  ],
+  "errors": [
+   "err",
+   "err"
+  ]
+ },
+ "subset2-18": {
+  "covered": [
+   "u2",
+   "u3",
+   "u4"
+  ],
+  "errors": [
+   "err",
+   "err"
+  ]
+ },
+ "subset2-19": {
+  "covered": [
+   "u1"
+  ],
+  "errors": [
+   "err",
+   "err"
+  ]
+ },
+ "subset2-20": {
+  "covered": [
+   "u3"
+  ],
+  "errors": [
+   "err",
+   "err"
+  ]
+ },
+ "subset2-21": {
+  "covered": [
+   "u2",
+   "u3",
+   "u4"
+  ],
+  "errors": [
+   "err"
+  ]
+ },
+ "subset2-22": {
+  "covered": [
+   "u1",
+   "u3",
+   "u4"
+  ],
+  "errors": [
+   "err"
+  ]
+ },
+ "subset2-23": {
+  "covered": [
+   "u1",
+   "u3",
+   "u4"
+  ],
+  "errors": [
+   "err"
+  ]
+ },
+ "subset2-24": {
+  "covered": [
+   "u1",
+   "u4"
+  ],
+  "errors": [
+   "err",
+   "err"
+  ]
+ },
+ "subset2-25": {
+  "covered": [
+   "u4"
+  ],
+  "errors": [
+   "err",
+   "err",
+   "err"
+  ]
+ },
+ "subset2-26": {
+  "covered": [
+   "u1",
+   "u3",
+   "u4"
+  ],
+  "errors": [
+   "err"
+  ]
+ },
+ "subset2-27": {
+  "covered": [
+   "u3",
+   "u5"
+  ],
+  "errors": [
+   "err",
+   "err"
+  ]
+ },
+ "subset2-28": {
+  "covered": [
+   "u2",
+   "u3",
+   "u4"
+  ],
+  "errors": [
+   "err"
+  ]
+ },
+ "subset2-29": {
+  "covered": [
+   "u1",
+   "u2",
+   "u3"
+  ],
+  "errors": [
+   "err"
+  ]
+ },
+ "subset2-30": {
+  "covered": [
+   "u2",
+   "u3",
+   "u4"
+  ],
+  "errors": [
+   "err",
+   "err"
+  ]
+ },
+ "subset2-31": {
+  "covered": [
+   "u1",
+   "u2",
+   "u3"
+  ],
+  "errors": [
+   "err"
+  ]
+ },
+ "subset2-32": {
+  "covered": [
+   "u1",
+   "u2",
+   "u3",
+   "u4"
+  ],
+  "errors": []
+ },
+ "subset1-3": {
+  "covered": [
+   "u1",
+   "u2"
+  ],
+  "errors": []
+ },
+ "subset1-4": {
+  "covered": [
+   "u1",
+   "u2"
+  ],
+  "errors": []
+ },
+ "subset1-5": {
+  "covered": [
+   "u2",
+   "u3"
+  ],
+  "errors": [
+   "err"
+  ]
+ },
+ "subset1-6": {
+  "covered": [
+   "u1",
+   "u2"
+  ],
+  "errors": []
+ },
+ "subset1-7": {
+  "covered": [
+   "u1"
+  ],
+  "errors": [
+   "err"
+  ]
+ },
+ "subset1-8": {
+  "covered": [
+   "u1"
+  ],
+  "errors": []
+ },
+ "subset1-9": {
+  "covered": [
+   "u1"
+  ],
+  "errors": [
+   "err"
+  ]
+ },
+ "subset1-10": {
+  "covered": [],
+  "errors": [
+   "err"
+  ]
+ },
+ "subset1-11": {
+  "covered": [
+   "u2"
+  ],
+  "errors": [
+   "err"
+  ]
+ },
+ "subset1-12": {
+  "covered": [
+   "u1"
+  ],
+  "errors": []
+ },
+ "subset1-13": {
+  "covered": [
+   "u1",
+   "u2"
+  ],
+  "errors": []
+ },
+ "subset1-14": {
+  "covered": [
+   "u1",
+   "u2",
+   "u3"
+  ],
+  "errors": []
+ },
+ "subset1-15": {
+  "covered": [],
+  "errors": [
+   "err"
+  ]
+ },
+ "subset1-16": {
+  "covered": [
+   "u1",
+   "u2"
+  ],
+  "errors": []
+ },
+ "subset1-17": {
+  "covered": [
+   "u1",
+   "u2",
+   "u3"
+  ],
+  "errors": []
+ }
+}

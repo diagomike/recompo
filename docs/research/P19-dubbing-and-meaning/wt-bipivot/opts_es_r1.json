@@ -1,0 +1,1010 @@
+{
+ "subset2-81": {
+  "1": [
+   {
+    "src": "Cuando hayas terminado la frase,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "Cuando acabes la frase,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ],
+  "2": [
+   {
+    "src": "haz clic en el botón rojo de abajo para terminar la grabación.",
+    "units": [
+     "u2",
+     "u3"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "pulsa el botón rojo inferior para detener la grabación.",
+    "units": [
+     "u2",
+     "u3"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ]
+ },
+ "subset2-82": {
+  "1": [
+   {
+    "src": "Recordó algo que su abuelo le había dicho una vez:",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "Se acordó de lo que una vez le dijo su abuelo:",
+    "units": [
+     "u1"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ],
+  "2": [
+   {
+    "src": "las mariposas son una buena señal.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "las mariposas traen buena suerte.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ]
+ },
+ "subset2-83": {
+  "1": [
+   {
+    "src": "Las penas con algo de comer",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "Todas las penas con comida",
+    "units": [
+     "u1"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ],
+  "2": [
+   {
+    "src": "pan",
+    "units": [
+     "u2"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "",
+    "units": [],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ],
+  "3": [
+   {
+    "src": "se llevan mejor,",
+    "units": [
+     "u3"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "son menos,",
+    "units": [
+     "u3"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ],
+  "4": [
+   {
+    "src": "más vale pena gorda que pena flaca.",
+    "units": [
+     "u4"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "mejor una pena gorda que una pena flaca.",
+    "units": [
+     "u4"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ]
+ },
+ "subset2-84": {
+  "1": [
+   {
+    "src": "Ni siquiera yo",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "Incluso yo",
+    "units": [
+     "u1"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ],
+  "2": [
+   {
+    "src": "he pensado en otras mujeres",
+    "units": [
+     "u2"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "no he pensado en otras mujeres",
+    "units": [
+     "u2"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ],
+  "3": [
+   {
+    "src": "desde que conocí a la hija del comerciante.",
+    "units": [
+     "u3"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "desde que conozco a la hija del mercader.",
+    "units": [
+     "u3"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ]
+ },
+ "subset2-85": {
+  "1": [
+   {
+    "src": "Sería muy útil que mi navegador pudiera sincronizar todas sus preferencias,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "Sería muy práctico que mi navegador web sincronizara todos sus ajustes,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ],
+  "2": [
+   {
+    "src": "no solo algunas.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "no solo unas pocas.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ]
+ },
+ "subset2-86": {
+  "1": [
+   {
+    "src": "Abre las persianas y apaga las luces,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "Abre las contraventanas y apaga la luz,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ],
+  "2": [
+   {
+    "src": "no podemos permitirnos gastar electricidad.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "la electricidad no nos la podemos permitir.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ]
+ },
+ "subset2-87": {
+  "1": [
+   {
+    "src": "Cuando quiso sacar dinero de su cuenta bancaria,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "Cuando intentó retirar dinero de su cuenta,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ],
+  "2": [
+   {
+    "src": "el cajero automático le dijo que su tarjeta no era válida.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "el cajero indicó que su tarjeta no valía.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ]
+ },
+ "subset2-88": {
+  "1": [
+   {
+    "src": "No estaba en casa;",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "Ella no estaba en casa;",
+    "units": [
+     "u1"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ],
+  "2": [
+   {
+    "src": "un vecino sospechaba que probablemente no había vuelto a casa anoche.",
+    "units": [
+     "u2",
+     "u3"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "un vecino creía que anoche no había vuelto a casa.",
+    "units": [
+     "u2",
+     "u3"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ]
+ },
+ "subset2-89": {
+  "1": [
+   {
+    "src": "El chico notó que el dueño del bar estaba cerca,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "El muchacho se dio cuenta de que el dueño del bar estaba de pie cerca,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ],
+  "2": [
+   {
+    "src": "escuchando atentamente su conversación.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "escuchando lo que decían.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ]
+ },
+ "subset2-90": {
+  "1": [
+   {
+    "src": "La región es conocida por sus ricos yacimientos de cobre,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "La región es famosa por sus ricos depósitos de cobre,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ],
+  "2": [
+   {
+    "src": "por eso la minería se practica a gran escala.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "así que aquí hay mucha minería.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ]
+ },
+ "subset2-91": {
+  "1": [
+   {
+    "src": "La mujer dijo que nunca había oído hablar de una persona así",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "La mujer dijo que jamás había oído hablar de alguien así",
+    "units": [
+     "u1"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ],
+  "2": [
+   {
+    "src": "y se marchó deprisa.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "y se fue rápido.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ]
+ },
+ "subset2-92": {
+  "1": [
+   {
+    "src": "El chico se acercó a la chica,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "El muchacho se acercó más a la muchacha,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ],
+  "2": [
+   {
+    "src": "y cuando ella sonrió,",
+    "units": [
+     "u2"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "y al sonreír ella,",
+    "units": [
+     "u2"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ],
+  "3": [
+   {
+    "src": "él hizo lo mismo.",
+    "units": [
+     "u3"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "él también sonrió.",
+    "units": [
+     "u3"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ]
+ },
+ "subset2-93": {
+  "1": [
+   {
+    "src": "Si ves algo que te gusta,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "Si ves algo que te guste,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ],
+  "2": [
+   {
+    "src": "tómalo",
+    "units": [
+     "u2"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "cógelo",
+    "units": [
+     "u2"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ],
+  "3": [
+   {
+    "src": "y mejóralo.",
+    "units": [
+     "u3"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "y hazlo mejor.",
+    "units": [
+     "u3"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ]
+ },
+ "subset2-94": {
+  "1": [
+   {
+    "src": "Hizo una pausa",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "Se detuvo un momento",
+    "units": [
+     "u1"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ],
+  "2": [
+   {
+    "src": "para comprobar",
+    "units": [
+     "u2"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "para ver",
+    "units": [
+     "u2"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ],
+  "3": [
+   {
+    "src": "si la mujer sabía de las pirámides de Egipto.",
+    "units": [
+     "u3"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "si la mujer conocía las pirámides egipcias.",
+    "units": [
+     "u3"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ]
+ },
+ "subset2-95": {
+  "1": [
+   {
+    "src": "Sin embargo, cuando el Partido Laborista llegó al poder,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "Pero tras la llegada al poder del Partido Laborista,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ],
+  "2": [
+   {
+    "src": "el compromiso contra el apartheid se abandonó.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "el compromiso contra el apartheid se desvaneció.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ]
+ },
+ "subset2-96": {
+  "1": [
+   {
+    "src": "Se hizo un nombre en el Getafe",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "Se dio a conocer en el Getafe",
+    "units": [
+     "u1"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ],
+  "2": [
+   {
+    "src": "tras salir de la cantera del Real Madrid.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "después de formarse en la cantera del Real Madrid.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ]
+ },
+ "subset2-97": {
+  "1": [
+   {
+    "src": "Los expertos en geología coinciden:",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "Los geólogos están de acuerdo:",
+    "units": [
+     "u1"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ],
+  "2": [
+   {
+    "src": "el tsunami de ayer fue solo un presagio del apocalipsis que se avecina.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "el tsunami de ayer solo anunciaba el apocalipsis que viene.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ]
+ },
+ "subset2-98": {
+  "1": [
+   {
+    "src": "Hay una mezquita",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "Existe una mezquita",
+    "units": [
+     "u1"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ],
+  "2": [
+   {
+    "src": "frente a un alun-alun javanés,",
+    "units": [
+     "u2"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "orientada hacia una plaza javanesa,",
+    "units": [
+     "u2"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ],
+  "3": [
+   {
+    "src": "la disposición típica de una ciudad javanesa.",
+    "units": [
+     "u3"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "típica de las ciudades de Java.",
+    "units": [
+     "u3"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ]
+ },
+ "subset2-99": {
+  "1": [
+   {
+    "src": "Aunque algunos admiraban al profeta,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "Algunos admiraban al profeta,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ],
+  "2": [
+   {
+    "src": "otros lo acusaron de blasfemia,",
+    "units": [
+     "u2"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "pero otros lo acusaron de blasfemia,",
+    "units": [
+     "u2"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ],
+  "3": [
+   {
+    "src": "y ahora busca refugio en el extranjero.",
+    "units": [
+     "u3"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "y ahora se refugia en el extranjero.",
+    "units": [
+     "u3"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ]
+ },
+ "subset2-100": {
+  "1": [
+   {
+    "src": "Cuando el chico miró la cuchara que sostenía,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "Al mirar la cuchara que tenía en la mano,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ],
+  "2": [
+   {
+    "src": "se dio cuenta de que el aceite había desaparecido.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "vio que el aceite ya no estaba.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ]
+ },
+ "subset1-18": {
+  "1": [
+   {
+    "src": "El jefe de la Iglesia",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "El líder de la Iglesia",
+    "units": [
+     "u1"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ],
+  "2": [
+   {
+    "src": "husita checoslovaca también se llama Patriarca.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "husita checoslovaca recibe también el nombre de Patriarca.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ]
+ },
+ "subset1-19": {
+  "1": [
+   {
+    "src": "Solo somos viajeros, respondió el alquimista.",
+    "units": [
+     "u1",
+     "u2"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "Somos simples viajeros, contestó el alquimista.",
+    "units": [
+     "u1",
+     "u2"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ]
+ },
+ "subset1-20": {
+  "1": [
+   {
+    "src": "¿No ves lo que está pasando?",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "¿Es que no ves lo que pasa?",
+    "units": [
+     "u1"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ]
+ },
+ "subset1-21": {
+  "1": [
+   {
+    "src": "¿Te gustan los libros de verdad o prefieres las versiones digitales?",
+    "units": [
+     "u1",
+     "u2"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "¿Te gusta leer libros en papel o prefieres las versiones digitales?",
+    "units": [
+     "u1",
+     "u2"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ]
+ }
+}

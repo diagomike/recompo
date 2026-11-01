@@ -1,0 +1,2361 @@
+{
+ "subset2-57": {
+  "segments": [
+   "Mit dem Zug kommen sie ganz einfach überall hin.",
+   "eine sehr entspannende und preiswerte Art zu reisen."
+  ],
+  "whole": "Mit dem Zug kommen sie ganz einfach überall hin. eine sehr entspannende und preiswerte Art zu reisen.",
+  "words": [
+   {
+    "text": "Mit",
+    "start": 1.254,
+    "end": 1.494
+   },
+   {
+    "text": "dem",
+    "start": 1.494,
+    "end": 1.734
+   },
+   {
+    "text": "Zug",
+    "start": 1.734,
+    "end": 2.134
+   },
+   {
+    "text": "kommen",
+    "start": 2.134,
+    "end": 2.454
+   },
+   {
+    "text": "sie",
+    "start": 2.454,
+    "end": 2.614
+   },
+   {
+    "text": "ganz",
+    "start": 2.614,
+    "end": 2.854
+   },
+   {
+    "text": "einfach",
+    "start": 2.854,
+    "end": 3.174
+   },
+   {
+    "text": "überall",
+    "start": 3.254,
+    "end": 3.734
+   },
+   {
+    "text": "hin.",
+    "start": 3.734,
+    "end": 4.134
+   },
+   {
+    "text": "eine",
+    "start": 4.774,
+    "end": 4.934
+   },
+   {
+    "text": "sehr",
+    "start": 5.094,
+    "end": 5.334
+   },
+   {
+    "text": "entspannende",
+    "start": 5.334,
+    "end": 6.214
+   },
+   {
+    "text": "und",
+    "start": 6.214,
+    "end": 6.374
+   },
+   {
+    "text": "preiswerte",
+    "start": 6.374,
+    "end": 7.254
+   },
+   {
+    "text": "Art",
+    "start": 7.254,
+    "end": 7.574
+   },
+   {
+    "text": "zu",
+    "start": 7.574,
+    "end": 7.734
+   },
+   {
+    "text": "reisen.",
+    "start": 7.734,
+    "end": 8.134
+   }
+  ]
+ },
+ "subset2-58": {
+  "segments": [
+   "Zuerst habe ich gehört, dass sie schnell zurück sind.",
+   "Jetzt fange ich aber an, mir Sorgen zu machen."
+  ],
+  "whole": "Zuerst habe ich gehört, dass sie schnell zurück sind. Jetzt fange ich aber an, mir Sorgen zu machen.",
+  "words": [
+   {
+    "text": "Zuerst",
+    "start": 1.094,
+    "end": 1.734
+   },
+   {
+    "text": "habe",
+    "start": 1.734,
+    "end": 1.894
+   },
+   {
+    "text": "ich",
+    "start": 1.894,
+    "end": 2.054
+   },
+   {
+    "text": "gehört,",
+    "start": 2.054,
+    "end": 2.614
+   },
+   {
+    "text": "dass",
+    "start": 2.614,
+    "end": 2.774
+   },
+   {
+    "text": "sie",
+    "start": 2.774,
+    "end": 3.014
+   },
+   {
+    "text": "schnell",
+    "start": 3.014,
+    "end": 3.334
+   },
+   {
+    "text": "zurück",
+    "start": 3.334,
+    "end": 3.654
+   },
+   {
+    "text": "sind.",
+    "start": 3.654,
+    "end": 3.974
+   },
+   {
+    "text": "Jetzt",
+    "start": 4.87,
+    "end": 5.27
+   },
+   {
+    "text": "fange",
+    "start": 5.27,
+    "end": 5.75
+   },
+   {
+    "text": "ich",
+    "start": 5.75,
+    "end": 5.99
+   },
+   {
+    "text": "aber",
+    "start": 5.99,
+    "end": 6.23
+   },
+   {
+    "text": "an,",
+    "start": 6.23,
+    "end": 6.63
+   },
+   {
+    "text": "mir",
+    "start": 6.63,
+    "end": 6.87
+   },
+   {
+    "text": "Sorgen",
+    "start": 6.87,
+    "end": 7.19
+   },
+   {
+    "text": "zu",
+    "start": 7.19,
+    "end": 7.27
+   },
+   {
+    "text": "machen.",
+    "start": 7.27,
+    "end": 7.51
+   }
+  ]
+ },
+ "subset2-59": {
+  "segments": [
+   "Um mehr über meine Geschichte zu lesen.",
+   "Schauen Sie sich meinen ersten Beitrag Adventures Enhanced Free Coding an."
+  ],
+  "whole": "Um mehr über meine Geschichte zu lesen. Schauen Sie sich meinen ersten Beitrag Adventures Enhanced Free Coding an.",
+  "words": [
+   {
+    "text": "Um",
+    "start": 1.078,
+    "end": 1.318
+   },
+   {
+    "text": "mehr",
+    "start": 1.318,
+    "end": 1.638
+   },
+   {
+    "text": "über",
+    "start": 1.638,
+    "end": 1.878
+   },
+   {
+    "text": "meine",
+    "start": 1.878,
+    "end": 2.198
+   },
+   {
+    "text": "Geschichte",
+    "start": 2.198,
+    "end": 2.758
+   },
+   {
+    "text": "zu",
+    "start": 2.758,
+    "end": 2.918
+   },
+   {
+    "text": "lesen.",
+    "start": 2.918,
+    "end": 3.398
+   },
+   {
+    "text": "Schauen",
+    "start": 4.198,
+    "end": 4.678
+   },
+   {
+    "text": "Sie",
+    "start": 4.678,
+    "end": 4.758
+   },
+   {
+    "text": "sich",
+    "start": 4.998,
+    "end": 5.238
+   },
+   {
+    "text": "meinen",
+    "start": 5.238,
+    "end": 5.558
+   },
+   {
+    "text": "ersten",
+    "start": 5.558,
+    "end": 6.038
+   },
+   {
+    "text": "Beitrag",
+    "start": 6.038,
+    "end": 6.678
+   },
+   {
+    "text": "Adventures",
+    "start": 6.838,
+    "end": 7.558
+   },
+   {
+    "text": "Enhanced",
+    "start": 7.798,
+    "end": 8.358
+   },
+   {
+    "text": "Free",
+    "start": 8.438,
+    "end": 8.758
+   },
+   {
+    "text": "Coding",
+    "start": 8.918,
+    "end": 9.398
+   },
+   {
+    "text": "an.",
+    "start": 9.398,
+    "end": 9.638
+   }
+  ]
+ },
+ "subset2-60": {
+  "segments": [
+   "Das ist richtig.",
+   "sagte der alte Herr.",
+   "der in der Lage war, die Gedanken des Jungen zu lesen."
+  ],
+  "whole": "Das ist richtig. sagte der alte Herr. der in der Lage war, die Gedanken des Jungen zu lesen.",
+  "words": [
+   {
+    "text": "Das",
+    "start": 1.318,
+    "end": 1.558
+   },
+   {
+    "text": "ist",
+    "start": 1.558,
+    "end": 1.718
+   },
+   {
+    "text": "richtig.",
+    "start": 1.718,
+    "end": 2.198
+   },
+   {
+    "text": "sagte",
+    "start": 2.758,
+    "end": 2.918
+   },
+   {
+    "text": "der",
+    "start": 3.158,
+    "end": 3.318
+   },
+   {
+    "text": "alte",
+    "start": 3.318,
+    "end": 3.638
+   },
+   {
+    "text": "Herr.",
+    "start": 3.638,
+    "end": 4.038
+   },
+   {
+    "text": "der",
+    "start": 5.19,
+    "end": 5.35
+   },
+   {
+    "text": "in",
+    "start": 5.43,
+    "end": 5.51
+   },
+   {
+    "text": "der",
+    "start": 5.51,
+    "end": 5.67
+   },
+   {
+    "text": "Lage",
+    "start": 5.67,
+    "end": 5.99
+   },
+   {
+    "text": "war,",
+    "start": 5.99,
+    "end": 6.31
+   },
+   {
+    "text": "die",
+    "start": 6.31,
+    "end": 6.47
+   },
+   {
+    "text": "Gedanken",
+    "start": 6.47,
+    "end": 6.95
+   },
+   {
+    "text": "des",
+    "start": 6.95,
+    "end": 7.11
+   },
+   {
+    "text": "Jungen",
+    "start": 7.11,
+    "end": 7.43
+   },
+   {
+    "text": "zu",
+    "start": 7.67,
+    "end": 7.83
+   },
+   {
+    "text": "lesen.",
+    "start": 7.83,
+    "end": 8.23
+   }
+  ]
+ },
+ "subset2-61": {
+  "segments": [
+   "Der ebene Boden war soweit das Auge reichte geschwärzt.",
+   "Und es stieg immer noch auch aus ihm auf."
+  ],
+  "whole": "Der ebene Boden war soweit das Auge reichte geschwärzt. Und es stieg immer noch auch aus ihm auf.",
+  "words": [
+   {
+    "text": "Der",
+    "start": 1.03,
+    "end": 1.27
+   },
+   {
+    "text": "ebene",
+    "start": 1.27,
+    "end": 1.83
+   },
+   {
+    "text": "Boden",
+    "start": 1.83,
+    "end": 2.31
+   },
+   {
+    "text": "war",
+    "start": 2.31,
+    "end": 2.55
+   },
+   {
+    "text": "soweit",
+    "start": 2.55,
+    "end": 3.11
+   },
+   {
+    "text": "das",
+    "start": 3.11,
+    "end": 3.35
+   },
+   {
+    "text": "Auge",
+    "start": 3.35,
+    "end": 3.75
+   },
+   {
+    "text": "reichte",
+    "start": 3.75,
+    "end": 4.07
+   },
+   {
+    "text": "geschwärzt.",
+    "start": 4.23,
+    "end": 5.19
+   },
+   {
+    "text": "Und",
+    "start": 5.99,
+    "end": 6.23
+   },
+   {
+    "text": "es",
+    "start": 6.23,
+    "end": 6.39
+   },
+   {
+    "text": "stieg",
+    "start": 6.39,
+    "end": 6.63
+   },
+   {
+    "text": "immer",
+    "start": 6.71,
+    "end": 6.87
+   },
+   {
+    "text": "noch",
+    "start": 7.03,
+    "end": 7.27
+   },
+   {
+    "text": "auch",
+    "start": 7.27,
+    "end": 7.35
+   },
+   {
+    "text": "aus",
+    "start": 7.51,
+    "end": 7.75
+   },
+   {
+    "text": "ihm",
+    "start": 7.75,
+    "end": 7.99
+   },
+   {
+    "text": "auf.",
+    "start": 7.99,
+    "end": 8.23
+   }
+  ]
+ },
+ "subset2-62": {
+  "segments": [
+   "eine der besten Möglichkeiten mit dem Schreiben von Dragonfly Macross zu beginnen.",
+   "ist die Einrichtung von Webbrowsing per Sprache."
+  ],
+  "whole": "eine der besten Möglichkeiten mit dem Schreiben von Dragonfly Macross zu beginnen. ist die Einrichtung von Webbrowsing per Sprache.",
+  "words": [
+   {
+    "text": "eine",
+    "start": 0.518,
+    "end": 0.678
+   },
+   {
+    "text": "der",
+    "start": 0.918,
+    "end": 1.078
+   },
+   {
+    "text": "besten",
+    "start": 1.078,
+    "end": 1.558
+   },
+   {
+    "text": "Möglichkeiten",
+    "start": 1.558,
+    "end": 2.278
+   },
+   {
+    "text": "mit",
+    "start": 2.438,
+    "end": 2.598
+   },
+   {
+    "text": "dem",
+    "start": 2.598,
+    "end": 2.838
+   },
+   {
+    "text": "Schreiben",
+    "start": 2.838,
+    "end": 3.398
+   },
+   {
+    "text": "von",
+    "start": 3.398,
+    "end": 3.718
+   },
+   {
+    "text": "Dragonfly",
+    "start": 3.718,
+    "end": 4.598
+   },
+   {
+    "text": "Macross",
+    "start": 4.758,
+    "end": 5.398
+   },
+   {
+    "text": "zu",
+    "start": 5.478,
+    "end": 5.718
+   },
+   {
+    "text": "beginnen.",
+    "start": 5.718,
+    "end": 6.278
+   },
+   {
+    "text": "ist",
+    "start": 7.91,
+    "end": 8.07
+   },
+   {
+    "text": "die",
+    "start": 8.15,
+    "end": 8.31
+   },
+   {
+    "text": "Einrichtung",
+    "start": 8.31,
+    "end": 9.03
+   },
+   {
+    "text": "von",
+    "start": 9.03,
+    "end": 9.19
+   },
+   {
+    "text": "Webbrowsing",
+    "start": 9.19,
+    "end": 10.39
+   },
+   {
+    "text": "per",
+    "start": 10.39,
+    "end": 10.55
+   },
+   {
+    "text": "Sprache.",
+    "start": 10.71,
+    "end": 11.35
+   }
+  ]
+ },
+ "subset2-63": {
+  "segments": [
+   "Vielleicht könnten wir uns um die Mittagszeit im Institut treffen.",
+   "Denn ich habe vorher noch einiges zu erledigen."
+  ],
+  "whole": "Vielleicht könnten wir uns um die Mittagszeit im Institut treffen. Denn ich habe vorher noch einiges zu erledigen.",
+  "words": [
+   {
+    "text": "Vielleicht",
+    "start": 0.934,
+    "end": 1.414
+   },
+   {
+    "text": "könnten",
+    "start": 1.414,
+    "end": 1.654
+   },
+   {
+    "text": "wir",
+    "start": 1.654,
+    "end": 1.814
+   },
+   {
+    "text": "uns",
+    "start": 1.814,
+    "end": 2.054
+   },
+   {
+    "text": "um",
+    "start": 2.054,
+    "end": 2.214
+   },
+   {
+    "text": "die",
+    "start": 2.214,
+    "end": 2.294
+   },
+   {
+    "text": "Mittagszeit",
+    "start": 2.294,
+    "end": 3.174
+   },
+   {
+    "text": "im",
+    "start": 3.174,
+    "end": 3.334
+   },
+   {
+    "text": "Institut",
+    "start": 3.334,
+    "end": 3.974
+   },
+   {
+    "text": "treffen.",
+    "start": 3.974,
+    "end": 4.374
+   },
+   {
+    "text": "Denn",
+    "start": 5.366,
+    "end": 5.606
+   },
+   {
+    "text": "ich",
+    "start": 5.606,
+    "end": 5.766
+   },
+   {
+    "text": "habe",
+    "start": 5.766,
+    "end": 6.086
+   },
+   {
+    "text": "vorher",
+    "start": 6.086,
+    "end": 6.566
+   },
+   {
+    "text": "noch",
+    "start": 6.566,
+    "end": 6.726
+   },
+   {
+    "text": "einiges",
+    "start": 6.726,
+    "end": 7.206
+   },
+   {
+    "text": "zu",
+    "start": 7.206,
+    "end": 7.366
+   },
+   {
+    "text": "erledigen.",
+    "start": 7.366,
+    "end": 7.926
+   }
+  ]
+ },
+ "subset2-64": {
+  "segments": [
+   "Die Polizei stellte fest, dass ihr Bericht widersprüchlich war.",
+   "keine Beweise enthielt.",
+   "und sie ihn schließlich widerriefen."
+  ],
+  "whole": "Die Polizei stellte fest, dass ihr Bericht widersprüchlich war. keine Beweise enthielt. und sie ihn schließlich widerriefen.",
+  "words": [
+   {
+    "text": "Die",
+    "start": 1.126,
+    "end": 1.286
+   },
+   {
+    "text": "Polizei",
+    "start": 1.286,
+    "end": 1.846
+   },
+   {
+    "text": "stellte",
+    "start": 1.846,
+    "end": 2.326
+   },
+   {
+    "text": "fest,",
+    "start": 2.326,
+    "end": 2.726
+   },
+   {
+    "text": "dass",
+    "start": 2.726,
+    "end": 2.966
+   },
+   {
+    "text": "ihr",
+    "start": 2.966,
+    "end": 3.126
+   },
+   {
+    "text": "Bericht",
+    "start": 3.206,
+    "end": 3.686
+   },
+   {
+    "text": "widersprüchlich",
+    "start": 3.686,
+    "end": 4.566
+   },
+   {
+    "text": "war.",
+    "start": 4.566,
+    "end": 4.886
+   },
+   {
+    "text": "keine",
+    "start": 5.526,
+    "end": 5.606
+   },
+   {
+    "text": "Beweise",
+    "start": 5.766,
+    "end": 6.246
+   },
+   {
+    "text": "enthielt.",
+    "start": 6.246,
+    "end": 6.966
+   },
+   {
+    "text": "und",
+    "start": 8.374,
+    "end": 8.694
+   },
+   {
+    "text": "sie",
+    "start": 8.694,
+    "end": 9.014
+   },
+   {
+    "text": "ihn",
+    "start": 9.014,
+    "end": 9.334
+   },
+   {
+    "text": "schließlich",
+    "start": 9.334,
+    "end": 9.894
+   },
+   {
+    "text": "widerriefen.",
+    "start": 9.894,
+    "end": 10.774
+   }
+  ]
+ },
+ "subset2-65": {
+  "segments": [
+   "Macht euch alle über die Millennials lustig.",
+   "Ihr werdet all die Karate Stunden.",
+   "die ihr uns gekauft habt, bereuen."
+  ],
+  "whole": "Macht euch alle über die Millennials lustig. Ihr werdet all die Karate Stunden. die ihr uns gekauft habt, bereuen.",
+  "words": [
+   {
+    "text": "Macht",
+    "start": 0.742,
+    "end": 1.062
+   },
+   {
+    "text": "euch",
+    "start": 1.062,
+    "end": 1.302
+   },
+   {
+    "text": "alle",
+    "start": 1.302,
+    "end": 1.542
+   },
+   {
+    "text": "über",
+    "start": 1.542,
+    "end": 1.782
+   },
+   {
+    "text": "die",
+    "start": 1.782,
+    "end": 2.022
+   },
+   {
+    "text": "Millennials",
+    "start": 2.022,
+    "end": 2.742
+   },
+   {
+    "text": "lustig.",
+    "start": 2.902,
+    "end": 3.462
+   },
+   {
+    "text": "Ihr",
+    "start": 4.582,
+    "end": 4.742
+   },
+   {
+    "text": "werdet",
+    "start": 4.742,
+    "end": 5.062
+   },
+   {
+    "text": "all",
+    "start": 5.222,
+    "end": 5.382
+   },
+   {
+    "text": "die",
+    "start": 5.382,
+    "end": 5.542
+   },
+   {
+    "text": "Karate",
+    "start": 5.542,
+    "end": 6.022
+   },
+   {
+    "text": "Stunden.",
+    "start": 6.102,
+    "end": 6.582
+   },
+   {
+    "text": "die",
+    "start": 6.79,
+    "end": 6.95
+   },
+   {
+    "text": "ihr",
+    "start": 6.95,
+    "end": 7.19
+   },
+   {
+    "text": "uns",
+    "start": 7.19,
+    "end": 7.35
+   },
+   {
+    "text": "gekauft",
+    "start": 7.35,
+    "end": 7.83
+   },
+   {
+    "text": "habt,",
+    "start": 7.83,
+    "end": 8.15
+   },
+   {
+    "text": "bereuen.",
+    "start": 8.15,
+    "end": 8.71
+   }
+  ]
+ },
+ "subset2-66": {
+  "segments": [
+   "über diesen typischen Untergrund transportierten",
+   "Die Fahrer die Fracht selbst.",
+   "und luden sie danach wieder den Kamelen auf."
+  ],
+  "whole": "über diesen typischen Untergrund transportierten Die Fahrer die Fracht selbst. und luden sie danach wieder den Kamelen auf.",
+  "words": [
+   {
+    "text": "über",
+    "start": 1.366,
+    "end": 1.526
+   },
+   {
+    "text": "diesen",
+    "start": 1.606,
+    "end": 2.006
+   },
+   {
+    "text": "typischen",
+    "start": 2.006,
+    "end": 2.566
+   },
+   {
+    "text": "Untergrund",
+    "start": 2.806,
+    "end": 3.526
+   },
+   {
+    "text": "transportierten",
+    "start": 3.526,
+    "end": 4.246
+   },
+   {
+    "text": "Die",
+    "start": 4.822,
+    "end": 4.902
+   },
+   {
+    "text": "Fahrer",
+    "start": 4.902,
+    "end": 5.302
+   },
+   {
+    "text": "die",
+    "start": 5.382,
+    "end": 5.542
+   },
+   {
+    "text": "Fracht",
+    "start": 5.542,
+    "end": 6.102
+   },
+   {
+    "text": "selbst.",
+    "start": 6.102,
+    "end": 6.502
+   },
+   {
+    "text": "und",
+    "start": 7.814,
+    "end": 7.974
+   },
+   {
+    "text": "luden",
+    "start": 7.974,
+    "end": 8.294
+   },
+   {
+    "text": "sie",
+    "start": 8.454,
+    "end": 8.614
+   },
+   {
+    "text": "danach",
+    "start": 8.614,
+    "end": 9.014
+   },
+   {
+    "text": "wieder",
+    "start": 9.014,
+    "end": 9.334
+   },
+   {
+    "text": "den",
+    "start": 9.334,
+    "end": 9.574
+   },
+   {
+    "text": "Kamelen",
+    "start": 9.574,
+    "end": 10.214
+   },
+   {
+    "text": "auf.",
+    "start": 10.294,
+    "end": 10.614
+   }
+  ]
+ },
+ "subset2-67": {
+  "segments": [
+   "Ich suche nach einer Bewegung von Asim Bkan.",
+   "die auf dem besten Kanal von Netflix zu sehen ist."
+  ],
+  "whole": "Ich suche nach einer Bewegung von Asim Bkan. die auf dem besten Kanal von Netflix zu sehen ist.",
+  "words": [
+   {
+    "text": "Ich",
+    "start": 1.078,
+    "end": 1.318
+   },
+   {
+    "text": "suche",
+    "start": 1.318,
+    "end": 1.798
+   },
+   {
+    "text": "nach",
+    "start": 1.798,
+    "end": 2.038
+   },
+   {
+    "text": "einer",
+    "start": 2.038,
+    "end": 2.278
+   },
+   {
+    "text": "Bewegung",
+    "start": 2.278,
+    "end": 2.838
+   },
+   {
+    "text": "von",
+    "start": 2.838,
+    "end": 2.998
+   },
+   {
+    "text": "Asim",
+    "start": 2.998,
+    "end": 3.478
+   },
+   {
+    "text": "Bkan.",
+    "start": 3.638,
+    "end": 4.278
+   },
+   {
+    "text": "die",
+    "start": 5.35,
+    "end": 5.59
+   },
+   {
+    "text": "auf",
+    "start": 5.59,
+    "end": 5.75
+   },
+   {
+    "text": "dem",
+    "start": 5.75,
+    "end": 5.91
+   },
+   {
+    "text": "besten",
+    "start": 5.91,
+    "end": 6.31
+   },
+   {
+    "text": "Kanal",
+    "start": 6.31,
+    "end": 6.71
+   },
+   {
+    "text": "von",
+    "start": 6.71,
+    "end": 6.95
+   },
+   {
+    "text": "Netflix",
+    "start": 6.95,
+    "end": 7.51
+   },
+   {
+    "text": "zu",
+    "start": 7.51,
+    "end": 7.67
+   },
+   {
+    "text": "sehen",
+    "start": 7.67,
+    "end": 7.99
+   },
+   {
+    "text": "ist.",
+    "start": 7.99,
+    "end": 8.39
+   }
+  ]
+ },
+ "subset2-68": {
+  "segments": [
+   "Die Kellnerin trug eine beeindruckende Menge Geschirr.",
+   "Doch dann ereignete sich ein Erdbeben und sie ließ alles fallen."
+  ],
+  "whole": "Die Kellnerin trug eine beeindruckende Menge Geschirr. Doch dann ereignete sich ein Erdbeben und sie ließ alles fallen.",
+  "words": [
+   {
+    "text": "Die",
+    "start": 1.03,
+    "end": 1.19
+   },
+   {
+    "text": "Kellnerin",
+    "start": 1.19,
+    "end": 1.91
+   },
+   {
+    "text": "trug",
+    "start": 1.91,
+    "end": 2.31
+   },
+   {
+    "text": "eine",
+    "start": 2.31,
+    "end": 2.47
+   },
+   {
+    "text": "beeindruckende",
+    "start": 2.47,
+    "end": 3.35
+   },
+   {
+    "text": "Menge",
+    "start": 3.35,
+    "end": 3.75
+   },
+   {
+    "text": "Geschirr.",
+    "start": 3.75,
+    "end": 4.31
+   },
+   {
+    "text": "Doch",
+    "start": 5.414,
+    "end": 5.654
+   },
+   {
+    "text": "dann",
+    "start": 5.654,
+    "end": 5.974
+   },
+   {
+    "text": "ereignete",
+    "start": 5.974,
+    "end": 6.614
+   },
+   {
+    "text": "sich",
+    "start": 6.694,
+    "end": 6.854
+   },
+   {
+    "text": "ein",
+    "start": 6.854,
+    "end": 7.014
+   },
+   {
+    "text": "Erdbeben",
+    "start": 7.014,
+    "end": 7.894
+   },
+   {
+    "text": "und",
+    "start": 7.894,
+    "end": 8.054
+   },
+   {
+    "text": "sie",
+    "start": 8.054,
+    "end": 8.294
+   },
+   {
+    "text": "ließ",
+    "start": 8.294,
+    "end": 8.614
+   },
+   {
+    "text": "alles",
+    "start": 8.614,
+    "end": 8.934
+   },
+   {
+    "text": "fallen.",
+    "start": 8.934,
+    "end": 9.334
+   }
+  ]
+ },
+ "subset2-69": {
+  "segments": [
+   "Die Aussicht auf die Stadt von da oben ist nicht schlecht.",
+   "Und es ist auch leicht zu finden."
+  ],
+  "whole": "Die Aussicht auf die Stadt von da oben ist nicht schlecht. Und es ist auch leicht zu finden.",
+  "words": [
+   {
+    "text": "Die",
+    "start": 0.646,
+    "end": 0.886
+   },
+   {
+    "text": "Aussicht",
+    "start": 0.886,
+    "end": 1.446
+   },
+   {
+    "text": "auf",
+    "start": 1.446,
+    "end": 1.606
+   },
+   {
+    "text": "die",
+    "start": 1.606,
+    "end": 1.766
+   },
+   {
+    "text": "Stadt",
+    "start": 1.766,
+    "end": 2.166
+   },
+   {
+    "text": "von",
+    "start": 2.166,
+    "end": 2.326
+   },
+   {
+    "text": "da",
+    "start": 2.326,
+    "end": 2.486
+   },
+   {
+    "text": "oben",
+    "start": 2.486,
+    "end": 2.886
+   },
+   {
+    "text": "ist",
+    "start": 2.886,
+    "end": 3.046
+   },
+   {
+    "text": "nicht",
+    "start": 3.046,
+    "end": 3.286
+   },
+   {
+    "text": "schlecht.",
+    "start": 3.286,
+    "end": 3.846
+   },
+   {
+    "text": "Und",
+    "start": 4.358,
+    "end": 4.598
+   },
+   {
+    "text": "es",
+    "start": 4.598,
+    "end": 4.838
+   },
+   {
+    "text": "ist",
+    "start": 4.838,
+    "end": 4.998
+   },
+   {
+    "text": "auch",
+    "start": 4.998,
+    "end": 5.238
+   },
+   {
+    "text": "leicht",
+    "start": 5.238,
+    "end": 5.558
+   },
+   {
+    "text": "zu",
+    "start": 5.558,
+    "end": 5.718
+   },
+   {
+    "text": "finden.",
+    "start": 5.718,
+    "end": 6.118
+   }
+  ]
+ },
+ "subset2-70": {
+  "segments": [
+   "Ich freue mich auf zunehmende Stabilität in meiner Position.",
+   "Darauf",
+   "mit dem gesamten Prozess fertig zu sein."
+  ],
+  "whole": "Ich freue mich auf zunehmende Stabilität in meiner Position. Darauf mit dem gesamten Prozess fertig zu sein.",
+  "words": [
+   {
+    "text": "Ich",
+    "start": 1.062,
+    "end": 1.302
+   },
+   {
+    "text": "freue",
+    "start": 1.302,
+    "end": 1.702
+   },
+   {
+    "text": "mich",
+    "start": 1.702,
+    "end": 1.942
+   },
+   {
+    "text": "auf",
+    "start": 1.942,
+    "end": 2.182
+   },
+   {
+    "text": "zunehmende",
+    "start": 2.182,
+    "end": 3.062
+   },
+   {
+    "text": "Stabilität",
+    "start": 3.062,
+    "end": 3.782
+   },
+   {
+    "text": "in",
+    "start": 3.782,
+    "end": 4.022
+   },
+   {
+    "text": "meiner",
+    "start": 4.022,
+    "end": 4.342
+   },
+   {
+    "text": "Position.",
+    "start": 4.342,
+    "end": 4.982
+   },
+   {
+    "text": "Darauf",
+    "start": 5.526,
+    "end": 5.926
+   },
+   {
+    "text": "mit",
+    "start": 7.398,
+    "end": 7.558
+   },
+   {
+    "text": "dem",
+    "start": 7.558,
+    "end": 7.718
+   },
+   {
+    "text": "gesamten",
+    "start": 7.718,
+    "end": 8.278
+   },
+   {
+    "text": "Prozess",
+    "start": 8.278,
+    "end": 8.838
+   },
+   {
+    "text": "fertig",
+    "start": 8.838,
+    "end": 9.238
+   },
+   {
+    "text": "zu",
+    "start": 9.238,
+    "end": 9.398
+   },
+   {
+    "text": "sein.",
+    "start": 9.398,
+    "end": 9.638
+   }
+  ]
+ },
+ "subset2-71": {
+  "segments": [
+   "Da fing der alte Mann an, die Schafe zu inspizieren.",
+   "Und er sah",
+   "das eines von ihnen lahmte."
+  ],
+  "whole": "Da fing der alte Mann an, die Schafe zu inspizieren. Und er sah das eines von ihnen lahmte.",
+  "words": [
+   {
+    "text": "Da",
+    "start": 1.03,
+    "end": 1.27
+   },
+   {
+    "text": "fing",
+    "start": 1.27,
+    "end": 1.75
+   },
+   {
+    "text": "der",
+    "start": 1.75,
+    "end": 1.83
+   },
+   {
+    "text": "alte",
+    "start": 1.83,
+    "end": 2.15
+   },
+   {
+    "text": "Mann",
+    "start": 2.15,
+    "end": 2.39
+   },
+   {
+    "text": "an,",
+    "start": 2.39,
+    "end": 2.63
+   },
+   {
+    "text": "die",
+    "start": 2.63,
+    "end": 2.79
+   },
+   {
+    "text": "Schafe",
+    "start": 2.79,
+    "end": 3.27
+   },
+   {
+    "text": "zu",
+    "start": 3.27,
+    "end": 3.43
+   },
+   {
+    "text": "inspizieren.",
+    "start": 3.43,
+    "end": 4.31
+   },
+   {
+    "text": "Und",
+    "start": 5.334,
+    "end": 5.494
+   },
+   {
+    "text": "er",
+    "start": 5.494,
+    "end": 5.654
+   },
+   {
+    "text": "sah",
+    "start": 5.654,
+    "end": 5.894
+   },
+   {
+    "text": "das",
+    "start": 6.678,
+    "end": 6.838
+   },
+   {
+    "text": "eines",
+    "start": 6.998,
+    "end": 7.318
+   },
+   {
+    "text": "von",
+    "start": 7.318,
+    "end": 7.558
+   },
+   {
+    "text": "ihnen",
+    "start": 7.558,
+    "end": 7.878
+   },
+   {
+    "text": "lahmte.",
+    "start": 7.878,
+    "end": 8.518
+   }
+  ]
+ },
+ "subset2-72": {
+  "segments": [
+   "Ein Mann in einem blauen Hemd steht und hält sein Regenschirm.",
+   "während das Wasser um ihm herum aufsteigt."
+  ],
+  "whole": "Ein Mann in einem blauen Hemd steht und hält sein Regenschirm. während das Wasser um ihm herum aufsteigt.",
+  "words": [
+   {
+    "text": "Ein",
+    "start": 0.806,
+    "end": 1.046
+   },
+   {
+    "text": "Mann",
+    "start": 1.046,
+    "end": 1.286
+   },
+   {
+    "text": "in",
+    "start": 1.286,
+    "end": 1.526
+   },
+   {
+    "text": "einem",
+    "start": 1.526,
+    "end": 1.766
+   },
+   {
+    "text": "blauen",
+    "start": 1.766,
+    "end": 2.166
+   },
+   {
+    "text": "Hemd",
+    "start": 2.166,
+    "end": 2.646
+   },
+   {
+    "text": "steht",
+    "start": 2.806,
+    "end": 3.126
+   },
+   {
+    "text": "und",
+    "start": 3.126,
+    "end": 3.286
+   },
+   {
+    "text": "hält",
+    "start": 3.286,
+    "end": 3.606
+   },
+   {
+    "text": "sein",
+    "start": 3.606,
+    "end": 3.766
+   },
+   {
+    "text": "Regenschirm.",
+    "start": 3.846,
+    "end": 4.566
+   },
+   {
+    "text": "während",
+    "start": 5.478,
+    "end": 6.038
+   },
+   {
+    "text": "das",
+    "start": 6.038,
+    "end": 6.198
+   },
+   {
+    "text": "Wasser",
+    "start": 6.198,
+    "end": 6.758
+   },
+   {
+    "text": "um",
+    "start": 6.758,
+    "end": 7.078
+   },
+   {
+    "text": "ihm",
+    "start": 7.078,
+    "end": 7.398
+   },
+   {
+    "text": "herum",
+    "start": 7.398,
+    "end": 7.798
+   },
+   {
+    "text": "aufsteigt.",
+    "start": 7.798,
+    "end": 8.518
+   }
+  ]
+ },
+ "subset2-73": {
+  "segments": [
+   "Er schloss die Schule in der nähende Horton School.",
+   "and studierte später in der Acadia University."
+  ],
+  "whole": "Er schloss die Schule in der nähende Horton School. and studierte später in der Acadia University.",
+  "words": [
+   {
+    "text": "Er",
+    "start": 1.03,
+    "end": 1.19
+   },
+   {
+    "text": "schloss",
+    "start": 1.19,
+    "end": 1.75
+   },
+   {
+    "text": "die",
+    "start": 1.75,
+    "end": 1.91
+   },
+   {
+    "text": "Schule",
+    "start": 1.91,
+    "end": 2.31
+   },
+   {
+    "text": "in",
+    "start": 2.31,
+    "end": 2.47
+   },
+   {
+    "text": "der",
+    "start": 2.47,
+    "end": 2.71
+   },
+   {
+    "text": "nähende",
+    "start": 2.71,
+    "end": 3.59
+   },
+   {
+    "text": "Horton",
+    "start": 3.75,
+    "end": 4.31
+   },
+   {
+    "text": "School.",
+    "start": 4.47,
+    "end": 4.87
+   },
+   {
+    "text": "and",
+    "start": 6.182,
+    "end": 6.422
+   },
+   {
+    "text": "studierte",
+    "start": 6.422,
+    "end": 6.982
+   },
+   {
+    "text": "später",
+    "start": 7.142,
+    "end": 7.622
+   },
+   {
+    "text": "in",
+    "start": 7.542,
+    "end": 7.702
+   },
+   {
+    "text": "der",
+    "start": 7.702,
+    "end": 7.862
+   },
+   {
+    "text": "Acadia",
+    "start": 7.862,
+    "end": 8.742
+   },
+   {
+    "text": "University.",
+    "start": 8.742,
+    "end": 9.302
+   }
+  ]
+ },
+ "subset2-74": {
+  "segments": [
+   "Eine Gruppe von Personen in weißen Gewändern mit einem Flammenmuster.",
+   "Posieren für ein Bild auf einer Art Festival."
+  ],
+  "whole": "Eine Gruppe von Personen in weißen Gewändern mit einem Flammenmuster. Posieren für ein Bild auf einer Art Festival.",
+  "words": [
+   {
+    "text": "Eine",
+    "start": 0.998,
+    "end": 1.238
+   },
+   {
+    "text": "Gruppe",
+    "start": 1.238,
+    "end": 1.638
+   },
+   {
+    "text": "von",
+    "start": 1.638,
+    "end": 1.878
+   },
+   {
+    "text": "Personen",
+    "start": 1.878,
+    "end": 2.358
+   },
+   {
+    "text": "in",
+    "start": 2.358,
+    "end": 2.518
+   },
+   {
+    "text": "weißen",
+    "start": 2.518,
+    "end": 2.998
+   },
+   {
+    "text": "Gewändern",
+    "start": 2.998,
+    "end": 3.718
+   },
+   {
+    "text": "mit",
+    "start": 3.798,
+    "end": 3.958
+   },
+   {
+    "text": "einem",
+    "start": 3.958,
+    "end": 4.198
+   },
+   {
+    "text": "Flammenmuster.",
+    "start": 4.198,
+    "end": 5.398
+   },
+   {
+    "text": "Posieren",
+    "start": 6.438,
+    "end": 6.918
+   },
+   {
+    "text": "für",
+    "start": 7.078,
+    "end": 7.238
+   },
+   {
+    "text": "ein",
+    "start": 7.238,
+    "end": 7.398
+   },
+   {
+    "text": "Bild",
+    "start": 7.398,
+    "end": 7.718
+   },
+   {
+    "text": "auf",
+    "start": 7.718,
+    "end": 7.958
+   },
+   {
+    "text": "einer",
+    "start": 7.958,
+    "end": 8.118
+   },
+   {
+    "text": "Art",
+    "start": 8.278,
+    "end": 8.598
+   },
+   {
+    "text": "Festival.",
+    "start": 8.598,
+    "end": 9.158
+   }
+  ]
+ },
+ "subset2-75": {
+  "segments": [
+   "Ich habe mich gefragt.",
+   "du an diesem Projekt mit mir arbeiten würdest.",
+   "Weil ich niemanden finden kann."
+  ],
+  "whole": "Ich habe mich gefragt. du an diesem Projekt mit mir arbeiten würdest. Weil ich niemanden finden kann.",
+  "words": [
+   {
+    "text": "Ich",
+    "start": 1.446,
+    "end": 1.526
+   },
+   {
+    "text": "habe",
+    "start": 1.606,
+    "end": 1.846
+   },
+   {
+    "text": "mich",
+    "start": 1.846,
+    "end": 2.006
+   },
+   {
+    "text": "gefragt.",
+    "start": 2.006,
+    "end": 2.726
+   },
+   {
+    "text": "du",
+    "start": 3.43,
+    "end": 3.59
+   },
+   {
+    "text": "an",
+    "start": 3.59,
+    "end": 3.75
+   },
+   {
+    "text": "diesem",
+    "start": 3.75,
+    "end": 4.07
+   },
+   {
+    "text": "Projekt",
+    "start": 4.07,
+    "end": 4.71
+   },
+   {
+    "text": "mit",
+    "start": 4.71,
+    "end": 4.95
+   },
+   {
+    "text": "mir",
+    "start": 4.95,
+    "end": 5.27
+   },
+   {
+    "text": "arbeiten",
+    "start": 5.27,
+    "end": 5.83
+   },
+   {
+    "text": "würdest.",
+    "start": 5.83,
+    "end": 6.39
+   },
+   {
+    "text": "Weil",
+    "start": 7.366,
+    "end": 7.686
+   },
+   {
+    "text": "ich",
+    "start": 7.686,
+    "end": 7.926
+   },
+   {
+    "text": "niemanden",
+    "start": 7.926,
+    "end": 8.406
+   },
+   {
+    "text": "finden",
+    "start": 8.566,
+    "end": 8.806
+   },
+   {
+    "text": "kann.",
+    "start": 8.806,
+    "end": 9.046
+   }
+  ]
+ },
+ "subset2-76": {
+  "segments": [
+   "Dies wird ihnen helfen, mit Entwicklern wirksam zusammenzuarbeiten.",
+   "und teamübergreifende Projekte im Verlauf ihrer gesamten Karriere zu koordinieren."
+  ],
+  "whole": "Dies wird ihnen helfen, mit Entwicklern wirksam zusammenzuarbeiten. und teamübergreifende Projekte im Verlauf ihrer gesamten Karriere zu koordinieren.",
+  "words": [
+   {
+    "text": "Dies",
+    "start": 0.838,
+    "end": 1.158
+   },
+   {
+    "text": "wird",
+    "start": 1.318,
+    "end": 1.558
+   },
+   {
+    "text": "ihnen",
+    "start": 1.558,
+    "end": 1.798
+   },
+   {
+    "text": "helfen,",
+    "start": 1.798,
+    "end": 2.358
+   },
+   {
+    "text": "mit",
+    "start": 2.358,
+    "end": 2.518
+   },
+   {
+    "text": "Entwicklern",
+    "start": 2.518,
+    "end": 3.158
+   },
+   {
+    "text": "wirksam",
+    "start": 3.318,
+    "end": 3.798
+   },
+   {
+    "text": "zusammenzuarbeiten.",
+    "start": 3.798,
+    "end": 4.918
+   },
+   {
+    "text": "und",
+    "start": 5.798,
+    "end": 6.118
+   },
+   {
+    "text": "teamübergreifende",
+    "start": 6.118,
+    "end": 7.558
+   },
+   {
+    "text": "Projekte",
+    "start": 7.558,
+    "end": 8.198
+   },
+   {
+    "text": "im",
+    "start": 8.198,
+    "end": 8.438
+   },
+   {
+    "text": "Verlauf",
+    "start": 8.438,
+    "end": 8.918
+   },
+   {
+    "text": "ihrer",
+    "start": 8.918,
+    "end": 9.238
+   },
+   {
+    "text": "gesamten",
+    "start": 9.238,
+    "end": 9.718
+   },
+   {
+    "text": "Karriere",
+    "start": 9.718,
+    "end": 10.278
+   },
+   {
+    "text": "zu",
+    "start": 10.278,
+    "end": 10.438
+   },
+   {
+    "text": "koordinieren.",
+    "start": 10.438,
+    "end": 11.238
+   }
+  ]
+ },
+ "subset2-77": {
+  "segments": [
+   "Ich habe gehört, dass das Land, in dem die Hobbits leben, das Auenland,",
+   "tatsächlich in Neuseeland gefilmt wurde."
+  ],
+  "whole": "Ich habe gehört, dass das Land, in dem die Hobbits leben, das Auenland, tatsächlich in Neuseeland gefilmt wurde.",
+  "words": [
+   {
+    "text": "Ich",
+    "start": 0.806,
+    "end": 1.126
+   },
+   {
+    "text": "habe",
+    "start": 1.126,
+    "end": 1.446
+   },
+   {
+    "text": "gehört,",
+    "start": 1.446,
+    "end": 2.086
+   },
+   {
+    "text": "dass",
+    "start": 2.086,
+    "end": 2.326
+   },
+   {
+    "text": "das",
+    "start": 2.326,
+    "end": 2.486
+   },
+   {
+    "text": "Land,",
+    "start": 2.486,
+    "end": 2.806
+   },
+   {
+    "text": "in",
+    "start": 2.806,
+    "end": 2.966
+   },
+   {
+    "text": "dem",
+    "start": 2.966,
+    "end": 3.206
+   },
+   {
+    "text": "die",
+    "start": 3.206,
+    "end": 3.366
+   },
+   {
+    "text": "Hobbits",
+    "start": 3.366,
+    "end": 3.926
+   },
+   {
+    "text": "leben,",
+    "start": 3.926,
+    "end": 4.246
+   },
+   {
+    "text": "das",
+    "start": 4.406,
+    "end": 4.566
+   },
+   {
+    "text": "Auenland,",
+    "start": 4.566,
+    "end": 5.366
+   },
+   {
+    "text": "tatsächlich",
+    "start": 6.358,
+    "end": 6.918
+   },
+   {
+    "text": "in",
+    "start": 6.918,
+    "end": 7.078
+   },
+   {
+    "text": "Neuseeland",
+    "start": 7.078,
+    "end": 7.878
+   },
+   {
+    "text": "gefilmt",
+    "start": 7.878,
+    "end": 8.358
+   },
+   {
+    "text": "wurde.",
+    "start": 8.358,
+    "end": 8.678
+   }
+  ]
+ },
+ "subset2-78": {
+  "segments": [
+   "Selbst wenn sie ein wirklicher Experte sind.",
+   "ist es aus Zeitmangel nicht möglich, altes Material zu lesen."
+  ],
+  "whole": "Selbst wenn sie ein wirklicher Experte sind. ist es aus Zeitmangel nicht möglich, altes Material zu lesen.",
+  "words": [
+   {
+    "text": "Selbst",
+    "start": 0.998,
+    "end": 1.478
+   },
+   {
+    "text": "wenn",
+    "start": 1.478,
+    "end": 1.718
+   },
+   {
+    "text": "sie",
+    "start": 1.718,
+    "end": 2.038
+   },
+   {
+    "text": "ein",
+    "start": 2.038,
+    "end": 2.278
+   },
+   {
+    "text": "wirklicher",
+    "start": 2.278,
+    "end": 2.598
+   },
+   {
+    "text": "Experte",
+    "start": 2.678,
+    "end": 3.318
+   },
+   {
+    "text": "sind.",
+    "start": 3.318,
+    "end": 3.718
+   },
+   {
+    "text": "ist",
+    "start": 4.902,
+    "end": 5.062
+   },
+   {
+    "text": "es",
+    "start": 5.062,
+    "end": 5.302
+   },
+   {
+    "text": "aus",
+    "start": 5.302,
+    "end": 5.542
+   },
+   {
+    "text": "Zeitmangel",
+    "start": 5.542,
+    "end": 6.502
+   },
+   {
+    "text": "nicht",
+    "start": 6.502,
+    "end": 6.662
+   },
+   {
+    "text": "möglich,",
+    "start": 6.662,
+    "end": 7.302
+   },
+   {
+    "text": "altes",
+    "start": 7.302,
+    "end": 7.862
+   },
+   {
+    "text": "Material",
+    "start": 7.862,
+    "end": 8.422
+   },
+   {
+    "text": "zu",
+    "start": 8.422,
+    "end": 8.582
+   },
+   {
+    "text": "lesen.",
+    "start": 8.582,
+    "end": 9.062
+   }
+  ]
+ },
+ "subset2-79": {
+  "segments": [
+   "Es waren wirklich",
+   "glaube ich, zwei oder dreihundert Leute.",
+   "die sich gegenseitig den Ellbogen in den Rippen rahmt."
+  ],
+  "whole": "Es waren wirklich glaube ich, zwei oder dreihundert Leute. die sich gegenseitig den Ellbogen in den Rippen rahmt.",
+  "words": [
+   {
+    "text": "Es",
+    "start": 0.63,
+    "end": 0.87
+   },
+   {
+    "text": "waren",
+    "start": 0.87,
+    "end": 1.11
+   },
+   {
+    "text": "wirklich",
+    "start": 1.27,
+    "end": 1.51
+   },
+   {
+    "text": "glaube",
+    "start": 2.086,
+    "end": 2.326
+   },
+   {
+    "text": "ich,",
+    "start": 2.406,
+    "end": 2.726
+   },
+   {
+    "text": "zwei",
+    "start": 2.726,
+    "end": 3.046
+   },
+   {
+    "text": "oder",
+    "start": 3.126,
+    "end": 3.366
+   },
+   {
+    "text": "dreihundert",
+    "start": 3.366,
+    "end": 4.086
+   },
+   {
+    "text": "Leute.",
+    "start": 4.086,
+    "end": 4.646
+   },
+   {
+    "text": "die",
+    "start": 5.766,
+    "end": 5.926
+   },
+   {
+    "text": "sich",
+    "start": 5.926,
+    "end": 6.086
+   },
+   {
+    "text": "gegenseitig",
+    "start": 6.086,
+    "end": 6.806
+   },
+   {
+    "text": "den",
+    "start": 6.806,
+    "end": 6.966
+   },
+   {
+    "text": "Ellbogen",
+    "start": 6.966,
+    "end": 7.526
+   },
+   {
+    "text": "in",
+    "start": 7.526,
+    "end": 7.606
+   },
+   {
+    "text": "den",
+    "start": 7.606,
+    "end": 7.766
+   },
+   {
+    "text": "Rippen",
+    "start": 7.766,
+    "end": 8.086
+   },
+   {
+    "text": "rahmt.",
+    "start": 8.086,
+    "end": 8.486
+   }
+  ]
+ },
+ "subset2-80": {
+  "segments": [
+   "Sie wurde in die Straße von Bougenville geschickt und machte erneut viele Kontakt.",
+   "konnte aber keine Ergebnisse erzielen."
+  ],
+  "whole": "Sie wurde in die Straße von Bougenville geschickt und machte erneut viele Kontakt. konnte aber keine Ergebnisse erzielen.",
+  "words": [
+   {
+    "text": "Sie",
+    "start": 0.454,
+    "end": 0.774
+   },
+   {
+    "text": "wurde",
+    "start": 0.774,
+    "end": 1.014
+   },
+   {
+    "text": "in",
+    "start": 1.014,
+    "end": 1.174
+   },
+   {
+    "text": "die",
+    "start": 1.174,
+    "end": 1.254
+   },
+   {
+    "text": "Straße",
+    "start": 1.254,
+    "end": 1.734
+   },
+   {
+    "text": "von",
+    "start": 1.734,
+    "end": 1.894
+   },
+   {
+    "text": "Bougenville",
+    "start": 1.894,
+    "end": 2.694
+   },
+   {
+    "text": "geschickt",
+    "start": 2.774,
+    "end": 3.254
+   },
+   {
+    "text": "und",
+    "start": 3.254,
+    "end": 3.414
+   },
+   {
+    "text": "machte",
+    "start": 3.414,
+    "end": 3.814
+   },
+   {
+    "text": "erneut",
+    "start": 3.814,
+    "end": 4.294
+   },
+   {
+    "text": "viele",
+    "start": 4.294,
+    "end": 4.534
+   },
+   {
+    "text": "Kontakt.",
+    "start": 4.534,
+    "end": 5.094
+   },
+   {
+    "text": "konnte",
+    "start": 6.854,
+    "end": 7.254
+   },
+   {
+    "text": "aber",
+    "start": 7.334,
+    "end": 7.574
+   },
+   {
+    "text": "keine",
+    "start": 7.574,
+    "end": 7.894
+   },
+   {
+    "text": "Ergebnisse",
+    "start": 7.894,
+    "end": 8.534
+   },
+   {
+    "text": "erzielen.",
+    "start": 8.534,
+    "end": 9.094
+   }
+  ]
+ }
+}

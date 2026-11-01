@@ -1,0 +1,4 @@
+subset2-7[1] 8.14s target×0.79 | src 'Something moved deep underground, and earthquake detectors far away measured the vibrations.' (25 syl) → MT 'Algo se movió en lo profundo de la tierra, y detectores de terremotos lejanos midieron las vibraciones.' | expansion 0.266s/syl → write source of ~29 syl; units here: ['u1:core', 'u2:core', 'u3:core', 'u4:support']
+subset2-14[1] 1.48s target×0.64 | src 'The boy searched' (4 syl) → MT 'El chico buscó' | expansion 0.279s/syl → write source of ~5 syl; units here: ['u1:core']
+subset2-15[1] 3.43s target×1.05 | src 'It has basic functions to connect to the eye tracker,' (14 syl) → MT 'Tiene funciones básicas para conectarse al rastreador ocular,' | expansion 0.268s/syl → write source of ~12 syl; units here: ['u1:core', 'u2:core']
+subset2-16[2] 0.48s target×0.00 | src '' (0 syl) → MT '' | expansion 0.274s/syl → write source of ~2 syl; units here: []

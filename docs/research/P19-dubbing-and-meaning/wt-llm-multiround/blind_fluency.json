@@ -1,0 +1,61 @@
+{
+ "judge": "Claude, blind shuffled lists; strict on naturalness",
+ "new_phrases": [
+  "already regretting coming.",
+  "so I'd strongly urge you not to go ahead with it.",
+  "What do you want from me?",
+  "That damn mouse could sense how angry I was.",
+  "but the honest truth is that I really couldn't care less.",
+  "When he kissed her on the cheek, all of a sudden she blushed",
+  "The moment that you spell out a word,",
+  "so it's kind of crazy to think what happened right after.",
+  "to it – but not to help it.",
+  "She keeps saying she doesn't regret moving home,",
+  "I think rhymes are fine, they never get old, I could do this all day.",
+  "but Mirco really felt out of place there.",
+  "I love to hear from others too,",
+  "so post your ideas in the comments and tell me what I could do better.",
+  "but pocketed his keys,",
+  "and Malcolm Calder, were also long-serving representatives.",
+  "to be measured by quake early-warning systems hundreds of miles away.",
+  "When a fox hears a rabbit scream, it runs",
+  "Stop treating me like I'm a little child.",
+  "The couple had a daughter named Grace, and a son, Henry.",
+  "and with the action that lets you move a file quickly.",
+  "for getting position data, and for activating the current gaze point.",
+  "and to work.",
+  "that reflects their years of touring around.",
+  "Joan Lindros, as well as Bill Holsworth",
+  "When foxes hear a rabbit scream, they run",
+  "I'm going to stop him completely.",
+  "and starts giving orders, heavily accented.",
+  "he looked in the space under the floor.",
+  "All of the birds began to sing in the very first light of dawn."
+ ],
+ "new_bad": [
+  27,
+  28
+ ],
+ "results": {
+  "R3": {
+   "fluent_segments": 1.0,
+   "lines_all_fluent": 1.0,
+   "unjudged": 0
+  },
+  "R4": {
+   "fluent_segments": 1.0,
+   "lines_all_fluent": 1.0,
+   "unjudged": 0
+  },
+  "R5": {
+   "fluent_segments": 0.988,
+   "lines_all_fluent": 0.978,
+   "unjudged": 0
+  },
+  "R6": {
+   "fluent_segments": 0.976,
+   "lines_all_fluent": 0.956,
+   "unjudged": 0
+  }
+ }
+}

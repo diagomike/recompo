@@ -1,0 +1,34 @@
+{
+ "MT whole line + placement": {
+  "voice_overlap": 0.836,
+  "in_band": 0.31,
+  "within_20pct": 0.586,
+  "over_1.1": 0.552,
+  "median_ratio": 1.151,
+  "meaning_weighted": 1.0
+ },
+ "MT per segment (original chunks)": {
+  "voice_overlap": 0.837,
+  "in_band": 0.321,
+  "within_20pct": 0.536,
+  "over_1.1": 0.571,
+  "median_ratio": 1.164,
+  "meaning_weighted": 1.0
+ },
+ "Two-sided round 1": {
+  "voice_overlap": 0.881,
+  "in_band": 0.643,
+  "within_20pct": 0.821,
+  "over_1.1": 0.071,
+  "median_ratio": 0.895,
+  "meaning_weighted": 0.978
+ },
+ "Two-sided round 2": {
+  "voice_overlap": 0.905,
+  "in_band": 0.857,
+  "within_20pct": 0.929,
+  "over_1.1": 0.0,
+  "median_ratio": 0.915,
+  "meaning_weighted": 0.978
+ }
+}

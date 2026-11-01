@@ -1,0 +1,1864 @@
+{
+ "subset2-81": {
+  "2": [
+   {
+    "src": "click the red button below to end the recording.",
+    "units": [
+     "u2",
+     "u3"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "click the lower red button to stop the recording.",
+    "units": [
+     "u2",
+     "u3"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   },
+   {
+    "src": "haz clic en el botón rojo de abajo para terminar la grabación.",
+    "units": [
+     "u2",
+     "u3"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "pulsa el botón rojo inferior para detener la grabación.",
+    "units": [
+     "u2",
+     "u3"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ],
+  "1": [
+   {
+    "src": "When you've finished the sentence,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "Once you have finished the sentence,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   },
+   {
+    "src": "Cuando hayas terminado la frase,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "Cuando acabes la frase,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ]
+ },
+ "subset2-82": {
+  "2": [
+   {
+    "src": "butterflies are a good sign.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "butterflies are a good omen.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   },
+   {
+    "src": "las mariposas son una buena señal.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "las mariposas traen buena suerte.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ],
+  "1": [
+   {
+    "src": "He remembered something his grandfather had once told him:",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "He remembered what his grandfather had once told him:",
+    "units": [
+     "u1"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   },
+   {
+    "src": "Recordó algo que su abuelo le había dicho una vez:",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "Se acordó de lo que una vez le dijo su abuelo:",
+    "units": [
+     "u1"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ]
+ },
+ "subset2-83": {
+  "4": [
+   {
+    "src": "better grief with fat than grief with lean.",
+    "units": [
+     "u4"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "a fat sorrow beats a lean one.",
+    "units": [
+     "u4"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   },
+   {
+    "src": "más vale pena gorda que pena flaca.",
+    "units": [
+     "u4"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "mejor una pena gorda que una pena flaca.",
+    "units": [
+     "u4"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ],
+  "3": [
+   {
+    "src": "are easier to bear,",
+    "units": [
+     "u3"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "are lighter,",
+    "units": [
+     "u3"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   },
+   {
+    "src": "se llevan mejor,",
+    "units": [
+     "u3"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "son menos,",
+    "units": [
+     "u3"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ],
+  "2": [
+   {
+    "src": "bread",
+    "units": [
+     "u2"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "",
+    "units": [],
+    "strategy": "alt",
+    "lang": "en"
+   },
+   {
+    "src": "pan",
+    "units": [
+     "u2"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "",
+    "units": [],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ],
+  "1": [
+   {
+    "src": "Sorrows with something to eat",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "All sorrows with food",
+    "units": [
+     "u1"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   },
+   {
+    "src": "Las penas con algo de comer",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "Todas las penas con comida",
+    "units": [
+     "u1"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ]
+ },
+ "subset2-84": {
+  "3": [
+   {
+    "src": "since I met the merchant's daughter.",
+    "units": [
+     "u3"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "since meeting the merchant's daughter.",
+    "units": [
+     "u3"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   },
+   {
+    "src": "desde que conocí a la hija del comerciante.",
+    "units": [
+     "u3"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "desde que conozco a la hija del mercader.",
+    "units": [
+     "u3"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ],
+  "2": [
+   {
+    "src": "haven't thought of other women",
+    "units": [
+     "u2"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "have thought of other women",
+    "units": [
+     "u2"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   },
+   {
+    "src": "he pensado en otras mujeres",
+    "units": [
+     "u2"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "no he pensado en otras mujeres",
+    "units": [
+     "u2"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ],
+  "1": [
+   {
+    "src": "Even I",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "Not even I",
+    "units": [
+     "u1"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   },
+   {
+    "src": "Ni siquiera yo",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "Incluso yo",
+    "units": [
+     "u1"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ]
+ },
+ "subset2-85": {
+  "2": [
+   {
+    "src": "not just a few.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "not just some.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   },
+   {
+    "src": "no solo algunas.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "no solo unas pocas.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ],
+  "1": [
+   {
+    "src": "It would be very useful if my web browser could synchronize all its preferences,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "It would be really useful if my browser could sync all of its settings,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   },
+   {
+    "src": "Sería muy útil que mi navegador pudiera sincronizar todas sus preferencias,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "Sería muy práctico que mi navegador web sincronizara todos sus ajustes,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ]
+ },
+ "subset2-86": {
+  "2": [
+   {
+    "src": "we can't afford to waste electricity.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "we can't afford electricity.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   },
+   {
+    "src": "no podemos permitirnos gastar electricidad.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "la electricidad no nos la podemos permitir.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ],
+  "1": [
+   {
+    "src": "Open the shutters and turn off the lights,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "Open the shutters, switch off the lights,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   },
+   {
+    "src": "Abre las persianas y apaga las luces,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "Abre las contraventanas y apaga la luz,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ]
+ },
+ "subset2-87": {
+  "2": [
+   {
+    "src": "the cash machine said her card was invalid.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "the ATM said her card was not valid.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   },
+   {
+    "src": "el cajero automático le dijo que su tarjeta no era válida.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "el cajero indicó que su tarjeta no valía.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ],
+  "1": [
+   {
+    "src": "When she wanted to withdraw money from her bank account,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "When she tried to take money out of her account,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   },
+   {
+    "src": "Cuando quiso sacar dinero de su cuenta bancaria,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "Cuando intentó retirar dinero de su cuenta,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ]
+ },
+ "subset2-88": {
+  "2": [
+   {
+    "src": "a neighbour suspected she probably hadn't come home last night.",
+    "units": [
+     "u2",
+     "u3"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "a neighbour thought she hadn't come home last night.",
+    "units": [
+     "u2",
+     "u3"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   },
+   {
+    "src": "un vecino sospechaba que probablemente no había vuelto a casa anoche.",
+    "units": [
+     "u2",
+     "u3"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "un vecino creía que anoche no había vuelto a casa.",
+    "units": [
+     "u2",
+     "u3"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ],
+  "1": [
+   {
+    "src": "She wasn't home;",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "She was not at home;",
+    "units": [
+     "u1"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   },
+   {
+    "src": "No estaba en casa;",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "Ella no estaba en casa;",
+    "units": [
+     "u1"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ]
+ },
+ "subset2-89": {
+  "2": [
+   {
+    "src": "listening closely to their conversation.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "listening to what they said.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   },
+   {
+    "src": "escuchando atentamente su conversación.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "escuchando lo que decían.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ],
+  "1": [
+   {
+    "src": "The boy noticed that the bar owner was standing nearby,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "The boy saw that the owner of the bar stood close by,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   },
+   {
+    "src": "El chico notó que el dueño del bar estaba cerca,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "El muchacho se dio cuenta de que el dueño del bar estaba de pie cerca,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ]
+ },
+ "subset2-90": {
+  "2": [
+   {
+    "src": "so mining is carried out on a large scale.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "so there is a lot of mining here.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   },
+   {
+    "src": "por eso la minería se practica a gran escala.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "así que aquí hay mucha minería.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ],
+  "1": [
+   {
+    "src": "The region is known for its rich copper deposits,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "The region is famous for its rich copper deposits,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   },
+   {
+    "src": "La región es conocida por sus ricos yacimientos de cobre,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "La región es famosa por sus ricos depósitos de cobre,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ]
+ },
+ "subset2-91": {
+  "2": [
+   {
+    "src": "and quickly walked away.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "and hurried off.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   },
+   {
+    "src": "y se marchó deprisa.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "y se fue rápido.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ],
+  "1": [
+   {
+    "src": "The woman said she had never heard of such a person",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "The woman said that she had never heard of anyone like that",
+    "units": [
+     "u1"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   },
+   {
+    "src": "La mujer dijo que nunca había oído hablar de una persona así",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "La mujer dijo que jamás había oído hablar de alguien así",
+    "units": [
+     "u1"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ]
+ },
+ "subset2-92": {
+  "3": [
+   {
+    "src": "he did the same.",
+    "units": [
+     "u3"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "he smiled back.",
+    "units": [
+     "u3"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   },
+   {
+    "src": "él hizo lo mismo.",
+    "units": [
+     "u3"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "él también sonrió.",
+    "units": [
+     "u3"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ],
+  "2": [
+   {
+    "src": "and when she smiled,",
+    "units": [
+     "u2"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "and as she smiled,",
+    "units": [
+     "u2"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   },
+   {
+    "src": "y cuando ella sonrió,",
+    "units": [
+     "u2"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "y al sonreír ella,",
+    "units": [
+     "u2"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ],
+  "1": [
+   {
+    "src": "The boy stepped closer to the girl,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "The boy moved closer to the girl,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   },
+   {
+    "src": "El chico se acercó a la chica,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "El muchacho se acercó más a la muchacha,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ]
+ },
+ "subset2-93": {
+  "3": [
+   {
+    "src": "and make it better.",
+    "units": [
+     "u3"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "and improve it.",
+    "units": [
+     "u3"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   },
+   {
+    "src": "y mejóralo.",
+    "units": [
+     "u3"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "y hazlo mejor.",
+    "units": [
+     "u3"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ],
+  "2": [
+   {
+    "src": "take it",
+    "units": [
+     "u2"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "then take it",
+    "units": [
+     "u2"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   },
+   {
+    "src": "tómalo",
+    "units": [
+     "u2"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "cógelo",
+    "units": [
+     "u2"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ],
+  "1": [
+   {
+    "src": "If you see something you like,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "If you see anything you like,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   },
+   {
+    "src": "Si ves algo que te gusta,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "Si ves algo que te guste,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ]
+ },
+ "subset2-94": {
+  "3": [
+   {
+    "src": "whether the woman knew about the Egyptian pyramids.",
+    "units": [
+     "u3"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "if the woman knew of the Egyptian pyramids.",
+    "units": [
+     "u3"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   },
+   {
+    "src": "si la mujer sabía de las pirámides de Egipto.",
+    "units": [
+     "u3"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "si la mujer conocía las pirámides egipcias.",
+    "units": [
+     "u3"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ],
+  "2": [
+   {
+    "src": "to check",
+    "units": [
+     "u2"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "to see",
+    "units": [
+     "u2"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   },
+   {
+    "src": "para comprobar",
+    "units": [
+     "u2"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "para ver",
+    "units": [
+     "u2"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ],
+  "1": [
+   {
+    "src": "He paused for a moment",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "He stopped for a moment",
+    "units": [
+     "u1"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   },
+   {
+    "src": "Hizo una pausa",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "Se detuvo un momento",
+    "units": [
+     "u1"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ]
+ },
+ "subset2-95": {
+  "2": [
+   {
+    "src": "the commitment against apartheid was dropped.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "the commitment against apartheid faded away.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   },
+   {
+    "src": "el compromiso contra el apartheid se abandonó.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "el compromiso contra el apartheid se desvaneció.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ],
+  "1": [
+   {
+    "src": "However, after the Labour Party came to power,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "But after the Labour Party came to power,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   },
+   {
+    "src": "Sin embargo, cuando el Partido Laborista llegó al poder,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "Pero tras la llegada al poder del Partido Laborista,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ]
+ },
+ "subset2-96": {
+  "2": [
+   {
+    "src": "after coming up through Real Madrid's youth academy.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "after coming from the Real Madrid youth academy.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   },
+   {
+    "src": "tras salir de la cantera del Real Madrid.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "después de formarse en la cantera del Real Madrid.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ],
+  "1": [
+   {
+    "src": "He made a name for himself at Getafe",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "He became known at Getafe",
+    "units": [
+     "u1"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   },
+   {
+    "src": "Se hizo un nombre en el Getafe",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "Se dio a conocer en el Getafe",
+    "units": [
+     "u1"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ]
+ },
+ "subset2-97": {
+  "2": [
+   {
+    "src": "yesterday's tsunami was only a harbinger of the coming apocalypse.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "yesterday's tsunami was just a sign of the coming apocalypse.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   },
+   {
+    "src": "el tsunami de ayer fue solo un presagio del apocalipsis que se avecina.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "el tsunami de ayer solo anunciaba el apocalipsis que viene.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ],
+  "1": [
+   {
+    "src": "Geology experts agree:",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "Experts in geology agree:",
+    "units": [
+     "u1"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   },
+   {
+    "src": "Los expertos en geología coinciden:",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "Los geólogos están de acuerdo:",
+    "units": [
+     "u1"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ]
+ },
+ "subset2-98": {
+  "3": [
+   {
+    "src": "the typical layout of a Javanese town.",
+    "units": [
+     "u3"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "typical of a Javanese city.",
+    "units": [
+     "u3"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   },
+   {
+    "src": "la disposición típica de una ciudad javanesa.",
+    "units": [
+     "u3"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "típica de las ciudades de Java.",
+    "units": [
+     "u3"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ],
+  "2": [
+   {
+    "src": "facing a Javanese alun-alun,",
+    "units": [
+     "u2"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "that faces a Javanese town square,",
+    "units": [
+     "u2"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   },
+   {
+    "src": "frente a un alun-alun javanés,",
+    "units": [
+     "u2"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "orientada hacia una plaza javanesa,",
+    "units": [
+     "u2"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ],
+  "1": [
+   {
+    "src": "There is a mosque",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "There's a mosque",
+    "units": [
+     "u1"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   },
+   {
+    "src": "Hay una mezquita",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "Existe una mezquita",
+    "units": [
+     "u1"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ]
+ },
+ "subset2-99": {
+  "3": [
+   {
+    "src": "and he now seeks refuge abroad.",
+    "units": [
+     "u3"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "and now he is seeking refuge abroad.",
+    "units": [
+     "u3"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   },
+   {
+    "src": "y ahora busca refugio en el extranjero.",
+    "units": [
+     "u3"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "y ahora se refugia en el extranjero.",
+    "units": [
+     "u3"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ],
+  "2": [
+   {
+    "src": "others accused him of blasphemy,",
+    "units": [
+     "u2"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "but others accused him of blasphemy,",
+    "units": [
+     "u2"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   },
+   {
+    "src": "otros lo acusaron de blasfemia,",
+    "units": [
+     "u2"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "pero otros lo acusaron de blasfemia,",
+    "units": [
+     "u2"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ],
+  "1": [
+   {
+    "src": "Although some admired the prophet,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "Some admired the prophet,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   },
+   {
+    "src": "Aunque algunos admiraban al profeta,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "Algunos admiraban al profeta,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ]
+ },
+ "subset2-100": {
+  "2": [
+   {
+    "src": "he realized the oil was gone.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "he saw that the oil was gone.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   },
+   {
+    "src": "se dio cuenta de que el aceite había desaparecido.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "vio que el aceite ya no estaba.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ],
+  "1": [
+   {
+    "src": "When the boy looked at the spoon he was holding,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "When the boy looked at the spoon in his hand,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   },
+   {
+    "src": "Cuando el chico miró la cuchara que sostenía,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "Al mirar la cuchara que tenía en la mano,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ]
+ },
+ "subset1-18": {
+  "2": [
+   {
+    "src": "Hussite Church is also called the Patriarch.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "Hussite Church is also known as the Patriarch.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   },
+   {
+    "src": "husita checoslovaca también se llama Patriarca.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "husita checoslovaca recibe también el nombre de Patriarca.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ],
+  "1": [
+   {
+    "src": "The head of the Czechoslovak",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "The leader of the Czechoslovak",
+    "units": [
+     "u1"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   },
+   {
+    "src": "El jefe de la Iglesia",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "El líder de la Iglesia",
+    "units": [
+     "u1"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ]
+ },
+ "subset1-19": {
+  "1": [
+   {
+    "src": "We're only travellers, replied the alchemist.",
+    "units": [
+     "u1",
+     "u2"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "We are just travellers, the alchemist answered.",
+    "units": [
+     "u1",
+     "u2"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   },
+   {
+    "src": "Solo somos viajeros, respondió el alquimista.",
+    "units": [
+     "u1",
+     "u2"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "Somos simples viajeros, contestó el alquimista.",
+    "units": [
+     "u1",
+     "u2"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ]
+ },
+ "subset1-20": {
+  "1": [
+   {
+    "src": "Don't you see what's happening?",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "Can't you see what is going on?",
+    "units": [
+     "u1"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   },
+   {
+    "src": "¿No ves lo que está pasando?",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "¿Es que no ves lo que pasa?",
+    "units": [
+     "u1"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ]
+ },
+ "subset1-21": {
+  "1": [
+   {
+    "src": "Do you like real books, or do you prefer digital versions?",
+    "units": [
+     "u1",
+     "u2"
+    ],
+    "strategy": "orig",
+    "lang": "en"
+   },
+   {
+    "src": "Do you like reading printed books, or do you prefer digital ones?",
+    "units": [
+     "u1",
+     "u2"
+    ],
+    "strategy": "alt",
+    "lang": "en"
+   },
+   {
+    "src": "¿Te gustan los libros de verdad o prefieres las versiones digitales?",
+    "units": [
+     "u1",
+     "u2"
+    ],
+    "strategy": "orig",
+    "lang": "es"
+   },
+   {
+    "src": "¿Te gusta leer libros en papel o prefieres las versiones digitales?",
+    "units": [
+     "u1",
+     "u2"
+    ],
+    "strategy": "alt",
+    "lang": "es"
+   }
+  ]
+ }
+}

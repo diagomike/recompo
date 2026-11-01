@@ -1,0 +1,797 @@
+{
+ "subset2-3": {
+  "1": [
+   {
+    "src": "The blackbird watched all this from the tree twisting its head left and right, blinking and testing its wings, before finally taking to the air.",
+    "units": [
+     "u1",
+     "u2",
+     "u3",
+     "u4",
+     "u5",
+     "u6",
+     "u7"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "The blackbird watched from the tree, turned its head left and right, blinked, tested its wings and flew off.",
+    "units": [
+     "u1",
+     "u2",
+     "u3",
+     "u4",
+     "u5",
+     "u6"
+    ],
+    "strategy": "plain"
+   },
+   {
+    "src": "The blackbird watched it all, turned its head, tested its wings and flew away.",
+    "units": [
+     "u1",
+     "u3",
+     "u5",
+     "u6"
+    ],
+    "strategy": "compact"
+   }
+  ]
+ },
+ "subset2-4": {
+  "1": [
+   {
+    "src": "She keeps saying that she has no regrets about moving back home,",
+    "units": [
+     "u1",
+     "u2",
+     "u3"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "She keeps saying she doesn't regret moving home,",
+    "units": [
+     "u1",
+     "u2",
+     "u3"
+    ],
+    "strategy": "compact"
+   }
+  ],
+  "2": [
+   {
+    "src": "but I'm not sure if it's entirely true.",
+    "units": [
+     "u4",
+     "u5"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "but I'm not sure it's true.",
+    "units": [
+     "u4"
+    ],
+    "strategy": "compact"
+   }
+  ]
+ },
+ "subset2-5": {
+  "1": [
+   {
+    "src": "Finally, he lifted one of the boards and after setting it aside carefully,",
+    "units": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "He lifted one of the boards, set it aside,",
+    "units": [
+     "u2",
+     "u3"
+    ],
+    "strategy": "compact"
+   },
+   {
+    "src": "Finally he lifted a board and carefully put it aside,",
+    "units": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "strategy": "plain"
+   }
+  ],
+  "2": [
+   {
+    "src": "looked into the space beneath the floor.",
+    "units": [
+     "u5"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "and looked under the floor.",
+    "units": [
+     "u5"
+    ],
+    "strategy": "compact"
+   },
+   {
+    "src": "and he looked under the floor.",
+    "units": [
+     "u5"
+    ],
+    "strategy": "steer"
+   },
+   {
+    "src": "and then looked under the floor.",
+    "units": [
+     "u5"
+    ],
+    "strategy": "steer"
+   }
+  ]
+ },
+ "subset2-6": {
+  "1": [
+   {
+    "src": "I'm also hoping to hear from others, so please post your own ideas in the comments and tell me what I could do better!",
+    "units": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "I hope to hear from others too, so post your ideas in the comments and tell me what to improve.",
+    "units": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "strategy": "plain"
+   },
+   {
+    "src": "I want to hear from you, so post your ideas and tell me what to improve.",
+    "units": [
+     "u1",
+     "u2",
+     "u4"
+    ],
+    "strategy": "compact"
+   }
+  ]
+ },
+ "subset2-7": {
+  "1": [
+   {
+    "src": "Something deep beneath the earth shifted, sending vibrations strong enough to register on earthquake detection mechanisms hundreds of miles away.",
+    "units": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "Something moved deep underground and sent vibrations strong enough to be measured by earthquake detectors hundreds of miles away.",
+    "units": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "strategy": "plain"
+   },
+   {
+    "src": "Something moved deep underground, and earthquake detectors far away measured the vibrations.",
+    "units": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "strategy": "compact"
+   },
+   {
+    "src": "Something moved deep underground and sent vibrations that earthquake detectors far away could measure.",
+    "units": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "strategy": "steer"
+   }
+  ]
+ },
+ "subset2-8": {
+  "1": [
+   {
+    "src": "He paused, looked back at the house, but then pocketed the keys, opened the gate and strode down the path quickly.",
+    "units": [
+     "u1",
+     "u2",
+     "u3",
+     "u4",
+     "u5",
+     "u6"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "He stopped, looked back at the house, then put the keys in his pocket, opened the gate and walked quickly down the path.",
+    "units": [
+     "u1",
+     "u2",
+     "u3",
+     "u4",
+     "u5",
+     "u6"
+    ],
+    "strategy": "plain"
+   },
+   {
+    "src": "He paused, looked back, pocketed the keys, opened the gate and hurried off.",
+    "units": [
+     "u1",
+     "u2",
+     "u3",
+     "u4",
+     "u5",
+     "u6"
+    ],
+    "strategy": "compact"
+   }
+  ]
+ },
+ "subset2-9": {
+  "1": [
+   {
+    "src": "We miss you and miss having a friend like you, and I am so happy that you two got to catch up.",
+    "units": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "We miss you and your friendship, and I'm so glad you two caught up.",
+    "units": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "strategy": "compact"
+   }
+  ]
+ },
+ "subset2-10": {
+  "1": [
+   {
+    "src": "Before reading this post, please familiarize yourself with my getting started guide and how to move around a file quickly.",
+    "units": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "Before you read this post, please read my getting started guide and learn how to move a file quickly.",
+    "units": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "strategy": "plain"
+   },
+   {
+    "src": "First, please read my getting started guide and learn how to move files quickly.",
+    "units": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "strategy": "compact"
+   }
+  ]
+ },
+ "subset2-11": {
+  "1": [
+   {
+    "src": "I could just publish my code,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "I could publish my code,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "compact"
+   }
+  ],
+  "2": [
+   {
+    "src": "but that wouldn't reveal all the little lessons I learned along the way.",
+    "units": [
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "but that wouldn't show the little lessons I learned.",
+    "units": [
+     "u2",
+     "u3"
+    ],
+    "strategy": "compact"
+   }
+  ]
+ },
+ "subset2-12": {
+  "1": [
+   {
+    "src": "The moment you find yourself spelling out a word, stop right away and add this word to the Vocabulary Editor.",
+    "units": [
+     "u1",
+     "u2",
+     "u3"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "When you spell out a word, stop and add it to the Vocabulary Editor.",
+    "units": [
+     "u1",
+     "u2",
+     "u3"
+    ],
+    "strategy": "compact"
+   }
+  ]
+ },
+ "subset2-13": {
+  "1": [
+   {
+    "src": "Eye trackers used to cost several thousand dollars, but now you can grab a cheap one for less than a couple hundred bucks.",
+    "units": [
+     "u1",
+     "u2",
+     "u3"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "Eye trackers used to cost thousands of dollars, but now you can buy a cheap one for under two hundred dollars.",
+    "units": [
+     "u1",
+     "u2",
+     "u3"
+    ],
+    "strategy": "plain"
+   },
+   {
+    "src": "Eye trackers once cost thousands; now a cheap one costs under two hundred.",
+    "units": [
+     "u1",
+     "u2",
+     "u3"
+    ],
+    "strategy": "compact"
+   }
+  ]
+ },
+ "subset2-14": {
+  "1": [
+   {
+    "src": "The boy looked around",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "The boy looked",
+    "units": [
+     "u1"
+    ],
+    "strategy": "compact"
+   },
+   {
+    "src": "The boy searched",
+    "units": [
+     "u1"
+    ],
+    "strategy": "steer"
+   },
+   {
+    "src": "Then the boy looked around",
+    "units": [
+     "u1"
+    ],
+    "strategy": "steer"
+   }
+  ],
+  "2": [
+   {
+    "src": "for the ovens and other apparatus used in alchemy, but saw none.",
+    "units": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "for the alchemy ovens and tools, but saw none.",
+    "units": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "strategy": "compact"
+   }
+  ]
+ },
+ "subset2-15": {
+  "1": [
+   {
+    "src": "It has a few basic functions to connect to the eye tracker,",
+    "units": [
+     "u1",
+     "u2"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "It has basic functions to connect to the eye tracker,",
+    "units": [
+     "u1",
+     "u2"
+    ],
+    "strategy": "compact"
+   }
+  ],
+  "2": [
+   {
+    "src": "get position data, and activate the current gaze point.",
+    "units": [
+     "u3",
+     "u4"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "get position data and activate the gaze point.",
+    "units": [
+     "u3",
+     "u4"
+    ],
+    "strategy": "compact"
+   },
+   {
+    "src": "read positions and activate the gaze point.",
+    "units": [
+     "u3",
+     "u4"
+    ],
+    "strategy": "steer"
+   },
+   {
+    "src": "get positions and activate gaze.",
+    "units": [
+     "u3",
+     "u4"
+    ],
+    "strategy": "steer"
+   }
+  ]
+ },
+ "subset2-16": {
+  "1": [
+   {
+    "src": "They recruited Disorder drummer Virus to play drums and finally had a semi-stable line-up.",
+    "units": [
+     "u1",
+     "u2",
+     "u3"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "They brought in Virus, the drummer from Disorder, and finally had a fairly stable band.",
+    "units": [
+     "u1",
+     "u2",
+     "u3"
+    ],
+    "strategy": "plain"
+   },
+   {
+    "src": "They hired Disorder's drummer Virus and finally had a stable band.",
+    "units": [
+     "u1",
+     "u2",
+     "u3"
+    ],
+    "strategy": "compact"
+   }
+  ],
+  "2": [
+   {
+    "src": "",
+    "units": [],
+    "strategy": "orig"
+   }
+  ]
+ },
+ "subset2-17": {
+  "1": [
+   {
+    "src": "I was just in town earlier this year, so it is kind of crazy to think about what took place right after.",
+    "units": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "I was in town earlier this year, so it's crazy to think about what happened right after.",
+    "units": [
+     "u1",
+     "u2",
+     "u4"
+    ],
+    "strategy": "compact"
+   },
+   {
+    "src": "I was just in town this year, so it's kind of crazy to think what happened right after.",
+    "units": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "strategy": "steer"
+   },
+   {
+    "src": "I was in town this year, so it's crazy to think what happened next.",
+    "units": [
+     "u1",
+     "u2",
+     "u4"
+    ],
+    "strategy": "steer"
+   }
+  ]
+ },
+ "subset2-18": {
+  "1": [
+   {
+    "src": "Now, imagine a guy walking through that door and starting to give orders with a heavy accent.",
+    "units": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "Imagine a guy coming in that door and giving orders in a heavy accent.",
+    "units": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "strategy": "compact"
+   },
+   {
+    "src": "Imagine a guy coming in, giving orders in a heavy accent.",
+    "units": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "strategy": "steer"
+   },
+   {
+    "src": "Picture a guy walking in and giving orders with an accent.",
+    "units": [
+     "u1",
+     "u2",
+     "u3"
+    ],
+    "strategy": "steer"
+   }
+  ]
+ },
+ "subset2-19": {
+  "1": [
+   {
+    "src": "I think the party was an amusement for most of the guests, but Mirco felt really out of place.",
+    "units": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "I think most guests enjoyed the party, but Mirco felt out of place.",
+    "units": [
+     "u1",
+     "u2",
+     "u3"
+    ],
+    "strategy": "compact"
+   }
+  ]
+ },
+ "subset2-20": {
+  "1": [
+   {
+    "src": "It's been a long time since she last read Chekhov,",
+    "units": [
+     "u1",
+     "u2"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "She hasn't read Chekhov in a long time,",
+    "units": [
+     "u1",
+     "u2"
+    ],
+    "strategy": "compact"
+   },
+   {
+    "src": "It has been a long time since she read Chekhov,",
+    "units": [
+     "u1",
+     "u2"
+    ],
+    "strategy": "steer"
+   }
+  ],
+  "2": [
+   {
+    "src": "and because of that,",
+    "units": [
+     "u3"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "so",
+    "units": [
+     "u3"
+    ],
+    "strategy": "compact"
+   },
+   {
+    "src": "and for that reason,",
+    "units": [
+     "u3"
+    ],
+    "strategy": "steer"
+   },
+   {
+    "src": "and that is why",
+    "units": [
+     "u3"
+    ],
+    "strategy": "steer"
+   }
+  ],
+  "3": [
+   {
+    "src": "she no longer feels like the heroine of her own story.",
+    "units": [
+     "u4"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "she no longer feels like the heroine of her story.",
+    "units": [
+     "u4"
+    ],
+    "strategy": "compact"
+   }
+  ]
+ },
+ "subset2-21": {
+  "1": [
+   {
+    "src": "Not specifically no,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "Not exactly,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "compact"
+   }
+  ],
+  "2": [
+   {
+    "src": "he only gave me the gist of his research the one time I spoke to him.",
+    "units": [
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "he only gave me the gist of his research once.",
+    "units": [
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "strategy": "compact"
+   }
+  ]
+ },
+ "subset2-22": {
+  "1": [
+   {
+    "src": "It's impolite to ask a tree for its story unless you are ready to hear it in full length.",
+    "units": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "It's rude to ask a tree for its story unless you're ready to hear all of it.",
+    "units": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "strategy": "compact"
+   }
+  ]
+ }
+}

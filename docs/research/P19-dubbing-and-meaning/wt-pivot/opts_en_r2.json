@@ -1,0 +1,1250 @@
+{
+ "subset2-33": {
+  "1": [
+   {
+    "src": "Moonrakers are relatively unusual sails, used only on ships",
+    "units": [
+     "u1",
+     "u2"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "Moonrakers are rare sails, used only on ships",
+    "units": [
+     "u1",
+     "u2"
+    ],
+    "strategy": "compact"
+   }
+  ],
+  "2": [
+   {
+    "src": "built mainly for speed.",
+    "units": [
+     "u3"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "that are built mainly for speed.",
+    "units": [
+     "u3"
+    ],
+    "strategy": "full"
+   }
+  ]
+ },
+ "subset2-34": {
+  "1": [
+   {
+    "src": "After Peter went outside with a participant named William,",
+    "units": [
+     "u1",
+     "u2"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "After Peter went out with William,",
+    "units": [
+     "u1",
+     "u2"
+    ],
+    "strategy": "compact"
+   }
+  ],
+  "2": [
+   {
+    "src": "he felt close to fainting.",
+    "units": [
+     "u3"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "he nearly fainted.",
+    "units": [
+     "u3"
+    ],
+    "strategy": "compact"
+   },
+   {
+    "src": "he almost fainted.",
+    "units": [
+     "u3"
+    ],
+    "strategy": "steer"
+   }
+  ]
+ },
+ "subset2-35": {
+  "1": [
+   {
+    "src": "It's better to stay silent and be thought a fool",
+    "units": [
+     "u1",
+     "u2"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "Better to be silent and seem a fool",
+    "units": [
+     "u1",
+     "u2"
+    ],
+    "strategy": "compact"
+   }
+  ],
+  "2": [
+   {
+    "src": "than to open your mouth and remove all doubt.",
+    "units": [
+     "u3",
+     "u4"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "than to speak and remove all doubt.",
+    "units": [
+     "u3",
+     "u4"
+    ],
+    "strategy": "compact"
+   }
+  ]
+ },
+ "subset2-36": {
+  "1": [
+   {
+    "src": "It's true,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "True,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "compact"
+   }
+  ],
+  "2": [
+   {
+    "src": "life is truly generous to those who follow their destiny,",
+    "units": [
+     "u2",
+     "u3"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "life is generous to those who follow their destiny,",
+    "units": [
+     "u2",
+     "u3"
+    ],
+    "strategy": "compact"
+   }
+  ],
+  "3": [
+   {
+    "src": "the boy thought.",
+    "units": [
+     "u4"
+    ],
+    "strategy": "orig"
+   }
+  ]
+ },
+ "subset2-37": {
+  "1": [
+   {
+    "src": "If you tell me why you're here,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "Tell me why you're here,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "compact"
+   }
+  ],
+  "2": [
+   {
+    "src": "I'll show you the project I've been working on.",
+    "units": [
+     "u2",
+     "u3"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "and I'll show you my project.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "compact"
+   },
+   {
+    "src": "I'll show you the project I worked on.",
+    "units": [
+     "u2",
+     "u3"
+    ],
+    "strategy": "steer"
+   }
+  ]
+ },
+ "subset2-38": {
+  "1": [
+   {
+    "src": "The boy offered his bottle to the old man,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "The boy gave the old man his bottle,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "plain"
+   },
+   {
+    "src": "The boy offered his bottle to the man,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "steer"
+   }
+  ],
+  "2": [
+   {
+    "src": "hoping he would leave him alone.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "hoping to be left alone.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "compact"
+   },
+   {
+    "src": "hoping that the old man would leave him in peace.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "steer"
+   }
+  ]
+ },
+ "subset2-39": {
+  "1": [
+   {
+    "src": "It would be a favor you could do yourself:",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "Do yourself a favor:",
+    "units": [
+     "u1"
+    ],
+    "strategy": "compact"
+   }
+  ],
+  "2": [
+   {
+    "src": "learn the language and speak it.",
+    "units": [
+     "u2",
+     "u3"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "learn the language.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "compact"
+   },
+   {
+    "src": "learn the language and start speaking it.",
+    "units": [
+     "u2",
+     "u3"
+    ],
+    "strategy": "steer"
+   }
+  ]
+ },
+ "subset2-40": {
+  "1": [
+   {
+    "src": "However, there was no text explaining when",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "But no text explained when",
+    "units": [
+     "u1"
+    ],
+    "strategy": "compact"
+   },
+   {
+    "src": "However, there was no text anywhere that explained when",
+    "units": [
+     "u1"
+    ],
+    "strategy": "steer"
+   }
+  ],
+  "2": [
+   {
+    "src": "and why",
+    "units": [
+     "u2"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "and for what reason",
+    "units": [
+     "u2"
+    ],
+    "strategy": "steer"
+   }
+  ],
+  "3": [
+   {
+    "src": "they died.",
+    "units": [
+     "u3"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "they had died.",
+    "units": [
+     "u3"
+    ],
+    "strategy": "steer"
+   }
+  ]
+ },
+ "subset2-41": {
+  "1": [
+   {
+    "src": "So,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "So then,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "steer"
+   }
+  ],
+  "2": [
+   {
+    "src": "since you can't use a mouse,",
+    "units": [
+     "u2"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "without a mouse,",
+    "units": [
+     "u2"
+    ],
+    "strategy": "compact"
+   },
+   {
+    "src": "since you are not able to use a mouse,",
+    "units": [
+     "u2"
+    ],
+    "strategy": "steer"
+   }
+  ],
+  "3": [
+   {
+    "src": "you can't just click on the spot",
+    "units": [
+     "u3"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "you can't just click there",
+    "units": [
+     "u3"
+    ],
+    "strategy": "compact"
+   }
+  ],
+  "4": [
+   {
+    "src": "to get there.",
+    "units": [
+     "u4"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "to go there.",
+    "units": [
+     "u4"
+    ],
+    "strategy": "plain"
+   },
+   {
+    "src": "in order to get there.",
+    "units": [
+     "u4"
+    ],
+    "strategy": "steer"
+   }
+  ]
+ },
+ "subset2-42": {
+  "1": [
+   {
+    "src": "Some tricks can be learned in hours,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "Some tricks take hours to learn,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "plain"
+   }
+  ],
+  "2": [
+   {
+    "src": "while others take years",
+    "units": [
+     "u2"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "others take years",
+    "units": [
+     "u2"
+    ],
+    "strategy": "compact"
+   },
+   {
+    "src": "while others take many years",
+    "units": [
+     "u2"
+    ],
+    "strategy": "steer"
+   }
+  ],
+  "3": [
+   {
+    "src": "to truly master.",
+    "units": [
+     "u3"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "to master.",
+    "units": [
+     "u3"
+    ],
+    "strategy": "compact"
+   }
+  ]
+ },
+ "subset2-43": {
+  "1": [
+   {
+    "src": "Palm oil is cheap,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig"
+   }
+  ],
+  "2": [
+   {
+    "src": "but workers on illegal plantations",
+    "units": [
+     "u2"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "but on illegal plantations workers",
+    "units": [
+     "u2"
+    ],
+    "strategy": "plain"
+   }
+  ],
+  "3": [
+   {
+    "src": "are exploited, and huge jungle areas are destroyed for production.",
+    "units": [
+     "u3",
+     "u4"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "are exploited and huge jungles are destroyed.",
+    "units": [
+     "u3",
+     "u4"
+    ],
+    "strategy": "compact"
+   }
+  ]
+ },
+ "subset2-44": {
+  "1": [
+   {
+    "src": "All music by John Petrucci,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "All the music is by John Petrucci,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "full"
+   },
+   {
+    "src": "All of the music was written by John Petrucci,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "steer"
+   }
+  ],
+  "2": [
+   {
+    "src": "John Myung, Jordan Rudess",
+    "units": [
+     "u2"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "John Myung and Jordan Rudess,",
+    "units": [
+     "u2"
+    ],
+    "strategy": "steer"
+   }
+  ],
+  "3": [
+   {
+    "src": "and Mike Portnoy,",
+    "units": [
+     "u3"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "and by Mike Portnoy,",
+    "units": [
+     "u3"
+    ],
+    "strategy": "steer"
+   }
+  ],
+  "4": [
+   {
+    "src": "",
+    "units": [],
+    "strategy": "orig"
+   }
+  ],
+  "5": [
+   {
+    "src": "unless otherwise noted.",
+    "units": [
+     "u4"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "unless noted.",
+    "units": [
+     "u4"
+    ],
+    "strategy": "compact"
+   },
+   {
+    "src": "unless noted otherwise.",
+    "units": [
+     "u4"
+    ],
+    "strategy": "steer"
+   }
+  ]
+ },
+ "subset2-45": {
+  "1": [
+   {
+    "src": "The player controls Vaillant, who is able",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "You control Vaillant, who can",
+    "units": [
+     "u1"
+    ],
+    "strategy": "compact"
+   },
+   {
+    "src": "In the game, the player controls Vaillant, who is able",
+    "units": [
+     "u1"
+    ],
+    "strategy": "steer"
+   }
+  ],
+  "2": [
+   {
+    "src": "to run,",
+    "units": [
+     "u2"
+    ],
+    "strategy": "orig"
+   }
+  ],
+  "3": [
+   {
+    "src": "to jump",
+    "units": [
+     "u3"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "jump",
+    "units": [
+     "u3"
+    ],
+    "strategy": "compact"
+   },
+   {
+    "src": "and to jump",
+    "units": [
+     "u3"
+    ],
+    "strategy": "steer"
+   }
+  ],
+  "4": [
+   {
+    "src": "and throw things at opponents.",
+    "units": [
+     "u4"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "and throw things at enemies.",
+    "units": [
+     "u4"
+    ],
+    "strategy": "plain"
+   }
+  ]
+ },
+ "subset2-46": {
+  "1": [
+   {
+    "src": "No man or woman is worth your tears,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "No one is worth your tears,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "compact"
+   },
+   {
+    "src": "Nobody is worth your tears,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "steer"
+   }
+  ],
+  "2": [
+   {
+    "src": "and the one who is",
+    "units": [
+     "u2"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "and the person who is worth them",
+    "units": [
+     "u2"
+    ],
+    "strategy": "steer"
+   }
+  ],
+  "3": [
+   {
+    "src": "won't make you cry.",
+    "units": [
+     "u3"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "will never make you cry.",
+    "units": [
+     "u3"
+    ],
+    "strategy": "steer"
+   }
+  ]
+ },
+ "subset2-47": {
+  "1": [
+   {
+    "src": "A girl puts her head through a wooden cut-out of a pirate ship",
+    "units": [
+     "u1",
+     "u2"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "A girl's head pokes through a wooden pirate ship",
+    "units": [
+     "u1",
+     "u2"
+    ],
+    "strategy": "compact"
+   },
+   {
+    "src": "A young girl puts her head through a wooden cut-out of a pirate ship",
+    "units": [
+     "u1",
+     "u2"
+    ],
+    "strategy": "steer",
+    "added": [
+     "young"
+    ]
+   }
+  ],
+  "2": [
+   {
+    "src": "while people throw tomatoes.",
+    "units": [
+     "u3"
+    ],
+    "strategy": "orig"
+   }
+  ]
+ },
+ "subset2-48": {
+  "1": [
+   {
+    "src": "He wrote numerous pieces,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "He wrote many pieces,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "compact"
+   }
+  ],
+  "2": [
+   {
+    "src": "many with basso continuo,",
+    "units": [
+     "u2"
+    ],
+    "strategy": "orig"
+   }
+  ],
+  "3": [
+   {
+    "src": "which proved his familiarity",
+    "units": [
+     "u3"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "showing he knew",
+    "units": [
+     "u3"
+    ],
+    "strategy": "compact"
+   },
+   {
+    "src": "and this proved his familiarity",
+    "units": [
+     "u3"
+    ],
+    "strategy": "steer"
+   }
+  ],
+  "4": [
+   {
+    "src": "with contemporary practice.",
+    "units": [
+     "u4"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "the practice of his time.",
+    "units": [
+     "u4"
+    ],
+    "strategy": "plain"
+   },
+   {
+    "src": "with the musical practice of his own time.",
+    "units": [
+     "u4"
+    ],
+    "strategy": "steer"
+   }
+  ]
+ },
+ "subset2-49": {
+  "1": [
+   {
+    "src": "There is no universal definition of intelligence,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "Intelligence has no universal definition,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "compact"
+   }
+  ],
+  "2": [
+   {
+    "src": "but everyone agrees",
+    "units": [
+     "u2"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "but everyone does agree on one thing:",
+    "units": [
+     "u2"
+    ],
+    "strategy": "steer"
+   }
+  ],
+  "3": [
+   {
+    "src": "it includes the ability to learn.",
+    "units": [
+     "u3"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "it includes learning.",
+    "units": [
+     "u3"
+    ],
+    "strategy": "compact"
+   },
+   {
+    "src": "it includes the ability to learn things.",
+    "units": [
+     "u3"
+    ],
+    "strategy": "steer"
+   }
+  ]
+ },
+ "subset2-50": {
+  "1": [
+   {
+    "src": "The man looked up from his book, noticed nothing of the sort,",
+    "units": [
+     "u1",
+     "u2"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "The man looked up from his book,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "compact"
+   },
+   {
+    "src": "The man looked up from his book and noticed nothing of the sort,",
+    "units": [
+     "u1",
+     "u2"
+    ],
+    "strategy": "steer"
+   }
+  ],
+  "2": [
+   {
+    "src": "glanced back at the page and read on.",
+    "units": [
+     "u3",
+     "u4"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "looked down and read on.",
+    "units": [
+     "u3",
+     "u4"
+    ],
+    "strategy": "compact"
+   }
+  ]
+ },
+ "subset2-51": {
+  "1": [
+   {
+    "src": "Both are considered vulnerable,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "Both are vulnerable,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "compact"
+   }
+  ],
+  "2": [
+   {
+    "src": "so it is illegal to harass or kill them,",
+    "units": [
+     "u2"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "so harming or killing them is illegal,",
+    "units": [
+     "u2"
+    ],
+    "strategy": "plain"
+   },
+   {
+    "src": "so it is against the law to harass them or to kill them,",
+    "units": [
+     "u2"
+    ],
+    "strategy": "steer"
+   }
+  ],
+  "3": [
+   {
+    "src": "or to collect or possess them.",
+    "units": [
+     "u3"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "or to keep them.",
+    "units": [
+     "u3"
+    ],
+    "strategy": "compact"
+   }
+  ]
+ },
+ "subset2-52": {
+  "1": [
+   {
+    "src": "In her own destruction I saw her momentum and her traps,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "In her own ruin I saw her strength,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "compact"
+   }
+  ],
+  "2": [
+   {
+    "src": "and her followers sought rescue in flight.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "and her followers fled.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "compact"
+   },
+   {
+    "src": "and her followers fled to safety.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "steer"
+   }
+  ]
+ },
+ "subset2-53": {
+  "1": [
+   {
+    "src": "The library's interior",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "Inside, the library",
+    "units": [
+     "u1"
+    ],
+    "strategy": "compact"
+   }
+  ],
+  "2": [
+   {
+    "src": "has a geometric design",
+    "units": [
+     "u2"
+    ],
+    "strategy": "orig"
+   }
+  ],
+  "3": [
+   {
+    "src": "typical of the early Italian Renaissance.",
+    "units": [
+     "u3"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "typical of the early Italian Renaissance style.",
+    "units": [
+     "u3"
+    ],
+    "strategy": "full"
+   },
+   {
+    "src": "which is typical of the style of the early Italian Renaissance.",
+    "units": [
+     "u3"
+    ],
+    "strategy": "steer"
+   }
+  ]
+ },
+ "subset2-54": {
+  "1": [
+   {
+    "src": "The following statistics refer to series wins and losses,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "These numbers count series won and lost,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "compact"
+   }
+  ],
+  "2": [
+   {
+    "src": "not wins and losses in individual games.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "not single games.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "compact"
+   },
+   {
+    "src": "not wins and losses in single games.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "steer"
+   }
+  ]
+ },
+ "subset2-55": {
+  "1": [
+   {
+    "src": "The boy started reading his book again,",
+    "units": [
+     "u1",
+     "u2"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "The boy read his book again,",
+    "units": [
+     "u1",
+     "u2"
+    ],
+    "strategy": "compact"
+   },
+   {
+    "src": "The boy began his book again,",
+    "units": [
+     "u1",
+     "u2"
+    ],
+    "strategy": "steer"
+   }
+  ],
+  "2": [
+   {
+    "src": "but he could no longer concentrate.",
+    "units": [
+     "u3"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "but he couldn't concentrate anymore.",
+    "units": [
+     "u3"
+    ],
+    "strategy": "plain"
+   },
+   {
+    "src": "but he was no longer able to concentrate on it.",
+    "units": [
+     "u3"
+    ],
+    "strategy": "steer"
+   }
+  ]
+ },
+ "subset2-56": {
+  "1": [
+   {
+    "src": "Not everything we face can be changed,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "Not all we face can change,",
+    "units": [
+     "u1"
+    ],
+    "strategy": "compact"
+   }
+  ],
+  "2": [
+   {
+    "src": "but nothing can be changed until it is faced.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "orig"
+   },
+   {
+    "src": "but nothing changes until we face it.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "compact"
+   },
+   {
+    "src": "but nothing at all can be changed until it is faced.",
+    "units": [
+     "u2"
+    ],
+    "strategy": "steer"
+   }
+  ]
+ }
+}

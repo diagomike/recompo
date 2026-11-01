@@ -1,0 +1,713 @@
+{
+ "subset2-81": {
+  "score": 9.0,
+  "phrases": [
+   "Quand tu auras fini la phrase,",
+   "Cliquez sur le bouton rouge ci-dessous pour terminer l'enregistrement."
+  ],
+  "units": [
+   "u1",
+   "u2",
+   "u3"
+  ],
+  "ratios": [
+   0.806,
+   0.909
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "When you've finished the sentence,",
+    "strategy": "orig"
+   },
+   {
+    "src": "click the red button below to end the recording.",
+    "strategy": "orig"
+   }
+  ]
+ },
+ "subset2-82": {
+  "score": -0.849,
+  "phrases": [
+   "Il se souvenait de quelque chose que son grand-père lui avait dit:",
+   "Les papillons sont un bon présage."
+  ],
+  "units": [
+   "u1",
+   "u2"
+  ],
+  "ratios": [
+   0.653,
+   0.734
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "He remembered something his grandfather had once told him:",
+    "strategy": "orig"
+   },
+   {
+    "src": "butterflies are a good omen.",
+    "strategy": "alt"
+   }
+  ]
+ },
+ "subset2-83": {
+  "score": -7.533,
+  "phrases": [
+   "Tous les chagrins avec la nourriture",
+   "Du pain",
+   "sont plus faciles à supporter,",
+   "Un meilleur chagrin avec de la graisse que le chagrin avec maigre."
+  ],
+  "units": [
+   "u1",
+   "u2",
+   "u3",
+   "u4"
+  ],
+  "ratios": [
+   1.008,
+   1.039,
+   0.924,
+   1.346
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "All sorrows with food",
+    "strategy": "alt"
+   },
+   {
+    "src": "bread",
+    "strategy": "orig"
+   },
+   {
+    "src": "are easier to bear,",
+    "strategy": "orig"
+   },
+   {
+    "src": "better grief with fat than grief with lean.",
+    "strategy": "orig"
+   }
+  ]
+ },
+ "subset2-84": {
+  "score": 1.336,
+  "phrases": [
+   "Même pas moi",
+   "Je n'ai pas pensé à d'autres femmes",
+   "Depuis que j'ai rencontré la fille du marchand."
+  ],
+  "units": [
+   "u1",
+   "u2",
+   "u3"
+  ],
+  "ratios": [
+   0.786,
+   0.647,
+   0.769
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "Not even I",
+    "strategy": "alt"
+   },
+   {
+    "src": "haven't thought of other women",
+    "strategy": "orig"
+   },
+   {
+    "src": "since I met the merchant's daughter.",
+    "strategy": "orig"
+   }
+  ]
+ },
+ "subset2-85": {
+  "score": -2.695,
+  "phrases": [
+   "Il serait vraiment utile que mon navigateur puisse synchroniser tous ses paramètres,",
+   "pas seulement certains."
+  ],
+  "units": [
+   "u1",
+   "u2"
+  ],
+  "ratios": [
+   0.735,
+   1.209
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "It would be really useful if my browser could sync all of its settings,",
+    "strategy": "alt"
+   },
+   {
+    "src": "not just some.",
+    "strategy": "alt"
+   }
+  ]
+ },
+ "subset2-86": {
+  "score": 6.0,
+  "phrases": [
+   "Ouvrez les volets et éteignez les lumières,",
+   "Nous ne pouvons pas nous permettre l'électricité."
+  ],
+  "units": [
+   "u1",
+   "u2"
+  ],
+  "ratios": [
+   0.884,
+   0.899
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "Open the shutters and turn off the lights,",
+    "strategy": "orig"
+   },
+   {
+    "src": "we can't afford electricity.",
+    "strategy": "alt"
+   }
+  ]
+ },
+ "subset2-87": {
+  "score": 3.335,
+  "phrases": [
+   "Quand elle a voulu retirer de l'argent de son compte bancaire,",
+   "Le distributeur de billets a déclaré que sa carte n'était pas valide."
+  ],
+  "units": [
+   "u1",
+   "u2"
+  ],
+  "ratios": [
+   0.703,
+   0.914
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "When she wanted to withdraw money from her bank account,",
+    "strategy": "orig"
+   },
+   {
+    "src": "the ATM said her card was not valid.",
+    "strategy": "alt"
+   }
+  ]
+ },
+ "subset2-88": {
+  "score": 5.316,
+  "phrases": [
+   "Elle n'était pas à la maison;",
+   "Un voisin soupçonnait qu'elle n'était probablement pas rentrée hier soir."
+  ],
+  "units": [
+   "u1",
+   "u2",
+   "u3"
+  ],
+  "ratios": [
+   0.904,
+   0.679
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "She wasn't home;",
+    "strategy": "orig"
+   },
+   {
+    "src": "a neighbour suspected she probably hadn't come home last night.",
+    "strategy": "orig"
+   }
+  ]
+ },
+ "subset2-89": {
+  "score": 4.451,
+  "phrases": [
+   "Le garçon a vu que le propriétaire du bar se tenait près de lui,",
+   "écouter attentivement leur conversation."
+  ],
+  "units": [
+   "u1",
+   "u2"
+  ],
+  "ratios": [
+   0.811,
+   0.743
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "The boy saw that the owner of the bar stood close by,",
+    "strategy": "alt"
+   },
+   {
+    "src": "listening closely to their conversation.",
+    "strategy": "orig"
+   }
+  ]
+ },
+ "subset2-90": {
+  "score": 6.0,
+  "phrases": [
+   "La région est connue pour ses riches gisements de cuivre,",
+   "donc l'exploitation minière est effectuée à grande échelle."
+  ],
+  "units": [
+   "u1",
+   "u2"
+  ],
+  "ratios": [
+   0.906,
+   1.037
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "The region is known for its rich copper deposits,",
+    "strategy": "orig"
+   },
+   {
+    "src": "so mining is carried out on a large scale.",
+    "strategy": "orig"
+   }
+  ]
+ },
+ "subset2-91": {
+  "score": 3.34,
+  "phrases": [
+   "La femme a dit qu'elle n'avait jamais entendu parler de quelqu'un comme ça",
+   "et s'éloignèrent rapidement."
+  ],
+  "units": [
+   "u1",
+   "u2"
+  ],
+  "ratios": [
+   0.738,
+   1.053
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "The woman said that she had never heard of anyone like that",
+    "strategy": "alt"
+   },
+   {
+    "src": "and quickly walked away.",
+    "strategy": "orig"
+   }
+  ]
+ },
+ "subset2-92": {
+  "score": 1.233,
+  "phrases": [
+   "Le garçon se rapprocha de la fille,",
+   "Et quand elle sourit,",
+   "Il sourit en arrière."
+  ],
+  "units": [
+   "u1",
+   "u2",
+   "u3"
+  ],
+  "ratios": [
+   0.685,
+   0.797,
+   0.687
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "The boy stepped closer to the girl,",
+    "strategy": "orig"
+   },
+   {
+    "src": "and when she smiled,",
+    "strategy": "orig"
+   },
+   {
+    "src": "he smiled back.",
+    "strategy": "alt"
+   }
+  ]
+ },
+ "subset2-93": {
+  "score": 3.743,
+  "phrases": [
+   "Si tu vois quelque chose que tu veux,",
+   "Alors prenez-le",
+   "et le rendre meilleur."
+  ],
+  "units": [
+   "u1",
+   "u2",
+   "u3"
+  ],
+  "ratios": [
+   0.793,
+   0.788,
+   1.144
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "If you see something you like,",
+    "strategy": "orig"
+   },
+   {
+    "src": "then take it",
+    "strategy": "alt"
+   },
+   {
+    "src": "and make it better.",
+    "strategy": "orig"
+   }
+  ]
+ },
+ "subset2-94": {
+  "score": 2.231,
+  "phrases": [
+   "Il s'arrêta un instant",
+   "pour vérifier",
+   "Si la femme connaissait les pyramides égyptiennes."
+  ],
+  "units": [
+   "u1",
+   "u2",
+   "u3"
+  ],
+  "ratios": [
+   0.767,
+   0.675,
+   0.735
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "He paused for a moment",
+    "strategy": "orig"
+   },
+   {
+    "src": "to check",
+    "strategy": "orig"
+   },
+   {
+    "src": "if the woman knew of the Egyptian pyramids.",
+    "strategy": "alt"
+   }
+  ]
+ },
+ "subset2-95": {
+  "score": 2.948,
+  "phrases": [
+   "Cependant, après l'arrivée au pouvoir du Parti travailliste,",
+   "L’engagement contre l’apartheid a été abandonné."
+  ],
+  "units": [
+   "u1",
+   "u2"
+  ],
+  "ratios": [
+   0.779,
+   0.725
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "However, after the Labour Party came to power,",
+    "strategy": "orig"
+   },
+   {
+    "src": "the commitment against apartheid was dropped.",
+    "strategy": "orig"
+   }
+  ]
+ },
+ "subset2-96": {
+  "score": 3.812,
+  "phrases": [
+   "Il s'est fait connaître à Getafe",
+   "après être venu de l'académie de la jeunesse du Real Madrid."
+  ],
+  "units": [
+   "u1",
+   "u2"
+  ],
+  "ratios": [
+   0.717,
+   0.93
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "He became known at Getafe",
+    "strategy": "alt"
+   },
+   {
+    "src": "after coming from the Real Madrid youth academy.",
+    "strategy": "alt"
+   }
+  ]
+ },
+ "subset2-97": {
+  "score": -1.33,
+  "phrases": [
+   "Les experts en géologie sont d'accord:",
+   "Le tsunami d'hier n'était qu'un signe avant-coureur de l'apocalypse à venir."
+  ],
+  "units": [
+   "u1",
+   "u2"
+  ],
+  "ratios": [
+   0.668,
+   0.692
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "Geology experts agree:",
+    "strategy": "orig"
+   },
+   {
+    "src": "yesterday's tsunami was only a harbinger of the coming apocalypse.",
+    "strategy": "orig"
+   }
+  ]
+ },
+ "subset2-98": {
+  "score": 3.87,
+  "phrases": [
+   "Il y a une mosquée",
+   "qui fait face à une place de la ville javanaise,",
+   "typique d'une ville javanaise."
+  ],
+  "units": [
+   "u1",
+   "u2",
+   "u3"
+  ],
+  "ratios": [
+   0.671,
+   0.956,
+   0.791
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "There is a mosque",
+    "strategy": "orig"
+   },
+   {
+    "src": "that faces a Javanese town square,",
+    "strategy": "alt"
+   },
+   {
+    "src": "typical of a Javanese city.",
+    "strategy": "alt"
+   }
+  ]
+ },
+ "subset2-99": {
+  "score": 0.205,
+  "phrases": [
+   "Bien que certains admiraient le prophète,",
+   "mais d'autres l'accusaient de blasphème,",
+   "et maintenant il cherche refuge à l'étranger."
+  ],
+  "units": [
+   "u1",
+   "u2",
+   "u3"
+  ],
+  "ratios": [
+   0.793,
+   0.617,
+   0.983
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "Although some admired the prophet,",
+    "strategy": "orig"
+   },
+   {
+    "src": "but others accused him of blasphemy,",
+    "strategy": "alt"
+   },
+   {
+    "src": "and now he is seeking refuge abroad.",
+    "strategy": "alt"
+   }
+  ]
+ },
+ "subset2-100": {
+  "score": 3.209,
+  "phrases": [
+   "Quand le garçon regarda la cuillère dans sa main,",
+   "Il a vu que l'huile avait disparu."
+  ],
+  "units": [
+   "u1",
+   "u2"
+  ],
+  "ratios": [
+   0.7,
+   0.83
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "When the boy looked at the spoon in his hand,",
+    "strategy": "alt"
+   },
+   {
+    "src": "he saw that the oil was gone.",
+    "strategy": "alt"
+   }
+  ]
+ },
+ "subset1-18": {
+  "score": -22.344,
+  "phrases": [
+   "Le chef du Tchécoslovaque",
+   "L'église hussite est également connue sous le nom de patriarche."
+  ],
+  "units": [
+   "u1",
+   "u2"
+  ],
+  "ratios": [
+   0.474,
+   0.871
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "The head of the Czechoslovak",
+    "strategy": "orig"
+   },
+   {
+    "src": "Hussite Church is also known as the Patriarch.",
+    "strategy": "alt"
+   }
+  ]
+ },
+ "subset1-19": {
+  "score": 6.0,
+  "phrases": [
+   "Nous ne sommes que des voyageurs, répondit l'alchimiste."
+  ],
+  "units": [
+   "u1",
+   "u2"
+  ],
+  "ratios": [
+   0.858
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "We're only travellers, replied the alchemist.",
+    "strategy": "orig"
+   }
+  ]
+ },
+ "subset1-20": {
+  "score": -13.022,
+  "phrases": [
+   "Tu ne vois pas ce qui se passe ?"
+  ],
+  "units": [
+   "u1"
+  ],
+  "ratios": [
+   0.543
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "Don't you see what's happening?",
+    "strategy": "orig"
+   }
+  ]
+ },
+ "subset1-21": {
+  "score": 4.723,
+  "phrases": [
+   "Vous aimez lire des livres imprimés ou préférez-vous les livres numériques?"
+  ],
+  "units": [
+   "u1",
+   "u2"
+  ],
+  "ratios": [
+   0.759
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "Do you like reading printed books, or do you prefer digital ones?",
+    "strategy": "alt"
+   }
+  ]
+ }
+}

@@ -1,0 +1,7 @@
+{"round": "R0+place", "voice_overlap": 0.8255, "in_band": 0.365, "over_1.05": 0.353, "over_1.1": 0.247, "under_0.8": 0.282, "median": 0.962}
+{"round": "R1", "voice_overlap": 0.9077, "in_band": 0.447, "over_1.05": 0.518, "over_1.1": 0.353, "under_0.8": 0.035, "median": 1.055}
+{"round": "R2", "voice_overlap": 0.9155, "in_band": 0.471, "over_1.05": 0.518, "over_1.1": 0.353, "under_0.8": 0.012, "median": 1.055}
+{"round": "R3", "voice_overlap": 0.9175, "in_band": 0.738, "over_1.05": 0.167, "over_1.1": 0.048, "under_0.8": 0.095, "median": 0.965}
+{"round": "R4", "voice_overlap": 0.9141, "in_band": 0.869, "over_1.05": 0.06, "over_1.1": 0.036, "under_0.8": 0.071, "median": 0.956}
+{"round": "R5", "voice_overlap": 0.9268, "in_band": 0.952, "over_1.05": 0.024, "over_1.1": 0.012, "under_0.8": 0.024, "median": 0.956}
+{"round": "R6", "voice_overlap": 0.9289, "in_band": 0.976, "over_1.05": 0.012, "over_1.1": 0.0, "under_0.8": 0.012, "median": 0.956}

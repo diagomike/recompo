@@ -1,0 +1,173 @@
+=== subset2-81  (2 segments)
+  whole: when finished with the phrase click the shot on the lower red button for ending the recording
+  short: when you finished with the phrase click the shot up to the lower red button
+  long : when finished with the phrase click the shot on the lower red button for ending the recording
+  [1] 1.98s [final rise (question?)]: when you have finished with the sentence
+  [2] 4.44s [final rise (question?)]: click the bottom of the red button for ending the shot
+  glosses: button surface; recording; click up; terminate; lower bottom; finished finished
+=== subset2-82  (2 segments)
+  whole: he remembered something which had once said his grandfather of butterflies are a good sign
+  short: he remembered something that once said his grandfather of butterflies are a good sign
+  long : he remembered something that his grandfather had once said him butterflies are a good sign
+  [1] 4.82s [final rise (question?)]: he remembered something that he had once said his grandfather from him
+  [2] 2.26s [final rise (question?)]: butterflies are a good sign
+  glosses: butterflies; signs of the train; remembered; grandfather; said
+=== subset2-83  (4 segments)
+  whole: pain with something eating bread is less endurable and fat is better than sorrow and stummer
+  short: pain with something eating bread are less endurable and fat is better than sorrow
+  long : pain with something eating bread is less endurable and fat is better than sorrow and stummer
+  [1] 1.78s [final rise (question?)]: pain with something
+  [2] 0.41s: bread
+  [3] 1.59s [final rise (question?), emphasis]: it is less endurable
+  [4] 2.68s: sorrow and fat is better than lobster and major
+  glosses: endurably; pain; less; better; lobster sorry
+=== subset2-84  (3 segments)
+  whole: even i have not thought of other women since i've met the daughter of the merchant
+  short: even i haven't thought of other women since i have met the daughter of merchant
+  long : even i have not thought of other women since i have met the daughter of the merchant
+  [1] 0.82s [final rise (question?)]: even i
+  [2] 2.14s: i did not think of other women
+  [3] 2.84s [final rise (question?)]: since i've met the daughter of the merchant
+  glosses: met with no; biman; to think of; daughter; even; women
+=== subset2-85  (2 segments)
+  whole: it would be very useful if my web browser had the possibility to synchronize everyone his preferences
+  short: very useful if my web browser had the possibility of synchronizing all his preferences
+  long : it would be very useful if my web browser had the possibility to synchronize everyone his preferences
+  [1] 6.49s: it would be very useful if my web browser had the possibility to synchronize all his preferences
+  [2] 0.95s [final rise (question?)]: not only agreed
+  glosses: synchronizing; preferences; possibility; web browsers; useful; a few
+=== subset2-86  (2 segments)
+  whole: we cannot afford the window shutters on and we cannot afford ourselves to gold electricity
+  short: power the window shutters and we cannot afford electricity to gold electricity
+  long : power the window shutters and the light we cannot afford to gold electricity
+  [1] 3.06s: turn over the window shutters and the light
+  [2] 2.58s [final rise (question?)]: we can't afford it to be golden electricity
+  glosses: window shutters; golden up; afford; cann
+=== subset2-87  (2 segments)
+  whole: when she wanted to withdraw from her bank account the cash machine showed her map was invalid
+  short: when she wanted to withdraw from her bank account the cash machine showed her map was invalid
+  long : when she wanted to withdraw from her bank account the cash machine displayed her map was invalid
+  [1] 3.80s [final rise (question?)]: as she wanted to withdraw from her bank account
+  [2] 3.67s [final rise (question?)]: the cash machine indicated that her card was invalid
+  glosses: a cash machine; bank account; invalid; withdraw off; exhibited; wanted
+=== subset2-88  (2 segments)
+  whole: she wasn't thinking at home a neighbour probably that she had not come home last night
+  short: she wasn't thinking at home a neighbour that she was probably not coming home
+  long : she wasn't thinking at home a neighbour that she probably had come home last night
+  [1] 1.18s: she was not to be home
+  [2] 4.95s [final rise (question?)]: one neighbour suggested that she probably did not come home last night
+  glosses: probably; suspected; came to me; apparently; last
+=== subset2-89  (2 segments)
+  whole: the boy noticed that the owner of the bar was listening to your conversation
+  short: the boy noticed that the owner of the bar was listening to your conversation
+  long : the boy noticed that the owner of the bar was listening to your conversation within the vicinity
+  [1] 3.48s [final rise (question?)]: the boy noticed that the owner of the bar was standing close by
+  [2] 2.52s [final rise (question?)]: attentionally your conversation listens
+  glosses: attentive to the strange; noticed noticed; owner; talk; listening
+=== subset2-90  (2 segments)
+  whole: the region is known for its rich copper deposits so mining extensively operated here
+  short: the region is known for its rich copper deposits so mining is extensively operated here
+  long : the region is known for its rich copper deposits so mining extensively operated here
+  [1] 3.19s: the region is known for its rich copper deposits
+  [2] 3.42s [final rise (question?)]: so mining is being operated in a large style
+  glosses: copper deposits; operated; rich; known to know; mining; region
+=== subset2-91  (2 segments)
+  whole: the woman said that she had never been belonging to such a person quickly
+  short: the woman said that she had never heard of such a person quickly
+  long : the woman said that she had never been belonging to such a person quickly
+  [1] 4.47s [final rise (question?)]: the woman said that she had never been belonging to such a person
+  [2] 1.24s: quickly walked away
+  glosses: quickly; such; it is owned; person
+=== subset2-92  (3 segments)
+  whole: the boy came upon the girl nearer and as she smiled actually he was the same
+  short: the boy came closer to the girl and as she smiled effect her same
+  long : the boy came closer to the girl and as she smiled indeed he actually same to her
+  [1] 2.58s: the boy stepped down nearer to the girl
+  [2] 1.27s [final rise (question?)]: and when she smiled
+  [3] 1.56s [final rise (question?)]: indeed he ready to her
+  glosses: smiled; girl; as well
+=== subset2-93  (3 segments)
+  whole: then you see something that you like it and make it better when you see it
+  short: then you see something that you like it and make it better
+  long : then if you see something that you like it and make it better
+  [1] 2.33s [final rise (question?)]: if you see anything you like with you like
+  [2] 1.27s: then they take it
+  [3] 1.08s [final rise (question?)]: and do it better
+  glosses: i like it; take it; make up; better
+=== subset2-94  (3 segments)
+  whole: he made a moment break looking at the woman about the egyptian pyramids knew
+  short: he made a moment break to check the woman over the egyptian pyramid new
+  long : he made a moment pause to check the woman about egyptian pyramids knew of egyptian
+  [1] 1.91s: he took a moment break of pause
+  [2] 0.86s: to check out
+  [3] 3.32s [final rise (question?)]: if the woman knew about the egyptian pyramids knew of the egyptian
+  glosses: egyptian; pyramids; no; new; moment; review
+=== subset2-95  (2 segments)
+  whole: however after the labour party had come to power the commitment against the apartment
+  short: however after the labour party had come to power the commitment against the apart
+  long : however after the labour party had come to power the commitment against the apartment
+  [1] 3.93s [final rise (question?)]: however after the labour party had come to power
+  [2] 3.67s [final rise (question?)]: placed the commitment against the apart
+  glosses: but though; commitment to commitment; came to me; after; apart field; labour
+=== subset2-96  (2 segments)
+  whole: he made himself a name after he had come from the cantera of real madrid
+  short: he was given a name at chentaff after coming from the cantera of real madrid
+  long : he set himself in chentaf after he had come from the cantera of real madrid
+  [1] 2.39s: he was given a name at chentaff
+  [2] 3.70s: after he had come from the cantera of real madrid
+  glosses: chentaf; came to me; after; cantera; madrid; made
+=== subset2-97  (2 segments)
+  whole: experts of geology are agreeing yesterday tsunami was just an apocalypse of existing apocalypse
+  short: geology experts agree on yesterday tsunami was only one precursor to the existing apocalypse
+  long : experts of geology are agreeing yesterday tsunami was just an existing apocalypse
+  [1] 2.94s: experts of geology are agreed
+  [2] 5.56s: yesterday's tsunami was just an asset of the impending apocalypse
+  glosses: existing pending; apocalypse; geology; experts; tsunami; yesterday
+=== subset2-98  (3 segments)
+  whole: there is a mosque displaying the direction of a javana allun typical order of a jawani city
+  short: there is a mosque showing towards a giovannic allun typical order of a jiwanian city
+  long : there is a mosque showing the direction of a giovannic alloon typical order of a jawani city
+  [1] 1.21s [emphasis]: there is a mosque
+  [2] 2.81s: showing the direction of a giovannic alun
+  [3] 2.23s [final rise (question?)]: typical arrangement of a join city
+  glosses: juan in jawan; javan in javan; arrangement; typical of the type; towards the direction; mosque
+=== subset2-99  (3 segments)
+  whole: although some admired the prophets others of god's environment he now accused refuge abroad
+  short: although some admired the prophets others of god environment he now accused refuge abroad
+  long : although some admired the prophets others of god's environment he now accused his abroad
+  [1] 2.84s: although some admired the prophets
+  [2] 3.06s: he accused others of the leading of church
+  [3] 2.49s [final rise (question?)]: and he now looks forward refuge
+  glosses: church performance; accused; admired; prophets; cursed; abroad
+=== subset2-100  (2 segments)
+  whole: when the boy saw the spoon he held he realized that the oil was gone
+  short: when the boy saw the spoon he held he realized that the oil was gone
+  long : when the boy saw upon the spoon he held he realized that the oil was gone
+  [1] 2.97s [final rise (question?)]: as the boy saw to the spoon he holds
+  [2] 2.04s [final rise (question?)]: he realized that the oil was gone
+  glosses: recognised; spoon
+=== subset1-18  (2 segments)
+  whole: the head of the chechoslovak husite cherries is also called the patriarch
+  short: the chief of czechoslovak husite cherries is also called the patriarch
+  long : the head of the chechoslovak husite cherries is also called the patriarch
+  [1] 2.87s: the head of the chechoslovakian
+  [2] 3.99s: husseiton cherries is also called patriarch
+  glosses: chechoslovak; describes it; patriarch; but at all; hoocytes; cherry
+=== subset1-19  (1 segments)
+  whole: we are just traveller replied the alcamistus
+  short: we are just traveller replied the alcomistic
+  long : we are only travellers replied the alcommissed
+  [1] 3.22s: we are just traveller replied the alcamistus
+  glosses: replied; alchemist; travellers traveller
+=== subset1-20  (1 segments)
+  whole: don't you see what are you going to
+  short: don't you see what is there you going to
+  long : don't you see what are you going to before
+  [1] 2.58s: don't you see what are you going to
+  glosses: it sees
+=== subset1-21  (1 segments)
+  whole: do you like to see real books or prefer digital versions
+  short: do you like to see right books or prefer digital versions
+  long : do you like to see right books or prefer you digital versions
+  [1] 5.00s: do you like to see real books or prefer digital versions
+  glosses: preferred to this; versions of the version; digital digital; quite right; it sees; books books
