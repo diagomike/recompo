@@ -110,7 +110,8 @@ script on 20–50 of your titles (plan below).
 - Are the dubs lip-synced (theatrical) or voice-over (narrated)? Ethiopian translated films are often narrated
   voice-over, which changes the target.
 - Should Track 1 run through the agent (Claude Code operating the app, as today) or through direct API calls (better
-  for whole films)? This is a direction choice for when building resumes.
+  for whole films)? **Answered 2026-11-01 (D-26): the agent only.** You and the Claude desktop app work in a shared
+  project folder; no API. Whole films go in batches (`--limit`).
 
 ## Files
 

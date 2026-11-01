@@ -250,7 +250,9 @@ matching, gapless recipe player, dub fixes, face-cropped Shorts, semantic search
 - Storage: table `dub_work` (migration 2). `dub fit` is a job (`dubfit`); it writes translations with method `llmdub`
   and per-frame choices. Exports voice each frame at the speaker's pause (`captions[].parts`).
 - Tests: `tests/unit/test_llmdub.py`, `tests/e2e/test_llmdub.py`. Write-up: `docs/research/P19-dubbing-and-meaning/APP.md`.
-- Not yet: unattended API mode (the agent writes), prosody cues, `--dub-*` on links.
+- How it runs (D-26): you and the Claude desktop app in the shared project folder; no LLM API, ever. Whole films in
+  batches (`dub understand/write --template --limit N`). All work local; only recipes go to the hub when you publish.
+- Not yet: prosody cues, `--dub-*` on links.
 - All research branches were merged (history kept) into the session branch and main; the folder
   `docs/research/P19-dubbing-and-meaning/` holds README (index), JOURNEY, RESULTS, BRANCHES, APP and every worktree.
 
@@ -289,7 +291,7 @@ matching, gapless recipe player, dub fixes, face-cropped Shorts, semantic search
   offline via `mt_bergamot.py`). Summary: `docs/research/P19-dubbing-and-meaning/mechanisms-compared.md`.
   Worktrees live at `/home/user/recompo-wt-*` in the cloud session only.
 - Sandbox notes: HuggingFace, arXiv, ACL Anthology are blocked here; GitHub (git and release assets) and PyPI work.
-- Open questions for you: language pairs in the library; lip-synced vs narrated dubs; agent vs API mode for films.
+- Open questions for you: language pairs in the library; lip-synced vs narrated dubs. (Agent vs API: agent only, D-26.)
 - `tests/unit/test_contract.py::test_verbs_doc_is_current` fails on Linux only (VERBS.md holds the Windows default
   `C:\Users\pc\bin`); unrelated to P19.
 

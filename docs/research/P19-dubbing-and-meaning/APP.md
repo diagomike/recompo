@@ -80,10 +80,19 @@ Tests:
 - `tests/e2e/test_llmdub.py`: settings → understand → write → fit → verify → fit → export, with per-frame voicing.
   Also multi-middle views and the target-direct override.
 
+## How it runs (D-26)
+
+- **No LLM API, ever.** This is your local tool. You and the Claude desktop app work in the same project folder:
+  - the agent kit there (`AGENTS.md`, the `recomp-dub` skill, `.mcp.json`) gives Claude the verbs;
+  - Claude reads the templates and writes the maps, options and checks itself.
+- **Whole films in batches.** `dub understand … --template --limit 40` gives the next 40 lines still without a map;
+  `dub write … --template --limit 40` gives the next 40 to write. Repeat until `dub status` says what is next.
+- **All work stays on your machine.** Only finished recipes may go to the hub, and only when you publish one.
+  - The `google` MT engine is the one network call. Choose `nllb` or `bergamot` (worker env) to stay fully offline.
+  - Edge voices are network too; MMS voices are local.
+
 ## Not built yet
 
-- **API mode.** The agent (Claude Code over CLI or MCP) does the writing; there is no unattended Anthropic API loop
-  yet. It would plug in at the template/input pairs.
 - **Prosody cues** (`pivot.py prosody`) are not in the app: the question detector over-fired on read speech.
 - **Links** added with `source add <url>` don't take the `--dub-*` options yet; use `dub settings --at S…` after
   adding.
