@@ -91,6 +91,13 @@ class AddIn(BaseModel):
     match: str | None = Field(None, description="Links: only entries whose title matches (regex, case-insensitive)")
     since: str | None = Field(None, description="Links: only entries newer than e.g. 90d")
     pick: list[str] = Field(default_factory=list, description="Links: add these entries from the last pick list (numbers or ids)")
+    dub_to: list[str] = Field(default_factory=list, description="Languages to dub this media into (shown by `dub settings`)")
+    dub_route: str | None = Field(None, description="LLM dubber route: auto, direct, source (src-en), target (tgt-en), "
+                                                     "middle (mid-en), multi")
+    dub_middle: list[str] | None = Field(None, description="LLM dubber middle languages, e.g. en or en,es")
+    dub_budget: str | None = Field(None, description="LLM dubber budget: economy (one writing language) or quality (two)")
+    dub_views_mt: list[str] | None = Field(None, description="MT systems for the understanding views: google, nllb, bergamot")
+    dub_mt: str | None = Field(None, description="MT system into the dub language: google, nllb, bergamot")
 
 
 @verb("source.add", AddIn, effect="write",
@@ -111,6 +118,11 @@ def source_add(ctx: Ctx, inp: AddIn):
                           hint=f"Recognised extensions: {', '.join(sorted(ff.MEDIA_EXTS))}")
     db = ctx.db
     lang_default = inp.language or (ctx.project.meta.get("languages") or ["en"])[0]
+    from ..lang import llmdub
+    dub = llmdub.normalise({"route": inp.dub_route, "middle": inp.dub_middle, "budget": inp.dub_budget,
+                            "views_mt": inp.dub_views_mt, "mt": inp.dub_mt})
+    if inp.dub_to:
+        dub["targets"] = [x.strip() for x in inp.dub_to if x.strip()]
     added, skipped, warnings, queued = [], [], [], []
     for path in files:
         fp = identity.fingerprint(path)
@@ -137,7 +149,8 @@ def source_add(ctx: Ctx, inp: AddIn):
                 "rights": {"kind": "file", "notice": f"{title}" + (f" ({year})" if year else ""), "owner": "",
                            "licence": "all rights reserved (owner's copy)"},
                 "status": {"probe": "done"},
-                "meta": {"probe": p, "filename": path.name, "embedded_chapters": info.chapters[:200]}})
+                "meta": {"probe": p, "filename": path.name, "embedded_chapters": info.chapters[:200],
+                         **({"dub": dub} if dub else {})}})
             imported = []
             for sf in sub_files:
                 segs, problems = tparse.parse_file(sf)

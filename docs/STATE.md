@@ -2,7 +2,7 @@
 
 The build's working memory. If context runs short, resume from here.
 
-**Last updated:** 2026-10-31 (P19 research started: LLM-timed dubbing, dub-trained models, LLM cuts — research only; before that 2026-10-21: M5 complete; P18 backlog run built: fast re-exports, viewer polish, cross-release
+**Last updated:** 2026-11-01 (P19: the LLM dubber is in the app — `recomp dub …`, route settings per media, merged to main with all research; before that 2026-10-31 P19 research; 2026-10-21: M5 complete; P18 backlog run built: fast re-exports, viewer polish, cross-release
 matching, gapless recipe player, dub fixes, face-cropped Shorts, semantic search, cloned-voice dubs)
 
 | | |
@@ -239,6 +239,20 @@ matching, gapless recipe player, dub fixes, face-cropped Shorts, semantic search
   speakers (OmniVoice); not their recordings") in credits.json, the description and the endcard. Dark Knight J1 fr:
   23 lines cloned in ~25 min; after shortening seg:126/183, 1 line over (0.99 s), round-trip WER 0.26 vs 0.04 for
   the studio voice (X41 vs X42). The viewer marks these exports "original voices (AI)" with their own matrix row.
+
+## P19 LLM dubber in the app (2026-11-01, D-25)
+- `recomp dub settings | understand | write | fit | verify | status` (docs/VERBS.md; agent skill `recomp-dub`).
+  Routes by language strength: `direct`, `source` (src-en), `target` (tgt-en), `middle` (mid-en), `multi` (two or
+  more middle languages from different MT systems); `economy` or `quality` budget; MT `google` / `nllb` / `bergamot`
+  (worker scripts `mt_nllb.py`, `mt_bergamot.py`); back-translation checks; conserve mode.
+- Settings layer studio → project → **source** (`source add --dub-route/--dub-middle/--dub-budget/--dub-views-mt/--dub-mt/--dub-to`)
+  → journey; the studio shows them in Add sources → Dubbing, a source's *Dub settings…*, and Translations → *LLM dub*.
+- Storage: table `dub_work` (migration 2). `dub fit` is a job (`dubfit`); it writes translations with method `llmdub`
+  and per-frame choices. Exports voice each frame at the speaker's pause (`captions[].parts`).
+- Tests: `tests/unit/test_llmdub.py`, `tests/e2e/test_llmdub.py`. Write-up: `docs/research/P19-dubbing-and-meaning/APP.md`.
+- Not yet: unattended API mode (the agent writes), prosody cues, `--dub-*` on links.
+- All research branches were merged (history kept) into the session branch and main; the folder
+  `docs/research/P19-dubbing-and-meaning/` holds README (index), JOURNEY, RESULTS, BRANCHES, APP and every worktree.
 
 ## P19 research (2026-10-31, research only — no app changes)
 - Your direction: explore (1) Claude-written timed dubbing scripts, (2) a model / no-training path learned from your

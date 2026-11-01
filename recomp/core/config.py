@@ -41,6 +41,10 @@ DEFAULTS: dict[str, Any] = {
     # P17 research wing: follow checks run this often while the studio is open (0 = only on request);
     # a follow's first check puts this many of the newest items in the inbox; backfill goes back this far;
     # contact: your email or URL for APIs whose policy asks for it (Wikipedia's most-viewed list); empty = skip them.
+    # P19 LLM dubber defaults (a project, a source or a journey can override any of them: `recomp dub settings`).
+    # route: auto | direct | source (src-en) | target (tgt-en) | middle (mid-en) | multi; budget: economy | quality.
+    "dub": {"route": "auto", "middle": ["en"], "budget": "economy", "views_mt": ["google"], "mt": "google",
+            "verify": "auto", "conserve": False, "rounds": 2, "band": [0.8, 1.05], "mt_prior": 0.5, "min_pause": 0.3},
     "research": {"check_every_h": 2, "first_check_items": 3, "backfill_since": "2y", "contact": ""},
 }
 

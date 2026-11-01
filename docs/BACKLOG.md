@@ -56,6 +56,14 @@ Every open task by priority. Done phases are summarised; their detail is in git 
         line from its speaker's own audio with OmniVoice, saved beside the usual dub (`…-clone`), credited as AI
         voices. Dark Knight J1 fr: 1 line over, round-trip WER 0.26 (studio voice: 0 over, 0.04). Your ears decide.
 
+## LLM dubber (P19 in the app, 2026-11-01)
+- [x] `recomp dub …` verbs, layered settings (studio/project/source/journey), routes direct/source/target/middle/multi,
+      economy/quality, MT google/nllb/bergamot, back-translation checks, per-frame voicing in exports, studio controls.
+- [ ] Run it on your PC on a real journey: am→om with `--route multi --middle en,es --views-mt google,nllb`
+      (needs NLLB in the worker env; bergamot optional: `pip install bergamot==0.4.5` + `dub.bergamot_models`).
+- [ ] API mode: an unattended loop that answers the templates with the Anthropic API (today the agent does it).
+- [ ] `--dub-*` options for links in `source add`; prosody cues in `dub understand`.
+
 ## Research (P19, 2026-10-31; research only)
 - [x] Literature and feasibility report: `docs/research/P19-dubbing-and-meaning/` (tracks 1 and 3 here, track 2 on
       branch `ccr-327cc642-xnfs3i-track2-models`); pilot on two real en→es dubbed excerpts.
