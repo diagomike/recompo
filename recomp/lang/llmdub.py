@@ -411,6 +411,8 @@ class Ruler:
 
     def __init__(self, project, lang: str, voice: str | None = None, online: bool | None = None):
         from . import tts
+        # cloned voices exist only at export (they need each line's original audio): time with the language's voice
+        voice = None if voice == "clone" else voice
         self.lang, self.voice, self.online = lang, voice, online
         self.backend, self.v = tts.voice_for(lang, voice, online)
         self.clips = project.dir("cache", "dub", "clips")

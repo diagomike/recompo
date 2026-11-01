@@ -182,9 +182,10 @@ class RunIn(BaseModel):
     profiles: list[str] = Field(default_factory=lambda: ["landscape"])
     langs: list[str] = Field(default_factory=list, description="Languages (default: the journey's)")
     dub: bool = Field(True, description="Dub languages other than the journey's (needs translations); false = subtitles only")
-    voice: str | None = Field(None, description="Dub voice: clone (each line in its original speaker's voice, OmniVoice; "
-                                                "credited as AI voices), an edge voice name, mms:<model>. Default: the "
-                                                "language's configured voice")
+    voice: str | None = Field(None, description="Dub voice: mms:<model> (offline MMS-TTS), clone (each line in its original "
+                                                "speaker's voice, OmniVoice; credited as AI voices), sapi:<name>, or an "
+                                                "edge voice name (online). Default: the language's offline MMS voice, or "
+                                                "its edge voice when the dub may go online")
     speed: str | None = Field(None, description="normal | fast: fast encodes the final pass (captions, overlays, sound) "
                                                 "at veryfast, CRF −1, for quick re-exports; slots stay cached. "
                                                 "Default: config render.final_speed")

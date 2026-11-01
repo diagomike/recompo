@@ -98,6 +98,22 @@ Tests:
   `source add --dub-online`.
 - **Drafts.** `lang translate --engine nllb|m2m100|bergamot` drafts offline too.
 
+### Offline voices
+
+| Voice | Choose it with | Notes |
+|---|---|---|
+| **MMS-TTS** for the language (default offline) | `--voice mms:facebook/mms-tts-orm`; any MMS language by ISO 639-3 code (`kin`, `tir`, …); `config set tts.mms.<lang> <model>` | One speaker per language. Long lines speed up naturally: the VITS speaking rate goes up to 1.35×, before any time-stretch |
+| Original speakers (OmniVoice clone) | `--voice clone` (export only) | Each line in its speaker's voice; credited as AI voices |
+| Windows SAPI | `--voice sapi:<name>` | Built-in voices on Windows |
+| Edge neural voices (online) | an edge voice name, with `online: true` | Best quality; needs the network |
+
+`recomp lang voices om` lists the offline voices first, with whether each is downloaded. It lists edge voices only
+when online is allowed (or with `--online`). `recomp lang say "…" --lang om --voice mms:…` auditions a voice.
+
+In the studio, the LLM dub dialog has a **Voice** picker (offline group, online group when allowed) with an
+**Audition** button. The voice can be set at any layer (`dub settings --voice`), when adding media
+(`source add --dub-voice`), or for one export (`export run --voice`).
+
 ## Several movies at once
 
 - `recomp dub next --limit 40` looks at every journey whose media has dub languages (`--dub-to`). For each journey

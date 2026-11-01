@@ -25,6 +25,34 @@ MMS_ISO3 = {"am": "amh", "om": "orm", "ti": "tir", "so": "som", "sw": "swh", "en
             "id": "ind", "fa": "fas", "pl": "pol", "ro": "ron", "el": "ell", "he": "heb"}
 
 
+def mms_voice(lang: str) -> str | None:
+    """The MMS-TTS model for a language: your configured one, else facebook/mms-tts-<ISO 639-3>."""
+    configured = (config.get("tts.mms") or {}).get(lang)
+    if configured:
+        return configured
+    if lang in MMS_ISO3:
+        return f"facebook/mms-tts-{MMS_ISO3[lang]}"
+    return f"facebook/mms-tts-{lang}" if len(lang) == 3 and lang.isalpha() else None
+
+
+def offline_voices(lang: str) -> list[dict]:
+    """The voices that run on this computer for a language: MMS-TTS, cloned original voices (OmniVoice) and, on
+    Windows, the built-in SAPI voice."""
+    from .llmdub import hf_present
+    out = []
+    m = mms_voice(lang)
+    if m:
+        out.append({"voice": f"mms:{m}", "backend": "mms", "label": f"MMS-TTS ({m.split('/')[-1]})", "installed": hf_present(m),
+                    "note": "Meta's VITS voice for the language; one speaker; speeds up naturally to fit"})
+    out.append({"voice": "clone", "backend": "clone", "label": "Original speakers' voices (OmniVoice clone)",
+                "installed": hf_present(config.get("tts.clone_model") or "k2-fsa/OmniVoice"),
+                "note": "Each line in the voice of the person who said it; credited as AI voices; export only"})
+    if lang in SAPI_VOICES and os.name == "nt":
+        out.append({"voice": f"sapi:{SAPI_VOICES[lang]}", "backend": "sapi", "label": SAPI_VOICES[lang], "installed": True,
+                    "note": "Windows built-in voice"})
+    return out
+
+
 def is_online(online: bool | None = None) -> bool:
     """Network voices (edge) are used only when the dub is allowed online (`dub.online`, default off)."""
     return bool(config.get("dub.online", False)) if online is None else bool(online)
@@ -55,6 +83,8 @@ def voice_for(lang: str, voice: str | None = None, online: bool | None = None) -
         return "mms", tts["mms"][lang]
     if lang in MMS_ISO3:
         return "mms", f"facebook/mms-tts-{MMS_ISO3[lang]}"
+    if len(lang) == 3 and lang.isalpha():  # any of MMS-TTS's ~1,100 languages by its ISO 639-3 code
+        return "mms", f"facebook/mms-tts-{lang}"
     if lang in SAPI_VOICES and os.name == "nt":
         return "sapi", SAPI_VOICES[lang]
     if not on and lang in (tts.get("voices") or {}):
@@ -112,7 +142,7 @@ def synth(text: str, lang: str, dest: Path, voice: str | None = None, rate_pct: 
     if backend == "mms":
         from ..workers.worker_env import run_script
         tmp = dest.with_suffix(".mms.wav")
-        run_script("tts_mms", ["--model", v, "--text", text, "--out", str(tmp)],
+        run_script("tts_mms", ["--model", v, "--text", text, "--out", str(tmp), "--rate", f"{1 + rate_pct / 100:.3f}"],
                    allow_download=bool(config.get("tts.allow_download")))
         dur = _to_wav48(tmp, dest)
         tmp.unlink(missing_ok=True)

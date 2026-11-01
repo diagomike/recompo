@@ -700,7 +700,7 @@ Render a journey in every profile × language asked for (jobs). Outputs land in 
 | `--profiles` | list[string] | None |  |
 | `--langs` | list[string] | None | Languages (default: the journey's) |
 | `--dub` | boolean | True | Dub languages other than the journey's (needs translations); false = subtitles only |
-| `--voice` | string | None | Dub voice: clone (each line in its original speaker's voice, OmniVoice; credited as AI voices), an edge voice name, mms:<model>. Default: the language's configured voice |
+| `--voice` | string | None | Dub voice: mms:<model> (offline MMS-TTS), clone (each line in its original speaker's voice, OmniVoice; credited as AI voices), sapi:<name>, or an edge voice name (online). Default: the language's offline MMS voice, or its edge voice when the dub may go online |
 | `--speed` | string | None | normal \| fast: fast encodes the final pass (captions, overlays, sound) at veryfast, CRF −1, for quick re-exports; slots stay cached. Default: config render.final_speed |
 
 ```
@@ -1526,10 +1526,11 @@ Voice a single line into the project's cache (to audition a voice).
 |---|---|---|---|
 | `<text>` | string | required |  |
 | `--lang` | string | 'en' |  |
-| `--voice` | string | None |  |
+| `--voice` | string | None | mms:<model> (offline), sapi:<name>, an edge voice (online), or the default |
 
 ```
 recomp lang say "ሰላም" --lang am
+recomp lang say "Akkam jirta" --lang om --voice mms:facebook/mms-tts-orm
 ```
 
 ### lang.status
@@ -1567,14 +1568,17 @@ recomp lang translate J1 --to sw --engine google
 
 `recomp lang voices <lang>` · effect: **network**
 
-Voices available for a language (edge neural voices; the configured default is marked).
+Voices for a language: offline ones first (MMS-TTS, cloned original voices, Windows SAPI) with whether they are installed, then online edge voices when allowed. The default is marked.
 
 | Field | Type | Default | Description |
 |---|---|---|---|
-| `<lang>` | string | required |  |
+| `<lang>` | string | required | Language code (two letters, or any ISO 639-3 code MMS-TTS has) |
+| `--online` | boolean | None | Also list online edge voices (default: when the dub may go online) |
 
 ```
-recomp lang voices am
+recomp lang voices om
+recomp lang voices am --online
+recomp config set tts.mms.am facebook/mms-tts-amh   # the language's offline voice
 ```
 
 ## library
@@ -2293,6 +2297,7 @@ Add media: files are referenced in place (never copied); subtitles beside them a
 | `--dub-budget` | string | None | LLM dubber budget: economy (one writing language) or quality (two) |
 | `--dub-views-mt` | list[string] | None | MT systems for the understanding views: nllb, m2m100, bergamot, google |
 | `--dub-mt` | string | None | MT system into the dub language: nllb, m2m100, bergamot (offline) or google (online) |
+| `--dub-voice` | string | None | Dub voice: mms:<model> (offline), clone, or an edge voice (online) |
 | `--dub-online` | boolean | None | Allow online engines (google MT, edge voices) for this media; default offline |
 
 ```

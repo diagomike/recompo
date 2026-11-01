@@ -146,3 +146,17 @@ def test_voices_offline_by_default(monkeypatch):
     with pytest.raises(RecompError) as e:
         tts.voice_for("am", voice="am-ET-MekdesNeural")
     assert e.value.code == "E_OFFLINE"
+
+
+def test_mms_voices_are_offline_options(proj, OK, monkeypatch):
+    from recomp.lang import tts
+    monkeypatch.delenv("RECOMP_TTS", raising=False)
+    assert tts.voice_for("kin") == ("mms", "facebook/mms-tts-kin")  # any MMS language by its ISO 639-3 code
+    assert tts.voice_for("om", voice="mms:facebook/mms-tts-orm") == ("mms", "facebook/mms-tts-orm")
+    v = OK("lang.voices", {"lang": "om"}, proj)  # offline: no network call, edge voices not listed
+    assert v["online"] is False and v["online_voices"] == []
+    mms = next(x for x in v["offline"] if x["backend"] == "mms")
+    assert mms["voice"] == "mms:facebook/mms-tts-orm" and mms["default"] and mms["installed"] is False
+    assert any(x["voice"] == "clone" for x in v["offline"])
+    OK("dub.settings", {"at": "project", "voice": "mms:facebook/mms-tts-orm"}, proj)
+    assert OK("dub.settings", {"to": "om"}, proj)["settings"]["voice"] == "mms:facebook/mms-tts-orm"
