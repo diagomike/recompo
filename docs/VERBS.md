@@ -528,6 +528,7 @@ Stage 1: the meaning map. The template shows each line's speech frames and its e
 | `--template` | boolean | False | Return the evidence for each line (source text or MT views) to write the map from |
 | `--maps` | object | None | {key: {best, confidence, notes, units:[{id, text, tier, frame}]}} (use --input) |
 | `--keys` | list[string] | None | Only these lines (seg:… keys) |
+| `--limit` | integer | None | Template: at most this many lines still without a map (a whole film in batches) |
 
 ```
 recomp dub understand J1 --to om --template
@@ -565,6 +566,7 @@ Stage 2: options per speech frame, in the route's writing language(s), each labe
 | `--template` | boolean | False | Return what to write: per frame its time, syllable target, units and languages; after a fit, only the rewrites still needed |
 | `--options` | object | None | {key: {frame n: [{text, lang, units, strategy}]}} (use --input) |
 | `--keys` | list[string] | None | Only these lines |
+| `--limit` | integer | None | Template: at most this many lines (a whole film in batches) |
 | `--all` | boolean | False | Template: every line, not only those still needing work |
 
 ```

@@ -39,6 +39,8 @@ def test_source_side_route_through_fit_verify_and_export(lproj, OK):
     assert plan["route"] == "source" and plan["writes"] == ["en"] and plan["back_translate"]
     assert s["sources"][0]["settings"]["targets"] == ["om"]
 
+    one = OK("dub.understand", {"journey": "J1", "to": "om", "template": True, "limit": 1}, lproj)
+    assert len(one["lines"]) == 1 and one["still_unmapped"] == one["of"]  # a whole film goes in batches
     t = OK("dub.understand", {"journey": "J1", "to": "om", "template": True}, lproj)
     assert t["lines"] and all("text" in l and len(l["frames"]) == 2 for l in t["lines"])  # English source: read directly
     maps = {l["key"]: {"best": l["text"], "confidence": "high",

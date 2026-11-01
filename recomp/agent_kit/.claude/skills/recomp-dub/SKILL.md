@@ -35,6 +35,9 @@ which route they want if it matters (meaning-critical films: `multi`; token budg
 
 `recomp dub understand J1 --to om --input maps.json`
 
+A whole film: work in batches. `--template --limit 40` gives the next 40 lines still to map (or to write in stage 3);
+repeat until done. You are the only LLM here: there is no API to hand this to.
+
 ## 3. Write options
 `recomp dub write J1 --to om --template`: per frame its seconds, a syllable target for the target voice, its units and
 the language(s) to write in. Write 2–4 options per frame: orig, compact (drop colour, then support), full (support

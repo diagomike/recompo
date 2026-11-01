@@ -61,7 +61,6 @@ Every open task by priority. Done phases are summarised; their detail is in git 
       economy/quality, MT google/nllb/bergamot, back-translation checks, per-frame voicing in exports, studio controls.
 - [ ] Run it on your PC on a real journey: am→om with `--route multi --middle en,es --views-mt google,nllb`
       (needs NLLB in the worker env; bergamot optional: `pip install bergamot==0.4.5` + `dub.bergamot_models`).
-- [ ] API mode: an unattended loop that answers the templates with the Anthropic API (today the agent does it).
 - [ ] `--dub-*` options for links in `source add`; prosody cues in `dub understand`.
 
 ## Research (P19, 2026-10-31; research only)

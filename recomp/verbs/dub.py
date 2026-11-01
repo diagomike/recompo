@@ -159,6 +159,7 @@ class UnderstandIn(BaseModel):
     template: bool = Field(False, description="Return the evidence for each line (source text or MT views) to write the map from")
     maps: dict[str, dict] = Field(default_factory=dict, description="{key: {best, confidence, notes, units:[{id, text, tier, frame}]}} (use --input)")
     keys: list[str] = Field(default_factory=list, description="Only these lines (seg:… keys)")
+    limit: int | None = Field(None, description="Template: at most this many lines still without a map (a whole film in batches)")
 
 
 @verb("dub.understand", UnderstandIn, effect="write",
@@ -171,6 +172,10 @@ def dub_understand(ctx: Ctx, inp: UnderstandIn):
     if inp.template:
         mt = L.MT(ctx.project)
         have = work(db, j, inp.to, "map")
+        total = len(ls)
+        unmapped = sum(1 for ln in ls if ln["key"] not in have)
+        if inp.limit:
+            ls = [ln for ln in ls if ln["key"] not in have][: inp.limit]
         batches: dict[tuple, list[str]] = {}
         for ln in ls:
             for v in ln["route"]["views"]:
@@ -195,7 +200,8 @@ def dub_understand(ctx: Ctx, inp: UnderstandIn):
             if ln["key"] in have:
                 item["current"] = have[ln["key"]]["data"]
             out.append(item)
-        return Result(data={"journey": j["ref"], "to": inp.to, "lines": out,
+        return Result(data={"journey": j["ref"], "to": inp.to, "lines": out, "of": total,
+                            "still_unmapped": unmapped,
                             "write": "For each key: {best: the line's meaning in " + (ls[0]["route"]["reads"][0] if ls else "en") +
                                      ", confidence: high|medium|low, notes: what you resolved or could not, "
                                      "units: [{id: u1…, text, tier: core|support|colour, frame: n}]}. Read every view: "
@@ -234,6 +240,7 @@ class WriteIn(BaseModel):
     template: bool = Field(False, description="Return what to write: per frame its time, syllable target, units and languages; after a fit, only the rewrites still needed")
     options: dict[str, dict] = Field(default_factory=dict, description="{key: {frame n: [{text, lang, units, strategy}]}} (use --input)")
     keys: list[str] = Field(default_factory=list, description="Only these lines")
+    limit: int | None = Field(None, description="Template: at most this many lines (a whole film in batches)")
     all: bool = Field(False, description="Template: every line, not only those still needing work")
 
 
@@ -254,6 +261,8 @@ def dub_write(ctx: Ctx, inp: WriteIn):
                 continue
             mp = maps[ln["key"]]["data"]
             ch = (choice.get(ln["key"]) or {}).get("data")
+            if ln["key"] in opts and not ch and not inp.all:
+                continue  # written, waiting for `dub fit`
             if ch and not inp.all:
                 if not ch["steer"]:
                     continue
@@ -263,7 +272,10 @@ def dub_write(ctx: Ctx, inp: WriteIn):
                         "frames": [{"n": k + 1, "dur": f["dur"], "target_syllables": round(0.93 * f["dur"] * rate),
                                     "units": [u for u in mp["units"] if int(u.get("frame", 1)) == k + 1]}
                                    for k, f in enumerate(ln["frames"])]})
-        return Result(data={"journey": j["ref"], "to": inp.to, "lines": out, "unmapped": missing,
+        waiting = len(out)
+        if inp.limit:
+            out = out[: inp.limit]
+        return Result(data={"journey": j["ref"], "to": inp.to, "lines": out, "still_to_write": waiting, "unmapped": missing,
                             "write": "For each key: {frame n: [2–4 options {text, lang (one of writes), units: [ids it "
                                      "carries], strategy: orig|compact|full|plain|steer}]}. Natural spoken lines, no new "
                                      "facts; syllable targets are for the target voice. Writing in a language other than the "

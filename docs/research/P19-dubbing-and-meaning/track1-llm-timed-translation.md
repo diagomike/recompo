@@ -130,7 +130,8 @@ The Spanish professional dub of the same scene comes to 59 syllables.
 | Cost | moderate | A 1 h film is ~9 k source words. Frame plus understanding plus 2–3 variants plus one revision round comes to roughly 10–20× the source tokens. Batch it and cache per source. Prices: check the current model list when we choose. |
 
 **Recommended mode later:** the understanding and writing passes as verbs the agent drives (as today) for clips and
-journeys. For whole films, a batch API path.
+journeys. For whole films, a batch API path. *Superseded 2026-11-01 (D-26): no API. The agent drives whole films in
+batches of lines (`dub understand/write --limit`).*
 
 ## 6. Experiment to decide (go/no-go)
 
