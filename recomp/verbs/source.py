@@ -98,6 +98,7 @@ class AddIn(BaseModel):
     dub_budget: str | None = Field(None, description="LLM dubber budget: economy (one writing language) or quality (two)")
     dub_views_mt: list[str] | None = Field(None, description="MT systems for the understanding views: nllb, m2m100, bergamot, google")
     dub_mt: str | None = Field(None, description="MT system into the dub language: nllb, m2m100, bergamot (offline) or google (online)")
+    dub_voice: str | None = Field(None, description="Dub voice: mms:<model> (offline), clone, or an edge voice (online)")
     dub_online: bool | None = Field(None, description="Allow online engines (google MT, edge voices) for this media; default offline")
 
 
@@ -121,7 +122,8 @@ def source_add(ctx: Ctx, inp: AddIn):
     lang_default = inp.language or (ctx.project.meta.get("languages") or ["en"])[0]
     from ..lang import llmdub
     dub = llmdub.normalise({"route": inp.dub_route, "middle": inp.dub_middle, "budget": inp.dub_budget,
-                            "views_mt": inp.dub_views_mt, "mt": inp.dub_mt, "online": inp.dub_online})
+                            "views_mt": inp.dub_views_mt, "mt": inp.dub_mt, "online": inp.dub_online,
+                            "voice": inp.dub_voice})
     if inp.dub_to:
         dub["targets"] = [x.strip() for x in inp.dub_to if x.strip()]
     added, skipped, warnings, queued = [], [], [], []

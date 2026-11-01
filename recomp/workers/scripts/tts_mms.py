@@ -1,7 +1,10 @@
 """MMS-TTS (VITS) synthesis under the worker python.
 
     python tts_mms.py --model facebook/mms-tts-orm --text "…" --out x.wav
-    python tts_mms.py --model facebook/mms-tts-orm --batch jobs.json     # [{"text": …, "out": …}, …]
+    python tts_mms.py --model facebook/mms-tts-orm --batch jobs.json     # [{"text": …, "out": …, "rate": 1.2}, …]
+
+``--rate`` (or an item's ``rate``) is the speaking rate: 1.0 natural, 1.2 = 20 % faster, spoken by the model itself
+(VITS duration scaling), which sounds more natural than stretching the audio afterwards.
 """
 
 from __future__ import annotations
@@ -20,6 +23,7 @@ def main():
     ap.add_argument("--text")
     ap.add_argument("--out")
     ap.add_argument("--batch")
+    ap.add_argument("--rate", type=float, default=1.0)
     a = ap.parse_args()
     import torch
     from transformers import AutoTokenizer, VitsModel
@@ -27,8 +31,11 @@ def main():
     tok = AutoTokenizer.from_pretrained(a.model)
     model = VitsModel.from_pretrained(a.model).eval()
     sr = model.config.sampling_rate
-    items = json.load(open(a.batch, encoding="utf-8")) if a.batch else [{"text": a.text, "out": a.out}]
+    items = json.load(open(a.batch, encoding="utf-8")) if a.batch else [{"text": a.text, "out": a.out, "rate": a.rate}]
     for k, it in enumerate(items):
+        rate = float(it.get("rate") or a.rate or 1.0)
+        model.speaking_rate = rate
+        model.config.speaking_rate = rate
         with torch.no_grad():
             wav = model(**tok(it["text"], return_tensors="pt")).waveform[0].numpy()
         pcm = (np.clip(wav, -1, 1) * 32767).astype("<i2")

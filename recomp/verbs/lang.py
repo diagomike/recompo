@@ -173,43 +173,64 @@ def lang_status(ctx: Ctx, inp: StatusIn):
 
 
 class VoicesIn(BaseModel):
-    lang: str = Field(..., json_schema_extra={"pos": 0})
+    lang: str = Field(..., description="Language code (two letters, or any ISO 639-3 code MMS-TTS has)", json_schema_extra={"pos": 0})
+    online: bool | None = Field(None, description="Also list online edge voices (default: when the dub may go online)")
 
 
-@verb("lang.voices", VoicesIn, effect="network", examples=["recomp lang voices am"])
+@verb("lang.voices", VoicesIn, effect="network",
+      examples=["recomp lang voices om", "recomp lang voices am --online",
+                "recomp config set tts.mms.am facebook/mms-tts-amh   # the language's offline voice"])
 def lang_voices(ctx: Ctx, inp: VoicesIn):
-    """Voices available for a language (edge neural voices; the configured default is marked)."""
-    from ..core import config
-    from ..lang import tts
+    """Voices for a language: offline ones first (MMS-TTS, cloned original voices, Windows SAPI) with whether they are installed, then online edge voices when allowed. The default is marked."""
+    from ..lang import llmdub, tts
+    online = inp.online if inp.online is not None else bool(llmdub.resolve(ctx.project)[0].get("online"))
     try:
-        backend, default = tts.voice_for(inp.lang)
+        backend, default = tts.voice_for(inp.lang, online=online)
     except RecompError:
         backend, default = None, None
-    vs = []
-    try:
-        vs = tts.edge_voices(inp.lang)
-    except RecompError as exc:
-        if backend != "mms":
-            raise exc
-    for v in vs:
-        v["default"] = v["voice"] == default
-    return {"lang": inp.lang, "default": {"backend": backend, "voice": default}, "edge": vs,
-            "mms": (config.get("tts.mms") or {}).get(inp.lang)}
+    offline = tts.offline_voices(inp.lang)
+    for v in offline:
+        v["default"] = v["voice"] in (default, f"{backend}:{default}")
+    edge, warnings = [], []
+    if online:
+        try:
+            edge = tts.edge_voices(inp.lang)
+        except RecompError as exc:
+            warnings.append(f"online voices unavailable: {exc.message}")
+        for v in edge:
+            v["default"] = v["voice"] == default
+    missing = [v["voice"][4:] for v in offline if v["backend"] == "mms" and not v["installed"]]
+    nxt = []
+    if missing:
+        nxt.append(f"recomp dub models --to {inp.lang} --download   # fetch {missing[0]} once, then it runs offline")
+    nxt.append(f'recomp lang say "…" --lang {inp.lang} --voice {offline[0]["voice"] if offline else "<voice>"}   # audition')
+    return Result(data={"lang": inp.lang, "online": online, "default": {"backend": backend, "voice": default},
+                        "offline": offline, "online_voices": edge,
+                        "choose": {"for the dub": "recomp dub settings --at project|S1|J1 --voice <voice>",
+                                   "for a language": f"recomp config set tts.mms.{inp.lang} <model>  (offline) · "
+                                                     f"recomp config set tts.voices.{inp.lang} <edge voice>  (online)",
+                                   "for one export": "recomp export run J1 --langs " + inp.lang + " --voice <voice>"}},
+                  warnings=warnings, next=nxt)
 
 
 class SayIn(BaseModel):
     text: str = Field(..., json_schema_extra={"pos": 0})
     lang: str = "en"
-    voice: str | None = None
+    voice: str | None = Field(None, description="mms:<model> (offline), sapi:<name>, an edge voice (online), or the default")
 
 
-@verb("lang.say", SayIn, effect="network", examples=['recomp lang say "ሰላም" --lang am'])
+@verb("lang.say", SayIn, effect="network",
+      examples=['recomp lang say "ሰላም" --lang am', 'recomp lang say "Akkam jirta" --lang om --voice mms:facebook/mms-tts-orm'])
 def lang_say(ctx: Ctx, inp: SayIn):
     """Voice a single line into the project's cache (to audition a voice)."""
     from ..lang import tts
     import hashlib
     out = ctx.project.dir("cache", "dub", "say") / (hashlib.sha1((inp.lang + (inp.voice or "") + inp.text).encode()).hexdigest()[:12] + ".wav")
-    dur = tts.synth(inp.text, inp.lang, out, voice=inp.voice)
+    from ..lang import llmdub
+    if inp.voice == "clone":
+        raise RecompError("E_INVALID", "cloned voices need the original line's audio, so they are export-only",
+                          hint=f"`recomp export run <journey> --langs {inp.lang} --voice clone`")
+    dur = tts.synth(inp.text, inp.lang, out, voice=inp.voice, online=bool(llmdub.resolve(ctx.project)[0].get("online")))
     return {"file": str(out), "seconds": round(dur, 2)}
 
 

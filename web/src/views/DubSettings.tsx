@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Mic, Sparkles } from "lucide-react";
-import { must } from "../api";
+import { fileUrl, must } from "../api";
 import { useData } from "../App";
 import { Act, useActions } from "../actions";
 import { Dialog } from "../ui";
@@ -19,14 +19,14 @@ export const ROUTES: [string, string, string][] = [
 const ENGINES: [string, string][] = [["nllb", "NLLB-200 (offline)"], ["m2m100", "M2M-100 (offline)"], ["bergamot", "Mozilla bergamot (offline, European languages)"], ["google", "Google (online)"]];
 
 export type DubFields = {
-  online?: boolean; route?: string; middle?: string[]; budget?: string; views_mt?: string[]; mt?: string; verify?: string; conserve?: boolean; targets?: string[];
+  online?: boolean; route?: string; voice?: string | null; middle?: string[]; budget?: string; views_mt?: string[]; mt?: string; verify?: string; conserve?: boolean; targets?: string[];
 };
 
 const list = (s: string) => s.split(",").map((x) => x.trim()).filter(Boolean);
 
 // The controls alone: used when adding sources (passed to `source add --dub-…`) and inside the settings dialog.
-export function DubFieldsForm({ value, onChange, from, withTargets }: {
-  value: DubFields; onChange: (v: DubFields) => void; from?: Record<string, string>; withTargets?: boolean;
+export function DubFieldsForm({ value, onChange, from, withTargets, lang }: {
+  value: DubFields; onChange: (v: DubFields) => void; from?: Record<string, string>; withTargets?: boolean; lang?: string;
 }) {
   const set = (k: keyof DubFields, v: any) => onChange({ ...value, [k]: v });
   const route = value.route || "auto";
@@ -80,8 +80,42 @@ export function DubFieldsForm({ value, onChange, from, withTargets }: {
       </div>
       <label className="row tight"><input type="checkbox" checked={!!value.online} onChange={(e) => set("online", e.target.checked)} />
         Allow online engines <span className="muted2">(Google MT and Edge neural voices; off: everything runs on this computer with NLLB, M2M-100, bergamot and MMS voices)</span>{origin("online")}</label>
+      {(lang || value.targets?.length === 1) && <VoicePicker lang={lang || value.targets![0]} online={!!value.online} value={value.voice || ""} onChange={(v) => set("voice", v || null)} origin={origin("voice")} />}
       <label className="row tight"><input type="checkbox" checked={!!value.conserve} onChange={(e) => set("conserve", e.target.checked)} />
         Meaning-conserving mode <span className="muted2">(adds nothing to fill time; a short silence instead)</span>{origin("conserve")}</label>
+    </div>
+  );
+}
+
+// The dub voice: offline ones first (MMS-TTS, cloned original voices), online edge voices when allowed; audition any.
+function VoicePicker({ lang, online, value, onChange, origin }: {
+  lang: string; online: boolean; value: string; onChange: (v: string) => void; origin: any;
+}) {
+  const { data } = useData(() => must<any>("lang.voices", { lang, online }), [lang, online]);
+  const { run } = useActions();
+  const [audio, setAudio] = useState<string | null>(null);
+  const sample = lang === "om" ? "Akkam jirta? Har'a guyyaa gaarii dha." : lang === "am" ? "ሰላም ነው? ዛሬ ጥሩ ቀን ነው።" : "Hello, this is how the dub will sound.";
+  const def = data?.default;
+  const listen = async () => {
+    const env = await run("lang.say", { text: sample, lang, voice: value || undefined }, { label: "Audition", quiet: true });
+    if (env.ok) setAudio(fileUrl(env.data.file) + "&v=" + Date.now());
+  };
+  return (
+    <div className="field"><label htmlFor="dub-voice">Voice for {lang}</label>
+      <div className="row tight">
+        <select id="dub-voice" className="input" value={value} onChange={(e) => onChange(e.target.value)} style={{ maxWidth: 380 }}>
+          <option value="">Default{def?.voice ? ` (${def.backend}: ${def.voice})` : ""}</option>
+          <optgroup label="Offline (this computer)">
+            {(data?.offline || []).map((v: any) => <option key={v.voice} value={v.voice}>{v.label}{v.installed ? "" : " — not downloaded yet"}</option>)}
+          </optgroup>
+          {online && !!data?.online_voices?.length && <optgroup label="Online (edge neural voices)">
+            {data.online_voices.map((v: any) => <option key={v.voice} value={v.voice}>{v.voice}{v.gender ? ` · ${v.gender}` : ""}</option>)}
+          </optgroup>}
+        </select>
+        <button className="btn small" onClick={listen} disabled={value === "clone"} data-tip={value === "clone" ? "Cloned voices are made at export, from each line's original audio" : "Speak a sample line with this voice"}>Audition</button>
+        {audio && <audio src={audio} controls autoPlay style={{ height: 28 }} />}
+      </div>
+      <span className="help">{(data?.offline || []).find((v: any) => v.voice === value)?.note || "MMS-TTS voices run offline; download them once with `recomp dub models --download`"}</span>{origin}
     </div>
   );
 }
@@ -104,6 +138,7 @@ export const asSourceAddArgs = (v: DubFields) => {
   if (v.mt && v.mt !== "nllb") out.dub_mt = v.mt;
   if (v.targets?.length) out.dub_to = v.targets;
   if (v.online) out.dub_online = true;
+  if (v.voice) out.dub_voice = v.voice;
   return out;
 };
 
@@ -127,7 +162,7 @@ export function DubSettingsDialog({ target, to, scopes, onClose, title }: {
               {target && lang && <button className="btn" onClick={async () => { await ask(`Dub ${target} into ${lang} with the LLM dubber (recomp-dub skill), using these dub settings.`, [target]); onClose(); }}
                                          data-tip="Leave the request for the agent: it sees it in `recomp ui notes`"><Sparkles size={13} />Ask the agent to dub</button>}
               <div className="spacer" />
-              <Act verb="dub.settings" args={{ at, clear: ["online", "route", "middle", "budget", "views_mt", "mt", "verify", "conserve"] }} ghost
+              <Act verb="dub.settings" args={{ at, clear: ["online", "voice", "route", "middle", "budget", "views_mt", "mt", "verify", "conserve"] }} ghost
                    confirm="Removes this layer's dub settings (they fall back to the layer below)" onDone={reload}>Reset this layer</Act>
               <Act verb="dub.settings" args={{ at, ...changes }} primary disabled={!Object.keys(changes).length} onDone={reload}>Save at {scopes.find(([k]) => k === at)?.[1]}</Act>
             </>}>
@@ -144,7 +179,7 @@ export function DubSettingsDialog({ target, to, scopes, onClose, title }: {
           </div>
         </div>
         {data?.sources && data.sources.length > 1 && <div className="muted2">This journey uses {data.sources.length} sources; showing {data.sources[0].source}. Each source keeps its own route.</div>}
-        <DubFieldsForm value={v} onChange={setV} from={eff?.from} />
+        <DubFieldsForm value={v} onChange={setV} from={eff?.from} lang={lang || undefined} />
         {plan && (
           <div className="card stack">
             <div className="row tight"><b>Route for {plan.src} → {plan.tgt}: {plan.route}</b>

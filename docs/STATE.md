@@ -252,6 +252,9 @@ matching, gapless recipe player, dub fixes, face-cropped Shorts, semantic search
 - Tests: `tests/unit/test_llmdub.py`, `tests/e2e/test_llmdub.py`. Write-up: `docs/research/P19-dubbing-and-meaning/APP.md`.
 - Offline by default (D-27): NLLB + M2M-100 + bergamot MT and MMS voices; `--online true` (any layer) allows
   Google and edge. `dub models [--download]` checks and fetches the models once. Export dubs follow the same switch.
+- Offline voices: MMS-TTS for any of its ~1,100 languages (ISO 639-3 or the 2-letter map), OmniVoice clone, SAPI;
+  `lang voices` lists them first with installed flags (edge only when online); MMS speaks faster natively to fit
+  (VITS speaking rate) before atempo; studio voice picker with Audition; `--voice` at any dub layer or `source add --dub-voice`.
 - Several movies at once: `dub next --limit N` (next stage per journey and language, fits queued as jobs) and
   `dub submit --input batch.json`.
 - How it runs (D-26): you and the Claude desktop app in the shared project folder; no LLM API, ever. Whole films in

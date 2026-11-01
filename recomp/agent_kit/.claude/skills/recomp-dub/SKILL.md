@@ -28,6 +28,9 @@ which route they want if it matters (meaning-critical films: `multi`; token budg
 **Offline by default:** NLLB and M2M-100 (two independent systems) and Mozilla bergamot for MT, MMS voices.
 `recomp dub models` says what is missing; `--download` fetches it once (ask the user first: it goes online).
 `--online true` allows Google and edge voices; only use it if the user asks.
+Voices: `recomp lang voices om` lists the offline ones (MMS-TTS per language, `clone` for the original speakers'
+voices at export) and whether they are downloaded; audition with `recomp lang say "…" --lang om --voice mms:…`;
+set one with `recomp dub settings --at project --voice mms:facebook/mms-tts-orm`.
 
 **Several movies at once:** `recomp dub next --limit 40` gives the next batch across every journey with dub languages
 (each with its stage: understand, write, verify). Write all the answers into one file and send

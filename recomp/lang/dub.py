@@ -68,8 +68,9 @@ def build_dub(project, plan: dict, voice: str | None = None, log=print, progress
             clip = cloned[k] if backend == "clone" else clips_dir / f"{_key(backend, v, line['text'])}.wav"
             dur = ff.probe(clip).duration if clip.exists() else tts.synth(line["text"], lang, clip, voice=voice, online=online)
         use, factor = clip, 1.0
-        if dur > window and backend == "edge":
-            # Ask the voice itself to speak faster first: it sounds natural where time-stretching does not.
+        if dur > window and backend in ("edge", "mms"):
+            # Ask the voice itself to speak faster first (edge: rate; MMS: VITS speaking rate): it sounds natural
+            # where time-stretching does not.
             rate = min(MAX_RATE_PCT, int((dur / window - 1) * 100) + 6)
             fast_clip = clips_dir / f"{_key(backend, v, line['text'], rate)}.wav"
             fdur = ff.probe(fast_clip).duration if fast_clip.exists() else \
