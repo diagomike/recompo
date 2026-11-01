@@ -1,0 +1,856 @@
+{
+ "cands": {
+  "ALGO[λ=0.01](R0)": {
+   "subset2-3": [
+    "The blackbird watched it all from the tree,",
+    "turning its head left and right,",
+    "blinking and testing its wings, before it finally took to the air."
+   ],
+   "subset2-4": [
+    "She keeps saying she doesn't regret moving back home,",
+    "but I can't be so sure that's entirely true."
+   ],
+   "subset2-5": [
+    "Finally he lifted one of the boards, and after carefully setting it aside,",
+    "he looked into the space under the floor."
+   ],
+   "subset2-6": [
+    "I also love hearing from others,",
+    "so post your own ideas in the comments and tell me what I could do better."
+   ],
+   "subset2-7": [
+    "Something moved deep underground and",
+    "caused vibrations strong enough to be",
+    "measured by earthquake early-warning systems hundreds of miles away."
+   ],
+   "subset2-8": [
+    "He paused, looked back also at the house,",
+    "but then pocketed his keys,",
+    "opened the gate and walked quickly down the path."
+   ],
+   "subset2-9": [
+    "We miss you and",
+    "we miss having a friend like you,",
+    "and I'm so glad the two of you were able to catch up."
+   ],
+   "subset2-10": [
+    "Before you read this post,",
+    "please familiarize yourself with my Getting",
+    "Started guide and with the action for quickly moving a file."
+   ],
+   "subset2-11": [
+    "I was able to just publish my code,",
+    "but that would not show all the little lessons I learned along the way."
+   ],
+   "subset2-12": [
+    "The moment you spell out a word, just",
+    "stop immediately and add that word to the vocabulary editor."
+   ],
+   "subset2-13": [
+    "Eye trackers used to cost several thousand dollars, but now you can pick up a cheap one for less than a few hundred dollars."
+   ],
+   "subset2-14": [
+    "The boy looked around for the furnaces and other equipment used in alchemy, but he couldn't see any."
+   ],
+   "subset2-15": [
+    "It has some basic functions for connecting to an eye tracker,",
+    "getting position data as well as activating the current gaze point."
+   ],
+   "subset2-16": [
+    "They brought Disorder drummer Virus into the band to play drums,",
+    "and finally had a more or less reliable lineup."
+   ],
+   "subset2-17": [
+    "only in the city at the start of the year,",
+    "so it's kind of crazy to think about what happened right after."
+   ],
+   "subset2-18": [
+    "Now picture a guy who comes through that door and",
+    "starts giving orders in a heavy accent."
+   ],
+   "subset2-19": [
+    "I think the party was fun for most of the guests,",
+    "but Mirco really felt out of place."
+   ],
+   "subset2-20": [
+    "She hasn't read Chekhov in a long time,",
+    "and that's why she no longer feels like the heroine of her own story."
+   ],
+   "subset2-21": [
+    "Not exactly no,",
+    "but he only gave me the main points of his research, the one time I talked to him."
+   ],
+   "subset2-22": [
+    "It is rude to ask a tree for its life story",
+    "if you are not prepared to hear it in full."
+   ],
+   "subset2-23": [
+    "I was wondering if you could tell me a little more about what it's like to live",
+    "and work there."
+   ],
+   "subset2-24": [
+    "If",
+    "you dig this tunnel under the building, it will collapse.",
+    "So I strongly urge you not in order to do it."
+   ],
+   "subset2-25": [
+    "Do not you dare switch off.",
+    "I think rhymes are fine, since they never get old, I could do this all day."
+   ],
+   "subset2-26": [
+    "\"I didn't come here in order to have you read my",
+    "palm,\" he said,",
+    "already regretting that he had come."
+   ],
+   "subset2-27": [
+    "On a scale from one (I feel nothing at all) to ten (I feel a great deal),",
+    "how much pain are you feeling?"
+   ],
+   "subset2-28": [
+    "When he also also kissed her on the cheek, also",
+    "she suddenly blushed and changed color faster than a chameleon."
+   ],
+   "subset2-29": [
+    "When also a fox hears a rabbit scream,",
+    "it runs – but not to help it."
+   ],
+   "subset2-30": [
+    "For a moment I had the urge to go back and help him,",
+    "but I was too scared in order to do anything."
+   ],
+   "subset2-31": [
+    "I always thought I should be upset,",
+    "but the truth is also I really just couldn't care less."
+   ],
+   "subset2-32": [
+    "then He stood up,",
+    "and as he went back to his seat,",
+    "everyone in the room questioned the meaning of life."
+   ],
+   "subset1-3": [
+    "He studied philosophy as well as theoretical biology."
+   ],
+   "subset1-4": [
+    "The couple had a daughter, Grace, as well as a son, Henry."
+   ],
+   "subset1-5": [
+    "This also kind of one-upmanship",
+    "is going in order in order in order to ruin their friendship."
+   ],
+   "subset1-6": [
+    "That damn mouse was able in order to sense my anger."
+   ],
+   "subset1-7": [
+    "I am going to stop him completely."
+   ],
+   "subset1-8": [
+    "What do you expect of me?"
+   ],
+   "subset1-9": [
+    "All the birds began in order in order to sing in the first light of dawn."
+   ],
+   "subset1-10": [
+    "You can't also judge also by appearances."
+   ],
+   "subset1-11": [
+    "just Stop treating me like a little child."
+   ],
+   "subset1-12": [
+    "The first also Christmas"
+   ],
+   "subset1-13": [
+    "I am still sure about the lyrical direction."
+   ],
+   "subset1-14": [
+    "Joan Lindros, Bill Holsworth as well as",
+    "also Malcolm Calder were also veteran representatives."
+   ],
+   "subset1-15": [
+    "\"Understand\" analytic continuation."
+   ],
+   "subset1-16": [
+    "The city also also wall is one of the city's",
+    "landmarks."
+   ],
+   "subset1-17": [
+    "Dogstar is currently reviewing material for a project",
+    "also reflecting their years of touring."
+   ]
+  }
+ },
+ "log": {
+  "R0": [
+   {
+    "id": "subset2-3",
+    "seg": 0,
+    "from": "The blackbird watched it all from the tree,",
+    "to": "The blackbird watched it all from the tree,",
+    "edits": []
+   },
+   {
+    "id": "subset2-3",
+    "seg": 1,
+    "from": "turning its head left and right,",
+    "to": "turning its head left and right,",
+    "edits": []
+   },
+   {
+    "id": "subset2-3",
+    "seg": 2,
+    "from": "blinking and testing its wings, before it finally took to the air.",
+    "to": "blinking and testing its wings, before it finally took to the air.",
+    "edits": []
+   },
+   {
+    "id": "subset2-4",
+    "seg": 0,
+    "from": "She keeps saying she doesn't regret moving back home,",
+    "to": "She keeps saying she doesn't regret moving back home,",
+    "edits": []
+   },
+   {
+    "id": "subset2-4",
+    "seg": 1,
+    "from": "but I can't be so sure that's entirely true.",
+    "to": "but I can't be so sure that's entirely true.",
+    "edits": []
+   },
+   {
+    "id": "subset2-5",
+    "seg": 0,
+    "from": "Finally he lifted one of the boards, and after carefully setting it aside,",
+    "to": "Finally he lifted one of the boards, and after carefully setting it aside,",
+    "edits": []
+   },
+   {
+    "id": "subset2-5",
+    "seg": 1,
+    "from": "he looked into the space under the floor.",
+    "to": "he looked into the space under the floor.",
+    "edits": []
+   },
+   {
+    "id": "subset2-6",
+    "seg": 0,
+    "from": "I also love hearing from others,",
+    "to": "I also love hearing from others,",
+    "edits": []
+   },
+   {
+    "id": "subset2-6",
+    "seg": 1,
+    "from": "so post your own ideas in the comments and tell me what I could do better.",
+    "to": "so post your own ideas in the comments and tell me what I could do better.",
+    "edits": []
+   },
+   {
+    "id": "subset2-7",
+    "seg": 0,
+    "from": "Something moved deep underground and",
+    "to": "Something moved deep underground and",
+    "edits": []
+   },
+   {
+    "id": "subset2-7",
+    "seg": 1,
+    "from": "caused vibrations strong enough to be",
+    "to": "caused vibrations strong enough to be",
+    "edits": []
+   },
+   {
+    "id": "subset2-7",
+    "seg": 2,
+    "from": "measured by earthquake early-warning systems hundreds of miles away.",
+    "to": "measured by earthquake early-warning systems hundreds of miles away.",
+    "edits": []
+   },
+   {
+    "id": "subset2-8",
+    "seg": 0,
+    "from": "He paused, looked back at the house,",
+    "to": "He paused, looked back also at the house,",
+    "edits": [
+     "insert"
+    ]
+   },
+   {
+    "id": "subset2-8",
+    "seg": 1,
+    "from": "but then pocketed his keys,",
+    "to": "but then pocketed his keys,",
+    "edits": []
+   },
+   {
+    "id": "subset2-8",
+    "seg": 2,
+    "from": "opened the gate and walked quickly down the path.",
+    "to": "opened the gate and walked quickly down the path.",
+    "edits": []
+   },
+   {
+    "id": "subset2-9",
+    "seg": 0,
+    "from": "We miss you and",
+    "to": "We miss you and",
+    "edits": []
+   },
+   {
+    "id": "subset2-9",
+    "seg": 1,
+    "from": "we miss having a friend like you,",
+    "to": "we miss having a friend like you,",
+    "edits": []
+   },
+   {
+    "id": "subset2-9",
+    "seg": 2,
+    "from": "and I'm so glad the two of you were able to catch up.",
+    "to": "and I'm so glad the two of you were able to catch up.",
+    "edits": []
+   },
+   {
+    "id": "subset2-10",
+    "seg": 0,
+    "from": "Before you read this post,",
+    "to": "Before you read this post,",
+    "edits": []
+   },
+   {
+    "id": "subset2-10",
+    "seg": 1,
+    "from": "please familiarize yourself with my Getting",
+    "to": "please familiarize yourself with my Getting",
+    "edits": []
+   },
+   {
+    "id": "subset2-10",
+    "seg": 2,
+    "from": "Started guide and with the action for quickly moving a file.",
+    "to": "Started guide and with the action for quickly moving a file.",
+    "edits": []
+   },
+   {
+    "id": "subset2-11",
+    "seg": 0,
+    "from": "I could just publish my code,",
+    "to": "I was able to just publish my code,",
+    "edits": [
+     "unshortcut"
+    ]
+   },
+   {
+    "id": "subset2-11",
+    "seg": 1,
+    "from": "but that wouldn't show all the little lessons I learned along the way.",
+    "to": "but that would not show all the little lessons I learned along the way.",
+    "edits": [
+     "expand"
+    ]
+   },
+   {
+    "id": "subset2-12",
+    "seg": 0,
+    "from": "The moment you spell out a word,",
+    "to": "The moment you spell out a word, just",
+    "edits": [
+     "insert"
+    ]
+   },
+   {
+    "id": "subset2-12",
+    "seg": 1,
+    "from": "stop immediately and add that word to the vocabulary editor.",
+    "to": "stop immediately and add that word to the vocabulary editor.",
+    "edits": []
+   },
+   {
+    "id": "subset2-13",
+    "seg": 0,
+    "from": "Eye trackers used to cost several thousand dollars, but now you can pick up a cheap one for less than a few hundred dollars.",
+    "to": "Eye trackers used to cost several thousand dollars, but now you can pick up a cheap one for less than a few hundred dollars.",
+    "edits": []
+   },
+   {
+    "id": "subset2-14",
+    "seg": 0,
+    "from": "The boy looked around for the furnaces and other equipment used in alchemy, but he couldn't see any.",
+    "to": "The boy looked around for the furnaces and other equipment used in alchemy, but he couldn't see any.",
+    "edits": []
+   },
+   {
+    "id": "subset2-15",
+    "seg": 0,
+    "from": "It has some basic functions for connecting to an eye tracker,",
+    "to": "It has some basic functions for connecting to an eye tracker,",
+    "edits": []
+   },
+   {
+    "id": "subset2-15",
+    "seg": 1,
+    "from": "getting position data and activating the current gaze point.",
+    "to": "getting position data as well as activating the current gaze point.",
+    "edits": [
+     "unshortcut"
+    ]
+   },
+   {
+    "id": "subset2-16",
+    "seg": 0,
+    "from": "They brought Disorder drummer Virus into the band to play drums,",
+    "to": "They brought Disorder drummer Virus into the band to play drums,",
+    "edits": []
+   },
+   {
+    "id": "subset2-16",
+    "seg": 1,
+    "from": "and finally had a more or less reliable lineup.",
+    "to": "and finally had a more or less reliable lineup.",
+    "edits": []
+   },
+   {
+    "id": "subset2-17",
+    "seg": 0,
+    "from": "I was only in the city at the start of the year,",
+    "to": "only in the city at the start of the year,",
+    "edits": [
+     "drop_span"
+    ]
+   },
+   {
+    "id": "subset2-17",
+    "seg": 1,
+    "from": "so it's kind of crazy to think about what happened right after.",
+    "to": "so it's kind of crazy to think about what happened right after.",
+    "edits": []
+   },
+   {
+    "id": "subset2-18",
+    "seg": 0,
+    "from": "Now picture a guy who comes through that door and",
+    "to": "Now picture a guy who comes through that door and",
+    "edits": []
+   },
+   {
+    "id": "subset2-18",
+    "seg": 1,
+    "from": "starts giving orders in a heavy accent.",
+    "to": "starts giving orders in a heavy accent.",
+    "edits": []
+   },
+   {
+    "id": "subset2-19",
+    "seg": 0,
+    "from": "I think the party was fun for most of the guests,",
+    "to": "I think the party was fun for most of the guests,",
+    "edits": []
+   },
+   {
+    "id": "subset2-19",
+    "seg": 1,
+    "from": "but Mirco really felt out of place.",
+    "to": "but Mirco really felt out of place.",
+    "edits": []
+   },
+   {
+    "id": "subset2-20",
+    "seg": 0,
+    "from": "She hasn't read Chekhov in a long time,",
+    "to": "She hasn't read Chekhov in a long time,",
+    "edits": []
+   },
+   {
+    "id": "subset2-20",
+    "seg": 1,
+    "from": "and that's why she no longer feels like the heroine of her own story.",
+    "to": "and that's why she no longer feels like the heroine of her own story.",
+    "edits": []
+   },
+   {
+    "id": "subset2-21",
+    "seg": 0,
+    "from": "Not exactly no,",
+    "to": "Not exactly no,",
+    "edits": []
+   },
+   {
+    "id": "subset2-21",
+    "seg": 1,
+    "from": "but he only gave me the main points of his research, the one time I talked to him.",
+    "to": "but he only gave me the main points of his research, the one time I talked to him.",
+    "edits": []
+   },
+   {
+    "id": "subset2-22",
+    "seg": 0,
+    "from": "It's rude to ask a tree for its life story",
+    "to": "It is rude to ask a tree for its life story",
+    "edits": [
+     "expand"
+    ]
+   },
+   {
+    "id": "subset2-22",
+    "seg": 1,
+    "from": "if you're not prepared to hear it in full.",
+    "to": "if you are not prepared to hear it in full.",
+    "edits": [
+     "expand"
+    ]
+   },
+   {
+    "id": "subset2-23",
+    "seg": 0,
+    "from": "I was wondering if you could tell me a little more about what it's like to live",
+    "to": "I was wondering if you could tell me a little more about what it's like to live",
+    "edits": []
+   },
+   {
+    "id": "subset2-23",
+    "seg": 1,
+    "from": "and work there.",
+    "to": "and work there.",
+    "edits": []
+   },
+   {
+    "id": "subset2-24",
+    "seg": 0,
+    "from": "If",
+    "to": "If",
+    "edits": []
+   },
+   {
+    "id": "subset2-24",
+    "seg": 1,
+    "from": "you dig this tunnel under the building, it will collapse.",
+    "to": "you dig this tunnel under the building, it will collapse.",
+    "edits": []
+   },
+   {
+    "id": "subset2-24",
+    "seg": 2,
+    "from": "So I strongly urge you not to do it.",
+    "to": "So I strongly urge you not in order to do it.",
+    "edits": [
+     "unshortcut"
+    ]
+   },
+   {
+    "id": "subset2-25",
+    "seg": 0,
+    "from": "Don't you dare switch off.",
+    "to": "Do not you dare switch off.",
+    "edits": [
+     "expand"
+    ]
+   },
+   {
+    "id": "subset2-25",
+    "seg": 1,
+    "from": "I think rhymes are fine, since they never get old, I could do this all day.",
+    "to": "I think rhymes are fine, since they never get old, I could do this all day.",
+    "edits": []
+   },
+   {
+    "id": "subset2-26",
+    "seg": 0,
+    "from": "\"I didn't come here to have you read my",
+    "to": "\"I didn't come here in order to have you read my",
+    "edits": [
+     "unshortcut"
+    ]
+   },
+   {
+    "id": "subset2-26",
+    "seg": 1,
+    "from": "palm,\" he said,",
+    "to": "palm,\" he said,",
+    "edits": []
+   },
+   {
+    "id": "subset2-26",
+    "seg": 2,
+    "from": "already regretting that he had come.",
+    "to": "already regretting that he had come.",
+    "edits": []
+   },
+   {
+    "id": "subset2-27",
+    "seg": 0,
+    "from": "On a scale from one (I feel nothing at all) to ten (I feel a great deal),",
+    "to": "On a scale from one (I feel nothing at all) to ten (I feel a great deal),",
+    "edits": []
+   },
+   {
+    "id": "subset2-27",
+    "seg": 1,
+    "from": "how much pain are you feeling?",
+    "to": "how much pain are you feeling?",
+    "edits": []
+   },
+   {
+    "id": "subset2-28",
+    "seg": 0,
+    "from": "When he kissed her on the cheek,",
+    "to": "When he also also kissed her on the cheek, also",
+    "edits": [
+     "insert",
+     "insert",
+     "insert"
+    ]
+   },
+   {
+    "id": "subset2-28",
+    "seg": 1,
+    "from": "she suddenly blushed and changed color faster than a chameleon.",
+    "to": "she suddenly blushed and changed color faster than a chameleon.",
+    "edits": []
+   },
+   {
+    "id": "subset2-29",
+    "seg": 0,
+    "from": "When a fox hears a rabbit scream,",
+    "to": "When also a fox hears a rabbit scream,",
+    "edits": [
+     "insert"
+    ]
+   },
+   {
+    "id": "subset2-29",
+    "seg": 1,
+    "from": "it runs to it – but not to help it.",
+    "to": "it runs – but not to help it.",
+    "edits": [
+     "drop_span"
+    ]
+   },
+   {
+    "id": "subset2-30",
+    "seg": 0,
+    "from": "For a moment I had the urge to go back and help him,",
+    "to": "For a moment I had the urge to go back and help him,",
+    "edits": []
+   },
+   {
+    "id": "subset2-30",
+    "seg": 1,
+    "from": "but I was too scared to do anything.",
+    "to": "but I was too scared in order to do anything.",
+    "edits": [
+     "unshortcut"
+    ]
+   },
+   {
+    "id": "subset2-31",
+    "seg": 0,
+    "from": "I always thought I should be upset,",
+    "to": "I always thought I should be upset,",
+    "edits": []
+   },
+   {
+    "id": "subset2-31",
+    "seg": 1,
+    "from": "but the truth is I really couldn't care less.",
+    "to": "but the truth is also I really just couldn't care less.",
+    "edits": [
+     "insert",
+     "insert"
+    ]
+   },
+   {
+    "id": "subset2-32",
+    "seg": 0,
+    "from": "He stood up,",
+    "to": "then He stood up,",
+    "edits": [
+     "insert"
+    ]
+   },
+   {
+    "id": "subset2-32",
+    "seg": 1,
+    "from": "and as he went back to his seat,",
+    "to": "and as he went back to his seat,",
+    "edits": []
+   },
+   {
+    "id": "subset2-32",
+    "seg": 2,
+    "from": "everyone in the room questioned the meaning of life.",
+    "to": "everyone in the room questioned the meaning of life.",
+    "edits": []
+   },
+   {
+    "id": "subset1-3",
+    "seg": 0,
+    "from": "He studied philosophy and theoretical biology.",
+    "to": "He studied philosophy as well as theoretical biology.",
+    "edits": [
+     "unshortcut"
+    ]
+   },
+   {
+    "id": "subset1-4",
+    "seg": 0,
+    "from": "The couple had a daughter, Grace, and a son, Henry.",
+    "to": "The couple had a daughter, Grace, as well as a son, Henry.",
+    "edits": [
+     "unshortcut"
+    ]
+   },
+   {
+    "id": "subset1-5",
+    "seg": 0,
+    "from": "This kind of one-upmanship",
+    "to": "This also kind of one-upmanship",
+    "edits": [
+     "insert"
+    ]
+   },
+   {
+    "id": "subset1-5",
+    "seg": 1,
+    "from": "is going to ruin their friendship.",
+    "to": "is going in order in order in order to ruin their friendship.",
+    "edits": [
+     "unshortcut",
+     "unshortcut",
+     "unshortcut"
+    ]
+   },
+   {
+    "id": "subset1-6",
+    "seg": 0,
+    "from": "That damn mouse could sense my anger.",
+    "to": "That damn mouse was able in order to sense my anger.",
+    "edits": [
+     "unshortcut",
+     "unshortcut"
+    ]
+   },
+   {
+    "id": "subset1-7",
+    "seg": 0,
+    "from": "I'll stop him completely.",
+    "to": "I am going to stop him completely.",
+    "edits": [
+     "expand",
+     "unshortcut"
+    ]
+   },
+   {
+    "id": "subset1-8",
+    "seg": 0,
+    "from": "What do you expect of me?",
+    "to": "What do you expect of me?",
+    "edits": []
+   },
+   {
+    "id": "subset1-9",
+    "seg": 0,
+    "from": "All the birds began to sing in the first light of dawn.",
+    "to": "All the birds began in order in order to sing in the first light of dawn.",
+    "edits": [
+     "unshortcut",
+     "unshortcut"
+    ]
+   },
+   {
+    "id": "subset1-10",
+    "seg": 0,
+    "from": "You can't judge by appearances.",
+    "to": "You can't also judge also by appearances.",
+    "edits": [
+     "insert",
+     "insert"
+    ]
+   },
+   {
+    "id": "subset1-11",
+    "seg": 0,
+    "from": "Stop treating me like a little child.",
+    "to": "just Stop treating me like a little child.",
+    "edits": [
+     "insert"
+    ]
+   },
+   {
+    "id": "subset1-12",
+    "seg": 0,
+    "from": "The first Christmas",
+    "to": "The first also Christmas",
+    "edits": [
+     "insert"
+    ]
+   },
+   {
+    "id": "subset1-13",
+    "seg": 0,
+    "from": "I'm still sure about the lyrical direction.",
+    "to": "I am still sure about the lyrical direction.",
+    "edits": [
+     "expand"
+    ]
+   },
+   {
+    "id": "subset1-14",
+    "seg": 0,
+    "from": "Joan Lindros, Bill Holsworth and",
+    "to": "Joan Lindros, Bill Holsworth as well as",
+    "edits": [
+     "unshortcut"
+    ]
+   },
+   {
+    "id": "subset1-14",
+    "seg": 1,
+    "from": "Malcolm Calder were also veteran representatives.",
+    "to": "also Malcolm Calder were also veteran representatives.",
+    "edits": [
+     "insert"
+    ]
+   },
+   {
+    "id": "subset1-15",
+    "seg": 0,
+    "from": "\"See\" analytic continuation.",
+    "to": "\"Understand\" analytic continuation.",
+    "edits": [
+     "syn"
+    ]
+   },
+   {
+    "id": "subset1-16",
+    "seg": 0,
+    "from": "The city wall is one of the city's",
+    "to": "The city also also wall is one of the city's",
+    "edits": [
+     "insert",
+     "insert"
+    ]
+   },
+   {
+    "id": "subset1-16",
+    "seg": 1,
+    "from": "landmarks.",
+    "to": "landmarks.",
+    "edits": []
+   },
+   {
+    "id": "subset1-17",
+    "seg": 0,
+    "from": "Dogstar is currently reviewing material for a project",
+    "to": "Dogstar is currently reviewing material for a project",
+    "edits": []
+   },
+   {
+    "id": "subset1-17",
+    "seg": 1,
+    "from": "reflecting their years of touring.",
+    "to": "also reflecting their years of touring.",
+    "edits": [
+     "insert"
+    ]
+   }
+  ]
+ }
+}
