@@ -52,7 +52,7 @@ class TranslateIn(BaseModel):
     to: str = Field(..., description="Target language code (am, sw, fr, om, …)")
     template: bool = Field(False, description="Return the lines to translate (with timing budgets) instead of writing")
     translations: dict[str, str] = Field(default_factory=dict, description="{key: text} from the template (use --input)")
-    engine: str | None = Field(None, description="google: draft every untranslated line with Google's web endpoint")
+    engine: str | None = Field(None, description="Draft every untranslated line by MT: nllb, m2m100, bergamot (offline) or google (online)")
     overwrite: bool = Field(False, description="With --engine: also replace lines translated before (never the user's)")
 
 
@@ -91,8 +91,18 @@ def lang_translate(ctx: Ctx, inp: TranslateIn):
             for k, u in enumerate(pending):
                 if res.get(k):
                     todo[u["key"]] = (res[k], "google")
+    elif inp.engine in ("nllb", "m2m100", "bergamot"):  # offline drafts (worker env)
+        from ..lang import llmdub
+        src_lang = j["language"] or "en"
+        pending = [u for u in us if inp.overwrite or u["key"] not in have]
+        if pending:
+            mt = llmdub.MT(ctx.project)
+            for u, text in zip(pending, mt.translate([u["text"] for u in pending], src_lang, inp.to, inp.engine)):
+                if text:
+                    todo[u["key"]] = (text, "google")  # a machine draft, like google's
+            mt.save()
     elif inp.engine:
-        raise RecompError("E_INVALID", "engine must be google (or give --input with your own translations)")
+        raise RecompError("E_INVALID", "engine must be google (online) or nllb, m2m100, bergamot (offline)")
     for key, text in inp.translations.items():
         todo[key] = (text, method)
     by_key = {u["key"]: u for u in us}

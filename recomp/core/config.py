@@ -43,7 +43,8 @@ DEFAULTS: dict[str, Any] = {
     # contact: your email or URL for APIs whose policy asks for it (Wikipedia's most-viewed list); empty = skip them.
     # P19 LLM dubber defaults (a project, a source or a journey can override any of them: `recomp dub settings`).
     # route: auto | direct | source (src-en) | target (tgt-en) | middle (mid-en) | multi; budget: economy | quality.
-    "dub": {"route": "auto", "middle": ["en"], "budget": "economy", "views_mt": ["google"], "mt": "google",
+    # Offline by default (NLLB / M2M-100 / bergamot MT under the worker python, MMS voices); online: true allows google + edge.
+    "dub": {"online": False, "route": "auto", "middle": ["en"], "budget": "economy", "views_mt": ["nllb", "m2m100"], "mt": "nllb",
             "verify": "auto", "conserve": False, "rounds": 2, "band": [0.8, 1.05], "mt_prior": 0.5, "min_pause": 0.3},
     "research": {"check_every_h": 2, "first_check_items": 3, "backfill_since": "2y", "contact": ""},
 }

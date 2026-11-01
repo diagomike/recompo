@@ -65,7 +65,7 @@ line.
 | `scripts/research/p19/timing.py` (syllables, runs) | `recomp/lang/llmdub.py`: `syllables`, `frames` |
 | `mctr.py` `select` (exhaustive product) | `llmdub.select`: exact DP over the set of units covered (same optimum; tested against brute force) |
 | `routes.py` `plan` | `llmdub.plan` (adds `multi`, back-translation targets, aliases) |
-| `mt_google.py`, `mt_bergamot.py`, NLLB on the PC | `llmdub.MT` + `recomp/workers/scripts/mt_nllb.py`, `mt_bergamot.py` (worker env) |
+| `mt_google.py`, `mt_bergamot.py`, NLLB on the PC | `llmdub.MT`, `engine_for` + `recomp/workers/scripts/mt_nllb.py`, `mt_m2m100.py`, `mt_bergamot.py`, `fetch_models.py` (worker env) |
 | `wt_multiround.Voice` | `llmdub.Ruler` (any configured backend: edge, MMS, stub; cached) |
 | `twosided.py select` with lazy verification | `recomp/workers/tasks_lang.py` `fit` (job `dubfit`) |
 | `pivot.py views/sheet` | `dub understand --template` |
@@ -80,6 +80,33 @@ Tests:
 - `tests/e2e/test_llmdub.py`: settings → understand → write → fit → verify → fit → export, with per-frame voicing.
   Also multi-middle views and the target-direct override.
 
+## Offline by default, online when you want it (D-27)
+
+| | Offline (default, `online: false`) | Online (`--online true`) |
+|---|---|---|
+| MT for the views | NLLB-200, plus **M2M-100** as the independent second system; Mozilla **bergamot** where it covers the pair (European languages, not Amharic or Oromo) | the same, plus Google |
+| MT into the target, back-translation | NLLB (or the system you pick, if it can do the pair) | the same, plus Google |
+| Voices | **MMS-TTS** for the language (`facebook/mms-tts-orm`, `-amh`, …) or your configured `tts.mms` voice | Edge neural voices first (`tts.voices`) |
+
+- **Which engine.** Each MT crossing gets the engine you asked for if it can do the pair and is allowed. Otherwise
+  it gets the first offline system that can, and the two understanding views take different systems where possible.
+  The route says when it substituted (`notes`).
+- **Getting the models once.** `recomp dub models` lists what the project's routes need (Hugging Face repos in the
+  worker cache, bergamot pairs) and what is already here. `recomp dub models --download` fetches the missing ones;
+  after that, nothing goes online.
+- **Switching.** `--online true` works at any layer: `dub settings --at studio|project|S1|J1`, or
+  `source add --dub-online`.
+- **Drafts.** `lang translate --engine nllb|m2m100|bergamot` drafts offline too.
+
+## Several movies at once
+
+- `recomp dub next --limit 40` looks at every journey whose media has dub languages (`--dub-to`). For each journey
+  and language it gives the next stage (map, write, check, rewrite) with that stage's template, up to 40 lines in
+  all. Journeys whose next step is the machine's get a `dub fit` job queued.
+- `recomp dub submit --input batch.json` takes all the answers at once (`{"J1:om": {"maps"|"options"|"checks": …}}`)
+  and queues the fits. Those run while Claude reads the next batch.
+- Repeat until `dub next` returns nothing. `--journeys J1,J4 --to om` narrows it.
+
 ## How it runs (D-26)
 
 - **No LLM API, ever.** This is your local tool. You and the Claude desktop app work in the same project folder:
@@ -88,8 +115,7 @@ Tests:
 - **Whole films in batches.** `dub understand … --template --limit 40` gives the next 40 lines still without a map;
   `dub write … --template --limit 40` gives the next 40 to write. Repeat until `dub status` says what is next.
 - **All work stays on your machine.** Only finished recipes may go to the hub, and only when you publish one.
-  - The `google` MT engine is the one network call. Choose `nllb` or `bergamot` (worker env) to stay fully offline.
-  - Edge voices are network too; MMS voices are local.
+  - Offline by default (D-27): no network at all once `dub models --download` has run.
 
 ## Not built yet
 

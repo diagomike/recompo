@@ -100,3 +100,48 @@ def test_target_direct_and_multi_middle_views(lproj, OK):
     OK("dub.settings", {"at": "J1", "route": "tgt-en"}, lproj)
     s = OK("dub.settings", {"target": "J1", "to": "fr"}, lproj)
     assert s["sources"][0]["plan"]["writes"] == ["fr"] and s["sources"][0]["from"]["route"] == "journey J1"
+
+
+def _answer(item):
+    """What the agent would write for one batch entry (stub-friendly lengths: 15 characters a second)."""
+    if item["stage"] == "understand":
+        return {"maps": {l["key"]: {"best": l.get("text", "x"), "confidence": "medium",
+                                    "units": [{"id": f"u{f['n']}", "text": "x", "tier": "core", "frame": f["n"]} for f in l["frames"]]}
+                         for l in item["lines"]}}
+    if item["stage"] == "write":
+        out = {}
+        for l in item["lines"]:
+            frames = l.get("frames") or [{"n": r["frame"], "dur": r["dur"], "units": r["units"]} for r in l["rewrite"]]
+            out[l["key"]] = {str(f["n"]): [{"text": ("ok" + " ok" * 60)[:max(2, int(f["dur"] * 14) - 5)], "lang": l["writes"][0],
+                                            "units": [u["id"] for u in f["units"]]}] for f in frames}
+        return {"options": out}
+    return {"checks": {c["id"]: {"covered": [u["id"] for u in c["units"]], "errors": []} for c in item["checks"]}}
+
+
+def test_batches_across_several_movies(lproj, OK):
+    OK("cut.add", {"ref": "S1", "from": "11.8", "to": "17.0", "snap": "none", "why": "w"}, lproj)
+    OK("journey.new", {"title": "Second film", "cuts": ["C2"]}, lproj)
+    seen = set()
+    for _ in range(8):  # map → write (fits queued) → checks (fits again) → done
+        nxt = OK("dub.next", {"limit": 50}, lproj)
+        if not nxt["batch"]:
+            break
+        seen |= {(b["pair"], b["stage"]) for b in nxt["batch"]}
+        assert set(nxt["answer_with"]) == {b["pair"] for b in nxt["batch"]}
+        res = OK("dub.submit", {"batch": {b["pair"]: _answer(b) for b in nxt["batch"]}}, lproj)
+        assert set(res["submitted"]) == {b["pair"] for b in nxt["batch"]}
+    assert {p for p, _ in seen} == {"J1:om", "J2:om"}  # both movies, from the sources' --dub-to
+    assert {s for _, s in seen} >= {"understand", "write", "verify"}
+    for j in ("J1", "J2"):
+        st = OK("dub.status", {"journey": j, "to": "om"}, lproj)
+        assert st["fitted"] == st["lines"] and not st["checks_pending"]
+
+
+def test_models_report_what_offline_needs(lproj, OK, monkeypatch):
+    monkeypatch.delenv("RECOMP_MT", raising=False)
+    monkeypatch.delenv("RECOMP_TTS", raising=False)
+    OK("dub.settings", {"at": "project", "route": "multi", "middle": ["en", "es"]}, lproj)
+    m = OK("dub.models", {"src": ["am"]}, lproj)  # to: om, from the source's --dub-to
+    repos = {r["repo"] for r in m["models"]}
+    assert {"facebook/nllb-200-distilled-600M", "facebook/m2m100_418M", "facebook/mms-tts-orm"} <= repos
+    assert m["online"] is False and m["ready_offline"] is False and m["voices"]["om"]["backend"] == "mms"

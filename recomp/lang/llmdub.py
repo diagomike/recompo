@@ -49,7 +49,49 @@ ROUTES = ("auto", "direct", "source", "target", "middle", "multi")
 ALIASES = {"src-en": "source", "src": "source", "tgt-en": "target", "tgt": "target", "mid-en": "middle",
            "mid": "middle", "multi-middle": "multi"}
 BUDGETS = ("economy", "quality")
-ENGINES = ("google", "nllb", "bergamot", "stub")
+ENGINES = ("nllb", "m2m100", "bergamot", "google", "stub")
+OFFLINE = ("nllb", "m2m100", "bergamot")  # run on your machine (worker env); google is the one online engine
+
+# What each offline system can translate (ISO 639-1). NLLB-200 and M2M-100 translate directly between any two of
+# their languages; Mozilla's bergamot models are English-centric (X→en, en→X; others chain through English).
+NLLB = {"am", "om", "ti", "so", "sw", "en", "es", "fr", "de", "it", "pt", "ar", "ha", "yo", "ig", "zu", "rw", "zh", "ja",
+        "ru", "tr", "hi", "nl", "lg", "ln", "wo", "xh", "ny", "sn", "rn", "mg", "af", "fa", "he", "uk", "pl", "ro", "el",
+        "cs", "sv", "da", "fi", "no", "hu", "bg", "sr", "hr", "vi", "id", "ms", "th", "ko", "bn", "ur", "ta", "te", "pa"}
+M2M100 = set("af am ar ast az ba be bg bn br bs ca ceb cs cy da de el en es et fa ff fi fr fy ga gd gl gu ha he hi hr ht "
+             "hu hy id ig ilo is it ja jv ka kk km kn ko lb lg ln lo lt lv mg mk ml mn mr ms my ne nl no ns oc or pa pl "
+             "ps pt ro ru sd si sk sl so sq sr ss su sv sw ta th tl tn tr uk ur uz vi wo xh yi yo zh zu".split())
+BERGAMOT = set("af ar az be bg bn bs ca cs da de el en es et eu fa fi fr gl gu he hi hr hu id is it ja kn ko lt lv ml mr "
+               "ms nb nl no pl pt ro ru sk sl sq sr sv ta te th tl tr ug uk ur vi zh".split())
+
+
+def supports(engine: str, src: str, tgt: str) -> bool:
+    s, t = (src or "").lower()[:2], (tgt or "").lower()[:2]
+    if engine in ("google", "stub"):
+        return True
+    table = {"nllb": NLLB, "m2m100": M2M100, "bergamot": BERGAMOT}.get(engine)
+    return bool(table) and s in table and t in table
+
+
+def engine_for(want: str, src: str, tgt: str, online: bool, avoid: tuple = ()) -> tuple[str, str]:
+    """The MT system for one crossing: the one asked for if it can do the pair and the dub may use it, else the
+    first offline system that can (one not in ``avoid`` first, so two views stay independent), else google when
+    online. Returns (engine, note)."""
+    if os.environ.get("RECOMP_MT") == "stub":
+        return "stub", ""
+    order = [want] + [e for e in OFFLINE if e != want] + ["google"]
+    allowed = [e for e in order if (e != "google" or online) and supports(e, src, tgt)]
+    if not allowed:
+        raise RecompError("E_OFFLINE" if not online else "E_INVALID", f"no MT system here can translate {src}→{tgt}",
+                          hint="Allow online MT (`recomp dub settings --at studio --online true`) or translate those "
+                               "lines yourself")
+    pick = next((e for e in allowed if e not in avoid), allowed[0])
+    note = ""
+    if pick != want:
+        why = "is online and the dub is offline" if want == "google" and not online else f"cannot do {src}→{tgt}"
+        note = f"{want} {why}: using {pick}"
+    if pick in avoid:
+        note = (note + "; " if note else "") + f"no independent second system for {src}→{tgt}: {pick} again"
+    return pick, note
 TIER_W = {"core": 3.0, "support": 2.0, "colour": 1.0}
 
 # Languages the LLM reads with nuance and writes naturally. Edit per model: `recomp dub settings --strong …`.
@@ -60,8 +102,9 @@ DEFAULTS: dict = {
     "route": "auto",            # auto | direct | source | target | middle | multi (aliases: src-en, tgt-en, mid-en)
     "middle": ["en"],           # middle languages, in order (multi uses two or more: e.g. en,es)
     "budget": "economy",        # economy: one writing language · quality: two, pooled per segment
-    "views_mt": ["google"],     # MT systems for the understanding views, paired with the middle languages in order
-    "mt": "google",             # MT system from a writing language into the target (and for back-translation)
+    "online": False,            # offline by default: NLLB / M2M-100 / bergamot MT and MMS voices; True allows google + edge
+    "views_mt": ["nllb", "m2m100"],  # MT systems for the understanding views, paired with the middle languages in order
+    "mt": "nllb",               # MT system from a writing language into the target (and for back-translation)
     "verify": "auto",           # auto (when the target is weak or MT crossed) | always | never
     "conserve": False,          # cost added content; a short silence beats an invention
     "rounds": 2,                # steering rounds the agent is offered
@@ -111,7 +154,7 @@ def normalise(over: dict) -> dict:
             v = int(v)
         elif k in ("mt_prior", "min_pause"):
             v = float(v)
-        elif k == "conserve":
+        elif k in ("conserve", "online"):
             v = bool(v) if not isinstance(v, str) else v.lower() in ("1", "true", "yes", "on")
         out[k] = v
     return out
@@ -119,7 +162,8 @@ def normalise(over: dict) -> dict:
 
 def layers(project, source: dict | None = None, journey: dict | None = None) -> list[tuple[str, dict]]:
     """The settings layers, lowest first: built-in → studio config → project → source → journey."""
-    out = [("default", dict(DEFAULTS)), ("studio", config.get("dub") or {}),
+    studio = {k: v for k, v in (config.get("dub") or {}).items() if k in DEFAULTS}  # model paths live there too
+    out = [("default", dict(DEFAULTS)), ("studio", studio),
            ("project", (project.meta.get("dub") if project else None) or {})]
     if source:
         out.append((f"source {source.get('ref')}", (source.get("meta") or {}).get("dub") or {}))
@@ -155,7 +199,9 @@ def plan(src: str, tgt: str, settings: dict) -> dict:
             ("multi" if len(middle) > 1 else "middle")
     if route == "multi" and len(middle) < 2:
         middle = middle + [m for m in ("en", "es") if m not in middle][: 2 - len(middle)]
-    engines = list(settings.get("views_mt") or ["google"])
+    engines = list(settings.get("views_mt") or ["nllb"])
+    online = bool(settings.get("online"))
+    notes: list[str] = []
     if route == "direct":
         reads, writes = [src], [tgt]
     elif route == "source":
@@ -170,15 +216,34 @@ def plan(src: str, tgt: str, settings: dict) -> dict:
         reads, writes = middle, middle[: 2 if quality else 1]
     views = []
     if route in ("target", "middle", "multi"):
+        used: tuple = ()
         for k, lang in enumerate(reads):
-            views.append({"lang": lang, "mt": engines[k] if k < len(engines) else engines[-1]})
+            want = engines[k] if k < len(engines) else engines[-1]
+            eng, note = engine_for(want, src, lang, online, avoid=used)
+            used += (eng,)
+            views.append({"lang": lang, "mt": eng})
+            if note:
+                notes.append(f"view {src}→{lang}: {note}")
+    mt_into = {}
+    for w in writes:
+        if w != tgt:
+            eng, note = engine_for(settings.get("mt", "nllb"), w, tgt, online)
+            mt_into[w] = eng
+            if note:
+                notes.append(f"{w}→{tgt}: {note}")
     verify = settings.get("verify", "auto")
     crosses = any(w != tgt for w in writes)
     needs_check = verify == "always" or (verify == "auto" and crosses and not t_ok)
     back = []
     if needs_check:
-        back = [{"lang": v["lang"], "mt": v["mt"]} for v in views] or [{"lang": reads[0], "mt": settings.get("mt", "google")}]
-        back = [b for b in back if b["lang"] != tgt] or [{"lang": "en", "mt": settings.get("mt", "google")}]
+        langs = [v["lang"] for v in views] or [reads[0]]
+        langs = [x for x in langs if x != tgt] or ["en"]
+        prefer = [v["mt"] for v in views] or [settings.get("mt", "nllb")]
+        for k, lang in enumerate(langs):
+            eng, note = engine_for(prefer[min(k, len(prefer) - 1)], tgt, lang, online)
+            back.append({"lang": lang, "mt": eng})
+            if note:
+                notes.append(f"check {tgt}→{lang}: {note}")
     steps = []
     if views:
         into = ", ".join("{} ({})".format(v["lang"], v["mt"]) for v in views)
@@ -187,7 +252,7 @@ def plan(src: str, tgt: str, settings: dict) -> dict:
     else:
         steps.append(f"the LLM reads the {src} source and writes the meaning map (units pinned to speech frames)")
     for w in writes:
-        steps.append(f"the LLM writes options per frame in {w}" + ("" if w == tgt else f" → MT {w}→{tgt} ({settings.get('mt')})"))
+        steps.append(f"the LLM writes options per frame in {w}" + ("" if w == tgt else f" → MT {w}→{tgt} ({mt_into[w]})"))
     steps.append(f"the {tgt} voice speaks every option on the speaker's frames → exact selection"
                  + (" over the pooled languages" if len(writes) > 1 else ""))
     if back:
@@ -197,7 +262,8 @@ def plan(src: str, tgt: str, settings: dict) -> dict:
     if views:
         steps.append("low-confidence lines → a person checks them")
     return {"src": src, "tgt": tgt, "route": route, "budget": settings.get("budget"), "strong": {"src": s_ok, "tgt": t_ok},
-            "reads": reads, "writes": writes, "views": views, "back_translate": back, "steps": steps}
+            "online": online, "reads": reads, "writes": writes, "views": views, "mt_into": mt_into, "back_translate": back,
+            "steps": steps, "notes": notes}
 
 
 # ---- frames ----------------------------------------------------------------------------------------------------
@@ -264,9 +330,13 @@ def option_id(key: str, frame: int, lang: str, text: str) -> str:
     return hashlib.sha1(f"{key}|{frame}|{lang}|{text.strip()}".encode()).hexdigest()[:10]
 
 
+NLLB_MODEL = "facebook/nllb-200-distilled-600M"
+M2M100_MODEL = "facebook/m2m100_418M"
+
+
 class MT:
-    """MT with a per-project cache. Engines: google (web endpoint), nllb (NLLB-200 under the worker python),
-    bergamot (Mozilla Firefox Translations models, English-centric: chains through en), stub (tests)."""
+    """MT with a per-project cache. Offline engines run under the worker python: nllb (NLLB-200), m2m100 (M2M-100,
+    a second independent system), bergamot (Mozilla Firefox Translations, English-centric). google is online."""
 
     def __init__(self, project):
         self.path = project.dir("cache", "dub") / "mt_cache.json"
@@ -300,7 +370,7 @@ class MT:
             from .google import Translator
             tr = Translator(src, tgt)
             return [tr.raw(t) for t in texts]
-        if engine in ("nllb", "bergamot"):
+        if engine in OFFLINE:
             return _worker_mt(texts, src, tgt, engine)
         raise RecompError("E_INVALID", f"unknown MT system {engine!r}", hint=f"Choose from {', '.join(ENGINES)}")
 
@@ -315,7 +385,9 @@ def _worker_mt(texts: list[str], src: str, tgt: str, engine: str) -> list[str]:
                                for i, t in enumerate(texts)), encoding="utf-8")
         args = ["--src", src, "--tgt", tgt, "--in", str(inp), "--out", str(out)]
         if engine == "nllb":
-            args += ["--model", config.get("dub.nllb_model") or "facebook/nllb-200-distilled-600M"]
+            args += ["--model", config.get("dub.nllb_model") or NLLB_MODEL]
+        elif engine == "m2m100":
+            args += ["--model", config.get("dub.m2m100_model") or M2M100_MODEL]
         else:
             models = config.get("dub.bergamot_models")
             if not models:
@@ -337,10 +409,10 @@ def _worker_mt(texts: list[str], src: str, tgt: str, engine: str) -> list[str]:
 class Ruler:
     """Measured speaking time of a text in the target voice (synthesised once, cached by voice and text)."""
 
-    def __init__(self, project, lang: str, voice: str | None = None):
+    def __init__(self, project, lang: str, voice: str | None = None, online: bool | None = None):
         from . import tts
-        self.lang, self.voice = lang, voice
-        self.backend, self.v = tts.voice_for(lang, voice)
+        self.lang, self.voice, self.online = lang, voice, online
+        self.backend, self.v = tts.voice_for(lang, voice, online)
         self.clips = project.dir("cache", "dub", "clips")
         self.path = project.dir("cache", "dub") / "durations.json"
         try:
@@ -356,14 +428,15 @@ class Ruler:
         from .dub import _key
         todo = sorted({t.strip() for t in texts if t.strip() and self._k(t) not in self.cache})
         if self.backend == "mms" and todo:
-            tts.synth_batch([(t, self.clips / f"{_key(self.backend, self.v, t)}.wav") for t in todo], self.lang, voice=self.voice)
+            tts.synth_batch([(t, self.clips / f"{_key(self.backend, self.v, t)}.wav") for t in todo], self.lang, voice=self.voice,
+                            online=self.online)
         for n, t in enumerate(todo):
             clip = self.clips / f"{_key(self.backend, self.v, t)}.wav"
             if clip.exists():
                 from ..media import ff
                 d = ff.probe(clip).duration
             else:
-                d = tts.synth(t, self.lang, clip, voice=self.voice)
+                d = tts.synth(t, self.lang, clip, voice=self.voice, online=self.online)
             self.cache[self._k(t)] = round(float(d), 3)
             if progress:
                 progress(n / max(1, len(todo)), f"voiced {n + 1}/{len(todo)}")
@@ -426,3 +499,81 @@ def select(units: list[dict], frames_: list[dict], variants: dict[int, list[dict
     return {"score": round(score, 3), "picks": [p for p, _ in picks], "phrases": [p["text"] for p, _ in picks],
             "ratios": [r for _, r in picks], "units": sorted(cov), "missing_core": sorted(core - cov),
             "kept_all_core": bool(with_core)}
+
+
+# ---- offline models: what a dub needs, what is here, fetching it once ------------------------------------------
+
+BERGAMOT_REGISTRY = "https://storage.googleapis.com/moz-fx-translations-data--303e-prod-translations-data/db/models.json"
+
+
+def needs(plans: list[dict]) -> dict:
+    """The offline models a set of routes uses: Hugging Face repos (MT and MMS voices) and bergamot pairs."""
+    from . import tts
+    repos, pairs, voices = set(), set(), {}
+    for pl in plans:
+        crossings = [(pl["src"], v["lang"], v["mt"]) for v in pl["views"]]
+        crossings += [(w, pl["tgt"], e) for w, e in pl["mt_into"].items()]
+        crossings += [(pl["tgt"], b["lang"], b["mt"]) for b in pl["back_translate"]]
+        for s, t, e in crossings:
+            if e == "nllb":
+                repos.add(config.get("dub.nllb_model") or NLLB_MODEL)
+            elif e == "m2m100":
+                repos.add(config.get("dub.m2m100_model") or M2M100_MODEL)
+            elif e == "bergamot":
+                pairs.update([f"{s}-{t}"] if s == "en" or t == "en" else [f"{s}-en", f"en-{t}"])
+        try:
+            backend, v = tts.voice_for(pl["tgt"], online=pl.get("online"))
+        except RecompError:
+            backend, v = None, None
+        voices[pl["tgt"]] = {"backend": backend, "voice": v}
+        if backend == "mms":
+            repos.add(v)
+    return {"repos": sorted(repos), "bergamot": sorted(pairs), "voices": voices}
+
+
+def hf_present(repo: str) -> bool:
+    home = config.get("worker.hf_home") or os.environ.get("HF_HOME") or ""
+    return bool(home) and (Path(home) / "hub" / f"models--{repo.replace('/', '--')}").exists()
+
+
+def bergamot_folder() -> Path:
+    return Path(config.get("dub.bergamot_models") or (config.home() / "models" / "bergamot"))
+
+
+def bergamot_present(pair: str) -> bool:
+    f = bergamot_folder() / pair
+    return f.exists() and any(f.glob("model.*.bin"))
+
+
+def fetch_bergamot(pairs: list[str], log=print) -> list[dict]:
+    """Download Mozilla's base-memory models for these pairs (e.g. de-en) from their public registry."""
+    import gzip
+    import shutil
+    import httpx
+    reg = httpx.get(BERGAMOT_REGISTRY, timeout=60).json()
+    base, out = reg["baseUrl"], []
+    for pair in pairs:
+        s, t = pair.split("-")
+        cands = reg["models"].get(f"{s}-{t}") or []
+        m = next((x for x in cands if x.get("architecture") == "base-memory"), cands[0] if cands else None)
+        if not m:
+            out.append({"pair": pair, "ok": False, "error": "Mozilla has no model for this pair"})
+            continue
+        dest = bergamot_folder() / pair
+        dest.mkdir(parents=True, exist_ok=True)
+        for f in m["files"].values():
+            path = f if isinstance(f, str) else f["path"]
+            gz = dest / Path(path).name
+            with httpx.stream("GET", f"{base}/{path}", timeout=300) as r:
+                r.raise_for_status()
+                with gz.open("wb") as fh:
+                    for chunk in r.iter_bytes():
+                        fh.write(chunk)
+            with gzip.open(gz) as fi, open(str(gz)[:-3], "wb") as fo:
+                shutil.copyfileobj(fi, fo)
+            gz.unlink()
+        log(f"bergamot {pair}: ok")
+        out.append({"pair": pair, "ok": True})
+    if not config.get("dub.bergamot_models"):
+        config.set_value("dub.bergamot_models", str(bergamot_folder()))
+    return out

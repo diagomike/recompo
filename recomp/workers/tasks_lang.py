@@ -60,8 +60,8 @@ def fit(project, j: dict, lang: str, actor: str, log=print, progress=None) -> di
     if not todo:
         raise RecompError("E_INVALID", f"no lines with both a meaning map and options for {lang}",
                           hint=f"`recomp dub understand {j['ref']} --to {lang} --template`, then `recomp dub write …`")
-    voice = todo[0]["settings"].get("voice")
-    mt, ruler = L.MT(project), L.Ruler(project, lang, voice)
+    voice, online = todo[0]["settings"].get("voice"), bool(todo[0]["settings"].get("online"))
+    mt, ruler = L.MT(project), L.Ruler(project, lang, voice, online)
     # 1. every option, translated into the target when it was written in another language
     cands: dict[str, dict[int, list[dict]]] = {}
     crossing: dict[tuple[str, str], list[str]] = {}
@@ -71,7 +71,9 @@ def fit(project, j: dict, lang: str, actor: str, log=print, progress=None) -> di
             per[int(fk) - 1] = [dict(v) for v in vs]
             for v in vs:
                 if v["lang"] != lang and v["text"].strip():
-                    crossing.setdefault((v["lang"], ln["settings"]["mt"]), []).append(v["text"])
+                    eng = ln["route"]["mt_into"].get(v["lang"]) or \
+                        L.engine_for(ln["settings"]["mt"], v["lang"], lang, bool(ln["settings"].get("online")))[0]
+                    crossing.setdefault((v["lang"], eng), []).append(v["text"])
         cands[ln["key"]] = per
     translated = {}
     for (wl, engine), texts in crossing.items():
