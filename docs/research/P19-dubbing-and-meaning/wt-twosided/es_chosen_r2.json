@@ -1,0 +1,537 @@
+{
+ "subset2-3": {
+  "score": 15.0,
+  "phrases": [
+   "El mirlo observó desde el árbol, giró la cabeza a izquierda y derecha, parpadeó, probó sus alas y se fue volando."
+  ],
+  "units": [
+   "u1",
+   "u2",
+   "u3",
+   "u4",
+   "u5",
+   "u6"
+  ],
+  "ratios": [
+   1.05
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "The blackbird watched from the tree, turned its head left and right, blinked, tested its wings and flew off.",
+    "strategy": "plain"
+   }
+  ]
+ },
+ "subset2-4": {
+  "score": 13.0,
+  "phrases": [
+   "Ella sigue diciendo que no se arrepiente de mudarse a casa,",
+   "pero no estoy seguro de si es del todo cierto."
+  ],
+  "units": [
+   "u1",
+   "u2",
+   "u3",
+   "u4",
+   "u5"
+  ],
+  "ratios": [
+   0.98,
+   1.045
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "She keeps saying she doesn't regret moving home,",
+    "strategy": "compact"
+   },
+   {
+    "src": "but I'm not sure if it's entirely true.",
+    "strategy": "orig"
+   }
+  ]
+ },
+ "subset2-5": {
+  "score": 10.0,
+  "phrases": [
+   "Finalmente levantó una tabla y la dejó a un lado con cuidado,",
+   "y luego miró debajo del piso."
+  ],
+  "units": [
+   "u1",
+   "u2",
+   "u3",
+   "u4",
+   "u5"
+  ],
+  "ratios": [
+   0.966,
+   1.017
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "Finally he lifted a board and carefully put it aside,",
+    "strategy": "plain"
+   },
+   {
+    "src": "and then looked under the floor.",
+    "strategy": "steer"
+   }
+  ]
+ },
+ "subset2-6": {
+  "score": 9.0,
+  "phrases": [
+   "Quiero saber de ti, así que publica tus ideas y dime qué mejorar."
+  ],
+  "units": [
+   "u1",
+   "u2",
+   "u4"
+  ],
+  "ratios": [
+   0.802
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "I want to hear from you, so post your ideas and tell me what to improve.",
+    "strategy": "compact"
+   }
+  ]
+ },
+ "subset2-7": {
+  "score": 9.984,
+  "phrases": [
+   "Algo se movió en lo profundo de la tierra, y detectores de terremotos lejanos midieron las vibraciones."
+  ],
+  "units": [
+   "u1",
+   "u2",
+   "u3",
+   "u4"
+  ],
+  "ratios": [
+   0.79
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "Something moved deep underground, and earthquake detectors far away measured the vibrations.",
+    "strategy": "compact"
+   }
+  ]
+ },
+ "subset2-8": {
+  "score": 17.0,
+  "phrases": [
+   "Hizo una pausa, miró hacia la casa, pero luego se guardó las llaves, abrió la puerta y caminó rápidamente por el sendero."
+  ],
+  "units": [
+   "u1",
+   "u2",
+   "u3",
+   "u4",
+   "u5",
+   "u6"
+  ],
+  "ratios": [
+   0.923
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "He paused, looked back at the house, but then pocketed the keys, opened the gate and strode down the path quickly.",
+    "strategy": "orig"
+   }
+  ]
+ },
+ "subset2-9": {
+  "score": 12.0,
+  "phrases": [
+   "Te extrañamos a ti y a tu amistad, y me alegra mucho que ustedes dos se pusieran al día."
+  ],
+  "units": [
+   "u1",
+   "u2",
+   "u3",
+   "u4"
+  ],
+  "ratios": [
+   0.857
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "We miss you and your friendship, and I'm so glad you two caught up.",
+    "strategy": "compact"
+   }
+  ]
+ },
+ "subset2-10": {
+  "score": 12.0,
+  "phrases": [
+   "Antes de leer esta publicación, familiarícese con mi guía de introducción y con cómo mover un archivo rápidamente."
+  ],
+  "units": [
+   "u1",
+   "u2",
+   "u3",
+   "u4"
+  ],
+  "ratios": [
+   0.903
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "Before reading this post, please familiarize yourself with my getting started guide and how to move around a file quickly.",
+    "strategy": "orig"
+   }
+  ]
+ },
+ "subset2-11": {
+  "score": 9.0,
+  "phrases": [
+   "Podría publicar mi código,",
+   "pero eso no mostraría las pequeñas lecciones que aprendí."
+  ],
+  "units": [
+   "u1",
+   "u2",
+   "u3"
+  ],
+  "ratios": [
+   0.849,
+   0.856
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "I could publish my code,",
+    "strategy": "compact"
+   },
+   {
+    "src": "but that wouldn't show the little lessons I learned.",
+    "strategy": "compact"
+   }
+  ]
+ },
+ "subset2-12": {
+  "score": 9.0,
+  "phrases": [
+   "Cuando deletrees una palabra, detente y agrégala al Editor de vocabulario."
+  ],
+  "units": [
+   "u1",
+   "u2",
+   "u3"
+  ],
+  "ratios": [
+   0.823
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "When you spell out a word, stop and add it to the Vocabulary Editor.",
+    "strategy": "compact"
+   }
+  ]
+ },
+ "subset2-13": {
+  "score": 9.0,
+  "phrases": [
+   "Los rastreadores oculares antes costaban miles; ahora uno barato cuesta menos de doscientos."
+  ],
+  "units": [
+   "u1",
+   "u2",
+   "u3"
+  ],
+  "ratios": [
+   0.884
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "Eye trackers once cost thousands; now a cheap one costs under two hundred.",
+    "strategy": "compact"
+   }
+  ]
+ },
+ "subset2-14": {
+  "score": 3.964,
+  "phrases": [
+   "El chico buscó",
+   "por los hornos y otros aparatos usados en la alquimia, pero no vio ninguno."
+  ],
+  "units": [
+   "u1",
+   "u2",
+   "u3",
+   "u4"
+  ],
+  "ratios": [
+   0.639,
+   0.987
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "The boy searched",
+    "strategy": "steer"
+   },
+   {
+    "src": "for the ovens and other apparatus used in alchemy, but saw none.",
+    "strategy": "orig"
+   }
+  ]
+ },
+ "subset2-15": {
+  "score": 10.996,
+  "phrases": [
+   "Tiene funciones básicas para conectarse al rastreador ocular,",
+   "leer posiciones y activar el punto de mirada."
+  ],
+  "units": [
+   "u1",
+   "u2",
+   "u3",
+   "u4"
+  ],
+  "ratios": [
+   1.054,
+   1.002
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "It has basic functions to connect to the eye tracker,",
+    "strategy": "compact"
+   },
+   {
+    "src": "read positions and activate the gaze point.",
+    "strategy": "steer"
+   }
+  ]
+ },
+ "subset2-16": {
+  "score": -8.0,
+  "phrases": [
+   "Trajeron a Virus, el baterista de Disorder, y finalmente tuvieron una banda bastante estable.",
+   ""
+  ],
+  "units": [
+   "u1",
+   "u2",
+   "u3"
+  ],
+  "ratios": [
+   0.984,
+   0.0
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "They brought in Virus, the drummer from Disorder, and finally had a fairly stable band.",
+    "strategy": "plain"
+   },
+   {
+    "src": "",
+    "strategy": "orig"
+   }
+  ]
+ },
+ "subset2-17": {
+  "score": 10.0,
+  "phrases": [
+   "Estuve en la ciudad este año, así que es un poco loco pensar en lo que pasó justo después."
+  ],
+  "units": [
+   "u1",
+   "u2",
+   "u3",
+   "u4"
+  ],
+  "ratios": [
+   0.918
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "I was just in town this year, so it's kind of crazy to think what happened right after.",
+    "strategy": "steer"
+   }
+  ]
+ },
+ "subset2-18": {
+  "score": 12.0,
+  "phrases": [
+   "Imagina a un tipo que entra dando órdenes con un acento fuerte."
+  ],
+  "units": [
+   "u1",
+   "u2",
+   "u3",
+   "u4"
+  ],
+  "ratios": [
+   0.984
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "Imagine a guy coming in, giving orders in a heavy accent.",
+    "strategy": "steer"
+   }
+  ]
+ },
+ "subset2-19": {
+  "score": 9.0,
+  "phrases": [
+   "Creo que la fiesta fue una diversión para la mayoría de los invitados, pero Mirco se sintió realmente fuera de lugar."
+  ],
+  "units": [
+   "u1",
+   "u2",
+   "u3",
+   "u4"
+  ],
+  "ratios": [
+   0.941
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "I think the party was an amusement for most of the guests, but Mirco felt really out of place.",
+    "strategy": "orig"
+   }
+  ]
+ },
+ "subset2-20": {
+  "score": 12.0,
+  "phrases": [
+   "Ha pasado mucho tiempo desde que leyó a Chéjov,",
+   "y por esa razón,",
+   "ella ya no se siente como la heroína de su propia historia."
+  ],
+  "units": [
+   "u1",
+   "u2",
+   "u3",
+   "u4"
+  ],
+  "ratios": [
+   0.902,
+   0.82,
+   0.887
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "It has been a long time since she read Chekhov,",
+    "strategy": "steer"
+   },
+   {
+    "src": "and for that reason,",
+    "strategy": "steer"
+   },
+   {
+    "src": "she no longer feels like the heroine of her own story.",
+    "strategy": "orig"
+   }
+  ]
+ },
+ "subset2-21": {
+  "score": 11.0,
+  "phrases": [
+   "No específicamente no,",
+   "solo me dio lo esencial de su investigación la única vez que hablé con él."
+  ],
+  "units": [
+   "u1",
+   "u2",
+   "u3",
+   "u4"
+  ],
+  "ratios": [
+   0.867,
+   1.008
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "Not specifically no,",
+    "strategy": "orig"
+   },
+   {
+    "src": "he only gave me the gist of his research the one time I spoke to him.",
+    "strategy": "orig"
+   }
+  ]
+ },
+ "subset2-22": {
+  "score": 12.0,
+  "phrases": [
+   "Es descortés pedirle a un árbol su historia a menos que estés listo para escucharla completa."
+  ],
+  "units": [
+   "u1",
+   "u2",
+   "u3",
+   "u4"
+  ],
+  "ratios": [
+   0.912
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "It's impolite to ask a tree for its story unless you are ready to hear it in full length.",
+    "strategy": "orig"
+   }
+  ]
+ }
+}

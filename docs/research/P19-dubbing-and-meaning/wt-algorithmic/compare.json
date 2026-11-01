@@ -1,0 +1,237 @@
+{
+ "R0": {
+  "ruler": {
+   "n": 45,
+   "speech_overlap": 0.6888,
+   "duration_overlap": 0.8236,
+   "slc_0.2": 0.0889,
+   "chrF": 70.71,
+   "chrF_normalised": 72.28
+  },
+  "voice": {
+   "n": 45,
+   "speech_overlap": 0.7276,
+   "duration_overlap": 0.8512,
+   "slc_0.2": 0.1333,
+   "segments_needing_speedup_over_1.1x": 0.689,
+   "median_tts_over_real": 1.62
+  }
+ },
+ "R1": {
+  "ruler": {
+   "n": 45,
+   "speech_overlap": 0.9206,
+   "duration_overlap": 0.9306,
+   "slc_0.2": 0.9111,
+   "chrF": 64.99,
+   "chrF_normalised": 66.92
+  },
+  "voice": {
+   "n": 45,
+   "speech_overlap": 0.907,
+   "duration_overlap": 0.908,
+   "slc_0.2": 0.8482,
+   "segments_needing_speedup_over_1.1x": 0.365,
+   "median_tts_over_real": 1.056
+  }
+ },
+ "R2": {
+  "ruler": {
+   "n": 45,
+   "speech_overlap": 0.9285,
+   "duration_overlap": 0.9402,
+   "slc_0.2": 0.9852,
+   "chrF": 64.92,
+   "chrF_normalised": 66.82
+  },
+  "voice": {
+   "n": 45,
+   "speech_overlap": 0.913,
+   "duration_overlap": 0.9144,
+   "slc_0.2": 0.8778,
+   "segments_needing_speedup_over_1.1x": 0.365,
+   "median_tts_over_real": 1.056
+  }
+ },
+ "R3": {
+  "ruler": {
+   "n": 45,
+   "speech_overlap": 0.8894,
+   "duration_overlap": 0.8974,
+   "slc_0.2": 0.8185,
+   "chrF": 63.49,
+   "chrF_normalised": 65.23
+  },
+  "voice": {
+   "n": 45,
+   "speech_overlap": 0.9204,
+   "duration_overlap": 0.9356,
+   "slc_0.2": 0.9074,
+   "segments_needing_speedup_over_1.1x": 0.048,
+   "median_tts_over_real": 0.97
+  }
+ },
+ "ALGO[\u03bb=0.01](R0)": {
+  "ruler": {
+   "n": 45,
+   "speech_overlap": 0.8882,
+   "duration_overlap": 0.9039,
+   "slc_0.2": 0.8889,
+   "chrF": 68.23,
+   "chrF_normalised": 69.51
+  },
+  "voice": {
+   "n": 45,
+   "speech_overlap": 0.8994,
+   "duration_overlap": 0.9184,
+   "slc_0.2": 0.8889,
+   "segments_needing_speedup_over_1.1x": 0.188,
+   "median_tts_over_real": 0.993
+  }
+ },
+ "ALGOv2[\u03bb=0.1](R0)": {
+  "ruler": {
+   "n": 45,
+   "speech_overlap": 0.8215,
+   "duration_overlap": 0.8358,
+   "slc_0.2": 0.5593,
+   "chrF": 69.72,
+   "chrF_normalised": 71.25
+  },
+  "voice": {
+   "n": 45,
+   "speech_overlap": 0.8439,
+   "duration_overlap": 0.8712,
+   "slc_0.2": 0.6556,
+   "segments_needing_speedup_over_1.1x": 0.176,
+   "median_tts_over_real": 0.953
+  }
+ },
+ "ALGOv2[\u03bb=0.03](R0)": {
+  "ruler": {
+   "n": 45,
+   "speech_overlap": 0.8228,
+   "duration_overlap": 0.8371,
+   "slc_0.2": 0.5815,
+   "chrF": 69.8,
+   "chrF_normalised": 71.34
+  },
+  "voice": {
+   "n": 45,
+   "speech_overlap": 0.8454,
+   "duration_overlap": 0.8727,
+   "slc_0.2": 0.663,
+   "segments_needing_speedup_over_1.1x": 0.176,
+   "median_tts_over_real": 0.961
+  }
+ },
+ "ALGO+voicev2[\u03bb=0.03](R0)": {
+  "ruler": {
+   "n": 45,
+   "speech_overlap": 0.8313,
+   "duration_overlap": 0.8404,
+   "slc_0.2": 0.637,
+   "chrF": 66.91,
+   "chrF_normalised": 68.34
+  },
+  "voice": {
+   "n": 45,
+   "speech_overlap": 0.8669,
+   "duration_overlap": 0.887,
+   "slc_0.2": 0.7593,
+   "segments_needing_speedup_over_1.1x": 0.106,
+   "median_tts_over_real": 0.967
+  }
+ },
+ "ALGOv2[\u03bb=0.03](REF)": {
+  "ruler": {
+   "n": 45,
+   "speech_overlap": 0.799,
+   "duration_overlap": 0.8122,
+   "slc_0.2": 0.5593,
+   "chrF": 97.39,
+   "chrF_normalised": 97.31
+  },
+  "voice": {
+   "n": 45,
+   "speech_overlap": 0.8264,
+   "duration_overlap": 0.8501,
+   "slc_0.2": 0.6444,
+   "segments_needing_speedup_over_1.1x": 0.212,
+   "median_tts_over_real": 0.935
+  }
+ },
+ "ALGO+voicev2[\u03bb=0.03](REF)": {
+  "ruler": {
+   "n": 45,
+   "speech_overlap": 0.806,
+   "duration_overlap": 0.8177,
+   "slc_0.2": 0.5852,
+   "chrF": 87.76,
+   "chrF_normalised": 87.58
+  },
+  "voice": {
+   "n": 45,
+   "speech_overlap": 0.8526,
+   "duration_overlap": 0.8688,
+   "slc_0.2": 0.7185,
+   "segments_needing_speedup_over_1.1x": 0.094,
+   "median_tts_over_real": 0.938
+  }
+ },
+ "TRAINED_MT": {
+  "ruler": {
+   "n": 45,
+   "speech_overlap": 0.783,
+   "duration_overlap": 0.7916,
+   "slc_0.2": 0.4407,
+   "chrF": 47.81,
+   "chrF_normalised": 53.49
+  },
+  "model_own_durations_speech_overlap": 0.8554,
+  "voice": {
+   "n": 45,
+   "speech_overlap": 0.7983,
+   "duration_overlap": 0.8163,
+   "slc_0.2": 0.4148,
+   "segments_needing_speedup_over_1.1x": 0.119,
+   "median_tts_over_real": 0.831
+  }
+ },
+ "R0+place": {
+  "ruler": {
+   "n": 45,
+   "speech_overlap": 0.8076,
+   "duration_overlap": 0.8236,
+   "slc_0.2": 0.537,
+   "chrF": 70.71,
+   "chrF_normalised": 72.28
+  },
+  "voice": {
+   "n": 45,
+   "speech_overlap": 0.8274,
+   "duration_overlap": 0.8588,
+   "slc_0.2": 0.6037,
+   "segments_needing_speedup_over_1.1x": 0.188,
+   "median_tts_over_real": 0.949
+  }
+ },
+ "REF": {
+  "ruler": {
+   "n": 45,
+   "speech_overlap": 0.7799,
+   "duration_overlap": 0.7958,
+   "slc_0.2": 0.5333,
+   "chrF": 100.0,
+   "chrF_normalised": 100.0
+  },
+  "voice": {
+   "n": 45,
+   "speech_overlap": 0.8076,
+   "duration_overlap": 0.8328,
+   "slc_0.2": 0.5926,
+   "segments_needing_speedup_over_1.1x": 0.224,
+   "median_tts_over_real": 0.931
+  }
+ }
+}

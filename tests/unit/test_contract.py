@@ -82,7 +82,7 @@ def test_agent_kit_install(tmp_path):
     agentkit.install(tmp_path)
     assert "my own note" in claude.read_text(encoding="utf-8")
     skills = list((tmp_path / ".claude" / "skills").glob("*/SKILL.md"))
-    assert len(skills) == 7
+    assert len(skills) == 8
     for s in skills:
         head = s.read_text(encoding="utf-8").split("---")[1]
         assert "name:" in head and "description:" in head

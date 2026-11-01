@@ -34,6 +34,24 @@ def _clean_caption(text: str) -> str:
     return " ".join(text.split())
 
 
+def dub_parts(db, lang: str, seg_id: int, text: str, a: float, b: float, at: float) -> list[dict]:
+    """The LLM dubber's phrase per speech frame of a line (``recomp dub fit``), mapped to output time, when the
+    line's translation is still exactly what the dubber chose (an edit since then falls back to the whole line)."""
+    row = db.one("SELECT data FROM dub_work WHERE lang=? AND kind='choice' AND key=? ORDER BY updated_at DESC LIMIT 1",
+                 (lang, f"seg:{seg_id}"))
+    if row is None:
+        return []
+    import json as _json
+    d = _json.loads(row[0])
+    if " ".join(d.get("text", "").split()) != " ".join(text.split()):
+        return []
+    out = []
+    for fr, phrase in zip(d.get("frames", []), d.get("phrases", [])):
+        if phrase.strip() and fr["end"] > a and fr["start"] < b:
+            out.append({"start": round(max(a, fr["start"]) - a + at, 3), "text": phrase})
+    return out if len(out) > 1 else []
+
+
 def captions_for_slot(db, src: dict, a: float, b: float, at: float, lang: str | None) -> list[dict]:
     """Source captions for [a, b) mapped to output time ``at``; translations replace text when lang differs."""
     tr = primary(db, src["id"])
@@ -62,8 +80,12 @@ def captions_for_slot(db, src: dict, a: float, b: float, at: float, lang: str | 
             if row is None:
                 continue  # untranslated lines are left out (export checks report coverage)
             text, words = row[0], []
-        out.append({"start": round(s0 - a + at, 3), "end": round(s1 - a + at, 3), "text": text, "words": words,
-                    "seg": seg["id"]})
+        cap = {"start": round(s0 - a + at, 3), "end": round(s1 - a + at, 3), "text": text, "words": words, "seg": seg["id"]}
+        if translated:
+            parts = dub_parts(db, lang, seg["id"], text, a, b, at)
+            if parts:
+                cap["parts"] = parts
+        out.append(cap)
     return out
 
 

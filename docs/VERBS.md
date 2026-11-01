@@ -16,6 +16,7 @@ Effects: `read` (no changes) · `write` (undoable op) · `heavy` (starts a job) 
 | `context` | [`context`](#context) |
 | `cut` | [`cut.add`](#cutadd), [`cut.edit`](#cutedit), [`cut.list`](#cutlist), [`cut.merge`](#cutmerge), [`cut.remove`](#cutremove), [`cut.show`](#cutshow), [`cut.split`](#cutsplit), [`cut.suggest`](#cutsuggest), [`cut.tag`](#cuttag), [`cut.trim`](#cuttrim) |
 | `doctor` | [`doctor`](#doctor) |
+| `dub` | [`dub.fit`](#dubfit), [`dub.settings`](#dubsettings), [`dub.status`](#dubstatus), [`dub.understand`](#dubunderstand), [`dub.verify`](#dubverify), [`dub.write`](#dubwrite) |
 | `export` | [`export.caption-sheet`](#exportcaption-sheet), [`export.check`](#exportcheck), [`export.cuts`](#exportcuts), [`export.multitrack`](#exportmultitrack), [`export.run`](#exportrun), [`export.show`](#exportshow), [`export.status`](#exportstatus) |
 | `find` | [`find.creators`](#findcreators) |
 | `follow` | [`follow.add`](#followadd), [`follow.backfill`](#followbackfill), [`follow.check`](#followcheck), [`follow.edit`](#followedit), [`follow.list`](#followlist), [`follow.remove`](#followremove) |
@@ -445,6 +446,130 @@ Check the tools, worker environment, models, disk and (optionally) network this 
 ```
 recomp doctor
 recomp doctor --net
+```
+
+## dub
+
+### dub.fit
+
+`recomp dub fit <journey>` · effect: **heavy**
+
+Stage 3 (a job): translate options that cross into the target, voice every candidate, choose the best combination per line, write the chosen lines as translations and list checks and rewrites.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<journey>` | string | required |  |
+| `--to` | string | required | Target language code |
+
+```
+recomp dub fit J1 --to om
+```
+
+### dub.settings
+
+`recomp dub settings <target>` · effect: **write**
+
+Show or change the LLM dubber's settings. Layers, lowest first: studio → project → source → journey; each shown value says where it came from.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<target>` | string | None | Journey or source to show (J1, S2); default: the project |
+| `--to` | string | None | Target language: also show the route the settings give |
+| `--at` | string | None | Where to change settings: studio, project, a source (S1) or a journey (J1) |
+| `--clear` | list[string] | None | Settings to remove at --at (fall back to the layer below) |
+| `--route` | string | None | auto \| direct \| source (src-en: the LLM writes in the source) \| target (tgt-en: writes the target) \| middle (mid-en: one middle language) \| multi (two or more middle languages) |
+| `--middle` | list[string] | None | Middle languages in order, e.g. en or en,es (multi: two or more) |
+| `--budget` | string | None | economy (one writing language, fewest tokens) \| quality (two writing languages pooled) |
+| `--views-mt` | list[string] | None | MT systems for the understanding views, paired with the middle languages: google, nllb, bergamot |
+| `--mt` | string | None | MT system into the target and for back-translation: google, nllb, bergamot |
+| `--verify` | string | None | auto (when the target is weak and MT crossed) \| always \| never |
+| `--conserve` | boolean | None | Meaning-conserving mode: cost added content, allow short silences |
+| `--rounds` | integer | None | Rewrite rounds offered for frames still out of band |
+| `--band` | list[number] | None | Good fit as voice time / speaker time, low,high (default 0.8,1.05) |
+| `--mt-prior` | number | None | Pooled options: cost of an MT-crossed option so a directly written line wins near-ties |
+| `--min-pause` | number | None | A pause this long (s) splits a line into speech frames |
+| `--strong` | list[string] | None | Languages the LLM is strong in (overrides the built-in list) |
+| `--voice` | string | None | Target voice (default: the language's configured voice) |
+| `--targets` | list[string] | None | Languages this media is to be dubbed into (a note shown with the settings) |
+
+```
+recomp dub settings J1 --to om
+recomp dub settings --at project --route multi --middle en,es --views-mt google,nllb
+recomp dub settings --at S2 --route tgt-en --budget quality
+recomp dub settings --at studio --strong en,es,fr,de,am
+recomp dub settings --at J1 --clear route,budget
+```
+
+### dub.status
+
+`recomp dub status <journey>` · effect: **read**
+
+Where the LLM dub of a journey stands: lines mapped, options written, fit per line, checks and rewrites pending, and the next step.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<journey>` | string | required |  |
+| `--to` | string | required | Target language code |
+
+```
+recomp dub status J1 --to om
+```
+
+### dub.understand
+
+`recomp dub understand <journey>` · effect: **write**
+
+Stage 1: the meaning map. The template shows each line's speech frames and its evidence: the source itself when you read it well, otherwise independent MT views in the middle language(s). Write units (core/support/colour) pinned to frames.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<journey>` | string | required |  |
+| `--to` | string | required | Target language code |
+| `--template` | boolean | False | Return the evidence for each line (source text or MT views) to write the map from |
+| `--maps` | object | None | {key: {best, confidence, notes, units:[{id, text, tier, frame}]}} (use --input) |
+| `--keys` | list[string] | None | Only these lines (seg:… keys) |
+
+```
+recomp dub understand J1 --to om --template
+recomp dub understand J1 --to om --input maps.json
+```
+
+### dub.verify
+
+`recomp dub verify <journey>` · effect: **write**
+
+Stage 4: meaning checks for target lines you cannot read. The template back-translates each chosen option into the middle language(s); mark which units survived and any error (wrong word, polarity, subject). Then fit again.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<journey>` | string | required |  |
+| `--to` | string | required | Target language code |
+| `--template` | boolean | False | Return the chosen target lines that crossed MT, back-translated, with their units |
+| `--checks` | object | None | {option id: {covered: [unit ids], errors: [...], added: [...]}} (use --input) |
+
+```
+recomp dub verify J1 --to om --template
+recomp dub verify J1 --to om --input checks.json
+```
+
+### dub.write
+
+`recomp dub write <journey>` · effect: **write**
+
+Stage 2: options per speech frame, in the route's writing language(s), each labelled with the units it carries. After a fit, the template lists only the frames to rewrite, with a syllable target.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `<journey>` | string | required |  |
+| `--to` | string | required | Target language code |
+| `--template` | boolean | False | Return what to write: per frame its time, syllable target, units and languages; after a fit, only the rewrites still needed |
+| `--options` | object | None | {key: {frame n: [{text, lang, units, strategy}]}} (use --input) |
+| `--keys` | list[string] | None | Only these lines |
+| `--all` | boolean | False | Template: every line, not only those still needing work |
+
+```
+recomp dub write J1 --to om --template
+recomp dub write J1 --to om --input options.json
 ```
 
 ## export
@@ -2109,6 +2234,12 @@ Add media: files are referenced in place (never copied); subtitles beside them a
 | `--match` | string | None | Links: only entries whose title matches (regex, case-insensitive) |
 | `--since` | string | None | Links: only entries newer than e.g. 90d |
 | `--pick` | list[string] | None | Links: add these entries from the last pick list (numbers or ids) |
+| `--dub-to` | list[string] | None | Languages to dub this media into (shown by `dub settings`) |
+| `--dub-route` | string | None | LLM dubber route: auto, direct, source (src-en), target (tgt-en), middle (mid-en), multi |
+| `--dub-middle` | list[string] | None | LLM dubber middle languages, e.g. en or en,es |
+| `--dub-budget` | string | None | LLM dubber budget: economy (one writing language) or quality (two) |
+| `--dub-views-mt` | list[string] | None | MT systems for the understanding views: google, nllb, bergamot |
+| `--dub-mt` | string | None | MT system into the dub language: google, nllb, bergamot |
 
 ```
 recomp source add "D:\Recomp\Video\The.Dark.Knight*.mp4"

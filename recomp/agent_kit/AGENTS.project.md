@@ -63,6 +63,7 @@ source add ─► (probe · audio · shots · peaks jobs) ─► transcript impo
 | Look | `recomp overlay auto-lower-thirds J1` · `recomp overlay add J1#1 --kind quote --text …` · `recomp music search "warm piano" --licence commercial` · `recomp music bed-add J1 M1` |
 | Export | `recomp profile list` · `recomp preview J1` · `recomp export run J1 --profiles shorts,landscape --langs en,am,sw,fr` · `recomp export status` |
 | Languages | `recomp lang translate J1 --to am --input am.json` (your own translation) · `recomp export run J1 --profiles shorts --langs am,sw` (dubs) |
+| Timed dub lines (LLM dubber) | `recomp dub settings J1 --to om` (route by language) → `dub understand` → `dub write` → `dub fit` → `dub verify` (MT-only targets) → export; see the recomp-dub skill |
 | Share | `recomp hub publish J1 --visibility public` (ask first) · `recomp hub link-post J1 <url the user posted>` |
 | Follow | `recomp find creators "…"` · `recomp follow add @handle --project P` · `recomp follow check` · `recomp inbox take I3` · `recomp library search "…"` (skill: recomp-research) |
 | Topics | `recomp topic suggest` · `recomp topic add "…" --terms "…"` · `recomp topic scan T1` · `recomp topic brief T1` · `recomp journey from-topic T1 --passages p2,p5` |

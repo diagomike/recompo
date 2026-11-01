@@ -56,6 +56,43 @@ Every open task by priority. Done phases are summarised; their detail is in git 
         line from its speaker's own audio with OmniVoice, saved beside the usual dub (`…-clone`), credited as AI
         voices. Dark Knight J1 fr: 1 line over, round-trip WER 0.26 (studio voice: 0 over, 0.04). Your ears decide.
 
+## LLM dubber (P19 in the app, 2026-11-01)
+- [x] `recomp dub …` verbs, layered settings (studio/project/source/journey), routes direct/source/target/middle/multi,
+      economy/quality, MT google/nllb/bergamot, back-translation checks, per-frame voicing in exports, studio controls.
+- [ ] Run it on your PC on a real journey: am→om with `--route multi --middle en,es --views-mt google,nllb`
+      (needs NLLB in the worker env; bergamot optional: `pip install bergamot==0.4.5` + `dub.bergamot_models`).
+- [ ] API mode: an unattended loop that answers the templates with the Anthropic API (today the agent does it).
+- [ ] `--dub-*` options for links in `source add`; prosody cues in `dub understand`.
+
+## Research (P19, 2026-10-31; research only)
+- [x] Literature and feasibility report: `docs/research/P19-dubbing-and-meaning/` (tracks 1 and 3 here, track 2 on
+      branch `ccr-327cc642-xnfs3i-track2-models`); pilot on two real en→es dubbed excerpts.
+- [x] Mechanisms compared in worktrees (duration, placement, LLM loop, trained MT):
+      `docs/research/P19-dubbing-and-meaning/mechanisms-compared.md`.
+- [x] Trained duration-aware MT (IWSLT Sockeye) on the same bench (2026-10-31): 0.80 voice overlap, chrF 53.5.
+- [x] Fully algorithmic rephrasing (worktree `algorithmic`, 2026-10-31): not competitive without a neural judge.
+- [ ] BERT-pluggable rephrasing (XLM-R masked-LM edits + LaBSE/e5 meaning check) and NLLB n-best + rerank — need
+      HuggingFace: run on your PC (`D:\LangBridgeLocal\cache\hf`) or with huggingface.co allowed in the cloud env.
+- [x] Multi-round LLM refinement with a band (0.8–1.05×, silence allowed) and de-padding (worktree `llm-multiround`):
+      best method so far.
+- [x] MCTR, meaning-conserving top-down rephrasing (worktree `mctr`): spec, module, tests, blind meaning check.
+      When building resumes: verbs `lang understand/variants/revise/verify`, per-run dub placement (see its README §3).
+- [x] Two-sided optimiser for MT-only languages (worktree `twosided`), proven on de→en (real MT) and en→es.
+- [x] End to end between two MT-only languages through an English pivot (worktree `pivot`), proven on
+      German speech → Spanish: multi-view understanding, units pinned to source segments, two-sided timing.
+- [ ] Pivot run Amharic → Oromo on your PC: Ethio-ASR, `mt_google.py` am→en views (or NLLB short/long), en→om,
+      MMS orm voice, om→en back-translation; a human reviews low-confidence lines.
+- [ ] Calibrate the prosody question cue per speaker (it over-fires on read speech).
+- [x] Working-language routing (worktree `routes`): `routes.py plan`, economy/quality budgets, route prior for pooling.
+- [ ] Adaptive MT views (extra views only where whole-line and per-segment views disagree) to cut understanding tokens.
+- [x] Two middle languages for understanding (worktree `bipivot`): English + Spanish from two MT systems, French target.
+- [ ] On your PC: understanding am→en (Google) + am→spa (NLLB, direct); verification om→en and om→spa through both systems.
+- [ ] Quality-mode pivot on your PC: am→om through English + Spanish pooled (Google/NLLB both hops, MMS orm voice).
+- [ ] Two-sided run on Amharic/Oromo on your PC: `mt_google.py` (forward + back-translation), edge-tts am / MMS orm voice.
+- [ ] Corpus pilot on 20–50 of your dual-audio titles (needs: language pairs, a list of files).
+- [ ] Track 1 A/B on 10 held-out dubbed titles (Claude's timed script vs today's pipeline vs the human dub's words).
+- [ ] Track 3 blind comparison: unit cards + LLM selection vs `cut suggest` on alex-oconnor and ai-and-ideas.
+
 ## Waiting on the user
 - [ ] Name the channel you post to (P17-Q3; a placeholder is used until then).
 - [ ] F2 (The Diary of a CEO) is labelled "DOAC": rename it to Steven Bartlett? (`recomp follow edit F2 --person "Steven Bartlett" --as-user`)

@@ -1,0 +1,718 @@
+{
+ "subset2-81": {
+  "score": 9.0,
+  "phrases": [
+   "Quand tu auras fini la phrase,",
+   "Cliquez sur le bouton rouge ci-dessous pour terminer l'enregistrement."
+  ],
+  "units": [
+   "u1",
+   "u2",
+   "u3"
+  ],
+  "ratios": [
+   0.806,
+   0.909
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "Cuando hayas terminado la frase,",
+    "strategy": "orig"
+   },
+   {
+    "src": "haz clic en el botón rojo de abajo para terminar la grabación.",
+    "strategy": "orig"
+   }
+  ]
+ },
+ "subset2-82": {
+  "score": 0.89,
+  "phrases": [
+   "Il se souvenait de quelque chose que son grand-père lui avait dit:",
+   "Les papillons apportent de la chance."
+  ],
+  "units": [
+   "u1",
+   "u2"
+  ],
+  "ratios": [
+   0.653,
+   0.878
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "Recordó algo que su abuelo le había dicho una vez:",
+    "strategy": "orig"
+   },
+   {
+    "src": "las mariposas traen buena suerte.",
+    "strategy": "alt"
+   }
+  ]
+ },
+ "subset2-83": {
+  "score": -4.944,
+  "phrases": [
+   "Tous les chagrins avec la nourriture",
+   "Du pain",
+   "Ils s'entendent mieux,",
+   "Mieux vaut une grosse honte qu'une honte maigre."
+  ],
+  "units": [
+   "u1",
+   "u2"
+  ],
+  "ratios": [
+   1.008,
+   1.039,
+   0.685,
+   1.096
+  ],
+  "missing_core": [
+   "u3",
+   "u4"
+  ],
+  "added": 0,
+  "kept_all_core": false,
+  "sources": [
+   {
+    "src": "Todas las penas con comida",
+    "strategy": "alt"
+   },
+   {
+    "src": "pan",
+    "strategy": "orig"
+   },
+   {
+    "src": "se llevan mejor,",
+    "strategy": "orig"
+   },
+   {
+    "src": "mejor una pena gorda que una pena flaca.",
+    "strategy": "alt"
+   }
+  ]
+ },
+ "subset2-84": {
+  "score": 1.336,
+  "phrases": [
+   "Même pas moi",
+   "Je n'ai pas pensé à d'autres femmes",
+   "Depuis que j'ai rencontré la fille du marchand."
+  ],
+  "units": [
+   "u1",
+   "u2",
+   "u3"
+  ],
+  "ratios": [
+   0.786,
+   0.647,
+   0.769
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "Ni siquiera yo",
+    "strategy": "orig"
+   },
+   {
+    "src": "no he pensado en otras mujeres",
+    "strategy": "alt"
+   },
+   {
+    "src": "desde que conocí a la hija del comerciante.",
+    "strategy": "orig"
+   }
+  ]
+ },
+ "subset2-85": {
+  "score": -3.243,
+  "phrases": [
+   "Il serait très pratique pour mon navigateur web de synchroniser tous ses paramètres,",
+   "pas seulement certains."
+  ],
+  "units": [
+   "u1",
+   "u2"
+  ],
+  "ratios": [
+   0.715,
+   1.209
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "Sería muy práctico que mi navegador web sincronizara todos sus ajustes,",
+    "strategy": "alt"
+   },
+   {
+    "src": "no solo algunas.",
+    "strategy": "orig"
+   }
+  ]
+ },
+ "subset2-86": {
+  "score": -0.722,
+  "phrases": [
+   "Ouvrez les stores et éteignez les lumières,",
+   "Nous ne pouvons pas nous permettre de dépenser de l'électricité."
+  ],
+  "units": [
+   "u1",
+   "u2"
+  ],
+  "ratios": [
+   0.853,
+   1.205
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "Abre las persianas y apaga las luces,",
+    "strategy": "orig"
+   },
+   {
+    "src": "no podemos permitirnos gastar electricidad.",
+    "strategy": "orig"
+   }
+  ]
+ },
+ "subset2-87": {
+  "score": -8.096,
+  "phrases": [
+   "Quand il a essayé de retirer de l'argent de son compte,",
+   "Le guichet automatique lui a dit que sa carte était invalide."
+  ],
+  "units": [
+   "u2"
+  ],
+  "ratios": [
+   0.625,
+   0.796
+  ],
+  "missing_core": [
+   "u1"
+  ],
+  "added": 0,
+  "kept_all_core": false,
+  "sources": [
+   {
+    "src": "Cuando intentó retirar dinero de su cuenta,",
+    "strategy": "alt"
+   },
+   {
+    "src": "el cajero automático le dijo que su tarjeta no era válida.",
+    "strategy": "orig"
+   }
+  ]
+ },
+ "subset2-88": {
+  "score": -2.247,
+  "phrases": [
+   "Elle n'était pas à la maison;",
+   "Un voisin soupçonnait qu'il n'était probablement pas rentré hier soir."
+  ],
+  "units": [
+   "u1"
+  ],
+  "ratios": [
+   0.904,
+   0.715
+  ],
+  "missing_core": [
+   "u2",
+   "u3"
+  ],
+  "added": 0,
+  "kept_all_core": false,
+  "sources": [
+   {
+    "src": "Ella no estaba en casa;",
+    "strategy": "alt"
+   },
+   {
+    "src": "un vecino sospechaba que probablemente no había vuelto a casa anoche.",
+    "strategy": "orig"
+   }
+  ]
+ },
+ "subset2-89": {
+  "score": 4.451,
+  "phrases": [
+   "Le garçon a remarqué que le propriétaire du bar était à proximité,",
+   "écouter attentivement leur conversation."
+  ],
+  "units": [
+   "u1",
+   "u2"
+  ],
+  "ratios": [
+   1.003,
+   0.743
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "El chico notó que el dueño del bar estaba cerca,",
+    "strategy": "orig"
+   },
+   {
+    "src": "escuchando atentamente su conversación.",
+    "strategy": "orig"
+   }
+  ]
+ },
+ "subset2-90": {
+  "score": 6.0,
+  "phrases": [
+   "La région est connue pour ses riches gisements de cuivre,",
+   "C’est pourquoi l’exploitation minière est pratiquée à grande échelle."
+  ],
+  "units": [
+   "u1",
+   "u2"
+  ],
+  "ratios": [
+   0.906,
+   1.049
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "La región es conocida por sus ricos yacimientos de cobre,",
+    "strategy": "orig"
+   },
+   {
+    "src": "por eso la minería se practica a gran escala.",
+    "strategy": "orig"
+   }
+  ]
+ },
+ "subset2-91": {
+  "score": -4.429,
+  "phrases": [
+   "La femme a dit qu'elle n'avait jamais entendu parler de quelqu'un comme ça",
+   "et il est parti vite."
+  ],
+  "units": [
+   "u1"
+  ],
+  "ratios": [
+   0.738,
+   1.134
+  ],
+  "missing_core": [
+   "u2"
+  ],
+  "added": 0,
+  "kept_all_core": false,
+  "sources": [
+   {
+    "src": "La mujer dijo que jamás había oído hablar de alguien así",
+    "strategy": "alt"
+   },
+   {
+    "src": "y se fue rápido.",
+    "strategy": "alt"
+   }
+  ]
+ },
+ "subset2-92": {
+  "score": -6.592,
+  "phrases": [
+   "Le garçon s'approcha de la fille,",
+   "Et quand elle sourit,",
+   "Il sourit aussi."
+  ],
+  "units": [
+   "u1",
+   "u2",
+   "u3"
+  ],
+  "ratios": [
+   0.656,
+   0.797,
+   0.596
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "El chico se acercó a la chica,",
+    "strategy": "orig"
+   },
+   {
+    "src": "y cuando ella sonrió,",
+    "strategy": "orig"
+   },
+   {
+    "src": "él también sonrió.",
+    "strategy": "alt"
+   }
+  ]
+ },
+ "subset2-93": {
+  "score": -133.993,
+  "phrases": [
+   "Si tu vois quelque chose que tu veux,",
+   "prends-le",
+   "et l'améliorer."
+  ],
+  "units": [
+   "u1",
+   "u2",
+   "u3"
+  ],
+  "ratios": [
+   0.793,
+   0.255,
+   0.593
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "Si ves algo que te gusta,",
+    "strategy": "orig"
+   },
+   {
+    "src": "tómalo",
+    "strategy": "orig"
+   },
+   {
+    "src": "y mejóralo.",
+    "strategy": "orig"
+   }
+  ]
+ },
+ "subset2-94": {
+  "score": 2.231,
+  "phrases": [
+   "Il s'arrêta un instant",
+   "pour vérifier",
+   "Si la femme connaissait les pyramides égyptiennes."
+  ],
+  "units": [
+   "u1",
+   "u2",
+   "u3"
+  ],
+  "ratios": [
+   0.767,
+   0.675,
+   0.735
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "Se detuvo un momento",
+    "strategy": "alt"
+   },
+   {
+    "src": "para comprobar",
+    "strategy": "orig"
+   },
+   {
+    "src": "si la mujer conocía las pirámides egipcias.",
+    "strategy": "alt"
+   }
+  ]
+ },
+ "subset2-95": {
+  "score": 4.022,
+  "phrases": [
+   "Cependant, lorsque le Parti travailliste est arrivé au pouvoir,",
+   "L’engagement contre l’apartheid a été abandonné."
+  ],
+  "units": [
+   "u1",
+   "u2"
+  ],
+  "ratios": [
+   0.829,
+   0.725
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "Sin embargo, cuando el Partido Laborista llegó al poder,",
+    "strategy": "orig"
+   },
+   {
+    "src": "el compromiso contra el apartheid se abandonó.",
+    "strategy": "orig"
+   }
+  ]
+ },
+ "subset2-96": {
+  "score": -9.429,
+  "phrases": [
+   "Il s'est fait un nom dans le Getafe",
+   "après avoir quitté la carrière du Real Madrid."
+  ],
+  "units": [
+   "u1"
+  ],
+  "ratios": [
+   0.687,
+   0.638
+  ],
+  "missing_core": [
+   "u2"
+  ],
+  "added": 0,
+  "kept_all_core": false,
+  "sources": [
+   {
+    "src": "Se hizo un nombre en el Getafe",
+    "strategy": "orig"
+   },
+   {
+    "src": "tras salir de la cantera del Real Madrid.",
+    "strategy": "orig"
+   }
+  ]
+ },
+ "subset2-97": {
+  "score": -0.946,
+  "phrases": [
+   "Les experts en géologie sont d'accord:",
+   "Le tsunami d’hier n’était qu’un signe avant-coureur de l’apocalypse à venir."
+  ],
+  "units": [
+   "u1",
+   "u2"
+  ],
+  "ratios": [
+   0.668,
+   0.702
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "Los expertos en geología coinciden:",
+    "strategy": "orig"
+   },
+   {
+    "src": "el tsunami de ayer fue solo un presagio del apocalipsis que se avecina.",
+    "strategy": "orig"
+   }
+  ]
+ },
+ "subset2-98": {
+  "score": -2.335,
+  "phrases": [
+   "Il y a une mosquée",
+   "devant un alun-alun javanais,",
+   "La disposition typique d'une ville javanaise."
+  ],
+  "units": [
+   "u1",
+   "u2",
+   "u3"
+  ],
+  "ratios": [
+   0.671,
+   0.743,
+   1.19
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "Hay una mezquita",
+    "strategy": "orig"
+   },
+   {
+    "src": "frente a un alun-alun javanés,",
+    "strategy": "orig"
+   },
+   {
+    "src": "la disposición típica de una ciudad javanesa.",
+    "strategy": "orig"
+   }
+  ]
+ },
+ "subset2-99": {
+  "score": 0.038,
+  "phrases": [
+   "Même si certains admiraient le prophète,",
+   "mais d'autres l'accusaient de blasphème,",
+   "et maintenant chercher refuge à l'étranger."
+  ],
+  "units": [
+   "u1",
+   "u2",
+   "u3"
+  ],
+  "ratios": [
+   0.767,
+   0.617,
+   0.893
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "Aunque algunos admiraban al profeta,",
+    "strategy": "orig"
+   },
+   {
+    "src": "pero otros lo acusaron de blasfemia,",
+    "strategy": "alt"
+   },
+   {
+    "src": "y ahora busca refugio en el extranjero.",
+    "strategy": "orig"
+   }
+  ]
+ },
+ "subset2-100": {
+  "score": 2.666,
+  "phrases": [
+   "Quand le garçon regarda la cuillère qu'il tenait,",
+   "Il a réalisé que l'huile avait disparu."
+  ],
+  "units": [
+   "u1",
+   "u2"
+  ],
+  "ratios": [
+   0.687,
+   0.825
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "Cuando el chico miró la cuchara que sostenía,",
+    "strategy": "orig"
+   },
+   {
+    "src": "se dio cuenta de que el aceite había desaparecido.",
+    "strategy": "orig"
+   }
+  ]
+ },
+ "subset1-18": {
+  "score": -25.97,
+  "phrases": [
+   "Le chef de l'église",
+   "La husita tchécoslovaque est aussi appelée Patriarche."
+  ],
+  "units": [
+   "u1",
+   "u2"
+  ],
+  "ratios": [
+   0.459,
+   0.813
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "El jefe de la Iglesia",
+    "strategy": "orig"
+   },
+   {
+    "src": "husita checoslovaca también se llama Patriarca.",
+    "strategy": "orig"
+   }
+  ]
+ },
+ "subset1-19": {
+  "score": 6.0,
+  "phrases": [
+   "Nous ne sommes que des voyageurs, a répondu l'alchimiste."
+  ],
+  "units": [
+   "u1",
+   "u2"
+  ],
+  "ratios": [
+   0.888
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "Solo somos viajeros, respondió el alquimista.",
+    "strategy": "orig"
+   }
+  ]
+ },
+ "subset1-20": {
+  "score": 1.521,
+  "phrases": [
+   "Ne voyez-vous pas ce qui se passe ?"
+  ],
+  "units": [
+   "u1"
+  ],
+  "ratios": [
+   0.747
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "¿Es que no ves lo que pasa?",
+    "strategy": "alt"
+   }
+  ]
+ },
+ "subset1-21": {
+  "score": 4.695,
+  "phrases": [
+   "Vous aimez lire des livres papier ou préférez-vous les versions numériques ?"
+  ],
+  "units": [
+   "u1",
+   "u2"
+  ],
+  "ratios": [
+   0.757
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "¿Te gusta leer libros en papel o prefieres las versiones digitales?",
+    "strategy": "alt"
+   }
+  ]
+ }
+}

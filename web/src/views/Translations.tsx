@@ -5,6 +5,7 @@ import { useApp, useData } from "../App";
 import { Act, useActions } from "../actions";
 import { FilterBar, useFilters } from "../filters";
 import { Dialog, Disclosure, Empty, Menu } from "../ui";
+import { DubSettingsDialog } from "./DubSettings";
 
 const COMMON_LANGS: [string, string][] = [["am", "Amharic"], ["om", "Oromo"], ["sw", "Swahili"], ["fr", "French"], ["es", "Spanish"], ["ar", "Arabic"],
   ["pt", "Portuguese"], ["de", "German"], ["hi", "Hindi"], ["ti", "Tigrinya"], ["so", "Somali"], ["zh", "Chinese"]];
@@ -26,7 +27,7 @@ export default function Translations({ journeys, profiles }: { journeys: any[]; 
   const { data: prof } = useData(() => must<any>("profile.show", { name: profile }), [profile]);
   const [edits, setEdits] = useState<Record<string, string>>({});
   const [sheet, setSheet] = useState<string | null>(null);
-  const [dialog, setDialog] = useState<null | "add" | "replace" | "redraft">(null);
+  const [dialog, setDialog] = useState<null | "add" | "replace" | "redraft" | "dub">(null);
   const { run } = useActions();
   useEffect(() => { setEdits({}); setSheet(null); }, [jref, lang]);
 
@@ -70,6 +71,7 @@ export default function Translations({ journeys, profiles }: { journeys: any[]; 
             <Act verb="lang.translate" args={{ journey: jref, to: lang, engine: "google" }} small ghost icon={<Wand2 size={12} />} agent disabled={!missing}
                  title={missing ? `Draft the ${missing} line(s) that have no translation` : "Every line has a translation"}>Draft missing</Act>
             <button className="btn small ghost" onClick={() => setDialog("replace")} data-tip="Find and replace in this language"><Replace size={12} />Replace</button>
+            <button className="btn small ghost" onClick={() => setDialog("dub")} data-tip="The LLM dubber: route by language, middle languages, MT and checks"><Sparkles size={12} />LLM dub</button>
           </div>
         )}
         {lang && data && (
@@ -159,6 +161,8 @@ export default function Translations({ journeys, profiles }: { journeys: any[]; 
         </Empty>
       )}
       {dialog === "add" && <AddLanguage jref={jref} have={langs} onClose={() => setDialog(null)} onAdded={(l) => { setDialog(null); reloadStatus(); setF("tl", l); }} />}
+      {dialog === "dub" && <DubSettingsDialog target={jref} to={lang} title={`LLM dub of ${jref} into ${lang}`} onClose={() => setDialog(null)}
+                                              scopes={[[jref, `this journey (${jref})`], ["project", "the project"], ["studio", "the studio (every project)"]]} />}
       {dialog === "replace" && <LangReplace lang={lang} jref={jref} onClose={() => setDialog(null)} onDone={() => { setDialog(null); reload(); }} />}
       {dialog === "redraft" && (
         <Dialog title={`Redo the Google drafts of ${jref} in ${lang}?`} sub="Clears the lines Google drafted; yours and the agent's stay. Then “Draft missing” drafts them again. Undo brings them back."

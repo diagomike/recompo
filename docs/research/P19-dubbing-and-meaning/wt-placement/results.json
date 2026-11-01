@@ -1,0 +1,78 @@
+{
+ "train_utterances": 29929,
+ "pause_rate_per_boundary": 0.0244,
+ "held_out_utterances_with_pauses": 1195,
+ "held_out": {
+  "P0_uniform": {
+   "breaks": 1437,
+   "exact": 0.454,
+   "within_1_word": 0.92
+  },
+  "P1_rate_dp": {
+   "breaks": 1443,
+   "exact": 0.587,
+   "within_1_word": 0.935
+  },
+  "P2_rate_rules": {
+   "breaks": 1443,
+   "exact": 0.615,
+   "within_1_word": 0.855
+  },
+  "P3_rate_learned": {
+   "breaks": 1443,
+   "exact": 0.611,
+   "within_1_word": 0.841
+  },
+  "P4_learned_only": {
+   "breaks": 1443,
+   "exact": 0.332,
+   "within_1_word": 0.518
+  }
+ },
+ "lr_coef": {
+  "a_det": -0.73,
+  "a_prep": -0.78,
+  "a_aux": -1.16,
+  "a_conj": -0.53,
+  "b_conj": 1.34,
+  "b_prep": -0.21,
+  "b_det": 0.21,
+  "b_aux": -0.03,
+  "len_a": 0.12,
+  "len_b": 0.05,
+  "pos": 0.36,
+  "a_ing": -0.44,
+  "a_ly": -0.32,
+  "a_s": 0.2,
+  "b_pron": 0.99,
+  "bias": -0.51
+ },
+ "iwslt_test_utterances_with_pauses": 60,
+ "iwslt_test": {
+  "P0_uniform": {
+   "breaks": 73,
+   "exact": 0.562,
+   "within_1_word": 0.932
+  },
+  "P1_rate_dp": {
+   "breaks": 74,
+   "exact": 0.689,
+   "within_1_word": 0.973
+  },
+  "P2_rate_rules": {
+   "breaks": 74,
+   "exact": 0.703,
+   "within_1_word": 0.865
+  },
+  "P3_rate_learned": {
+   "breaks": 74,
+   "exact": 0.676,
+   "within_1_word": 0.797
+  },
+  "P4_learned_only": {
+   "breaks": 74,
+   "exact": 0.324,
+   "within_1_word": 0.405
+  }
+ }
+}

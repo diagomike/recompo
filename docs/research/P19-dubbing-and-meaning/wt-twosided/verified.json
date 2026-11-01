@@ -1,0 +1,1786 @@
+{
+ "subset2-3|Der schwarze Vogel beobachtete das alles vom Baum aus,": {
+  "covered": [
+   "u1",
+   "u2"
+  ],
+  "errors": [],
+  "mt": "the black bird watched all from the tree"
+ },
+ "subset2-3|schaute nach links und nach rechts,": {
+  "covered": [
+   "u3"
+  ],
+  "errors": [],
+  "mt": "looking to the left and to right"
+ },
+ "subset2-3|blinzelte, testete ihre Flügel und flog dann endlich los.": {
+  "covered": [
+   "u5",
+   "u6",
+   "u7"
+  ],
+  "errors": [
+   "err"
+  ],
+  "mt": "blinded her wings tested and then finally flew out"
+ },
+ "subset2-4|Sie sagt immer, dass sie den Umzug nach Hause nicht bereut,": {
+  "covered": [
+   "u1"
+  ],
+  "errors": [
+   "err"
+  ],
+  "mt": "she always says that she does not return home again"
+ },
+ "subset2-4|aber ich bin mir nicht sicher, ob das ganz wahr ist.": {
+  "covered": [
+   "u4",
+   "u5",
+   "u6"
+  ],
+  "errors": [],
+  "mt": "but i'm not sure this is quite true"
+ },
+ "subset2-5|Schließlich nahm er eines der Bretter in die Höhe und nachdem er es vorsichtig weggelegt hatte,": {
+  "covered": [
+   "u1",
+   "u2",
+   "u3",
+   "u4"
+  ],
+  "errors": [
+   "err"
+  ],
+  "mt": "finally he took one of the boards into height and after placing it carefully"
+ },
+ "subset2-5|schaute er in den Raum unter dem Boden.": {
+  "covered": [
+   "u5"
+  ],
+  "errors": [],
+  "mt": "he looked into the room under the ground"
+ },
+ "subset2-6|Ich freue mich auch, von anderen zu hören;": {
+  "covered": [
+   "u1"
+  ],
+  "errors": [],
+  "mt": "i'm also glad to hear others"
+ },
+ "subset2-6|also poste deine Ideen und sag mir, was besser geht.": {
+  "covered": [
+   "u2"
+  ],
+  "errors": [
+   "err"
+  ],
+  "mt": "so post your ideas and tell me what is going better"
+ },
+ "subset2-7|Etwas bewegte sich tief unter der Erde": {
+  "covered": [
+   "u1"
+  ],
+  "errors": [],
+  "mt": "something was moving deep underground"
+ },
+ "subset2-7|und verursachte starke Vibrationen,": {
+  "covered": [
+   "u2",
+   "u3"
+  ],
+  "errors": [],
+  "mt": "and caused strong vibrations"
+ },
+ "subset2-7|dass sie von den Erdbebenfrüherkennungs-Mechanismen hunderte Meilen entfernt gemessen wurden.": {
+  "covered": [
+   "u5"
+  ],
+  "errors": [
+   "err"
+  ],
+  "mt": "that they were removed from the earthquake detection mechanisms hundreds of miles"
+ },
+ "subset2-8|Er blieb stehen und sah zum Haus zurück,": {
+  "covered": [
+   "u1",
+   "u2"
+  ],
+  "errors": [
+   "err"
+  ],
+  "mt": "he stopped and saw back to the house"
+ },
+ "subset2-8|steckte die Schlüssel in die Tasche,": {
+  "covered": [],
+  "errors": [
+   "err"
+  ],
+  "mt": "plunged the keys into the bag"
+ },
+ "subset2-8|öffnete das Tor und eilte hinaus.": {
+  "covered": [
+   "u4",
+   "u5",
+   "u6"
+  ],
+  "errors": [],
+  "mt": "opened the gate and hastened out"
+ },
+ "subset2-9|Wir vermissen Sie": {
+  "covered": [
+   "u1"
+  ],
+  "errors": [],
+  "mt": "we miss you"
+ },
+ "subset2-9|und wir vermissen einen Freund wie Sie,": {
+  "covered": [
+   "u2"
+  ],
+  "errors": [],
+  "mt": "and we miss a friend like you"
+ },
+ "subset2-9|und ich bin so froh, dass ihr beide euch endlich wieder getroffen habt.": {
+  "covered": [
+   "u3"
+  ],
+  "errors": [
+   "err"
+  ],
+  "mt": "and i'm so glad to have met you both at last"
+ },
+ "subset2-10|Bevor Sie das hier lesen,": {
+  "covered": [
+   "u1"
+  ],
+  "errors": [
+   "err"
+  ],
+  "mt": "before you read that here"
+ },
+ "subset2-10|lesen Sie bitte mein Handbuch Erste Schritte": {
+  "covered": [
+   "u2",
+   "u3"
+  ],
+  "errors": [],
+  "mt": "please read my handbook first steps"
+ },
+ "subset2-10|und mit der Aktion, eine Datei schnell zu verschieben, vertraut.": {
+  "covered": [
+   "u4",
+   "u5"
+  ],
+  "errors": [
+   "err"
+  ],
+  "mt": "and to the action to shift a file quickly familiarize"
+ },
+ "subset2-11|Ich könnte einfach meinen Code veröffentlichen,": {
+  "covered": [
+   "u1"
+  ],
+  "errors": [],
+  "mt": "i just could publish my code"
+ },
+ "subset2-11|aber das würde nicht all die kleinen Lektionen aufzeigen, die ich auf dem Weg dorthin gelernt habe.": {
+  "covered": [
+   "u2",
+   "u3",
+   "u4"
+  ],
+  "errors": [],
+  "mt": "but that would not show all the little lessons that i learned there on the way"
+ },
+ "subset2-12|In dem Moment, in dem Sie ein Wort buchstabieren,": {
+  "covered": [
+   "u1"
+  ],
+  "errors": [],
+  "mt": "in the moment you spell a word"
+ },
+ "subset2-12|hören Sie sofort damit auf und fügen Sie dieses Wort dem Vokabeleditor hinzu.": {
+  "covered": [
+   "u3"
+  ],
+  "errors": [
+   "err"
+  ],
+  "mt": "listen to it immediately and add this word to the vocableditor"
+ },
+ "subset2-13|Früher kosteten Eye Tracker Tausende Dollar, aber heute bekommen Sie einen billigen für ein paar hundert.": {
+  "covered": [
+   "u1",
+   "u2"
+  ],
+  "errors": [
+   "err",
+   "err"
+  ],
+  "mt": "formerly i tracker cost thousands of dollars but you get a cheap for a few hundred"
+ },
+ "subset2-14|Der Junge sah sich nach den Öfen und den anderen Geräten um, die man in der Alchemie benutzt, aber er konnte keine davon sehen.": {
+  "covered": [
+   "u1",
+   "u2",
+   "u3",
+   "u4"
+  ],
+  "errors": [
+   "err",
+   "err"
+  ],
+  "mt": "the boy looked round after the ovens and the other devices using in alchemistry but he could not see of it"
+ },
+ "subset2-15|Es hat einige grundlegende Funktionen für die Verbindung mit Eye Tracker,": {
+  "covered": [
+   "u1",
+   "u2"
+  ],
+  "errors": [],
+  "mt": "it has some basic functions for the connection to eye tracker"
+ },
+ "subset2-15|den Erhalt von Positionsdaten und die Aktivierung des aktuellen Gaze Points.": {
+  "covered": [
+   "u3",
+   "u4"
+  ],
+  "errors": [
+   "err"
+  ],
+  "mt": "position data and activation of the current gaze point is preserved"
+ },
+ "subset2-16|Sie holten Disorder Drummer Virus in die Band, um Schlagzeug zu spielen,": {
+  "covered": [
+   "u1",
+   "u2"
+  ],
+  "errors": [
+   "err"
+  ],
+  "mt": "they picked disorder drummer virus into the band to play drums"
+ },
+ "subset2-16|und hatten endlich eine ziemlich zuverlässige Besetzung.": {
+  "covered": [
+   "u3",
+   "u4"
+  ],
+  "errors": [],
+  "mt": "and finally had a rather reliable cast"
+ },
+ "subset2-17|Ich war Anfang des Jahres dort,": {
+  "covered": [
+   "u1"
+  ],
+  "errors": [
+   "err"
+  ],
+  "mt": "i was their beginning of the year"
+ },
+ "subset2-17|deshalb ist es verrückt, an das zu denken, was danach passiert ist.": {
+  "covered": [
+   "u3",
+   "u5"
+  ],
+  "errors": [],
+  "mt": "so it's crazy to think of what happened after that"
+ },
+ "subset2-18|Stell dir einen Mann vor, der hereinkommt": {
+  "covered": [
+   "u1",
+   "u2"
+  ],
+  "errors": [],
+  "mt": "suppose a man who is coming in"
+ },
+ "subset2-18|und mit einem starken Akzent Befehle gibt.": {
+  "covered": [
+   "u3",
+   "u4"
+  ],
+  "errors": [],
+  "mt": "and giving orders with a strong accent"
+ },
+ "subset2-19|Ich glaube, dass die Party für die meisten Gäste ein Vergnügen war,": {
+  "covered": [
+   "u1",
+   "u2"
+  ],
+  "errors": [],
+  "mt": "i think the party was a pleasure for most guests"
+ },
+ "subset2-19|aber Mirco fühlte sich dort nicht wohl.": {
+  "covered": [
+   "u3"
+  ],
+  "errors": [
+   "err"
+  ],
+  "mt": "but murco did not feel comfortable there"
+ },
+ "subset2-20|Sie hat lange kein Chekhov mehr gelesen": {
+  "covered": [
+   "u1"
+  ],
+  "errors": [
+   "err"
+  ],
+  "mt": "she has no longer read a chekhov"
+ },
+ "subset2-20|und deswegen fühlt sie sich nicht mehr wie die Heldin ihrer eigenen Geschichte.": {
+  "covered": [
+   "u3",
+   "u4"
+  ],
+  "errors": [],
+  "mt": "and that's why she feels no longer like the hero of her own story"
+ },
+ "subset2-21|Nicht ganz, nein,": {
+  "covered": [],
+  "errors": [
+   "err"
+  ],
+  "mt": "not quite know"
+ },
+ "subset2-21|er gab mir aber nur die wichtigsten Aspekte seiner Forschung, als ich das eine Mal mit ihm redete.": {
+  "covered": [
+   "u2",
+   "u3",
+   "u4"
+  ],
+  "errors": [],
+  "mt": "but he gave me only the most important aspects of his research when i talked with him"
+ },
+ "subset2-22|Es ist unhöflich, einen Baum nach seinem Lebenslauf zu fragen,": {
+  "covered": [
+   "u1",
+   "u2"
+  ],
+  "errors": [
+   "err"
+  ],
+  "mt": "it is rude to question a tree for his course of life"
+ },
+ "subset2-22|wenn man nicht bereit ist, ihn in voller Länge zu hören.": {
+  "covered": [
+   "u3",
+   "u4"
+  ],
+  "errors": [],
+  "mt": "if you are not prepared to hear it full length"
+ },
+ "subset2-23|Ich habe mich gefragt, ob Sie mir etwas mehr darüber erzählen könnten, wie es ist, dort zu leben": {
+  "covered": [
+   "u1",
+   "u2",
+   "u3"
+  ],
+  "errors": [],
+  "mt": "i asked if you could tell me a little more about how it is to live there"
+ },
+ "subset2-23|und zu arbeiten.": {
+  "covered": [
+   "u4"
+  ],
+  "errors": [],
+  "mt": "and to work"
+ },
+ "subset2-24|Wenn Sie den Tunnel unter dem Haus graben, stürzt es ein.": {
+  "covered": [
+   "u1",
+   "u2"
+  ],
+  "errors": [],
+  "mt": "if you dig the tunnel underneath the house it falls in"
+ },
+ "subset2-24|Ich fordere Sie daher dringend auf, dies nicht zu tun.": {
+  "covered": [
+   "u3",
+   "u4"
+  ],
+  "errors": [
+   "err"
+  ],
+  "mt": "so i call for you urgently not to do that"
+ },
+ "subset2-25|Schalten Sie bloß nicht ab.": {
+  "covered": [],
+  "errors": [
+   "err"
+  ],
+  "mt": "don't put yourself off"
+ },
+ "subset2-25|Ich finde Reime in Ordnung, da sie nie vergehen, ich könnte das den ganzen Tag machen.": {
+  "covered": [
+   "u2",
+   "u4"
+  ],
+  "errors": [
+   "err"
+  ],
+  "mt": "i find rhymes all right as they never forego i could make that all day"
+ },
+ "subset2-26|„Ich bin nicht hergekommen, um mir von Ihnen aus der Hand lesen zu lassen“,": {
+  "covered": [
+   "u1"
+  ],
+  "errors": [
+   "err"
+  ],
+  "mt": "i haven't come here to let my hand read out of you"
+ },
+ "subset2-26|sagte er": {
+  "covered": [
+   "u3"
+  ],
+  "errors": [],
+  "mt": "he said"
+ },
+ "subset2-26|und bereute sein Kommen schon.": {
+  "covered": [],
+  "errors": [
+   "err"
+  ],
+  "mt": "and returned his coming on"
+ },
+ "subset2-27|Auf einer Skala von eins (ich empfinde überhaupt nichts) bis zehn (ich empfinde sehr viel),": {
+  "covered": [],
+  "errors": [
+   "err"
+  ],
+  "mt": "one of one i don't find anything at all ten i think very much"
+ },
+ "subset2-27|wie stark ist Ihr Schmerz?": {
+  "covered": [
+   "u5"
+  ],
+  "errors": [],
+  "mt": "how much is your pain"
+ },
+ "subset2-28|Als er ihr einen Kuss auf die Wange gab, errötete sie plötzlich": {
+  "covered": [
+   "u1",
+   "u2",
+   "u3"
+  ],
+  "errors": [],
+  "mt": "when he suddenly gave her a kiss on the cheek she blushed"
+ },
+ "subset2-28|und wechselte ihre Farbe noch schneller als ein Chamäleon.": {
+  "covered": [],
+  "errors": [
+   "err"
+  ],
+  "mt": "and switched her colour even faster than a chamber"
+ },
+ "subset2-29|Hört ein Fuchs ein Kaninchen schreien, rennt er hin –": {
+  "covered": [],
+  "errors": [
+   "err"
+  ],
+  "mt": "here a fox crying a rabbit runs away"
+ },
+ "subset2-29|aber nicht, um ihm zu Hilfe zu kommen.": {
+  "covered": [
+   "u3"
+  ],
+  "errors": [],
+  "mt": "but not to come to help him"
+ },
+ "subset2-30|Für einen Moment wollte ich zurückgehen und ihm helfen,": {
+  "covered": [
+   "u1",
+   "u2",
+   "u3"
+  ],
+  "errors": [],
+  "mt": "for a moment i wanted to go back and help him"
+ },
+ "subset2-30|aber ich hatte viel zu viel Angst, um etwas zu tun.": {
+  "covered": [
+   "u4",
+   "u5"
+  ],
+  "errors": [
+   "err"
+  ],
+  "mt": "but i was too much afraid to do something"
+ },
+ "subset2-31|Immer dachte ich, ich sollte böse sein,": {
+  "covered": [
+   "u1"
+  ],
+  "errors": [
+   "err"
+  ],
+  "mt": "i thought i ought to be madness"
+ },
+ "subset2-31|aber in Wahrheit könnte es mir wirklich nicht gleichgültiger sein.": {
+  "covered": [
+   "u3",
+   "u4",
+   "u5"
+  ],
+  "errors": [],
+  "mt": "but in reality i could not really be more indifferent"
+ },
+ "subset2-32|Er stand auf,": {
+  "covered": [
+   "u1"
+  ],
+  "errors": [],
+  "mt": "he stood up"
+ },
+ "subset2-32|und als er zu seinem Platz zurückkehrte,": {
+  "covered": [
+   "u2"
+  ],
+  "errors": [],
+  "mt": "and when he returned to his place"
+ },
+ "subset2-32|stellten alle im Raum den Sinn des Lebens in Frage.": {
+  "covered": [
+   "u3",
+   "u4"
+  ],
+  "errors": [],
+  "mt": "all questioned the point of life in the room"
+ },
+ "subset1-3|Er studierte Philosophie und theoretische Biologie.": {
+  "covered": [
+   "u1",
+   "u2"
+  ],
+  "errors": [],
+  "mt": "he studied philosophy and theoretical biology"
+ },
+ "subset1-4|Das Paar hatte eine Tochter namens Grace und einen Sohn namens Henry.": {
+  "covered": [
+   "u1",
+   "u2"
+  ],
+  "errors": [],
+  "mt": "the couple had a daughter named grace and a son named henry"
+ },
+ "subset1-5|Diese Art von gegenseitigem Übertrumpfen": {
+  "covered": [
+   "u1"
+  ],
+  "errors": [
+   "err"
+  ],
+  "mt": "this type of mutual trumping of each other"
+ },
+ "subset1-5|wird ihre Freundschaft am Ende noch völlig zerstören.": {
+  "covered": [
+   "u2",
+   "u3"
+  ],
+  "errors": [],
+  "mt": "in the end their friendship will still be completely destroyed"
+ },
+ "subset1-6|Diese verdammte Maus hat gespürt, wie wütend ich war.": {
+  "covered": [
+   "u1"
+  ],
+  "errors": [
+   "err"
+  ],
+  "mt": "this damn mouse has struck as i was mad"
+ },
+ "subset1-7|Ich werde ihn vollends aufhalten.": {
+  "covered": [
+   "u1"
+  ],
+  "errors": [
+   "err"
+  ],
+  "mt": "i'll keep him fully to stop him"
+ },
+ "subset1-8|Was wollen Sie von mir?": {
+  "covered": [
+   "u1"
+  ],
+  "errors": [],
+  "mt": "what do you want from me"
+ },
+ "subset1-9|Beim allerersten Licht der Morgendämmerung begannen alle Vögel zu singen.": {
+  "covered": [
+   "u1",
+   "u2"
+  ],
+  "errors": [],
+  "mt": "at the very first light of dawn all the birds began to sing"
+ },
+ "subset1-10|Man kann niemanden nach seinem Aussehen beurteilen.": {
+  "covered": [
+   "u1"
+  ],
+  "errors": [
+   "err"
+  ],
+  "mt": "you can't judge nobody after his appearance"
+ },
+ "subset1-11|Behandeln Sie mich nicht länger wie ein kleines Kind.": {
+  "covered": [
+   "u1"
+  ],
+  "errors": [
+   "err"
+  ],
+  "mt": "don't treat me longer than a small child"
+ },
+ "subset1-12|Das erste Weihnachtsfest": {
+  "covered": [
+   "u1"
+  ],
+  "errors": [],
+  "mt": "the first christmas festival"
+ },
+ "subset1-13|Ich bin mir bei der Richtung der Texte noch sicher.": {
+  "covered": [
+   "u1"
+  ],
+  "errors": [
+   "err"
+  ],
+  "mt": "i am sure to the direction of the lyrics"
+ },
+ "subset1-14|Joan Lindros, Bill Holsworth und Malcolm Calder": {
+  "covered": [
+   "u1",
+   "u2"
+  ],
+  "errors": [],
+  "mt": "joan lindrose bill holesworth and malcolm calder"
+ },
+ "subset1-14|und Malcolm Calder waren auch erfahrene Vertreter.": {
+  "covered": [
+   "u3"
+  ],
+  "errors": [
+   "err"
+  ],
+  "mt": "experienced representatives and malcolm calder were also"
+ },
+ "subset1-15|„Siehe auch“ analytische Fortsetzung.": {
+  "covered": [],
+  "errors": [
+   "err"
+  ],
+  "mt": "see also analytic sequel"
+ },
+ "subset1-16|Die Mauer, die die Stadt umgibt, ist eines der Wahrzeichen": {
+  "covered": [
+   "u1"
+  ],
+  "errors": [],
+  "mt": "the walls surrounding the city is one of the landmarks"
+ },
+ "subset1-16|der Stadt.": {
+  "covered": [
+   "u2"
+  ],
+  "errors": [],
+  "mt": "the town"
+ },
+ "subset1-17|Dogstar geht derzeit Material für ein geplantes Projekt durch,": {
+  "covered": [
+   "u2"
+  ],
+  "errors": [
+   "err"
+  ],
+  "mt": "dogstar currently performs material for a planned project"
+ },
+ "subset1-17|das ihre Jahre des Herumtourens widerspiegelt.": {
+  "covered": [
+   "u3"
+  ],
+  "errors": [
+   "err"
+  ],
+  "mt": "that reflects their years of the tour of the round"
+ },
+ "subset2-3|Die Amsel saß im Baum und beobachtete alles,": {
+  "covered": [
+   "u1",
+   "u2"
+  ],
+  "errors": [
+   "err"
+  ],
+  "mt": "the amsl sat in the tree and watched everything"
+ },
+ "subset2-3|blinzelte und testete ihre Flügel, bevor sie schließlich in die Luft ging.": {
+  "covered": [
+   "u5",
+   "u6",
+   "u7"
+  ],
+  "errors": [
+   "err"
+  ],
+  "mt": "blind and tested her wings before she went to the air after all"
+ },
+ "subset2-4|Sie wiederholt immer, dass sie es nicht bereut, wieder nach Hause zu ziehen,": {
+  "covered": [
+   "u1"
+  ],
+  "errors": [
+   "err"
+  ],
+  "mt": "she always repeats that they don't repeat it again to move home again"
+ },
+ "subset2-5|Schließlich hob er eines der Bretter hoch und legte es vorsichtig weg,": {
+  "covered": [
+   "u1",
+   "u2",
+   "u3",
+   "u4"
+  ],
+  "errors": [],
+  "mt": "eventually he lifted up one of the boards and put it carefully away"
+ },
+ "subset2-6|poste also deine eigenen Ideen in den Kommentaren und sage mir, was ich besser machen könnte.": {
+  "covered": [
+   "u2",
+   "u3",
+   "u4",
+   "u5"
+  ],
+  "errors": [],
+  "mt": "so post your own ideas in the comments and tell me what i could do better"
+ },
+ "subset2-7|dass Erdbeben-Warnsysteme sie hunderte Meilen entfernt messen konnten.": {
+  "covered": [
+   "u5"
+  ],
+  "errors": [
+   "err"
+  ],
+  "mt": "that strawn warning systems they could measure hundreds of miles"
+ },
+ "subset2-8|Er hielt inne, blickte auf das Haus zurück,": {
+  "covered": [
+   "u1",
+   "u2"
+  ],
+  "errors": [],
+  "mt": "he paused looked back at the house"
+ },
+ "subset2-8|nahm die Schlüssel an sich,": {
+  "covered": [],
+  "errors": [
+   "err"
+  ],
+  "mt": "took the key of itself"
+ },
+ "subset2-9|und ich bin wirklich sehr froh, dass Sie beide sich wiedersehen konnten.": {
+  "covered": [
+   "u3"
+  ],
+  "errors": [
+   "err"
+  ],
+  "mt": "i am very glad that you could both see yourself again"
+ },
+ "subset2-10|Bevor Sie diesen Post lesen,": {
+  "covered": [
+   "u1"
+  ],
+  "errors": [],
+  "mt": "before you read that post"
+ },
+ "subset2-10|und mit der Aktion, eine Datei schnell zu verschieben.": {
+  "covered": [
+   "u4",
+   "u5"
+  ],
+  "errors": [
+   "err"
+  ],
+  "mt": "and by the action to shift a file quickly"
+ },
+ "subset2-12|hören Sie sofort auf und fügen Sie das Wort dem Vokabeleditor hinzu.": {
+  "covered": [
+   "u3"
+  ],
+  "errors": [
+   "err"
+  ],
+  "mt": "listen immediately and add the word to the vocableditor"
+ },
+ "subset2-13|Früher kosteten Eye Tracker mehrere tausend Dollar, aber heute bekommen Sie einen billigen für weniger als ein paar hundert Dollar.": {
+  "covered": [
+   "u2",
+   "u3"
+  ],
+  "errors": [
+   "err",
+   "err"
+  ],
+  "mt": "i used to cost several thousand dollars but now you get a cheap fewer than a few hundred dollars"
+ },
+ "subset2-14|Der Junge sah sich nach den Öfen und anderen Gerätschaften um, wie sie in der Alchemie verwendet wurden, konnte aber keine sehen.": {
+  "covered": [
+   "u1",
+   "u2",
+   "u3",
+   "u4"
+  ],
+  "errors": [
+   "err"
+  ],
+  "mt": "the boy looked round for the ovens and other devices used in alchemistry but could not see"
+ },
+ "subset2-15|um Positionsdaten zu bekommen und den aktuellen Gaze Point zu aktivieren.": {
+  "covered": [
+   "u3",
+   "u4"
+  ],
+  "errors": [],
+  "mt": "to obtain position data and activate the current gaze point"
+ },
+ "subset2-16|Sie holten den Schlagzeuger Virus von Disorder in die Band,": {
+  "covered": [
+   "u1"
+  ],
+  "errors": [
+   "err"
+  ],
+  "mt": "they picked up the drummer virus of disorder into the band"
+ },
+ "subset2-17|Ich war im Januar in der Stadt,": {
+  "covered": [
+   "u1"
+  ],
+  "errors": [
+   "err"
+  ],
+  "mt": "i was in january in town"
+ },
+ "subset2-19|aber Mirco fühlte sich wirklich fehl am Platz.": {
+  "covered": [],
+  "errors": [
+   "err"
+  ],
+  "mt": "but murco felt really missing in the square"
+ },
+ "subset2-20|Sie hat seit langem nicht mehr Chekhov gelesen": {
+  "covered": [],
+  "errors": [
+   "err"
+  ],
+  "mt": "she has not been read a longer chekhov"
+ },
+ "subset2-21|Nicht gerade nein,": {
+  "covered": [],
+  "errors": [
+   "err"
+  ],
+  "mt": "not just no"
+ },
+ "subset2-22|Es ist unhöflich, einen Baum nach seiner Lebensgeschichte zu fragen,": {
+  "covered": [
+   "u1",
+   "u2"
+  ],
+  "errors": [
+   "err"
+  ],
+  "mt": "it is rude to question a tree after his life history"
+ },
+ "subset2-25|Wagen Sie es nicht wegzuschalten.": {
+  "covered": [
+   "u1"
+  ],
+  "errors": [
+   "err"
+  ],
+  "mt": "don't turn it away"
+ },
+ "subset2-25|Ich mag Reime, weil sie nie alt werden, und ich könnte das den ganzen Tag machen.": {
+  "covered": [
+   "u2",
+   "u3",
+   "u4"
+  ],
+  "errors": [],
+  "mt": "i like rhymes because they never get old and i could do that all day"
+ },
+ "subset2-26|„Ich bin nicht gekommen, damit Sie mir aus der Hand lesen“,": {
+  "covered": [
+   "u1"
+  ],
+  "errors": [
+   "err"
+  ],
+  "mt": "i have not come to read my hand"
+ },
+ "subset2-26|und bereute es schon.": {
+  "covered": [
+   "u4"
+  ],
+  "errors": [],
+  "mt": "and regretted it"
+ },
+ "subset2-27|Auf einer Skala von eins, gar nichts, bis zehn, sehr viel,": {
+  "covered": [
+   "u2",
+   "u3",
+   "u4"
+  ],
+  "errors": [
+   "err"
+  ],
+  "mt": "on one scale nothing at all ten very much"
+ },
+ "subset2-28|und ihre Farbe änderte sich so schnell wie bei einem Chamäleon.": {
+  "covered": [],
+  "errors": [
+   "err"
+  ],
+  "mt": "and her colour changed as quickly as one of a chamberlion"
+ },
+ "subset2-29|Wenn ein Fuchs ein Kaninchen schreien hört, läuft er zu ihm –": {
+  "covered": [
+   "u1",
+   "u2"
+  ],
+  "errors": [
+   "err"
+  ],
+  "mt": "when a fox hears a rabbit screams he runs to him"
+ },
+ "subset2-30|aber ich hatte zu viel Angst, etwas zu tun.": {
+  "covered": [
+   "u4",
+   "u5"
+  ],
+  "errors": [],
+  "mt": "but i was too afraid of doing something"
+ },
+ "subset2-31|Ich dachte immer, ich sollte wütend sein,": {
+  "covered": [
+   "u1",
+   "u2"
+  ],
+  "errors": [],
+  "mt": "i always thought i should be mad"
+ },
+ "subset1-5|Diese Art von Überbietungen": {
+  "covered": [],
+  "errors": [
+   "err"
+  ],
+  "mt": "this type of performances"
+ },
+ "subset1-6|Diese verdammte Maus konnte meine Wut spüren.": {
+  "covered": [
+   "u1",
+   "u2"
+  ],
+  "errors": [],
+  "mt": "this damn mouse could feel my rage"
+ },
+ "subset1-7|Ich werde ihn ganz und gar aufhalten.": {
+  "covered": [],
+  "errors": [
+   "err"
+  ],
+  "mt": "i'll keep him quite and stop at all"
+ },
+ "subset1-10|Nach dem Äußeren kann man nicht urteilen.": {
+  "covered": [
+   "u1"
+  ],
+  "errors": [
+   "err"
+  ],
+  "mt": "you can't judge following the exterior"
+ },
+ "subset1-11|Hören Sie bitte auf, mich wie ein kleines Kind zu behandeln.": {
+  "covered": [
+   "u1",
+   "u2"
+  ],
+  "errors": [],
+  "mt": "please stop treating me like a young child"
+ },
+ "subset1-13|Ich bin mir noch über die lyrische Richtung sicher.": {
+  "covered": [
+   "u1",
+   "u2"
+  ],
+  "errors": [],
+  "mt": "i'm still sure of the lyrical direction"
+ },
+ "subset1-14|waren ebenfalls langjährige, erfahrene Vertreter.": {
+  "covered": [
+   "u3"
+  ],
+  "errors": [],
+  "mt": "there were also longtime experienced representatives"
+ },
+ "subset1-15|„Siehe“ analytische Fortsetzung.": {
+  "covered": [],
+  "errors": [
+   "err"
+  ],
+  "mt": "see analytical sequel"
+ },
+ "subset1-17|Die Band Dogstar überprüft gerade Material für ein Projekt,": {
+  "covered": [
+   "u2"
+  ],
+  "errors": [
+   "err"
+  ],
+  "mt": "the band is very reviewing material for a project"
+ },
+ "subset2-7|dass Warnsysteme sie weit entfernt messen konnten.": {
+  "covered": [
+   "u4"
+  ],
+  "errors": [],
+  "mt": "warning systems could measure far away"
+ },
+ "subset2-8|aber dann steckte er die Schlüssel ein,": {
+  "covered": [],
+  "errors": [
+   "err"
+  ],
+  "mt": "but then he plummeted the keys"
+ },
+ "subset2-9|und ich bin so froh, dass Sie beide das nachholen konnten.": {
+  "covered": [
+   "u3"
+  ],
+  "errors": [
+   "err"
+  ],
+  "mt": "i'm so glad you could both get this"
+ },
+ "subset2-10|und auch mit der Aktion, mit der man eine Datei schnell verschieben kann.": {
+  "covered": [
+   "u5"
+  ],
+  "errors": [
+   "err"
+  ],
+  "mt": "and even by action with whom you can move a file quickly"
+ },
+ "subset2-13|Früher haben Eye Tracker mehrere tausend Dollar gekostet, aber jetzt können Sie einen billigen für weniger als ein paar hundert Dollar ergattern.": {
+  "covered": [
+   "u3"
+  ],
+  "errors": [
+   "err",
+   "err"
+  ],
+  "mt": "i used to cost several thousand dollars but you can squatter a cheap for less than a few hundred dollars"
+ },
+ "subset2-17|Ich war Anfang des Jahres in der Stadt,": {
+  "covered": [
+   "u1"
+  ],
+  "errors": [],
+  "mt": "i was in town at the beginning of the year"
+ },
+ "subset2-19|aber Mirco fühlte sich nicht wohl.": {
+  "covered": [
+   "u3"
+  ],
+  "errors": [
+   "err"
+  ],
+  "mt": "but murco did not feel comfortable"
+ },
+ "subset2-21|Nein, nicht wirklich,": {
+  "covered": [
+   "u1"
+  ],
+  "errors": [],
+  "mt": "no not really"
+ },
+ "subset2-21|aber er hat mir nur die wichtigsten Punkte seiner Forschung erzählt, als ich einmal mit ihm sprach.": {
+  "covered": [
+   "u2",
+   "u3",
+   "u4"
+  ],
+  "errors": [],
+  "mt": "but he told me the most important points of his research when i once spoke to him"
+ },
+ "subset2-28|und änderte ihre Farbe schneller als ein Chamäleon.": {
+  "covered": [],
+  "errors": [
+   "err"
+  ],
+  "mt": "and changed her colour faster than a chamberlion"
+ },
+ "subset1-17|Dogstar sieht derzeit Material für ein neues Projekt durch,": {
+  "covered": [
+   "u2"
+  ],
+  "errors": [
+   "err"
+  ],
+  "mt": "dogstar currently sees material for a new project"
+ },
+ "subset2-8|packte dann die Schlüssel ein,": {
+  "covered": [
+   "u3"
+  ],
+  "errors": [],
+  "mt": "then packed the keys"
+ },
+ "subset2-9|und ich bin froh, dass Sie beide sich treffen konnten.": {
+  "covered": [
+   "u3",
+   "u4"
+  ],
+  "errors": [],
+  "mt": "and i'm glad you could both meet"
+ },
+ "subset2-28|und wechselte die Farbe schneller als ein Chamäleon.": {
+  "covered": [],
+  "errors": [
+   "err"
+  ],
+  "mt": "and switched the colour faster than a chamberlion"
+ },
+ "subset1-17|Dogstar sieht zurzeit Material für ein Projekt durch,": {
+  "covered": [
+   "u2"
+  ],
+  "errors": [
+   "err"
+  ],
+  "mt": "dogstar currently sees material for a project"
+ },
+ "subset2-3|schloss kurz die Augen, testete die Flügel und flog dann weg.": {
+  "covered": [
+   "u4",
+   "u5",
+   "u6",
+   "u7"
+  ],
+  "errors": [
+   "err"
+  ],
+  "mt": "closed the eyes the wings tested and then flew away"
+ },
+ "subset2-4|Sie sagt immer, es tut ihr nicht leid, wieder nach Hause zu ziehen,": {
+  "covered": [
+   "u1"
+  ],
+  "errors": [
+   "err"
+  ],
+  "mt": "she always tells her not sorry to move her home again"
+ },
+ "subset2-7|dass Warnsysteme für Erdbeben sie in hunderten Meilen Entfernung messen konnten.": {
+  "covered": [
+   "u4",
+   "u5"
+  ],
+  "errors": [],
+  "mt": "that warning systems for earthquakes they could measure in hundreds of miles"
+ },
+ "subset2-8|aber dann packte er die Schlüssel ein,": {
+  "covered": [
+   "u3"
+  ],
+  "errors": [],
+  "mt": "but then he packed in the keys"
+ },
+ "subset2-9|und ich freue mich so, dass Sie beide wieder Zeit miteinander hatten.": {
+  "covered": [
+   "u3"
+  ],
+  "errors": [
+   "err"
+  ],
+  "mt": "and i am excited that you had both again together"
+ },
+ "subset2-10|und mit der Aktion, mit der man schnell eine Datei verschiebt.": {
+  "covered": [
+   "u4",
+   "u5"
+  ],
+  "errors": [
+   "err"
+  ],
+  "mt": "and by the action with whom you quickly shift a file"
+ },
+ "subset2-12|stoppen Sie sofort und fügen Sie das Wort zum Vokabeleditor hinzu.": {
+  "covered": [
+   "u2",
+   "u3"
+  ],
+  "errors": [
+   "err"
+  ],
+  "mt": "stop immediately and add the word to the vocabilidator"
+ },
+ "subset2-13|Früher kosteten Eye-Tracker mehrere tausend Dollar, aber jetzt kann man ein billiges Gerät für weniger als ein paar hundert Dollar kaufen.": {
+  "covered": [
+   "u1",
+   "u2"
+  ],
+  "errors": [
+   "err"
+  ],
+  "mt": "i trackers formerly cost several thousand dollars but now you can buy a cheap device than a few hundred dollars"
+ },
+ "subset2-14|Der Junge suchte nach den Öfen und anderen Geräten, die man in der Alchemie benutzt, aber er sah keine.": {
+  "covered": [
+   "u1",
+   "u2",
+   "u3",
+   "u4"
+  ],
+  "errors": [
+   "err"
+  ],
+  "mt": "the boy searched for the kilns and other equipment using in the alchemistry but he saw none"
+ },
+ "subset2-15|und um die Positionsdaten zu bekommen und den aktuellen Gaze Point zu aktivieren.": {
+  "covered": [
+   "u3",
+   "u4"
+  ],
+  "errors": [],
+  "mt": "and to get the position data and activate current gaze point"
+ },
+ "subset2-16|Sie holten Virus, den Schlagzeuger von Disorder, in ihre Band,": {
+  "covered": [
+   "u1"
+  ],
+  "errors": [
+   "err"
+  ],
+  "mt": "they recovered virus drummer from disorder to their band"
+ },
+ "subset2-17|Anfang dieses Jahres war ich in der Stadt,": {
+  "covered": [
+   "u1"
+  ],
+  "errors": [
+   "err"
+  ],
+  "mt": "beginning that year i was in town"
+ },
+ "subset2-20|Sie hat Chekhov schon lange nicht mehr gelesen": {
+  "covered": [
+   "u1",
+   "u2"
+  ],
+  "errors": [],
+  "mt": "she hasn't read chekhov for a long time"
+ },
+ "subset2-20|deshalb fühlt sie sich nicht mehr wie die Heldin ihrer Geschichte.": {
+  "covered": [
+   "u3",
+   "u4"
+  ],
+  "errors": [],
+  "mt": "because of this she feels no longer like the hero of her story"
+ },
+ "subset2-21|Nein, nicht so richtig,": {
+  "covered": [],
+  "errors": [
+   "err"
+  ],
+  "mt": "no not so right"
+ },
+ "subset2-22|Es ist unhöflich, einen Baum zu fragen, wie sein Leben war,": {
+  "covered": [
+   "u1"
+  ],
+  "errors": [
+   "err"
+  ],
+  "mt": "it's rude to question a tree as his life was"
+ },
+ "subset2-24|Bitte tun Sie das deshalb auf keinen Fall.": {
+  "covered": [
+   "u4"
+  ],
+  "errors": [
+   "err"
+  ],
+  "mt": "please don't do that on a case therefore"
+ },
+ "subset2-25|Schalten Sie jetzt nicht ab.": {
+  "covered": [
+   "u1"
+  ],
+  "errors": [],
+  "mt": "don't turn off now"
+ },
+ "subset2-25|Ich mag Reime, sie werden nie alt, ich könnte das den ganzen Tag machen.": {
+  "covered": [
+   "u2",
+   "u4"
+  ],
+  "errors": [
+   "err"
+  ],
+  "mt": "i like rhymes they will never old i could do that all day"
+ },
+ "subset2-26|„Ich bin nicht gekommen, damit Sie meine Hand lesen“,": {
+  "covered": [
+   "u1"
+  ],
+  "errors": [
+   "err"
+  ],
+  "mt": "i haven't come to read my hand"
+ },
+ "subset2-26|und bereute schon, dass er da war.": {
+  "covered": [
+   "u4"
+  ],
+  "errors": [],
+  "mt": "and regretted that he was there"
+ },
+ "subset2-27|Auf einer Skala von eins, das heißt gar nichts, bis zehn, das heißt sehr viel,": {
+  "covered": [
+   "u2",
+   "u4"
+  ],
+  "errors": [
+   "err"
+  ],
+  "mt": "on one scale nothing at all is named until ten that is called very much"
+ },
+ "subset2-29|Ein Fuchs, der ein Kaninchen schreien hört, läuft zu ihm –": {
+  "covered": [
+   "u1",
+   "u2"
+  ],
+  "errors": [
+   "err"
+  ],
+  "mt": "a fox hearing a rabbit runs to him"
+ },
+ "subset1-6|Diese verdammte Maus konnte spüren, wie wütend ich war.": {
+  "covered": [
+   "u1",
+   "u2"
+  ],
+  "errors": [
+   "err"
+  ],
+  "mt": "this damn mouse could feel how i was mad"
+ },
+ "subset1-7|Ich werde ihn vollständig stoppen.": {
+  "covered": [
+   "u1",
+   "u2"
+  ],
+  "errors": [],
+  "mt": "i'm going to stop him completely"
+ },
+ "subset1-9|Im allerersten Licht der Morgendämmerung fingen alle Vögel an zu singen.": {
+  "covered": [
+   "u1",
+   "u2"
+  ],
+  "errors": [],
+  "mt": "at the very first light of dawn all birds began to sing"
+ },
+ "subset1-13|Ich bin mir bei der lyrischen Richtung immer noch sicher.": {
+  "covered": [
+   "u1",
+   "u2"
+  ],
+  "errors": [
+   "err"
+  ],
+  "mt": "i'm still sure at the lyrical direction"
+ },
+ "subset1-14|waren ebenfalls langjährige und sehr erfahrene Vertreter.": {
+  "covered": [
+   "u3"
+  ],
+  "errors": [
+   "err"
+  ],
+  "mt": "also longtime and very experienced representatives"
+ },
+ "subset1-17|Die Band Dogstar überprüft derzeit Material für ein Projekt,": {
+  "covered": [
+   "u1",
+   "u2"
+  ],
+  "errors": [],
+  "mt": "the band dogstar currently revues material for a project"
+ },
+ "subset2-3|testete die Flügel und flog dann endlich davon.": {
+  "covered": [
+   "u5",
+   "u6",
+   "u7"
+  ],
+  "errors": [],
+  "mt": "tested the wings and then finally flew away"
+ },
+ "subset2-4|Sie sagt immer wieder, dass sie es nicht bereut, nach Hause gezogen zu sein,": {
+  "covered": [
+   "u1"
+  ],
+  "errors": [
+   "err"
+  ],
+  "mt": "she keeps saying that she doesn't repeat to be home again"
+ },
+ "subset2-9|und ich bin sehr froh, dass Sie beide sich endlich wieder treffen konnten.": {
+  "covered": [
+   "u3",
+   "u4"
+  ],
+  "errors": [],
+  "mt": "and i'm very glad you could both meet again at last"
+ },
+ "subset2-16|Sie nahmen den Schlagzeuger Virus von der Band Disorder auf,": {
+  "covered": [
+   "u1"
+  ],
+  "errors": [
+   "err"
+  ],
+  "mt": "they recorded the drummer virus from the band disorder"
+ },
+ "subset2-24|Deshalb bitte ich Sie sehr, das nicht zu tun.": {
+  "covered": [
+   "u4"
+  ],
+  "errors": [
+   "err"
+  ],
+  "mt": "that's why i do very you not to do that"
+ },
+ "subset2-3|Die Amsel beobachtete das alles vom Baum,": {
+  "covered": [
+   "u1",
+   "u2"
+  ],
+  "errors": [
+   "err"
+  ],
+  "mt": "the amsl watched all this from the tree"
+ },
+ "subset2-3|bewegte ihren Kopf nach links und rechts,": {
+  "covered": [
+   "u3"
+  ],
+  "errors": [],
+  "mt": "she moved her head to the left and right"
+ },
+ "subset2-4|aber ich kann nicht so sicher sein, ob das vollkommen wahr ist.": {
+  "covered": [
+   "u4",
+   "u5",
+   "u6"
+  ],
+  "errors": [],
+  "mt": "but i can't be so certain whether this is completely true"
+ },
+ "subset2-7|und verursachte Vibrationen, die stark genug waren,": {
+  "covered": [
+   "u2",
+   "u3"
+  ],
+  "errors": [],
+  "mt": "and caused vibrations which were strong enough"
+ },
+ "subset2-8|steckte seine Schlüssel dann aber ein,": {
+  "covered": [],
+  "errors": [
+   "err"
+  ],
+  "mt": "but then his keys plummeted in"
+ },
+ "subset2-8|öffnete das Tor und ging schnell den Weg hinab.": {
+  "covered": [
+   "u4",
+   "u5",
+   "u6"
+  ],
+  "errors": [],
+  "mt": "opened the gate and quickly went down the road"
+ },
+ "subset2-9|und vermissen es, einen Freund wie Sie zu haben,": {
+  "covered": [
+   "u2"
+  ],
+  "errors": [
+   "err"
+  ],
+  "mt": "and miss it to have a friend as you have"
+ },
+ "subset2-10|machen Sie sich bitte mit meinem Handbuch Erste Schritte vertraut": {
+  "covered": [
+   "u3"
+  ],
+  "errors": [
+   "err"
+  ],
+  "mt": "please find yourself with my handbook first steps"
+ },
+ "subset2-16|und hatten schließlich eine mehr oder weniger zuverlässige Besetzung.": {
+  "covered": [
+   "u3",
+   "u4"
+  ],
+  "errors": [],
+  "mt": "and ultimately had a more or less reliable cast"
+ },
+ "subset2-17|Ich war erst Anfang des Jahres in der Stadt,": {
+  "covered": [
+   "u2"
+  ],
+  "errors": [
+   "err"
+  ],
+  "mt": "i was just in town until the beginning of the year"
+ },
+ "subset2-17|daher ist es irgendwie verrückt, daran zu denken, was unmittelbar danach geschah.": {
+  "covered": [
+   "u3",
+   "u4",
+   "u5"
+  ],
+  "errors": [],
+  "mt": "therefore it's somehow mad to think of what happened immediately afterwards"
+ },
+ "subset2-18|Stell dir jetzt mal einen Typ vor,": {
+  "covered": [
+   "u1"
+  ],
+  "errors": [
+   "err"
+  ],
+  "mt": "now suppose a guy on"
+ },
+ "subset2-18|der durch diese Tür kommt und mit einem starken Akzent anfängt Befehle zu geben.": {
+  "covered": [
+   "u2",
+   "u3",
+   "u4"
+  ],
+  "errors": [
+   "err"
+  ],
+  "mt": "that comes through this door and starts commands with a strong accent"
+ },
+ "subset2-24|Wenn Sie diesen Tunnel unter dem Gebäude graben, wird es einstürzen.": {
+  "covered": [
+   "u1",
+   "u2"
+  ],
+  "errors": [],
+  "mt": "if you dig this tunnel underneath the building it will collapse"
+ },
+ "subset2-26|und bedauerte bereits sein Kommen.": {
+  "covered": [
+   "u4"
+  ],
+  "errors": [],
+  "mt": "and regretted his coming already"
+ },
+ "subset2-27|wie viel Schmerz empfinden Sie?": {
+  "covered": [
+   "u5"
+  ],
+  "errors": [
+   "err"
+  ],
+  "mt": "how much pain do you find"
+ },
+ "subset2-30|Kurzzeitig hatte ich den Drang, zurückzugehen und ihm zu helfen,": {
+  "covered": [
+   "u3"
+  ],
+  "errors": [
+   "err"
+  ],
+  "mt": "recently i had the rank to go back and help him"
+ },
+ "subset2-30|aber ich hatte zu viel Angst, um irgendetwas zu unternehmen.": {
+  "covered": [
+   "u4",
+   "u5"
+  ],
+  "errors": [
+   "err"
+  ],
+  "mt": "but i was too afraid of fear to do something about this"
+ },
+ "subset2-31|Ich dachte immer, dass ich verärgert sein sollte,": {
+  "covered": [
+   "u1",
+   "u2"
+  ],
+  "errors": [],
+  "mt": "i always thought i should have been upset"
+ },
+ "subset2-31|aber die Wahrheit ist, dass es mich wirklich nicht weniger interessieren könnte.": {
+  "covered": [
+   "u3"
+  ],
+  "errors": [
+   "err"
+  ],
+  "mt": "but the truth is that it really couln't take me less interested"
+ },
+ "subset1-4|Das Paar hatte eine Tochter, Grace, und einen Sohn, Henry.": {
+  "covered": [
+   "u1",
+   "u2"
+  ],
+  "errors": [],
+  "mt": "the couple had one daughter grace and a son henry"
+ },
+ "subset1-5|wird ihre Freundschaft noch in den Ruin treiben.": {
+  "covered": [
+   "u2"
+  ],
+  "errors": [
+   "err"
+  ],
+  "mt": "we'll still drive her friendship in the ruin"
+ },
+ "subset1-8|Was erwarten Sie von mir?": {
+  "covered": [
+   "u1"
+  ],
+  "errors": [],
+  "mt": "what do you expect of me"
+ },
+ "subset1-9|Alle Vögel begannen im ersten Licht der Dämmerung zu singen.": {
+  "covered": [
+   "u1"
+  ],
+  "errors": [
+   "err"
+  ],
+  "mt": "all birds began singing in the first light of dusk"
+ },
+ "subset1-11|Hören Sie auf, mich wie ein kleines Kind zu behandeln.": {
+  "covered": [
+   "u2"
+  ],
+  "errors": [
+   "err"
+  ],
+  "mt": "stop handing me like a young child"
+ },
+ "subset1-14|Joan Lindros, Bill Holsworth": {
+  "covered": [
+   "u1"
+  ],
+  "errors": [],
+  "mt": "joan lindros bill holesworth"
+ },
+ "subset1-14|und Malcolm Calder waren auch altgediente Repräsentanten.": {
+  "covered": [
+   "u2"
+  ],
+  "errors": [
+   "err"
+  ],
+  "mt": "malcolm calder and malcolm calder were also very legislators"
+ },
+ "subset1-16|Die Stadtmauer ist eines der Wahrzeichen": {
+  "covered": [
+   "u1"
+  ],
+  "errors": [],
+  "mt": "the city wall is one of the landmarks"
+ },
+ "subset1-17|Dogstar überprüft derzeit Material für ein Projekt,": {
+  "covered": [
+   "u1",
+   "u2"
+  ],
+  "errors": [],
+  "mt": "dogstar currently reviews material for a project"
+ },
+ "subset2-10|Bevor Sie das lesen,": {
+  "covered": [
+   "u1"
+  ],
+  "errors": [],
+  "mt": "before you read that"
+ },
+ "subset2-10|und mit der Aktion zum schnellen Verschieben einer Datei.": {
+  "covered": [
+   "u4",
+   "u5"
+  ],
+  "errors": [
+   "err"
+  ],
+  "mt": "and action to swift shifting a file"
+ },
+ "subset2-15|Es hat einige Grundfunktionen, um sich mit einem Eye Tracker zu verbinden,": {
+  "covered": [
+   "u1",
+   "u2"
+  ],
+  "errors": [
+   "err"
+  ],
+  "mt": "it has some basic works to connect to an eye tracker"
+ },
+ "subset2-24|Ein Tunnel unter dem Haus lässt es einstürzen.": {
+  "covered": [
+   "u1"
+  ],
+  "errors": [
+   "err"
+  ],
+  "mt": "a tunnel below the house makes it abrupt"
+ },
+ "subset2-24|Deshalb bitte ich Sie dringend, das nicht zu tun.": {
+  "covered": [
+   "u4"
+  ],
+  "errors": [
+   "err"
+  ],
+  "mt": "that's why i urgent you not to do that"
+ },
+ "subset1-9|Alle Vögel begannen zu singen, als das erste Licht der Morgendämmerung erschien.": {
+  "covered": [
+   "u1",
+   "u2"
+  ],
+  "errors": [],
+  "mt": "all birds began singing when the first light of dawn appeared"
+ },
+ "subset1-17|das ihre Jahre auf Tournee zeigt.": {
+  "covered": [
+   "u3"
+  ],
+  "errors": [],
+  "mt": "showing their years on tour"
+ },
+ "subset2-24|Graben Sie den Tunnel unter dem Haus, stürzt es ein.": {
+  "covered": [
+   "u1",
+   "u2"
+  ],
+  "errors": [
+   "err"
+  ],
+  "mt": "dig the tunnel below the house it falls in"
+ }
+}

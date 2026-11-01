@@ -1,0 +1,1304 @@
+{
+ "subset2-3": {
+  "score": 15.0,
+  "phrases": [
+   "the black bird watched all from the tree",
+   "looking to the left and to right",
+   "tested the wings and then finally flew away"
+  ],
+  "units": [
+   "u1",
+   "u2",
+   "u3",
+   "u5",
+   "u6",
+   "u7"
+  ],
+  "ratios": [
+   0.933,
+   1.036,
+   0.831
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "Der schwarze Vogel beobachtete das alles vom Baum aus,",
+    "strategy": "steer"
+   },
+   {
+    "src": "schaute nach links und nach rechts,",
+    "strategy": "steer"
+   },
+   {
+    "src": "testete die Flügel und flog dann endlich davon.",
+    "strategy": "robust"
+   }
+  ]
+ },
+ "subset2-4": {
+  "score": 7.0,
+  "phrases": [
+   "she always says that she does not return home again",
+   "but i'm not sure this is quite true"
+  ],
+  "units": [
+   "u1",
+   "u4",
+   "u5",
+   "u6"
+  ],
+  "ratios": [
+   0.948,
+   0.801
+  ],
+  "missing_core": [
+   "u2",
+   "u3"
+  ],
+  "added": 0,
+  "kept_all_core": false,
+  "sources": [
+   {
+    "src": "Sie sagt immer, dass sie den Umzug nach Hause nicht bereut,",
+    "strategy": "plain"
+   },
+   {
+    "src": "aber ich bin mir nicht sicher, ob das ganz wahr ist.",
+    "strategy": "plain"
+   }
+  ]
+ },
+ "subset2-5": {
+  "score": 10.0,
+  "phrases": [
+   "eventually he lifted up one of the boards and put it carefully away",
+   "he looked into the room under the ground"
+  ],
+  "units": [
+   "u1",
+   "u2",
+   "u3",
+   "u4",
+   "u5"
+  ],
+  "ratios": [
+   0.932,
+   1.013
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "Schließlich hob er eines der Bretter hoch und legte es vorsichtig weg,",
+    "strategy": "plain"
+   },
+   {
+    "src": "schaute er in den Raum unter dem Boden.",
+    "strategy": "orig"
+   }
+  ]
+ },
+ "subset2-6": {
+  "score": 8.278,
+  "phrases": [
+   "i'm also glad to hear others",
+   "so post your own ideas in the comments and tell me what i could do better"
+  ],
+  "units": [
+   "u1",
+   "u2",
+   "u3",
+   "u4",
+   "u5"
+  ],
+  "ratios": [
+   0.947,
+   1.155
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "Ich freue mich auch, von anderen zu hören;",
+    "strategy": "orig"
+   },
+   {
+    "src": "poste also deine eigenen Ideen in den Kommentaren und sage mir, was ich besser machen könnte.",
+    "strategy": "orig"
+   }
+  ]
+ },
+ "subset2-7": {
+  "score": 14.0,
+  "phrases": [
+   "something was moving deep underground",
+   "and caused strong vibrations",
+   "that warning systems for earthquakes they could measure in hundreds of miles"
+  ],
+  "units": [
+   "u1",
+   "u2",
+   "u3",
+   "u4",
+   "u5"
+  ],
+  "ratios": [
+   1.002,
+   0.862,
+   0.985
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "Etwas bewegte sich tief unter der Erde",
+    "strategy": "orig"
+   },
+   {
+    "src": "und verursachte starke Vibrationen,",
+    "strategy": "compact"
+   },
+   {
+    "src": "dass Warnsysteme für Erdbeben sie in hunderten Meilen Entfernung messen konnten.",
+    "strategy": "robust"
+   }
+  ]
+ },
+ "subset2-8": {
+  "score": 14.052,
+  "phrases": [
+   "he paused looked back at the house",
+   "but then he packed in the keys",
+   "opened the gate and hastened out"
+  ],
+  "units": [
+   "u1",
+   "u2",
+   "u3",
+   "u4",
+   "u5",
+   "u6"
+  ],
+  "ratios": [
+   0.793,
+   1.11,
+   0.903
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "Er hielt inne, blickte auf das Haus zurück,",
+    "strategy": "orig"
+   },
+   {
+    "src": "aber dann packte er die Schlüssel ein,",
+    "strategy": "robust"
+   },
+   {
+    "src": "öffnete das Tor und eilte hinaus.",
+    "strategy": "steer"
+   }
+  ]
+ },
+ "subset2-9": {
+  "score": 5.811,
+  "phrases": [
+   "we miss you",
+   "and we miss a friend like you",
+   "and i'm very glad you could both meet again at last"
+  ],
+  "units": [
+   "u1",
+   "u2",
+   "u3",
+   "u4"
+  ],
+  "ratios": [
+   0.637,
+   0.845,
+   0.987
+  ],
+  "missing_core": [],
+  "added": 1,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "Wir vermissen Sie",
+    "strategy": "orig"
+   },
+   {
+    "src": "und wir vermissen einen Freund wie Sie,",
+    "strategy": "plain"
+   },
+   {
+    "src": "und ich bin sehr froh, dass Sie beide sich endlich wieder treffen konnten.",
+    "strategy": "robust"
+   }
+  ]
+ },
+ "subset2-10": {
+  "score": 9.963,
+  "phrases": [
+   "before you read that post",
+   "please read my handbook first steps",
+   "and by the action with whom you quickly shift a file"
+  ],
+  "units": [
+   "u1",
+   "u2",
+   "u3",
+   "u4",
+   "u5"
+  ],
+  "ratios": [
+   1.062,
+   1.017,
+   0.919
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "Bevor Sie diesen Post lesen,",
+    "strategy": "orig"
+   },
+   {
+    "src": "lesen Sie bitte mein Handbuch Erste Schritte",
+    "strategy": "plain"
+   },
+   {
+    "src": "und mit der Aktion, mit der man schnell eine Datei verschiebt.",
+    "strategy": "robust"
+   }
+  ]
+ },
+ "subset2-11": {
+  "score": 11.0,
+  "phrases": [
+   "i just could publish my code",
+   "but that would not show all the little lessons that i learned there on the way"
+  ],
+  "units": [
+   "u1",
+   "u2",
+   "u3",
+   "u4"
+  ],
+  "ratios": [
+   0.916,
+   0.91
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "Ich könnte einfach meinen Code veröffentlichen,",
+    "strategy": "orig"
+   },
+   {
+    "src": "aber das würde nicht all die kleinen Lektionen aufzeigen, die ich auf dem Weg dorthin gelernt habe.",
+    "strategy": "orig"
+   }
+  ]
+ },
+ "subset2-12": {
+  "score": 1.364,
+  "phrases": [
+   "in the moment you spell a word",
+   "stop immediately and add the word to the vocabilidator"
+  ],
+  "units": [
+   "u1",
+   "u2",
+   "u3"
+  ],
+  "ratios": [
+   0.816,
+   0.661
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "In dem Moment, in dem Sie ein Wort buchstabieren,",
+    "strategy": "orig"
+   },
+   {
+    "src": "stoppen Sie sofort und fügen Sie das Wort zum Vokabeleditor hinzu.",
+    "strategy": "robust"
+   }
+  ]
+ },
+ "subset2-13": {
+  "score": 1.904,
+  "phrases": [
+   "i trackers formerly cost several thousand dollars but now you can buy a cheap device than a few hundred dollars"
+  ],
+  "units": [
+   "u1",
+   "u2"
+  ],
+  "ratios": [
+   1.069
+  ],
+  "missing_core": [
+   "u3"
+  ],
+  "added": 0,
+  "kept_all_core": false,
+  "sources": [
+   {
+    "src": "Früher kosteten Eye-Tracker mehrere tausend Dollar, aber jetzt kann man ein billiges Gerät für weniger als ein paar hundert Dollar kaufen.",
+    "strategy": "robust"
+   }
+  ]
+ },
+ "subset2-14": {
+  "score": 6.826,
+  "phrases": [
+   "the boy looked round for the ovens and other devices used in alchemistry but could not see"
+  ],
+  "units": [
+   "u1",
+   "u2",
+   "u3",
+   "u4"
+  ],
+  "ratios": [
+   0.767
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "Der Junge sah sich nach den Öfen und anderen Gerätschaften um, wie sie in der Alchemie verwendet wurden, konnte aber keine sehen.",
+    "strategy": "orig"
+   }
+  ]
+ },
+ "subset2-15": {
+  "score": 10.341,
+  "phrases": [
+   "it has some basic functions for the connection to eye tracker",
+   "and to get the position data and activate current gaze point"
+  ],
+  "units": [
+   "u1",
+   "u2",
+   "u3",
+   "u4"
+  ],
+  "ratios": [
+   0.851,
+   0.738
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "Es hat einige grundlegende Funktionen für die Verbindung mit Eye Tracker,",
+    "strategy": "orig"
+   },
+   {
+    "src": "und um die Positionsdaten zu bekommen und den aktuellen Gaze Point zu aktivieren.",
+    "strategy": "robust"
+   }
+  ]
+ },
+ "subset2-16": {
+  "score": 8.0,
+  "phrases": [
+   "they picked disorder drummer virus into the band to play drums",
+   "and finally had a rather reliable cast"
+  ],
+  "units": [
+   "u1",
+   "u2",
+   "u3",
+   "u4"
+  ],
+  "ratios": [
+   1.011,
+   0.831
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "Sie holten Disorder Drummer Virus in die Band, um Schlagzeug zu spielen,",
+    "strategy": "orig"
+   },
+   {
+    "src": "und hatten endlich eine ziemlich zuverlässige Besetzung.",
+    "strategy": "plain"
+   }
+  ]
+ },
+ "subset2-17": {
+  "score": 6.742,
+  "phrases": [
+   "i was in town at the beginning of the year",
+   "so it's crazy to think of what happened after that"
+  ],
+  "units": [
+   "u1",
+   "u3",
+   "u5"
+  ],
+  "ratios": [
+   1.12,
+   0.876
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "Ich war Anfang des Jahres in der Stadt,",
+    "strategy": "compact"
+   },
+   {
+    "src": "deshalb ist es verrückt, an das zu denken, was danach passiert ist.",
+    "strategy": "plain"
+   }
+  ]
+ },
+ "subset2-18": {
+  "score": 12.0,
+  "phrases": [
+   "suppose a man who is coming in",
+   "and giving orders with a strong accent"
+  ],
+  "units": [
+   "u1",
+   "u2",
+   "u3",
+   "u4"
+  ],
+  "ratios": [
+   0.887,
+   0.93
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "Stell dir einen Mann vor, der hereinkommt",
+    "strategy": "steer"
+   },
+   {
+    "src": "und mit einem starken Akzent Befehle gibt.",
+    "strategy": "plain"
+   }
+  ]
+ },
+ "subset2-19": {
+  "score": 5.0,
+  "phrases": [
+   "i think the party was a pleasure for most guests",
+   "but murco did not feel comfortable there"
+  ],
+  "units": [
+   "u1",
+   "u2",
+   "u3"
+  ],
+  "ratios": [
+   0.993,
+   0.859
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "Ich glaube, dass die Party für die meisten Gäste ein Vergnügen war,",
+    "strategy": "orig"
+   },
+   {
+    "src": "aber Mirco fühlte sich dort nicht wohl.",
+    "strategy": "steer"
+   }
+  ]
+ },
+ "subset2-20": {
+  "score": 6.631,
+  "phrases": [
+   "she hasn't read chekhov for a long time",
+   "because of this she feels no longer like the hero of her story"
+  ],
+  "units": [
+   "u1",
+   "u2",
+   "u3",
+   "u4"
+  ],
+  "ratios": [
+   1.167,
+   0.895
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "Sie hat Chekhov schon lange nicht mehr gelesen",
+    "strategy": "robust"
+   },
+   {
+    "src": "deshalb fühlt sie sich nicht mehr wie die Heldin ihrer Geschichte.",
+    "strategy": "plain"
+   }
+  ]
+ },
+ "subset2-21": {
+  "score": 9.074,
+  "phrases": [
+   "no not really",
+   "but he told me the most important points of his research when i once spoke to him"
+  ],
+  "units": [
+   "u1",
+   "u2",
+   "u3",
+   "u4"
+  ],
+  "ratios": [
+   0.727,
+   0.996
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "Nein, nicht wirklich,",
+    "strategy": "steer"
+   },
+   {
+    "src": "aber er hat mir nur die wichtigsten Punkte seiner Forschung erzählt, als ich einmal mit ihm sprach.",
+    "strategy": "plain"
+   }
+  ]
+ },
+ "subset2-22": {
+  "score": 9.0,
+  "phrases": [
+   "it is rude to question a tree for his course of life",
+   "if you are not prepared to hear it full length"
+  ],
+  "units": [
+   "u1",
+   "u2",
+   "u3",
+   "u4"
+  ],
+  "ratios": [
+   1.006,
+   0.954
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "Es ist unhöflich, einen Baum nach seinem Lebenslauf zu fragen,",
+    "strategy": "orig"
+   },
+   {
+    "src": "wenn man nicht bereit ist, ihn in voller Länge zu hören.",
+    "strategy": "orig"
+   }
+  ]
+ },
+ "subset2-23": {
+  "score": 11.0,
+  "phrases": [
+   "i asked if you could tell me a little more about how it is to live there",
+   "and to work"
+  ],
+  "units": [
+   "u1",
+   "u2",
+   "u3",
+   "u4"
+  ],
+  "ratios": [
+   0.891,
+   0.949
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "Ich habe mich gefragt, ob Sie mir etwas mehr darüber erzählen könnten, wie es ist, dort zu leben",
+    "strategy": "orig"
+   },
+   {
+    "src": "und zu arbeiten.",
+    "strategy": "orig"
+   }
+  ]
+ },
+ "subset2-24": {
+  "score": 7.989,
+  "phrases": [
+   "",
+   "if you dig the tunnel underneath the house it falls in",
+   "so i call for you urgently not to do that"
+  ],
+  "units": [
+   "u1",
+   "u2",
+   "u3",
+   "u4"
+  ],
+  "ratios": [
+   0.0,
+   1.056,
+   0.809
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "",
+    "strategy": "orig"
+   },
+   {
+    "src": "Wenn Sie den Tunnel unter dem Haus graben, stürzt es ein.",
+    "strategy": "plain"
+   },
+   {
+    "src": "Ich fordere Sie daher dringend auf, dies nicht zu tun.",
+    "strategy": "orig"
+   }
+  ]
+ },
+ "subset2-25": {
+  "score": 7.891,
+  "phrases": [
+   "don't turn off now",
+   "i like rhymes because they never get old and i could do that all day"
+  ],
+  "units": [
+   "u1",
+   "u2",
+   "u3",
+   "u4"
+  ],
+  "ratios": [
+   0.81,
+   1.142
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "Schalten Sie jetzt nicht ab.",
+    "strategy": "robust"
+   },
+   {
+    "src": "Ich mag Reime, weil sie nie alt werden, und ich könnte das den ganzen Tag machen.",
+    "strategy": "plain"
+   }
+  ]
+ },
+ "subset2-26": {
+  "score": 6.0,
+  "phrases": [
+   "i haven't come here to let my hand read out of you",
+   "he said",
+   "and regretted that he was there"
+  ],
+  "units": [
+   "u1",
+   "u3",
+   "u4"
+  ],
+  "ratios": [
+   0.993,
+   0.819,
+   0.956
+  ],
+  "missing_core": [
+   "u2"
+  ],
+  "added": 0,
+  "kept_all_core": false,
+  "sources": [
+   {
+    "src": "„Ich bin nicht hergekommen, um mir von Ihnen aus der Hand lesen zu lassen“,",
+    "strategy": "orig"
+   },
+   {
+    "src": "sagte er",
+    "strategy": "orig"
+   },
+   {
+    "src": "und bereute schon, dass er da war.",
+    "strategy": "robust"
+   }
+  ]
+ },
+ "subset2-27": {
+  "score": 4.0,
+  "phrases": [
+   "on one scale nothing at all is named until ten that is called very much",
+   "how much is your pain"
+  ],
+  "units": [
+   "u2",
+   "u4",
+   "u5"
+  ],
+  "ratios": [
+   1.025,
+   0.808
+  ],
+  "missing_core": [
+   "u1",
+   "u3"
+  ],
+  "added": 0,
+  "kept_all_core": false,
+  "sources": [
+   {
+    "src": "Auf einer Skala von eins, das heißt gar nichts, bis zehn, das heißt sehr viel,",
+    "strategy": "robust"
+   },
+   {
+    "src": "wie stark ist Ihr Schmerz?",
+    "strategy": "steer"
+   }
+  ]
+ },
+ "subset2-28": {
+  "score": 5.0,
+  "phrases": [
+   "when he suddenly gave her a kiss on the cheek she blushed",
+   "and switched her colour even faster than a chamber"
+  ],
+  "units": [
+   "u1",
+   "u2",
+   "u3"
+  ],
+  "ratios": [
+   0.853,
+   0.84
+  ],
+  "missing_core": [
+   "u4"
+  ],
+  "added": 0,
+  "kept_all_core": false,
+  "sources": [
+   {
+    "src": "Als er ihr einen Kuss auf die Wange gab, errötete sie plötzlich",
+    "strategy": "orig"
+   },
+   {
+    "src": "und wechselte ihre Farbe noch schneller als ein Chamäleon.",
+    "strategy": "steer"
+   }
+  ]
+ },
+ "subset2-29": {
+  "score": 6.0,
+  "phrases": [
+   "a fox hearing a rabbit runs to him",
+   "but not to come to help him"
+  ],
+  "units": [
+   "u1",
+   "u2",
+   "u3"
+  ],
+  "ratios": [
+   0.884,
+   0.905
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "Ein Fuchs, der ein Kaninchen schreien hört, läuft zu ihm –",
+    "strategy": "robust"
+   },
+   {
+    "src": "aber nicht, um ihm zu Hilfe zu kommen.",
+    "strategy": "orig"
+   }
+  ]
+ },
+ "subset2-30": {
+  "score": 12.972,
+  "phrases": [
+   "for a moment i wanted to go back and help him",
+   "but i was too afraid of doing something"
+  ],
+  "units": [
+   "u1",
+   "u2",
+   "u3",
+   "u4",
+   "u5"
+  ],
+  "ratios": [
+   1.012,
+   0.787
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "Für einen Moment wollte ich zurückgehen und ihm helfen,",
+    "strategy": "plain"
+   },
+   {
+    "src": "aber ich hatte zu viel Angst, etwas zu tun.",
+    "strategy": "plain"
+   }
+  ]
+ },
+ "subset2-31": {
+  "score": 11.991,
+  "phrases": [
+   "i always thought i should be mad",
+   "but in reality i could not really be more indifferent"
+  ],
+  "units": [
+   "u1",
+   "u2",
+   "u3",
+   "u4",
+   "u5"
+  ],
+  "ratios": [
+   1.056,
+   1.0
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "Ich dachte immer, ich sollte wütend sein,",
+    "strategy": "plain"
+   },
+   {
+    "src": "aber in Wahrheit könnte es mir wirklich nicht gleichgültiger sein.",
+    "strategy": "steer"
+   }
+  ]
+ },
+ "subset2-32": {
+  "score": 12.0,
+  "phrases": [
+   "he stood up",
+   "and when he returned to his place",
+   "all questioned the point of life in the room"
+  ],
+  "units": [
+   "u1",
+   "u2",
+   "u3",
+   "u4"
+  ],
+  "ratios": [
+   0.951,
+   1.03,
+   0.958
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "Er stand auf,",
+    "strategy": "orig"
+   },
+   {
+    "src": "und als er zu seinem Platz zurückkehrte,",
+    "strategy": "orig"
+   },
+   {
+    "src": "stellten alle im Raum den Sinn des Lebens in Frage.",
+    "strategy": "orig"
+   }
+  ]
+ },
+ "subset1-3": {
+  "score": 6.0,
+  "phrases": [
+   "he studied philosophy and theoretical biology"
+  ],
+  "units": [
+   "u1",
+   "u2"
+  ],
+  "ratios": [
+   0.826
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "Er studierte Philosophie und theoretische Biologie.",
+    "strategy": "orig"
+   }
+  ]
+ },
+ "subset1-4": {
+  "score": 6.0,
+  "phrases": [
+   "the couple had a daughter named grace and a son named henry"
+  ],
+  "units": [
+   "u1",
+   "u2"
+  ],
+  "ratios": [
+   0.841
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "Das Paar hatte eine Tochter namens Grace und einen Sohn namens Henry.",
+    "strategy": "full"
+   }
+  ]
+ },
+ "subset1-5": {
+  "score": 4.0,
+  "phrases": [
+   "this type of mutual trumping of each other",
+   "in the end their friendship will still be completely destroyed"
+  ],
+  "units": [
+   "u1",
+   "u2",
+   "u3"
+  ],
+  "ratios": [
+   0.923,
+   0.906
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "Diese Art von gegenseitigem Übertrumpfen",
+    "strategy": "steer"
+   },
+   {
+    "src": "wird ihre Freundschaft am Ende noch völlig zerstören.",
+    "strategy": "steer"
+   }
+  ]
+ },
+ "subset1-6": {
+  "score": 3.0,
+  "phrases": [
+   "this damn mouse could feel how i was mad"
+  ],
+  "units": [
+   "u1",
+   "u2"
+  ],
+  "ratios": [
+   0.833
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "Diese verdammte Maus konnte spüren, wie wütend ich war.",
+    "strategy": "robust"
+   }
+  ]
+ },
+ "subset1-7": {
+  "score": 5.0,
+  "phrases": [
+   "i'm going to stop him completely"
+  ],
+  "units": [
+   "u1",
+   "u2"
+  ],
+  "ratios": [
+   0.862
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "Ich werde ihn vollständig stoppen.",
+    "strategy": "robust"
+   }
+  ]
+ },
+ "subset1-8": {
+  "score": 3.0,
+  "phrases": [
+   "what do you want from me"
+  ],
+  "units": [
+   "u1"
+  ],
+  "ratios": [
+   1.019
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "Was wollen Sie von mir?",
+    "strategy": "steer"
+   }
+  ]
+ },
+ "subset1-9": {
+  "score": 6.0,
+  "phrases": [
+   "at the very first light of dawn all birds began to sing"
+  ],
+  "units": [
+   "u1",
+   "u2"
+  ],
+  "ratios": [
+   0.824
+  ],
+  "missing_core": [],
+  "added": 1,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "Im allerersten Licht der Morgendämmerung fingen alle Vögel an zu singen.",
+    "strategy": "robust"
+   }
+  ]
+ },
+ "subset1-10": {
+  "score": 0.0,
+  "phrases": [
+   "you can't judge nobody after his appearance"
+  ],
+  "units": [
+   "u1"
+  ],
+  "ratios": [
+   0.901
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "Man kann niemanden nach seinem Aussehen beurteilen.",
+    "strategy": "plain"
+   }
+  ]
+ },
+ "subset1-11": {
+  "score": 6.0,
+  "phrases": [
+   "please stop treating me like a young child"
+  ],
+  "units": [
+   "u1",
+   "u2"
+  ],
+  "ratios": [
+   0.889
+  ],
+  "missing_core": [],
+  "added": 1,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "Hören Sie bitte auf, mich wie ein kleines Kind zu behandeln.",
+    "strategy": "steer"
+   }
+  ]
+ },
+ "subset1-12": {
+  "score": 3.0,
+  "phrases": [
+   "the first christmas festival"
+  ],
+  "units": [
+   "u1"
+  ],
+  "ratios": [
+   0.914
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "Das erste Weihnachtsfest",
+    "strategy": "orig"
+   }
+  ]
+ },
+ "subset1-13": {
+  "score": 4.509,
+  "phrases": [
+   "i'm still sure of the lyrical direction"
+  ],
+  "units": [
+   "u1",
+   "u2"
+  ],
+  "ratios": [
+   0.746
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "Ich bin mir noch über die lyrische Richtung sicher.",
+    "strategy": "orig"
+   }
+  ]
+ },
+ "subset1-14": {
+  "score": 7.954,
+  "phrases": [
+   "joan lindrose bill holesworth and malcolm calder",
+   "there were also longtime experienced representatives"
+  ],
+  "units": [
+   "u1",
+   "u2",
+   "u3"
+  ],
+  "ratios": [
+   0.847,
+   0.783
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "Joan Lindros, Bill Holsworth und Malcolm Calder",
+    "strategy": "steer"
+   },
+   {
+    "src": "waren ebenfalls langjährige, erfahrene Vertreter.",
+    "strategy": "steer"
+   }
+  ]
+ },
+ "subset1-15": {
+  "score": 1.536,
+  "phrases": [
+   "see analytical sequel"
+  ],
+  "units": [
+   "u1"
+  ],
+  "ratios": [
+   0.747
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "„Siehe“ analytische Fortsetzung.",
+    "strategy": "orig"
+   }
+  ]
+ },
+ "subset1-16": {
+  "score": 5.0,
+  "phrases": [
+   "the walls surrounding the city is one of the landmarks",
+   "the town"
+  ],
+  "units": [
+   "u1",
+   "u2"
+  ],
+  "ratios": [
+   0.875,
+   0.819
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "Die Mauer, die die Stadt umgibt, ist eines der Wahrzeichen",
+    "strategy": "steer"
+   },
+   {
+    "src": "der Stadt.",
+    "strategy": "orig"
+   }
+  ]
+ },
+ "subset1-17": {
+  "score": 4.511,
+  "phrases": [
+   "the band dogstar currently revues material for a project",
+   "that reflects their years of the tour of the round"
+  ],
+  "units": [
+   "u1",
+   "u2",
+   "u3"
+  ],
+  "ratios": [
+   0.746,
+   1.004
+  ],
+  "missing_core": [],
+  "added": 1,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "Die Band Dogstar überprüft derzeit Material für ein Projekt,",
+    "strategy": "robust"
+   },
+   {
+    "src": "das ihre Jahre des Herumtourens widerspiegelt.",
+    "strategy": "orig"
+   }
+  ]
+ }
+}

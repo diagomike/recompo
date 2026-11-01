@@ -1,0 +1,4 @@
+subset2-8[2] 1.78s target×1.08 | src 'steckte die Schlüssel in die Tasche,' (7 syl) → MT 'plunged the keys into the bag' | expansion 0.244s/syl → write source of ~7 syl; units here: ['u3:core']
+subset2-9[1] 1.08s target×0.64 | src 'Wir vermissen Sie' (5 syl) → MT 'we miss you' | expansion 0.193s/syl → write source of ~5 syl; units here: ['u1:core']
+subset2-31[1] 2.14s target×1.05 | src 'Immer dachte ich, ich sollte böse sein,' (8 syl) → MT 'i thought i ought to be madness' | expansion 0.205s/syl → write source of ~10 syl; units here: ['u1:core', 'u2:core']
+subset1-14[1] 2.46s target×0.53 | src 'Sowohl Joan Lindros als auch Bill Holsworth' (10 syl) → MT 'both joan lindros and bill holesworth' | expansion 0.218s/syl → write source of ~11 syl; units here: ['u1:core']

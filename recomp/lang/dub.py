@@ -28,7 +28,14 @@ def _key(*parts) -> str:
 
 def build_dub(project, plan: dict, voice: str | None = None, log=print, progress=None) -> dict:
     lang = plan["lang"]
-    lines = [c for c in plan["captions"] if c["text"].strip()]
+    lines = []
+    for c in plan["captions"]:
+        if not c["text"].strip():
+            continue
+        if c.get("parts"):  # the LLM dubber's phrases: voiced one per speech frame, at the speaker's own pauses
+            lines += [{"start": p["start"], "text": p["text"], "seg": c.get("seg")} for p in c["parts"] if p["text"].strip()]
+        else:
+            lines.append(c)
     if not lines:
         raise RecompError("E_INVALID", f"no {lang} lines to voice",
                           hint=f"Translate first: `recomp lang translate <journey> --to {lang}`")

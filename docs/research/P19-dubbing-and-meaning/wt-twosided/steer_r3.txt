@@ -1,0 +1,6 @@
+subset2-8[2] 1.78s target×1.08 | src 'steckte die Schlüssel in die Tasche,' (7 syl) → MT 'plunged the keys into the bag' | expansion 0.240s/syl → write source of ~7 syl; units here: ['u3:core']
+subset2-9[1] 1.08s target×0.64 | src 'Wir vermissen Sie' (5 syl) → MT 'we miss you' | expansion 0.193s/syl → write source of ~5 syl; units here: ['u1:core']
+subset2-24[2] 3.35s target×1.06 | src 'Wenn Sie den Tunnel unter dem Haus graben, stürzt es ein.' (14 syl) → MT 'if you dig the tunnel underneath the house it falls in' | expansion 0.213s/syl → write source of ~15 syl; units here: ['u1:core', 'u2:core']
+subset2-31[1] 2.14s target×1.05 | src 'Immer dachte ich, ich sollte böse sein,' (8 syl) → MT 'i thought i ought to be madness' | expansion 0.215s/syl → write source of ~9 syl; units here: ['u1:core', 'u2:core']
+subset1-9[1] 4.76s target×0.79 | src 'Beim allerersten Licht der Morgendämmerung begannen alle Vögel zu singen.' (22 syl) → MT 'at the very first light of dawn all the birds began to sing' | expansion 0.176s/syl → write source of ~26 syl; units here: ['u1:core', 'u2:core']
+subset1-17[1] 4.47s target×0.77 | src 'Dogstar geht derzeit Material für ein geplantes Projekt durch,' (16 syl) → MT 'dogstar currently performs material for a planned project' | expansion 0.215s/syl → write source of ~20 syl; units here: ['u1:core', 'u2:core']

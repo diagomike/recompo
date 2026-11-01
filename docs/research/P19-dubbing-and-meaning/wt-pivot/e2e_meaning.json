@@ -1,0 +1,279 @@
+{
+ "judge": "Claude, blind (A–C shuffled per line, key applied after), against the hidden CoVoST English references",
+ "scores": {
+  "subset2-33": [
+   3,
+   3,
+   1
+  ],
+  "subset2-34": [
+   1,
+   2,
+   2
+  ],
+  "subset2-35": [
+   1,
+   3,
+   3
+  ],
+  "subset2-36": [
+   3,
+   1,
+   3
+  ],
+  "subset2-37": [
+   3,
+   3,
+   3
+  ],
+  "subset2-38": [
+   3,
+   1,
+   3
+  ],
+  "subset2-39": [
+   2,
+   2,
+   1
+  ],
+  "subset2-40": [
+   2,
+   3,
+   3
+  ],
+  "subset2-41": [
+   3,
+   3,
+   1
+  ],
+  "subset2-42": [
+   3,
+   3,
+   1
+  ],
+  "subset2-43": [
+   3,
+   1,
+   3
+  ],
+  "subset2-44": [
+   0,
+   3,
+   3
+  ],
+  "subset2-45": [
+   2,
+   3,
+   2
+  ],
+  "subset2-46": [
+   3,
+   3,
+   0
+  ],
+  "subset2-47": [
+   3,
+   3,
+   3
+  ],
+  "subset2-48": [
+   2,
+   1,
+   2
+  ],
+  "subset2-49": [
+   1,
+   3,
+   3
+  ],
+  "subset2-50": [
+   2,
+   2,
+   0
+  ],
+  "subset2-51": [
+   3,
+   0,
+   3
+  ],
+  "subset2-52": [
+   1,
+   1,
+   0
+  ],
+  "subset2-53": [
+   3,
+   2,
+   3
+  ],
+  "subset2-54": [
+   2,
+   3,
+   3
+  ],
+  "subset2-55": [
+   2,
+   3,
+   3
+  ],
+  "subset2-56": [
+   3,
+   3,
+   1
+  ]
+ },
+ "key": {
+  "subset2-33": {
+   "A": "P2 pivot + two-sided (fit)",
+   "B": "P1 understood, untimed",
+   "C": "P0 naive cascade"
+  },
+  "subset2-34": {
+   "A": "P0 naive cascade",
+   "B": "P1 understood, untimed",
+   "C": "P2 pivot + two-sided (fit)"
+  },
+  "subset2-35": {
+   "A": "P0 naive cascade",
+   "B": "P1 understood, untimed",
+   "C": "P2 pivot + two-sided (fit)"
+  },
+  "subset2-36": {
+   "A": "P2 pivot + two-sided (fit)",
+   "B": "P0 naive cascade",
+   "C": "P1 understood, untimed"
+  },
+  "subset2-37": {
+   "A": "P2 pivot + two-sided (fit)",
+   "B": "P0 naive cascade",
+   "C": "P1 understood, untimed"
+  },
+  "subset2-38": {
+   "A": "P1 understood, untimed",
+   "B": "P0 naive cascade",
+   "C": "P2 pivot + two-sided (fit)"
+  },
+  "subset2-39": {
+   "A": "P1 understood, untimed",
+   "B": "P2 pivot + two-sided (fit)",
+   "C": "P0 naive cascade"
+  },
+  "subset2-40": {
+   "A": "P0 naive cascade",
+   "B": "P2 pivot + two-sided (fit)",
+   "C": "P1 understood, untimed"
+  },
+  "subset2-41": {
+   "A": "P1 understood, untimed",
+   "B": "P2 pivot + two-sided (fit)",
+   "C": "P0 naive cascade"
+  },
+  "subset2-42": {
+   "A": "P1 understood, untimed",
+   "B": "P2 pivot + two-sided (fit)",
+   "C": "P0 naive cascade"
+  },
+  "subset2-43": {
+   "A": "P1 understood, untimed",
+   "B": "P0 naive cascade",
+   "C": "P2 pivot + two-sided (fit)"
+  },
+  "subset2-44": {
+   "A": "P0 naive cascade",
+   "B": "P2 pivot + two-sided (fit)",
+   "C": "P1 understood, untimed"
+  },
+  "subset2-45": {
+   "A": "P0 naive cascade",
+   "B": "P1 understood, untimed",
+   "C": "P2 pivot + two-sided (fit)"
+  },
+  "subset2-46": {
+   "A": "P2 pivot + two-sided (fit)",
+   "B": "P1 understood, untimed",
+   "C": "P0 naive cascade"
+  },
+  "subset2-47": {
+   "A": "P0 naive cascade",
+   "B": "P1 understood, untimed",
+   "C": "P2 pivot + two-sided (fit)"
+  },
+  "subset2-48": {
+   "A": "P1 understood, untimed",
+   "B": "P0 naive cascade",
+   "C": "P2 pivot + two-sided (fit)"
+  },
+  "subset2-49": {
+   "A": "P0 naive cascade",
+   "B": "P1 understood, untimed",
+   "C": "P2 pivot + two-sided (fit)"
+  },
+  "subset2-50": {
+   "A": "P1 understood, untimed",
+   "B": "P2 pivot + two-sided (fit)",
+   "C": "P0 naive cascade"
+  },
+  "subset2-51": {
+   "A": "P1 understood, untimed",
+   "B": "P0 naive cascade",
+   "C": "P2 pivot + two-sided (fit)"
+  },
+  "subset2-52": {
+   "A": "P1 understood, untimed",
+   "B": "P2 pivot + two-sided (fit)",
+   "C": "P0 naive cascade"
+  },
+  "subset2-53": {
+   "A": "P2 pivot + two-sided (fit)",
+   "B": "P0 naive cascade",
+   "C": "P1 understood, untimed"
+  },
+  "subset2-54": {
+   "A": "P0 naive cascade",
+   "B": "P1 understood, untimed",
+   "C": "P2 pivot + two-sided (fit)"
+  },
+  "subset2-55": {
+   "A": "P0 naive cascade",
+   "B": "P2 pivot + two-sided (fit)",
+   "C": "P1 understood, untimed"
+  },
+  "subset2-56": {
+   "A": "P1 understood, untimed",
+   "B": "P2 pivot + two-sided (fit)",
+   "C": "P0 naive cascade"
+  }
+ },
+ "results": {
+  "P2 pivot + two-sided (fit)": {
+   "adequacy_mean_0to3": 2.71,
+   "full_meaning_share": 0.75,
+   "wrong_or_major_loss_share": 0.042,
+   "by_understanding_confidence": {
+    "medium": 2.6,
+    "low": 1.5,
+    "high": 3.0
+   }
+  },
+  "P1 understood, untimed": {
+   "adequacy_mean_0to3": 2.75,
+   "full_meaning_share": 0.792,
+   "wrong_or_major_loss_share": 0.042,
+   "by_understanding_confidence": {
+    "medium": 2.7,
+    "low": 1.5,
+    "high": 3.0
+   }
+  },
+  "P0 naive cascade": {
+   "adequacy_mean_0to3": 1.17,
+   "full_meaning_share": 0.083,
+   "wrong_or_major_loss_share": 0.708,
+   "by_understanding_confidence": {
+    "medium": 0.9,
+    "low": 0.5,
+    "high": 1.5
+   }
+  }
+ }
+}

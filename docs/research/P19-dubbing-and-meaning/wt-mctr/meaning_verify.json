@@ -1,0 +1,2227 @@
+{
+ "judge": "Claude, blind (A–D shuffled per line; key applied afterwards)",
+ "annotations": {
+  "PLAIN": {
+   "subset2-3": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4",
+     "u5",
+     "u6",
+     "u7"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-4": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4",
+     "u5",
+     "u6"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-5": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4",
+     "u5"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-6": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4",
+     "u5"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-7": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4",
+     "u5"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-8": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4",
+     "u5",
+     "u6"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-9": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-10": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4",
+     "u5"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-11": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-12": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-13": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-14": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-15": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-16": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-17": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4",
+     "u5"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-18": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-19": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-20": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-21": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-22": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-23": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-24": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-25": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-26": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-27": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4",
+     "u5"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-28": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-29": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-30": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4",
+     "u5"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-31": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4",
+     "u5"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-32": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset1-3": {
+    "covered": [
+     "u1",
+     "u2"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset1-4": {
+    "covered": [
+     "u1",
+     "u2"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset1-5": {
+    "covered": [
+     "u1",
+     "u2"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset1-6": {
+    "covered": [
+     "u1",
+     "u2"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset1-7": {
+    "covered": [
+     "u1",
+     "u2"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset1-8": {
+    "covered": [
+     "u1"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset1-9": {
+    "covered": [
+     "u1",
+     "u2"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset1-10": {
+    "covered": [
+     "u1"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset1-11": {
+    "covered": [
+     "u1",
+     "u2"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset1-12": {
+    "covered": [
+     "u1"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset1-13": {
+    "covered": [
+     "u1",
+     "u2"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset1-14": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset1-15": {
+    "covered": [
+     "u1"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset1-16": {
+    "covered": [
+     "u1",
+     "u2"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset1-17": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3"
+    ],
+    "added": [],
+    "errors": []
+   }
+  },
+  "R6": {
+   "subset2-3": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4",
+     "u5",
+     "u6",
+     "u7"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-4": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4",
+     "u5",
+     "u6"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-5": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4",
+     "u5"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-6": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-7": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4",
+     "u5"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-8": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4",
+     "u5",
+     "u6"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-9": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "added": [
+     "really"
+    ],
+    "errors": []
+   },
+   "subset2-10": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4",
+     "u5"
+    ],
+    "added": [],
+    "errors": [
+     "dangling 'and with the action' after 'check out'"
+    ]
+   },
+   "subset2-11": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-12": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-13": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-14": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-15": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-16": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-17": {
+    "covered": [
+     "u1",
+     "u3",
+     "u4",
+     "u5"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-18": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-19": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "added": [
+     "there"
+    ],
+    "errors": []
+   },
+   "subset2-20": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-21": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-22": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-23": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-24": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-25": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-26": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-27": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4",
+     "u5"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-28": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-29": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-30": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4",
+     "u5"
+    ],
+    "added": [
+     "at all"
+    ],
+    "errors": []
+   },
+   "subset2-31": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4",
+     "u5"
+    ],
+    "added": [
+     "honest"
+    ],
+    "errors": []
+   },
+   "subset2-32": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset1-3": {
+    "covered": [
+     "u1",
+     "u2"
+    ],
+    "added": [
+     "both"
+    ],
+    "errors": []
+   },
+   "subset1-4": {
+    "covered": [
+     "u1",
+     "u2"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset1-5": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3"
+    ],
+    "added": [
+     "constant"
+    ],
+    "errors": []
+   },
+   "subset1-6": {
+    "covered": [
+     "u1",
+     "u2"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset1-7": {
+    "covered": [
+     "u1",
+     "u2"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset1-8": {
+    "covered": [
+     "u1"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset1-9": {
+    "covered": [
+     "u1",
+     "u2"
+    ],
+    "added": [
+     "very"
+    ],
+    "errors": []
+   },
+   "subset1-10": {
+    "covered": [
+     "u1"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset1-11": {
+    "covered": [
+     "u1",
+     "u2"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset1-12": {
+    "covered": [
+     "u1"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset1-13": {
+    "covered": [
+     "u1",
+     "u2"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset1-14": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset1-15": {
+    "covered": [
+     "u1"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset1-16": {
+    "covered": [
+     "u1",
+     "u2"
+    ],
+    "added": [
+     "old",
+     "most famous"
+    ],
+    "errors": []
+   },
+   "subset1-17": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3"
+    ],
+    "added": [
+     "brand new"
+    ],
+    "errors": []
+   }
+  },
+  "ALGO": {
+   "subset2-3": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4",
+     "u5",
+     "u6",
+     "u7"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-4": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4",
+     "u5",
+     "u6"
+    ],
+    "added": [],
+    "errors": [
+     "I cannot sure"
+    ]
+   },
+   "subset2-5": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4",
+     "u5"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-6": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4",
+     "u5"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-7": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4",
+     "u5"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-8": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4",
+     "u5",
+     "u6"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-9": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-10": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4",
+     "u5"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-11": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-12": {
+    "covered": [
+     "u2",
+     "u3"
+    ],
+    "added": [],
+    "errors": [
+     "The just minute you turn out a word"
+    ]
+   },
+   "subset2-13": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3"
+    ],
+    "added": [],
+    "errors": [
+     "less few hundred"
+    ]
+   },
+   "subset2-14": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-15": {
+    "covered": [
+     "u1",
+     "u2",
+     "u4"
+    ],
+    "added": [],
+    "errors": [
+     "ballad information"
+    ]
+   },
+   "subset2-16": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-17": {
+    "covered": [
+     "u3",
+     "u4",
+     "u5"
+    ],
+    "added": [],
+    "errors": [
+     "but in the city at the first year"
+    ]
+   },
+   "subset2-18": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-19": {
+    "covered": [
+     "u1",
+     "u2",
+     "u4"
+    ],
+    "added": [],
+    "errors": [
+     "out of just put"
+    ]
+   },
+   "subset2-20": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-21": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-22": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-23": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-24": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "added": [
+     "just"
+    ],
+    "errors": []
+   },
+   "subset2-25": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-26": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3"
+    ],
+    "added": [],
+    "errors": [
+     "regretting become"
+    ]
+   },
+   "subset2-27": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4",
+     "u5"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-28": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "added": [],
+    "errors": [
+     "short blushed",
+     "faster chameleon"
+    ]
+   },
+   "subset2-29": {
+    "covered": [
+     "u1",
+     "u3"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-30": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4",
+     "u5"
+    ],
+    "added": [],
+    "errors": [
+     "also frightened (meaning change)"
+    ]
+   },
+   "subset2-31": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4",
+     "u5"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-32": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "added": [],
+    "errors": [
+     "everyone means"
+    ]
+   },
+   "subset1-3": {
+    "covered": [
+     "u1",
+     "u2"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset1-4": {
+    "covered": [],
+    "added": [],
+    "errors": [
+     "Decorate",
+     "a boy, H."
+    ]
+   },
+   "subset1-5": {
+    "covered": [
+     "u1",
+     "u2"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset1-6": {
+    "covered": [
+     "u1",
+     "u2"
+    ],
+    "added": [],
+    "errors": [
+     "experience my anger"
+    ]
+   },
+   "subset1-7": {
+    "covered": [
+     "u1",
+     "u2"
+    ],
+    "added": [
+     "just"
+    ],
+    "errors": []
+   },
+   "subset1-8": {
+    "covered": [
+     "u1"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset1-9": {
+    "covered": [
+     "u1",
+     "u2"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset1-10": {
+    "covered": [],
+    "added": [],
+    "errors": [
+     "cannot justice"
+    ]
+   },
+   "subset1-11": {
+    "covered": [
+     "u1"
+    ],
+    "added": [],
+    "errors": [
+     "just wish a small child"
+    ]
+   },
+   "subset1-12": {
+    "covered": [
+     "u1"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset1-13": {
+    "covered": [
+     "u1",
+     "u2"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset1-14": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3"
+    ],
+    "added": [],
+    "errors": [
+     "Account Holsworth"
+    ]
+   },
+   "subset1-15": {
+    "covered": [
+     "u1"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset1-16": {
+    "covered": [
+     "u1",
+     "u2"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset1-17": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3"
+    ],
+    "added": [],
+    "errors": []
+   }
+  },
+  "MCTR": {
+   "subset2-3": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4",
+     "u5",
+     "u6",
+     "u7"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-4": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4",
+     "u5",
+     "u6"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-5": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4",
+     "u5"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-6": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-7": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4",
+     "u5"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-8": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4",
+     "u5",
+     "u6"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-9": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "added": [
+     "really"
+    ],
+    "errors": []
+   },
+   "subset2-10": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4",
+     "u5"
+    ],
+    "added": [],
+    "errors": [
+     "dangling 'and with the action' after 'read'"
+    ]
+   },
+   "subset2-11": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-12": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-13": {
+    "covered": [
+     "u1",
+     "u2"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-14": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-15": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-16": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-17": {
+    "covered": [
+     "u1",
+     "u3",
+     "u4",
+     "u5"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-18": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-19": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-20": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-21": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-22": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-23": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-24": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-25": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-26": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-27": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4",
+     "u5"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-28": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-29": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-30": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4",
+     "u5"
+    ],
+    "added": [
+     "at all"
+    ],
+    "errors": []
+   },
+   "subset2-31": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4",
+     "u5"
+    ],
+    "added": [
+     "honest"
+    ],
+    "errors": []
+   },
+   "subset2-32": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset1-3": {
+    "covered": [
+     "u1",
+     "u2"
+    ],
+    "added": [
+     "both"
+    ],
+    "errors": []
+   },
+   "subset1-4": {
+    "covered": [
+     "u1",
+     "u2"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset1-5": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset1-6": {
+    "covered": [
+     "u1",
+     "u2"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset1-7": {
+    "covered": [
+     "u1",
+     "u2"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset1-8": {
+    "covered": [
+     "u1"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset1-9": {
+    "covered": [
+     "u1",
+     "u2"
+    ],
+    "added": [
+     "very"
+    ],
+    "errors": []
+   },
+   "subset1-10": {
+    "covered": [
+     "u1"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset1-11": {
+    "covered": [
+     "u1",
+     "u2"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset1-12": {
+    "covered": [
+     "u1"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset1-13": {
+    "covered": [
+     "u1",
+     "u2"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset1-14": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset1-15": {
+    "covered": [
+     "u1"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset1-16": {
+    "covered": [
+     "u1",
+     "u2"
+    ],
+    "added": [
+     "old",
+     "most famous"
+    ],
+    "errors": []
+   },
+   "subset1-17": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3"
+    ],
+    "added": [],
+    "errors": []
+   }
+  },
+  "MCTR-conserve": {
+   "subset2-3": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4",
+     "u5",
+     "u6",
+     "u7"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-4": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4",
+     "u5",
+     "u6"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-5": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4",
+     "u5"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-6": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-7": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4",
+     "u5"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-8": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4",
+     "u5",
+     "u6"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-9": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "added": [
+     "really"
+    ],
+    "errors": []
+   },
+   "subset2-10": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4",
+     "u5"
+    ],
+    "added": [],
+    "errors": [
+     "dangling 'and with the action' after 'read'"
+    ]
+   },
+   "subset2-11": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-12": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-13": {
+    "covered": [
+     "u1",
+     "u2"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-14": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-15": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-16": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-17": {
+    "covered": [
+     "u1",
+     "u3",
+     "u4",
+     "u5"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-18": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-19": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-20": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-21": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-22": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-23": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-24": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-25": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-26": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-27": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4",
+     "u5"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-28": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-29": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-30": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4",
+     "u5"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-31": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4",
+     "u5"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset2-32": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3",
+     "u4"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset1-3": {
+    "covered": [
+     "u1",
+     "u2"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset1-4": {
+    "covered": [
+     "u1",
+     "u2"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset1-5": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset1-6": {
+    "covered": [
+     "u1",
+     "u2"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset1-7": {
+    "covered": [
+     "u1",
+     "u2"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset1-8": {
+    "covered": [
+     "u1"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset1-9": {
+    "covered": [
+     "u1",
+     "u2"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset1-10": {
+    "covered": [
+     "u1"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset1-11": {
+    "covered": [
+     "u1",
+     "u2"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset1-12": {
+    "covered": [
+     "u1"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset1-13": {
+    "covered": [
+     "u1",
+     "u2"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset1-14": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset1-15": {
+    "covered": [
+     "u1"
+    ],
+    "added": [],
+    "errors": []
+   },
+   "subset1-16": {
+    "covered": [
+     "u1",
+     "u2"
+    ],
+    "added": [
+     "old",
+     "most famous"
+    ],
+    "errors": []
+   },
+   "subset1-17": {
+    "covered": [
+     "u1",
+     "u2",
+     "u3"
+    ],
+    "added": [],
+    "errors": []
+   }
+  }
+ },
+ "note_conserve": "MCTR-conserve = MCTR's blind annotations; 5 re-chosen lines (plain wording) annotated non-blind as fully covered, no additions"
+}

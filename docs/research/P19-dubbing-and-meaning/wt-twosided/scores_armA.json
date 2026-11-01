@@ -1,0 +1,52 @@
+{
+ "MT whole line + placement": {
+  "voice_overlap": 0.795,
+  "in_band_0.8_1.05": 0.459,
+  "within_20pct": 0.565,
+  "over_1.1": 0.094,
+  "meaning_weighted": 0.727,
+  "core_kept": 0.754,
+  "mt_errors_per_line": 1.13,
+  "lines_clean_and_complete": 0.244
+ },
+ "MT per segment (original chunks)": {
+  "voice_overlap": 0.827,
+  "in_band_0.8_1.05": 0.405,
+  "within_20pct": 0.583,
+  "over_1.1": 0.238,
+  "meaning_weighted": 0.799,
+  "core_kept": 0.815,
+  "mt_errors_per_line": 0.96,
+  "lines_clean_and_complete": 0.244
+ },
+ "Two-sided, fit only (no target check)": {
+  "voice_overlap": 0.897,
+  "in_band_0.8_1.05": 0.929,
+  "within_20pct": 0.964,
+  "over_1.1": 0.0,
+  "meaning_weighted": 0.801,
+  "core_kept": 0.823,
+  "mt_errors_per_line": 0.93,
+  "lines_clean_and_complete": 0.222
+ },
+ "Two-sided + target check (fit mode)": {
+  "voice_overlap": 0.882,
+  "in_band_0.8_1.05": 0.762,
+  "within_20pct": 0.869,
+  "over_1.1": 0.06,
+  "meaning_weighted": 0.932,
+  "core_kept": 0.938,
+  "mt_errors_per_line": 0.4,
+  "lines_clean_and_complete": 0.6
+ },
+ "Two-sided + target check (conserve)": {
+  "voice_overlap": 0.872,
+  "in_band_0.8_1.05": 0.726,
+  "within_20pct": 0.81,
+  "over_1.1": 0.048,
+  "meaning_weighted": 0.932,
+  "core_kept": 0.938,
+  "mt_errors_per_line": 0.36,
+  "lines_clean_and_complete": 0.644
+ }
+}

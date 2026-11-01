@@ -1,0 +1,125 @@
+=== subset2-81  (2 segments)
+  EN-A whole: when finished with the phrase click the shot on the lower red button for ending the recording
+  ES-B whole: Cuando termines con la frase. Haga clic en el botón rojo de abajo para terminar la grabación.
+  [1] 1.98s  EN-A: when you have finished with the sentence  ||  ES-B: Cuando termines con la frase.
+  [2] 4.44s  EN-A: click the bottom of the red button for ending the shot  ||  ES-B: Haga clic en el botón rojo de abajo para finalizar la grabación.
+=== subset2-82  (2 segments)
+  EN-A whole: he remembered something which had once said his grandfather of butterflies are a good sign
+  ES-B whole: Recordó algo que su abuelo había dicho una vez de él. Las mariposas son una buena señal.
+  [1] 4.82s  EN-A: he remembered something that he had once said his grandfather from him  ||  ES-B: Recordó algo que su abuelo había dicho una vez de él.
+  [2] 2.26s  EN-A: butterflies are a good sign  ||  ES-B: Las mariposas son una buena señal.
+=== subset2-83  (4 segments)
+  EN-A whole: pain with something eating bread is less endurable and fat is better than sorrow and stummer
+  ES-B whole: Come dolor con algo. Pan. Son menos tolerables. El dolor y la grasa es mejor que el dolor y la inclinación.
+  [1] 1.78s  EN-A: pain with something  ||  ES-B: Come dolor con algo.
+  [2] 0.41s  EN-A: bread  ||  ES-B: Pan.
+  [3] 1.59s  EN-A: it is less endurable  ||  ES-B: Son menos tolerables.
+  [4] 2.68s  EN-A: sorrow and fat is better than lobster and major  ||  ES-B: El dolor y la grasa es mejor que el dolor y la inclinación.
+=== subset2-84  (3 segments)
+  EN-A whole: even i have not thought of other women since i've met the daughter of the merchant
+  ES-B whole: Incluso a mí. No he pensado en otras mujeres desde que conocí a la hija del comerciante.
+  [1] 0.82s  EN-A: even i  ||  ES-B: Incluso a mí.
+  [2] 2.14s  EN-A: i did not think of other women  ||  ES-B: No pensé en otras mujeres.
+  [3] 2.84s  EN-A: since i've met the daughter of the merchant  ||  ES-B: Desde que conocí a la hija del comerciante.
+=== subset2-85  (2 segments)
+  EN-A whole: it would be very useful if my web browser had the possibility to synchronize everyone his preferences
+  ES-B whole: Sería muy útil si mi navegador web tuviera la capacidad de sincronizar todas sus preferencias. No sólo unos pocos.
+  [1] 6.49s  EN-A: it would be very useful if my web browser had the possibility to synchronize all his preferences  ||  ES-B: Sería muy útil si mi navegador web tuviera la capacidad de sincronizar todas sus preferencias.
+  [2] 0.95s  EN-A: not only agreed  ||  ES-B: No sólo unos pocos.
+=== subset2-86  (2 segments)
+  EN-A whole: we cannot afford the window shutters on and we cannot afford ourselves to gold electricity
+  ES-B whole: Abra las persianas y apague las luces. No podemos permitirnos dar electricidad.
+  [1] 3.06s  EN-A: turn over the window shutters and the light  ||  ES-B: Abra las persianas y apague las luces.
+  [2] 2.58s  EN-A: we can't afford it to be golden electricity  ||  ES-B: No podemos permitirnos dar electricidad.
+=== subset2-87  (2 segments)
+  EN-A whole: when she wanted to withdraw from her bank account the cash machine showed her map was invalid
+  ES-B whole: Cuando quiso retirar algo de dinero de su cuenta bancaria, el cajero automático indicó que su tarjeta no era válida.
+  [1] 3.80s  EN-A: as she wanted to withdraw from her bank account  ||  ES-B: Cuando ella quería retirar algo de dinero de su cuenta bancaria,
+  [2] 3.67s  EN-A: the cash machine indicated that her card was invalid  ||  ES-B: El cajero automático indicó que su tarjeta no era válida.
+=== subset2-88  (2 segments)
+  EN-A whole: she wasn't thinking at home a neighbour probably that she had not come home last night
+  ES-B whole: Ella no estaba en casa. Un vecino sospechaba que probablemente no había vuelto a casa anoche.
+  [1] 1.18s  EN-A: she was not to be home  ||  ES-B: Ella no estaba en casa.
+  [2] 4.95s  EN-A: one neighbour suggested that she probably did not come home last night  ||  ES-B: Un vecino sospechaba que probablemente no había vuelto a casa anoche.
+=== subset2-89  (2 segments)
+  EN-A whole: the boy noticed that the owner of the bar was listening to your conversation
+  ES-B whole: El niño se dio cuenta de que el dueño del bar estaba de pie cerca. escuchando atentamente su conversación.
+  [1] 3.48s  EN-A: the boy noticed that the owner of the bar was standing close by  ||  ES-B: El niño notó que el dueño del bar estaba de pie cerca.
+  [2] 2.52s  EN-A: attentionally your conversation listens  ||  ES-B: Escuchando atentamente tu conversación.
+=== subset2-90  (2 segments)
+  EN-A whole: the region is known for its rich copper deposits so mining extensively operated here
+  ES-B whole: La región es conocida por su rico depósito de cobre, por lo que la minería se opera a gran escala.
+  [1] 3.19s  EN-A: the region is known for its rich copper deposits  ||  ES-B: La región es conocida por su rico depósito de cobre.
+  [2] 3.42s  EN-A: so mining is being operated in a large style  ||  ES-B: Para que la minería se opere a gran escala.
+=== subset2-91  (2 segments)
+  EN-A whole: the woman said that she had never been belonging to such a person quickly
+  ES-B whole: La mujer dijo que nunca había oído hablar de una persona así. se fue rápidamente.
+  [1] 4.47s  EN-A: the woman said that she had never been belonging to such a person  ||  ES-B: La mujer dijo que nunca había oído hablar de una persona así.
+  [2] 1.24s  EN-A: quickly walked away  ||  ES-B: Se fue rápido.
+=== subset2-92  (3 segments)
+  EN-A whole: the boy came upon the girl nearer and as she smiled actually he was the same
+  ES-B whole: El niño se acercó a la niña. Y cuando ella sonrió, él se lo hizo a ella.
+  [1] 2.58s  EN-A: the boy stepped down nearer to the girl  ||  ES-B: El niño se acercó a la niña.
+  [2] 1.27s  EN-A: and when she smiled  ||  ES-B: Y cuando sonrió,
+  [3] 1.56s  EN-A: indeed he ready to her  ||  ES-B: Él se lo hizo a ella.
+=== subset2-93  (3 segments)
+  EN-A whole: then you see something that you like it and make it better when you see it
+  ES-B whole: Si ves algo que te gusta. Entonces lo aceptarán. Y hacerlo mejor.
+  [1] 2.33s  EN-A: if you see anything you like with you like  ||  ES-B: Si ves algo que te gusta.
+  [2] 1.27s  EN-A: then they take it  ||  ES-B: Entonces lo aceptarán.
+  [3] 1.08s  EN-A: and do it better  ||  ES-B: Y hacerlo mejor.
+=== subset2-94  (3 segments)
+  EN-A whole: he made a moment break looking at the woman about the egyptian pyramids knew
+  ES-B whole: Se tomó un momento libre. Para comprobar si la mujer sabía de las pirámides egipcias.
+  [1] 1.91s  EN-A: he took a moment break of pause  ||  ES-B: Se tomó un momento libre.
+  [2] 0.86s  EN-A: to check out  ||  ES-B: Para comprobar.
+  [3] 3.32s  EN-A: if the woman knew about the egyptian pyramids knew of the egyptian  ||  ES-B: Si la mujer supiera de la pirámide egipcia.
+=== subset2-95  (2 segments)
+  EN-A whole: however after the labour party had come to power the commitment against the apartment
+  ES-B whole: Sin embargo, después de que el Partido Laborista llegó al poder, el compromiso contra el apartamento fue abolido.
+  [1] 3.93s  EN-A: however after the labour party had come to power  ||  ES-B: Después de que el Partido Laborista llegó al poder.
+  [2] 3.67s  EN-A: placed the commitment against the apart  ||  ES-B: Sólo el compromiso contra el apparte.
+=== subset2-96  (2 segments)
+  EN-A whole: he made himself a name after he had come from the cantera of real madrid
+  ES-B whole: Se hizo un nombre en Chentaffe después de salir de la cantera del Real Madrid.
+  [1] 2.39s  EN-A: he was given a name at chentaff  ||  ES-B: Se hizo un nombre en Chentaffe.
+  [2] 3.70s  EN-A: after he had come from the cantera of real madrid  ||  ES-B: Después de salir de la cantera del Real Madrid.
+=== subset2-97  (2 segments)
+  EN-A whole: experts of geology are agreeing yesterday tsunami was just an apocalypse of existing apocalypse
+  ES-B whole: Los expertos en geología están de acuerdo. El tsunami de ayer fue solo un presagio del próximo apocalipsis.
+  [1] 2.94s  EN-A: experts of geology are agreed  ||  ES-B: Los expertos en geología están de acuerdo.
+  [2] 5.56s  EN-A: yesterday's tsunami was just an asset of the impending apocalypse  ||  ES-B: El tsunami de ayer fue solo un presagio del próximo apocalipsis.
+=== subset2-98  (3 segments)
+  EN-A whole: there is a mosque displaying the direction of a javana allun typical order of a jawani city
+  ES-B whole: Hay una mezquita que apunta hacia un Alun Alun javanés. arreglo típico de una ciudad javenana.
+  [1] 1.21s  EN-A: there is a mosque  ||  ES-B: Hay una mezquita.
+  [2] 2.81s  EN-A: showing the direction of a giovannic alun  ||  ES-B: El cual apunta en la dirección de un Alun Alun de Java.
+  [3] 2.23s  EN-A: typical arrangement of a join city  ||  ES-B: Disposición típica de una ciudad javenana.
+=== subset2-99  (3 segments)
+  EN-A whole: although some admired the prophets others of god's environment he now accused refuge abroad
+  ES-B whole: Aunque algunos admiraban al Profeta, otros lo acusaron de blasfemia. Y ahora busca refugio en el extranjero.
+  [1] 2.84s  EN-A: although some admired the prophets  ||  ES-B: Aunque algunos admiraban al profeta,
+  [2] 3.06s  EN-A: he accused others of the leading of church  ||  ES-B: Lo acusaba de blasfemia a otros.
+  [3] 2.49s  EN-A: and he now looks forward refuge  ||  ES-B: Y ahora busca refugio en el extranjero.
+=== subset2-100  (2 segments)
+  EN-A whole: when the boy saw the spoon he held he realized that the oil was gone
+  ES-B whole: Cuando el niño miró la cuchara que sostenía, se dio cuenta de que el petróleo se había ido.
+  [1] 2.97s  EN-A: as the boy saw to the spoon he holds  ||  ES-B: Cuando el niño miró la cuchara que sostenía,
+  [2] 2.04s  EN-A: he realized that the oil was gone  ||  ES-B: Se dio cuenta de que el petróleo había desaparecido.
+=== subset1-18  (2 segments)
+  EN-A whole: the head of the chechoslovak husite cherries is also called the patriarch
+  ES-B whole: Pero el jefe de la Cereza Husita Checoslovaca también se conoce como un patriarca.
+  [1] 2.87s  EN-A: the head of the chechoslovakian  ||  ES-B: Pero el jefe de los checoslovacos
+  [2] 3.99s  EN-A: husseiton cherries is also called patriarch  ||  ES-B: Husiten Cherry también se conoce como Patriarca.
+=== subset1-19  (1 segments)
+  EN-A whole: we are just traveller replied the alcamistus
+  ES-B whole: Solo somos viajeros, respondió el alquimista.
+  [1] 3.22s  EN-A: we are just traveller replied the alcamistus  ||  ES-B: Solo somos viajeros, respondió el alquimista.
+=== subset1-20  (1 segments)
+  EN-A whole: don't you see what are you going to
+  ES-B whole: ¿No ves lo que está pasando?
+  [1] 2.58s  EN-A: don't you see what are you going to  ||  ES-B: ¿No ves lo que está pasando?
+=== subset1-21  (1 segments)
+  EN-A whole: do you like to see real books or prefer digital versions
+  ES-B whole: ¿Te gusta ver libros correctos o prefieres versiones digitales?
+  [1] 5.00s  EN-A: do you like to see real books or prefer digital versions  ||  ES-B: ¿Te gusta ver libros correctos o prefieres versiones digitales?

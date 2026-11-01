@@ -1,0 +1,176 @@
+=== subset2-57  (2 segments)
+  whole: by train they come quite simply everywhere to travel a very relaxing and expensive way
+  short: by train they come quite simply everywhere to travel a very relaxing and expensive way
+  long : by train they come quite easily everywhere to travel a very relaxing and inexpensive way
+  [1] 2.62s: by train they just come down everywhere
+  [2] 3.32s: a very relaxing and inexpensive way to travel
+  glosses: relaxing ones; expensive; everywhere; just; come; travel
+=== subset2-58  (2 segments)
+  whole: at first i heard that they are quickly back now i start doing myself
+  short: at first i heard they are quickly back now but i start worrying
+  long : at first i heard that they are quickly back now but i start doing myself
+  [1] 2.65s: at first i heard they are quickly back
+  [2] 2.42s [final rise (question?)]: now i begin to worry about myself
+  glosses: quickly; make up; back; worry; at first; it is owned
+=== subset2-59  (2 segments)
+  whole: to read more about my story look at my first contribution adventures enhanced free coding
+  short: to read more about my story look at my first contribution adventures enhanced free coding
+  long : to read more about my story look at my first contribution adventures enhanced free coding
+  [1] 2.20s: reading more about my story
+  [2] 5.21s [final rise (question?)]: check out my first contribution of adventures enhanced free coding
+  glosses: story; adventures; enhanced; contribution; check; coding
+=== subset2-60  (3 segments)
+  whole: that's right said the old gentleman was able to read the boys thoughts
+  short: that's right said the old gentleman capable of reading the boys thoughts
+  long : that's right said the old gentleman was able to read the boys thoughts
+  [1] 0.95s [final rise (question?), emphasis]: that'
+  [2] 1.27s [final rise (question?)]: said the old gentleman
+  [3] 2.97s [final rise (question?)]: in the position was to read the thoughts of the boy
+  glosses: thoughts to it; correctly; young boys
+=== subset2-61  (2 segments)
+  whole: the plain floor had so far from the eye and it was still observed from him
+  short: the plain floor was so far from the eye and it was still ascended from him
+  long : the plain floor had so far from the eye still increasing from him
+  [1] 3.93s [final rise (question?)]: the plain ground was so far the eye had faced
+  [2] 2.10s: and it still got up from him too
+  glosses: a weight; reached; so far
+=== subset2-62  (2 segments)
+  whole: one of the best opportunities writing dragonfly mccrosse is the facility of web browsing by language
+  short: one of the best ways to write dragonfly mccrosse is the facility of web browsing by language
+  long : one of the best opportunities writing dragonfly mccrosse is the facility of web browsing by language
+  [1] 5.66s: one of the best ways to write by dragonfly macross
+  [2] 3.35s [final rise (question?)]: is the institution of web browsing by language
+  glosses: chances; facility; web browsing; dragonfly; writing; start out
+=== subset2-63  (2 segments)
+  whole: perhaps we could meet up at the institute at the midday i have much before
+  short: perhaps we could meet at the institute around midday i have much before
+  long : perhaps we could meet at the institute at midday i have much before agreed to meet
+  [1] 3.19s [final rise (question?)]: perhaps we could meet at the institute around midday
+  [2] 2.49s: for i have some much to do before
+  glosses: at noon times; perhaps; do so do; institute; hit the meat; something of it
+=== subset2-64  (3 segments)
+  whole: the police found that their report was conflicting no evidence and eventually opposed him
+  short: the police found that their report was conflicting no evidence and eventually opposed him
+  long : the police found that their report was contradictory no evidence and eventually opposed him
+  [1] 3.54s: the police found that their report was contradictory
+  [2] 1.59s [final rise (question?), emphasis]: no evidence contained
+  [3] 2.20s [final rise (question?)]: and she eventually contracted him
+  glosses: contradictory; finally; contradicted; included; evidence; account
+=== subset2-65  (3 segments)
+  whole: power all over the millennials you get funny yourself all the karate hours that have bought her
+  short: power all about the millennials you get funny you're going to buy the karate hours that have bought us
+  long : power everybody about the millennials you get all the karate hours that have bought you replied
+  [1] 2.68s [final rise (question?)]: power all about the millennials
+  [2] 1.88s: you get all the karate hours
+  [3] 1.82s [final rise (question?)]: her purchased us repented
+  glosses: millennials; hours; regret it; bought by; funny; it is being
+=== subset2-66  (3 segments)
+  whole: across this typical underground riders transported the cargo itself luding the camels again
+  short: through this typical underground the drivers transported the cargo itself luding the camels again
+  long : across this typical underground riders transported the cargo itself luding the camels again afterwards
+  [1] 3.03s: transported across this typical underground
+  [2] 1.94s [final rise (question?)]: the drivers the cargo itself
+  [3] 2.58s: after that they lude up the camels again
+  glosses: transported; underground; typical of the type; camels; cargo; drivers
+=== subset2-67  (2 segments)
+  whole: looking for a movement of asim bakan featured on the best channel of netflix
+  short: looking for a movement of asim bakan featured on the best channel of netflix
+  long : looking for a movement of asim bankon that is featured on the best channel of netflix
+  [1] 3.10s: looking for a movement of asim ban
+  [2] 2.94s [final rise (question?)]: it is featured on the best channel of netflix
+  glosses: movement; netflix; best
+=== subset2-68  (2 segments)
+  whole: the waitress however wore a simpressive set of dishes then occurred and she dropped everything
+  short: the waitress however wore an impressive set of dishes then occurred and dropped it all
+  long : the waitress however wore a simpressive crowd of dishes then occurred and dropped everything
+  [1] 3.06s: the waitress wore a spectacular crowd of dishes
+  [2] 3.64s [final rise (question?)]: but then a strawberry occurred and she dropped everything
+  glosses: impressive as impressive; occurred to the life; watress; earthquakes; dish on; take place
+=== subset2-69  (2 segments)
+  whole: the view of the town from there is no poor and it can also be found
+  short: the view of the town from there is no poor and it's easy to find
+  long : the view of the town from there is no poor and it can also be found
+  [1] 3.00s [final rise (question?)]: the view of the city from there is no poor
+  [2] 1.50s: and it's easy to find as well
+  glosses: bad; overlook; find out; slightly
+=== subset2-70  (3 segments)
+  whole: i am happy to increase stability in my position of that with the entire process
+  short: i am happy to get increasing stability in my position about the whole process
+  long : i am increasing stability in my position of that throughout the process
+  [1] 3.93s: i'm increasing stability in my position
+  [2] 0.57s [final rise (question?)]: to that
+  [3] 2.20s [final rise (question?)]: finished with the entire process
+  glosses: take increasing; stability; all of it; position; trial; finished finished
+=== subset2-71  (3 segments)
+  whole: there began inspecting the old man to inspect the sheep and he saw one of them
+  short: there was the old man to inspect the sheep and he saw one of them
+  long : their old man started inspecting the sheep and he saw one of them was limbing
+  [1] 3.06s: there was the old man to inspect the sheep there was a sheep
+  [2] 0.73s [final rise (question?)]: and he saw
+  [3] 1.75s [final rise (question?)]: one of them read
+  glosses: inspect to inspect; limited; sheep
+=== subset2-72  (2 segments)
+  whole: a man in a blue shirt stands and holds his umbrella as the water sticks up around him
+  short: a man in a blue shirt stands and holds his umbrella as the water rises around him
+  long : a man in a blue shirt stands and holds his umbrella while the water is putting up around him
+  [1] 3.64s: a man in a blue shirt is standing holding his umbrella
+  [2] 2.81s [final rise (question?)]: while the water rises up around him
+  glosses: umbrella; ascends; as it does; blue; water
+=== subset2-73  (2 segments)
+  whole: he graduated from school at the nearby horton school later studied at acadia university
+  short: he graduated from school at the nearby horton school and later studied at acadia university
+  long : he graduated from school at the nearby horton school later studied at acadia university
+  [1] 3.83s: he graduated from school in the nearby horton school
+  [2] 2.97s [final rise (question?)]: and later studied at acadia university
+  glosses: university of university; studied; sewing near; closed; horton; later
+=== subset2-74  (2 segments)
+  whole: a group of people in white robes with a flame pattern for a picture on some sort of festival
+  short: a group of people in white robes with a flame pattern for a picture on some sort of festival
+  long : a group of people wearing white robes with a flame pattern for a picture on some sort of festival
+  [1] 4.28s: a group of people in white robes with a flame pattern
+  [2] 2.68s [final rise (question?)]: pose for a picture at a sort of festival
+  glosses: flame pattern; changes; people; poses for the point; festival; group
+=== subset2-75  (3 segments)
+  whole: i asked you to work with anybody for this project with me
+  short: i asked you to work on this project for i can't find anybody
+  long : i asked you to work with anybody for this project with i can't find me
+  [1] 1.24s [emphasis]: i was wondering
+  [2] 3.13s [final rise (question?)]: you work on this project with me
+  [3] 1.62s: because i can find anybody
+  glosses: nobody do; work on people; would at least; ask; project; to that
+=== subset2-76  (2 segments)
+  whole: this will help them coordinate effectively with developers and teamstyling projects throughout their career
+  short: this will help them coordinate with developers and teeming projects throughout their whole career
+  long : this will help them coordinate with developers and teamstyling projects throughout their career
+  [1] 3.86s [final rise (question?)]: this will help them collaborate with developers effectively
+  [2] 5.37s: coordinating and teeming projects throughout their entire career
+  glosses: working together; team overarching; coordinate coordinates; developers; all of it; projects
+=== subset2-77  (2 segments)
+  whole: i understand that the land hobbits living the auenland was actually filmed in new zealand
+  short: i understand that the land hobbits living the auenland was actually filmed in new zealand
+  long : i understand that the land hobbits living the owenland was actually filmed in new zealand
+  [1] 4.44s: i understand that the country living in which hobbits live the auenland
+  [2] 2.39s [final rise (question?)]: in fact new zealand was filmed
+  glosses: indeed; new zealand; auenland; filming; hobbits; it is owned
+=== subset2-78  (2 segments)
+  whole: even if they are a real expert it is not possible from time lack of reading old material
+  short: even if they are a real expert it is not possible from time lack of reading old material
+  long : even if they are an actual expert it is not possible to read old material
+  [1] 2.62s: even if they are a real expert
+  [2] 4.06s [final rise (question?)]: time lack of time is not possible to read old material
+  glosses: time deficiency; more really; material; expert; possible; even
+=== subset2-79  (3 segments)
+  whole: they were really think i believe two or three hundred people framed each other the elbows
+  short: they were really thinking to or three hundred people framing each other into the ribs
+  long : they were really think i believe two or three hundred people framing each other the elbows in the ribs
+  [1] 1.08s [final rise (question?)]: it was really
+  [2] 2.55s: i think two or three hundred people
+  [3] 2.65s: the elbows are framed into the ribs
+  glosses: three hundred and three hundred; each other one another; elbow elbow; really; believe; ribs
+=== subset2-80  (2 segments)
+  whole: she was sent to bougenville 's road and again made many contacts but failed to results
+  short: she was sent to bougenville 's road and again made many contacts but failed to result
+  long : she was sent to bougenville 's road and again made many contacts but failed to results
+  [1] 4.50s [final rise (question?)]: she was sent to the road from bougenville and again sent to many contacts
+  [2] 2.14s [final rise (question?)]: however no results could make any results
+  glosses: bougenville; results of it; scent; achieve scores; contact; street

@@ -286,6 +286,20 @@ MIGRATIONS: list[str] = [
         UNIQUE (lang, kind, target_id)
     );
     """,
+    # 2 — P19: the LLM dubber's working state per journey and target language: meaning maps, the agent's options,
+    # back-translation checks and the chosen frame phrases (``recomp dub …``).
+    f"""
+    CREATE TABLE dub_work ({COMMON},
+        journey_id TEXT NOT NULL REFERENCES journey(id) ON DELETE CASCADE,
+        lang TEXT NOT NULL,
+        kind TEXT NOT NULL,
+        key TEXT NOT NULL,
+        round INTEGER NOT NULL DEFAULT 1,
+        data TEXT NOT NULL DEFAULT '{{}}'
+    );
+    CREATE INDEX dub_work_k ON dub_work(journey_id, lang, kind, key);
+    CREATE INDEX dub_work_seg ON dub_work(lang, kind, key);
+    """,
 ]
 
 # The studio store (``studio.db`` in the studio home): what spans projects, i.e. the research wing (P17).
@@ -454,12 +468,13 @@ JSON_COLS: dict[str, set[str]] = {
     "profile": {"settings", "prov"},
     "export": {"outputs", "checks", "prov"},
     "translation": {"prov"},
+    "dub_work": {"data", "prov"},
 }
 
 # Tables whose rows carry provenance and go through the precedence guard.
 EDITORIAL = {"source", "transcript", "segment", "person", "speaker_label", "chapter", "cut",
              "journey", "slot", "overlay", "music_track", "music_bed", "profile", "export",
-             "translation", "follow", "inbox", "lib_doc", "topic", "channel", "post"}
+             "translation", "dub_work", "follow", "inbox", "lib_doc", "topic", "channel", "post"}
 
 # Bookkeeping fields written by jobs: no precedence guard, ignored when undo checks for conflicts.
 UNGUARDED = {"status", "stats", "has_words", "updated_at", "outputs", "checks", "job_id", "recipe_hash", "state", "brief", "links",
@@ -474,7 +489,7 @@ def unguarded(table: str) -> set[str]:
 
 # Child rows captured with a delete so undo can restore them (only op-logged children).
 CHILDREN: dict[str, list[tuple[str, str]]] = {
-    "journey": [("slot", "journey_id"), ("overlay", "journey_id"), ("music_bed", "journey_id")],
+    "journey": [("slot", "journey_id"), ("overlay", "journey_id"), ("music_bed", "journey_id"), ("dub_work", "journey_id")],
     "slot": [("overlay", "slot_id")],
     "source": [("chapter", "source_id"), ("cut", "source_id"), ("speaker_label", "source_id")],
     "follow": [("inbox", "follow_id")],

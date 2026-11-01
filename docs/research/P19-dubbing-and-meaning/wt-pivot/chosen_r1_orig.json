@@ -1,0 +1,804 @@
+{
+ "subset2-33": {
+  "score": 9.0,
+  "phrases": [
+   "Los moonrakers son velas relativamente inusuales, usadas solo en barcos",
+   "construidos principalmente para la velocidad."
+  ],
+  "units": [
+   "u1",
+   "u2",
+   "u3"
+  ],
+  "ratios": [
+   0.931,
+   0.992
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "Moonrakers are relatively unusual sails, used only on ships",
+    "strategy": "orig"
+   },
+   {
+    "src": "built mainly for speed.",
+    "strategy": "orig"
+   }
+  ]
+ },
+ "subset2-34": {
+  "score": 5.933,
+  "phrases": [
+   "Después de que Peter salió con un participante llamado William,",
+   "se sintió a punto de desmayarse."
+  ],
+  "units": [
+   "u1",
+   "u2",
+   "u3"
+  ],
+  "ratios": [
+   0.85,
+   1.115
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "After Peter went outside with a participant named William,",
+    "strategy": "orig"
+   },
+   {
+    "src": "he felt close to fainting.",
+    "strategy": "orig"
+   }
+  ]
+ },
+ "subset2-35": {
+  "score": 12.0,
+  "phrases": [
+   "Es mejor quedarse callado y ser considerado un tonto",
+   "que abrir la boca y eliminar toda duda."
+  ],
+  "units": [
+   "u1",
+   "u2",
+   "u3",
+   "u4"
+  ],
+  "ratios": [
+   0.864,
+   0.861
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "It's better to stay silent and be thought a fool",
+    "strategy": "orig"
+   },
+   {
+    "src": "than to open your mouth and remove all doubt.",
+    "strategy": "orig"
+   }
+  ]
+ },
+ "subset2-36": {
+  "score": 6.338,
+  "phrases": [
+   "Es verdad,",
+   "la vida es verdaderamente generosa con los que siguen su destino,",
+   "pensó el chico."
+  ],
+  "units": [
+   "u1",
+   "u2",
+   "u3",
+   "u4"
+  ],
+  "ratios": [
+   0.815,
+   1.016,
+   1.189
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "It's true,",
+    "strategy": "orig"
+   },
+   {
+    "src": "life is truly generous to those who follow their destiny,",
+    "strategy": "orig"
+   },
+   {
+    "src": "the boy thought.",
+    "strategy": "orig"
+   }
+  ]
+ },
+ "subset2-37": {
+  "score": 6.739,
+  "phrases": [
+   "Si me dices por qué estás aquí,",
+   "Te mostraré el proyecto en el que he estado trabajando."
+  ],
+  "units": [
+   "u1",
+   "u2",
+   "u3"
+  ],
+  "ratios": [
+   0.894,
+   1.081
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "If you tell me why you're here,",
+    "strategy": "orig"
+   },
+   {
+    "src": "I'll show you the project I've been working on.",
+    "strategy": "orig"
+   }
+  ]
+ },
+ "subset2-38": {
+  "score": -3.325,
+  "phrases": [
+   "El chico le ofreció su botella al anciano,",
+   "esperando que él lo dejara en paz."
+  ],
+  "units": [
+   "u1",
+   "u2"
+  ],
+  "ratios": [
+   1.178,
+   0.666
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "The boy offered his bottle to the old man,",
+    "strategy": "orig"
+   },
+   {
+    "src": "hoping he would leave him alone.",
+    "strategy": "orig"
+   }
+  ]
+ },
+ "subset2-39": {
+  "score": 4.402,
+  "phrases": [
+   "Sería un favor que podrías hacerte a ti mismo:",
+   "aprende el idioma y háblalo."
+  ],
+  "units": [
+   "u1",
+   "u2",
+   "u3"
+  ],
+  "ratios": [
+   0.976,
+   0.681
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "It would be a favor you could do yourself:",
+    "strategy": "orig"
+   },
+   {
+    "src": "learn the language and speak it.",
+    "strategy": "orig"
+   }
+  ]
+ },
+ "subset2-40": {
+  "score": -35.357,
+  "phrases": [
+   "Sin embargo, no había ningún texto que explicara cuándo",
+   "y por qué",
+   "murieron."
+  ],
+  "units": [
+   "u1",
+   "u2",
+   "u3"
+  ],
+  "ratios": [
+   0.645,
+   0.475,
+   0.586
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "However, there was no text explaining when",
+    "strategy": "orig"
+   },
+   {
+    "src": "and why",
+    "strategy": "orig"
+   },
+   {
+    "src": "they died.",
+    "strategy": "orig"
+   }
+  ]
+ },
+ "subset2-41": {
+  "score": -3.434,
+  "phrases": [
+   "Así que,",
+   "como no puedes usar un ratón,",
+   "no puedes simplemente hacer clic en el lugar",
+   "para llegar allí."
+  ],
+  "units": [
+   "u1",
+   "u2",
+   "u3",
+   "u4"
+  ],
+  "ratios": [
+   0.778,
+   0.738,
+   1.154,
+   0.626
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "So,",
+    "strategy": "orig"
+   },
+   {
+    "src": "since you can't use a mouse,",
+    "strategy": "orig"
+   },
+   {
+    "src": "you can't just click on the spot",
+    "strategy": "orig"
+   },
+   {
+    "src": "to get there.",
+    "strategy": "orig"
+   }
+  ]
+ },
+ "subset2-42": {
+  "score": 4.978,
+  "phrases": [
+   "Algunos trucos se pueden aprender en horas,",
+   "mientras que otros requieren años",
+   "para dominarlos de verdad."
+  ],
+  "units": [
+   "u1",
+   "u2",
+   "u3"
+  ],
+  "ratios": [
+   0.965,
+   0.672,
+   0.98
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "Some tricks can be learned in hours,",
+    "strategy": "orig"
+   },
+   {
+    "src": "while others take years",
+    "strategy": "orig"
+   },
+   {
+    "src": "to truly master.",
+    "strategy": "orig"
+   }
+  ]
+ },
+ "subset2-43": {
+  "score": 12.0,
+  "phrases": [
+   "El aceite de palma es barato,",
+   "pero los trabajadores de plantaciones ilegales",
+   "son explotados, y enormes zonas de selva son destruidas para la producción."
+  ],
+  "units": [
+   "u1",
+   "u2",
+   "u3",
+   "u4"
+  ],
+  "ratios": [
+   1.049,
+   0.887,
+   0.912
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "Palm oil is cheap,",
+    "strategy": "orig"
+   },
+   {
+    "src": "but workers on illegal plantations",
+    "strategy": "orig"
+   },
+   {
+    "src": "are exploited, and huge jungle areas are destroyed for production.",
+    "strategy": "orig"
+   }
+  ]
+ },
+ "subset2-44": {
+  "score": -21.789,
+  "phrases": [
+   "Toda la música de John Petrucci,",
+   "John Myung, Jordan Rudess",
+   "y Mike Portnoy,",
+   "",
+   "salvo que se indique lo contrario."
+  ],
+  "units": [
+   "u1",
+   "u2",
+   "u3",
+   "u4"
+  ],
+  "ratios": [
+   0.618,
+   0.617,
+   0.774,
+   0.0,
+   1.083
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "All music by John Petrucci,",
+    "strategy": "orig"
+   },
+   {
+    "src": "John Myung, Jordan Rudess",
+    "strategy": "orig"
+   },
+   {
+    "src": "and Mike Portnoy,",
+    "strategy": "orig"
+   },
+   {
+    "src": "",
+    "strategy": "orig"
+   },
+   {
+    "src": "unless otherwise noted.",
+    "strategy": "orig"
+   }
+  ]
+ },
+ "subset2-45": {
+  "score": -19.185,
+  "phrases": [
+   "El jugador controla a Vaillant, que es capaz",
+   "a correr,",
+   "saltar",
+   "y lanzar cosas a los oponentes."
+  ],
+  "units": [
+   "u1",
+   "u2",
+   "u3",
+   "u4"
+  ],
+  "ratios": [
+   0.569,
+   0.898,
+   0.526,
+   0.958
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "The player controls Vaillant, who is able",
+    "strategy": "orig"
+   },
+   {
+    "src": "to run,",
+    "strategy": "orig"
+   },
+   {
+    "src": "to jump",
+    "strategy": "orig"
+   },
+   {
+    "src": "and throw things at opponents.",
+    "strategy": "orig"
+   }
+  ]
+ },
+ "subset2-46": {
+  "score": 0.096,
+  "phrases": [
+   "Ningún hombre ni ninguna mujer vale tus lágrimas,",
+   "y quien las vale",
+   "no te hará llorar."
+  ],
+  "units": [
+   "u1",
+   "u2",
+   "u3"
+  ],
+  "ratios": [
+   1.082,
+   0.632,
+   0.775
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "No man or woman is worth your tears,",
+    "strategy": "orig"
+   },
+   {
+    "src": "and the one who is",
+    "strategy": "orig"
+   },
+   {
+    "src": "won't make you cry.",
+    "strategy": "orig"
+   }
+  ]
+ },
+ "subset2-47": {
+  "score": 7.54,
+  "phrases": [
+   "Una chica mete la cabeza por un recorte de madera de un barco pirata",
+   "mientras la gente lanza tomates."
+  ],
+  "units": [
+   "u1",
+   "u2",
+   "u3"
+  ],
+  "ratios": [
+   0.748,
+   0.998
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "A girl puts her head through a wooden cut-out of a pirate ship",
+    "strategy": "orig"
+   },
+   {
+    "src": "while people throw tomatoes.",
+    "strategy": "orig"
+   }
+  ]
+ },
+ "subset2-48": {
+  "score": -1.234,
+  "phrases": [
+   "Escribió numerosas piezas,",
+   "muchas con bajo continuo,",
+   "lo que demostró su familiaridad",
+   "con la práctica contemporánea."
+  ],
+  "units": [
+   "u1",
+   "u2",
+   "u3",
+   "u4"
+  ],
+  "ratios": [
+   1.029,
+   0.811,
+   0.79,
+   0.572
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "He wrote numerous pieces,",
+    "strategy": "orig"
+   },
+   {
+    "src": "many with basso continuo,",
+    "strategy": "orig"
+   },
+   {
+    "src": "which proved his familiarity",
+    "strategy": "orig"
+   },
+   {
+    "src": "with contemporary practice.",
+    "strategy": "orig"
+   }
+  ]
+ },
+ "subset2-49": {
+  "score": -1.592,
+  "phrases": [
+   "No existe una definición universal de la inteligencia,",
+   "pero todos están de acuerdo",
+   "incluye la capacidad de aprender."
+  ],
+  "units": [
+   "u1",
+   "u2",
+   "u3"
+  ],
+  "ratios": [
+   0.957,
+   0.606,
+   0.73
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "There is no universal definition of intelligence,",
+    "strategy": "orig"
+   },
+   {
+    "src": "but everyone agrees",
+    "strategy": "orig"
+   },
+   {
+    "src": "it includes the ability to learn.",
+    "strategy": "orig"
+   }
+  ]
+ },
+ "subset2-50": {
+  "score": 9.962,
+  "phrases": [
+   "El hombre levantó la vista de su libro, no notó nada parecido,",
+   "volvió a mirar la página y siguió leyendo."
+  ],
+  "units": [
+   "u1",
+   "u2",
+   "u3",
+   "u4"
+  ],
+  "ratios": [
+   0.784,
+   0.945
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "The man looked up from his book, noticed nothing of the sort,",
+    "strategy": "orig"
+   },
+   {
+    "src": "glanced back at the page and read on.",
+    "strategy": "orig"
+   }
+  ]
+ },
+ "subset2-51": {
+  "score": 4.559,
+  "phrases": [
+   "Ambos se consideran vulnerables,",
+   "así que es ilegal acosarlos o matarlos,",
+   "o recolectarlos o poseerlos."
+  ],
+  "units": [
+   "u1",
+   "u2",
+   "u3"
+  ],
+  "ratios": [
+   1.024,
+   0.665,
+   0.935
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "Both are considered vulnerable,",
+    "strategy": "orig"
+   },
+   {
+    "src": "so it is illegal to harass or kill them,",
+    "strategy": "orig"
+   },
+   {
+    "src": "or to collect or possess them.",
+    "strategy": "orig"
+   }
+  ]
+ },
+ "subset2-52": {
+  "score": 4.887,
+  "phrases": [
+   "En su propia destrucción vi su impulso y sus trampas,",
+   "y sus seguidores buscaron rescate en la huida."
+  ],
+  "units": [
+   "u1",
+   "u2"
+  ],
+  "ratios": [
+   0.87,
+   1.071
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "In her own destruction I saw her momentum and her traps,",
+    "strategy": "orig"
+   },
+   {
+    "src": "and her followers sought rescue in flight.",
+    "strategy": "orig"
+   }
+  ]
+ },
+ "subset2-53": {
+  "score": 3.575,
+  "phrases": [
+   "El interior de la biblioteca",
+   "tiene un diseño geométrico",
+   "típico del primer Renacimiento italiano."
+  ],
+  "units": [
+   "u1",
+   "u2",
+   "u3"
+  ],
+  "ratios": [
+   1.022,
+   0.898,
+   0.648
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "The library's interior",
+    "strategy": "orig"
+   },
+   {
+    "src": "has a geometric design",
+    "strategy": "orig"
+   },
+   {
+    "src": "typical of the early Italian Renaissance.",
+    "strategy": "orig"
+   }
+  ]
+ },
+ "subset2-54": {
+  "score": 3.21,
+  "phrases": [
+   "Las siguientes estadísticas se refieren a victorias y derrotas en series,",
+   "no las victorias y derrotas en partidos individuales."
+  ],
+  "units": [
+   "u1",
+   "u2"
+  ],
+  "ratios": [
+   0.92,
+   1.134
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "The following statistics refer to series wins and losses,",
+    "strategy": "orig"
+   },
+   {
+    "src": "not wins and losses in individual games.",
+    "strategy": "orig"
+   }
+  ]
+ },
+ "subset2-55": {
+  "score": -11.616,
+  "phrases": [
+   "El chico empezó a leer su libro otra vez,",
+   "pero ya no podía concentrarse."
+  ],
+  "units": [
+   "u1",
+   "u2",
+   "u3"
+  ],
+  "ratios": [
+   1.17,
+   0.55
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "The boy started reading his book again,",
+    "strategy": "orig"
+   },
+   {
+    "src": "but he could no longer concentrate.",
+    "strategy": "orig"
+   }
+  ]
+ },
+ "subset2-56": {
+  "score": 4.702,
+  "phrases": [
+   "No todo lo que enfrentamos puede cambiarse,",
+   "pero nada puede cambiarse hasta que se enfrenta."
+  ],
+  "units": [
+   "u1",
+   "u2"
+  ],
+  "ratios": [
+   0.818,
+   0.758
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "sources": [
+   {
+    "src": "Not everything we face can be changed,",
+    "strategy": "orig"
+   },
+   {
+    "src": "but nothing can be changed until it is faced.",
+    "strategy": "orig"
+   }
+  ]
+ }
+}

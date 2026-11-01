@@ -1,0 +1,245 @@
+{
+ "scale": "adequacy 0-3 vs hidden CoVoST English reference; blind, shuffled, deduplicated per line",
+ "conditions": {
+  "MT_A": "IWSLT Sockeye de->en whole line alone",
+  "MT_B": "Mozilla de->en whole line alone",
+  "U1": "LLM understanding from MT_A views only (English)",
+  "U2": "U1 + Mozilla Spanish views (English + Spanish middle languages)",
+  "U3": "U2 + Mozilla English views"
+ },
+ "summary": {
+  "MT_A": {
+   "adequacy_mean": 1.5,
+   "full_pct": 8.3,
+   "major_loss_or_wrong_pct": 54.2
+  },
+  "MT_B": {
+   "adequacy_mean": 2.46,
+   "full_pct": 54.2,
+   "major_loss_or_wrong_pct": 8.3
+  },
+  "U1": {
+   "adequacy_mean": 2.54,
+   "full_pct": 75.0,
+   "major_loss_or_wrong_pct": 16.7,
+   "by_confidence": {
+    "high": [
+     3.0,
+     7
+    ],
+    "low": [
+     1.4,
+     5
+    ],
+    "medium": [
+     2.75,
+     12
+    ]
+   }
+  },
+  "U2": {
+   "adequacy_mean": 2.88,
+   "full_pct": 91.7,
+   "major_loss_or_wrong_pct": 4.2,
+   "by_confidence": {
+    "high": [
+     3.0,
+     14
+    ],
+    "low": [
+     1.0,
+     1
+    ],
+    "medium": [
+     2.89,
+     9
+    ]
+   }
+  },
+  "U3": {
+   "adequacy_mean": 2.96,
+   "full_pct": 95.8,
+   "major_loss_or_wrong_pct": 0.0,
+   "by_confidence": {
+    "high": [
+     3.0,
+     14
+    ],
+    "medium": [
+     2.9,
+     10
+    ]
+   }
+  }
+ },
+ "per_line": {
+  "subset2-81": {
+   "MT_A": 2,
+   "MT_B": 3,
+   "U1": 3,
+   "U2": 3,
+   "U3": 3
+  },
+  "subset2-82": {
+   "MT_A": 2,
+   "MT_B": 2,
+   "U1": 3,
+   "U2": 3,
+   "U3": 3
+  },
+  "subset2-83": {
+   "U1": 1,
+   "U2": 1,
+   "U3": 3,
+   "MT_B": 1,
+   "MT_A": 1
+  },
+  "subset2-84": {
+   "MT_B": 3,
+   "MT_A": 3,
+   "U1": 2,
+   "U2": 2,
+   "U3": 2
+  },
+  "subset2-85": {
+   "U1": 3,
+   "U2": 3,
+   "U3": 3,
+   "MT_A": 2,
+   "MT_B": 3
+  },
+  "subset2-86": {
+   "U1": 1,
+   "MT_B": 2,
+   "MT_A": 1,
+   "U2": 3,
+   "U3": 3
+  },
+  "subset2-87": {
+   "MT_B": 3,
+   "MT_A": 2,
+   "U1": 3,
+   "U2": 3,
+   "U3": 3
+  },
+  "subset2-88": {
+   "MT_B": 3,
+   "MT_A": 1,
+   "U1": 3,
+   "U2": 3,
+   "U3": 3
+  },
+  "subset2-89": {
+   "MT_B": 2,
+   "U1": 3,
+   "U2": 3,
+   "U3": 3,
+   "MT_A": 2
+  },
+  "subset2-90": {
+   "MT_A": 2,
+   "U1": 3,
+   "U2": 3,
+   "U3": 3,
+   "MT_B": 3
+  },
+  "subset2-91": {
+   "U1": 3,
+   "U2": 3,
+   "U3": 3,
+   "MT_B": 3,
+   "MT_A": 1
+  },
+  "subset2-92": {
+   "MT_B": 1,
+   "U1": 3,
+   "U2": 3,
+   "U3": 3,
+   "MT_A": 1
+  },
+  "subset2-93": {
+   "U1": 3,
+   "U2": 3,
+   "U3": 3,
+   "MT_B": 2,
+   "MT_A": 1
+  },
+  "subset2-94": {
+   "MT_B": 3,
+   "U1": 3,
+   "U2": 3,
+   "U3": 3,
+   "MT_A": 1
+  },
+  "subset2-95": {
+   "MT_B": 2,
+   "U1": 0,
+   "U2": 3,
+   "U3": 3,
+   "MT_A": 1
+  },
+  "subset2-96": {
+   "MT_B": 2,
+   "U1": 3,
+   "U2": 3,
+   "U3": 3,
+   "MT_A": 2
+  },
+  "subset2-97": {
+   "U1": 3,
+   "U2": 3,
+   "U3": 3,
+   "MT_B": 3,
+   "MT_A": 1
+  },
+  "subset2-98": {
+   "MT_B": 2,
+   "U2": 3,
+   "U3": 3,
+   "MT_A": 1,
+   "U1": 3
+  },
+  "subset2-99": {
+   "U2": 3,
+   "U3": 3,
+   "MT_A": 0,
+   "U1": 2,
+   "MT_B": 3
+  },
+  "subset2-100": {
+   "MT_A": 3,
+   "MT_B": 3,
+   "U1": 3,
+   "U2": 3,
+   "U3": 3
+  },
+  "subset1-18": {
+   "U1": 3,
+   "U2": 3,
+   "U3": 3,
+   "MT_A": 1,
+   "MT_B": 2
+  },
+  "subset1-19": {
+   "MT_A": 2,
+   "U1": 3,
+   "U2": 3,
+   "U3": 3,
+   "MT_B": 3
+  },
+  "subset1-20": {
+   "U1": 1,
+   "U2": 3,
+   "U3": 3,
+   "MT_A": 1,
+   "MT_B": 3
+  },
+  "subset1-21": {
+   "U1": 3,
+   "U2": 3,
+   "U3": 3,
+   "MT_B": 2,
+   "MT_A": 2
+  }
+ }
+}

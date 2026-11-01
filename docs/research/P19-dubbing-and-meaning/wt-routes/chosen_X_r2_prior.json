@@ -1,0 +1,676 @@
+{
+ "subset2-57": {
+  "score": 11.0,
+  "phrases": [
+   "En tren llegas fácilmente a todas partes,",
+   "una forma muy relajante y económica de viajar."
+  ],
+  "units": [
+   "u1",
+   "u2",
+   "u3",
+   "u4"
+  ],
+  "ratios": [
+   0.891,
+   0.958
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "via": [
+   "direct",
+   "direct"
+  ],
+  "src": [
+   "En tren llegas fácilmente a todas partes,",
+   "una forma muy relajante y económica de viajar."
+  ]
+ },
+ "subset2-58": {
+  "score": 9.0,
+  "phrases": [
+   "Al principio oí que volverían pronto,",
+   "pero ahora ya empiezo a preocuparme de verdad."
+  ],
+  "units": [
+   "u1",
+   "u2",
+   "u3"
+  ],
+  "ratios": [
+   0.916,
+   0.984
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "via": [
+   "direct",
+   "direct"
+  ],
+  "src": [
+   "Al principio oí que volverían pronto,",
+   "pero ahora ya empiezo a preocuparme de verdad."
+  ]
+ },
+ "subset2-59": {
+  "score": 8.0,
+  "phrases": [
+   "Si quieres leer más sobre mi historia,",
+   "echa un vistazo a mi primera entrada, titulada Aventuras en programación libre."
+  ],
+  "units": [
+   "u1",
+   "u2",
+   "u3"
+  ],
+  "ratios": [
+   0.89,
+   0.811
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "via": [
+   "direct",
+   "direct"
+  ],
+  "src": [
+   "Si quieres leer más sobre mi historia,",
+   "echa un vistazo a mi primera entrada, titulada Aventuras en programación libre."
+  ]
+ },
+ "subset2-60": {
+  "score": 8.5,
+  "phrases": [
+   "Sí, así es,",
+   "dijo el anciano,",
+   "que era capaz de leer los pensamientos del muchacho."
+  ],
+  "units": [
+   "u1",
+   "u2",
+   "u3"
+  ],
+  "ratios": [
+   0.853,
+   0.843,
+   0.916
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "via": [
+   "pivot",
+   "direct",
+   "direct"
+  ],
+  "src": [
+   "Yes, that's right,",
+   "dijo el anciano,",
+   "que era capaz de leer los pensamientos del muchacho."
+  ]
+ },
+ "subset2-61": {
+  "score": 6.0,
+  "phrases": [
+   "La llanura se extendía hasta donde alcanzaba la vista,",
+   "y aún algo se elevaba de ella."
+  ],
+  "units": [
+   "u1",
+   "u2"
+  ],
+  "ratios": [
+   0.86,
+   1.024
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "via": [
+   "direct",
+   "direct"
+  ],
+  "src": [
+   "La llanura se extendía hasta donde alcanzaba la vista,",
+   "y aún algo se elevaba de ella."
+  ]
+ },
+ "subset2-62": {
+  "score": 8.5,
+  "phrases": [
+   "Una de las muy mejores razones para escribir tus propias macros de Dragonfly",
+   "es poder navegar por internet usando solo la voz."
+  ],
+  "units": [
+   "u1",
+   "u2",
+   "u3"
+  ],
+  "ratios": [
+   0.848,
+   0.859
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "via": [
+   "pivot",
+   "direct"
+  ],
+  "src": [
+   "One of the very best reasons for writing your own Dragonfly macros",
+   "es poder navegar por internet usando solo la voz."
+  ]
+ },
+ "subset2-63": {
+  "score": 9.0,
+  "phrases": [
+   "Quizá podríamos vernos en el instituto a mediodía,",
+   "porque antes tengo muchísimo que hacer."
+  ],
+  "units": [
+   "u1",
+   "u2",
+   "u3"
+  ],
+  "ratios": [
+   0.943,
+   0.919
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "via": [
+   "direct",
+   "direct"
+  ],
+  "src": [
+   "Quizá podríamos vernos en el instituto a mediodía,",
+   "porque antes tengo muchísimo que hacer."
+  ]
+ },
+ "subset2-64": {
+  "score": 7.998,
+  "phrases": [
+   "La policía vio contradicciones en su relato,",
+   "no contenía pruebas,",
+   "y al final ella se retractó."
+  ],
+  "units": [
+   "u1",
+   "u2",
+   "u3"
+  ],
+  "ratios": [
+   0.851,
+   0.796,
+   0.877
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "via": [
+   "direct",
+   "direct",
+   "direct"
+  ],
+  "src": [
+   "La policía vio contradicciones en su relato,",
+   "no contenía pruebas,",
+   "y al final ella se retractó."
+  ]
+ },
+ "subset2-65": {
+  "score": 9.0,
+  "phrases": [
+   "Búrlate de los millennials cuanto quieras,",
+   "todas esas clases de kárate",
+   "que les pagaste, las lamentarás."
+  ],
+  "units": [
+   "u1",
+   "u2",
+   "u3"
+  ],
+  "ratios": [
+   1.026,
+   0.881,
+   0.912
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "via": [
+   "direct",
+   "direct",
+   "direct"
+  ],
+  "src": [
+   "Búrlate de los millennials cuanto quieras,",
+   "todas esas clases de kárate",
+   "que les pagaste, las lamentarás."
+  ]
+ },
+ "subset2-66": {
+  "score": 9.0,
+  "phrases": [
+   "A través de este terreno, tan típico de la zona,",
+   "ellos mismos llevaban la carga,",
+   "y luego volvían a cargar los camellos."
+  ],
+  "units": [
+   "u1",
+   "u2",
+   "u3"
+  ],
+  "ratios": [
+   0.994,
+   0.944,
+   0.898
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "via": [
+   "direct",
+   "direct",
+   "direct"
+  ],
+  "src": [
+   "A través de este terreno, tan típico de la zona,",
+   "ellos mismos llevaban la carga,",
+   "y luego volvían a cargar los camellos."
+  ]
+ },
+ "subset2-67": {
+  "score": 5.5,
+  "phrases": [
+   "¿Estás buscando una película de Asim Bakan?",
+   "La encontrarás en el mejor canal de Netflix."
+  ],
+  "units": [
+   "u1",
+   "u2"
+  ],
+  "ratios": [
+   0.882,
+   0.822
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "via": [
+   "pivot",
+   "direct"
+  ],
+  "src": [
+   "Are you looking for a film by Asim Bakan?",
+   "La encontrarás en el mejor canal de Netflix."
+  ]
+ },
+ "subset2-68": {
+  "score": 8.5,
+  "phrases": [
+   "La camarera llevaba una enorme pila de platos,",
+   "pero entonces hubo un terremoto y se le cayó todo."
+  ],
+  "units": [
+   "u1",
+   "u2",
+   "u3"
+  ],
+  "ratios": [
+   0.899,
+   0.837
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "via": [
+   "pivot",
+   "direct"
+  ],
+  "src": [
+   "The waitress carried a huge stack of dishes,",
+   "pero entonces hubo un terremoto y se le cayó todo."
+  ]
+ },
+ "subset2-69": {
+  "score": 4.812,
+  "phrases": [
+   "Desde allí la vista del pueblo no está nada mal,",
+   "y es fácil de encontrar."
+  ],
+  "units": [
+   "u1",
+   "u2"
+  ],
+  "ratios": [
+   1.015,
+   0.766
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "via": [
+   "direct",
+   "direct"
+  ],
+  "src": [
+   "Desde allí la vista del pueblo no está nada mal,",
+   "y es fácil de encontrar."
+  ]
+ },
+ "subset2-70": {
+  "score": 7.5,
+  "phrases": [
+   "Me alegra ganar cada vez más estabilidad en mi puesto",
+   "en esto,",
+   "ya terminado todo el proceso."
+  ],
+  "units": [
+   "u1",
+   "u2",
+   "u3"
+  ],
+  "ratios": [
+   0.837,
+   0.891,
+   0.802
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "via": [
+   "direct",
+   "pivot",
+   "direct"
+  ],
+  "src": [
+   "Me alegra ganar cada vez más estabilidad en mi puesto",
+   "on this,",
+   "ya terminado todo el proceso."
+  ]
+ },
+ "subset2-71": {
+  "score": 5.41,
+  "phrases": [
+   "Allí el anciano empezó a revisar las ovejas,",
+   "él vio",
+   "que una de las ovejas cojeaba."
+  ],
+  "units": [
+   "u1",
+   "u2",
+   "u3"
+  ],
+  "ratios": [
+   0.885,
+   0.692,
+   0.944
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "via": [
+   "direct",
+   "pivot",
+   "direct"
+  ],
+  "src": [
+   "Allí el anciano empezó a revisar las ovejas,",
+   "he saw",
+   "que una de las ovejas cojeaba."
+  ]
+ },
+ "subset2-72": {
+  "score": 6.0,
+  "phrases": [
+   "Un hombre con camisa azul está de pie sujetando su paraguas",
+   "mientras el agua va subiendo a su alrededor."
+  ],
+  "units": [
+   "u1",
+   "u2"
+  ],
+  "ratios": [
+   1.011,
+   0.845
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "via": [
+   "direct",
+   "direct"
+  ],
+  "src": [
+   "Un hombre con camisa azul está de pie sujetando su paraguas",
+   "mientras el agua va subiendo a su alrededor."
+  ]
+ },
+ "subset2-73": {
+  "score": 6.0,
+  "phrases": [
+   "Fue al colegio en la escuela Horton, que estaba muy cerca,",
+   "y después estudió en la Universidad de Acadia."
+  ],
+  "units": [
+   "u1",
+   "u2"
+  ],
+  "ratios": [
+   0.874,
+   0.872
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "via": [
+   "direct",
+   "direct"
+  ],
+  "src": [
+   "Fue al colegio en la escuela Horton, que estaba muy cerca,",
+   "y después estudió en la Universidad de Acadia."
+  ]
+ },
+ "subset2-74": {
+  "score": 9.0,
+  "phrases": [
+   "Un grupo de personas con túnicas blancas con un estampado de llamas",
+   "posa para una foto en un festival."
+  ],
+  "units": [
+   "u1",
+   "u2",
+   "u3"
+  ],
+  "ratios": [
+   0.841,
+   0.815
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "via": [
+   "direct",
+   "direct"
+  ],
+  "src": [
+   "Un grupo de personas con túnicas blancas con un estampado de llamas",
+   "posa para una foto en un festival."
+  ]
+ },
+ "subset2-75": {
+  "score": 8.5,
+  "phrases": [
+   "Quería preguntarte",
+   "si te gustaría trabajar conmigo en este proyecto,",
+   "porque no encuentro a nadie."
+  ],
+  "units": [
+   "u1",
+   "u2",
+   "u3"
+  ],
+  "ratios": [
+   0.979,
+   0.896,
+   0.947
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "via": [
+   "direct",
+   "pivot",
+   "direct"
+  ],
+  "src": [
+   "Quería preguntarte",
+   "if you'd like to work with me on this project,",
+   "porque no encuentro a nadie."
+  ]
+ },
+ "subset2-76": {
+  "score": 9.0,
+  "phrases": [
+   "Esto les ayudará a trabajar bien con los desarrolladores",
+   "y a coordinar los proyectos de su equipo a lo largo de toda su carrera profesional."
+  ],
+  "units": [
+   "u1",
+   "u2",
+   "u3"
+  ],
+  "ratios": [
+   0.909,
+   0.836
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "via": [
+   "direct",
+   "direct"
+  ],
+  "src": [
+   "Esto les ayudará a trabajar bien con los desarrolladores",
+   "y a coordinar los proyectos de su equipo a lo largo de toda su carrera profesional."
+  ]
+ },
+ "subset2-77": {
+  "score": 5.5,
+  "phrases": [
+   "Según lo entiendo, la tierra donde viven los hobbits, la Comarca,",
+   "se rodó de hecho en Nueva Zelanda."
+  ],
+  "units": [
+   "u1",
+   "u2"
+  ],
+  "ratios": [
+   0.817,
+   0.837
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "via": [
+   "pivot",
+   "direct"
+  ],
+  "src": [
+   "As I understand it, the land where the hobbits live, the Shire,",
+   "se rodó de hecho en Nueva Zelanda."
+  ]
+ },
+ "subset2-78": {
+  "score": 5.5,
+  "phrases": [
+   "Incluso aunque seas un verdadero experto,",
+   "por falta de tiempo no puedes leer todo el material antiguo."
+  ],
+  "units": [
+   "u1",
+   "u2"
+  ],
+  "ratios": [
+   1.038,
+   0.852
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "via": [
+   "direct",
+   "pivot"
+  ],
+  "src": [
+   "Incluso aunque seas un verdadero experto,",
+   "for lack of time you can't read all the old material."
+  ]
+ },
+ "subset2-79": {
+  "score": 8.0,
+  "phrases": [
+   "Había de verdad,",
+   "creo, doscientas o trescientas personas",
+   "dándose codazos unos a otros en las costillas."
+  ],
+  "units": [
+   "u1",
+   "u2",
+   "u3"
+  ],
+  "ratios": [
+   0.935,
+   0.927,
+   0.996
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "via": [
+   "direct",
+   "direct",
+   "direct"
+  ],
+  "src": [
+   "Había de verdad,",
+   "creo, doscientas o trescientas personas",
+   "dándose codazos unos a otros en las costillas."
+  ]
+ },
+ "subset2-80": {
+  "score": 8.5,
+  "phrases": [
+   "La enviaron a la rada de Bougainville y de nuevo hizo muchos contactos,",
+   "pero sin ningún resultado."
+  ],
+  "units": [
+   "u1",
+   "u2",
+   "u3"
+  ],
+  "ratios": [
+   0.914,
+   0.833
+  ],
+  "missing_core": [],
+  "added": 0,
+  "kept_all_core": true,
+  "via": [
+   "direct",
+   "pivot"
+  ],
+  "src": [
+   "La enviaron a la rada de Bougainville y de nuevo hizo muchos contactos,",
+   "but without any results."
+  ]
+ }
+}

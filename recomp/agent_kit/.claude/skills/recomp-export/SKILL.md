@@ -24,6 +24,7 @@ Outputs go to `exports/<journey>/<profile>-<lang>/`: `video.mp4`, `captions.srt`
 ## Other languages
 1. Translate: write the translation yourself (best) with `recomp lang translate J1 --to am --input am.json`
    (get the source lines with `recomp lang translate J1 --to am --template`), or `--engine google` for a draft.
+   For dub lines timed to the speaker's frames, any language pair, use the LLM dubber (`recomp-dub` skill).
 2. Dub by exporting the language: `recomp export run J1 --profiles shorts --langs am,sw,fr` voices every line
    (edge-tts neural voices; `recomp lang voices am`, audition with `recomp lang say "…" --lang am`; Oromo uses
    MMS-TTS). Voice-over ducks the original under the dub; a profile with `--dub-mode replace` puts the dub over

@@ -1,0 +1,3056 @@
+{
+"subset1-0": {
+"de": "Es ist mir gleichgültig, von wem sie das Bild veröffentlichen.",
+"segments": [
+{
+"start": 0.156,
+"end": 1.588,
+"dur": 1.432,
+"pause_after": 0.52
+},
+{
+"start": 2.108,
+"end": 4.244,
+"dur": 2.136,
+"pause_after": null
+}
+]
+},
+"subset1-1": {
+"de": "Die Latenzzeit bei der Spracheingabe ist so hoch, dass es fast immer von Vorteil ist, alles mit einem einzigen Befehl zu erledigen.",
+"segments": [
+{
+"start": 0.316,
+"end": 3.924,
+"dur": 3.608,
+"pause_after": 0.744
+},
+{
+"start": 4.668,
+"end": 10.452,
+"dur": 5.784,
+"pause_after": null
+}
+]
+},
+"subset1-2": {
+"de": "Ich erinnere mich, wie ich dort in der Schwärze auf dem Tisch saß, vor meinen Augen schwammen grüne und karminrote Flecken.",
+"segments": [
+{
+"start": 0.156,
+"end": 8.724,
+"dur": 8.568,
+"pause_after": null
+}
+]
+},
+"subset1-3": {
+"de": "Er studierte Philosophie und theoretische Biologie.",
+"segments": [
+{
+"start": 0.22,
+"end": 3.988,
+"dur": 3.768,
+"pause_after": null
+}
+]
+},
+"subset1-4": {
+"de": "Das Paar hatte eine Tochter, Grace, und einen Sohn, Henry.",
+"segments": [
+{
+"start": 0.06,
+"end": 4.564,
+"dur": 4.504,
+"pause_after": null
+}
+]
+},
+"subset1-5": {
+"de": "Diese Art von Überbietungen wird ihre Freundschaft noch in den Ruin treiben.",
+"segments": [
+{
+"start": 0.06,
+"end": 2.612,
+"dur": 2.552,
+"pause_after": 0.392
+},
+{
+"start": 3.004,
+"end": 7.028,
+"dur": 4.024,
+"pause_after": null
+}
+]
+},
+"subset1-6": {
+"de": "Diese verdammte Maus konnte meine Wut spüren.",
+"segments": [
+{
+"start": 0.22,
+"end": 3.796,
+"dur": 3.576,
+"pause_after": null
+}
+]
+},
+"subset1-7": {
+"de": "Ich werde ihn vollends aufhalten.",
+"segments": [
+{
+"start": 0.028,
+"end": 2.484,
+"dur": 2.456,
+"pause_after": null
+}
+]
+},
+"subset1-8": {
+"de": "Was erwarten Sie von mir?",
+"segments": [
+{
+"start": 0.092,
+"end": 1.524,
+"dur": 1.432,
+"pause_after": null
+}
+]
+},
+"subset1-9": {
+"de": "Alle Vögel begannen im ersten Licht der Dämmerung zu singen.",
+"segments": [
+{
+"start": 0.092,
+"end": 4.852,
+"dur": 4.76,
+"pause_after": null
+}
+]
+},
+"subset1-10": {
+"de": "Nach dem Äußeren kann man nicht urteilen.",
+"segments": [
+{
+"start": 0.188,
+"end": 3.316,
+"dur": 3.128,
+"pause_after": null
+}
+]
+},
+"subset1-11": {
+"de": "Hören Sie auf, mich wie ein kleines Kind zu behandeln.",
+"segments": [
+{
+"start": 0.124,
+"end": 3.348,
+"dur": 3.224,
+"pause_after": null
+}
+]
+},
+"subset1-12": {
+"de": "Das erste Weihnachtsfest",
+"segments": [
+{
+"start": 0.124,
+"end": 2.1,
+"dur": 1.976,
+"pause_after": null
+}
+]
+},
+"subset1-13": {
+"de": "Ich bin mir noch über die lyrische Richtung sicher.",
+"segments": [
+{
+"start": 0.092,
+"end": 3.22,
+"dur": 3.128,
+"pause_after": null
+}
+]
+},
+"subset1-14": {
+"de": "Joan Lindros, Bill Holsworth und Malcolm Calder waren auch altgediente Repräsentanten.",
+"segments": [
+{
+"start": 0.092,
+"end": 2.548,
+"dur": 2.456,
+"pause_after": 0.296
+},
+{
+"start": 2.844,
+"end": 7.124,
+"dur": 4.28,
+"pause_after": null
+}
+]
+},
+"subset1-15": {
+"de": "„Siehe“ analytische Fortsetzung.",
+"segments": [
+{
+"start": 0.06,
+"end": 2.292,
+"dur": 2.232,
+"pause_after": null
+}
+]
+},
+"subset1-16": {
+"de": "Die Stadtmauer ist eines der Wahrzeichen der Stadt.",
+"segments": [
+{
+"start": 0.06,
+"end": 3.7,
+"dur": 3.64,
+"pause_after": 0.392
+},
+{
+"start": 4.092,
+"end": 4.756,
+"dur": 0.664,
+"pause_after": null
+}
+]
+},
+"subset1-17": {
+"de": "Dogstar überprüft derzeit Material für ein Projekt, das ihre Jahre des Herumtourens widerspiegelt.",
+"segments": [
+{
+"start": 0.188,
+"end": 4.66,
+"dur": 4.472,
+"pause_after": 0.36
+},
+{
+"start": 5.02,
+"end": 7.828,
+"dur": 2.808,
+"pause_after": null
+}
+]
+},
+"subset1-18": {
+"de": "Das Oberhaupt der tschechoslowakischen Hussitenkirche wird auch als Patriarch bezeichnet.",
+"segments": [
+{
+"start": 0.828,
+"end": 3.7,
+"dur": 2.872,
+"pause_after": 0.456
+},
+{
+"start": 4.156,
+"end": 8.148,
+"dur": 3.992,
+"pause_after": null
+}
+]
+},
+"subset1-19": {
+"de": "„Wir sind nur Reisende“, antwortete der Alchemist.",
+"segments": [
+{
+"start": 0.348,
+"end": 3.572,
+"dur": 3.224,
+"pause_after": null
+}
+]
+},
+"subset1-20": {
+"de": "Siehst du nicht, was da vor sich geht?",
+"segments": [
+{
+"start": 0.028,
+"end": 2.612,
+"dur": 2.584,
+"pause_after": null
+}
+]
+},
+"subset1-21": {
+"de": "Liest Du gerne richtige Bücher oder bevorzugst Du digitale Versionen?",
+"segments": [
+{
+"start": 0.124,
+"end": 5.12,
+"dur": 4.996,
+"pause_after": null
+}
+]
+},
+"subset1-22": {
+"de": "Frankie schreibt Bobby und veranlasst ihn dazu, die Einrichtung zu untersuchen.",
+"segments": [
+{
+"start": 0.22,
+"end": 1.652,
+"dur": 1.432,
+"pause_after": 0.36
+},
+{
+"start": 2.012,
+"end": 6.004,
+"dur": 3.992,
+"pause_after": null
+}
+]
+},
+"subset1-23": {
+"de": "Werfen Sie ein Auge auf ihn.",
+"segments": [
+{
+"start": 0.156,
+"end": 1.908,
+"dur": 1.752,
+"pause_after": null
+}
+]
+},
+"subset1-24": {
+"de": "Der Feldweg war schlammig und schlecht beleuchtet.",
+"segments": [
+{
+"start": 0.06,
+"end": 3.188,
+"dur": 3.128,
+"pause_after": null
+}
+]
+},
+"subset1-25": {
+"de": "So etwas passiert nicht einfach jedem!",
+"segments": [
+{
+"start": 0.156,
+"end": 2.388,
+"dur": 2.232,
+"pause_after": null
+}
+]
+},
+"subset1-26": {
+"de": "Der Schmale Grad war der Aufgabe ähnlich und wurde zu Crimson Tide.",
+"segments": [
+{
+"start": 0.124,
+"end": 1.14,
+"dur": 1.016,
+"pause_after": 0.424
+},
+{
+"start": 1.564,
+"end": 5.428,
+"dur": 3.864,
+"pause_after": null
+}
+]
+},
+"subset1-27": {
+"de": "Die Antarktis ist zu dieser Jahreszeit kalt.",
+"segments": [
+{
+"start": 0.188,
+"end": 3.38,
+"dur": 3.192,
+"pause_after": null
+}
+]
+},
+"subset1-28": {
+"de": "Ein Mann, der versucht, zum Spaß Gitarre zu spielen.",
+"segments": [
+{
+"start": 0.124,
+"end": 3.86,
+"dur": 3.736,
+"pause_after": null
+}
+]
+},
+"subset1-29": {
+"de": "Diese waren die Helden, die alt waren, Krieger von Rang und Namen.",
+"segments": [
+{
+"start": 0.092,
+"end": 2.644,
+"dur": 2.552,
+"pause_after": 0.68
+},
+{
+"start": 3.324,
+"end": 5.46,
+"dur": 2.136,
+"pause_after": null
+}
+]
+},
+"subset1-30": {
+"de": "Brunswick begann nun mit seinem Marsch auf Paris und näherte sich dem Engpass der Argonnen.",
+"segments": [
+{
+"start": 0.156,
+"end": 1.78,
+"dur": 1.624,
+"pause_after": 0.36
+},
+{
+"start": 2.14,
+"end": 7.476,
+"dur": 5.336,
+"pause_after": null
+}
+]
+},
+"subset1-31": {
+"de": "Drei Menschen sitzen in einem Bus, jeder tut etwas anderes.",
+"segments": [
+{
+"start": 0.156,
+"end": 3.956,
+"dur": 3.8,
+"pause_after": null
+}
+]
+},
+"subset1-32": {
+"de": "Shelly ist diejenige, die Zeitungen benutzt.",
+"segments": [
+{
+"start": 0.124,
+"end": 2.516,
+"dur": 2.392,
+"pause_after": null
+}
+]
+},
+"subset1-33": {
+"de": "Hellbrauner Hund läuft mit Spielzeug im Schnee herum.",
+"segments": [
+{
+"start": 0.22,
+"end": 1.524,
+"dur": 1.304,
+"pause_after": 0.392
+},
+{
+"start": 1.916,
+"end": 2.356,
+"dur": 0.44,
+"pause_after": 0.296
+},
+{
+"start": 2.652,
+"end": 4.692,
+"dur": 2.04,
+"pause_after": null
+}
+]
+},
+"subset1-34": {
+"de": "Die Polizei untersuchte die Person auf Falschgeld.",
+"segments": [
+{
+"start": 0.508,
+"end": 4.564,
+"dur": 4.056,
+"pause_after": null
+}
+]
+},
+"subset1-35": {
+"de": "Ein Windsurfer segelt schnell in Richtung Strand.",
+"segments": [
+{
+"start": 0.188,
+"end": 4.532,
+"dur": 4.344,
+"pause_after": null
+}
+]
+},
+"subset1-36": {
+"de": "Keine Nachricht bedeutet eine angenehme Nachricht.",
+"segments": [
+{
+"start": 0.252,
+"end": 3.508,
+"dur": 3.256,
+"pause_after": null
+}
+]
+},
+"subset1-37": {
+"de": "Wir werden etwas trinken und essen diese Falken.",
+"segments": [
+{
+"start": 0.444,
+"end": 3.828,
+"dur": 3.384,
+"pause_after": null
+}
+]
+},
+"subset1-38": {
+"de": "Sie können ein Label sprechen, um auf ein Element zu klicken.",
+"segments": [
+{
+"start": 0.156,
+"end": 5.076,
+"dur": 4.92,
+"pause_after": null
+}
+]
+},
+"subset1-39": {
+"de": "Eine junge Frau geht über eine Brücke, die durch ein Feld mit hohem Gras führt.",
+"segments": [
+{
+"start": 0.092,
+"end": 5.94,
+"dur": 5.848,
+"pause_after": null
+}
+]
+},
+"subset1-40": {
+"de": "Was hätten wir machen sollen?",
+"segments": [
+{
+"start": 1.852,
+"end": 3.476,
+"dur": 1.624,
+"pause_after": null
+}
+]
+},
+"subset1-41": {
+"de": "Die Suche nach einem Buchstaben anstelle eines ganzen Worts erhöht die Erkennungsgenauigkeit deutlich.",
+"segments": [
+{
+"start": 1.564,
+"end": 7.796,
+"dur": 6.232,
+"pause_after": null
+}
+]
+},
+"subset1-42": {
+"de": "Was wissen Sie alles über ihn?",
+"segments": [
+{
+"start": 1.244,
+"end": 2.868,
+"dur": 1.624,
+"pause_after": null
+}
+]
+},
+"subset1-43": {
+"de": "Der Junge sagte nichts.",
+"segments": [
+{
+"start": 1.404,
+"end": 2.964,
+"dur": 1.56,
+"pause_after": null
+}
+]
+},
+"subset1-44": {
+"de": "Cummings hatte Schnitte am Arm. Die Polizei vermutete, dass sie sich diese selbst zugefügt hatte.",
+"segments": [
+{
+"start": 1.724,
+"end": 3.348,
+"dur": 1.624,
+"pause_after": 0.52
+},
+{
+"start": 3.868,
+"end": 7.956,
+"dur": 4.088,
+"pause_after": null
+}
+]
+},
+"subset1-45": {
+"de": "Ich weiß, dass du unglücklich bist.",
+"segments": [
+{
+"start": 1.276,
+"end": 3.444,
+"dur": 2.168,
+"pause_after": null
+}
+]
+},
+"subset1-46": {
+"de": "Verrücktheit macht dasselbe und erwartet ein anderes Ergebnis.",
+"segments": [
+{
+"start": 1.436,
+"end": 5.588,
+"dur": 4.152,
+"pause_after": null
+}
+]
+},
+"subset1-47": {
+"de": "Ich kann mir nicht ausmahlen, wer es getan hat.",
+"segments": [
+{
+"start": 1.5,
+"end": 4.212,
+"dur": 2.712,
+"pause_after": null
+}
+]
+},
+"subset1-48": {
+"de": "Ach, komm schon, sei nicht so geizig mit den Jolly Ranchers.",
+"segments": [
+{
+"start": 1.66,
+"end": 5.652,
+"dur": 3.992,
+"pause_after": null
+}
+]
+},
+"subset1-49": {
+"de": "Die kleine Kirche Danehill Chapel at Chelwood Common ist evangelisch.",
+"segments": [
+{
+"start": 1.756,
+"end": 6.356,
+"dur": 4.6,
+"pause_after": null
+}
+]
+},
+"subset1-50": {
+"de": "Wie ist das Kinoprogramm in der Nachbarschaft?",
+"segments": [
+{
+"start": 1.34,
+"end": 3.636,
+"dur": 2.296,
+"pause_after": null
+}
+]
+},
+"subset1-51": {
+"de": "Verschiedene Arten wahrscheinlicher Primeten haben unterschiedliche spezifische Bedingungen.",
+"segments": [
+{
+"start": 1.596,
+"end": 6.836,
+"dur": 5.24,
+"pause_after": null
+}
+]
+},
+"subset1-52": {
+"de": "Sagana Lodge wurde als königliche Residenz errichtet.",
+"segments": [
+{
+"start": 1.564,
+"end": 5.492,
+"dur": 3.928,
+"pause_after": null
+}
+]
+},
+"subset1-53": {
+"de": "Wie der Gärtner so sein Garten.",
+"segments": [
+{
+"start": 0.956,
+"end": 3.636,
+"dur": 2.68,
+"pause_after": null
+}
+]
+},
+"subset1-54": {
+"de": "Richardson verfasste und inszenierte den Film.",
+"segments": [
+{
+"start": 1.596,
+"end": 4.948,
+"dur": 3.352,
+"pause_after": null
+}
+]
+},
+"subset1-55": {
+"de": "Ich trinke darauf.",
+"segments": [
+{
+"start": 1.66,
+"end": 2.836,
+"dur": 1.176,
+"pause_after": null
+}
+]
+},
+"subset1-56": {
+"de": "Sie trafen sich mit einer großen Menschengruppe im Pub.",
+"segments": [
+{
+"start": 1.884,
+"end": 4.98,
+"dur": 3.096,
+"pause_after": null
+}
+]
+},
+"subset1-57": {
+"de": "Der Mann genießt das Wetter, indem er draußen Sitzt",
+"segments": [
+{
+"start": 1.66,
+"end": 4.916,
+"dur": 3.256,
+"pause_after": null
+}
+]
+},
+"subset1-58": {
+"de": "Es war das letzte Lied der Four Seasons als Gruppe, mit dem sie es auf Platz eins schafften.",
+"segments": [
+{
+"start": 0.86,
+"end": 1.492,
+"dur": 0.632,
+"pause_after": 0.296
+},
+{
+"start": 1.788,
+"end": 7.348,
+"dur": 5.56,
+"pause_after": null
+}
+]
+},
+"subset1-59": {
+"de": "Auf der Rolltreppe stehend fragten sie sich, wie hoch sie seien.",
+"segments": [
+{
+"start": 1.436,
+"end": 5.3,
+"dur": 3.864,
+"pause_after": null
+}
+]
+},
+"subset1-60": {
+"de": "Könnten Sie meinen Wagen abschleppen?",
+"segments": [
+{
+"start": 1.116,
+"end": 3.092,
+"dur": 1.976,
+"pause_after": null
+}
+]
+},
+"subset1-61": {
+"de": "Entschuldigen Sie, dass ich Ihren Vortrag unterbreche, Sir Edward.",
+"segments": [
+{
+"start": 1.756,
+"end": 5.268,
+"dur": 3.512,
+"pause_after": null
+}
+]
+},
+"subset1-62": {
+"de": "Schmiede das Eisen, solange es heiß ist",
+"segments": [
+{
+"start": 1.788,
+"end": 4.724,
+"dur": 2.936,
+"pause_after": null
+}
+]
+},
+"subset1-63": {
+"de": "Er nahm nur Geld für seine Produkte, nicht für seine Ratschläge.",
+"segments": [
+{
+"start": 1.724,
+"end": 6.132,
+"dur": 4.408,
+"pause_after": null
+}
+]
+},
+"subset1-64": {
+"de": "„Du darfst nicht aufgeben, besonders weil du es so weit geschafft hast“, fuhr er fort.",
+"segments": [
+{
+"start": 0.892,
+"end": 6.356,
+"dur": 5.464,
+"pause_after": null
+}
+]
+},
+"subset1-65": {
+"de": "Bewerte mit drei Sternen das aktuelle Album",
+"segments": [
+{
+"start": 1.148,
+"end": 4.148,
+"dur": 3.0,
+"pause_after": null
+}
+]
+},
+"subset1-66": {
+"de": "So wie es dir dein Großvater beigebracht hat.",
+"segments": [
+{
+"start": 1.596,
+"end": 4.436,
+"dur": 2.84,
+"pause_after": null
+}
+]
+},
+"subset1-67": {
+"de": "Ich habe bereits das Auftreten der riesigen Menge beschrieben, die in den Boden eingelassen wurde.",
+"segments": [
+{
+"start": 1.34,
+"end": 7.252,
+"dur": 5.912,
+"pause_after": null
+}
+]
+},
+"subset1-68": {
+"de": "Sein Hauptgebiet waren es, romantische und gotische Poesie aus dem Englischen ins Japanische zu übersetzen.",
+"segments": [
+{
+"start": 1.628,
+"end": 3.604,
+"dur": 1.976,
+"pause_after": 0.36
+},
+{
+"start": 3.964,
+"end": 8.82,
+"dur": 4.856,
+"pause_after": null
+}
+]
+},
+"subset1-69": {
+"de": "Von diesem Moment an verwandelt sich seine Freundschaft zu Belize in Hass und Eifersucht.",
+"segments": [
+{
+"start": 1.692,
+"end": 7.508,
+"dur": 5.816,
+"pause_after": null
+}
+]
+},
+"subset1-70": {
+"de": "Sein Sender befindet sich in der Nähe von Mercier.",
+"segments": [
+{
+"start": 1.372,
+"end": 4.372,
+"dur": 3.0,
+"pause_after": null
+}
+]
+},
+"subset1-71": {
+"de": "Die Sportler von Groveport Madison sind als Cruisers bekannt.",
+"segments": [
+{
+"start": 1.5,
+"end": 5.844,
+"dur": 4.344,
+"pause_after": null
+}
+]
+},
+"subset1-72": {
+"de": "Die heutige Welt ist voller Werbung.",
+"segments": [
+{
+"start": 1.532,
+"end": 3.796,
+"dur": 2.264,
+"pause_after": null
+}
+]
+},
+"subset1-73": {
+"de": "Sie haben drei Kinder und leben in Ottawa im Bundesstaat Ontario.",
+"segments": [
+{
+"start": 1.692,
+"end": 6.004,
+"dur": 4.312,
+"pause_after": null
+}
+]
+},
+"subset1-74": {
+"de": "Er setzt sich lieber hin und wartet.",
+"segments": [
+{
+"start": 1.436,
+"end": 3.828,
+"dur": 2.392,
+"pause_after": null
+}
+]
+},
+"subset1-75": {
+"de": "Die Mitarbeiter informierten umgehend die Behörden.",
+"segments": [
+{
+"start": 1.276,
+"end": 4.372,
+"dur": 3.096,
+"pause_after": null
+}
+]
+},
+"subset1-76": {
+"de": "Wer sagt das?",
+"segments": [
+{
+"start": 0.668,
+"end": 1.748,
+"dur": 1.08,
+"pause_after": null
+}
+]
+},
+"subset1-77": {
+"de": "Zwei kleine Buben sitzen an einem Tisch mit einer Aufbewahrungsbox von Legosteinen.",
+"segments": [
+{
+"start": 1.98,
+"end": 7.444,
+"dur": 5.464,
+"pause_after": null
+}
+]
+},
+"subset1-78": {
+"de": "Thomas sagte ihr, dass ihr Bruder seine Show abgesagt habe.",
+"segments": [
+{
+"start": 1.5,
+"end": 5.652,
+"dur": 4.152,
+"pause_after": null
+}
+]
+},
+"subset1-79": {
+"de": "Ich begann zu begreifen.",
+"segments": [
+{
+"start": 1.436,
+"end": 3.092,
+"dur": 1.656,
+"pause_after": null
+}
+]
+},
+"subset1-80": {
+"de": "Ich schüttelte den Kopf.",
+"segments": [
+{
+"start": 1.372,
+"end": 2.74,
+"dur": 1.368,
+"pause_after": null
+}
+]
+},
+"subset1-81": {
+"de": "Ein Chip des alten Blocks.",
+"segments": [
+{
+"start": 1.34,
+"end": 3.348,
+"dur": 2.008,
+"pause_after": null
+}
+]
+},
+"subset1-82": {
+"de": "Das ist, was los ist.",
+"segments": [
+{
+"start": 1.308,
+"end": 3.284,
+"dur": 1.976,
+"pause_after": null
+}
+]
+},
+"subset1-83": {
+"de": "Heute Abend erschien der Premierminister im Fernsehen.",
+"segments": [
+{
+"start": 1.372,
+"end": 4.5,
+"dur": 3.128,
+"pause_after": null
+}
+]
+},
+"subset1-84": {
+"de": "Dieser ist dem Ghetto gewidmet, aus dem ich komme.",
+"segments": [
+{
+"start": 1.308,
+"end": 4.212,
+"dur": 2.904,
+"pause_after": null
+}
+]
+},
+"subset1-85": {
+"de": "Das Baby probierte bei ihrem ersten Geburtstag zum ersten Mal Kuchen.",
+"segments": [
+{
+"start": 1.052,
+"end": 5.556,
+"dur": 4.504,
+"pause_after": null
+}
+]
+},
+"subset1-86": {
+"de": "Prefetching dient dazu, Cache-Fehler zu vermeiden.",
+"segments": [
+{
+"start": 2.108,
+"end": 5.332,
+"dur": 3.224,
+"pause_after": null
+}
+]
+},
+"subset1-87": {
+"de": "Starlab Barcelona konzentriert sich derzeit auf angewandte Forschungsinitiativen in den Bereichen Weltraum und Neurowissenschaften.",
+"segments": [
+{
+"start": 1.884,
+"end": 10.58,
+"dur": 8.696,
+"pause_after": null
+}
+]
+},
+"subset1-88": {
+"de": "Unter anderem beinhalteten die Grabbeigaben eine gefensterte Axt, was für diese Epoche recht typisch ist.",
+"segments": [
+{
+"start": 1.692,
+"end": 8.948,
+"dur": 7.256,
+"pause_after": null
+}
+]
+},
+"subset1-89": {
+"de": "Ich schätze, ich bin einfach nur bestürzt über all dies.",
+"segments": [
+{
+"start": 1.34,
+"end": 4.724,
+"dur": 3.384,
+"pause_after": null
+}
+]
+},
+"subset1-90": {
+"de": "Wie ist das Wetter im Sommer in Brasilien?",
+"segments": [
+{
+"start": 1.276,
+"end": 3.54,
+"dur": 2.264,
+"pause_after": null
+}
+]
+},
+"subset2-0": {
+"de": "Ja, die Überprüfung zahlt sich auf jeden Fall aus, vor allem, wenn die Bezahlung angemessen und die Arbeit gut für Ihre Karriere ist. [pause] Es gab absolut keinen Grund für sie, es der gesamten Firma mitzuteilen.",
+"segments": [
+{
+"start": 0.828,
+"end": 6.74,
+"dur": 5.912,
+"pause_after": 0.616
+},
+{
+"start": 7.356,
+"end": 10.644,
+"dur": 3.288,
+"pause_after": null
+}
+]
+},
+"subset2-1": {
+"de": "An dem Strand mit hellblauem Meer befinden sich etliche Menschen. [pause] Sie sind im Wasser und stehen am Ufer. [pause] Im Hintergrund sind die Häuser zu sehen, die in die Berge gebaut wurden.",
+"segments": [
+{
+"start": 0.22,
+"end": 3.316,
+"dur": 3.096,
+"pause_after": 0.552
+},
+{
+"start": 3.868,
+"end": 5.844,
+"dur": 1.976,
+"pause_after": 0.616
+},
+{
+"start": 6.46,
+"end": 9.652,
+"dur": 3.192,
+"pause_after": null
+}
+]
+},
+"subset2-2": {
+"de": "Eine Frau in rotem Hemd mit schwarzem und rotem Schleier geht mit einem jungen Mann in orangem Tank-Top, [pause] während sie einer älteren Frau mit schwarzem Schleier und Rock folgt.",
+"segments": [
+{
+"start": 0.124,
+"end": 5.876,
+"dur": 5.752,
+"pause_after": 0.616
+},
+{
+"start": 6.492,
+"end": 9.716,
+"dur": 3.224,
+"pause_after": null
+}
+]
+},
+"subset2-3": {
+"de": "Die Amsel beobachtete das alles vom Baum, [pause] bewegte ihren Kopf nach links und rechts, blinzelte und testete ihre Flügel, bevor sie schließlich in die Luft ging.",
+"segments": [
+{
+"start": 0.22,
+"end": 2.644,
+"dur": 2.424,
+"pause_after": 0.456
+},
+{
+"start": 3.1,
+"end": 4.884,
+"dur": 1.784,
+"pause_after": 0.36
+},
+{
+"start": 5.244,
+"end": 8.82,
+"dur": 3.576,
+"pause_after": null
+}
+]
+},
+"subset2-4": {
+"de": "Sie wiederholt immer, dass sie es nicht bereut, wieder nach Hause zu ziehen, [pause] aber ich kann nicht so sicher sein, ob das vollkommen wahr ist.",
+"segments": [
+{
+"start": 0.796,
+"end": 4.244,
+"dur": 3.448,
+"pause_after": 0.488
+},
+{
+"start": 4.732,
+"end": 7.348,
+"dur": 2.616,
+"pause_after": null
+}
+]
+},
+"subset2-5": {
+"de": "Schließlich nahm er eines der Bretter in die Höhe und nachdem er es vorsichtig weggelegt hatte, [pause] schaute er in den Raum unter dem Boden.",
+"segments": [
+{
+"start": 0.092,
+"end": 4.596,
+"dur": 4.504,
+"pause_after": 0.456
+},
+{
+"start": 5.052,
+"end": 7.06,
+"dur": 2.008,
+"pause_after": null
+}
+]
+},
+"subset2-6": {
+"de": "Ich freue mich auch, von anderen zu hören; [pause] poste also deine eigenen Ideen in den Kommentaren und sage mir, was ich besser machen könnte.",
+"segments": [
+{
+"start": 0.348,
+"end": 2.644,
+"dur": 2.296,
+"pause_after": 0.424
+},
+{
+"start": 3.068,
+"end": 7.412,
+"dur": 4.344,
+"pause_after": null
+}
+]
+},
+"subset2-7": {
+"de": "Etwas bewegte sich tief unter der Erde [pause] und verursachte Vibrationen, die stark genug waren, dass sie von den Erdbebenfrüherkennungs-Mechanismen hunderte Meilen entfernt gemessen wurden.",
+"segments": [
+{
+"start": 0.476,
+"end": 2.644,
+"dur": 2.168,
+"pause_after": 0.488
+},
+{
+"start": 3.132,
+"end": 5.588,
+"dur": 2.456,
+"pause_after": 0.328
+},
+{
+"start": 5.916,
+"end": 10.452,
+"dur": 4.536,
+"pause_after": null
+}
+]
+},
+"subset2-8": {
+"de": "Er hielt inne, [pause] blickte auf das Haus zurück, [pause] stecke seine Schlüssel dann aber ein, [pause] öffnete das Tor und ging schnell den Weg hinab.",
+"segments": [
+{
+"start": 0.444,
+"end": 3.188,
+"dur": 2.744,
+"pause_after": 0.456
+},
+{
+"start": 3.644,
+"end": 5.428,
+"dur": 1.784,
+"pause_after": 0.392
+},
+{
+"start": 5.82,
+"end": 8.18,
+"dur": 2.36,
+"pause_after": null
+}
+]
+},
+"subset2-9": {
+"de": "Wir vermissen Sie [pause] und vermissen es, einen Freund wie Sie zu haben, [pause] und ich bin so froh, dass Sie beide das nachholen konnten.",
+"segments": [
+{
+"start": 0.092,
+"end": 1.172,
+"dur": 1.08,
+"pause_after": 0.328
+},
+{
+"start": 1.5,
+"end": 3.796,
+"dur": 2.296,
+"pause_after": 0.456
+},
+{
+"start": 4.252,
+"end": 7.572,
+"dur": 3.32,
+"pause_after": null
+}
+]
+},
+"subset2-10": {
+"de": "Bevor Sie diesen Post lesen, [pause] machen Sie sich bitte mit meinen Erste Schritte-Handbuch sowie mit der Aktion, eine Datei schnell zu verschieben, vertraut.",
+"segments": [
+{
+"start": 0.156,
+"end": 1.94,
+"dur": 1.784,
+"pause_after": 0.328
+},
+{
+"start": 2.268,
+"end": 4.884,
+"dur": 2.616,
+"pause_after": 0.392
+},
+{
+"start": 5.276,
+"end": 9.14,
+"dur": 3.864,
+"pause_after": null
+}
+]
+},
+"subset2-11": {
+"de": "Ich könnte einfach meinen Code veröffentlichen, [pause] aber das würde nicht all die kleinen Lektionen aufzeigen, die ich auf dem Weg dorthin gelernt habe.",
+"segments": [
+{
+"start": 0.22,
+"end": 2.548,
+"dur": 2.328,
+"pause_after": 0.36
+},
+{
+"start": 2.908,
+"end": 7.68,
+"dur": 4.772,
+"pause_after": null
+}
+]
+},
+"subset2-12": {
+"de": "In dem Moment, in dem Sie ein Wort buchstabieren, [pause] hören Sie sofort damit auf und fügen Sie dieses Wort dem Vokabeleditor hinzu.",
+"segments": [
+{
+"start": 0.188,
+"end": 2.74,
+"dur": 2.552,
+"pause_after": 0.36
+},
+{
+"start": 3.1,
+"end": 7.06,
+"dur": 3.96,
+"pause_after": null
+}
+]
+},
+"subset2-13": {
+"de": "Früher haben Eye Tracker mehrere tausend Dollar gekostet, [pause] aber jetzt können Sie einen billigen für weniger als ein paar hundert Dollar ergattern.",
+"segments": [
+{
+"start": 0.316,
+"end": 7.22,
+"dur": 6.904,
+"pause_after": null
+}
+]
+},
+"subset2-14": {
+"de": "Der Junge sah sich nach den Öfen und anderen Gerätschaften um, wie sie in der Alchemie verwendet wurden, [pause] konnte aber keine sehen.",
+"segments": [
+{
+"start": 0.188,
+"end": 6.772,
+"dur": 6.584,
+"pause_after": null
+}
+]
+},
+"subset2-15": {
+"de": "Es hat einige grundlegende Funktionen für die Verbindung mit Eye Tracker, [pause] den Erhalt von Positionsdaten [pause] und die Aktivierung des aktuellen Gaze Points.",
+"segments": [
+{
+"start": 0.252,
+"end": 4.5,
+"dur": 4.248,
+"pause_after": 0.808
+},
+{
+"start": 5.308,
+"end": 10.228,
+"dur": 4.92,
+"pause_after": null
+}
+]
+},
+"subset2-16": {
+"de": "Sie holten Disorder Drummer Virus in die Band, um Schlagzeug zu spielen, [pause] und hatten schließlich eine mehr oder weniger zuverlässige Besetzung.",
+"segments": [
+{
+"start": 0.22,
+"end": 4.148,
+"dur": 3.928,
+"pause_after": 0.36
+},
+{
+"start": 4.508,
+"end": 7.764,
+"dur": 3.256,
+"pause_after": null
+}
+]
+},
+"subset2-17": {
+"de": "Ich war erst Anfang des Jahres in der Stadt, [pause] daher ist es irgendwie verrückt, daran zu denken, was unmittelbar danach geschah.",
+"segments": [
+{
+"start": 0.252,
+"end": 2.356,
+"dur": 2.104,
+"pause_after": 0.424
+},
+{
+"start": 2.78,
+"end": 6.516,
+"dur": 3.736,
+"pause_after": null
+}
+]
+},
+"subset2-18": {
+"de": "Stell dir jetzt mal einen Typ vor, der durch diese Tür kommt [pause] und mit einem starken Akzent anfängt Befehle zu geben.",
+"segments": [
+{
+"start": 0.316,
+"end": 3.124,
+"dur": 2.808,
+"pause_after": 0.36
+},
+{
+"start": 3.484,
+"end": 6.228,
+"dur": 2.744,
+"pause_after": null
+}
+]
+},
+"subset2-19": {
+"de": "Ich glaube, dass die Party war für die meisten Gäste ein Belustigung war, [pause] aber Mirco fühlte sich wirklich fehl am Platz.",
+"segments": [
+{
+"start": 0.508,
+"end": 3.828,
+"dur": 3.32,
+"pause_after": 0.808
+},
+{
+"start": 4.636,
+"end": 6.9,
+"dur": 2.264,
+"pause_after": null
+}
+]
+},
+"subset2-20": {
+"de": "Sie hat seit langem nicht mehr Chekhov gelesen [pause] und deswegen fühlt sie sich nicht mehr wie die Heldin ihrer eigenen Geschichte.",
+"segments": [
+{
+"start": 1.308,
+"end": 3.668,
+"dur": 2.36,
+"pause_after": 1.096
+},
+{
+"start": 4.764,
+"end": 8.852,
+"dur": 4.088,
+"pause_after": null
+}
+]
+},
+"subset2-21": {
+"de": "Nicht gerade nein, [pause] er gab mir aber nur die wichtigsten Aspekte seiner Forschung, als ich das eine Mal mit ihm redete.",
+"segments": [
+{
+"start": 1.82,
+"end": 3.06,
+"dur": 1.24,
+"pause_after": 1.032
+},
+{
+"start": 4.092,
+"end": 9.364,
+"dur": 5.272,
+"pause_after": null
+}
+]
+},
+"subset2-22": {
+"de": "Es ist unhöflich, einen Baum nach seinem Lebenslauf zu fragen, [pause] wenn man nicht bereit ist, ihn in voller Länge zu hören.",
+"segments": [
+{
+"start": 1.5,
+"end": 4.852,
+"dur": 3.352,
+"pause_after": 1.32
+},
+{
+"start": 6.172,
+"end": 9.076,
+"dur": 2.904,
+"pause_after": null
+}
+]
+},
+"subset2-23": {
+"de": "Ich habe mich gefragt, ob Sie mir etwas mehr darüber erzählen könnten, wie es ist, dort zu leben [pause] und zu arbeiten.",
+"segments": [
+{
+"start": 1.564,
+"end": 6.42,
+"dur": 4.856,
+"pause_after": 0.968
+},
+{
+"start": 7.388,
+"end": 8.276,
+"dur": 0.888,
+"pause_after": null
+}
+]
+},
+"subset2-24": {
+"de": "Wenn Sie diesen Tunnel unter dem Gebäude graben, wird es einstürzen. [pause] Ich fordere Sie daher dringend auf, dies nicht zu tun.",
+"segments": [
+{
+"start": 0.828,
+"end": 1.044,
+"dur": 0.216,
+"pause_after": 0.392
+},
+{
+"start": 1.436,
+"end": 4.788,
+"dur": 3.352,
+"pause_after": 1.512
+},
+{
+"start": 6.3,
+"end": 9.812,
+"dur": 3.512,
+"pause_after": null
+}
+]
+},
+"subset2-25": {
+"de": "Wagen Sie es nicht wegzuschalten. [pause] Ich finde Reime in Ordnung, da sie nie vergehen, ich könnte das den ganzen Tag machen.",
+"segments": [
+{
+"start": 1.5,
+"end": 3.348,
+"dur": 1.848,
+"pause_after": 0.936
+},
+{
+"start": 4.284,
+"end": 8.916,
+"dur": 4.632,
+"pause_after": null
+}
+]
+},
+"subset2-26": {
+"de": "„Ich bin nicht hergekommen, um mir von Ihnen aus der Hand lesen zu lassen“, sagte er [pause] und bedauerte bereits sein Kommen.",
+"segments": [
+{
+"start": 1.148,
+"end": 4.34,
+"dur": 3.192,
+"pause_after": 0.424
+},
+{
+"start": 4.764,
+"end": 5.492,
+"dur": 0.728,
+"pause_after": 1.192
+},
+{
+"start": 6.684,
+"end": 8.372,
+"dur": 1.688,
+"pause_after": null
+}
+]
+},
+"subset2-27": {
+"de": "Auf einer Skala von eins (ich empfinde überhaupt nichts) bis zehn (ich empfinde sehr viel), [pause] wie viel Schmerz empfinden Sie?",
+"segments": [
+{
+"start": 1.532,
+"end": 6.292,
+"dur": 4.76,
+"pause_after": 0.808
+},
+{
+"start": 7.1,
+"end": 8.724,
+"dur": 1.624,
+"pause_after": null
+}
+]
+},
+"subset2-28": {
+"de": "Als er ihr einen Kuss auf die Wange gab, errötete sie plötzlich [pause] und änderte ihre Farbe schneller als ein Chamäleon.",
+"segments": [
+{
+"start": 1.34,
+"end": 4.98,
+"dur": 3.64,
+"pause_after": 1.096
+},
+{
+"start": 6.076,
+"end": 9.14,
+"dur": 3.064,
+"pause_after": null
+}
+]
+},
+"subset2-29": {
+"de": "Wenn ein Fuchs ein Kaninchen schreien hört, läuft es zu ihm – [pause] aber nicht, um ihm zu Hilfe zu kommen.",
+"segments": [
+{
+"start": 1.788,
+"end": 4.852,
+"dur": 3.064,
+"pause_after": 1.16
+},
+{
+"start": 6.012,
+"end": 7.796,
+"dur": 1.784,
+"pause_after": null
+}
+]
+},
+"subset2-30": {
+"de": "Kurzzeitig hatte ich den Drang, zurückzugehen und ihm zu helfen, [pause] aber ich hatte zu viel Angst, um irgendetwas zu unternehmen.",
+"segments": [
+{
+"start": 0.924,
+"end": 4.084,
+"dur": 3.16,
+"pause_after": 0.808
+},
+{
+"start": 4.892,
+"end": 7.828,
+"dur": 2.936,
+"pause_after": null
+}
+]
+},
+"subset2-31": {
+"de": "Ich dachte immer, dass ich verärgert sein sollte, [pause] aber die Wahrheit ist, dass es mich wirklich nicht weniger interessieren könnte.",
+"segments": [
+{
+"start": 1.148,
+"end": 3.284,
+"dur": 2.136,
+"pause_after": 1.16
+},
+{
+"start": 4.444,
+"end": 8.576,
+"dur": 4.132,
+"pause_after": null
+}
+]
+},
+"subset2-32": {
+"de": "Er stand auf, [pause] und als er zu seinem Platz zurückkehrte, [pause] stellten alle im Raum den Sinn des Lebens in Frage.",
+"segments": [
+{
+"start": 1.148,
+"end": 2.1,
+"dur": 0.952,
+"pause_after": 1.128
+},
+{
+"start": 3.228,
+"end": 5.492,
+"dur": 2.264,
+"pause_after": 1.448
+},
+{
+"start": 6.94,
+"end": 9.62,
+"dur": 2.68,
+"pause_after": null
+}
+]
+},
+"subset2-33": {
+"de": "Moonrakers sind relativ ungewöhnliche Segel, die nur auf Schiffen eingesetzt werden, [pause] die in erster Linie für die Geschwindigkeit gebaut wurden.",
+"segments": [
+{
+"start": 0.636,
+"end": 5.556,
+"dur": 4.92,
+"pause_after": 1.064
+},
+{
+"start": 6.62,
+"end": 9.236,
+"dur": 2.616,
+"pause_after": null
+}
+]
+},
+"subset2-34": {
+"de": "Nachdem Peter auf dem Weg nach draußen auf einen Teilnehmer namens William gestoßen ist,[pause]  fühlt er sich der Ohnmacht nahe.",
+"segments": [
+{
+"start": 1.212,
+"end": 5.652,
+"dur": 4.44,
+"pause_after": 1.256
+},
+{
+"start": 6.908,
+"end": 8.628,
+"dur": 1.72,
+"pause_after": null
+}
+]
+},
+"subset2-35": {
+"de": "Es ist besser, zu schweigen und als Dummkopf angesehen zu werden, [pause] als den Mund aufzumachen und alle Zweifel zu beseitigen.",
+"segments": [
+{
+"start": 1.276,
+"end": 4.916,
+"dur": 3.64,
+"pause_after": 1.256
+},
+{
+"start": 6.172,
+"end": 9.428,
+"dur": 3.256,
+"pause_after": null
+}
+]
+},
+"subset2-36": {
+"de": "Es ist wahr; [pause] das Leben ist wirklich großzügig zu jenen, die dem Ruf ihres Schicksals folgen, dachte der Junge.",
+"segments": [
+{
+"start": 1.18,
+"end": 1.908,
+"dur": 0.728,
+"pause_after": 1.288
+},
+{
+"start": 3.196,
+"end": 7.284,
+"dur": 4.088,
+"pause_after": 0.328
+},
+{
+"start": 7.612,
+"end": 8.404,
+"dur": 0.792,
+"pause_after": null
+}
+]
+},
+"subset2-37": {
+"de": "Wenn du mir erzählst, warum du hier bist, [pause] werde ich dir das Projekt zeigen, an dem ich gearbeitet habe.",
+"segments": [
+{
+"start": 1.468,
+"end": 3.476,
+"dur": 2.008,
+"pause_after": 0.968
+},
+{
+"start": 4.444,
+"end": 7.38,
+"dur": 2.936,
+"pause_after": null
+}
+]
+},
+"subset2-38": {
+"de": "Der Junge bot dem alten Mann seine Flasche an, [pause] in der Hoffnung, dass er ihn in Ruge lassen würde.",
+"segments": [
+{
+"start": 1.66,
+"end": 3.892,
+"dur": 2.232,
+"pause_after": 0.968
+},
+{
+"start": 4.86,
+"end": 7.732,
+"dur": 2.872,
+"pause_after": null
+}
+]
+},
+"subset2-39": {
+"de": "Es wäre ein Gefallen, den Sie sich selbst tun können - [pause] lernen Sie die Sprache und unterhalten Sie sich.",
+"segments": [
+{
+"start": 1.724,
+"end": 4.468,
+"dur": 2.744,
+"pause_after": 0.968
+},
+{
+"start": 5.436,
+"end": 8.244,
+"dur": 2.808,
+"pause_after": null
+}
+]
+},
+"subset2-40": {
+"de": "Es gab jedoch keinen Text, in dem erklärt wurde, an welchem Zeitpunkt [pause] und für welchen Grund [pause] sie gestorben sind.",
+"segments": [
+{
+"start": 0.764,
+"end": 5.876,
+"dur": 5.112,
+"pause_after": 0.84
+},
+{
+"start": 6.716,
+"end": 8.02,
+"dur": 1.304,
+"pause_after": 0.968
+},
+{
+"start": 8.988,
+"end": 10.1,
+"dur": 1.112,
+"pause_after": null
+}
+]
+},
+"subset2-41": {
+"de": "Also, da du keine Maus benutzen kannst, [pause] kannst du nicht einfach auf den Ort klicken, um dorthin zu gelangen.",
+"segments": [
+{
+"start": 0.988,
+"end": 1.62,
+"dur": 0.632,
+"pause_after": 0.424
+},
+{
+"start": 2.044,
+"end": 3.956,
+"dur": 1.912,
+"pause_after": 1.032
+},
+{
+"start": 4.988,
+"end": 7.476,
+"dur": 2.488,
+"pause_after": 0.424
+},
+{
+"start": 7.9,
+"end": 9.236,
+"dur": 1.336,
+"pause_after": null
+}
+]
+},
+"subset2-42": {
+"de": "Einige Tricks können in Stunden erlernt werden, [pause] währenddessen es bei anderen Jahre dauern kann, sie zu wirklich zu beherrschen.",
+"segments": [
+{
+"start": 0.636,
+"end": 3.348,
+"dur": 2.712,
+"pause_after": 1.096
+},
+{
+"start": 4.444,
+"end": 7.38,
+"dur": 2.936,
+"pause_after": 0.616
+},
+{
+"start": 7.996,
+"end": 9.428,
+"dur": 1.432,
+"pause_after": null
+}
+]
+},
+"subset2-43": {
+"de": "Palmöl ist günstig, [pause] aber die Arbeiter auf den illegalen Plantagen werden ausgenutzt und riesengroße Dschungelgebiete für die Produktion zerstört.",
+"segments": [
+{
+"start": 1.212,
+"end": 2.772,
+"dur": 1.56,
+"pause_after": 1.096
+},
+{
+"start": 3.868,
+"end": 6.708,
+"dur": 2.84,
+"pause_after": 0.392
+},
+{
+"start": 7.1,
+"end": 12.02,
+"dur": 4.92,
+"pause_after": null
+}
+]
+},
+"subset2-44": {
+"de": "Die gesamte Musik stammt von John Petrucci, John Myung, Jordan Rudess und Mike Portnoy, [pause] außer dort, wo anderweitig vermerkt.",
+"segments": [
+{
+"start": 1.468,
+"end": 4.756,
+"dur": 3.288,
+"pause_after": 0.776
+},
+{
+"start": 5.532,
+"end": 7.476,
+"dur": 1.944,
+"pause_after": 0.52
+},
+{
+"start": 7.996,
+"end": 9.172,
+"dur": 1.176,
+"pause_after": 1.064
+},
+{
+"start": 10.236,
+"end": 11.06,
+"dur": 0.824,
+"pause_after": 0.424
+},
+{
+"start": 11.484,
+"end": 13.236,
+"dur": 1.752,
+"pause_after": null
+}
+]
+},
+"subset2-45": {
+"de": "Der Spieler kontrolliert Valiant, wodurch es ihm ermöglicht wird, zu gehen, [pause] zu springen [pause] und Dinge auf Gegner zu werfen.",
+"segments": [
+{
+"start": 0.988,
+"end": 5.14,
+"dur": 4.152,
+"pause_after": 0.328
+},
+{
+"start": 5.468,
+"end": 6.132,
+"dur": 0.664,
+"pause_after": 1.256
+},
+{
+"start": 7.388,
+"end": 8.148,
+"dur": 0.76,
+"pause_after": 1.128
+},
+{
+"start": 9.276,
+"end": 11.092,
+"dur": 1.816,
+"pause_after": null
+}
+]
+},
+"subset2-46": {
+"de": "Kein Mann und keine Frau ist deine Tränen wert, [pause] und der, der es ist, wird dir deine Tränen ersparen.",
+"segments": [
+{
+"start": 0.86,
+"end": 3.732,
+"dur": 2.872,
+"pause_after": 1.0
+},
+{
+"start": 4.732,
+"end": 6.228,
+"dur": 1.496,
+"pause_after": 0.36
+},
+{
+"start": 6.588,
+"end": 8.148,
+"dur": 1.56,
+"pause_after": null
+}
+]
+},
+"subset2-47": {
+"de": "Ein Mädchen hat ihren Kopf in einem Holz, das aus einem Piratenschiff ausgeschnitten wurde, [pause] während die Leute Tomaten werfen",
+"segments": [
+{
+"start": 0.828,
+"end": 6.58,
+"dur": 5.752,
+"pause_after": 1.416
+},
+{
+"start": 7.996,
+"end": 9.876,
+"dur": 1.88,
+"pause_after": null
+}
+]
+},
+"subset2-48": {
+"de": "Er schrieb zahlreiche Messen, viele davon mit Basso continuo. [pause] Dies stellte seine Vertrautheit mit der zeitgenössischen Praxis unter Beweis.",
+"segments": [
+{
+"start": 0.572,
+"end": 2.388,
+"dur": 1.816,
+"pause_after": 0.52
+},
+{
+"start": 2.908,
+"end": 4.724,
+"dur": 1.816,
+"pause_after": 1.96
+},
+{
+"start": 6.684,
+"end": 8.916,
+"dur": 2.232,
+"pause_after": 0.392
+},
+{
+"start": 9.308,
+"end": 12.544,
+"dur": 3.236,
+"pause_after": null
+}
+]
+},
+"subset2-49": {
+"de": "Es gibt keine universelle Definition von Intelligenz, [pause] allerdings stimmen wohl alle überein, dass die Fähigkeit zu lernen dazu gehört.",
+"segments": [
+{
+"start": 0.476,
+"end": 4.244,
+"dur": 3.768,
+"pause_after": 0.904
+},
+{
+"start": 5.148,
+"end": 7.668,
+"dur": 2.52,
+"pause_after": 0.424
+},
+{
+"start": 8.092,
+"end": 10.644,
+"dur": 2.552,
+"pause_after": null
+}
+]
+},
+"subset2-50": {
+"de": "Der Mann schaute von seinem Buch auf und bemerkte nichts berichtenswertes, [pause] blickte zurück auf die Seite und las weiter.",
+"segments": [
+{
+"start": 0.156,
+"end": 4.596,
+"dur": 4.44,
+"pause_after": 0.968
+},
+{
+"start": 5.564,
+"end": 8.308,
+"dur": 2.744,
+"pause_after": null
+}
+]
+},
+"subset2-51": {
+"de": "Beide gelten als gefährdet, aufgrund dessen es illegal ist, sie zu belästigen, zu töten, [pause] zu sammeln oder zu besitzen.",
+"segments": [
+{
+"start": 0.252,
+"end": 1.972,
+"dur": 1.72,
+"pause_after": 0.456
+},
+{
+"start": 2.428,
+"end": 6.068,
+"dur": 3.64,
+"pause_after": 1.064
+},
+{
+"start": 7.132,
+"end": 8.948,
+"dur": 1.816,
+"pause_after": null
+}
+]
+},
+"subset2-52": {
+"de": "Im Schwung ihrer eigenen Zerstörung sah ich sie taumeln und fallen, [pause] und ihre Anhänger suchten ihr Heil im Flucht.",
+"segments": [
+{
+"start": 0.796,
+"end": 4.788,
+"dur": 3.992,
+"pause_after": 1.288
+},
+{
+"start": 6.076,
+"end": 8.5,
+"dur": 2.424,
+"pause_after": null
+}
+]
+},
+"subset2-53": {
+"de": "Das Innere der Bibliothek weist ein geometrisches Design auf, [pause] das typisch für den Stil der frühen italienischen Renaissance ist.",
+"segments": [
+{
+"start": 1.244,
+"end": 2.868,
+"dur": 1.624,
+"pause_after": 0.424
+},
+{
+"start": 3.292,
+"end": 5.204,
+"dur": 1.912,
+"pause_after": 1.192
+},
+{
+"start": 6.396,
+"end": 10.484,
+"dur": 4.088,
+"pause_after": null
+}
+]
+},
+"subset2-54": {
+"de": "Die folgenden Statistiken beziehen sich auf Siege und Niederlagen in Serien, [pause] nicht auf Siege und Niederlagen in einzelnen Spielen.",
+"segments": [
+{
+"start": 0.892,
+"end": 5.588,
+"dur": 4.696,
+"pause_after": 1.192
+},
+{
+"start": 6.78,
+"end": 9.78,
+"dur": 3.0,
+"pause_after": null
+}
+]
+},
+"subset2-55": {
+"de": "Der Junge begann wieder, sein Buch zu lesen, [pause] aber er war nicht mehr in der Lage, sich zu konzentrieren.",
+"segments": [
+{
+"start": 1.596,
+"end": 3.924,
+"dur": 2.328,
+"pause_after": 0.872
+},
+{
+"start": 4.796,
+"end": 8.084,
+"dur": 3.288,
+"pause_after": null
+}
+]
+},
+"subset2-56": {
+"de": "Nicht alles, was vor uns liegt, kann geändert werden; [pause] aber nichts kann geändert werden, bis es vor uns liegt.",
+"segments": [
+{
+"start": 0.924,
+"end": 3.924,
+"dur": 3.0,
+"pause_after": 1.416
+},
+{
+"start": 5.34,
+"end": 8.66,
+"dur": 3.32,
+"pause_after": null
+}
+]
+},
+"subset2-57": {
+"de": "Mit dem Zug kommen Sie ganz einfach überall hin – [pause] eine sehr entspannende und preiswerte Art zu reisen.",
+"segments": [
+{
+"start": 1.404,
+"end": 4.02,
+"dur": 2.616,
+"pause_after": 0.744
+},
+{
+"start": 4.764,
+"end": 8.084,
+"dur": 3.32,
+"pause_after": null
+}
+]
+},
+"subset2-58": {
+"de": "Zuerst habe ich gehofft, dass sie schnell zurück sind, [pause] jetzt fange ich aber an, mir Sorgen zu machen.",
+"segments": [
+{
+"start": 1.244,
+"end": 3.892,
+"dur": 2.648,
+"pause_after": 1.128
+},
+{
+"start": 5.02,
+"end": 7.444,
+"dur": 2.424,
+"pause_after": null
+}
+]
+},
+"subset2-59": {
+"de": "Um mehr über meine Geschichte zu lesen, [pause] schauen Sie sich meinen ersten Beitrag Adventures in Hands-Free Coding an.",
+"segments": [
+{
+"start": 1.148,
+"end": 3.348,
+"dur": 2.2,
+"pause_after": 1.0
+},
+{
+"start": 4.348,
+"end": 9.556,
+"dur": 5.208,
+"pause_after": null
+}
+]
+},
+"subset2-60": {
+"de": "„Das ist richtig“, sagte der alte Herr, [pause] der in der Lage war, die Gedanken des Jungen zu lesen.",
+"segments": [
+{
+"start": 1.308,
+"end": 2.26,
+"dur": 0.952,
+"pause_after": 0.488
+},
+{
+"start": 2.748,
+"end": 4.02,
+"dur": 1.272,
+"pause_after": 1.16
+},
+{
+"start": 5.18,
+"end": 8.148,
+"dur": 2.968,
+"pause_after": null
+}
+]
+},
+"subset2-61": {
+"de": "Der ebene Boden war, soweit das Auge reichte, geschwärzt, [pause] und es stieg immer noch Rauch aus ihm auf.",
+"segments": [
+{
+"start": 1.18,
+"end": 5.108,
+"dur": 3.928,
+"pause_after": 1.032
+},
+{
+"start": 6.14,
+"end": 8.244,
+"dur": 2.104,
+"pause_after": null
+}
+]
+},
+"subset2-62": {
+"de": "Eine der besten Möglichkeiten, mit dem Schreiben von Dragonfly-Makros zu beginnen, [pause] ist die Einrichtung von Web-Browsing per Sprache.",
+"segments": [
+{
+"start": 0.508,
+"end": 6.164,
+"dur": 5.656,
+"pause_after": 1.736
+},
+{
+"start": 7.9,
+"end": 11.252,
+"dur": 3.352,
+"pause_after": null
+}
+]
+},
+"subset2-63": {
+"de": "Vielleicht könnten wir uns um die Mittagszeit im Institut treffen, [pause] denn ich habe vorher noch einiges zu erledigen.",
+"segments": [
+{
+"start": 1.084,
+"end": 4.276,
+"dur": 3.192,
+"pause_after": 1.16
+},
+{
+"start": 5.436,
+"end": 7.924,
+"dur": 2.488,
+"pause_after": null
+}
+]
+},
+"subset2-64": {
+"de": "Die Polizei stellte fest, dass ihr Bericht widersprüchlich war und keine Beweise enthielt, [pause]  und sie ihn schließlich widerrief.",
+"segments": [
+{
+"start": 1.276,
+"end": 4.82,
+"dur": 3.544,
+"pause_after": 0.616
+},
+{
+"start": 5.436,
+"end": 7.028,
+"dur": 1.592,
+"pause_after": 1.416
+},
+{
+"start": 8.444,
+"end": 10.644,
+"dur": 2.2,
+"pause_after": null
+}
+]
+},
+"subset2-65": {
+"de": "Macht euch alle über die Millennials lustig. [pause] Ihr werdet all die Karatestunden, die ihr uns gekauft habt, bereuen",
+"segments": [
+{
+"start": 0.732,
+"end": 3.412,
+"dur": 2.68,
+"pause_after": 1.16
+},
+{
+"start": 4.572,
+"end": 6.452,
+"dur": 1.88,
+"pause_after": 0.328
+},
+{
+"start": 6.78,
+"end": 8.596,
+"dur": 1.816,
+"pause_after": null
+}
+]
+},
+"subset2-66": {
+"de": "Über diesen tückischen Untergrund transportierten die Fahrer die Fracht selbst [pause] und luden sie danach wieder den Kamelen auf.",
+"segments": [
+{
+"start": 1.276,
+"end": 4.308,
+"dur": 3.032,
+"pause_after": 0.424
+},
+{
+"start": 4.732,
+"end": 6.676,
+"dur": 1.944,
+"pause_after": 1.288
+},
+{
+"start": 7.964,
+"end": 10.548,
+"dur": 2.584,
+"pause_after": null
+}
+]
+},
+"subset2-67": {
+"de": "Ich suche nach einer Bewegung von Asim Brkan, [pause] die auf dem besten Kanal von Netflix zu sehen ist.",
+"segments": [
+{
+"start": 1.148,
+"end": 4.244,
+"dur": 3.096,
+"pause_after": 1.096
+},
+{
+"start": 5.34,
+"end": 8.276,
+"dur": 2.936,
+"pause_after": null
+}
+]
+},
+"subset2-68": {
+"de": "Die Kellnerin trug eine beeindruckende Menge Geschirr, [pause] doch dann ereignete sich ein Erdbeben, und sie ließ alles fallen.",
+"segments": [
+{
+"start": 1.18,
+"end": 4.244,
+"dur": 3.064,
+"pause_after": 1.32
+},
+{
+"start": 5.564,
+"end": 9.204,
+"dur": 3.64,
+"pause_after": null
+}
+]
+},
+"subset2-69": {
+"de": "Die Aussicht auf die Stadt von da oben ist nicht schlecht, [pause] und es ist auch leicht zu finden.",
+"segments": [
+{
+"start": 0.796,
+"end": 3.796,
+"dur": 3.0,
+"pause_after": 0.712
+},
+{
+"start": 4.508,
+"end": 6.004,
+"dur": 1.496,
+"pause_after": null
+}
+]
+},
+"subset2-70": {
+"de": "Ich freue mich auf zunehmende Stabilität in meiner Position und darauf, [pause] mit dem gesamten Prozess fertig zu sein.",
+"segments": [
+{
+"start": 1.212,
+"end": 5.14,
+"dur": 3.928,
+"pause_after": 0.296
+},
+{
+"start": 5.436,
+"end": 6.004,
+"dur": 0.568,
+"pause_after": 1.384
+},
+{
+"start": 7.388,
+"end": 9.588,
+"dur": 2.2,
+"pause_after": null
+}
+]
+},
+"subset2-71": {
+"de": "Da fing der alte Mann an, die Schafe zu inspizieren, [pause] und er sah, dass eines von ihnen lahmte.",
+"segments": [
+{
+"start": 1.18,
+"end": 4.244,
+"dur": 3.064,
+"pause_after": 1.16
+},
+{
+"start": 5.404,
+"end": 6.132,
+"dur": 0.728,
+"pause_after": 0.616
+},
+{
+"start": 6.748,
+"end": 8.5,
+"dur": 1.752,
+"pause_after": null
+}
+]
+},
+"subset2-72": {
+"de": "Ein Mann in einem blauen Hemd steht und hält seinen Regenschirm, [pause] während das Wasser um ihn herum aufsteigt.",
+"segments": [
+{
+"start": 0.796,
+"end": 4.436,
+"dur": 3.64,
+"pause_after": 1.192
+},
+{
+"start": 5.628,
+"end": 8.436,
+"dur": 2.808,
+"pause_after": null
+}
+]
+},
+"subset2-73": {
+"de": "Er schloss die Schule in der nahe gelegene Horton School ab [pause] und studierte später an der Acadia University.",
+"segments": [
+{
+"start": 1.02,
+"end": 4.852,
+"dur": 3.832,
+"pause_after": 1.48
+},
+{
+"start": 6.332,
+"end": 9.3,
+"dur": 2.968,
+"pause_after": null
+}
+]
+},
+"subset2-74": {
+"de": "Eine Gruppe von Personen in weißen Gewändern mit einem Flammenmuster [pause] posieren für ein Bild auf einer Art Festival.",
+"segments": [
+{
+"start": 0.988,
+"end": 5.268,
+"dur": 4.28,
+"pause_after": 1.16
+},
+{
+"start": 6.428,
+"end": 9.108,
+"dur": 2.68,
+"pause_after": null
+}
+]
+},
+"subset2-75": {
+"de": "Ich habe mich gefragt, ob du an diesem Projekt mit mir arbeiten würdest, [pause] weil ich niemanden finden kann.",
+"segments": [
+{
+"start": 1.436,
+"end": 2.676,
+"dur": 1.24,
+"pause_after": 0.584
+},
+{
+"start": 3.26,
+"end": 6.388,
+"dur": 3.128,
+"pause_after": 0.968
+},
+{
+"start": 7.356,
+"end": 8.98,
+"dur": 1.624,
+"pause_after": null
+}
+]
+},
+"subset2-76": {
+"de": "Dies wird Ihnen helfen, mit Entwicklern wirksam zusammenzuarbeiten [pause] und teamübergreifende Projekte im Verlauf Ihrer gesamten Karriere zu koordinieren.",
+"segments": [
+{
+"start": 0.988,
+"end": 4.852,
+"dur": 3.864,
+"pause_after": 0.936
+},
+{
+"start": 5.788,
+"end": 11.156,
+"dur": 5.368,
+"pause_after": null
+}
+]
+},
+"subset2-77": {
+"de": "Ich habe gehört, dass das Land, in dem die Hobbits leben, das Auenland, [pause] tatsächlich in Neuseeland gefilmt wurde.",
+"segments": [
+{
+"start": 0.956,
+"end": 5.396,
+"dur": 4.44,
+"pause_after": 0.872
+},
+{
+"start": 6.268,
+"end": 8.66,
+"dur": 2.392,
+"pause_after": null
+}
+]
+},
+"subset2-78": {
+"de": "Selbst wenn Sie ein wirklicher Experte sind, [pause] ist es aus Zeitmangel nicht möglich, all das Material zu lesen.",
+"segments": [
+{
+"start": 1.148,
+"end": 3.764,
+"dur": 2.616,
+"pause_after": 1.128
+},
+{
+"start": 4.892,
+"end": 8.948,
+"dur": 4.056,
+"pause_after": null
+}
+]
+},
+"subset2-79": {
+"de": "Es waren wirklich, glaube ich, zwei- oder dreihundert Leute, [pause] die sich gegenseitig den Ellbogen in die Rippen rammten.",
+"segments": [
+{
+"start": 0.7,
+"end": 1.78,
+"dur": 1.08,
+"pause_after": 0.296
+},
+{
+"start": 2.076,
+"end": 4.628,
+"dur": 2.552,
+"pause_after": 1.128
+},
+{
+"start": 5.756,
+"end": 8.404,
+"dur": 2.648,
+"pause_after": null
+}
+]
+},
+"subset2-80": {
+"de": "Sie wurde in die Straße von Bougainville geschickt und machte erneut viele Kontakte, [pause] konnte aber keine Ergebnisse erzielen.",
+"segments": [
+{
+"start": 0.604,
+"end": 5.108,
+"dur": 4.504,
+"pause_after": 1.736
+},
+{
+"start": 6.844,
+"end": 8.98,
+"dur": 2.136,
+"pause_after": null
+}
+]
+},
+"subset2-81": {
+"de": "Wenn Sie mit diesem Satz fertig sind, [pause] klicken Sie zum Beenden der Aufnahme auf die untere rote Schaltfläche.",
+"segments": [
+{
+"start": 0.796,
+"end": 2.772,
+"dur": 1.976,
+"pause_after": 0.904
+},
+{
+"start": 3.676,
+"end": 8.116,
+"dur": 4.44,
+"pause_after": null
+}
+]
+},
+"subset2-82": {
+"de": "Er erinnerte sich an etwas, das sein Großvater einst zu ihm gesagt hatte: [pause] Schmetterlinge sind ein gutes Vorzeichen.",
+"segments": [
+{
+"start": 0.636,
+"end": 5.46,
+"dur": 4.824,
+"pause_after": 1.384
+},
+{
+"start": 6.844,
+"end": 9.108,
+"dur": 2.264,
+"pause_after": null
+}
+]
+},
+"subset2-83": {
+"de": "Schmerzen mit etwas zu essen (Brot) sind weniger erträglich. [pause] Kummer und fett ist besser als Kummer und mager.",
+"segments": [
+{
+"start": 0.86,
+"end": 2.644,
+"dur": 1.784,
+"pause_after": 0.296
+},
+{
+"start": 2.94,
+"end": 3.348,
+"dur": 0.408,
+"pause_after": 0.68
+},
+{
+"start": 4.028,
+"end": 5.62,
+"dur": 1.592,
+"pause_after": 0.616
+},
+{
+"start": 6.236,
+"end": 8.916,
+"dur": 2.68,
+"pause_after": null
+}
+]
+},
+"subset2-84": {
+"de": "Selbst ich – [pause] ich habe nicht an andere Frauen gedacht, seit ich die Tochter des Kaufmanns kennengelernt habe.",
+"segments": [
+{
+"start": 0.764,
+"end": 1.588,
+"dur": 0.824,
+"pause_after": 1.256
+},
+{
+"start": 2.844,
+"end": 4.98,
+"dur": 2.136,
+"pause_after": 0.744
+},
+{
+"start": 5.724,
+"end": 8.564,
+"dur": 2.84,
+"pause_after": null
+}
+]
+},
+"subset2-85": {
+"de": "Sehr nützlich wäre es, wenn mein Webbrowser die Möglichkeit hätte, alle seine Präferenzen zu synchronisieren, [pause] nicht nur einige.",
+"segments": [
+{
+"start": 1.02,
+"end": 7.508,
+"dur": 6.488,
+"pause_after": 1.096
+},
+{
+"start": 8.604,
+"end": 9.556,
+"dur": 0.952,
+"pause_after": null
+}
+]
+},
+"subset2-86": {
+"de": "Mach die Fensterläden auf und das Licht aus - [pause] wir können es uns nicht leisten, Strom zu vergeuden!",
+"segments": [
+{
+"start": 0.956,
+"end": 4.02,
+"dur": 3.064,
+"pause_after": 1.288
+},
+{
+"start": 5.308,
+"end": 7.892,
+"dur": 2.584,
+"pause_after": null
+}
+]
+},
+"subset2-87": {
+"de": "Als sie etwas Geld von ihrem Bankkonto abheben wollte, [pause] zeigte der Geldautomat an, dass ihre Karte ungültig war.",
+"segments": [
+{
+"start": 1.436,
+"end": 5.236,
+"dur": 3.8,
+"pause_after": 1.544
+},
+{
+"start": 6.78,
+"end": 10.452,
+"dur": 3.672,
+"pause_after": null
+}
+]
+},
+"subset2-88": {
+"de": "Sie war nicht zu Hause; [pause] ein Nachbar vermutete, dass sie letzte Nacht wahrscheinlich nicht nach Hause gekommen sei.",
+"segments": [
+{
+"start": 0.54,
+"end": 1.716,
+"dur": 1.176,
+"pause_after": 1.576
+},
+{
+"start": 3.292,
+"end": 8.244,
+"dur": 4.952,
+"pause_after": null
+}
+]
+},
+"subset2-89": {
+"de": "Der Junge bemerkte, dass der Besitzer der Bar in der Nähe stand [pause] und aufmerksam ihrem Gespräch zuhörte.",
+"segments": [
+{
+"start": 0.988,
+"end": 4.468,
+"dur": 3.48,
+"pause_after": 1.16
+},
+{
+"start": 5.628,
+"end": 8.148,
+"dur": 2.52,
+"pause_after": null
+}
+]
+},
+"subset2-90": {
+"de": "Die Region ist für ihr reiches Kupfervorkommen bekannt, [pause] so dass hier Bergbau in großem Stil betrieben wird.",
+"segments": [
+{
+"start": 0.508,
+"end": 3.7,
+"dur": 3.192,
+"pause_after": 1.352
+},
+{
+"start": 5.052,
+"end": 8.468,
+"dur": 3.416,
+"pause_after": null
+}
+]
+},
+"subset2-91": {
+"de": "Die Frau sagte, dass sie noch nie von einer solchen Person gehört hatte [pause] und ging schnell weg.",
+"segments": [
+{
+"start": 0.796,
+"end": 5.268,
+"dur": 4.472,
+"pause_after": 1.16
+},
+{
+"start": 6.428,
+"end": 7.668,
+"dur": 1.24,
+"pause_after": null
+}
+]
+},
+"subset2-92": {
+"de": "Der Junge trat an das Mädchen näher heran, [pause] und als sie lächelte, tat er es ihr gleich.",
+"segments": [
+{
+"start": 1.084,
+"end": 3.668,
+"dur": 2.584,
+"pause_after": 1.608
+},
+{
+"start": 5.276,
+"end": 6.548,
+"dur": 1.272,
+"pause_after": 0.36
+},
+{
+"start": 6.908,
+"end": 8.468,
+"dur": 1.56,
+"pause_after": null
+}
+]
+},
+"subset2-93": {
+"de": "Wenn Sie etwas sehen, das Ihnen gefällt, [pause] dann nehmen Sie es sich und machen Sie es besser.",
+"segments": [
+{
+"start": 0.86,
+"end": 3.188,
+"dur": 2.328,
+"pause_after": 1.448
+},
+{
+"start": 4.636,
+"end": 5.908,
+"dur": 1.272,
+"pause_after": 0.488
+},
+{
+"start": 6.396,
+"end": 7.476,
+"dur": 1.08,
+"pause_after": null
+}
+]
+},
+"subset2-94": {
+"de": "Er machte einen Moment Pause, [pause] um zu prüfen, ob die Frau über die ägyptischen Pyramiden Bescheid wusste.",
+"segments": [
+{
+"start": 1.34,
+"end": 3.252,
+"dur": 1.912,
+"pause_after": 1.576
+},
+{
+"start": 4.828,
+"end": 5.684,
+"dur": 0.856,
+"pause_after": 0.296
+},
+{
+"start": 5.98,
+"end": 9.3,
+"dur": 3.32,
+"pause_after": null
+}
+]
+},
+"subset2-95": {
+"de": "Nachdem allerdings die Labour Party an die Macht gekommen war, [pause] ebbte das Engagement gegen die Apartheid ab.",
+"segments": [
+{
+"start": 0.892,
+"end": 4.82,
+"dur": 3.928,
+"pause_after": 1.384
+},
+{
+"start": 6.204,
+"end": 9.876,
+"dur": 3.672,
+"pause_after": null
+}
+]
+},
+"subset2-96": {
+"de": "Er machte sich bei Getafe einen Namen, [pause] nachdem er aus der „Cantera“ von Real Madrid gekommen war.",
+"segments": [
+{
+"start": 0.988,
+"end": 3.38,
+"dur": 2.392,
+"pause_after": 1.256
+},
+{
+"start": 4.636,
+"end": 8.34,
+"dur": 3.704,
+"pause_after": null
+}
+]
+},
+"subset2-97": {
+"de": "Experten der Geologie sind sich einig: [pause] Der Tsunami von gestern war nur ein Vorbote der bevorstehenden Apokalypse.",
+"segments": [
+{
+"start": 0.572,
+"end": 3.508,
+"dur": 2.936,
+"pause_after": 1.16
+},
+{
+"start": 4.668,
+"end": 10.228,
+"dur": 5.56,
+"pause_after": null
+}
+]
+},
+"subset2-98": {
+"de": "Es gibt eine Moschee, die in Richtung eines javanischen Alun-alun zeigt, [pause] die typische Anordnung einer javanischen Stadt.",
+"segments": [
+{
+"start": 1.02,
+"end": 2.228,
+"dur": 1.208,
+"pause_after": 0.392
+},
+{
+"start": 2.62,
+"end": 5.428,
+"dur": 2.808,
+"pause_after": 0.872
+},
+{
+"start": 6.3,
+"end": 8.532,
+"dur": 2.232,
+"pause_after": null
+}
+]
+},
+"subset2-99": {
+"de": "Obwohl einige den Propheten bewunderten, [pause] beschuldigten ihn andere der Gotteslästerung, [pause] und er sucht jetzt Zuflucht im Ausland.",
+"segments": [
+{
+"start": 0.7,
+"end": 3.54,
+"dur": 2.84,
+"pause_after": 1.416
+},
+{
+"start": 4.956,
+"end": 8.02,
+"dur": 3.064,
+"pause_after": 0.616
+},
+{
+"start": 8.636,
+"end": 11.124,
+"dur": 2.488,
+"pause_after": null
+}
+]
+},
+"subset2-100": {
+"de": "Als der Junge auf den Löffel sah, den er hielt, [pause] erkannte er, dass das Öl weg war.",
+"segments": [
+{
+"start": 0.604,
+"end": 3.572,
+"dur": 2.968,
+"pause_after": 0.872
+},
+{
+"start": 4.444,
+"end": 6.484,
+"dur": 2.04,
+"pause_after": null
+}
+]
+}
+}

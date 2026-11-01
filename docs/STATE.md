@@ -2,7 +2,7 @@
 
 The build's working memory. If context runs short, resume from here.
 
-**Last updated:** 2026-10-21 (M5 complete; P18 backlog run built: fast re-exports, viewer polish, cross-release
+**Last updated:** 2026-11-01 (P19: the LLM dubber is in the app — `recomp dub …`, route settings per media, merged to main with all research; before that 2026-10-31 P19 research; 2026-10-21: M5 complete; P18 backlog run built: fast re-exports, viewer polish, cross-release
 matching, gapless recipe player, dub fixes, face-cropped Shorts, semantic search, cloned-voice dubs)
 
 | | |
@@ -239,6 +239,59 @@ matching, gapless recipe player, dub fixes, face-cropped Shorts, semantic search
   speakers (OmniVoice); not their recordings") in credits.json, the description and the endcard. Dark Knight J1 fr:
   23 lines cloned in ~25 min; after shortening seg:126/183, 1 line over (0.99 s), round-trip WER 0.26 vs 0.04 for
   the studio voice (X41 vs X42). The viewer marks these exports "original voices (AI)" with their own matrix row.
+
+## P19 LLM dubber in the app (2026-11-01, D-25)
+- `recomp dub settings | understand | write | fit | verify | status` (docs/VERBS.md; agent skill `recomp-dub`).
+  Routes by language strength: `direct`, `source` (src-en), `target` (tgt-en), `middle` (mid-en), `multi` (two or
+  more middle languages from different MT systems); `economy` or `quality` budget; MT `google` / `nllb` / `bergamot`
+  (worker scripts `mt_nllb.py`, `mt_bergamot.py`); back-translation checks; conserve mode.
+- Settings layer studio → project → **source** (`source add --dub-route/--dub-middle/--dub-budget/--dub-views-mt/--dub-mt/--dub-to`)
+  → journey; the studio shows them in Add sources → Dubbing, a source's *Dub settings…*, and Translations → *LLM dub*.
+- Storage: table `dub_work` (migration 2). `dub fit` is a job (`dubfit`); it writes translations with method `llmdub`
+  and per-frame choices. Exports voice each frame at the speaker's pause (`captions[].parts`).
+- Tests: `tests/unit/test_llmdub.py`, `tests/e2e/test_llmdub.py`. Write-up: `docs/research/P19-dubbing-and-meaning/APP.md`.
+- Not yet: unattended API mode (the agent writes), prosody cues, `--dub-*` on links.
+- All research branches were merged (history kept) into the session branch and main; the folder
+  `docs/research/P19-dubbing-and-meaning/` holds README (index), JOURNEY, RESULTS, BRANCHES, APP and every worktree.
+
+## P19 research (2026-10-31, research only — no app changes)
+- Your direction: explore (1) Claude-written timed dubbing scripts, (2) a model / no-training path learned from your
+  dual-audio movies (own branch `ccr-327cc642-xnfs3i-track2-models`), (3) LLM cut creation. Mid-run you asked for
+  feasibility research instead of app building: the `lang frame`/`lang fit` verb prototype was removed again.
+- Report: `docs/research/P19-dubbing-and-meaning/feasibility-report.md` (verdicts, literature, pilot, go/no-go experiments).
+- Pilot on two real dual-audio excerpts (movie2parallelDB samples, en→es): `scripts/research/p19/pilot_dub_pairs.py`
+  (sherpa-onnx Parakeet TDT v3 + Silero VAD, CPU, ~0.25 RTF). Human-dub speech overlap 0.72/0.81; dialogue rates
+  far below read-speech tables; dub says up to 28 % more words than the subtitle; subtracting tracks does not isolate
+  the dub voice; token times too coarse for pauses (needs forced alignment + diarisation).
+- **Mechanisms round (2026-10-31, worktrees):** one branch per timed-rephrasal mechanism, all on a shared bench
+  (IWSLT 2023 de→en test lines, German speakers' real speech frames; 30 k forced-aligned English utterances):
+  `…-p19-duration` (text→duration floor ~15 % MAPE), `…-p19-placement` (rate DP: 94–97 % of breaks within a word),
+  `…-p19-llm-loop` (Claude timed lines: 0.92 overlap with a real TTS voice, 5 % needing >1.1× speed-up, −7 chrF),
+  `…-p19-trained-mt` (IWSLT duration-aware Sockeye baseline, run after your OK: 0.80 voice overlap, normalised chrF
+  53.5 — fits like placement alone and loses the most meaning; train pretrained models, not from scratch),
+  `…-p19-algorithmic` (rules + WordNet + trigram LM, no neural model: safe edits +0.02 overlap; aggressive ones
+  0.90 but 27 % of segments ungrammatical in a blind check; next: an XLM-R masked LM as the judge, on your PC),
+  `…-p19-llm-multiround` (**best**: multi-round LLM refinement measured with the voice — 98 % of segments in band,
+  0 % needing >1.1× speed-up, 98 % fluent, converges in 3 rounds),
+  `…-p19-mctr` (**implementable form**: meaning-conserving top-down rephrasing — meaning units → allocation →
+  variants → voice-measured exact selection; same fit in 2 rounds, fewer additions, optional conserve mode),
+  `…-p19-twosided` (**MT-only targets**: LLM rephrases the source, MT translates, target voice times, exact
+  selection with target-side verification; de→en real MT: ±20 % fit 57→87 %, meaning 73→93 %; en→es: speed-up 55→0 %;
+  transfer guide for am/om in its README),
+  `…-p19-pivot` (**end to end between two MT-only languages via English**: multi-view MT understanding + prosody →
+  pivot meaning map pinned to source segments → two-sided timing; 24 unseen de→es lines: blind adequacy 1.17 → 2.71/3,
+  ±20 % fit 52 → 88 %; low-confidence lines flagged for a human; am→om steps in its README),
+  `…-p19-routes` (**working-language routing**: the LLM works only in languages it is strong in — direct /
+  target-direct / source-side / pivot, economy or quality budget; target-direct beats the pivot route on fit 91 vs
+  86 % and fluency 88 vs 50 % natural; pooled two languages 95 % fit with a route prior),
+  `…-p19-bipivot` (**two middle languages**: English + Spanish views from two MT systems; understanding 2.54 → 2.88/3,
+  French dub with real Mozilla MT + back-translation checks 2.83 vs 2.42 for the best cascade; Mozilla models run
+  offline via `mt_bergamot.py`). Summary: `docs/research/P19-dubbing-and-meaning/mechanisms-compared.md`.
+  Worktrees live at `/home/user/recompo-wt-*` in the cloud session only.
+- Sandbox notes: HuggingFace, arXiv, ACL Anthology are blocked here; GitHub (git and release assets) and PyPI work.
+- Open questions for you: language pairs in the library; lip-synced vs narrated dubs; agent vs API mode for films.
+- `tests/unit/test_contract.py::test_verbs_doc_is_current` fails on Linux only (VERBS.md holds the Windows default
+  `C:\Users\pc\bin`); unrelated to P19.
 
 ## Lessons
 - `>>` marks name speakers for free only when dense (≥ 1/min); sparse marks swap every later line (M2: 86 % vs 50 %).

@@ -19,6 +19,7 @@ MODULES = [
     "music",
     "speaker",
     "lang",
+    "dub",
     "hub",
     "trends",
     "follow",

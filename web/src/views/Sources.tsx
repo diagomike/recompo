@@ -4,7 +4,8 @@ import { frameUrl, must } from "../api";
 import { useApp, useData } from "../App";
 import { Act, useActions } from "../actions";
 import { FilterBar, textMatch, useFilters } from "../filters";
-import { Empty, Menu, SrcBadge } from "../ui";
+import { Disclosure, Empty, Menu, SrcBadge } from "../ui";
+import { asSourceAddArgs, DubFields, DubFieldsForm, DubSettingsDialog } from "./DubSettings";
 
 const STAGES = ["probe", "audio", "peaks", "shots", "thumbs", "transcript", "chapters"];
 const secs = (hms: string) => String(hms || "0").split(":").reduce((a, x) => a * 60 + parseFloat(x), 0);
@@ -16,6 +17,8 @@ export default function Sources() {
   const { data, error } = useData(() => must<any[]>("source.status"));
   const { data: list } = useData(() => must<any[]>("source.list"));
   const [target, setTarget] = useState("");
+  const [dub, setDub] = useState<DubFields>({});
+  const [dubFor, setDubFor] = useState<string | null>(null);
   const byRef: Record<string, any> = {};
   (list || []).forEach((s) => (byRef[s.ref] = s));
   const rows = (data || []).filter((s) => {
@@ -27,7 +30,7 @@ export default function Sources() {
 
   const add = async (t: string) => {
     if (!t.trim()) return;
-    const env = await run("source.add", { target: t.trim() }, { label: "Add source" });
+    const env = await run("source.add", { target: t.trim(), ...asSourceAddArgs(dub) }, { label: "Add source" });
     if (env.ok) setTarget("");
   };
 
@@ -47,12 +50,15 @@ export default function Sources() {
           <div className="row nowrap">
             <input className="input grow" placeholder='Paste a link (YouTube video, playlist, channel), a file, a folder or a glob ("D:\Movies\*.mp4")'
                    value={target} onChange={(e) => setTarget(e.target.value)} onKeyDown={(e) => e.key === "Enter" && add(target)} />
-            <Act verb="source.add" args={{ target: target.trim() }} primary agent disabled={!target.trim()} onDone={() => setTarget("")}>Add</Act>
+            <Act verb="source.add" args={{ target: target.trim(), ...asSourceAddArgs(dub) }} primary agent disabled={!target.trim()} onDone={() => setTarget("")}>Add</Act>
           </div>
           <div className="row">
             <button className={"btn" + (f.browse ? " on" : "")} onClick={() => setF("browse", f.browse ? null : "1")}><FolderOpen size={14} />Browse this computer</button>
             <span className="muted2">Subtitles next to a video (.srt, .vtt) are picked up automatically.</span>
           </div>
+          <Disclosure id="src.add.dub" label="Dubbing: languages and LLM dub route for these sources">
+            <DubFieldsForm value={dub} onChange={setDub} withTargets />
+          </Disclosure>
           {f.browse && <Browser onAdd={(paths) => paths.forEach((p) => add(p))} start={f.dir || null} setDir={(d) => setF("dir", d)} />}
         </div>
       )}
@@ -93,6 +99,7 @@ export default function Sources() {
                     <button className="btn small" onClick={() => go("room", s.ref)}><Scissors size={13} />Open</button>
                     <Menu small label={`More for ${s.ref}`} items={[
                       { label: "Show its cuts", onSelect: () => go("cuts", null, { source: s.ref }) },
+                      { label: "Dub settings…", desc: "Route, middle languages, MT and checks for the LLM dubber", onSelect: () => setDubFor(s.ref) },
                       { label: "Build frames and waveform", desc: "source process --jobs audio,peaks,thumbs", onSelect: () => run("source.process", { ref: s.ref, jobs: ["audio", "peaks", "thumbs"] }, { label: "Process" }) },
                       ...(b.kind === "link" ? [{ label: "Creator chapters", onSelect: () => run("chapter.seed", { ref: s.ref }, { label: "Chapters" }) }] : []),
                       { label: b.kind === "link" ? "Transcribe locally (ASR)" : "Transcribe again (ASR)", onSelect: () => run("transcript.asr", { ref: s.ref }, { label: "Transcribe" }) },
@@ -105,6 +112,8 @@ export default function Sources() {
           </table>
         </>
       )}
+      {dubFor && <DubSettingsDialog target={dubFor} title={`Dub settings for ${dubFor}`} onClose={() => setDubFor(null)}
+                                    scopes={[[dubFor, `this source (${dubFor})`], ["project", "the project"], ["studio", "the studio (every project)"]]} />}
     </div>
   );
 }

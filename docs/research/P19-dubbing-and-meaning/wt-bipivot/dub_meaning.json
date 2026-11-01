@@ -1,0 +1,207 @@
+{
+ "scale": "adequacy 0-3 of the French dub vs the CoVoST English reference; shuffled and unlabelled per line (references already seen in the understanding check)",
+ "conditions": {
+  "P0_A": "cascade: Sockeye de->en whole line -> Mozilla en->fr -> placement",
+  "P0_B": "cascade: Mozilla de->en->fr whole line -> placement (Firefox-style)",
+  "en_r2": "U3 map -> English options -> Mozilla en->fr -> French voice timing -> back-translation check -> 2 rounds",
+  "es_r2": "same with Spanish options (es->en->fr: Mozilla has no es->fr)",
+  "pool_r2": "English + Spanish options pooled"
+ },
+ "summary": {
+  "P0_A": {
+   "adequacy_mean": 1.12,
+   "full_pct": 8.3,
+   "major_loss_or_wrong_pct": 75.0
+  },
+  "P0_B": {
+   "adequacy_mean": 2.42,
+   "full_pct": 54.2,
+   "major_loss_or_wrong_pct": 12.5
+  },
+  "en_r2": {
+   "adequacy_mean": 2.83,
+   "full_pct": 83.3,
+   "major_loss_or_wrong_pct": 0.0
+  },
+  "es_r2": {
+   "adequacy_mean": 2.67,
+   "full_pct": 75.0,
+   "major_loss_or_wrong_pct": 8.3
+  },
+  "pool_r2": {
+   "adequacy_mean": 2.79,
+   "full_pct": 83.3,
+   "major_loss_or_wrong_pct": 4.2
+  }
+ },
+ "per_line": {
+  "subset2-81": {
+   "en_r2": 3,
+   "es_r2": 3,
+   "pool_r2": 3,
+   "P0_A": 2,
+   "P0_B": 3
+  },
+  "subset2-82": {
+   "es_r2": 3,
+   "P0_B": 2,
+   "en_r2": 3,
+   "pool_r2": 3,
+   "P0_A": 1
+  },
+  "subset2-83": {
+   "P0_A": 1,
+   "en_r2": 2,
+   "pool_r2": 2,
+   "P0_B": 1,
+   "es_r2": 1
+  },
+  "subset2-84": {
+   "es_r2": 2,
+   "P0_A": 3,
+   "en_r2": 2,
+   "pool_r2": 2,
+   "P0_B": 3
+  },
+  "subset2-85": {
+   "es_r2": 3,
+   "P0_A": 1,
+   "P0_B": 3,
+   "en_r2": 3,
+   "pool_r2": 3
+  },
+  "subset2-86": {
+   "P0_A": 0,
+   "es_r2": 2,
+   "en_r2": 3,
+   "pool_r2": 3,
+   "P0_B": 2
+  },
+  "subset2-87": {
+   "P0_B": 3,
+   "en_r2": 3,
+   "pool_r2": 3,
+   "es_r2": 2,
+   "P0_A": 1
+  },
+  "subset2-88": {
+   "en_r2": 3,
+   "pool_r2": 3,
+   "P0_A": 1,
+   "P0_B": 3,
+   "es_r2": 3
+  },
+  "subset2-89": {
+   "en_r2": 3,
+   "pool_r2": 3,
+   "P0_A": 2,
+   "P0_B": 2,
+   "es_r2": 3
+  },
+  "subset2-90": {
+   "en_r2": 3,
+   "pool_r2": 3,
+   "es_r2": 3,
+   "P0_A": 1,
+   "P0_B": 3
+  },
+  "subset2-91": {
+   "es_r2": 3,
+   "P0_A": 0,
+   "en_r2": 3,
+   "pool_r2": 3,
+   "P0_B": 3
+  },
+  "subset2-92": {
+   "P0_A": 0,
+   "P0_B": 1,
+   "es_r2": 3,
+   "en_r2": 2,
+   "pool_r2": 2
+  },
+  "subset2-93": {
+   "P0_A": 1,
+   "P0_B": 2,
+   "es_r2": 3,
+   "pool_r2": 3,
+   "en_r2": 3
+  },
+  "subset2-94": {
+   "en_r2": 3,
+   "pool_r2": 3,
+   "es_r2": 3,
+   "P0_B": 3,
+   "P0_A": 1
+  },
+  "subset2-95": {
+   "P0_A": 1,
+   "P0_B": 2,
+   "en_r2": 3,
+   "pool_r2": 3,
+   "es_r2": 3
+  },
+  "subset2-96": {
+   "en_r2": 3,
+   "es_r2": 2,
+   "P0_A": 1,
+   "pool_r2": 3,
+   "P0_B": 2
+  },
+  "subset2-97": {
+   "es_r2": 3,
+   "P0_A": 1,
+   "en_r2": 3,
+   "pool_r2": 3,
+   "P0_B": 3
+  },
+  "subset2-98": {
+   "en_r2": 3,
+   "pool_r2": 3,
+   "P0_B": 2,
+   "es_r2": 3,
+   "P0_A": 1
+  },
+  "subset2-99": {
+   "es_r2": 3,
+   "P0_B": 3,
+   "en_r2": 3,
+   "pool_r2": 3,
+   "P0_A": 0
+  },
+  "subset2-100": {
+   "P0_A": 3,
+   "P0_B": 3,
+   "es_r2": 3,
+   "en_r2": 3,
+   "pool_r2": 3
+  },
+  "subset1-18": {
+   "pool_r2": 1,
+   "es_r2": 1,
+   "P0_B": 1,
+   "en_r2": 2,
+   "P0_A": 0
+  },
+  "subset1-19": {
+   "en_r2": 3,
+   "pool_r2": 3,
+   "P0_A": 2,
+   "P0_B": 3,
+   "es_r2": 3
+  },
+  "subset1-20": {
+   "en_r2": 3,
+   "es_r2": 3,
+   "pool_r2": 3,
+   "P0_A": 1,
+   "P0_B": 3
+  },
+  "subset1-21": {
+   "P0_B": 2,
+   "es_r2": 3,
+   "en_r2": 3,
+   "pool_r2": 3,
+   "P0_A": 2
+  }
+ }
+}

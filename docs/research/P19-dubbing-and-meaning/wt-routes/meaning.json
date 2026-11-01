@@ -1,0 +1,596 @@
+{
+ "scale": "adequacy 0-3 vs hidden CoVoST English reference (3 full, 2 minor loss, 1 major loss, 0 wrong); fluency 0-2 (2 natural Spanish, 1 understandable but literal, 0 broken); blind: shuffled, deduplicated outputs per line",
+ "summary": {
+  "P0": {
+   "adequacy_mean": 1.38,
+   "full_meaning_pct": 8.3,
+   "major_loss_or_wrong_pct": 62.5,
+   "fluency_mean_0_2": 0.21,
+   "natural_pct": 0.0,
+   "adequacy_by_confidence": {
+    "medium": 1.17,
+    "high": 2.0,
+    "low": 1.0
+   }
+  },
+  "E_r2": {
+   "adequacy_mean": 2.54,
+   "full_meaning_pct": 62.5,
+   "major_loss_or_wrong_pct": 8.3,
+   "fluency_mean_0_2": 1.46,
+   "natural_pct": 50.0,
+   "adequacy_by_confidence": {
+    "medium": 2.58,
+    "high": 3.0,
+    "low": 1.8
+   }
+  },
+  "D_r2": {
+   "adequacy_mean": 2.58,
+   "full_meaning_pct": 66.7,
+   "major_loss_or_wrong_pct": 8.3,
+   "fluency_mean_0_2": 1.88,
+   "natural_pct": 87.5,
+   "adequacy_by_confidence": {
+    "medium": 2.67,
+    "high": 3.0,
+    "low": 1.8
+   }
+  },
+  "X_r2": {
+   "adequacy_mean": 2.58,
+   "full_meaning_pct": 66.7,
+   "major_loss_or_wrong_pct": 8.3,
+   "fluency_mean_0_2": 1.62,
+   "natural_pct": 62.5,
+   "adequacy_by_confidence": {
+    "medium": 2.67,
+    "high": 3.0,
+    "low": 1.8
+   }
+  },
+  "X_r2_prior": {
+   "adequacy_mean": 2.58,
+   "full_meaning_pct": 66.7,
+   "major_loss_or_wrong_pct": 8.3,
+   "fluency_mean_0_2": 1.79,
+   "natural_pct": 79.2,
+   "adequacy_by_confidence": {
+    "medium": 2.67,
+    "high": 3.0,
+    "low": 1.8
+   },
+   "note": "6 mixed lines judged after the references were seen (not blind)"
+  }
+ },
+ "per_line": {
+  "subset2-57": {
+   "P0": [
+    1,
+    0
+   ],
+   "E_r2": [
+    2,
+    2
+   ],
+   "D_r2": [
+    3,
+    2
+   ],
+   "X_r2": [
+    3,
+    2
+   ],
+   "X_r2_prior": [
+    3,
+    2
+   ]
+  },
+  "subset2-58": {
+   "D_r2": [
+    2,
+    2
+   ],
+   "P0": [
+    1,
+    0
+   ],
+   "E_r2": [
+    2,
+    2
+   ],
+   "X_r2": [
+    2,
+    2
+   ],
+   "X_r2_prior": [
+    2,
+    2
+   ]
+  },
+  "subset2-59": {
+   "D_r2": [
+    2,
+    2
+   ],
+   "E_r2": [
+    2,
+    2
+   ],
+   "X_r2": [
+    2,
+    2
+   ],
+   "P0": [
+    1,
+    0
+   ],
+   "X_r2_prior": [
+    2,
+    2
+   ]
+  },
+  "subset2-60": {
+   "D_r2": [
+    3,
+    2
+   ],
+   "X_r2": [
+    3,
+    2
+   ],
+   "P0": [
+    2,
+    1
+   ],
+   "E_r2": [
+    3,
+    2
+   ],
+   "X_r2_prior": [
+    3,
+    2
+   ]
+  },
+  "subset2-61": {
+   "E_r2": [
+    1,
+    1
+   ],
+   "X_r2": [
+    1,
+    1
+   ],
+   "P0": [
+    0,
+    0
+   ],
+   "D_r2": [
+    1,
+    2
+   ],
+   "X_r2_prior": [
+    1,
+    2
+   ]
+  },
+  "subset2-62": {
+   "E_r2": [
+    2,
+    1
+   ],
+   "X_r2": [
+    2,
+    1
+   ],
+   "P0": [
+    1,
+    0
+   ],
+   "D_r2": [
+    2,
+    2
+   ],
+   "X_r2_prior": [
+    2,
+    1
+   ]
+  },
+  "subset2-63": {
+   "D_r2": [
+    3,
+    2
+   ],
+   "P0": [
+    2,
+    0
+   ],
+   "E_r2": [
+    3,
+    2
+   ],
+   "X_r2": [
+    3,
+    2
+   ],
+   "X_r2_prior": [
+    3,
+    2
+   ]
+  },
+  "subset2-64": {
+   "E_r2": [
+    3,
+    1
+   ],
+   "P0": [
+    1,
+    0
+   ],
+   "D_r2": [
+    3,
+    2
+   ],
+   "X_r2": [
+    3,
+    2
+   ],
+   "X_r2_prior": [
+    3,
+    2
+   ]
+  },
+  "subset2-65": {
+   "E_r2": [
+    2,
+    1
+   ],
+   "X_r2": [
+    2,
+    1
+   ],
+   "P0": [
+    0,
+    0
+   ],
+   "D_r2": [
+    2,
+    1
+   ],
+   "X_r2_prior": [
+    2,
+    1
+   ]
+  },
+  "subset2-66": {
+   "E_r2": [
+    2,
+    1
+   ],
+   "D_r2": [
+    2,
+    2
+   ],
+   "X_r2": [
+    2,
+    2
+   ],
+   "P0": [
+    1,
+    0
+   ],
+   "X_r2_prior": [
+    2,
+    2
+   ]
+  },
+  "subset2-67": {
+   "E_r2": [
+    1,
+    1
+   ],
+   "X_r2": [
+    1,
+    1
+   ],
+   "D_r2": [
+    1,
+    2
+   ],
+   "P0": [
+    3,
+    1
+   ],
+   "X_r2_prior": [
+    1,
+    2
+   ]
+  },
+  "subset2-68": {
+   "P0": [
+    1,
+    0
+   ],
+   "D_r2": [
+    3,
+    2
+   ],
+   "E_r2": [
+    3,
+    1
+   ],
+   "X_r2": [
+    3,
+    1
+   ],
+   "X_r2_prior": [
+    3,
+    2
+   ]
+  },
+  "subset2-69": {
+   "D_r2": [
+    3,
+    2
+   ],
+   "X_r2": [
+    3,
+    2
+   ],
+   "P0": [
+    1,
+    0
+   ],
+   "E_r2": [
+    3,
+    1
+   ],
+   "X_r2_prior": [
+    3,
+    2
+   ]
+  },
+  "subset2-70": {
+   "E_r2": [
+    2,
+    1
+   ],
+   "X_r2": [
+    2,
+    1
+   ],
+   "P0": [
+    1,
+    0
+   ],
+   "D_r2": [
+    2,
+    1
+   ],
+   "X_r2_prior": [
+    2,
+    1
+   ]
+  },
+  "subset2-71": {
+   "X_r2": [
+    3,
+    1
+   ],
+   "P0": [
+    1,
+    0
+   ],
+   "E_r2": [
+    3,
+    0
+   ],
+   "D_r2": [
+    3,
+    2
+   ],
+   "X_r2_prior": [
+    3,
+    1
+   ]
+  },
+  "subset2-72": {
+   "E_r2": [
+    3,
+    2
+   ],
+   "X_r2": [
+    3,
+    2
+   ],
+   "P0": [
+    2,
+    1
+   ],
+   "D_r2": [
+    3,
+    2
+   ],
+   "X_r2_prior": [
+    3,
+    2
+   ]
+  },
+  "subset2-73": {
+   "P0": [
+    3,
+    1
+   ],
+   "D_r2": [
+    3,
+    2
+   ],
+   "E_r2": [
+    3,
+    2
+   ],
+   "X_r2": [
+    3,
+    2
+   ],
+   "X_r2_prior": [
+    3,
+    2
+   ]
+  },
+  "subset2-74": {
+   "D_r2": [
+    3,
+    2
+   ],
+   "P0": [
+    2,
+    1
+   ],
+   "E_r2": [
+    3,
+    2
+   ],
+   "X_r2": [
+    3,
+    2
+   ],
+   "X_r2_prior": [
+    3,
+    2
+   ]
+  },
+  "subset2-75": {
+   "X_r2": [
+    3,
+    2
+   ],
+   "P0": [
+    1,
+    0
+   ],
+   "E_r2": [
+    3,
+    2
+   ],
+   "D_r2": [
+    3,
+    2
+   ],
+   "X_r2_prior": [
+    3,
+    2
+   ]
+  },
+  "subset2-76": {
+   "E_r2": [
+    3,
+    2
+   ],
+   "X_r2": [
+    3,
+    2
+   ],
+   "P0": [
+    1,
+    0
+   ],
+   "D_r2": [
+    3,
+    2
+   ],
+   "X_r2_prior": [
+    3,
+    2
+   ]
+  },
+  "subset2-77": {
+   "E_r2": [
+    3,
+    1
+   ],
+   "X_r2": [
+    3,
+    1
+   ],
+   "P0": [
+    2,
+    0
+   ],
+   "D_r2": [
+    3,
+    2
+   ],
+   "X_r2_prior": [
+    3,
+    2
+   ]
+  },
+  "subset2-78": {
+   "D_r2": [
+    3,
+    1
+   ],
+   "P0": [
+    2,
+    0
+   ],
+   "E_r2": [
+    3,
+    2
+   ],
+   "X_r2": [
+    3,
+    2
+   ],
+   "X_r2_prior": [
+    3,
+    1
+   ]
+  },
+  "subset2-79": {
+   "P0": [
+    1,
+    0
+   ],
+   "D_r2": [
+    3,
+    2
+   ],
+   "E_r2": [
+    3,
+    1
+   ],
+   "X_r2": [
+    3,
+    1
+   ],
+   "X_r2_prior": [
+    3,
+    2
+   ]
+  },
+  "subset2-80": {
+   "E_r2": [
+    3,
+    2
+   ],
+   "X_r2": [
+    3,
+    2
+   ],
+   "D_r2": [
+    3,
+    2
+   ],
+   "P0": [
+    2,
+    0
+   ],
+   "X_r2_prior": [
+    3,
+    2
+   ]
+  }
+ }
+}
