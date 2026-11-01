@@ -59,8 +59,9 @@ Every open task by priority. Done phases are summarised; their detail is in git 
 ## LLM dubber (P19 in the app, 2026-11-01)
 - [x] `recomp dub …` verbs, layered settings (studio/project/source/journey), routes direct/source/target/middle/multi,
       economy/quality, MT google/nllb/bergamot, back-translation checks, per-frame voicing in exports, studio controls.
-- [ ] Run it on your PC on a real journey: am→om with `--route multi --middle en,es --views-mt google,nllb`
-      (needs NLLB in the worker env; bergamot optional: `pip install bergamot==0.4.5` + `dub.bergamot_models`).
+- [x] Offline by default (NLLB, M2M-100, bergamot, MMS voices) with an online switch; `dub models`; multi-movie batching.
+- [ ] On your PC: `recomp dub models --to om,am --download` once (worker env needs transformers, sentencepiece;
+      bergamot optional: `pip install bergamot==0.4.5`), then a real am→om journey with `--route multi --middle en,es`.
 - [ ] `--dub-*` options for links in `source add`; prosody cues in `dub understand`.
 
 ## Research (P19, 2026-10-31; research only)

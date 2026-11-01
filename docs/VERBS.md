@@ -16,7 +16,7 @@ Effects: `read` (no changes) · `write` (undoable op) · `heavy` (starts a job) 
 | `context` | [`context`](#context) |
 | `cut` | [`cut.add`](#cutadd), [`cut.edit`](#cutedit), [`cut.list`](#cutlist), [`cut.merge`](#cutmerge), [`cut.remove`](#cutremove), [`cut.show`](#cutshow), [`cut.split`](#cutsplit), [`cut.suggest`](#cutsuggest), [`cut.tag`](#cuttag), [`cut.trim`](#cuttrim) |
 | `doctor` | [`doctor`](#doctor) |
-| `dub` | [`dub.fit`](#dubfit), [`dub.settings`](#dubsettings), [`dub.status`](#dubstatus), [`dub.understand`](#dubunderstand), [`dub.verify`](#dubverify), [`dub.write`](#dubwrite) |
+| `dub` | [`dub.fit`](#dubfit), [`dub.models`](#dubmodels), [`dub.next`](#dubnext), [`dub.settings`](#dubsettings), [`dub.status`](#dubstatus), [`dub.submit`](#dubsubmit), [`dub.understand`](#dubunderstand), [`dub.verify`](#dubverify), [`dub.write`](#dubwrite) |
 | `export` | [`export.caption-sheet`](#exportcaption-sheet), [`export.check`](#exportcheck), [`export.cuts`](#exportcuts), [`export.multitrack`](#exportmultitrack), [`export.run`](#exportrun), [`export.show`](#exportshow), [`export.status`](#exportstatus) |
 | `find` | [`find.creators`](#findcreators) |
 | `follow` | [`follow.add`](#followadd), [`follow.backfill`](#followbackfill), [`follow.check`](#followcheck), [`follow.edit`](#followedit), [`follow.list`](#followlist), [`follow.remove`](#followremove) |
@@ -465,6 +465,41 @@ Stage 3 (a job): translate options that cross into the target, voice every candi
 recomp dub fit J1 --to om
 ```
 
+### dub.models
+
+`recomp dub models` · effect: **network**
+
+The offline models the dub needs (NLLB, M2M-100 and MMS voices in the worker cache; Mozilla bergamot pairs) and which are here. With --download, fetch the missing ones once.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `--to` | list[string] | None | Dub languages (default: every --dub-to of the project's sources) |
+| `--src` | list[string] | None | Source languages (default: the project's sources) |
+| `--download` | boolean | False | Fetch what is missing now (needs the internet once; afterwards the dub runs offline) |
+
+```
+recomp dub models
+recomp dub models --to om,am --download
+```
+
+### dub.next
+
+`recomp dub next` · effect: **heavy**
+
+The next batch of dub work across several movies at once: for each journey and language, its next stage (map, write, check, rewrite) with that stage's template, up to --limit lines in all. Machine stages (fit) are queued as jobs so they run while you write. Answer everything with `dub submit`.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `--journeys` | list[string] | None | Journeys to work on (default: every journey whose media has dub languages) |
+| `--to` | list[string] | None | Dub languages (default: each journey's --dub-to languages) |
+| `--limit` | integer | 40 | Lines in this batch, across all the journeys |
+| `--fit` | boolean | True | Queue `dub fit` jobs for journeys whose next step is the machine's |
+
+```
+recomp dub next
+recomp dub next --journeys J1,J4,J7 --to om --limit 60
+```
+
 ### dub.settings
 
 `recomp dub settings <target>` · effect: **write**
@@ -477,11 +512,12 @@ Show or change the LLM dubber's settings. Layers, lowest first: studio → proje
 | `--to` | string | None | Target language: also show the route the settings give |
 | `--at` | string | None | Where to change settings: studio, project, a source (S1) or a journey (J1) |
 | `--clear` | list[string] | None | Settings to remove at --at (fall back to the layer below) |
+| `--online` | boolean | None | Allow online engines: google MT and edge voices (default false: NLLB / M2M-100 / bergamot and MMS voices, all local) |
 | `--route` | string | None | auto \| direct \| source (src-en: the LLM writes in the source) \| target (tgt-en: writes the target) \| middle (mid-en: one middle language) \| multi (two or more middle languages) |
 | `--middle` | list[string] | None | Middle languages in order, e.g. en or en,es (multi: two or more) |
 | `--budget` | string | None | economy (one writing language, fewest tokens) \| quality (two writing languages pooled) |
-| `--views-mt` | list[string] | None | MT systems for the understanding views, paired with the middle languages: google, nllb, bergamot |
-| `--mt` | string | None | MT system into the target and for back-translation: google, nllb, bergamot |
+| `--views-mt` | list[string] | None | MT systems for the understanding views, paired with the middle languages: nllb, m2m100, bergamot, google (online) |
+| `--mt` | string | None | MT system into the target and for back-translation: nllb, m2m100, bergamot, google (online) |
 | `--verify` | string | None | auto (when the target is weak and MT crossed) \| always \| never |
 | `--conserve` | boolean | None | Meaning-conserving mode: cost added content, allow short silences |
 | `--rounds` | integer | None | Rewrite rounds offered for frames still out of band |
@@ -513,6 +549,21 @@ Where the LLM dub of a journey stands: lines mapped, options written, fit per li
 
 ```
 recomp dub status J1 --to om
+```
+
+### dub.submit
+
+`recomp dub submit` · effect: **write**
+
+Answer a `dub next` batch in one call, for several movies: meaning maps, options and checks per journey and language. Queues the fits as jobs; then `dub next` again.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `--batch` | object | None | {"J1:om": {"maps": {…}, "options": {…}, "checks": {…}}, …} (use --input) |
+| `--fit` | boolean | True | Queue `dub fit` for every journey that got options or checks (runs while you go on) |
+
+```
+recomp dub submit --input batch.json
 ```
 
 ### dub.understand
@@ -1503,7 +1554,7 @@ Translate a journey's spoken lines, overlays and title. Get the template, write 
 | `--to` | string | required | Target language code (am, sw, fr, om, …) |
 | `--template` | boolean | False | Return the lines to translate (with timing budgets) instead of writing |
 | `--translations` | object | None | {key: text} from the template (use --input) |
-| `--engine` | string | None | google: draft every untranslated line with Google's web endpoint |
+| `--engine` | string | None | Draft every untranslated line by MT: nllb, m2m100, bergamot (offline) or google (online) |
 | `--overwrite` | boolean | False | With --engine: also replace lines translated before (never the user's) |
 
 ```
@@ -2240,8 +2291,9 @@ Add media: files are referenced in place (never copied); subtitles beside them a
 | `--dub-route` | string | None | LLM dubber route: auto, direct, source (src-en), target (tgt-en), middle (mid-en), multi |
 | `--dub-middle` | list[string] | None | LLM dubber middle languages, e.g. en or en,es |
 | `--dub-budget` | string | None | LLM dubber budget: economy (one writing language) or quality (two) |
-| `--dub-views-mt` | list[string] | None | MT systems for the understanding views: google, nllb, bergamot |
-| `--dub-mt` | string | None | MT system into the dub language: google, nllb, bergamot |
+| `--dub-views-mt` | list[string] | None | MT systems for the understanding views: nllb, m2m100, bergamot, google |
+| `--dub-mt` | string | None | MT system into the dub language: nllb, m2m100, bergamot (offline) or google (online) |
+| `--dub-online` | boolean | None | Allow online engines (google MT, edge voices) for this media; default offline |
 
 ```
 recomp source add "D:\Recomp\Video\The.Dark.Knight*.mp4"

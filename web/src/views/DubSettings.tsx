@@ -16,10 +16,10 @@ export const ROUTES: [string, string, string][] = [
   ["middle", "Middle language (mid-en)", "Both ends MT-only: understand and write in one middle language (English)"],
   ["multi", "Several middle languages", "Both ends MT-only: understand through two or more middle languages from different MT systems (e.g. English + Spanish)"],
 ];
-const ENGINES: [string, string][] = [["google", "Google"], ["nllb", "NLLB-200 (worker)"], ["bergamot", "Mozilla bergamot (worker)"]];
+const ENGINES: [string, string][] = [["nllb", "NLLB-200 (offline)"], ["m2m100", "M2M-100 (offline)"], ["bergamot", "Mozilla bergamot (offline, European languages)"], ["google", "Google (online)"]];
 
 export type DubFields = {
-  route?: string; middle?: string[]; budget?: string; views_mt?: string[]; mt?: string; verify?: string; conserve?: boolean; targets?: string[];
+  online?: boolean; route?: string; middle?: string[]; budget?: string; views_mt?: string[]; mt?: string; verify?: string; conserve?: boolean; targets?: string[];
 };
 
 const list = (s: string) => s.split(",").map((x) => x.trim()).filter(Boolean);
@@ -53,9 +53,9 @@ export function DubFieldsForm({ value, onChange, from, withTargets }: {
           <span className="help">{route === "multi" ? "Two or more, e.g. en, es" : "Used by target, middle and multi routes"}</span>{origin("middle")}
         </div>
         <div className="field"><label htmlFor="dub-views">MT for the views</label>
-          <input id="dub-views" className="input" style={{ width: 170 }} placeholder="google" value={(value.views_mt || []).join(", ")}
+          <input id="dub-views" className="input" style={{ width: 170 }} placeholder="nllb, m2m100" value={(value.views_mt || []).join(", ")}
                  onChange={(e) => set("views_mt", list(e.target.value))} />
-          <span className="help">One per middle language: google, nllb, bergamot</span>{origin("views_mt")}
+          <span className="help">One per middle language: nllb, m2m100, bergamot{value.online ? ", google" : ""}</span>{origin("views_mt")}
         </div>
       </div>
       <div className="row">
@@ -66,8 +66,8 @@ export function DubFieldsForm({ value, onChange, from, withTargets }: {
           </select>{origin("budget")}
         </div>
         <div className="field"><label htmlFor="dub-mt">MT into the target</label>
-          <select id="dub-mt" className="input" value={value.mt || "google"} onChange={(e) => set("mt", e.target.value)}>
-            {ENGINES.map(([k, l]) => <option key={k} value={k}>{l}</option>)}
+          <select id="dub-mt" className="input" value={value.mt || "nllb"} onChange={(e) => set("mt", e.target.value)}>
+            {ENGINES.filter(([k]) => k !== "google" || value.online).map(([k, l]) => <option key={k} value={k}>{l}</option>)}
           </select>{origin("mt")}
         </div>
         <div className="field"><label htmlFor="dub-verify">Back-translation checks</label>
@@ -78,6 +78,8 @@ export function DubFieldsForm({ value, onChange, from, withTargets }: {
           </select>{origin("verify")}
         </div>
       </div>
+      <label className="row tight"><input type="checkbox" checked={!!value.online} onChange={(e) => set("online", e.target.checked)} />
+        Allow online engines <span className="muted2">(Google MT and Edge neural voices; off: everything runs on this computer with NLLB, M2M-100, bergamot and MMS voices)</span>{origin("online")}</label>
       <label className="row tight"><input type="checkbox" checked={!!value.conserve} onChange={(e) => set("conserve", e.target.checked)} />
         Meaning-conserving mode <span className="muted2">(adds nothing to fill time; a short silence instead)</span>{origin("conserve")}</label>
     </div>
@@ -99,8 +101,9 @@ export const asSourceAddArgs = (v: DubFields) => {
   if (v.middle?.length) out.dub_middle = v.middle;
   if (v.budget && v.budget !== "economy") out.dub_budget = v.budget;
   if (v.views_mt?.length) out.dub_views_mt = v.views_mt;
-  if (v.mt && v.mt !== "google") out.dub_mt = v.mt;
+  if (v.mt && v.mt !== "nllb") out.dub_mt = v.mt;
   if (v.targets?.length) out.dub_to = v.targets;
+  if (v.online) out.dub_online = true;
   return out;
 };
 
@@ -124,7 +127,7 @@ export function DubSettingsDialog({ target, to, scopes, onClose, title }: {
               {target && lang && <button className="btn" onClick={async () => { await ask(`Dub ${target} into ${lang} with the LLM dubber (recomp-dub skill), using these dub settings.`, [target]); onClose(); }}
                                          data-tip="Leave the request for the agent: it sees it in `recomp ui notes`"><Sparkles size={13} />Ask the agent to dub</button>}
               <div className="spacer" />
-              <Act verb="dub.settings" args={{ at, clear: ["route", "middle", "budget", "views_mt", "mt", "verify", "conserve"] }} ghost
+              <Act verb="dub.settings" args={{ at, clear: ["online", "route", "middle", "budget", "views_mt", "mt", "verify", "conserve"] }} ghost
                    confirm="Removes this layer's dub settings (they fall back to the layer below)" onDone={reload}>Reset this layer</Act>
               <Act verb="dub.settings" args={{ at, ...changes }} primary disabled={!Object.keys(changes).length} onDone={reload}>Save at {scopes.find(([k]) => k === at)?.[1]}</Act>
             </>}>
@@ -148,6 +151,8 @@ export function DubSettingsDialog({ target, to, scopes, onClose, title }: {
               <span className="chip">reads {plan.reads.join(" + ")}</span><span className="chip">writes {plan.writes.join(" + ")}</span>
               {!!plan.back_translate.length && <span className="chip partial">checks via {plan.back_translate.map((b: any) => b.lang).join(" + ")}</span>}</div>
             <ol className="muted2" style={{ margin: 0, paddingLeft: 18 }}>{plan.steps.map((s: string, i: number) => <li key={i}>{s}</li>)}</ol>
+            {!!plan.notes?.length && <div className="muted2">{plan.notes.map((n: string, i: number) => <div key={i}>Note: {n}</div>)}</div>}
+            <span className="chip">{plan.online ? "online engines allowed" : "offline: runs on this computer"}</span>
           </div>
         )}
       </div>

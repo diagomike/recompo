@@ -250,6 +250,10 @@ matching, gapless recipe player, dub fixes, face-cropped Shorts, semantic search
 - Storage: table `dub_work` (migration 2). `dub fit` is a job (`dubfit`); it writes translations with method `llmdub`
   and per-frame choices. Exports voice each frame at the speaker's pause (`captions[].parts`).
 - Tests: `tests/unit/test_llmdub.py`, `tests/e2e/test_llmdub.py`. Write-up: `docs/research/P19-dubbing-and-meaning/APP.md`.
+- Offline by default (D-27): NLLB + M2M-100 + bergamot MT and MMS voices; `--online true` (any layer) allows
+  Google and edge. `dub models [--download]` checks and fetches the models once. Export dubs follow the same switch.
+- Several movies at once: `dub next --limit N` (next stage per journey and language, fits queued as jobs) and
+  `dub submit --input batch.json`.
 - How it runs (D-26): you and the Claude desktop app in the shared project folder; no LLM API, ever. Whole films in
   batches (`dub understand/write --template --limit N`). All work local; only recipes go to the hub when you publish.
 - Not yet: prosody cues, `--dub-*` on links.

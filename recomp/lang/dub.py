@@ -39,13 +39,16 @@ def build_dub(project, plan: dict, voice: str | None = None, log=print, progress
     if not lines:
         raise RecompError("E_INVALID", f"no {lang} lines to voice",
                           hint=f"Translate first: `recomp lang translate <journey> --to {lang}`")
-    backend, v = ("clone", "omnivoice") if voice == "clone" else tts.voice_for(lang, voice)
+    from .llmdub import resolve
+    online = bool(resolve(project)[0].get("online"))
+    backend, v = ("clone", "omnivoice") if voice == "clone" else tts.voice_for(lang, voice, online)
     clips_dir = project.dir("cache", "dub", "clips")
     work = project.dir("cache", "dub", _key(plan["hash"], lang, v))
     body = plan["body_dur"]
     slot_ends = sorted(it["at"] + it["dur"] for it in plan["items"])
     if backend == "mms":  # one model load for every line
-        tts.synth_batch([(l["text"], clips_dir / f"{_key(backend, v, l['text'])}.wav") for l in lines], lang, voice=voice)
+        tts.synth_batch([(l["text"], clips_dir / f"{_key(backend, v, l['text'])}.wav") for l in lines], lang, voice=voice,
+                        online=online)
     cloned = clone_lines(project, plan, lines, slot_ends, body, clips_dir, log) if backend == "clone" else {}
     placed, overflow, sped, kept = [], [], 0, []
     prev_end = 0.0
@@ -58,19 +61,19 @@ def build_dub(project, plan: dict, voice: str | None = None, log=print, progress
         hard_end = min(slot_end, nxt, body)
         window = max(0.3, hard_end - start)
         if backend == "clone" and k not in cloned:  # no reference for this line: the language's own voice
-            fb_backend, fb_v = tts.voice_for(lang)
+            fb_backend, fb_v = tts.voice_for(lang, online=online)
             clip = clips_dir / f"{_key(fb_backend, fb_v, line['text'])}.wav"
-            dur = ff.probe(clip).duration if clip.exists() else tts.synth(line["text"], lang, clip)
+            dur = ff.probe(clip).duration if clip.exists() else tts.synth(line["text"], lang, clip, online=online)
         else:
             clip = cloned[k] if backend == "clone" else clips_dir / f"{_key(backend, v, line['text'])}.wav"
-            dur = ff.probe(clip).duration if clip.exists() else tts.synth(line["text"], lang, clip, voice=voice)
+            dur = ff.probe(clip).duration if clip.exists() else tts.synth(line["text"], lang, clip, voice=voice, online=online)
         use, factor = clip, 1.0
         if dur > window and backend == "edge":
             # Ask the voice itself to speak faster first: it sounds natural where time-stretching does not.
             rate = min(MAX_RATE_PCT, int((dur / window - 1) * 100) + 6)
             fast_clip = clips_dir / f"{_key(backend, v, line['text'], rate)}.wav"
             fdur = ff.probe(fast_clip).duration if fast_clip.exists() else \
-                tts.synth(line["text"], lang, fast_clip, voice=voice, rate_pct=rate)
+                tts.synth(line["text"], lang, fast_clip, voice=voice, rate_pct=rate, online=online)
             if fdur < dur:
                 clip, dur, use = fast_clip, fdur, fast_clip
         if dur > window:

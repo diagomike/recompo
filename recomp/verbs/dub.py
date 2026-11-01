@@ -30,8 +30,9 @@ SETTING_HELP = {
              "middle (mid-en: one middle language) | multi (two or more middle languages)",
     "middle": "Middle languages in order, e.g. en or en,es (multi: two or more)",
     "budget": "economy (one writing language, fewest tokens) | quality (two writing languages pooled)",
-    "views_mt": "MT systems for the understanding views, paired with the middle languages: google, nllb, bergamot",
-    "mt": "MT system into the target and for back-translation: google, nllb, bergamot",
+    "online": "Allow online engines: google MT and edge voices (default false: NLLB / M2M-100 / bergamot and MMS voices, all local)",
+    "views_mt": "MT systems for the understanding views, paired with the middle languages: nllb, m2m100, bergamot, google (online)",
+    "mt": "MT system into the target and for back-translation: nllb, m2m100, bergamot, google (online)",
     "verify": "auto (when the target is weak and MT crossed) | always | never",
     "conserve": "Meaning-conserving mode: cost added content, allow short silences",
     "rounds": "Rewrite rounds offered for frames still out of band",
@@ -55,6 +56,7 @@ class SettingsIn(BaseModel):
     to: str | None = Field(None, description="Target language: also show the route the settings give")
     at: str | None = Field(None, description="Where to change settings: studio, project, a source (S1) or a journey (J1)")
     clear: list[str] = Field(default_factory=list, description="Settings to remove at --at (fall back to the layer below)")
+    online: bool | None = Field(None, description=SETTING_HELP["online"])
     route: str | None = Field(None, description=SETTING_HELP["route"])
     middle: list[str] | None = Field(None, description=SETTING_HELP["middle"])
     budget: str | None = Field(None, description=SETTING_HELP["budget"])
@@ -253,7 +255,8 @@ def dub_write(ctx: Ctx, inp: WriteIn):
     ls = [ln for ln in lines(db, ctx.project, j, inp.to) if not inp.keys or ln["key"] in inp.keys]
     maps, opts, choice = work(db, j, inp.to, "map"), work(db, j, inp.to, "options"), work(db, j, inp.to, "choice")
     if inp.template:
-        rate = L.Ruler(ctx.project, inp.to, ls[0]["settings"].get("voice") if ls else None).rate()
+        rate = L.Ruler(ctx.project, inp.to, ls[0]["settings"].get("voice") if ls else None,
+                       bool(ls[0]["settings"].get("online")) if ls else None).rate()
         out, missing = [], []
         for ln in ls:
             if ln["key"] not in maps:
@@ -360,7 +363,9 @@ def dub_verify(ctx: Ctx, inp: VerifyIn):
             ln = by.get(key)
             if not ln or not ch["needs_check"]:
                 continue
-            back = ln["route"]["back_translate"] or [{"lang": ln["route"]["reads"][0], "mt": ln["settings"]["mt"]}]
+            back = ln["route"]["back_translate"] or [{"lang": ln["route"]["reads"][0],
+                                                      "mt": L.engine_for(ln["settings"]["mt"], inp.to, ln["route"]["reads"][0],
+                                                                         bool(ln["settings"].get("online")))[0]}]
             units = maps[key]["data"]["units"] if key in maps else []
             for k, (p, t) in enumerate(zip(ch["picks"], ch["phrases"])):
                 if p["id"] not in ch["needs_check"]:
@@ -438,3 +443,161 @@ def dub_status(ctx: Ctx, inp: StatusIn):
                         "with_options": len(opts), "fitted": len(choice), "checks_pending": checks, "rewrites_pending": steer,
                         "low_confidence": [r["key"] for r in rows if str(r.get("confidence", "")).lower() == "low"],
                         "per_line": rows}, next=[nxt])
+
+
+# ---- offline models ----------------------------------------------------------------------------------------------
+
+class ModelsIn(BaseModel):
+    to: list[str] = Field(default_factory=list, description="Dub languages (default: every --dub-to of the project's sources)")
+    src: list[str] = Field(default_factory=list, description="Source languages (default: the project's sources)")
+    download: bool = Field(False, description="Fetch what is missing now (needs the internet once; afterwards the dub runs offline)")
+
+
+@verb("dub.models", ModelsIn, effect="network",
+      examples=["recomp dub models", "recomp dub models --to om,am --download"])
+def dub_models(ctx: Ctx, inp: ModelsIn):
+    """The offline models the dub needs (NLLB, M2M-100 and MMS voices in the worker cache; Mozilla bergamot pairs) and which are here. With --download, fetch the missing ones once."""
+    db = ctx.db
+    sources = db.rows("source")
+    srcs = inp.src or sorted({_src_lang(ctx, s) for s in sources}) or ["en"]
+    tos = inp.to or sorted({t for s in sources for t in ((s.get("meta") or {}).get("dub") or {}).get("targets", [])})
+    if not tos:
+        raise RecompError("E_INVALID", "which languages will you dub into?", hint="`recomp dub models --to om,am`")
+    plans, notes = [], []
+    for s in srcs:
+        eff, _ = L.resolve(ctx.project)
+        for t in tos:
+            if s != t:
+                pl = L.plan(s, t, eff)
+                plans.append(pl)
+                notes += pl["notes"]
+    need = L.needs(plans)
+    repos = [{"repo": r, "here": L.hf_present(r)} for r in need["repos"]]
+    pairs = [{"pair": p, "here": L.bergamot_present(p)} for p in need["bergamot"]]
+    fetched = {}
+    if inp.download:
+        missing = [r["repo"] for r in repos if not r["here"]]
+        if missing:
+            from ..workers.worker_env import run_script
+            fetched["hf"] = run_script("fetch_models", ["--repos", ",".join(missing)], allow_download=True).get("fetched")
+        mp = [p["pair"] for p in pairs if not p["here"]]
+        if mp:
+            fetched["bergamot"] = L.fetch_bergamot(mp)
+        repos = [{"repo": r["repo"], "here": L.hf_present(r["repo"])} for r in repos]
+        pairs = [{"pair": p["pair"], "here": L.bergamot_present(p["pair"])} for p in pairs]
+    ready = all(r["here"] for r in repos) and all(p["here"] for p in pairs)
+    eff, _ = L.resolve(ctx.project)
+    return Result(data={"online": bool(eff.get("online")), "from": srcs, "to": tos, "ready_offline": ready,
+                        "models": repos, "bergamot": pairs, "bergamot_folder": str(L.bergamot_folder()),
+                        "voices": need["voices"], "routes": [{"src": p["src"], "tgt": p["tgt"], "route": p["route"],
+                                                              "views": p["views"], "mt_into": p["mt_into"]} for p in plans],
+                        "notes": sorted(set(notes)), **({"fetched": fetched} if fetched else {})},
+                  next=[] if ready else ["recomp dub models --download   # once, online; then everything runs offline"])
+
+
+# ---- batching across movies --------------------------------------------------------------------------------------
+
+def _targets(ctx: Ctx, j: dict) -> list[str]:
+    out = []
+    for it in R.timeline(ctx.db, j):
+        s = ctx.db.get("source", it["source"]["id"])
+        eff, _ = L.resolve(ctx.project, s, j)
+        out += [t for t in eff.get("targets", []) if t not in out]
+    return out
+
+
+class NextIn(BaseModel):
+    journeys: list[str] = Field(default_factory=list, description="Journeys to work on (default: every journey whose media has dub languages)")
+    to: list[str] = Field(default_factory=list, description="Dub languages (default: each journey's --dub-to languages)")
+    limit: int = Field(40, description="Lines in this batch, across all the journeys")
+    fit: bool = Field(True, description="Queue `dub fit` jobs for journeys whose next step is the machine's")
+
+
+@verb("dub.next", NextIn, effect="heavy",
+      examples=["recomp dub next", "recomp dub next --journeys J1,J4,J7 --to om --limit 60"])
+def dub_next(ctx: Ctx, inp: NextIn):
+    """The next batch of dub work across several movies at once: for each journey and language, its next stage (map, write, check, rewrite) with that stage's template, up to --limit lines in all. Machine stages (fit) are queued as jobs so they run while you write. Answer everything with `dub submit`."""
+    db = ctx.db
+    js = [journey_of(db, r) for r in inp.journeys] if inp.journeys else db.rows("journey", "ORDER BY created_at")
+    budget, batch, queued, done, idle = inp.limit, [], [], [], []
+    for j in js:
+        for lang in (inp.to or _targets(ctx, j)):
+            st = dub_status(ctx, StatusIn(journey=j["ref"], to=lang)).data
+            pair = f"{j['ref']}:{lang}"
+            if not st["lines"]:
+                continue
+            if st["mapped"] < st["lines"]:
+                stage = "understand"
+            elif st["with_options"] < st["lines"]:
+                stage = "write"
+            elif st["fitted"] < st["lines"]:
+                stage = "fit"
+            elif st["checks_pending"]:
+                stage = "verify"
+            elif st["rewrites_pending"]:
+                stage = "write"
+            else:
+                done.append(pair)
+                continue
+            if stage == "fit":
+                if inp.fit:
+                    running = db.one("SELECT ref FROM job WHERE type='dubfit' AND target=? AND status IN ('queued','running')", (j["ref"],))
+                    if running is None:
+                        job = jobs.enqueue(db, "dubfit", target=j["ref"], params={"journey_id": j["id"], "to": lang, "actor": ctx.actor})
+                        queued.append({"pair": pair, "job": job["ref"]})
+                    else:
+                        idle.append({"pair": pair, "waiting_for": running["ref"]})
+                continue
+            if budget <= 0:
+                idle.append({"pair": pair, "next": stage})
+                continue
+            if stage == "understand":
+                d = dub_understand(ctx, UnderstandIn(journey=j["ref"], to=lang, template=True, limit=budget)).data
+                n = len(d["lines"])
+            elif stage == "write":
+                d = dub_write(ctx, WriteIn(journey=j["ref"], to=lang, template=True, limit=budget)).data
+                n = len(d["lines"])
+            else:
+                d = dub_verify(ctx, VerifyIn(journey=j["ref"], to=lang, template=True)).data
+                d["checks"] = d["checks"][:budget]
+                n = len(d["checks"])
+            if n:
+                batch.append({"pair": pair, "journey": j["ref"], "to": lang, "stage": stage, **{k: v for k, v in d.items() if k not in ("journey", "to")}})
+                budget -= n
+    mode = jobs.kick(ctx.project) if queued else None
+    answer = {b["pair"]: {"understand": "maps", "write": "options", "verify": "checks"}[b["stage"]] for b in batch}
+    return Result(data={"batch": batch, "answer_with": answer, "fits_queued": queued, "runner": mode, "waiting": idle, "done": done,
+                        "submit": "recomp dub submit --input batch.json   # {\"batch\": {\"J1:om\": {\"maps\"|\"options\"|\"checks\": {…}}, …}}"},
+                  next=["recomp dub submit --input batch.json"] if batch else (["recomp job list"] if queued or idle else []))
+
+
+class SubmitIn(BaseModel):
+    batch: dict[str, dict] = Field(default_factory=dict, description='{"J1:om": {"maps": {…}, "options": {…}, "checks": {…}}, …} (use --input)')
+    fit: bool = Field(True, description="Queue `dub fit` for every journey that got options or checks (runs while you go on)")
+
+
+@verb("dub.submit", SubmitIn, effect="write",
+      examples=["recomp dub submit --input batch.json"])
+def dub_submit(ctx: Ctx, inp: SubmitIn):
+    """Answer a `dub next` batch in one call, for several movies: meaning maps, options and checks per journey and language. Queues the fits as jobs; then `dub next` again."""
+    if not inp.batch:
+        raise RecompError("E_INVALID", "give --input with {batch: {\"J1:om\": {maps|options|checks: …}}}")
+    results, queued = {}, []
+    for pair, part in inp.batch.items():
+        if ":" not in pair:
+            raise RecompError("E_INVALID", f"{pair!r}: keys are journey:language, e.g. J1:om")
+        jref, lang = pair.split(":", 1)
+        r = {}
+        if part.get("maps"):
+            r["maps"] = dub_understand(ctx, UnderstandIn(journey=jref, to=lang, maps=part["maps"])).data["written"]
+        if part.get("options"):
+            r["options"] = dub_write(ctx, WriteIn(journey=jref, to=lang, options=part["options"])).data["options_added"]
+        if part.get("checks"):
+            r["checks"] = dub_verify(ctx, VerifyIn(journey=jref, to=lang, checks=part["checks"])).data["checked"]
+        if inp.fit and (part.get("options") or part.get("checks")):
+            j = journey_of(ctx.db, jref)
+            job = jobs.enqueue(ctx.db, "dubfit", target=j["ref"], params={"journey_id": j["id"], "to": lang, "actor": ctx.actor})
+            queued.append({"pair": pair, "job": job["ref"]})
+        results[pair] = r
+    mode = jobs.kick(ctx.project) if queued else None
+    return Result(data={"submitted": results, "fits_queued": queued, "runner": mode}, next=["recomp dub next"])

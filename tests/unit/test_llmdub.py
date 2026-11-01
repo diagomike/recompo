@@ -16,7 +16,7 @@ def P(src, tgt, **kw):
 def test_auto_routes_follow_llm_strength():
     assert P("de", "es")["route"] == "direct"
     t = P("am", "es")
-    assert t["route"] == "target" and t["writes"] == ["es"] and t["views"] == [{"lang": "en", "mt": "google"}]
+    assert t["route"] == "target" and t["writes"] == ["es"] and t["views"] == [{"lang": "en", "mt": "nllb"}]
     s = P("en", "om")
     assert s["route"] == "source" and s["writes"] == ["en"] and s["back_translate"]
     m = P("am", "om")
@@ -27,7 +27,7 @@ def test_named_routes_and_aliases():
     assert P("am", "om", route="src-en")["route"] == "source"
     assert P("am", "es", route="tgt-en")["route"] == "target"
     assert P("am", "om", route="mid-en")["route"] == "middle"
-    mm = P("am", "om", route="multi", middle="en,es", views_mt="google,nllb")
+    mm = P("am", "om", route="multi", middle="en,es", views_mt="google,nllb", online=True)
     assert mm["reads"] == ["en", "es"] and [v["mt"] for v in mm["views"]] == ["google", "nllb"]
     assert [b["lang"] for b in mm["back_translate"]] == ["en", "es"]
     assert P("am", "om", route="multi")["reads"] == ["en", "es"]  # multi always has two middles
@@ -117,3 +117,32 @@ def test_settings_layers(proj, OK, tmp_path):
     OK("dub.settings", {"at": "S1", "clear": ["route"]}, proj)
     s = OK("dub.settings", {"target": "S1", "to": "om"}, proj)
     assert s["from"]["route"] == "studio" and s["plan"]["route"] == "source"  # English source, Oromo target
+
+
+def test_offline_by_default_two_independent_systems():
+    m = P("am", "om", route="multi", middle="en,es")
+    assert not m["online"] and [v["mt"] for v in m["views"]] == ["nllb", "m2m100"]  # two different offline systems
+    assert m["mt_into"] == {"en": "nllb"}  # M2M-100 has no Oromo
+    assert [b["mt"] for b in m["back_translate"]] == ["nllb", "nllb"] and m["notes"]
+
+
+def test_engines_fall_back_to_what_can_do_the_pair():
+    assert L.engine_for("bergamot", "am", "en", False)[0] == "nllb"  # Mozilla has no Amharic
+    assert L.engine_for("bergamot", "de", "en", False) == ("bergamot", "")
+    eng, note = L.engine_for("google", "am", "en", False)
+    assert eng == "nllb" and "offline" in note  # google is refused offline
+    assert L.engine_for("google", "am", "en", True) == ("google", "")
+    assert L.engine_for("nllb", "am", "es", False, avoid=("nllb",))[0] == "m2m100"
+    with pytest.raises(RecompError):
+        L.engine_for("nllb", "xx", "yy", False)
+
+
+def test_voices_offline_by_default(monkeypatch):
+    from recomp.lang import tts
+    monkeypatch.delenv("RECOMP_TTS", raising=False)
+    assert tts.voice_for("om") == ("mms", "facebook/mms-tts-orm")
+    assert tts.voice_for("am") == ("mms", "facebook/mms-tts-amh")
+    assert tts.voice_for("am", online=True)[0] == "edge"
+    with pytest.raises(RecompError) as e:
+        tts.voice_for("am", voice="am-ET-MekdesNeural")
+    assert e.value.code == "E_OFFLINE"

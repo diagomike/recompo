@@ -25,6 +25,15 @@ comes from: studio → project → source → journey) and the **route**:
 `recomp dub settings --at project|S1|J1|studio --route multi --middle en,es --views-mt google,nllb`. Ask the user
 which route they want if it matters (meaning-critical films: `multi`; token budget: `economy`).
 
+**Offline by default:** NLLB and M2M-100 (two independent systems) and Mozilla bergamot for MT, MMS voices.
+`recomp dub models` says what is missing; `--download` fetches it once (ask the user first: it goes online).
+`--online true` allows Google and edge voices; only use it if the user asks.
+
+**Several movies at once:** `recomp dub next --limit 40` gives the next batch across every journey with dub languages
+(each with its stage: understand, write, verify). Write all the answers into one file and send
+`recomp dub submit --input batch.json` (`{"batch": {"J1:om": {"maps"|"options"|"checks": {…}}}}`). Fits run as jobs
+meanwhile. Repeat until `dub next` returns no batch. This is the normal way to dub whole films.
+
 ## 2. Understand (meaning map)
 `recomp dub understand J1 --to om --template` gives each line's frames and either the source text or the MT views.
 **Read every view**: they come from independent systems and disagree exactly where the meaning is at risk
