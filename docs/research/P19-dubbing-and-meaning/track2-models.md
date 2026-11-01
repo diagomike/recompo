@@ -1,7 +1,7 @@
 # Track 2: a model path — pretrained encoders without training, or a model trained on your dubbed movies
 
 **Branch:** `ccr-327cc642-xnfs3i-track2-models` (your request: this track on its own branch). It builds on the shared
-P19 report on `ccr-327cc642-xnfs3i` (`docs/research/P19-dubbing-and-meaning/README.md`).
+P19 report on `ccr-327cc642-xnfs3i` (`docs/research/P19-dubbing-and-meaning/feasibility-report.md`).
 
 **Your premise, confirmed by the literature and our pilot:** subtitles and professional dubs are different texts.
 

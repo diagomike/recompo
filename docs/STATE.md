@@ -244,7 +244,7 @@ matching, gapless recipe player, dub fixes, face-cropped Shorts, semantic search
 - Your direction: explore (1) Claude-written timed dubbing scripts, (2) a model / no-training path learned from your
   dual-audio movies (own branch `ccr-327cc642-xnfs3i-track2-models`), (3) LLM cut creation. Mid-run you asked for
   feasibility research instead of app building: the `lang frame`/`lang fit` verb prototype was removed again.
-- Report: `docs/research/P19-dubbing-and-meaning/README.md` (verdicts, literature, pilot, go/no-go experiments).
+- Report: `docs/research/P19-dubbing-and-meaning/feasibility-report.md` (verdicts, literature, pilot, go/no-go experiments).
 - Pilot on two real dual-audio excerpts (movie2parallelDB samples, en→es): `scripts/research/p19/pilot_dub_pairs.py`
   (sherpa-onnx Parakeet TDT v3 + Silero VAD, CPU, ~0.25 RTF). Human-dub speech overlap 0.72/0.81; dialogue rates
   far below read-speech tables; dub says up to 28 % more words than the subtitle; subtracting tracks does not isolate
