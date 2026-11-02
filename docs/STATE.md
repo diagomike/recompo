@@ -2,7 +2,7 @@
 
 The build's working memory. If context runs short, resume from here.
 
-**Last updated:** 2026-11-02 (P20 research: do jokes, idioms and nuance survive the dub? — `docs/research/P20-nuance-transfer/`, branch `claude/p20-nuance-transfer`, not built; before that 2026-11-01 P19: the LLM dubber is in the app — `recomp dub …`, route settings per media, merged to main with all research; before that 2026-10-31 P19 research; 2026-10-21: M5 complete; P18 backlog run built: fast re-exports, viewer polish, cross-release
+**Last updated:** 2026-11-02 (P20: nuance in the dubber — marks beside the meaning units, bounded effects, `nuance: off|mark|on`, D-28, on branch `claude/p20-nuance-transfer`; research in `docs/research/P20-nuance-transfer/`; before that 2026-11-01 P19: the LLM dubber is in the app — `recomp dub …`, route settings per media, merged to main with all research; before that 2026-10-31 P19 research; 2026-10-21: M5 complete; P18 backlog run built: fast re-exports, viewer polish, cross-release
 matching, gapless recipe player, dub fixes, face-cropped Shorts, semantic search, cloned-voice dubs)
 
 | | |
@@ -248,9 +248,11 @@ matching, gapless recipe player, dub fixes, face-cropped Shorts, semantic search
   Spanish (line-alone 87 %). A nuance card per item (trigger, mechanism, function, deps, strategy) → 100 % (self-judged
   ceiling). For MT routes, today's "no idioms" rule lowers jokes (am 25→23 %, sw 45→39 %); function-preserving
   pre-editing raises them (am 57 %, sw 77 %, om 35 %). MADLAD om→en is unusable as a verifier.
-- Proposed (not built): nuance cards in `dub understand`, laugh points core, chains as one decision, route-specific
-  strategies replacing "no idioms", substitution-aware `select`/`verify`, series glossary, laugh-track detection,
-  per-language back-translator. See `docs/research/P20-nuance-transfer/README.md` and `DESIGN.md`.
+- **Built (D-28):** `nuance` items in `dub understand`; `dub write` shows them with a guide per writing language
+  (naturalize / function-preserving), the chain lines and a glossary of running jokes; `dub fit` with `nuance: on`:
+  laugh units never colour, kept items worth less than any unit (tie-breaks only), substitutions free of the
+  added-content cost, `keep_effect` rewrites within `rounds`; `dub verify` takes `effect` and flags literal idioms.
+  `nuance: off` is the P19 dubber. Not built: laugh detection on audio, studio display, per-language back-translator.
 
 ## P19 LLM dubber in the app (2026-11-01, D-25)
 - `recomp dub settings | understand | write | fit | verify | status` (docs/VERBS.md; agent skill `recomp-dub`).

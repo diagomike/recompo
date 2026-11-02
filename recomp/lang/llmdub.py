@@ -21,6 +21,17 @@ it:
   short silences through.
 - **Steering and checks.** Frames still out of band become rewrite requests with a syllable target. Chosen options
   that crossed MT become back-translation checks.
+- **Nuance (optional, P20).** Jokes, sarcasm, idioms, slang, proverbs and catchphrases are *marked* on the meaning
+  map (`nuance` items: trigger, kind, laugh point, function, the units and lines they depend on). They never replace
+  the units: the meaning and the timing stay the ruler. With `nuance: on`, three bounded effects apply:
+  - a unit carrying a laugh point's trigger is never droppable colour;
+  - an option that keeps an item earns a small bonus, below the weight of any unit, so it only decides between
+    options that carry the same meaning and fit equally well;
+  - a declared substitution is not charged as added content in conserve mode.
+
+  The writing guidance depends on the writing language: written directly in a strong language → *naturalize*
+  (equivalent idioms, substitutions with the same function, payoff last); written to be carried by MT →
+  *function-preserving* (compositional wording that still lands) instead of "no idioms".
 
 Research behind each choice:
 
@@ -29,7 +40,8 @@ Research behind each choice:
 - MT-only targets: `wt-twosided`;
 - weak sources: `wt-pivot`;
 - routes: `wt-routes`;
-- two middle languages: `wt-bipivot`.
+- two middle languages: `wt-bipivot`;
+- nuance marks, strategies and their effect: `P20-nuance-transfer`.
 """
 
 from __future__ import annotations
@@ -113,10 +125,17 @@ DEFAULTS: dict = {
     "min_pause": 0.3,           # a pause this long between words splits a line into frames
     "strong": None,             # override the strong-language list (None: the built-in one)
     "voice": None,              # target voice (default: the language's configured voice)
+    "nuance": "on",             # off | mark (marks + writing guidance only) | on (also the bounded selection effects)
 }
 FIELDS = tuple(DEFAULTS)
 
 ALPHA, BETA, ERR_COST = 4.0, 1.0, 3.0
+NUANCE_MODES = ("off", "mark", "on")
+# A kept nuance item is worth less than the cheapest unit (colour 1.0): it breaks ties, it never buys meaning or time.
+NUANCE_W = {"laugh": 0.5, "other": 0.25}
+NUANCE_KINDS = ("joke", "pun", "wordplay", "sarcasm", "irony", "idiom", "slang", "proverb", "metaphor", "simile",
+                "hyperbole", "euphemism", "innuendo", "catchphrase", "cultural", "collocation", "register", "callback", "other")
+SUBSTITUTIONS = ("naturalize", "substitute", "compensate", "exaggerate")
 
 
 # ---- settings --------------------------------------------------------------------------------------------------
@@ -144,6 +163,10 @@ def normalise(over: dict) -> dict:
                 raise RecompError("E_INVALID", f"MT systems: {', '.join(ENGINES)}")
         elif k == "mt" and v not in ENGINES:
             raise RecompError("E_INVALID", f"mt must be one of {', '.join(ENGINES)}")
+        elif k == "nuance":
+            v = str(v).lower()
+            if v not in NUANCE_MODES:
+                raise RecompError("E_INVALID", f"nuance must be one of {', '.join(NUANCE_MODES)}")
         elif k == "verify" and v not in ("auto", "always", "never"):
             raise RecompError("E_INVALID", "verify must be auto, always or never")
         elif k == "band":
@@ -474,9 +497,12 @@ def select(units: list[dict], frames_: list[dict], variants: dict[int, list[dict
 
     Score = Σ weights of the units covered − 4·fit penalties − duplicates − 3·verified errors − penalties
     (− 2·added content in conserve mode); every core unit must be covered when any combination can. Dynamic
-    programming over the set of units covered so far, so long lines stay exact and fast."""
+    programming over the set of units covered so far, so long lines stay exact and fast.
+
+    Nuance pseudo-units (`n:<id>`, from `nuance_units`) carry their own small weight, are never core and never count
+    as duplicates; an option with a substitution strategy that keeps one is not charged for added content."""
     gamma, soft = (2.0, 0.65) if conserve else (0.0, None)
-    wt = {u["id"]: TIER_W.get(u.get("tier", "core"), 1.0) for u in units}
+    wt = {u["id"]: float(u["w"]) if "w" in u else TIER_W.get(u.get("tier", "core"), 1.0) for u in units}
     core = frozenset(u["id"] for u in units if u.get("tier", "core") == "core")
     states: dict[frozenset, tuple[float, list]] = {frozenset(): (0.0, [])}
     for k, fr in enumerate(frames_):
@@ -487,7 +513,9 @@ def select(units: list[dict], frames_: list[dict], variants: dict[int, list[dict
                 us = frozenset(v.get("units", [])) & frozenset(wt)
                 r = dur(v["text"]) / fr["dur"] if v["text"].strip() else 0.0
                 f = 0.0 if (not v["text"].strip() and fr["dur"] < 0.3) else fit_penalty(r, band, soft)
-                cost = ALPHA * f + BETA * len(cov & us) + gamma * len(v.get("added", [])) + \
+                sub = v.get("strategy") in SUBSTITUTIONS and any(str(x).startswith("n:") for x in v.get("units", []))
+                cost = ALPHA * f + BETA * len({x for x in cov & us if not x.startswith("n:")}) + \
+                    (0.0 if sub else gamma * len(v.get("added", []))) + \
                     ERR_COST * len(v.get("errors", [])) + float(v.get("penalty", 0.0))
                 ncov = cov | us
                 cand = (sc - cost, picks + [(v, round(r, 3))])
@@ -499,7 +527,8 @@ def select(units: list[dict], frames_: list[dict], variants: dict[int, list[dict
     best = max(with_core or scored, key=lambda x: x[0])
     score, cov, picks = best
     return {"score": round(score, 3), "picks": [p for p, _ in picks], "phrases": [p["text"] for p, _ in picks],
-            "ratios": [r for _, r in picks], "units": sorted(cov), "missing_core": sorted(core - cov),
+            "ratios": [r for _, r in picks], "units": sorted(u for u in cov if not u.startswith("n:")),
+            "nuance": sorted(u[2:] for u in cov if u.startswith("n:")), "missing_core": sorted(core - cov),
             "kept_all_core": bool(with_core)}
 
 
@@ -578,4 +607,69 @@ def fetch_bergamot(pairs: list[str], log=print) -> list[dict]:
         out.append({"pair": pair, "ok": True})
     if not config.get("dub.bergamot_models"):
         config.set_value("dub.bergamot_models", str(bergamot_folder()))
+    return out
+
+
+# ---- nuance (P20) ----------------------------------------------------------------------------------------------
+
+def check_nuance(key: str, items: list[dict], unit_ids: set[str]) -> list[dict]:
+    """Validate and normalise a line's nuance items (from the map). Unknown kinds become `other`."""
+    out, seen = [], set()
+    for it in items or []:
+        nid = str(it.get("id") or "").strip()
+        if not nid or nid in seen:
+            raise RecompError("E_INVALID", f"{key}: nuance items need unique ids (n1, n2…)")
+        seen.add(nid)
+        units = [u for u in (it.get("units") or []) if u]
+        bad = [u for u in units if u not in unit_ids]
+        if bad:
+            raise RecompError("E_INVALID", f"{key}: nuance {nid} names unknown units {bad}",
+                              hint="List the ids of the units the item lives in")
+        kind = str(it.get("kind") or "other").split(":")[0].lower()
+        bound = str(it.get("bound") or "U").upper()[:1]
+        out.append({"id": nid, "trigger": str(it.get("trigger") or ""), "kind": kind if kind in NUANCE_KINDS else "other",
+                    "bound": bound if bound in "LCPU" else "U", "laugh": bool(it.get("laugh")),
+                    "function": str(it.get("function") or ""), "units": units,
+                    "deps": [str(d) for d in it.get("deps") or []], "keep_words": [str(w) for w in it.get("keep_words") or []],
+                    "payoff_last": bool(it.get("payoff_last", it.get("laugh", False))), "prosody": str(it.get("prosody") or ""),
+                    "canon": str(it.get("canon") or "")})
+    return out
+
+
+def promote(units: list[dict], items: list[dict]) -> list[dict]:
+    """Units carrying a laugh point's trigger cannot be droppable colour: colour → support. Nothing else changes."""
+    hot = {u for it in items if it.get("laugh") for u in it.get("units", [])}
+    return [dict(u, tier="support") if u["id"] in hot and u.get("tier") == "colour" else u for u in units]
+
+
+def nuance_units(items: list[dict]) -> list[dict]:
+    """Nuance items as pseudo-units for the exact selection: id `n:<id>`, weight below any real unit, never core."""
+    return [{"id": f"n:{it['id']}", "tier": "nuance", "w": NUANCE_W["laugh" if it.get("laugh") else "other"]} for it in items]
+
+
+def guide(writing: str, target: str, strong: set[str]) -> str:
+    """How to treat marked nuance in one writing language."""
+    w = (writing or "").lower()[:2]
+    if w == (target or "").lower()[:2] and w in strong:
+        return ("naturalize: render each marked item so it lands for a native viewer: a target idiom of the same register, "
+                "a substitute joke with the same function at the same laugh point (rewrite every line in its deps the same "
+                "way), the payoff word last, keep_words identical across the chain. Universal jokes: translate the meaning, "
+                "keep the order. Never add facts the units do not carry, except the substituted joke material itself.")
+    return ("function-preserving (MT carries this into the target): compositional wording that MT cannot take literally "
+            "but that still lands: an idiom that is not the joke -> its plain meaning; an idiom or pun that IS the joke -> "
+            "an image or meaning-joke that works word for word; sarcasm -> make it lexical (exaggerate); innuendo -> explicit "
+            "enough to survive; callback words identical across lines; payoff last. No brackets, no explanations.")
+
+
+def literal_flags(items: list[dict], back: str) -> list[str]:
+    """Idiom/pun items whose trigger's content words come back literally in a back-translation: likely calqued."""
+    words = set(re.findall(r"[a-z]{4,}", (back or "").lower()))
+    stop = {"that", "this", "with", "have", "your", "they", "what", "were", "when", "just", "like", "will", "from", "there"}
+    out = []
+    for it in items:
+        if it["kind"] not in ("idiom", "pun", "wordplay", "proverb", "metaphor", "slang", "catchphrase"):
+            continue
+        trig = {w for w in re.findall(r"[a-z]{4,}", it["trigger"].lower()) if w not in stop}
+        if trig and len(trig & words) / len(trig) >= 0.6:
+            out.append(it["id"])
     return out

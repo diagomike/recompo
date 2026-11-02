@@ -63,6 +63,11 @@ Every open task by priority. Done phases are summarised; their detail is in git 
 - [ ] On your PC: `recomp dub models --to om,am --download` once (worker env needs transformers, sentencepiece;
       bergamot optional: `pip install bergamot==0.4.5`), then a real am→om journey with `--route multi --middle en,es`.
 - [ ] `--dub-*` options for links in `source add`; prosody cues in `dub understand`.
+- [x] **Nuance in the dubber** (D-28, 2026-11-02): `nuance` marks on the map, guides per writing language, glossary of
+      running jokes, bounded selection effects, `keep_effect` rewrites, effect + literalism in `dub verify`.
+- [ ] Laugh detection on the source audio (laugh points without the LLM; checks the `laugh` marks).
+- [ ] Studio: show nuance marks and kept/lost in Translations → LLM dub.
+- [ ] Per-language back-translator for `dub verify` (MADLAD-400 is unusable om→en; P20 `om_diagnosis.json`).
 
 ## Research (P19, 2026-10-31; research only)
 - [x] Literature and feasibility report: `docs/research/P19-dubbing-and-meaning/` (tracks 1 and 3 here, track 2 on

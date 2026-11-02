@@ -93,12 +93,17 @@ def fit(project, j: dict, lang: str, actor: str, log=print, progress=None) -> di
     rate = ruler.rate()
     # 3. exact choice per line, checks and rewrite requests
     results, written, kept, n_frames, inband, within, over, need_check, steer = {}, 0, [], 0, 0, 0, 0, 0, 0
+    n_marked = n_kept = 0
     with db.op("dub.fit", actor, {"journey": j["ref"], "to": lang}) as tx:
         tx.summary = f"dub fit {j['ref']} → {lang}"
         for ln in todo:
             st, route = ln["settings"], ln["route"]
             mp = maps[ln["key"]]["data"]
             units = [{"id": u["id"], "tier": u.get("tier", "core")} for u in mp.get("units", [])]
+            items = mp.get("nuance") or []
+            nmode = st.get("nuance", "on")
+            if items and nmode == "on":  # bounded: laugh units not droppable colour; kept items only break ties
+                units = L.promote(units, items) + L.nuance_units(items)
             per = cands[ln["key"]]
             langs_here = {v["lang"] for vs in per.values() for v in vs}
             pooled = lang in langs_here and len(langs_here) > 1
@@ -110,8 +115,12 @@ def fit(project, j: dict, lang: str, actor: str, log=print, progress=None) -> di
                     oid = L.option_id(ln["key"], k + 1, v["lang"], v["text"])
                     vr = (ver.get(oid) or {}).get("data")
                     crossed = v["lang"] != lang
-                    pool.append({"text": v["target"], "id": oid, "lang": v["lang"], "src_text": v["text"],
-                                 "strategy": v.get("strategy", ""), "units": vr["covered"] if vr else v.get("units", []),
+                    lost = {n for n, e in ((vr or {}).get("effect") or {}).items() if e == "lost"}
+                    kept_n = [n for n in v.get("nuance", []) if n not in lost]
+                    pool.append({"text": v["target"], "id": oid, "lang": v["lang"], "src_text": v["text"], "nuance": kept_n,
+                                 "strategy": v.get("strategy", ""),
+                                 "units": (vr["covered"] if vr else v.get("units", [])) +
+                                          ([f"n:{n}" for n in kept_n] if items and nmode == "on" else []),
                                  "errors": vr.get("errors", []) if vr else [], "added": (vr or {}).get("added", v.get("added", [])),
                                  "penalty": st["mt_prior"] if pooled and crossed else 0.0,
                                  "checked": bool(vr) or not v["text"].strip() or not (checking and (crossed or st.get("verify") == "always"))})
@@ -140,15 +149,36 @@ def fit(project, j: dict, lang: str, actor: str, log=print, progress=None) -> di
                 reqs.append({"frame": k + 1, "dur": fr["dur"], "ratio": r, "now": p.get("src_text", ""), "lang": wl,
                              "target_syllables": round(syl), "action": "shorten" if r > hi else "lengthen",
                              "units": [u for u in mp.get("units", []) if int(u.get("frame", 1)) == k + 1]})
+            prev = work(db, j, lang, "choice").get(ln["key"])
+            rnd = (prev["round"] + 1) if prev else 1
+            # a laugh point no chosen option keeps → one rewrite request, within the rounds budget
+            lost_laughs = [it for it in items if it.get("laugh") and it["id"] not in ch.get("nuance", [])]
+            if nmode == "on" and lost_laughs and rnd <= int(st.get("rounds", 2)):
+                done = {q["frame"] for q in reqs}
+                for it in lost_laughs:
+                    fk = min([int(u.get("frame", 1)) for u in mp.get("units", []) if u["id"] in it.get("units", [])] or [1])
+                    if fk in done:
+                        continue
+                    done.add(fk)
+                    fr, p, r = ln["frames"][fk - 1], picks[fk - 1], ch["ratios"][fk - 1]
+                    wl = p.get("lang") or route["writes"][0]
+                    syl = 0.93 * fr["dur"] * rate if wl == lang else (0.93 * fr["dur"] / e if e else 0.93 * fr["dur"] * rate)
+                    reqs.append({"frame": fk, "dur": fr["dur"], "ratio": r, "now": p.get("src_text", ""), "lang": wl,
+                                 "target_syllables": round(syl), "action": "keep_effect", "nuance": it,
+                                 "units": [u for u in mp.get("units", []) if int(u.get("frame", 1)) == fk]})
             text = " ".join(t for t in ch["phrases"] if t.strip())
             data = {"seg": ln["seg"], "span": list(ln["span"]), "frames": [{"start": f["start"], "end": f["end"], "dur": f["dur"]}
                                                                           for f in ln["frames"]],
                     "phrases": ch["phrases"], "ratios": ch["ratios"], "units": ch["units"], "missing_core": ch["missing_core"],
-                    "picks": [{"id": p.get("id"), "lang": p.get("lang"), "text": p.get("src_text"), "strategy": p.get("strategy")}
-                              for p in picks], "needs_check": unchecked, "steer": reqs, "score": ch["score"], "text": text,
-                    "route": route["route"], "confidence": mp.get("confidence")}
-            prev = work(db, j, lang, "choice").get(ln["key"])
-            put(tx, db, j, lang, "choice", ln["key"], data, round_=(prev["round"] + 1) if prev else 1)
+                    "picks": [{"id": p.get("id"), "lang": p.get("lang"), "text": p.get("src_text"), "strategy": p.get("strategy"),
+                               "nuance": p.get("nuance", [])} for p in picks], "needs_check": unchecked, "steer": reqs,
+                    "score": ch["score"], "text": text, "route": route["route"], "confidence": mp.get("confidence")}
+            if items:
+                kept_ids = ch.get("nuance") or sorted({n for p in picks for n in p.get("nuance", [])})
+                data.update(nuance_marked=[it["id"] for it in items], nuance_kept=kept_ids)
+                n_marked += len(items)
+                n_kept += len(kept_ids)
+            put(tx, db, j, lang, "choice", ln["key"], data, round_=rnd)
             need_check += len(unchecked)
             steer += len(reqs)
             if text:
@@ -169,7 +199,8 @@ def fit(project, j: dict, lang: str, actor: str, log=print, progress=None) -> di
     return {"journey": j["ref"], "to": lang, "lines": len(todo), "without_options": len(ls) - len(todo), "written": written,
             "kept_users": kept, "frames": n_frames, "in_band_pct": pct(inband), "within_20pct": pct(within),
             "over_1_1_pct": pct(over), "missing_core_lines": [k for k, r in results.items() if r["missing_core"]],
-            "needs_check": need_check, "steer_requests": steer, "low_confidence": low, "mt_calls": mt.calls}
+            "needs_check": need_check, "steer_requests": steer, "low_confidence": low, "mt_calls": mt.calls,
+            "nuance": {"marked": n_marked, "kept": n_kept}}
 
 
 @task("dubfit", lane="net")

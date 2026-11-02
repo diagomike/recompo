@@ -145,3 +145,61 @@ def test_models_report_what_offline_needs(lproj, OK, monkeypatch):
     repos = {r["repo"] for r in m["models"]}
     assert {"facebook/nllb-200-distilled-600M", "facebook/m2m100_418M", "facebook/mms-tts-orm"} <= repos
     assert m["online"] is False and m["ready_offline"] is False and m["voices"]["om"]["backend"] == "mms"
+
+
+def test_nuance_marks_steer_and_verify(lproj, OK):
+    """Nuance on: marks on the map, guidance in the write template, the kept joke wins a tie, a lost laugh point
+    becomes a keep_effect rewrite, and a verified 'lost' effect stops counting."""
+    t = OK("dub.understand", {"journey": "J1", "to": "om", "template": True}, lproj)
+    assert "nuance:" in t["write"]  # the map template asks for marks
+    keys = [l["key"] for l in t["lines"]]
+    maps = {k: {"best": "x", "confidence": "high",
+                "units": [{"id": "u1", "text": "a", "tier": "core", "frame": 1}, {"id": "u2", "text": "b", "tier": "colour", "frame": 2}],
+                "nuance": [{"id": "n1", "trigger": "the gag", "kind": "idiom", "laugh": True, "units": ["u2"],
+                            "function": "the audience laughs", "deps": [keys[0]] if k != keys[0] else [], "canon": "gag"}]}
+            for k in keys}
+    r = OK("dub.understand", {"journey": "J1", "to": "om", "maps": maps}, lproj)
+    assert r["nuance_items"] == len(keys)
+    w = OK("dub.write", {"journey": "J1", "to": "om", "template": True}, lproj)
+    line = w["lines"][0]
+    assert line["nuance"][0]["id"] == "n1" and line["guide"]["en"].startswith("function-preserving")
+    opts = {}
+    for l in w["lines"]:
+        per = {}
+        for f in l["frames"]:
+            n = max(2, int(f["dur"] * 15 * 0.95) - 5)
+            us = [u["id"] for u in f["units"]]
+            same = ("ok" + " ok" * 60)[:n]
+            per[str(f["n"])] = [{"text": same, "lang": "en", "units": us}]
+            if f["n"] == 2 and l["key"] == keys[0]:  # the first line has an option that keeps the joke, same length
+                per["2"].append({"text": ("ha" + " ha" * 60)[:n], "lang": "en", "units": us, "nuance": ["n1"],
+                                 "strategy": "naturalize"})
+        opts[l["key"]] = per
+    OK("dub.write", {"journey": "J1", "to": "om", "options": opts}, lproj)
+    fit = OK("dub.fit", {"journey": "J1", "to": "om"}, lproj)["result"]
+    assert fit["nuance"]["marked"] == len(keys) and fit["nuance"]["kept"] >= 1
+    st = OK("dub.status", {"journey": "J1", "to": "om"}, lproj)
+    first = next(r for r in st["per_line"] if r["key"] == keys[0])
+    assert first["nuance_kept"] == ["n1"] and "ha" in first["text"]  # the tie went to the joke
+    v = OK("dub.verify", {"journey": "J1", "to": "om", "template": True}, lproj)
+    joke = next(c for c in v["checks"] if c.get("nuance"))
+    checks = {c["id"]: {"covered": [u["id"] for u in c["units"]], "errors": []} for c in v["checks"]}
+    checks[joke["id"]]["effect"] = {"n1": "lost"}
+    OK("dub.verify", {"journey": "J1", "to": "om", "checks": checks}, lproj)
+    OK("dub.fit", {"journey": "J1", "to": "om"}, lproj)
+    first = next(r for r in OK("dub.status", {"journey": "J1", "to": "om"}, lproj)["per_line"] if r["key"] == keys[0])
+    assert first["nuance_kept"] == []  # a verified lost effect no longer counts
+    w2 = OK("dub.write", {"journey": "J1", "to": "om", "template": True}, lproj)
+    req = [q for l in w2["lines"] for q in l.get("rewrite", []) if q["action"] == "keep_effect"]
+    assert req and req[0]["nuance"]["id"] == "n1" and req[0]["frame"] == 2  # a rewrite to land the laugh, where it lives
+
+
+def test_nuance_off_is_the_plain_dubber(lproj, OK):
+    OK("dub.settings", {"at": "project", "nuance": "off"}, lproj)
+    t = OK("dub.understand", {"journey": "J1", "to": "om", "template": True}, lproj)
+    assert "nuance:" not in t["write"]
+    k = t["lines"][0]["key"]
+    OK("dub.understand", {"journey": "J1", "to": "om", "maps": {k: {"best": "x", "units": [{"id": "u1", "text": "a", "frame": 1}],
+                                                                    "nuance": [{"id": "n1", "laugh": True, "units": ["u1"]}]}}}, lproj)
+    w = OK("dub.write", {"journey": "J1", "to": "om", "template": True, "keys": [k]}, lproj)
+    assert "nuance" not in w["lines"][0] and "guide" not in w["lines"][0]

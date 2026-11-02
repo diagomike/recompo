@@ -44,6 +44,12 @@ meanwhile. Repeat until `dub next` returns no batch. This is the normal way to d
 - `tier`: `core` (the line is wrong without it), `support` (detail), `colour` (tone).
 - `frame`: the frame where the speaker says it. Per-frame views tell you this.
 - `confidence`: `low` when the views cannot be reconciled; those lines go to the user.
+- `nuance` (setting `nuance: mark|on`, default on): also mark what a literal rendering would lose: jokes, puns and
+  mishearings, sarcasm, idioms, slang, proverbs, figures of speech, innuendo, catchphrases, cultural references,
+  callbacks. `{id, trigger (exact words), kind, bound: L|C|P|U, laugh, function (what the audience must get), units
+  (ids it lives in), deps (setup/callback line keys), keep_words, canon (a running joke's name)}`. Units stay *what*
+  is said; nuance marks *how it lands*. Mark only what matters: universal jokes need little more than `laugh` and
+  `deps`.
 
 `recomp dub understand J1 --to om --input maps.json`
 
@@ -53,14 +59,28 @@ repeat until done. You are the only LLM here: there is no API to hand this to.
 ## 3. Write options
 `recomp dub write J1 --to om --template`: per frame its seconds, a syllable target for the target voice, its units and
 the language(s) to write in. Write 2–4 options per frame: orig, compact (drop colour, then support), full (support
-units explicit). Use plain, MT-friendly wording when the target is reached by MT (no idioms or brackets, explicit
-subjects). Add no new facts. `--input options.json` with `{options: {key: {"1": [{text, lang, units, strategy}]}}}`.
+units explicit). Use plain, MT-friendly wording when the target is reached by MT (explicit subjects, no brackets).
+Add no new facts. `--input options.json` with `{options: {key: {"1": [{text, lang, units, strategy, nuance}]}}}`.
+
+Lines with `nuance` items carry a `guide` per writing language, the setup/callback lines (`deps_text`) and earlier
+renderings of the same running joke (`glossary`, keep them):
+- **naturalize** (you write the target directly, a language you know well): target idioms of the same register, a
+  substitute joke with the same function at the same laugh point (rewrite the whole chain the same way), payoff last.
+- **function-preserving** (MT carries what you write): an idiom that is not the joke → its plain meaning; an idiom or
+  pun that *is* the joke → an image or meaning-joke that works word for word; sarcasm → exaggerate it so it is in the
+  words; callback words identical across lines; innuendo explicit enough to survive.
+
+Write such options as extra options (strategy `naturalize|substitute|compensate|exaggerate`) next to the plain ones,
+with `nuance: [ids they keep]`, carrying the same units. The machine still chooses by meaning and the voice; a kept
+item only wins when meaning and fit are equal, and a laugh point is never dropped as colour.
 
 ## 4. Fit, check, rewrite
 - `recomp dub fit J1 --to om` (a job): MT, voice, exact choice; writes the lines as translations (method `llmdub`).
 - `recomp dub verify J1 --to om --template`: back-translations of chosen lines that crossed MT. Mark
   `{checks: {id: {covered, errors, added}}}`, where errors are wrong words, reversed polarity or a wrong subject.
-  Then fit again; it routes around errors.
+  Options that keep nuance items also get `effect: {item id: kept|partly|lost}`; `literal` lists items whose own
+  words came back (a word-for-word rendering). Then fit again; it routes around errors, and a laugh point no chosen
+  option keeps becomes a `keep_effect` rewrite in the next `dub write --template`.
 - `recomp dub write J1 --to om --template` again lists only frames still out of band, with syllable targets; write
   `steer` options; fit. Two rounds are usually enough.
 - `recomp dub status J1 --to om` says what is next.

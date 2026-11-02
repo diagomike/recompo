@@ -133,6 +133,21 @@ In the studio, the LLM dub dialog has a **Voice** picker (offline group, online 
 - **All work stays on your machine.** Only finished recipes may go to the hub, and only when you publish one.
   - Offline by default (D-27): no network at all once `dub models --download` has run.
 
+## Nuance (P20, 2026-11-02, D-28)
+
+Research: `docs/research/P20-nuance-transfer/`. Jokes, sarcasm, idioms, slang, proverbs and catchphrases are marked
+beside the meaning units and only ever break ties:
+
+| Stage | What changes with `nuance: mark` / `on` |
+|---|---|
+| `dub understand` | the template also asks for `nuance` items per line; stored with the map |
+| `dub write` | lines with items show them, the setup/callback lines (`deps_text`), a `guide` per writing language (naturalize vs function-preserving) and earlier renderings of the same running joke (`glossary`). Options may declare `nuance: [ids]` and strategies naturalize/substitute/compensate/exaggerate |
+| `dub fit` (`on`) | laugh units never colour; kept items worth 0.5/0.25 (below any unit); substitutions free of the added-content cost in conserve mode; a laugh point nobody keeps → one `keep_effect` rewrite (within `rounds`); result reports `nuance: {marked, kept}` |
+| `dub verify` | `effect: {id: kept|partly|lost}` per option; `literal` flags idioms whose words came back word for word; a `lost` item stops counting |
+
+`nuance: off` is exactly the P19 dubber. Tests: `test_a_kept_joke_never_outweighs_meaning_or_fit`, exact selection
+against brute force with nuance, `test_nuance_marks_steer_and_verify`, `test_nuance_off_is_the_plain_dubber`.
+
 ## Not built yet
 
 - **Prosody cues** (`pivot.py prosody`) are not in the app: the question detector over-fired on read speech.

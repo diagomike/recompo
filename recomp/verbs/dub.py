@@ -41,11 +41,51 @@ SETTING_HELP = {
     "min_pause": "A pause this long (s) splits a line into speech frames",
     "strong": "Languages the LLM is strong in (overrides the built-in list)",
     "voice": "Target voice (default: the language's configured voice)",
+    "nuance": "off | mark (mark jokes, sarcasm, idioms… on the map; writing guidance only) | on (default: also never drop "
+              "a laugh point as colour, prefer options that keep an item when meaning and fit are equal, ask rewrites for lost "
+              "laugh points). Units, core coverage, the band and the voice stay the ruler",
 }
 
 
 def _src_lang(ctx: Ctx, s: dict) -> str:
     return s.get("language") or (ctx.project.meta.get("languages") or ["en"])[0]
+
+
+NUANCE_MAP = (" Nuance: also mark what a literal rendering would lose: jokes and punchlines, puns and mishearings, "
+              "sarcasm and irony, idioms, slang, proverbs, figures of speech, innuendo, catchphrases, cultural references, "
+              "callbacks. nuance: [{id: n1…, trigger: the exact words, kind: joke|pun|wordplay|sarcasm|irony|idiom|slang|"
+              "proverb|metaphor|simile|hyperbole|euphemism|innuendo|catchphrase|cultural|collocation|register|callback|other, "
+              "bound: L (lives in the source wording) | C (culture) | P (delivery) | U (universal), laugh: true for a laugh "
+              "point, function: what the audience must get, units: [unit ids it lives in], deps: [keys of setup/callback "
+              "lines], keep_words: [words that must stay identical across those lines], canon: a short name for a running "
+              "joke or catchphrase]}. Mark only what matters; universal jokes need little more than laugh and deps. The "
+              "units stay what is said; nuance marks how it lands.")
+
+
+def _nuance_for_writer(ln: dict, mp: dict, by_key: dict, maps: dict, choice: dict, to: str) -> dict:
+    """The writer's view of a line's nuance items: the items, the lines they depend on, the guide per writing language
+    and earlier renderings of the same running joke (by `canon`) in this language."""
+    items = mp.get("nuance") or []
+    if not items or ln["settings"].get("nuance", "on") == "off":
+        return {}
+    strong = L.strong_set(ln["settings"])
+    deps = {d: by_key[d]["text"] for it in items for d in it.get("deps", []) if d in by_key}
+    gloss = {}
+    canons = {it["canon"]: it["id"] for it in items if it.get("canon")}
+    if canons:
+        for key, row in choice.items():
+            other = ((maps.get(key) or {}).get("data") or {}).get("nuance") or []
+            for it in other:
+                if it.get("canon") in canons and it["canon"] not in gloss:
+                    picks = [p for p in row["data"].get("picks", []) if it["id"] in (p.get("nuance") or [])]
+                    if picks:
+                        gloss[it["canon"]] = {"line": key, "rendered": " ".join(p["text"] for p in picks if p.get("text"))}
+    out = {"nuance": items, "guide": {w: L.guide(w, to, strong) for w in ln["route"]["writes"]}}
+    if deps:
+        out["deps_text"] = deps
+    if gloss:
+        out["glossary"] = gloss
+    return out
 
 
 # ---- settings ----------------------------------------------------------------------------------------------------
@@ -70,6 +110,7 @@ class SettingsIn(BaseModel):
     min_pause: float | None = Field(None, description=SETTING_HELP["min_pause"])
     strong: list[str] | None = Field(None, description=SETTING_HELP["strong"])
     voice: str | None = Field(None, description=SETTING_HELP["voice"])
+    nuance: str | None = Field(None, description=SETTING_HELP["nuance"])
     targets: list[str] | None = Field(None, description="Languages this media is to be dubbed into (a note shown with the settings)")
 
 
@@ -115,6 +156,7 @@ def apply_settings(ctx: Ctx, at: str, changes: dict, clear: list[str] | None = N
                 "recomp dub settings --at project --route multi --middle en,es --views-mt google,nllb",
                 "recomp dub settings --at S2 --route tgt-en --budget quality",
                 "recomp dub settings --at studio --strong en,es,fr,de,am",
+                "recomp dub settings --at project --nuance mark",
                 "recomp dub settings --at J1 --clear route,budget"])
 def dub_settings(ctx: Ctx, inp: SettingsIn):
     """Show or change the LLM dubber's settings. Layers, lowest first: studio → project → source → journey; each shown value says where it came from."""
@@ -159,7 +201,9 @@ class UnderstandIn(BaseModel):
     journey: str = Field(..., json_schema_extra={"pos": 0})
     to: str = Field(..., description="Target language code")
     template: bool = Field(False, description="Return the evidence for each line (source text or MT views) to write the map from")
-    maps: dict[str, dict] = Field(default_factory=dict, description="{key: {best, confidence, notes, units:[{id, text, tier, frame}]}} (use --input)")
+    maps: dict[str, dict] = Field(default_factory=dict, description="{key: {best, confidence, notes, units:[{id, text, tier, frame}], "
+                                                                    "nuance:[{id, trigger, kind, bound, laugh, function, units, deps, "
+                                                                    "keep_words, canon}]}} (use --input)")
     keys: list[str] = Field(default_factory=list, description="Only these lines (seg:… keys)")
     limit: int | None = Field(None, description="Template: at most this many lines still without a map (a whole film in batches)")
 
@@ -202,12 +246,14 @@ def dub_understand(ctx: Ctx, inp: UnderstandIn):
             if ln["key"] in have:
                 item["current"] = have[ln["key"]]["data"]
             out.append(item)
+        marking = any(ln["settings"].get("nuance", "on") != "off" for ln in ls)
         return Result(data={"journey": j["ref"], "to": inp.to, "lines": out, "of": total,
                             "still_unmapped": unmapped,
                             "write": "For each key: {best: the line's meaning in " + (ls[0]["route"]["reads"][0] if ls else "en") +
                                      ", confidence: high|medium|low, notes: what you resolved or could not, "
                                      "units: [{id: u1…, text, tier: core|support|colour, frame: n}]}. Read every view: "
-                                     "they come from independent MT and disagree where the meaning is at risk."},
+                                     "they come from independent MT and disagree where the meaning is at risk." +
+                                     (NUANCE_MAP if marking else "")},
                       next=[f"recomp dub understand {j['ref']} --to {inp.to} --input maps.json   # {{\"maps\": {{key: …}}}}"])
     by = {ln["key"]: ln for ln in ls}
     bad = [k for k in inp.maps if k not in by]
@@ -220,6 +266,8 @@ def dub_understand(ctx: Ctx, inp: UnderstandIn):
         ids = [u.get("id") for u in us]
         if not us or len(set(ids)) != len(ids) or any(u.get("tier", "core") not in L.TIER_W for u in us):
             raise RecompError("E_INVALID", f"{k}: units need unique ids and tier core|support|colour")
+        if m.get("nuance"):
+            m["nuance"] = L.check_nuance(k, m["nuance"], set(ids))
         nf = len(by[k]["frames"])
         for u in us:
             u["frame"] = int(u.get("frame") or 1)
@@ -230,6 +278,7 @@ def dub_understand(ctx: Ctx, inp: UnderstandIn):
             put(tx, db, j, inp.to, "map", k, m)
     have = work(db, j, inp.to, "map")
     return Result(data={"journey": j["ref"], "to": inp.to, "written": len(inp.maps), "mapped": f"{len(have)}/{len(ls)}",
+                        "nuance_items": sum(len(m.get("nuance") or []) for m in inp.maps.values()),
                         "low_confidence": [k for k, m in inp.maps.items() if str(m.get("confidence", "")).lower() == "low"]},
                   next=[f"recomp dub write {j['ref']} --to {inp.to} --template"])
 
@@ -240,7 +289,7 @@ class WriteIn(BaseModel):
     journey: str = Field(..., json_schema_extra={"pos": 0})
     to: str = Field(..., description="Target language code")
     template: bool = Field(False, description="Return what to write: per frame its time, syllable target, units and languages; after a fit, only the rewrites still needed")
-    options: dict[str, dict] = Field(default_factory=dict, description="{key: {frame n: [{text, lang, units, strategy}]}} (use --input)")
+    options: dict[str, dict] = Field(default_factory=dict, description="{key: {frame n: [{text, lang, units, strategy, nuance}]}} (use --input)")
     keys: list[str] = Field(default_factory=list, description="Only these lines")
     limit: int | None = Field(None, description="Template: at most this many lines (a whole film in batches)")
     all: bool = Field(False, description="Template: every line, not only those still needing work")
@@ -257,6 +306,7 @@ def dub_write(ctx: Ctx, inp: WriteIn):
     if inp.template:
         rate = L.Ruler(ctx.project, inp.to, ls[0]["settings"].get("voice") if ls else None,
                        bool(ls[0]["settings"].get("online")) if ls else None).rate()
+        by_key = {ln["key"]: ln for ln in ls}
         out, missing = [], []
         for ln in ls:
             if ln["key"] not in maps:
@@ -266,23 +316,28 @@ def dub_write(ctx: Ctx, inp: WriteIn):
             ch = (choice.get(ln["key"]) or {}).get("data")
             if ln["key"] in opts and not ch and not inp.all:
                 continue  # written, waiting for `dub fit`
+            extra = _nuance_for_writer(ln, mp, by_key, maps, choice, inp.to)
             if ch and not inp.all:
                 if not ch["steer"]:
                     continue
-                out.append({"key": ln["key"], "best": mp.get("best"), "rewrite": ch["steer"], "writes": ln["route"]["writes"]})
+                out.append({"key": ln["key"], "best": mp.get("best"), "rewrite": ch["steer"], "writes": ln["route"]["writes"],
+                            **extra})
                 continue
             out.append({"key": ln["key"], "best": mp.get("best"), "writes": ln["route"]["writes"],
                         "frames": [{"n": k + 1, "dur": f["dur"], "target_syllables": round(0.93 * f["dur"] * rate),
                                     "units": [u for u in mp["units"] if int(u.get("frame", 1)) == k + 1]}
-                                   for k, f in enumerate(ln["frames"])]})
+                                   for k, f in enumerate(ln["frames"])], **extra})
         waiting = len(out)
         if inp.limit:
             out = out[: inp.limit]
         return Result(data={"journey": j["ref"], "to": inp.to, "lines": out, "still_to_write": waiting, "unmapped": missing,
                             "write": "For each key: {frame n: [2–4 options {text, lang (one of writes), units: [ids it "
-                                     "carries], strategy: orig|compact|full|plain|steer}]}. Natural spoken lines, no new "
-                                     "facts; syllable targets are for the target voice. Writing in a language other than the "
-                                     "target: plain, MT-friendly wording (no idioms, explicit subjects)."},
+                                     "carries], strategy: orig|compact|full|plain|steer|naturalize|substitute|compensate|"
+                                     "exaggerate, nuance: [ids of the marked items this option keeps]}]}. Natural spoken lines, "
+                                     "no new facts; syllable targets are for the target voice. Writing in a language other "
+                                     "than the target: plain, MT-friendly wording with explicit subjects. Lines with `nuance` "
+                                     "items: follow each line's `guide` for its writing language, and keep the units: an "
+                                     "item is kept by how it is said, never instead of what is said."},
                       next=[f"recomp dub write {j['ref']} --to {inp.to} --input options.json   # {{\"options\": {{key: …}}}}"])
     by = {ln["key"]: ln for ln in ls}
     bad = [k for k in inp.options if k not in by]
@@ -296,14 +351,21 @@ def dub_write(ctx: Ctx, inp: WriteIn):
             ln = by[k]
             cur = ((opts.get(k) or {}).get("data") or {}).get("frames") or {}
             cur = {fk: list(vs) for fk, vs in cur.items()}
+            nids = {it["id"] for it in (maps.get(k) or {}).get("data", {}).get("nuance") or []}
             for fk, vs in per.items():
                 n = int(fk)
                 if not 1 <= n <= len(ln["frames"]):
                     raise RecompError("E_INVALID", f"{k}: frame {n} (this line has {len(ln['frames'])})")
+                for v in vs:
+                    unknown = [x for x in v.get("nuance") or [] if x not in nids]
+                    if unknown:
+                        raise RecompError("E_INVALID", f"{k}: option keeps unknown nuance item(s) {unknown}",
+                                          hint="Use the ids of the line's `nuance` items from the template")
                 have = {L.option_id(k, n, v["lang"], v["text"]) for v in cur.get(str(n), [])}
                 for v in vs:
                     v = {"text": str(v.get("text", "")).strip(), "lang": v.get("lang") or ln["route"]["writes"][0],
-                         "units": list(v.get("units") or []), "strategy": v.get("strategy", "orig"), "added": v.get("added", [])}
+                         "units": list(v.get("units") or []), "strategy": v.get("strategy", "orig"), "added": v.get("added", []),
+                         "nuance": list(v.get("nuance") or [])}
                     oid = L.option_id(k, n, v["lang"], v["text"])
                     if oid not in have:
                         cur.setdefault(str(n), []).append(v)
@@ -344,7 +406,8 @@ class VerifyIn(BaseModel):
     journey: str = Field(..., json_schema_extra={"pos": 0})
     to: str = Field(..., description="Target language code")
     template: bool = Field(False, description="Return the chosen target lines that crossed MT, back-translated, with their units")
-    checks: dict[str, dict] = Field(default_factory=dict, description="{option id: {covered: [unit ids], errors: [...], added: [...]}} (use --input)")
+    checks: dict[str, dict] = Field(default_factory=dict, description="{option id: {covered: [unit ids], errors: [...], added: [...], "
+                                                                      "effect: {nuance id: kept|partly|lost}}} (use --input)")
 
 
 @verb("dub.verify", VerifyIn, effect="write",
@@ -371,13 +434,24 @@ def dub_verify(ctx: Ctx, inp: VerifyIn):
                 if p["id"] not in ch["needs_check"]:
                     continue
                 bts = {f"{b['lang']} ({b['mt']})": mt.translate([t], inp.to, b["lang"], b["mt"])[0] for b in back}
-                items.append({"id": p["id"], "key": key, "frame": k + 1, "written": p["text"], "target": t,
-                              "back_translations": bts, "units": [u for u in units if int(u.get("frame", 1)) == k + 1]})
+                frame_units = [u for u in units if int(u.get("frame", 1)) == k + 1]
+                item = {"id": p["id"], "key": key, "frame": k + 1, "written": p["text"], "target": t,
+                        "back_translations": bts, "units": frame_units}
+                nu = [it for it in ((maps.get(key) or {}).get("data", {}).get("nuance") or []) if it["id"] in (p.get("nuance") or [])]
+                if nu:
+                    item["nuance"] = nu
+                    lit = sorted({x for b in bts.values() for x in L.literal_flags(nu, b)})
+                    if lit:
+                        item["literal"] = lit  # the idiom's own words came back: probably translated word for word
+                items.append(item)
         mt.save()
         return Result(data={"journey": j["ref"], "to": inp.to, "checks": items,
                             "write": "For each id: {covered: [unit ids the back-translation still carries], errors: [wrong word, "
                                      "reversed polarity, wrong subject…], added: [content not in the source]}. Judge the "
-                                     "meaning, not the style; pronoun gender lost in back-translation alone is not an error."},
+                                     "meaning, not the style; pronoun gender lost in back-translation alone is not an error. "
+                                     "Options with `nuance`: also {effect: {item id: kept|partly|lost}}: does its function "
+                                     "(the joke, the sarcasm, the image) still land? `literal` lists items whose own words "
+                                     "came back, a sign of a word-for-word rendering."},
                       next=[f"recomp dub verify {j['ref']} --to {inp.to} --input checks.json   # {{\"checks\": {{id: …}}}}"])
     if not inp.checks:
         raise RecompError("E_INVALID", "give --template, or --input with {checks: {option id: …}}")
@@ -392,8 +466,11 @@ def dub_verify(ctx: Ctx, inp: VerifyIn):
         raise RecompError("E_INVALID", f"unknown option ids: {bad[:5]}", hint="Use the ids from --template")
     with ctx.op(f"dub verify {j['ref']} → {inp.to}") as tx:
         for oid, c in inp.checks.items():
+            eff = {str(n): str(v).lower() for n, v in (c.get("effect") or {}).items()}
+            if any(v not in ("kept", "partly", "lost") for v in eff.values()):
+                raise RecompError("E_INVALID", f"{oid}: effect values are kept, partly or lost")
             put(tx, db, j, inp.to, "verified", oid, {"covered": list(c.get("covered") or []), "errors": list(c.get("errors") or []),
-                                                    "added": list(c.get("added") or []), "key": known[oid]})
+                                                    "added": list(c.get("added") or []), "effect": eff, "key": known[oid]})
     errs = sum(1 for c in inp.checks.values() if c.get("errors"))
     return Result(data={"journey": j["ref"], "to": inp.to, "checked": len(inp.checks), "with_errors": errs},
                   next=[f"recomp dub fit {j['ref']} --to {inp.to}   # chooses around the errors"])
@@ -421,6 +498,8 @@ def dub_status(ctx: Ctx, inp: StatusIn):
         if ch:
             r.update(text=ch["text"], ratios=ch["ratios"], needs_check=len(ch["needs_check"]), rewrites=len(ch["steer"]),
                      missing_core=ch["missing_core"], round=choice[ln["key"]]["round"])
+            if ch.get("nuance_marked"):
+                r.update(nuance_kept=ch.get("nuance_kept", []), nuance_marked=ch["nuance_marked"])
             checks += len(ch["needs_check"])
             steer += len(ch["steer"])
         if ln["key"] in maps:

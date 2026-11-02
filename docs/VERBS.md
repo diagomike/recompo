@@ -526,6 +526,7 @@ Show or change the LLM dubber's settings. Layers, lowest first: studio → proje
 | `--min-pause` | number | None | A pause this long (s) splits a line into speech frames |
 | `--strong` | list[string] | None | Languages the LLM is strong in (overrides the built-in list) |
 | `--voice` | string | None | Target voice (default: the language's configured voice) |
+| `--nuance` | string | None | off \| mark (mark jokes, sarcasm, idioms… on the map; writing guidance only) \| on (default: also never drop a laugh point as colour, prefer options that keep an item when meaning and fit are equal, ask rewrites for lost laugh points). Units, core coverage, the band and the voice stay the ruler |
 | `--targets` | list[string] | None | Languages this media is to be dubbed into (a note shown with the settings) |
 
 ```
@@ -533,6 +534,7 @@ recomp dub settings J1 --to om
 recomp dub settings --at project --route multi --middle en,es --views-mt google,nllb
 recomp dub settings --at S2 --route tgt-en --budget quality
 recomp dub settings --at studio --strong en,es,fr,de,am
+recomp dub settings --at project --nuance mark
 recomp dub settings --at J1 --clear route,budget
 ```
 
@@ -577,7 +579,7 @@ Stage 1: the meaning map. The template shows each line's speech frames and its e
 | `<journey>` | string | required |  |
 | `--to` | string | required | Target language code |
 | `--template` | boolean | False | Return the evidence for each line (source text or MT views) to write the map from |
-| `--maps` | object | None | {key: {best, confidence, notes, units:[{id, text, tier, frame}]}} (use --input) |
+| `--maps` | object | None | {key: {best, confidence, notes, units:[{id, text, tier, frame}], nuance:[{id, trigger, kind, bound, laugh, function, units, deps, keep_words, canon}]}} (use --input) |
 | `--keys` | list[string] | None | Only these lines (seg:… keys) |
 | `--limit` | integer | None | Template: at most this many lines still without a map (a whole film in batches) |
 
@@ -597,7 +599,7 @@ Stage 4: meaning checks for target lines you cannot read. The template back-tran
 | `<journey>` | string | required |  |
 | `--to` | string | required | Target language code |
 | `--template` | boolean | False | Return the chosen target lines that crossed MT, back-translated, with their units |
-| `--checks` | object | None | {option id: {covered: [unit ids], errors: [...], added: [...]}} (use --input) |
+| `--checks` | object | None | {option id: {covered: [unit ids], errors: [...], added: [...], effect: {nuance id: kept\|partly\|lost}}} (use --input) |
 
 ```
 recomp dub verify J1 --to om --template
@@ -615,7 +617,7 @@ Stage 2: options per speech frame, in the route's writing language(s), each labe
 | `<journey>` | string | required |  |
 | `--to` | string | required | Target language code |
 | `--template` | boolean | False | Return what to write: per frame its time, syllable target, units and languages; after a fit, only the rewrites still needed |
-| `--options` | object | None | {key: {frame n: [{text, lang, units, strategy}]}} (use --input) |
+| `--options` | object | None | {key: {frame n: [{text, lang, units, strategy, nuance}]}} (use --input) |
 | `--keys` | list[string] | None | Only these lines |
 | `--limit` | integer | None | Template: at most this many lines (a whole film in batches) |
 | `--all` | boolean | False | Template: every line, not only those still needing work |
@@ -2266,7 +2268,7 @@ Write `recomp` launchers (sh and .cmd) into a folder on PATH so agents can call 
 
 | Field | Type | Default | Description |
 |---|---|---|---|
-| `--bin-dir` | string | 'C:\\Users\\pc\\bin' | Folder on PATH for the launchers |
+| `--bin-dir` | string | '/root/bin' | Folder on PATH for the launchers |
 
 ## source
 
@@ -2298,6 +2300,7 @@ Add media: files are referenced in place (never copied); subtitles beside them a
 | `--dub-views-mt` | list[string] | None | MT systems for the understanding views: nllb, m2m100, bergamot, google |
 | `--dub-mt` | string | None | MT system into the dub language: nllb, m2m100, bergamot (offline) or google (online) |
 | `--dub-voice` | string | None | Dub voice: mms:<model> (offline), clone, or an edge voice (online) |
+| `--dub-nuance` | string | None | LLM dubber nuance handling: off, mark or on (jokes, sarcasm, idioms; see `dub settings`) |
 | `--dub-online` | boolean | None | Allow online engines (google MT, edge voices) for this media; default offline |
 
 ```

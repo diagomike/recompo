@@ -160,3 +160,107 @@ def test_mms_voices_are_offline_options(proj, OK, monkeypatch):
     assert any(x["voice"] == "clone" for x in v["offline"])
     OK("dub.settings", {"at": "project", "voice": "mms:facebook/mms-tts-orm"}, proj)
     assert OK("dub.settings", {"to": "om"}, proj)["settings"]["voice"] == "mms:facebook/mms-tts-orm"
+
+
+# ---- nuance (P20): marks and bounded selection effects ---------------------------------------------------------
+
+def test_nuance_setting_and_items_are_validated():
+    assert L.normalise({"nuance": "MARK"})["nuance"] == "mark" and L.DEFAULTS["nuance"] == "on"
+    with pytest.raises(RecompError):
+        L.normalise({"nuance": "sometimes"})
+    items = L.check_nuance("k", [{"id": "n1", "trigger": "lose her", "kind": "pun:mishearing", "bound": "l", "laugh": True,
+                                  "units": ["u1"]}, {"id": "n2", "kind": "banter"}], {"u1", "u2"})
+    assert items[0]["kind"] == "pun" and items[0]["bound"] == "L" and items[0]["payoff_last"] and items[1]["kind"] == "other"
+    for bad in ([{"id": "n1", "units": ["u9"]}], [{"id": "n1"}, {"id": "n1"}], [{"trigger": "x"}]):
+        with pytest.raises(RecompError):
+            L.check_nuance("k", bad, {"u1"})
+
+
+def test_laugh_units_are_never_droppable_colour():
+    units = [{"id": "u1", "tier": "core"}, {"id": "u2", "tier": "colour"}, {"id": "u3", "tier": "colour"}]
+    got = {u["id"]: u["tier"] for u in L.promote(units, [{"id": "n1", "laugh": True, "units": ["u2"]},
+                                                         {"id": "n2", "laugh": False, "units": ["u3"]}])}
+    assert got == {"u1": "core", "u2": "support", "u3": "colour"}
+
+
+def _one(units, options, dur=lambda t: 1.0, **kw):  # noqa: E731
+    return L.select(units, [{"dur": 1.0}], {0: options}, dur, **kw)["phrases"][0]
+
+
+def test_a_kept_joke_never_outweighs_meaning_or_fit():
+    items = [{"id": "n1", "laugh": True, "units": ["u1"]}]
+    units = [{"id": "u1", "tier": "core"}, {"id": "u2", "tier": "colour"}] + L.nuance_units(items)
+    meaning = {"text": "more meaning", "units": ["u1", "u2"]}
+    joke = {"text": "the joke", "units": ["u1", "n:n1"]}
+    assert _one(units, [joke, meaning]) == "more meaning"  # even a colour unit (1.0) outweighs a laugh point (0.5)
+    dur = lambda t: 1.0 if t == "fits" else 1.3  # noqa: E731
+    assert _one(units, [{"text": "fits", "units": ["u1"]}, {"text": "long joke", "units": ["u1", "n:n1"]}], dur) == "fits"
+    plain = {"text": "plain", "units": ["u1"]}
+    assert _one(units, [plain, joke]) == "the joke"  # same meaning, same fit: the joke wins the tie
+    # core is still core: a joke option without the core unit loses to one with it
+    assert _one(units, [{"text": "joke only", "units": ["n:n1", "u2"]}, plain]) == "plain"
+
+
+def test_declared_substitution_is_not_charged_as_added_in_conserve_mode():
+    units = [{"id": "u1", "tier": "core"}] + L.nuance_units([{"id": "n1", "laugh": True}])
+    sub = {"text": "substitute joke", "units": ["u1", "n:n1"], "strategy": "substitute", "added": ["new joke material"]}
+    inv = {"text": "invention", "units": ["u1"], "added": ["invented detail"]}
+    plain = {"text": "plain", "units": ["u1"]}
+    assert _one(units, [inv, plain], conserve=True) == "plain"
+    assert _one(units, [plain, sub], conserve=True) == "substitute joke"
+
+
+def test_exact_selection_with_nuance_matches_brute_force():
+    rnd = random.Random(11)
+    dur = lambda t: len(t) / 10  # noqa: E731
+    for _ in range(40):
+        units = [{"id": f"u{i}", "tier": rnd.choice(["core", "support", "colour"])} for i in range(3)]
+        units += L.nuance_units([{"id": "n1", "laugh": True}, {"id": "n2"}])
+        ids = [u["id"] for u in units]
+        frames = [{"dur": rnd.uniform(0.8, 3.0)} for _ in range(3)]
+        variants = {k: [{"text": "x" * rnd.randint(4, 40), "units": rnd.sample(ids, rnd.randint(0, 3))} for _ in range(3)]
+                    for k in range(3)}
+        got = L.select(units, frames, variants, dur)
+        best = None
+        wt = {u["id"]: u.get("w", L.TIER_W.get(u["tier"], 0)) for u in units}
+        core = {u["id"] for u in units if u["tier"] == "core"}
+        for combo in itertools.product(*[variants[k] for k in range(3)]):
+            cov, sc = set(), 0.0
+            for k, v in enumerate(combo):
+                us = set(v["units"])
+                r = dur(v["text"]) / frames[k]["dur"]
+                sc -= L.ALPHA * L.fit_penalty(r, (0.8, 1.05), None) + L.BETA * len({x for x in cov & us if not x.startswith("n:")})
+                cov |= us
+            key = (core <= cov, sc + sum(wt[u] for u in cov))
+            best = key if best is None or key > best else best
+        assert got["kept_all_core"] == best[0] and abs(got["score"] - round(best[1], 3)) < 1e-6
+        assert not any(u.startswith("n:") for u in got["units"]) and set(got["nuance"]) <= {"n1", "n2"}
+
+
+def test_guides_follow_the_writing_language():
+    strong = L.strong_set(L.DEFAULTS)
+    assert L.guide("es", "es", strong).startswith("naturalize")
+    assert L.guide("en", "en", strong).startswith("naturalize")
+    assert L.guide("en", "om", strong).startswith("function-preserving")  # written in English, carried by MT
+    assert L.guide("am", "am", strong).startswith("function-preserving")  # the LLM is not strong in Amharic
+
+
+def test_literal_flags_spot_word_for_word_idioms():
+    items = [{"id": "n1", "kind": "idiom", "trigger": "played the Gunther card too soon"},
+             {"id": "n2", "kind": "joke", "trigger": "take my grandmother to the vet"}]
+    assert L.literal_flags(items, "I think you played Gunther's card too early.") == ["n1"]
+    assert L.literal_flags(items, "I think you asked Gunther for help too early.") == []
+
+
+def test_writer_sees_chain_lines_and_earlier_renderings_of_a_running_joke():
+    from recomp.verbs.dub import _nuance_for_writer
+    settings = {**L.DEFAULTS}
+    ln = {"key": "seg:2", "settings": settings, "route": {"writes": ["es"]}}
+    mp = {"nuance": [{"id": "n1", "laugh": True, "deps": ["seg:1"], "canon": "break"}]}
+    by_key = {"seg:1": {"text": "We were on a break!"}, "seg:2": {"text": "A BREAK!"}}
+    maps = {"seg:9": {"data": {"nuance": [{"id": "n7", "canon": "break"}]}}}
+    choice = {"seg:9": {"data": {"picks": [{"text": "¡Nos estábamos dando un tiempo!", "nuance": ["n7"]}]}}}
+    got = _nuance_for_writer(ln, mp, by_key, maps, choice, "es")
+    assert got["guide"]["es"].startswith("naturalize") and got["deps_text"] == {"seg:1": "We were on a break!"}
+    assert got["glossary"]["break"]["rendered"] == "¡Nos estábamos dando un tiempo!"
+    assert _nuance_for_writer({**ln, "settings": {**settings, "nuance": "off"}}, mp, by_key, maps, choice, "es") == {}
