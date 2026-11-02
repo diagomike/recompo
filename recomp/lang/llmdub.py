@@ -104,6 +104,18 @@ def engine_for(want: str, src: str, tgt: str, online: bool, avoid: tuple = ()) -
     if pick in avoid:
         note = (note + "; " if note else "") + f"no independent second system for {src}→{tgt}: {pick} again"
     return pick, note
+
+
+def check_engine(want: str, forward: tuple, src: str, tgt: str, online: bool) -> tuple[str, str]:
+    """The back-translation system for `dub verify`. Online, it is a different system from the one(s) that
+    translated forward, so MT never grades its own output (P20: an engine's own back-translation hides its errors):
+    google checks offline MT, and an offline system checks google. Offline, or when nothing crossed MT, it is the
+    usual ``engine_for(want)``. Returns (engine, note)."""
+    if not online or not forward:
+        return engine_for(want, src, tgt, online)
+    pick = next((e for e in [want, *OFFLINE] if e not in forward and supports(e, src, tgt)), want) \
+        if "google" in forward else "google"
+    return engine_for(pick, src, tgt, online, avoid=tuple(forward))
 TIER_W = {"core": 3.0, "support": 2.0, "colour": 1.0}
 
 # Languages the LLM reads with nuance and writes naturally. Edit per model: `recomp dub settings --strong …`.
@@ -262,8 +274,9 @@ def plan(src: str, tgt: str, settings: dict) -> dict:
         langs = [v["lang"] for v in views] or [reads[0]]
         langs = [x for x in langs if x != tgt] or ["en"]
         prefer = [v["mt"] for v in views] or [settings.get("mt", "nllb")]
+        forward = tuple(sorted(set(mt_into.values())))
         for k, lang in enumerate(langs):
-            eng, note = engine_for(prefer[min(k, len(prefer) - 1)], tgt, lang, online)
+            eng, note = check_engine(prefer[min(k, len(prefer) - 1)], forward, tgt, lang, online)
             back.append({"lang": lang, "mt": eng})
             if note:
                 notes.append(f"check {tgt}→{lang}: {note}")
@@ -279,8 +292,12 @@ def plan(src: str, tgt: str, settings: dict) -> dict:
     steps.append(f"the {tgt} voice speaks every option on the speaker's frames → exact selection"
                  + (" over the pooled languages" if len(writes) > 1 else ""))
     if back:
-        steps.append(f"check: back-translate the chosen {tgt} into {', '.join(b['lang'] for b in back)}; the LLM marks "
-                     "units kept and errors")
+        fw = sorted(set(mt_into.values()))
+        indep = online and fw and all(b["mt"] not in fw for b in back)
+        steps.append(f"check: back-translate the chosen {tgt} into "
+                     f"{', '.join('{} ({})'.format(b['lang'], b['mt']) for b in back)}"
+                     + (f", independent of the {'/'.join(fw)} that translated it" if indep else "")
+                     + "; the LLM marks units kept and errors")
     steps.append(f"steer out-of-band frames for up to {settings.get('rounds', 2)} round(s)")
     if views:
         steps.append("low-confidence lines → a person checks them")

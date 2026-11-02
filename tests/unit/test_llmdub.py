@@ -126,6 +126,31 @@ def test_offline_by_default_two_independent_systems():
     assert [b["mt"] for b in m["back_translate"]] == ["nllb", "nllb"] and m["notes"]
 
 
+def test_online_checks_use_a_different_engine_than_the_one_that_translated():
+    # offline: unchanged, NLLB back-translates NLLB (there is no other offline system for Oromo)
+    off = P("en", "om")
+    assert off["mt_into"] == {"en": "nllb"} and [b["mt"] for b in off["back_translate"]] == ["nllb"]
+    # online, NLLB forward → google checks it
+    on = P("en", "om", online=True)
+    assert on["mt_into"] == {"en": "nllb"} and [b["mt"] for b in on["back_translate"]] == ["google"]
+    assert any("independent of the nllb" in s for s in on["steps"])
+    # online, google forward → an offline system checks it
+    g = P("en", "om", online=True, mt="google")
+    assert g["mt_into"] == {"en": "google"} and [b["mt"] for b in g["back_translate"]] == ["nllb"] and not g["notes"]
+    assert any("independent of the google" in s for s in g["steps"])
+    # multi route: every check view avoids the forward engine
+    mm = P("am", "om", route="multi", middle="en,es", online=True)
+    assert mm["mt_into"] == {"en": "nllb"} and {b["mt"] for b in mm["back_translate"]} == {"google"}
+    # nothing crossed MT (direct route, verify always): the usual engine
+    d = P("de", "es", verify="always", online=True)
+    assert d["mt_into"] == {} and [b["mt"] for b in d["back_translate"]] == ["nllb"]
+    assert L.check_engine("nllb", ("nllb",), "om", "en", True) == ("google", "")
+    assert L.check_engine("google", ("google",), "om", "en", True) == ("nllb", "")
+    assert L.check_engine("nllb", ("nllb",), "om", "en", False) == ("nllb", "")
+    eng, note = L.check_engine("nllb", ("google", "nllb"), "om", "en", True)  # nothing independent is left
+    assert eng in ("google", "nllb") and "no independent second system" in note
+
+
 def test_engines_fall_back_to_what_can_do_the_pair():
     assert L.engine_for("bergamot", "am", "en", False)[0] == "nllb"  # Mozilla has no Amharic
     assert L.engine_for("bergamot", "de", "en", False) == ("bergamot", "")

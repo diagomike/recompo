@@ -427,8 +427,10 @@ def dub_verify(ctx: Ctx, inp: VerifyIn):
             if not ln or not ch["needs_check"]:
                 continue
             back = ln["route"]["back_translate"] or [{"lang": ln["route"]["reads"][0],
-                                                      "mt": L.engine_for(ln["settings"]["mt"], inp.to, ln["route"]["reads"][0],
-                                                                         bool(ln["settings"].get("online")))[0]}]
+                                                      "mt": L.check_engine(ln["settings"]["mt"],
+                                                                           tuple(sorted(set(ln["route"]["mt_into"].values()))),
+                                                                           inp.to, ln["route"]["reads"][0],
+                                                                           bool(ln["settings"].get("online")))[0]}]
             units = maps[key]["data"]["units"] if key in maps else []
             for k, (p, t) in enumerate(zip(ch["picks"], ch["phrases"])):
                 if p["id"] not in ch["needs_check"]:

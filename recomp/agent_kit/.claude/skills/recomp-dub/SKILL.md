@@ -81,6 +81,9 @@ item only wins when meaning and fit are equal, and a laugh point is never droppe
   Options that keep nuance items also get `effect: {item id: kept|partly|lost}`; `literal` lists items whose own
   words came back (a word-for-word rendering). Then fit again; it routes around errors, and a laugh point no chosen
   option keeps becomes a `keep_effect` rewrite in the next `dub write --template`.
+  Each back-translation is labelled with its engine. Online, it comes from a different engine than the one that
+  translated (google checks NLLB, NLLB checks google), so MT never grades its own output; offline it can be the same
+  engine, which is optimistic: read it more strictly.
 - `recomp dub write J1 --to om --template` again lists only frames still out of band, with syllable targets; write
   `steer` options; fit. Two rounds are usually enough.
 - `recomp dub status J1 --to om` says what is next.

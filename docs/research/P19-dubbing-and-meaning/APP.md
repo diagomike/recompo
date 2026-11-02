@@ -85,7 +85,7 @@ Tests:
 | | Offline (default, `online: false`) | Online (`--online true`) |
 |---|---|---|
 | MT for the views | NLLB-200, plus **M2M-100** as the independent second system; Mozilla **bergamot** where it covers the pair (European languages, not Amharic or Oromo) | the same, plus Google |
-| MT into the target, back-translation | NLLB (or the system you pick, if it can do the pair) | the same, plus Google |
+| MT into the target, back-translation | NLLB (or the system you pick, if it can do the pair) | the same, plus Google; the back-translation uses a **different engine than the forward MT** (google ↔ NLLB) |
 | Voices | **MMS-TTS** for the language (`facebook/mms-tts-orm`, `-amh`, …) or your configured `tts.mms` voice | Edge neural voices first (`tts.voices`) |
 
 - **Which engine.** Each MT crossing gets the engine you asked for if it can do the pair and is allowed. Otherwise

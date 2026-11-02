@@ -183,7 +183,7 @@ recompo's own keyless Google module was run on the same benchmark and judged bli
 |---|---|
 | linger research + storylens app | pushed on `claude/llm-movie-recap-research-eo9g7v` |
 | recompo P20 research, nuance layer, Google comparison | pushed on `claude/p20-nuance-transfer` (not merged to main) |
-| **Cross-engine verify for online dubs** (back-translate with a different engine than the one that translated) | in progress, see `docs/BACKLOG.md` |
+| **Cross-engine verify for online dubs**: back-translate with a different engine than the one that translated (`llmdub.check_engine`) | built and tested on `claude/p20-nuance-transfer` |
 | Laugh detection on source audio (marks laugh points without the LLM) | open |
 | Studio display of nuance marks and kept/lost | open |
 | Per-language back-translator table (MADLAD for am/sw, not for om) | open |

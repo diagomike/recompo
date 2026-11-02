@@ -138,7 +138,7 @@ Recommendations:
      default views, NLLB checks NLLB's own output.
    - P20 showed that self-back-translation is optimistic (Oromo) and that a weak independent one is pessimistic
      (MADLAD's Oromo).
-   - Proposal (BACKLOG): when the forward engine is `nllb` and `online` is on, back-translate with `google`, and the
-     reverse. Offline, keep today's behaviour.
+   - **Built:** when `online` is on, the back-translation uses a different engine than the forward one
+     (`llmdub.check_engine`: google checks NLLB, NLLB checks google). Offline, the behaviour is unchanged.
 3. **Strong targets (Spanish, etc.) stay LLM-written** (direct route). Google's Spanish (80 %) is below the line-alone
    LLM (93 %) and far below the nuance-card writer. Use it only as a draft or as a second view.
