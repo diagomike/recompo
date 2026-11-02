@@ -1,0 +1,590 @@
+[
+ {
+  "item": "X1",
+  "lang": "es",
+  "src": "But, the silver lining, if you wanna see it, is that he made the decision all by himself! Without any outside help whatsoever.",
+  "func": "a fake consolation: 'the good side' is that he dumped her on his own",
+  "cands": {
+   "A": "Pero, el lado positivo, si quieres verlo, es que él tomó la decisión por sí mismo. Sin ayuda externa alguna."
+  }
+ },
+ {
+  "item": "X1",
+  "lang": "am",
+  "src": "But, the silver lining, if you wanna see it, is that he made the decision all by himself! Without any outside help whatsoever.",
+  "func": "a fake consolation: 'the good side' is that he dumped her on his own",
+  "cands": {
+   "A": "But, the silver lining, if you want to see, is that he is making his own decisions! Without any kind of foreign aid.",
+   "B": "But there's a good thing, if you want to see: he made the decision on his own! Nobody helped him.",
+   "C": "But if you want to see one good thing: he made his own decision without any help."
+  }
+ },
+ {
+  "item": "X1",
+  "lang": "om",
+  "src": "But, the silver lining, if you wanna see it, is that he made the decision all by himself! Without any outside help whatsoever.",
+  "func": "a fake consolation: 'the good side' is that he dumped her on his own",
+  "cands": {
+   "A": "But there is one good thing, if you want to see it: He made his own decision, without anyone's help.",
+   "B": "But there is one good thing, if you want to see it: He made all the decisions himself!",
+   "C": "But the silver lining, if you will, is that he makes all the decisions himself!"
+  }
+ },
+ {
+  "item": "X1",
+  "lang": "sw",
+  "src": "But, the silver lining, if you wanna see it, is that he made the decision all by himself! Without any outside help whatsoever.",
+  "func": "a fake consolation: 'the good side' is that he dumped her on his own",
+  "cands": {
+   "A": "But there is the good side, if you want to see it: he made the decision alone! No one helped him at all.",
+   "B": "But, the financial struggle, if you would like to see it, is that he made the decision alone! Without any help from outside.",
+   "C": "But there is one good thing, if you want to see it: he made the decision alone, without the help of anyone."
+  }
+ },
+ {
+  "item": "X2",
+  "lang": "es",
+  "src": "How is that the silver lining?",
+  "func": "questions the idiom itself",
+  "cands": {
+   "A": "¿Cómo es ese el lado positivo?"
+  }
+ },
+ {
+  "item": "X2",
+  "lang": "am",
+  "src": "How is that the silver lining?",
+  "func": "questions the idiom itself",
+  "cands": {
+   "A": "How is this silver cover?",
+   "B": "How good is the side?",
+   "C": "How good is this?"
+  }
+ },
+ {
+  "item": "X2",
+  "lang": "om",
+  "src": "How is that the silver lining?",
+  "func": "questions the idiom itself",
+  "cands": {
+   "A": "How can that be a good thing?",
+   "B": "What is the smell of silver?",
+   "C": "How can that be a good thing?"
+  }
+ },
+ {
+  "item": "X2",
+  "lang": "sw",
+  "src": "How is that the silver lining?",
+  "func": "questions the idiom itself",
+  "cands": {
+   "A": "Yeah!",
+   "B": "Is that a good side?",
+   "C": "Is that a good thing?"
+  }
+ },
+ {
+  "item": "X3",
+  "lang": "es",
+  "src": "Yeah, y'know what, there are other fish in the sea.",
+  "func": "consolation proverb for a break-up, used after good news because she misheard",
+  "cands": {
+   "A": "Sí, ¿sabes qué? Hay otros peces en el mar."
+  }
+ },
+ {
+  "item": "X3",
+  "lang": "am",
+  "src": "Yeah, y'know what, there are other fish in the sea.",
+  "func": "consolation proverb for a break-up, used after good news because she misheard",
+  "cands": {
+   "A": "Well, you know what, for you there are many other women in the world.",
+   "B": "Yes, you know what, there are other fish in the sea.",
+   "C": "Well, you know, you get other women."
+  }
+ },
+ {
+  "item": "X3",
+  "lang": "om",
+  "src": "Yeah, y'know what, there are other fish in the sea.",
+  "func": "consolation proverb for a break-up, used after good news because she misheard",
+  "cands": {
+   "A": "Okay, you know, you'll find other women.",
+   "B": "Yes, you know what, there are other fish in the sea.",
+   "C": "Okay, you know what, there are plenty of other women in the world for you."
+  }
+ },
+ {
+  "item": "X3",
+  "lang": "sw",
+  "src": "Yeah, y'know what, there are other fish in the sea.",
+  "func": "consolation proverb for a break-up, used after good news because she misheard",
+  "cands": {
+   "A": "Well, you know, you'll find other women.",
+   "B": "Yes, you know what, there are other fish in the sea.",
+   "C": "Well, you know what, there are many other women in the world for you."
+  }
+ },
+ {
+  "item": "X4",
+  "lang": "es",
+  "src": "Well, like father, like son.",
+  "func": "Chandler's father is a gay drag performer; 'taste in men' + proverb",
+  "cands": {
+   "A": "Bueno, de tal palo, tal hijo."
+  }
+ },
+ {
+  "item": "X4",
+  "lang": "am",
+  "src": "Well, like father, like son.",
+  "func": "Chandler's father is a gay drag performer; 'taste in men' + proverb",
+  "cands": {
+   "A": "Well, as a father, as a son.",
+   "B": "So I am like my father.",
+   "C": "Good, my father has a good taste for men. As a father, as a son."
+  }
+ },
+ {
+  "item": "X4",
+  "lang": "om",
+  "src": "Well, like father, like son.",
+  "func": "Chandler's father is a gay drag performer; 'taste in men' + proverb",
+  "cands": {
+   "A": "Kind, like a father, like a son.",
+   "B": "Okay, I'm just like my father.",
+   "C": "Okay, my dad has a big crush on men, like father, like son."
+  }
+ },
+ {
+  "item": "X4",
+  "lang": "sw",
+  "src": "Well, like father, like son.",
+  "func": "Chandler's father is a gay drag performer; 'taste in men' + proverb",
+  "cands": {
+   "A": "Well, my father also has a good taste for men. As a father, as a son.",
+   "B": "Well, I'm like my father.",
+   "C": "Well, as a father, as a son."
+  }
+ },
+ {
+  "item": "X5",
+  "lang": "es",
+  "src": "See? Every cloud has a...supple leather lining.",
+  "func": "'every cloud has a silver lining' bent into 'supple leather lining' (her boots)",
+  "cands": {
+   "A": "¿Ves? Cada nube tiene un... forro de cuero flexible."
+  }
+ },
+ {
+  "item": "X5",
+  "lang": "am",
+  "src": "See? Every cloud has a...supple leather lining.",
+  "func": "'every cloud has a silver lining' bent into 'supple leather lining' (her boots)",
+  "cands": {
+   "A": "You see, every cloud has a soft skin.",
+   "B": "See? Every bad night has one good thing: soft leather boots.",
+   "C": "See? There's a good thing in this bad situation: your boot shoes."
+  }
+ },
+ {
+  "item": "X5",
+  "lang": "om",
+  "src": "See? Every cloud has a...supple leather lining.",
+  "func": "'every cloud has a silver lining' bent into 'supple leather lining' (her boots)",
+  "cands": {
+   "A": "You see, each cloud has . . . a smooth skin.",
+   "B": "See, every bad night has one good thing in it: soft leather boots.",
+   "C": "You see, there's something good about this bad situation: your boots."
+  }
+ },
+ {
+  "item": "X5",
+  "lang": "sw",
+  "src": "See? Every cloud has a...supple leather lining.",
+  "func": "'every cloud has a silver lining' bent into 'supple leather lining' (her boots)",
+  "cands": {
+   "A": "You see? Every bad night has one good thing in it: soft leather boots.",
+   "B": "You see? Every cloud has... a crisp skin.",
+   "C": "See? There’s something good about this bad situation: your boots."
+  }
+ },
+ {
+  "item": "X6",
+  "lang": "es",
+  "src": "Yeah, but he did have to have a bunch of stitches and he said that only once in a blue moon does a dog's ear grow back so...still hoping.",
+  "func": "'once in a blue moon' = almost never; she clings to it as hope",
+  "cands": {
+   "A": "Sí, pero tuvo que darle un montón de puntos y dijo que solo una vez cada luna azul la oreja de un perro vuelve a crecer, así que... todavía tengo esperanzas."
+  }
+ },
+ {
+  "item": "X6",
+  "lang": "am",
+  "src": "Yeah, but he did have to have a bunch of stitches and he said that only once in a blue moon does a dog's ear grow back so...still hoping.",
+  "func": "'once in a blue moon' = almost never; she clings to it as hope",
+  "cands": {
+   "A": "But he was looking for a lot of implants and the vet said the dog &apos;s ear would never grow . So I &apos;m still hoping .",
+   "B": "But he needed a lot of cuts, and the vet's dog's ear never grows, maybe once in a hundred years. And... I still hope.",
+   "C": "Yes, but it had to be expanded a lot and the dog's ear that grows only once in the sky moon... still makes hope."
+  }
+ },
+ {
+  "item": "X6",
+  "lang": "om",
+  "src": "Yeah, but he did have to have a bunch of stitches and he said that only once in a blue moon does a dog's ear grow back so...still hoping.",
+  "func": "'once in a blue moon' = almost never; she clings to it as hope",
+  "cands": {
+   "A": "However, the need for a large number of eggs, says a veterinarian, makes it impossible for a dog's ears to grow back.",
+   "B": "Yes, but he had to have a bunch of puppies and only once in a red moon does a dog's ear grow back so... he said he still had hope.",
+   "C": "But he needs a lot of chickens, and the expert says that a dog's ears will almost certainly come back, perhaps once every hundred years."
+  }
+ },
+ {
+  "item": "X6",
+  "lang": "sw",
+  "src": "Yeah, but he did have to have a bunch of stitches and he said that only once in a blue moon does a dog's ear grow back so...still hoping.",
+  "func": "'once in a blue moon' = almost never; she clings to it as hope",
+  "cands": {
+   "A": "Yes, but he had to have a lot of visions and said that only once in a blue month the dog's ear grows back so...he still has hope.",
+   "B": "But she needed to be stitched many times, and the vet said that the dog's ear almost does not come back. So I still have hope.",
+   "C": "But he needed many surgeries, and the doctor said the dog's ear grows almost never, maybe once in a hundred years. So... I'm still hopeful."
+  }
+ },
+ {
+  "item": "X7",
+  "lang": "es",
+  "src": "Joey, all the roles got to dance a little. But believe me with your dance background it'll be a piece of cake.",
+  "func": "easy; Joey lied about dancing",
+  "cands": {
+   "A": "Joey, todos los roles tuvieron que bailar un poco. Pero créeme, con tu experiencia en danza será pan comido."
+  }
+ },
+ {
+  "item": "X7",
+  "lang": "am",
+  "src": "Joey, all the roles got to dance a little. But believe me with your dance background it'll be a piece of cake.",
+  "func": "easy; Joey lied about dancing",
+  "cands": {
+   "A": "Joey, all the roles are getting a little smaller but with your dance background, believe me, this will be a piece of cake.",
+   "B": "Joey, all the roles have to be a little smaller, but it will be very easy with your dance experience.",
+   "C": "Joey, all the roles have to be reduced a bit. But believe me, with your dance experience, it will be very, very easy for you."
+  }
+ },
+ {
+  "item": "X7",
+  "lang": "om",
+  "src": "Joey, all the roles got to dance a little. But believe me with your dance background it'll be a piece of cake.",
+  "func": "easy; Joey lied about dancing",
+  "cands": {
+   "A": "Joey, every part has got a little bit of dancing, but trust me, it'll be a cake with your back to the dance.",
+   "B": "Joey, every part has to be a little bit of a dance, but it'll be a lot easier with your dancing experience.",
+   "C": "Joey, every role has to be a little bit more dancing, but trust me, with your dancing experience, it will be much, much easier for you."
+  }
+ },
+ {
+  "item": "X7",
+  "lang": "sw",
+  "src": "Joey, all the roles got to dance a little. But believe me with your dance background it'll be a piece of cake.",
+  "func": "easy; Joey lied about dancing",
+  "cands": {
+   "A": "Joey, all roles have to play a little. But for your playing experience it will be very easy.",
+   "B": "Joey, all roles have to play a little. But believe me, with your playing experience it will be very easy for you.",
+   "C": "Joey, all the roles got to play a little. But trust me with your dance history it will be a piece of cake."
+  }
+ },
+ {
+  "item": "X8",
+  "lang": "es",
+  "src": "Great. So the ball is in his court?",
+  "func": "it's his move now",
+  "cands": {
+   "A": "Genial. ¿Entonces la pelota está en su tejado?"
+  }
+ },
+ {
+  "item": "X8",
+  "lang": "am",
+  "src": "Great. So the ball is in his court?",
+  "func": "it's his move now",
+  "cands": {
+   "A": "So the ball is in his yard?",
+   "B": "Very good. So now it's your turn to play?",
+   "C": "So what do you have to decide to do now?"
+  }
+ },
+ {
+  "item": "X8",
+  "lang": "om",
+  "src": "Great. So the ball is in his court?",
+  "func": "it's his move now",
+  "cands": {
+   "A": "So now it's his turn to play?",
+   "B": "So what should he decide now?",
+   "C": "So the ball is in his court?"
+  }
+ },
+ {
+  "item": "X8",
+  "lang": "sw",
+  "src": "Great. So the ball is in his court?",
+  "func": "it's his move now",
+  "cands": {
+   "A": "Great. So now what must he decide to do?",
+   "B": "Great. So now is it his turn to play?",
+   "C": "Great. So the ball is in his court?"
+  }
+ },
+ {
+  "item": "X9",
+  "lang": "es",
+  "src": "Ball? There is no ball.",
+  "func": "Rachel takes the idiom literally to say the game is over",
+  "cands": {
+   "A": "¿Bola? No hay pelota."
+  }
+ },
+ {
+  "item": "X9",
+  "lang": "am",
+  "src": "Ball? There is no ball.",
+  "func": "Rachel takes the idiom literally to say the game is over",
+  "cands": {
+   "A": "Rotate? No rotation.",
+   "B": "There is no ball.",
+   "C": "Nothing can be decided."
+  }
+ },
+ {
+  "item": "X9",
+  "lang": "om",
+  "src": "Ball? There is no ball.",
+  "func": "Rachel takes the idiom literally to say the game is over",
+  "cands": {
+   "A": "There is no ball.",
+   "B": "No, not at all.",
+   "C": "I can't decide what to do."
+  }
+ },
+ {
+  "item": "X9",
+  "lang": "sw",
+  "src": "Ball? There is no ball.",
+  "func": "Rachel takes the idiom literally to say the game is over",
+  "cands": {
+   "A": "He can't decide anything.",
+   "B": "A ball? No ball.",
+   "C": "Turn?"
+  }
+ },
+ {
+  "item": "X10",
+  "lang": "es",
+  "src": "We were on a break!",
+  "func": "'on a break' (pause) vs 'broken up'; the show's running fight",
+  "cands": {
+   "A": "¡Estábamos en un descanso!"
+  }
+ },
+ {
+  "item": "X10",
+  "lang": "am",
+  "src": "We were on a break!",
+  "func": "'on a break' (pause) vs 'broken up'; the show's running fight",
+  "cands": {
+   "A": "We stopped for a moment!",
+   "B": "We were just taking a break, standing still, not breaking up!",
+   "C": "We were on a break!"
+  }
+ },
+ {
+  "item": "X10",
+  "lang": "om",
+  "src": "We were on a break!",
+  "func": "'on a break' (pause) vs 'broken up'; the show's running fight",
+  "cands": {
+   "A": "We were just taking a vacation, not a vacation!",
+   "B": "We were on vacation!",
+   "C": "We were on vacation!"
+  }
+ },
+ {
+  "item": "X10",
+  "lang": "sw",
+  "src": "We were on a break!",
+  "func": "'on a break' (pause) vs 'broken up'; the show's running fight",
+  "cands": {
+   "A": "We used to be silent!",
+   "B": "We just had to rest, pause, not break-up!",
+   "C": "We were on vacation!"
+  }
+ },
+ {
+  "item": "X11",
+  "lang": "es",
+  "src": "Oh yeah it will! Come on, up! Up-up-up! Up! Yes! Here we go! Pivot! Pivot! Piv-ot! Piv-et!! Piv-ett!!! Piv-et!",
+  "func": "Ross yelling one word louder and odder while the couch is stuck",
+  "cands": {
+   "A": "¡Oh, sí! ¡Vamos, arriba! ¡Arriba, arriba! ¡Arriba! ¡Sí! ¡Aquí vamos! ¡Pivote! ¡Pivote! ¡Pivote! ¡¡Piv-et!! ¡¡¡Pivett!!! ¡Piv-et!"
+  }
+ },
+ {
+  "item": "X11",
+  "lang": "am",
+  "src": "Oh yeah it will! Come on, up! Up-up-up! Up! Yes! Here we go! Pivot! Pivot! Piv-ot! Piv-et!! Piv-ett!!! Piv-et!",
+  "func": "Ross yelling one word louder and odder while the couch is stuck",
+  "cands": {
+   "A": "Oh yeah! Well, get up! Up-up! Up! Yeah! Let's go! Screw! Screw! Pv-out! Pv-et!! Pv-et!!! Pv-et!",
+   "B": "Turn, turn, turn!",
+   "C": "Oh, yeah, yeah, yeah!"
+  }
+ },
+ {
+  "item": "X11",
+  "lang": "om",
+  "src": "Oh yeah it will! Come on, up! Up-up-up! Up! Yes! Here we go! Pivot! Pivot! Piv-ot! Piv-et!! Piv-ett!!! Piv-et!",
+  "func": "Ross yelling one word louder and odder while the couch is stuck",
+  "cands": {
+   "A": "Yes, it is! Lift up! Lift up! Here we go! Turn around! Turn around! Turn around!",
+   "B": "Yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes",
+   "C": "Oh yes it will be! Come up! Ol-ol-ol-ol! Ol! Yes! Here we go! Pivot! Pivot! It is known as Piv-ot! Piv-et!! Piv-ett means!!! Piv-et!"
+  }
+ },
+ {
+  "item": "X11",
+  "lang": "sw",
+  "src": "Oh yeah it will! Come on, up! Up-up-up! Up! Yes! Here we go! Pivot! Pivot! Piv-ot! Piv-et!! Piv-ett!!! Piv-et!",
+  "func": "Ross yelling one word louder and odder while the couch is stuck",
+  "cands": {
+   "A": "Yes it will be so! Come, up! Up-up-up! Yes! Let's go! Turn! Turn! Turn! Turn! Turn!",
+   "B": "Yes, it will be so! Come, up! Up-up-up! Up! Yes! Let's go! Lean! Lean! Piv-ot! Piv-et!! Piv-ett!!! Piv-et!",
+   "C": "Yes, it will! Raise up! Up! Let's go! Turn! Turn! Turn!"
+  }
+ },
+ {
+  "item": "X12",
+  "lang": "es",
+  "src": "Look, I studying kara-tay for a long time, and there's a concept you should really be familiar with. It's what the Japanese call unagi.",
+  "func": "Ross calls a 'state of awareness' unagi; unagi is eel (sushi)",
+  "cands": {
+   "A": "Mira, estudié kara-tay durante mucho tiempo y hay un concepto con el que deberías estar familiarizado. Es lo que los japoneses llaman unagi."
+  }
+ },
+ {
+  "item": "X12",
+  "lang": "am",
+  "src": "Look, I studying kara-tay for a long time, and there's a concept you should really be familiar with. It's what the Japanese call unagi.",
+  "func": "Ross calls a 'state of awareness' unagi; unagi is eel (sushi)",
+  "cands": {
+   "A": "Here, I have been studying Karate for a long time, and there is a concept that you should know well. The Japanese call it unagi.",
+   "B": "I've been studying karate for a long time. There's a concept you should know. The Japanese call it unagi.",
+   "C": "Here, I've been studying karate for a long time, and there's a concept you should know. The Japanese call it 'unagi'."
+  }
+ },
+ {
+  "item": "X12",
+  "lang": "om",
+  "src": "Look, I studying kara-tay for a long time, and there's a concept you should really be familiar with. It's what the Japanese call unagi.",
+  "func": "Ross calls a 'state of awareness' unagi; unagi is eel (sushi)",
+  "cands": {
+   "A": "Hey, I've been learning karate for a long time, and there's something you really should know. It's what the Japanese call unagi.",
+   "B": "Hi, I have studied karate for a long time, and I have yet to learn the yagi.",
+   "C": "I have studied karate for a long time, and there is one yad-rime that you should know."
+  }
+ },
+ {
+  "item": "X12",
+  "lang": "sw",
+  "src": "Look, I studying kara-tay for a long time, and there's a concept you should really be familiar with. It's what the Japanese call unagi.",
+  "func": "Ross calls a 'state of awareness' unagi; unagi is eel (sushi)",
+  "cands": {
+   "A": "Look, I've been studying kara-tay for a long time, and there's a concept you should understand. That's how the Japanese call unagi.",
+   "B": "Look, I studied karate for a long time, and there is a concept that you must know. The Japanese call it 'unagi'.",
+   "C": "I studied karate for a long time. There is a concept you should know. The Japanese call it unagi."
+  }
+ },
+ {
+  "item": "X13",
+  "lang": "es",
+  "src": "Isn't that a kind of sushi?",
+  "func": "unagi really is eel sushi",
+  "cands": {
+   "A": "¿No es eso una especie de sushi?"
+  }
+ },
+ {
+  "item": "X13",
+  "lang": "am",
+  "src": "Isn't that a kind of sushi?",
+  "func": "unagi really is eel sushi",
+  "cands": {
+   "A": "Isn't this a kind of sushi?",
+   "B": "Isn't this a kind of sushi?",
+   "C": "Unagi? Isn't it the fish people eat in sushi?"
+  }
+ },
+ {
+  "item": "X13",
+  "lang": "om",
+  "src": "Isn't that a kind of sushi?",
+  "func": "unagi really is eel sushi",
+  "cands": {
+   "A": "Isn't that a kind of sushi?",
+   "B": "Is that not the kind of fish that sushi people eat?",
+   "C": "Isn't that a kind of sushi?"
+  }
+ },
+ {
+  "item": "X13",
+  "lang": "sw",
+  "src": "Isn't that a kind of sushi?",
+  "func": "unagi really is eel sushi",
+  "cands": {
+   "A": "Unagi? Isn't that the fish that people eat on sushi?",
+   "B": "Isn’t that kind of sushi?",
+   "C": "Isn’t that kind of sushi?"
+  }
+ },
+ {
+  "item": "X14",
+  "lang": "es",
+  "src": "Because she's your lobster.",
+  "func": "lobsters 'mate for life' (explained in the next line); becomes the show's word for soulmate",
+  "cands": {
+   "A": "Porque ella es tu langosta."
+  }
+ },
+ {
+  "item": "X14",
+  "lang": "am",
+  "src": "Because she's your lobster.",
+  "func": "lobsters 'mate for life' (explained in the next line); becomes the show's word for soulmate",
+  "cands": {
+   "A": "Because she's your lobster.",
+   "B": "Because she is your true love.",
+   "C": "Because she's your lobster. Lobsters stay together their whole lives."
+  }
+ },
+ {
+  "item": "X14",
+  "lang": "om",
+  "src": "Because she's your lobster.",
+  "func": "lobsters 'mate for life' (explained in the next line); becomes the show's word for soulmate",
+  "cands": {
+   "A": "That's because she's your lobster. Lobsters stay together their whole lives.",
+   "B": "Because she is your true love.",
+   "C": "Because she is your lobster."
+  }
+ },
+ {
+  "item": "X14",
+  "lang": "sw",
+  "src": "Because she's your lobster.",
+  "func": "lobsters 'mate for life' (explained in the next line); becomes the show's word for soulmate",
+  "cands": {
+   "A": "Because he is your rope. Ropes stay together all their lives.",
+   "B": "Because he is your rope.",
+   "C": "Because he is your true love."
+  }
+ }
+]

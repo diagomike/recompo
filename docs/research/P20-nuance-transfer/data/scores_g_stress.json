@@ -1,0 +1,62 @@
+{
+ "am:M0": {
+  "meaning": 2,
+  "effect": 1.36,
+  "effect_kept": 0.43,
+  "n": 14
+ },
+ "am:M1": {
+  "meaning": 2.14,
+  "effect": 1.79,
+  "effect_kept": 0.64,
+  "n": 14
+ },
+ "am:M2": {
+  "meaning": 2.29,
+  "effect": 2.36,
+  "effect_kept": 0.86,
+  "n": 14
+ },
+ "es:M0": {
+  "meaning": 2.93,
+  "effect": 2.5,
+  "effect_kept": 0.86,
+  "n": 14
+ },
+ "om:M0": {
+  "meaning": 1.79,
+  "effect": 1.29,
+  "effect_kept": 0.36,
+  "n": 14
+ },
+ "om:M1": {
+  "meaning": 2.21,
+  "effect": 1.71,
+  "effect_kept": 0.57,
+  "n": 14
+ },
+ "om:M2": {
+  "meaning": 2,
+  "effect": 1.86,
+  "effect_kept": 0.64,
+  "n": 14
+ },
+ "sw:M0": {
+  "meaning": 1.86,
+  "effect": 1.29,
+  "effect_kept": 0.36,
+  "n": 14
+ },
+ "sw:M1": {
+  "meaning": 2.36,
+  "effect": 1.93,
+  "effect_kept": 0.71,
+  "n": 14
+ },
+ "sw:M2": {
+  "meaning": 2.5,
+  "effect": 2.57,
+  "effect_kept": 0.86,
+  "n": 14
+ }
+}

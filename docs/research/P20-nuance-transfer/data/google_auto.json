@@ -1,0 +1,162 @@
+{
+ "am:M0": {
+  "NLLB": {
+   "median_ratio": 1.19,
+   "in_band": 0.14,
+   "degenerate": 1,
+   "untranslated": 0,
+   "n": 81
+  },
+  "GOOGLE": {
+   "median_ratio": 1.3,
+   "in_band": 0.15,
+   "degenerate": 0,
+   "untranslated": 0,
+   "n": 81
+  }
+ },
+ "am:M1": {
+  "NLLB": {
+   "median_ratio": 1.01,
+   "in_band": 0.21,
+   "degenerate": 0,
+   "untranslated": 0,
+   "n": 81
+  },
+  "GOOGLE": {
+   "median_ratio": 1.12,
+   "in_band": 0.22,
+   "degenerate": 1,
+   "untranslated": 0,
+   "n": 81
+  }
+ },
+ "am:M2": {
+  "NLLB": {
+   "median_ratio": 1.2,
+   "in_band": 0.17,
+   "degenerate": 2,
+   "untranslated": 0,
+   "n": 81
+  },
+  "GOOGLE": {
+   "median_ratio": 1.22,
+   "in_band": 0.25,
+   "degenerate": 1,
+   "untranslated": 0,
+   "n": 81
+  }
+ },
+ "om:M0": {
+  "NLLB": {
+   "median_ratio": 1.1,
+   "in_band": 0.21,
+   "degenerate": 2,
+   "untranslated": 1,
+   "n": 81
+  },
+  "GOOGLE": {
+   "median_ratio": 1.27,
+   "in_band": 0.15,
+   "degenerate": 1,
+   "untranslated": 1,
+   "n": 81
+  }
+ },
+ "om:M1": {
+  "NLLB": {
+   "median_ratio": 1.05,
+   "in_band": 0.17,
+   "degenerate": 1,
+   "untranslated": 1,
+   "n": 81
+  },
+  "GOOGLE": {
+   "median_ratio": 1.07,
+   "in_band": 0.23,
+   "degenerate": 0,
+   "untranslated": 1,
+   "n": 81
+  }
+ },
+ "om:M2": {
+  "NLLB": {
+   "median_ratio": 1.23,
+   "in_band": 0.19,
+   "degenerate": 3,
+   "untranslated": 1,
+   "n": 81
+  },
+  "GOOGLE": {
+   "median_ratio": 1.24,
+   "in_band": 0.17,
+   "degenerate": 3,
+   "untranslated": 1,
+   "n": 81
+  }
+ },
+ "sw:M0": {
+  "NLLB": {
+   "median_ratio": 1.14,
+   "in_band": 0.15,
+   "degenerate": 1,
+   "untranslated": 1,
+   "n": 81
+  },
+  "GOOGLE": {
+   "median_ratio": 1.19,
+   "in_band": 0.2,
+   "degenerate": 0,
+   "untranslated": 3,
+   "n": 81
+  }
+ },
+ "sw:M1": {
+  "NLLB": {
+   "median_ratio": 1.09,
+   "in_band": 0.2,
+   "degenerate": 1,
+   "untranslated": 1,
+   "n": 81
+  },
+  "GOOGLE": {
+   "median_ratio": 1.05,
+   "in_band": 0.31,
+   "degenerate": 0,
+   "untranslated": 1,
+   "n": 81
+  }
+ },
+ "sw:M2": {
+  "NLLB": {
+   "median_ratio": 1.19,
+   "in_band": 0.26,
+   "degenerate": 4,
+   "untranslated": 1,
+   "n": 81
+  },
+  "GOOGLE": {
+   "median_ratio": 1.21,
+   "in_band": 0.26,
+   "degenerate": 2,
+   "untranslated": 1,
+   "n": 81
+  }
+ },
+ "es:M0": {
+  "NLLB": {
+   "median_ratio": 0.92,
+   "in_band": 0.35,
+   "degenerate": 0,
+   "untranslated": 0,
+   "n": 81
+  },
+  "GOOGLE": {
+   "median_ratio": 0.99,
+   "in_band": 0.4,
+   "degenerate": 1,
+   "untranslated": 0,
+   "n": 81
+  }
+ }
+}

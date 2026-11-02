@@ -19,6 +19,7 @@ Which works best, measured on *Friends*?
 | **this README** | the answers |
 | `RESULTS.md` | every number, method, caveats |
 | `DESIGN.md` | the nuance card, the strategy policy, and the exact changes to `recomp dub` |
+| `GOOGLE.md` | Google Translate (keyless, recompo's `google` engine) vs offline NLLB on the same benchmark |
 | `LITERATURE.md` | humour/idiom/pun translation, sitcom dubbing, pre-editing for MT: what earlier work found |
 | `data/` | scenes, gold items, both baselines, every output, blind sheets, judgements, scores |
 | `scripts/research/p20/` | sampling, audit, MT runs (NLLB / MADLAD / M2M via CTranslate2), blind sheets, scoring |
@@ -93,5 +94,6 @@ The stress set agrees: proverbs, idioms and the show's running jokes. Effect kep
 ## Open (needs people or your PC)
 
 - Native-speaker A/B (Spanish, Amharic, Oromo, Swahili) on the dubbed audio, not text.
-- Run the MT arm with NLLB-3.3B and Google for Oromo to separate MT quality from strategy.
+- Run the MT arm with NLLB-3.3B. (Google is done: `GOOGLE.md`. It is better for Amharic and Oromo and ties for
+  Swahili, and the function-preserving pre-edit adds about +20 points on either engine.)
 - A held-out test of the nuance pass's recall on new episodes, with gold written by someone else.

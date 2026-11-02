@@ -68,6 +68,10 @@ Every open task by priority. Done phases are summarised; their detail is in git 
 - [ ] Laugh detection on the source audio (laugh points without the LLM; checks the `laugh` marks).
 - [ ] Studio: show nuance marks and kept/lost in Translations → LLM dub.
 - [ ] Per-language back-translator for `dub verify` (MADLAD-400 is unusable om→en; P20 `om_diagnosis.json`).
+- [ ] Cross-engine verify: when `online`, back-translate with a different engine than the forward one (nllb ↔ google);
+      today the back engine follows the view engines, so NLLB checks NLLB (optimistic; P20 `GOOGLE.md`).
+- [x] Google vs NLLB on the P20 benchmark (`docs/research/P20-nuance-transfer/GOOGLE.md`): Google better for am/om
+      (+13–23 pts), tie for sw, better than NLLB but below the LLM for es; the nuance pre-edit adds ~+20 on either engine.
 
 ## Research (P19, 2026-10-31; research only)
 - [x] Literature and feasibility report: `docs/research/P19-dubbing-and-meaning/` (tracks 1 and 3 here, track 2 on

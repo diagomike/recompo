@@ -253,6 +253,9 @@ matching, gapless recipe player, dub fixes, face-cropped Shorts, semantic search
   laugh units never colour, kept items worth less than any unit (tie-breaks only), substitutions free of the
   added-content cost, `keep_effect` rewrites within `rounds`; `dub verify` takes `effect` and flags literal idioms.
   `nuance: off` is the P19 dubber. Not built: laugh detection on audio, studio display, per-language back-translator.
+- **Google vs NLLB** (`GOOGLE.md`): effect kept raw / plain / function-preserving: Amharic 48/49/70 % (NLLB 25/23/57),
+  Oromo 31/31/57 % (13/16/35), Swahili 52/48/72 % (45/39/77); Spanish raw 80 % vs NLLB 67 % vs LLM line-alone 93 %.
+  Same length. Use `--online --mt google` for am/om; keep `nuance on` (its ~+20 adds to the engine's gain).
 
 ## P19 LLM dubber in the app (2026-11-01, D-25)
 - `recomp dub settings | understand | write | fit | verify | status` (docs/VERBS.md; agent skill `recomp-dub`).
