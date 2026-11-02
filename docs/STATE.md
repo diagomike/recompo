@@ -241,6 +241,8 @@ matching, gapless recipe player, dub fixes, face-cropped Shorts, semantic search
   the studio voice (X41 vs X42). The viewer marks these exports "original voices (AI)" with their own matrix row.
 
 ## P20 research: nuance transfer in dubbing (2026-11-02, branch `claude/p20-nuance-transfer`)
+
+One-page context of this work and the linger recap research: `docs/research/CONTEXT-recaps-and-nuance.md`.
 - Question: do jokes, sarcasm, idioms, slang, proverbs, collocations survive `recomp dub`? Benchmark: 8 random *Friends*
   scenes (214 lines, 83 gold items) + 14 stress items + MUStARD sarcasm; Spanish (strong) and Amharic/Swahili/Oromo
   (NLLB-200 1.3B; MADLAD-400 back-translation), blind judging.
