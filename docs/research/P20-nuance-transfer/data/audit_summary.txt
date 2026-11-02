@@ -1,0 +1,9 @@
+83 items
+all        A flag  47% trig  41% mech  24% dep  28% | B flag  18% trig  90% mech  17% dep   7% flat(auto)  49% flat(manual)  23%
+humor      A flag  53% trig  46% mech  27% dep  31% | B flag  20% trig  89% mech  20% dep   8% flat(auto)  51% flat(manual)  23%
+L-bound    A flag  57% trig  48% mech  29% dep  40% | B flag  24% trig  90% mech  24% dep  10% flat(auto)  48% flat(manual)  24%
+C-bound    A flag  83% trig  67% mech  50% dep   0% | B flag  33% trig  83% mech  33% dep   0% flat(auto)  50% flat(manual)  33%
+U          A flag  36% trig  34% mech  15% dep  12% | B flag  13% trig  92% mech  11% dep   6% flat(auto)  51% flat(manual)  23%
+with deps  A flag  52% trig  38% mech  34% dep  28% | B flag  21% trig  90% mech  17% dep   7% flat(auto)  38% flat(manual)  21%
+B unit tier carrying the trigger: {'colour': 4, 'core': 39, 'support': 3, 'none': 37}
+  humorous items: {'colour': 4, 'core': 33, 'none': 32, 'support': 1}

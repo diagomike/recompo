@@ -1,0 +1,1269 @@
+[
+ {
+  "id": "S1E16c15-L3",
+  "line": "S1E16c15-L3",
+  "trigger": "never ever leave your hand... ..on the desk",
+  "cats": [
+   "joke:implicature",
+   "fixed:little tip"
+  ],
+  "humor": 1,
+  "punch": 1,
+  "bound": "U",
+  "mech": "understatement + delayed reveal: she stapled his hand; the pause before 'on the desk' is the timing",
+  "func": "listener infers the stapler injury; payoff word last after a pause",
+  "deps": [
+   "S1E16c15-L3"
+  ]
+ },
+ {
+  "id": "S1E16c15-L11",
+  "line": "S1E16c15-L11",
+  "trigger": "she threw it under the bus",
+  "cats": [
+   "idiom:literalized",
+   "joke:wordplay"
+  ],
+  "humor": 1,
+  "punch": 1,
+  "bound": "L",
+  "mech": "idiom 'throw under the bus' (betray) used literally: she really threw the thermos under a bus",
+  "func": "literal event (petty cruelty) must stay true; idiom echo is bonus",
+  "deps": []
+ },
+ {
+  "id": "S1E16c15-L11b",
+  "line": "S1E16c15-L11",
+  "trigger": "Judy Jetson thermos",
+  "cats": [
+   "cultural-ref"
+  ],
+  "humor": 0,
+  "punch": 0,
+  "bound": "C",
+  "mech": "a 1960s cartoon lunch thermos: childhood treasure",
+  "func": "a beloved childhood object",
+  "deps": []
+ },
+ {
+  "id": "S1E16c15-L15",
+  "line": "S1E16c15-L15",
+  "trigger": "Joey is not my boyfriend, or my thermos",
+  "cats": [
+   "joke:callback",
+   "joke:incongruous-list"
+  ],
+  "humor": 1,
+  "punch": 1,
+  "bound": "U",
+  "mech": "puts Joey in the same list as the stolen boyfriend and the thermos",
+  "func": "same word 'thermos' as L11 so the callback lands",
+  "deps": [
+   "S1E16c15-L11"
+  ]
+ },
+ {
+  "id": "S1E16c15-L13",
+  "line": "S1E16c15-L13",
+  "trigger": "anything that looked like either one of us",
+  "cats": [
+   "joke:implication"
+  ],
+  "humor": 1,
+  "punch": 0,
+  "bound": "U",
+  "mech": "Phoebe and Ursula are identical twins, so he avoids both",
+  "func": "knowledge that they are twins (series context)",
+  "deps": []
+ },
+ {
+  "id": "S1E16c15-L21",
+  "line": "S1E16c15-L21",
+  "trigger": "slept together",
+  "cats": [
+   "euphemism"
+  ],
+  "humor": 0,
+  "punch": 0,
+  "bound": "U",
+  "mech": "sex",
+  "func": "conventional euphemism",
+  "deps": []
+ },
+ {
+  "id": "S1E16c15-L25",
+  "line": "S1E16c15-L25",
+  "trigger": "Yeah, um, may we help you?",
+  "cats": [
+   "joke:register-contrast",
+   "situational"
+  ],
+  "humor": 1,
+  "punch": 1,
+  "bound": "U",
+  "mech": "Ursula addresses her own sister with cold shop-clerk formality",
+  "func": "icy over-formality toward her twin",
+  "deps": []
+ },
+ {
+  "id": "S1E22c5-L4",
+  "line": "S1E22c5-L4",
+  "trigger": "I don't perform those kind of services",
+  "cats": [
+   "euphemism",
+   "joke:innuendo"
+  ],
+  "humor": 1,
+  "punch": 0,
+  "bound": "L",
+  "mech": "'services' = sexual services; the caller wants an escort",
+  "func": "polite refusal that hides a sexual meaning",
+  "deps": []
+ },
+ {
+  "id": "S1E22c5-L5",
+  "line": "S1E22c5-L5",
+  "trigger": "Services? Oh, services.",
+  "cats": [
+   "joke:delayed-realization",
+   "wordplay:polysemy"
+  ],
+  "humor": 1,
+  "punch": 1,
+  "bound": "L",
+  "mech": "Joey first hears the neutral sense, then gets the sexual one; same word repeated with new intonation",
+  "func": "the same word must carry both senses",
+  "deps": [
+   "S1E22c5-L4"
+  ]
+ },
+ {
+  "id": "S1E22c5-L6",
+  "line": "S1E22c5-L6",
+  "trigger": "55-JUMBO... with a U",
+  "cats": [
+   "cultural-ref:vanity number",
+   "joke:innuendo"
+  ],
+  "humor": 1,
+  "punch": 0,
+  "bound": "C",
+  "mech": "US phone letters; JUMBO = big (genital size innuendo)",
+  "func": "the number advertises 'big'",
+  "deps": []
+ },
+ {
+  "id": "S1E22c5-L6b",
+  "line": "S1E22c5-L6",
+  "trigger": "Judging by his number, I'd be a huge disappointment",
+  "cats": [
+   "joke:self-deprecation",
+   "wordplay:huge"
+  ],
+  "humor": 1,
+  "punch": 1,
+  "bound": "L",
+  "mech": "self-deprecating size joke; 'huge' ironically intensifies 'disappointment'",
+  "func": "Ross implies he is smaller than 'JUMBO'",
+  "deps": [
+   "S1E22c5-L6"
+  ]
+ },
+ {
+  "id": "S1E22c5-L9",
+  "line": "S1E22c5-L9",
+  "trigger": "it pays to know the man who wears my shoes. Me.",
+  "cats": [
+   "joke:self-reference",
+   "fixed:it pays to"
+  ],
+  "humor": 1,
+  "punch": 1,
+  "bound": "U",
+  "mech": "grand build-up that turns out to be himself",
+  "func": "boastful set-up, deflating 'Me.' last",
+  "deps": []
+ },
+ {
+  "id": "S1E22c5-L16",
+  "line": "S1E22c5-L16",
+  "trigger": "Everyone. Except for uh... no everyone.",
+  "cats": [
+   "joke:reversal"
+  ],
+  "humor": 1,
+  "punch": 1,
+  "bound": "U",
+  "mech": "pretends to look for an exception, finds none",
+  "func": "pause then reversal; 'everyone' last",
+  "deps": []
+ },
+ {
+  "id": "S1E22c5-L18",
+  "line": "S1E22c5-L18",
+  "trigger": "Mr. Boss Man... Boss Man Bing",
+  "cats": [
+   "joke:mocking-nickname",
+   "sound:alliteration"
+  ],
+  "humor": 1,
+  "punch": 0,
+  "bound": "L",
+  "mech": "childish alliterative nickname",
+  "func": "a silly, catchy mocking title",
+  "deps": []
+ },
+ {
+  "id": "S1E22c5-L20",
+  "line": "S1E22c5-L20",
+  "trigger": "They even do you.",
+  "cats": [
+   "slang:do someone (imitate)",
+   "double-entendre"
+  ],
+  "humor": 1,
+  "punch": 1,
+  "bound": "L",
+  "mech": "'do' = do an impression of (sexual reading also available)",
+  "func": "they imitate you",
+  "deps": []
+ },
+ {
+  "id": "S1E22c5-L22",
+  "line": "S1E22c5-L22",
+  "trigger": "Could that report BE any later?",
+  "cats": [
+   "catchphrase",
+   "prosody:stress"
+  ],
+  "humor": 1,
+  "punch": 1,
+  "bound": "P",
+  "mech": "Chandler's sarcastic stress pattern 'Could X BE any Y?'",
+  "func": "recognizable sarcastic cadence of Chandler",
+  "deps": []
+ },
+ {
+  "id": "S1E22c5-L26",
+  "line": "S1E22c5-L26",
+  "trigger": "The hills were alive with the sound of music",
+  "cats": [
+   "cultural-ref:song",
+   "prosody:stress"
+  ],
+  "humor": 1,
+  "punch": 1,
+  "bound": "C",
+  "mech": "Sound of Music lyric delivered in Chandler's cadence",
+  "func": "famous song line + the mocked cadence",
+  "deps": [
+   "S1E22c5-L22"
+  ]
+ },
+ {
+  "id": "S1E22c5-L29",
+  "line": "S1E22c5-L29",
+  "trigger": "That is so not true.",
+  "cats": [
+   "slang:'so not'",
+   "joke:self-incrimination"
+  ],
+  "humor": 1,
+  "punch": 1,
+  "bound": "P",
+  "mech": "Chandler uses the exact intonation they mock",
+  "func": "he sounds like the impression while denying it",
+  "deps": [
+   "S1E22c5-L22"
+  ]
+ },
+ {
+  "id": "S1E22c5-L30",
+  "line": "S1E22c5-L30",
+  "trigger": "That is so not... That is so not...",
+  "cats": [
+   "joke:self-incrimination",
+   "prosody"
+  ],
+  "humor": 1,
+  "punch": 1,
+  "bound": "P",
+  "mech": "he keeps falling into the mocked cadence and gives up",
+  "func": "repetition with the same mocked stress",
+  "deps": [
+   "S1E22c5-L29"
+  ]
+ },
+ {
+  "id": "S2E2c2-L2",
+  "line": "S2E2c2-L2",
+  "trigger": "Yeah, I forget which ones.",
+  "cats": [
+   "sarcasm:passive-aggressive"
+  ],
+  "humor": 1,
+  "punch": 1,
+  "bound": "U",
+  "mech": "Rachel pointedly refuses to help Julie",
+  "func": "deliberately unhelpful tone",
+  "deps": []
+ },
+ {
+  "id": "S2E2c2-L6",
+  "line": "S2E2c2-L6",
+  "trigger": "Thank you. What a bitch.",
+  "cats": [
+   "joke:contrast",
+   "taboo"
+  ],
+  "humor": 1,
+  "punch": 1,
+  "bound": "U",
+  "mech": "polite thanks then an insult under her breath",
+  "func": "sweet surface, insult aside",
+  "deps": []
+ },
+ {
+  "id": "S2E2c2-L7",
+  "line": "S2E2c2-L7",
+  "trigger": "wants to abuse his discount... take advantage of it",
+  "cats": [
+   "collocation"
+  ],
+  "humor": 0,
+  "punch": 0,
+  "bound": "U",
+  "mech": "use the staff discount before quitting",
+  "func": "exploit his discount",
+  "deps": []
+ },
+ {
+  "id": "S2E2c2-L8",
+  "line": "S2E2c2-L8",
+  "trigger": "I have to take my grandmother to the vet",
+  "cats": [
+   "joke:absurd-excuse"
+  ],
+  "humor": 1,
+  "punch": 1,
+  "bound": "U",
+  "mech": "an absurd excuse: grandmothers don't go to vets; she just won't go",
+  "func": "obviously fake excuse",
+  "deps": []
+ },
+ {
+  "id": "S2E2c2-L12",
+  "line": "S2E2c2-L12",
+  "trigger": "Hey, sweetums.",
+  "cats": [
+   "joke:mock-endearment",
+   "register"
+  ],
+  "humor": 1,
+  "punch": 1,
+  "bound": "U",
+  "mech": "Chandler answers Ross's 'Hi, honey' (to Julie) as if it were to him, with a sillier pet name",
+  "func": "silly pet name, mocking Ross's 'honey'",
+  "deps": [
+   "S2E2c2-L11"
+  ]
+ },
+ {
+  "id": "S2E2c2-L17",
+  "line": "S2E2c2-L17",
+  "trigger": "cheating on Rachel in her house of worship",
+  "cats": [
+   "metaphor",
+   "joke:hyperbole",
+   "cultural-ref:Bloomingdale's"
+  ],
+  "humor": 1,
+  "punch": 1,
+  "bound": "C",
+  "mech": "Bloomingdale's is Rachel's church; shopping there with Julie is adultery in a sacred place",
+  "func": "the store is sacred to Rachel; it's a betrayal",
+  "deps": []
+ },
+ {
+  "id": "S2E2c2-L19",
+  "line": "S2E2c2-L19",
+  "trigger": "She will kill you like a dog in the street.",
+  "cats": [
+   "simile",
+   "hyperbole"
+  ],
+  "humor": 1,
+  "punch": 1,
+  "bound": "U",
+  "mech": "violent hyperbolic simile",
+  "func": "she'll destroy you, violently (DOG image)",
+  "deps": []
+ },
+ {
+  "id": "S2E2c2-L24",
+  "line": "S2E2c2-L24",
+  "trigger": "Woof, woof.",
+  "cats": [
+   "joke:callback"
+  ],
+  "humor": 1,
+  "punch": 1,
+  "bound": "U",
+  "mech": "barks as the 'dog in the street' Monica will be",
+  "func": "needs the dog image of L19",
+  "deps": [
+   "S2E2c2-L19"
+  ]
+ },
+ {
+  "id": "S2E2c2-L22",
+  "line": "S2E2c2-L22",
+  "trigger": "It's a big deal to me.",
+  "cats": [
+   "fixed:big deal",
+   "irony:repetition"
+  ],
+  "humor": 0,
+  "punch": 0,
+  "bound": "U",
+  "mech": "echoes Monica's 'not that big a deal'",
+  "func": "same phrase reused against her",
+  "deps": [
+   "S2E2c2-L21"
+  ]
+ },
+ {
+  "id": "S2E21c5-L3",
+  "line": "S2E21c5-L3",
+  "trigger": "a Century 21 real-estate agent... really cool jackets",
+  "cats": [
+   "cultural-ref:Century 21 jackets",
+   "sarcasm"
+  ],
+  "humor": 1,
+  "punch": 1,
+  "bound": "C",
+  "mech": "Century 21 agents wear loud gold blazers; 'really cool' is ironic",
+  "func": "his jacket looks like a tacky company uniform",
+  "deps": []
+ },
+ {
+  "id": "S2E21c5-L5",
+  "line": "S2E21c5-L5",
+  "trigger": "the guy who used to wear your hat",
+  "cats": [
+   "joke:insult-reversal"
+  ],
+  "humor": 1,
+  "punch": 1,
+  "bound": "U",
+  "mech": "as if the hat owned Ross, the hat is the memorable thing",
+  "func": "mocking Ross's hat",
+  "deps": []
+ },
+ {
+  "id": "S2E21c5-L11",
+  "line": "S2E21c5-L11",
+  "trigger": "you call the couch, and we'll call the couch, and we'll see who it comes to",
+  "cats": [
+   "joke:absurd-analogy",
+   "wordplay:call (a dog)"
+  ],
+  "humor": 1,
+  "punch": 1,
+  "bound": "L",
+  "mech": "treats the couch like a dog called by two owners",
+  "func": "a childish 'let the pet choose' contest",
+  "deps": []
+ },
+ {
+  "id": "S2E21c5-L19",
+  "line": "S2E21c5-L19",
+  "trigger": "He told on us?",
+  "cats": [
+   "phrasal:tell on",
+   "register:childish"
+  ],
+  "humor": 1,
+  "punch": 1,
+  "bound": "L",
+  "mech": "schoolyard word for tattling",
+  "func": "bullies sound like kids",
+  "deps": [
+   "S2E21c5-L13"
+  ]
+ },
+ {
+  "id": "S2E21c5-L22",
+  "line": "S2E21c5-L22",
+  "trigger": "Don't play with his things.",
+  "cats": [
+   "joke:mock-parenting"
+  ],
+  "humor": 1,
+  "punch": 1,
+  "bound": "U",
+  "mech": "Chandler scolds like a parent at a playdate",
+  "func": "childish framing of the fight",
+  "deps": []
+ },
+ {
+  "id": "S2E21c5-L24",
+  "line": "S2E21c5-L24",
+  "trigger": "let's take this outside",
+  "cats": [
+   "idiom:fight",
+   "cliche"
+  ],
+  "humor": 0,
+  "punch": 0,
+  "bound": "L",
+  "mech": "invitation to fight",
+  "func": "a stock tough-guy line",
+  "deps": []
+ },
+ {
+  "id": "S2E21c5-L25",
+  "line": "S2E21c5-L25",
+  "trigger": "Let's take this outside? Who talks like that?",
+  "cats": [
+   "joke:metalinguistic"
+  ],
+  "humor": 1,
+  "punch": 1,
+  "bound": "L",
+  "mech": "Ross mocks the cliché wording itself",
+  "func": "needs a recognizably clichéd target phrase in L24",
+  "deps": [
+   "S2E21c5-L24"
+  ]
+ },
+ {
+  "id": "S2E21c5-L26",
+  "line": "S2E21c5-L26",
+  "trigger": "The guy that's about to kick your ass talks like that.",
+  "cats": [
+   "slang:kick ass",
+   "joke:comeback"
+  ],
+  "humor": 1,
+  "punch": 1,
+  "bound": "L",
+  "mech": "tough comeback reusing 'talks like that'",
+  "func": "threat that answers the question",
+  "deps": [
+   "S2E21c5-L25"
+  ]
+ },
+ {
+  "id": "S2E21c5-L27",
+  "line": "S2E21c5-L27",
+  "trigger": "You had to ask.",
+  "cats": [
+   "joke:deadpan"
+  ],
+  "humor": 1,
+  "punch": 1,
+  "bound": "U",
+  "mech": "deadpan blame",
+  "func": "Ross invited the threat",
+  "deps": []
+ },
+ {
+  "id": "S2E21c5-L30",
+  "line": "S2E21c5-L30",
+  "trigger": "never ever show your faces",
+  "cats": [
+   "idiom"
+  ],
+  "humor": 0,
+  "punch": 0,
+  "bound": "U",
+  "mech": "never come back",
+  "func": "ban",
+  "deps": []
+ },
+ {
+  "id": "S2E21c5-L31",
+  "line": "S2E21c5-L31",
+  "trigger": "you played the Gunther card too soon",
+  "cats": [
+   "idiom:play the X card",
+   "joke:metaphor"
+  ],
+  "humor": 1,
+  "punch": 1,
+  "bound": "L",
+  "mech": "card-game metaphor: Gunther was their trump card",
+  "func": "used their only weapon too early",
+  "deps": []
+ },
+ {
+  "id": "S2E24c4-L2",
+  "line": "S2E24c4-L2",
+  "trigger": "so they can tell grown ups to cut it out",
+  "cats": [
+   "joke:reframing",
+   "phrasal:cut it out"
+  ],
+  "humor": 1,
+  "punch": 1,
+  "bound": "U",
+  "mech": "babies learn to talk to stop adults' baby games",
+  "func": "stop doing that",
+  "deps": []
+ },
+ {
+  "id": "S2E24c4-L3",
+  "line": "S2E24c4-L3",
+  "trigger": "Just a little thing, no pressure.",
+  "cats": [
+   "irony:understatement"
+  ],
+  "humor": 1,
+  "punch": 0,
+  "bound": "U",
+  "mech": "the 'little' question is huge",
+  "func": "fake casualness",
+  "deps": []
+ },
+ {
+  "id": "S2E24c4-L9",
+  "line": "S2E24c4-L9",
+  "trigger": "you are about to get sooo lucky",
+  "cats": [
+   "idiom:get lucky (sex)"
+  ],
+  "humor": 1,
+  "punch": 1,
+  "bound": "L",
+  "mech": "get lucky = have sex",
+  "func": "sexual promise",
+  "deps": []
+ },
+ {
+  "id": "S2E24c4-L12",
+  "line": "S2E24c4-L12",
+  "trigger": "move to France, make French toast",
+  "cats": [
+   "joke:wordplay",
+   "dad-joke"
+  ],
+  "humor": 1,
+  "punch": 1,
+  "bound": "L",
+  "mech": "French toast because they'd be in France",
+  "func": "cheesy pun-like romantic image",
+  "deps": []
+ },
+ {
+  "id": "S2E24c4-L13",
+  "line": "S2E24c4-L13",
+  "trigger": "we're in France, we're making the toast",
+  "cats": [
+   "joke:callback"
+  ],
+  "humor": 0,
+  "punch": 0,
+  "bound": "U",
+  "mech": "Monica humours his image to steer to babies",
+  "func": "reuse of his image",
+  "deps": [
+   "S2E24c4-L12"
+  ]
+ },
+ {
+  "id": "S2E24c4-L14",
+  "line": "S2E24c4-L14",
+  "trigger": "bassinet ... Like a hound?",
+  "cats": [
+   "pun:mishearing basset/bassinet"
+  ],
+  "humor": 1,
+  "punch": 1,
+  "bound": "L",
+  "mech": "bassinet (baby bed) heard as basset (dog breed)",
+  "func": "Richard hears a near-homophone with a funny meaning (evasion)",
+  "deps": [
+   "S2E24c4-L13"
+  ]
+ },
+ {
+  "id": "S2E24c4-L15",
+  "line": "S2E24c4-L15",
+  "trigger": "Not a basset, a bassinet.",
+  "cats": [
+   "pun:mishearing"
+  ],
+  "humor": 1,
+  "punch": 0,
+  "bound": "L",
+  "mech": "Monica corrects the sound-alike",
+  "func": "the two sound-alike words",
+  "deps": [
+   "S2E24c4-L14"
+  ]
+ },
+ {
+  "id": "S2E24c4-L17",
+  "line": "S2E24c4-L17",
+  "trigger": "the baby would keep falling off the dog",
+  "cats": [
+   "joke:callback",
+   "absurd"
+  ],
+  "humor": 1,
+  "punch": 1,
+  "bound": "L",
+  "mech": "sarcastic image built on the basset mishearing",
+  "func": "must reuse whatever the mishearing produced",
+  "deps": [
+   "S2E24c4-L14"
+  ]
+ },
+ {
+  "id": "S2E24c4-L21",
+  "line": "S2E24c4-L21",
+  "trigger": "hovercrafts and apes taking over the planet",
+  "cats": [
+   "hyperbole",
+   "cultural-ref:Planet of the Apes"
+  ],
+  "humor": 1,
+  "punch": 1,
+  "bound": "C",
+  "mech": "sci-fi far future = 'never'",
+  "func": "absurdly distant future",
+  "deps": []
+ },
+ {
+  "id": "S3E4c6-L2",
+  "line": "S3E4c6-L2",
+  "trigger": "this relationship is going too fast and we have to slow down",
+  "cats": [
+   "metaphor:relationship as vehicle",
+   "collocation"
+  ],
+  "humor": 0,
+  "punch": 0,
+  "bound": "U",
+  "mech": "speed metaphor",
+  "func": "she wants to cool it",
+  "deps": []
+ },
+ {
+  "id": "S3E4c6-L5",
+  "line": "S3E4c6-L5",
+  "trigger": "I got all needy and clingy",
+  "cats": [
+   "slang",
+   "joke:role-reversal"
+  ],
+  "humor": 1,
+  "punch": 1,
+  "bound": "U",
+  "mech": "stereotypical 'girlfriend' behaviour in Chandler",
+  "func": "he acts like the clingy partner",
+  "deps": []
+ },
+ {
+  "id": "S3E4c6-L10",
+  "line": "S3E4c6-L10",
+  "trigger": "Welcome to our side of the tunnel.",
+  "cats": [
+   "metaphor",
+   "joke"
+  ],
+  "humor": 1,
+  "punch": 1,
+  "bound": "U",
+  "mech": "the women's side of dating misery",
+  "func": "now you know how we feel",
+  "deps": []
+ },
+ {
+  "id": "S3E4c6-L11",
+  "line": "S3E4c6-L11",
+  "trigger": "tastes like crap",
+  "cats": [
+   "slang:vulgar"
+  ],
+  "humor": 0,
+  "punch": 0,
+  "bound": "U",
+  "mech": "tastes awful",
+  "func": "crude disgust",
+  "deps": []
+ },
+ {
+  "id": "S3E4c6-L12",
+  "line": "S3E4c6-L12",
+  "trigger": "we save the real stuff for those really terminal cases",
+  "cats": [
+   "metaphor:medical",
+   "joke"
+  ],
+  "humor": 1,
+  "punch": 1,
+  "bound": "U",
+  "mech": "break-ups ranked like illnesses; real ice cream is the strong medicine",
+  "func": "ice cream as medicine by severity",
+  "deps": []
+ },
+ {
+  "id": "S3E4c6-L13",
+  "line": "S3E4c6-L13",
+  "trigger": "when you start get screwed over all the time, you gotta switch to low-fat",
+  "cats": [
+   "slang:screwed over",
+   "joke:absurd-logic"
+  ],
+  "humor": 1,
+  "punch": 1,
+  "bound": "U",
+  "mech": "diet logic applied to heartbreak",
+  "func": "frequent heartbreak -> diet ice cream",
+  "deps": []
+ },
+ {
+  "id": "S3E4c6-L15",
+  "line": "S3E4c6-L15",
+  "trigger": "So you don't think I'm terminal?",
+  "cats": [
+   "metaphor:callback"
+  ],
+  "humor": 1,
+  "punch": 1,
+  "bound": "U",
+  "mech": "Chandler adopts the medical metaphor",
+  "func": "same word 'terminal' as L12",
+  "deps": [
+   "S3E4c6-L12"
+  ]
+ },
+ {
+  "id": "S3E4c6-L16",
+  "line": "S3E4c6-L16",
+  "trigger": "you just need some damage control",
+  "cats": [
+   "collocation:damage control"
+  ],
+  "humor": 0,
+  "punch": 0,
+  "bound": "U",
+  "mech": "limit the harm",
+  "func": "repairable",
+  "deps": [
+   "S3E4c6-L15"
+  ]
+ },
+ {
+  "id": "S3E4c6-L19",
+  "line": "S3E4c6-L19",
+  "trigger": "get your butt in a bubble bath",
+  "cats": [
+   "slang"
+  ],
+  "humor": 1,
+  "punch": 0,
+  "bound": "U",
+  "mech": "pamper yourself instead of calling",
+  "func": "self-care instead of calling",
+  "deps": []
+ },
+ {
+  "id": "S3E4c6-L21",
+  "line": "S3E4c6-L21",
+  "trigger": "accidentally run into her on purpose",
+  "cats": [
+   "oxymoron",
+   "joke"
+  ],
+  "humor": 1,
+  "punch": 1,
+  "bound": "U",
+  "mech": "a staged accident",
+  "func": "contradiction is the joke",
+  "deps": []
+ },
+ {
+  "id": "S3E4c6-L23",
+  "line": "S3E4c6-L23",
+  "trigger": "you're not a total loser",
+  "cats": [
+   "pun:mishearing lose her/loser"
+  ],
+  "humor": 1,
+  "punch": 1,
+  "bound": "L",
+  "mech": "'lose her' heard as 'loser'",
+  "func": "Rachel's reassurance reveals she sees him as a loser",
+  "deps": [
+   "S3E4c6-L22"
+  ]
+ },
+ {
+  "id": "S3E4c6-L24",
+  "line": "S3E4c6-L24",
+  "trigger": "I said, 'So I'm not gonna lose her?'",
+  "cats": [
+   "pun:mishearing"
+  ],
+  "humor": 1,
+  "punch": 1,
+  "bound": "L",
+  "mech": "correction makes the mishearing explicit",
+  "func": "the two sound-alikes side by side",
+  "deps": [
+   "S3E4c6-L23"
+  ]
+ },
+ {
+  "id": "S3E11c11-L2",
+  "line": "S3E11c11-L2",
+  "trigger": "Bummer.",
+  "cats": [
+   "slang",
+   "sarcasm:insincere"
+  ],
+  "humor": 1,
+  "punch": 0,
+  "bound": "U",
+  "mech": "insincere sympathy",
+  "func": "fake sympathy",
+  "deps": []
+ },
+ {
+  "id": "S3E11c11-L3",
+  "line": "S3E11c11-L3",
+  "trigger": "you're practically giddy",
+  "cats": [
+   "irony"
+  ],
+  "humor": 1,
+  "punch": 1,
+  "bound": "U",
+  "mech": "calls out his hidden joy",
+  "func": "Ross is secretly happy",
+  "deps": [
+   "S3E11c11-L2"
+  ]
+ },
+ {
+  "id": "S3E11c11-L4",
+  "line": "S3E11c11-L4",
+  "trigger": "I want only good things for you",
+  "cats": [
+   "fixed",
+   "irony:setup"
+  ],
+  "humor": 0,
+  "punch": 0,
+  "bound": "U",
+  "mech": "noble phrase that will be used against him",
+  "func": "exact phrase reused later",
+  "deps": []
+ },
+ {
+  "id": "S3E11c11-L9",
+  "line": "S3E11c11-L9",
+  "trigger": "because you only want good things for me",
+  "cats": [
+   "joke:callback-trap"
+  ],
+  "humor": 1,
+  "punch": 1,
+  "bound": "U",
+  "mech": "Rachel turns his own words against him",
+  "func": "verbatim echo of L4",
+  "deps": [
+   "S3E11c11-L4"
+  ]
+ },
+ {
+  "id": "S3E11c11-L10",
+  "line": "S3E11c11-L10",
+  "trigger": "good things, that-that is what I said",
+  "cats": [
+   "joke:callback"
+  ],
+  "humor": 1,
+  "punch": 1,
+  "bound": "U",
+  "mech": "trapped by his own phrase",
+  "func": "echo again",
+  "deps": [
+   "S3E11c11-L4"
+  ]
+ },
+ {
+  "id": "S3E11c11-L8",
+  "line": "S3E11c11-L8",
+  "trigger": "As in like, to, to his home?",
+  "cats": [
+   "joke:jealous-overreading"
+  ],
+  "humor": 1,
+  "punch": 1,
+  "bound": "U",
+  "mech": "Ross over-reads 'home number'",
+  "func": "jealous overreaction",
+  "deps": []
+ },
+ {
+  "id": "S3E11c11-L12",
+  "line": "S3E11c11-L12",
+  "trigger": "That is so made up!",
+  "cats": [
+   "slang:'so'",
+   "joke"
+  ],
+  "humor": 1,
+  "punch": 1,
+  "bound": "U",
+  "mech": "Ross reacts to an obviously invented excuse",
+  "func": "jealous disbelief",
+  "deps": [
+   "S3E11c11-L11"
+  ]
+ },
+ {
+  "id": "S3E11c11-L18",
+  "line": "S3E11c11-L18",
+  "trigger": "if I know Mark, and I think I do, I'd expect nothing less",
+  "cats": [
+   "sarcasm",
+   "fixed:expect nothing less"
+  ],
+  "humor": 1,
+  "punch": 1,
+  "bound": "U",
+  "mech": "Ross doesn't know Mark; fake magnanimity",
+  "func": "fake praise hiding jealousy",
+  "deps": []
+ },
+ {
+  "id": "S3E11c11-L20",
+  "line": "S3E11c11-L20",
+  "trigger": "High collar and baggy pants say I'm a pro",
+  "cats": [
+   "joke:subtext"
+  ],
+  "humor": 1,
+  "punch": 1,
+  "bound": "U",
+  "mech": "he wants her unattractive at lunch",
+  "func": "jealous advice posing as fashion tip",
+  "deps": []
+ },
+ {
+  "id": "S3E11c11-L24",
+  "line": "S3E11c11-L24",
+  "trigger": "prep her, as in what you do when you surgically remove the boyfriend",
+  "cats": [
+   "wordplay:prep (surgery)"
+  ],
+  "humor": 1,
+  "punch": 1,
+  "bound": "L",
+  "mech": "'prep' = prepare for interview / prep a patient for surgery",
+  "func": "Mark will 'operate' Ross out of her life",
+  "deps": [
+   "S3E11c11-L16"
+  ]
+ },
+ {
+  "id": "S3E11c11-L26",
+  "line": "S3E11c11-L26",
+  "trigger": "Am I out of my mind! Am I losing my senses!! This dreamy guy",
+  "cats": [
+   "sarcasm",
+   "idiom:out of my mind"
+  ],
+  "humor": 1,
+  "punch": 1,
+  "bound": "U",
+  "mech": "mock-agreement, sarcastic 'dreamy'",
+  "func": "sarcastic overreaction",
+  "deps": []
+ },
+ {
+  "id": "S3E11c11-L31",
+  "line": "S3E11c11-L31",
+  "trigger": "get over yourself! Grow up!",
+  "cats": [
+   "idiom"
+  ],
+  "humor": 0,
+  "punch": 0,
+  "bound": "U",
+  "mech": "stop being self-centred",
+  "func": "scolding",
+  "deps": []
+ },
+ {
+  "id": "S3E11c11-L32",
+  "line": "S3E11c11-L32",
+  "trigger": "You grow up.",
+  "cats": [
+   "joke:childish-retort"
+  ],
+  "humor": 1,
+  "punch": 1,
+  "bound": "U",
+  "mech": "weak schoolyard comeback",
+  "func": "childish echo of her word",
+  "deps": [
+   "S3E11c11-L31"
+  ]
+ },
+ {
+  "id": "S3E12c1-L2",
+  "line": "S3E12c1-L2",
+  "trigger": "as long as your wearing that towel dress",
+  "cats": [
+   "joke:backhanded"
+  ],
+  "humor": 1,
+  "punch": 1,
+  "bound": "U",
+  "mech": "reassurance that is an insult",
+  "func": "backhanded comfort",
+  "deps": []
+ },
+ {
+  "id": "S3E12c1-L4",
+  "line": "S3E12c1-L4",
+  "trigger": "Your not supposed to start with her!",
+  "cats": [
+   "phrasal:start with (pick on)"
+  ],
+  "humor": 0,
+  "punch": 0,
+  "bound": "L",
+  "mech": "don't pick on her",
+  "func": "don't tease her today",
+  "deps": []
+ },
+ {
+  "id": "S3E12c1-L5",
+  "line": "S3E12c1-L5",
+  "trigger": "All right, I suppose I can wait a day.",
+  "cats": [
+   "joke"
+  ],
+  "humor": 1,
+  "punch": 1,
+  "bound": "U",
+  "mech": "he'll resume mocking tomorrow",
+  "func": "grudging postponement",
+  "deps": []
+ },
+ {
+  "id": "S3E12c1-L9",
+  "line": "S3E12c1-L9",
+  "trigger": "Is that a dinosaur tie?",
+  "cats": [
+   "joke:visual-irony"
+  ],
+  "humor": 1,
+  "punch": 1,
+  "bound": "U",
+  "mech": "Ross calls botanists geeks while wearing a dinosaur tie",
+  "func": "Ross is the geek",
+  "deps": [
+   "S3E12c1-L8"
+  ]
+ },
+ {
+  "id": "S3E12c1-L12",
+  "line": "S3E12c1-L12",
+  "trigger": "It must take you forever to find your keys.",
+  "cats": [
+   "joke:hyperbole"
+  ],
+  "humor": 1,
+  "punch": 1,
+  "bound": "U",
+  "mech": "the purses are huge",
+  "func": "huge purse",
+  "deps": []
+ },
+ {
+  "id": "S3E12c1-L15",
+  "line": "S3E12c1-L15",
+  "trigger": "turtles scare me",
+  "cats": [
+   "joke:absurd"
+  ],
+  "humor": 1,
+  "punch": 1,
+  "bound": "U",
+  "mech": "an absurd phobia of turtle prints",
+  "func": "silly fear",
+  "deps": [
+   "S3E12c1-L14"
+  ]
+ },
+ {
+  "id": "S3E12c1-L20",
+  "line": "S3E12c1-L20",
+  "trigger": "No, it's a purse. And there's a thermos in it.",
+  "cats": [
+   "joke:absurd"
+  ],
+  "humor": 1,
+  "punch": 1,
+  "bound": "U",
+  "mech": "Phoebe denies it's a lunchbox but it has a thermos",
+  "func": "denial undercut",
+  "deps": [
+   "S3E12c1-L19"
+  ]
+ },
+ {
+  "id": "S3E12c1-L24",
+  "line": "S3E12c1-L24",
+  "trigger": "the only reason he's getting married is so he can see a stripper",
+  "cats": [
+   "joke"
+  ],
+  "humor": 1,
+  "punch": 1,
+  "bound": "U",
+  "mech": "Albert is that pathetic",
+  "func": "absurd motive",
+  "deps": []
+ },
+ {
+  "id": "S3E12c1-L25",
+  "line": "S3E12c1-L25",
+  "trigger": "that is so cliché. Why don't you get a magician?!",
+  "cats": [
+   "joke:absurd"
+  ],
+  "humor": 1,
+  "punch": 1,
+  "bound": "U",
+  "mech": "Phoebe's naive alternative",
+  "func": "innocent absurd suggestion",
+  "deps": []
+ },
+ {
+  "id": "S3E12c1-L26",
+  "line": "S3E12c1-L26",
+  "trigger": "open my beer with his butt cheeks",
+  "cats": [
+   "joke:crude",
+   "slang"
+  ],
+  "humor": 1,
+  "punch": 1,
+  "bound": "U",
+  "mech": "crude condition on the magician",
+  "func": "crude trick",
+  "deps": [
+   "S3E12c1-L25"
+  ]
+ }
+]

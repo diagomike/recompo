@@ -1,0 +1,974 @@
+{
+ "S1E16c15-L3": {
+  "S0": "Bastante bien. Excepto lo de la grapadora. Un consejo: si alguna vez estáis en una situación parecida, nunca, nunca dejéis la mano... encima de la mesa.",
+  "S1": "Bastante bien, salvo lo de la grapadora. Un consejo: en una situación parecida nunca, nunca dejéis la mano sobre la mesa.",
+  "S1_compact_chosen": false,
+  "S2": "Bastante bien. Menos lo de la grapadora. Un consejito: si alguna vez estáis en esa situación, jamás dejéis la mano... encima de la mesa.",
+  "S2_cue": "",
+  "ratio": {
+   "S0": 1.13,
+   "S1": 0.88,
+   "S2": 1.0
+  }
+ },
+ "S1E16c15-L11": {
+  "S0": "Mira, no digo que sea mala ni nada. Es que siempre me rompe las cosas. Cuando tenía ocho años no le dejé mi termo de Judy Jetson y lo tiró debajo del autobús. Y luego estuvo Randy Brown, que era como... ¿Habéis tenido un novio que fuera como vuestro mejor amigo?",
+  "S1": "No es mala, pero siempre me rompe las cosas: a los ocho años tiró mi termo de Judy Jetson debajo del autobús porque no se lo dejé. Y luego Randy Brown... ¿Habéis tenido un novio que fuera vuestro mejor amigo?",
+  "S1_compact_chosen": false,
+  "S2": "No digo que sea mala ni nada. Es que siempre me rompe las cosas. A los ocho años no le dejé mi termo de los Supersónicos y lo tiró debajo de un autobús. Literalmente. Y luego estuvo Randy Brown... ¿Habéis tenido un novio que fuera vuestro mejor amigo?",
+  "S2_cue": "",
+  "ratio": {
+   "S0": 0.85,
+   "S1": 0.65,
+   "S2": 0.81
+  }
+ },
+ "S1E16c15-L13": {
+  "S0": "Pues eso era él para mí. Y ella, ya sabes, me lo robó, y luego... le rompió el corazón... y luego ya ni me hablaba. Porque decía que no quería estar cerca de... nada que se pareciera a ninguna de las dos.",
+  "S1": "Eso era él para mí. Ella me lo robó, le rompió el corazón y él dejó de hablarme porque no quería estar cerca de nada que se pareciera a ninguna de las dos.",
+  "S1_compact_chosen": false,
+  "S2": "Pues eso era él para mí. Y ella me lo quitó, y luego... le rompió el corazón... y ya ni me hablaba. Porque no quería estar cerca de... nada que se pareciera a ninguna de las dos.",
+  "S2_cue": "",
+  "ratio": {
+   "S0": 0.87,
+   "S1": 0.7,
+   "S2": 0.76
+  }
+ },
+ "S1E16c15-L15": {
+  "S0": "O sea, ya sé que Joey no es mi novio, ni mi termo, ni nada, pero...",
+  "S1": "Ya sé que Joey no es mi novio, ni mi termo, pero...",
+  "S1_compact_chosen": false,
+  "S2": "Ya sé que Joey no es mi novio, ni mi termo, ni nada, pero...",
+  "S2_cue": "",
+  "ratio": {
+   "S0": 0.83,
+   "S1": 0.62,
+   "S2": 0.75
+  }
+ },
+ "S1E16c15-L21": {
+  "S0": "Venga ya, llevan saliendo una semana. Ni siquiera se han acostado todavía, o sea, eso no es serio.",
+  "S1": "Llevan una semana saliendo y ni se han acostado; eso no es serio.",
+  "S1_compact_chosen": false,
+  "S2": "Venga ya, llevan una semana. Ni se han acostado todavía. Eso no es nada serio.",
+  "S2_cue": "",
+  "ratio": {
+   "S0": 1.12,
+   "S1": 0.79,
+   "S2": 0.92
+  }
+ },
+ "S1E16c15-L25": {
+  "S0": "Sí, eh, ¿podemos ayudarte?",
+  "S1": "¿Podemos ayudarte?",
+  "S1_compact_chosen": false,
+  "S2": "Sí, eh... ¿en qué podemos ayudarla?",
+  "S2_cue": "",
+  "ratio": {
+   "S0": 0.92,
+   "S1": 0.66,
+   "S2": 1.32
+  }
+ },
+ "S1E22c5-L4": {
+  "S0": "Sí, hola, me acaban de llamar al busca. No, André no está. Es la tercera vez hoy. Sí, estoy seguro... No, señor. Yo no ofrezco ese tipo de servicios.",
+  "S1": "Me han llamado al busca. André no está, tercera vez hoy. No, señor, yo no ofrezco esos servicios.",
+  "S1_compact_chosen": false,
+  "S2": "Sí, hola, me han llamado al busca. No, André no está. Tercera vez hoy. Sí, seguro... No, señor. Yo no presto esa clase de servicios.",
+  "S2_cue": "",
+  "ratio": {
+   "S0": 1.13,
+   "S1": 0.74,
+   "S2": 0.96
+  }
+ },
+ "S1E22c5-L5": {
+  "S0": "¿Servicios? Ah, servicios.",
+  "S1": "¿Servicios? Ah, esos servicios.",
+  "S1_compact_chosen": false,
+  "S2": "¿Servicios? ...Ah, «servicios».",
+  "S2_cue": "",
+  "ratio": {
+   "S0": 0.79,
+   "S1": 1.02,
+   "S2": 0.79
+  }
+ },
+ "S1E22c5-L6": {
+  "S0": "Sí, usted quiere el 55-JUMBO. Sí, eso es. JUMBO con U, señor. No, créame, a mí no me quiere. A juzgar por su número, yo sería una enorme decepción. Venga, adiós.",
+  "S1": "Quiere el 55-JUMBO, con U. Créame, a mí no me quiere: a juzgar por su número, sería una decepción. Adiós.",
+  "S1_compact_chosen": false,
+  "S2": "Sí, quiere el 55-JUMBO. Eso es, JUMBO, de tamaño jumbo. No, créame, a mí no me quiere. A juzgar por su número, yo sería una decepción enorme. Venga, adiós.",
+  "S2_cue": "",
+  "ratio": {
+   "S0": 0.78,
+   "S1": 0.51,
+   "S2": 0.76
+  }
+ },
+ "S1E22c5-L9": {
+  "S0": "Ya ves, merece la pena conocer al hombre que lleva mis zapatos. Yo.",
+  "S1": "Ya ves, compensa conocerme.",
+  "S1_compact_chosen": true,
+  "S2": "¿Ves? Merece la pena conocer al hombre que lleva mis zapatos. Yo.",
+  "S2_cue": "",
+  "ratio": {
+   "S0": 1.32,
+   "S1": 0.53,
+   "S2": 1.25
+  }
+ },
+ "S1E22c5-L16": {
+  "S0": "Todo el mundo. Excepto, eh... no, todo el mundo.",
+  "S1": "Todo el mundo. Excepto... no, todo el mundo.",
+  "S1_compact_chosen": false,
+  "S2": "Todo el mundo. Menos, eh... no, todo el mundo.",
+  "S2_cue": "",
+  "ratio": {
+   "S0": 1.08,
+   "S1": 1.01,
+   "S2": 1.01
+  }
+ },
+ "S1E22c5-L18": {
+  "S0": "No te sientas mal. Antes les caías muy bien. Pero luego te ascendieron, y ahora eres como el «Señor Jefazo». El señor Bing. El señor Bing, «Bing el Jefazo».",
+  "S1": "No te sientas mal: antes les caías bien, pero desde el ascenso eres el «Señor Jefazo», «Bing el Jefazo».",
+  "S1_compact_chosen": false,
+  "S2": "No te sientas mal. Antes les caías genial. Pero te ascendieron y ahora eres el «Señor Mandamás». El señor Bing. «Bing el Mandabing».",
+  "S2_cue": "",
+  "ratio": {
+   "S0": 0.93,
+   "S1": 0.59,
+   "S2": 0.77
+  }
+ },
+ "S1E22c5-L20": {
+  "S0": "Sí, sí. Incluso te hacen.",
+  "S1": "Hasta te imitan.",
+  "S1_compact_chosen": false,
+  "S2": "Sí, sí. Hasta te imitan.",
+  "S2_cue": "",
+  "ratio": {
+   "S0": 0.9,
+   "S1": 0.68,
+   "S2": 0.9
+  }
+ },
+ "S1E22c5-L22": {
+  "S0": "Ya sabes, como... eh, vale... eh... «¿Podría ese informe llegar más tarde?»",
+  "S1": "Así: «¿Podría ese informe llegar más tarde?»",
+  "S1_compact_chosen": false,
+  "S2": "Ya sabes, así... eh, vale... «¿Podría ese informe llegar MÁS tarde?»",
+  "S2_cue": "acento en MÁS, cadencia sarcástica de Chandler",
+  "ratio": {
+   "S0": 0.89,
+   "S1": 0.54,
+   "S2": 0.84
+  }
+ },
+ "S1E22c5-L26": {
+  "S0": "«Las colinas estaban vivas con el sonido de la música.»",
+  "S1": "«Las colinas cobraban vida con el sonido de la música.»",
+  "S1_compact_chosen": false,
+  "S2": "«¿Podrían las colinas ESTAR más vivas con el sonido de la música?»",
+  "S2_cue": "cadencia de Chandler",
+  "ratio": {
+   "S0": 1.37,
+   "S1": 1.37,
+   "S2": 1.51
+  }
+ },
+ "S1E22c5-L29": {
+  "S0": "Vale, yo no hablo así. Eso es tan no verdad.",
+  "S1": "Yo no hablo así. Eso no es verdad.",
+  "S1_compact_chosen": false,
+  "S2": "Vale, yo no hablo así. Eso NO es para NADA verdad.",
+  "S2_cue": "misma cadencia",
+  "ratio": {
+   "S0": 0.91,
+   "S1": 0.73,
+   "S2": 1.1
+  }
+ },
+ "S1E22c5-L30": {
+  "S0": "Eso es tan no... Eso es tan no... Eso... ¡Ah, callaos!",
+  "S1": "Eso es tan no... ¡Callaos!",
+  "S1_compact_chosen": false,
+  "S2": "Eso NO es para... Eso NO es para... Eso... ¡Ay, callaos!",
+  "S2_cue": "",
+  "ratio": {
+   "S0": 0.99,
+   "S1": 0.46,
+   "S2": 1.12
+  }
+ },
+ "S2E2c2-L2": {
+  "S0": "Sí, no me acuerdo de cuáles.",
+  "S1": "Sí, no recuerdo cuáles.",
+  "S1_compact_chosen": false,
+  "S2": "Sí... no me acuerdo de cuáles.",
+  "S2_cue": "tono seco, desganado",
+  "ratio": {
+   "S0": 1.02,
+   "S1": 0.79,
+   "S2": 1.02
+  }
+ },
+ "S2E2c2-L6": {
+  "S0": "Gracias. Qué zorra.",
+  "S1": "Gracias. Qué zorra.",
+  "S1_compact_chosen": false,
+  "S2": "Gracias. Qué bruja.",
+  "S2_cue": "aparte",
+  "ratio": {
+   "S0": 0.79,
+   "S1": 0.79,
+   "S2": 0.79
+  }
+ },
+ "S2E2c2-L7": {
+  "S0": "Ah, escuchad, chicos. Tengo un amigo en Bloomingdale's que lo deja mañana y quiere abusar de su descuento. Así que, ¿alguien quiere venir conmigo a aprovecharlo?",
+  "S1": "Tengo un amigo en Bloomingdale's que deja el trabajo mañana y quiere usar su descuento. ¿Alguien quiere venir?",
+  "S1_compact_chosen": false,
+  "S2": "Ah, escuchad. Tengo un amigo en Bloomingdale's que se va mañana y quiere exprimir su descuento a tope. ¿Alguien se apunta a aprovecharlo?",
+  "S2_cue": "",
+  "ratio": {
+   "S0": 0.89,
+   "S1": 0.6,
+   "S2": 0.77
+  }
+ },
+ "S2E2c2-L8": {
+  "S0": "No puedo, tengo que llevar a mi abuela al veterinario.",
+  "S1": "No puedo, tengo que llevar a mi abuela al veterinario.",
+  "S1_compact_chosen": false,
+  "S2": "No puedo, tengo que llevar a mi abuela al veterinario.",
+  "S2_cue": "",
+  "ratio": {
+   "S0": 1.07,
+   "S1": 1.07,
+   "S2": 1.07
+  }
+ },
+ "S2E2c2-L12": {
+  "S0": "Hola, cariñito.",
+  "S1": "Hola, cariñito.",
+  "S1_compact_chosen": false,
+  "S2": "Hola, bomboncito.",
+  "S2_cue": "",
+  "ratio": {
+   "S0": 1.58,
+   "S1": 1.58,
+   "S2": 1.58
+  }
+ },
+ "S2E2c2-L17": {
+  "S0": "Venga ya, ¿vas a ir a Bloomingdale's con Julie? Eso es como engañar a Rachel en su casa de culto.",
+  "S1": "¿Vas a ir a Bloomingdale's con Julie? Es como engañar a Rachel en su iglesia.",
+  "S1_compact_chosen": false,
+  "S2": "Venga ya, ¿a Bloomingdale's con Julie? Eso es ponerle los cuernos a Rachel en su templo sagrado.",
+  "S2_cue": "",
+  "ratio": {
+   "S0": 0.93,
+   "S1": 0.74,
+   "S2": 0.88
+  }
+ },
+ "S2E2c2-L19": {
+  "S0": "Monica, te va a matar. Te va a matar como a un perro en la calle.",
+  "S1": "Monica, te va a matar como a un perro en la calle.",
+  "S1_compact_chosen": false,
+  "S2": "Monica, te va a matar. Te va a matar como a un perro callejero.",
+  "S2_cue": "",
+  "ratio": {
+   "S0": 1.07,
+   "S1": 0.84,
+   "S2": 1.07
+  }
+ },
+ "S2E2c2-L24": {
+  "S0": "Guau, guau.",
+  "S1": "Guau, guau.",
+  "S1_compact_chosen": false,
+  "S2": "Guau, guau.",
+  "S2_cue": "",
+  "ratio": {
+   "S0": 0.79,
+   "S1": 0.79,
+   "S2": 0.79
+  }
+ },
+ "S2E2c2-L22": {
+  "S0": "Para mí sí es para tanto. Esto es genial, Monica. Te lo agradezco mucho.",
+  "S1": "Para mí es importante. Te lo agradezco de verdad.",
+  "S1_compact_chosen": false,
+  "S2": "Para mí sí es para tanto. Esto es genial, Monica. Te lo agradezco muchísimo.",
+  "S2_cue": "",
+  "ratio": {
+   "S0": 0.99,
+   "S1": 0.63,
+   "S2": 1.07
+  }
+ },
+ "S2E21c5-L3": {
+  "S0": "¿Hay que ser agente inmobiliario de Century 21 para poder llevar esas chaquetas tan chulas?",
+  "S1": "¿Hay que ser agente de Century 21 para llevar esas chaquetas?",
+  "S1_compact_chosen": false,
+  "S2": "¿Hay que ser vendedor de pisos de Century 21 para poder llevar esas chaquetas tan chulas?",
+  "S2_cue": "",
+  "ratio": {
+   "S0": 0.91,
+   "S1": 0.62,
+   "S2": 0.88
+  }
+ },
+ "S2E21c5-L5": {
+  "S0": "Jejeje, ¿ese no es el tío que llevaba tu sombrero?",
+  "S1": "¿No es ese el tío que llevaba tu sombrero?",
+  "S1_compact_chosen": false,
+  "S2": "Jejeje, ¿ese no es el tío que llevaba puesto tu sombrero?",
+  "S2_cue": "",
+  "ratio": {
+   "S0": 0.74,
+   "S1": 0.64,
+   "S2": 0.84
+  }
+ },
+ "S2E21c5-L11": {
+  "S0": "Bueno, os diré qué: vosotros llamáis al sofá y luego, y luego nosotros llamamos al sofá, y vemos a quién viene.",
+  "S1": "Vosotros llamáis al sofá, nosotros llamamos al sofá, y vemos a quién viene.",
+  "S1_compact_chosen": false,
+  "S2": "Vale, hacemos una cosa: vosotros llamáis al sofá, luego nosotros llamamos al sofá, y a ver con quién se va.",
+  "S2_cue": "",
+  "ratio": {
+   "S0": 0.96,
+   "S1": 0.63,
+   "S2": 0.96
+  }
+ },
+ "S2E21c5-L19": {
+  "S0": "¿Se ha chivado?",
+  "S1": "¿Se ha chivado?",
+  "S1_compact_chosen": false,
+  "S2": "¿Se ha chivado?",
+  "S2_cue": "",
+  "ratio": {
+   "S0": 0.99,
+   "S1": 0.99,
+   "S2": 0.99
+  }
+ },
+ "S2E21c5-L25": {
+  "S0": "¿Vamos a llevar esto fuera? ¿Quién habla así?",
+  "S1": "¿Quién habla así?",
+  "S1_compact_chosen": false,
+  "S2": "¿«Salgamos fuera»? ¿Quién habla así?",
+  "S2_cue": "",
+  "ratio": {
+   "S0": 0.92,
+   "S1": 0.33,
+   "S2": 0.66
+  }
+ },
+ "S2E21c5-L26": {
+  "S0": "El tío que está a punto de patearte el culo habla así.",
+  "S1": "El tío que está a punto de darte una paliza.",
+  "S1_compact_chosen": false,
+  "S2": "Habla así el tío que te va a partir la cara.",
+  "S2_cue": "",
+  "ratio": {
+   "S0": 1.1,
+   "S1": 0.91,
+   "S2": 0.91
+  }
+ },
+ "S2E21c5-L27": {
+  "S0": "Tenías que preguntar.",
+  "S1": "Tenías que preguntar.",
+  "S1_compact_chosen": false,
+  "S2": "Tú has preguntado.",
+  "S2_cue": "",
+  "ratio": {
+   "S0": 1.19,
+   "S1": 1.19,
+   "S2": 1.19
+  }
+ },
+ "S2E21c5-L30": {
+  "S0": "Bueno, entonces este es el trato, no tendréis que hacerlo mientras nunca jamás mostréis vuestras caras en esta cafetería otra vez.",
+  "S1": "Entonces no tendréis que pelear, siempre que no volváis nunca a esta cafetería.",
+  "S1_compact_chosen": false,
+  "S2": "Pues entonces trato hecho: no tendréis que hacerlo, siempre que no volváis a asomar la cara por esta cafetería nunca jamás.",
+  "S2_cue": "",
+  "ratio": {
+   "S0": 1.0,
+   "S1": 0.59,
+   "S2": 0.97
+  }
+ },
+ "S2E21c5-L31": {
+  "S0": "Creo que has jugado la carta de Gunther demasiado pronto.",
+  "S1": "Creo que usaste a Gunther demasiado pronto.",
+  "S1_compact_chosen": false,
+  "S2": "Creo que has sacado la carta de Gunther demasiado pronto.",
+  "S2_cue": "",
+  "ratio": {
+   "S0": 1.42,
+   "S1": 1.03,
+   "S2": 1.42
+  }
+ },
+ "S2E24c4-L2": {
+  "S0": "Ohhh. Sabes que probablemente por eso los bebés aprenden a hablar, para poder decirles a los adultos que lo dejen.",
+  "S1": "Seguramente por eso aprenden a hablar los bebés: para decirles a los mayores que paren.",
+  "S1_compact_chosen": false,
+  "S2": "Ooh. ¿Sabes? Seguro que por eso los bebés aprenden a hablar: para decirles a los mayores que lo dejen ya.",
+  "S2_cue": "",
+  "ratio": {
+   "S0": 1.19,
+   "S1": 0.92,
+   "S2": 1.09
+  }
+ },
+ "S2E24c4-L3": {
+  "S0": "Oye, tengo una pregunta para ti. Solo una cosita, sin presión.",
+  "S1": "Tengo una pregunta. Sin presión.",
+  "S1_compact_chosen": false,
+  "S2": "Oye, ¿sabes? Tengo una preguntita. Una tontería, sin presión.",
+  "S2_cue": "",
+  "ratio": {
+   "S0": 0.92,
+   "S1": 0.44,
+   "S2": 0.84
+  }
+ },
+ "S2E24c4-L9": {
+  "S0": "Oh Dios, estás a punto de tener muchísima suerte.",
+  "S1": "Vas a tener muchísima suerte.",
+  "S1_compact_chosen": false,
+  "S2": "Ay, Dios, esta noche tienes premio.",
+  "S2_cue": "",
+  "ratio": {
+   "S0": 1.08,
+   "S1": 0.65,
+   "S2": 0.65
+  }
+ },
+ "S2E24c4-L12": {
+  "S0": "Bueno, eh, a veces pienso en vender mi consulta, podríamos mudarnos a Francia, hacer tostadas francesas.",
+  "S1": "A veces pienso en vender mi consulta, mudarnos a Francia, hacer tostadas francesas.",
+  "S1_compact_chosen": false,
+  "S2": "Bueno, a veces pienso en vender la consulta, irnos a Francia... a hacer tostadas francesas.",
+  "S2_cue": "",
+  "ratio": {
+   "S0": 1.1,
+   "S1": 0.89,
+   "S2": 0.96
+  }
+ },
+ "S2E24c4-L13": {
+  "S0": "Vale, entonces, eh, estamos en Francia, estamos haciendo las tostadas. ¿Ves una pequeña cuna en el rincón?",
+  "S1": "Estamos en Francia haciendo tostadas. ¿Ves una cunita en el rincón?",
+  "S1_compact_chosen": false,
+  "S2": "Vale, estamos en Francia, haciendo las tostadas. ¿Ves un moisés en el rincón?",
+  "S2_cue": "",
+  "ratio": {
+   "S0": 1.0,
+   "S1": 0.64,
+   "S2": 0.67
+  }
+ },
+ "S2E24c4-L14": {
+  "S0": "¿Como un sabueso?",
+  "S1": "¿Como un sabueso?",
+  "S1_compact_chosen": false,
+  "S2": "¿Moisés? ¿El de las tablas de la ley?",
+  "S2_cue": "",
+  "ratio": {
+   "S0": 1.58,
+   "S1": 1.58,
+   "S2": 2.64
+  }
+ },
+ "S2E24c4-L15": {
+  "S0": "No un basset, un moisés.",
+  "S1": "No un basset, una cuna.",
+  "S1_compact_chosen": false,
+  "S2": "No el profeta. Un moisés. Una cunita.",
+  "S2_cue": "",
+  "ratio": {
+   "S0": 0.69,
+   "S1": 0.79,
+   "S2": 1.29
+  }
+ },
+ "S2E24c4-L17": {
+  "S0": "Bueno, solo creo que el bebé no pararía de caerse del perro. ¿Tú, eh, tú no, no ves niños en nuestro futuro?",
+  "S1": "Es que creo que el bebé se caería del perro. ¿No ves niños en nuestro futuro?",
+  "S1_compact_chosen": false,
+  "S2": "Bueno, es que el bebé no iba a dormir muy cómodo encima del profeta. ¿Tú... no ves niños en nuestro futuro?",
+  "S2_cue": "",
+  "ratio": {
+   "S0": 0.9,
+   "S1": 0.65,
+   "S2": 0.99
+  }
+ },
+ "S2E24c4-L21": {
+  "S0": "Eso es genial. Sabes, no necesitamos hablar de esto ahora. En serio, esto está tan, tan, tan lejos en el futuro, hablo de aerodeslizadores y simios conquistando el planeta.",
+  "S1": "No hace falta hablarlo ahora. Está muy lejos en el futuro, hablo de aerodeslizadores y simios gobernando el planeta.",
+  "S1_compact_chosen": false,
+  "S2": "Genial. Oye, no hace falta hablar de esto ahora. De verdad, esto es para dentro de muchísimo, muchísimo tiempo; hablo de coches voladores y de monos gobernando el planeta.",
+  "S2_cue": "",
+  "ratio": {
+   "S0": 0.99,
+   "S1": 0.69,
+   "S2": 0.96
+  }
+ },
+ "S3E4c6-L2": {
+  "S0": "Así que por fin la alcanzo y me dice que esta relación va demasiado rápido y que tenemos que ir más despacio.",
+  "S1": "Por fin la alcanzo y me dice que vamos demasiado rápido y hay que frenar.",
+  "S1_compact_chosen": false,
+  "S2": "Total, que por fin la alcanzo y me dice que esto va demasiado deprisa y que hay que frenar.",
+  "S2_cue": "",
+  "ratio": {
+   "S0": 1.08,
+   "S1": 0.7,
+   "S2": 0.85
+  }
+ },
+ "S3E4c6-L5": {
+  "S0": "Luego me puse todo necesitado y pegajoso.",
+  "S1": "Luego me puse necesitado y pegajoso.",
+  "S1_compact_chosen": false,
+  "S2": "Y entonces me puse en plan pesado y pegajoso.",
+  "S2_cue": "",
+  "ratio": {
+   "S0": 1.41,
+   "S1": 1.23,
+   "S2": 1.41
+  }
+ },
+ "S3E4c6-L10": {
+  "S0": "Bienvenido a nuestro lado del túnel.",
+  "S1": "Bienvenido a nuestro lado.",
+  "S1_compact_chosen": true,
+  "S2": "Bienvenido a nuestro lado del túnel.",
+  "S2_cue": "",
+  "ratio": {
+   "S0": 1.06,
+   "S1": 0.79,
+   "S2": 1.06
+  }
+ },
+ "S3E4c6-L11": {
+  "S0": "Este helado sabe a mierda, por cierto.",
+  "S1": "Por cierto, este helado sabe fatal.",
+  "S1_compact_chosen": false,
+  "S2": "Por cierto, este helado sabe a rayos.",
+  "S2_cue": "",
+  "ratio": {
+   "S0": 0.87,
+   "S1": 0.79,
+   "S2": 0.79
+  }
+ },
+ "S3E4c6-L12": {
+  "S0": "Sí, bueno, eso es esa porquería baja en calorías, sin lácteos, de leche de soja. Más o menos guardamos lo de verdad para los casos realmente terminales.",
+  "S1": "Es esa porquería light, sin lactosa, de soja; el de verdad lo guardamos para los casos terminales.",
+  "S1_compact_chosen": false,
+  "S2": "Ya, es esa porquería light, sin lactosa, de soja. El helado de verdad lo reservamos para los casos terminales.",
+  "S2_cue": "",
+  "ratio": {
+   "S0": 1.24,
+   "S1": 0.82,
+   "S2": 0.95
+  }
+ },
+ "S3E4c6-L13": {
+  "S0": "Sabes, cuando empiezas a que te jodan todo el tiempo, tienes que cambiarte a bajo en grasa.",
+  "S1": "Cuando te la pegan constantemente, tienes que pasarte al desnatado.",
+  "S1_compact_chosen": false,
+  "S2": "Mira, cuando te dejan tirada cada dos por tres, tienes que pasarte al desnatado.",
+  "S2_cue": "",
+  "ratio": {
+   "S0": 1.11,
+   "S1": 0.79,
+   "S2": 0.99
+  }
+ },
+ "S3E4c6-L15": {
+  "S0": "Entonces, ¿no crees que soy terminal?",
+  "S1": "¿No soy terminal?",
+  "S1_compact_chosen": false,
+  "S2": "Entonces, ¿no soy un caso terminal?",
+  "S2_cue": "",
+  "ratio": {
+   "S0": 0.79,
+   "S1": 0.4,
+   "S2": 0.87
+  }
+ },
+ "S3E4c6-L16": {
+  "S0": "Bueno, no, para nada, no eres terminal, solo, solo necesitas algo de control de daños.",
+  "S1": "No eres terminal; solo necesitas control de daños.",
+  "S1_compact_chosen": false,
+  "S2": "Que no, que no eres terminal, solo necesitas un poco de control de daños.",
+  "S2_cue": "",
+  "ratio": {
+   "S0": 1.09,
+   "S1": 0.64,
+   "S2": 0.9
+  }
+ },
+ "S3E4c6-L19": {
+  "S0": "Este es un momento muy crítico ahora mismo. Si te ves alcanzando ese teléfono, entonces te vas de compras de zapatos, metes el culo en un baño de burbujas. Si la quieres de vuelta tienes que empezar a actuar distante.",
+  "S1": "Es un momento crítico. Si te ves cogiendo el teléfono, vete a comprar zapatos o métete en un baño de espuma. Para recuperarla, hazte el distante.",
+  "S1_compact_chosen": false,
+  "S2": "Es un momento crítico. Si notas que vas a coger el teléfono, te vas a comprar zapatos, te metes en un baño de espuma. Si quieres recuperarla, tienes que hacerte el interesante.",
+  "S2_cue": "",
+  "ratio": {
+   "S0": 1.15,
+   "S1": 0.79,
+   "S2": 0.96
+  }
+ },
+ "S3E4c6-L21": {
+  "S0": "Bien. Entonces, lo que tienes que hacer es, tienes que encontrarte con ella accidentalmente a propósito. Y luego actuar distante.",
+  "S1": "Tienes que encontrártela 'por casualidad' a propósito y luego hacerte el distante.",
+  "S1_compact_chosen": false,
+  "S2": "Eso. Lo que tienes que hacer es encontrártela por casualidad... a propósito. Y hacerte el interesante.",
+  "S2_cue": "",
+  "ratio": {
+   "S0": 1.07,
+   "S1": 0.74,
+   "S2": 0.93
+  }
+ },
+ "S3E4c6-L23": {
+  "S0": "Oooh, cariño, no eres un perdedor total.",
+  "S1": "Ay, cariño, no eres un perdedor total.",
+  "S1_compact_chosen": false,
+  "S2": "Ay, cielo, no eres un perdedor total.",
+  "S2_cue": "",
+  "ratio": {
+   "S0": 0.94,
+   "S1": 0.94,
+   "S2": 0.86
+  }
+ },
+ "S3E4c6-L24": {
+  "S0": "He dicho: «¿Entonces no voy a perderla?»",
+  "S1": "He dicho: «¿No la voy a perder?»",
+  "S1_compact_chosen": false,
+  "S2": "He dicho «perderla». ¿No voy a perderla?",
+  "S2_cue": "",
+  "ratio": {
+   "S0": 0.95,
+   "S1": 0.71,
+   "S2": 0.95
+  }
+ },
+ "S3E11c11-L2": {
+  "S0": "Qué faena.",
+  "S1": "Qué pena.",
+  "S1_compact_chosen": false,
+  "S2": "Vaya... qué pena.",
+  "S2_cue": "con alegría mal disimulada",
+  "ratio": {
+   "S0": 1.19,
+   "S1": 1.19,
+   "S2": 1.58
+  }
+ },
+ "S3E11c11-L3": {
+  "S0": "Sí, claro. Mírate, estás prácticamente eufórico.",
+  "S1": "Mírate, estás casi contento.",
+  "S1_compact_chosen": false,
+  "S2": "Ya, claro. Mírate, si no cabes en ti de gozo.",
+  "S2_cue": "",
+  "ratio": {
+   "S0": 0.91,
+   "S1": 0.55,
+   "S2": 0.85
+  }
+ },
+ "S3E11c11-L4": {
+  "S0": "No, de verdad siento que lo de Mark no haya funcionado. Mira, Rach, solo quiero cosas buenas para ti.",
+  "S1": "Siento de verdad que no saliera bien. Solo quiero cosas buenas para ti.",
+  "S1_compact_chosen": false,
+  "S2": "No, en serio, siento que lo de Mark no haya salido bien. Mira, Rach, yo solo quiero cosas buenas para ti.",
+  "S2_cue": "",
+  "ratio": {
+   "S0": 0.91,
+   "S1": 0.67,
+   "S2": 0.94
+  }
+ },
+ "S3E11c11-L9": {
+  "S0": "Sí, y no te importa que llame, porque solo quieres cosas buenas para mí.",
+  "S1": "Y no te importa que llame, porque quieres cosas buenas para mí.",
+  "S1_compact_chosen": false,
+  "S2": "Sí, y no te importa que le llame, porque tú solo quieres cosas buenas para mí.",
+  "S2_cue": "",
+  "ratio": {
+   "S0": 0.87,
+   "S1": 0.75,
+   "S2": 0.96
+  }
+ },
+ "S3E11c11-L10": {
+  "S0": "Así es, cosas buenas, eso-eso es lo que dije.",
+  "S1": "Claro, eso dije.",
+  "S1_compact_chosen": false,
+  "S2": "Exacto, cosas buenas, eso... eso es lo que he dicho.",
+  "S2_cue": "",
+  "ratio": {
+   "S0": 1.08,
+   "S1": 0.36,
+   "S2": 1.22
+  }
+ },
+ "S3E11c11-L8": {
+  "S0": "¿Qué, te dio su número de casa? ¿O sea, como, a su, a su casa?",
+  "S1": "¿Te dio su número de casa?",
+  "S1_compact_chosen": false,
+  "S2": "¿Qué? ¿Te dio el número de su casa? ¿O sea, de su CASA casa?",
+  "S2_cue": "",
+  "ratio": {
+   "S0": 1.06,
+   "S1": 0.47,
+   "S2": 1.0
+  }
+ },
+ "S3E11c11-L12": {
+  "S0": "¡Eso es tan inventado!",
+  "S1": "¡Eso es inventado!",
+  "S1_compact_chosen": false,
+  "S2": "¡Eso se lo ha inventado!",
+  "S2_cue": "",
+  "ratio": {
+   "S0": 1.27,
+   "S1": 1.11,
+   "S2": 1.42
+  }
+ },
+ "S3E11c11-L18": {
+  "S0": "Sí, bueno, si conozco a Mark, y creo que lo conozco, no esperaría menos.",
+  "S1": "No esperaría menos de Mark.",
+  "S1_compact_chosen": true,
+  "S2": "Ya, bueno, si conozco a Mark, y creo que lo conozco, no esperaba menos.",
+  "S2_cue": "",
+  "ratio": {
+   "S0": 1.01,
+   "S1": 0.4,
+   "S2": 1.01
+  }
+ },
+ "S3E11c11-L20": {
+  "S0": "Cuello alto y pantalones anchos dicen soy una profesional.",
+  "S1": "Cuello alto y pantalones anchos: pareces profesional.",
+  "S1_compact_chosen": false,
+  "S2": "Cuello alto y pantalones holgados dicen «soy una profesional».",
+  "S2_cue": "",
+  "ratio": {
+   "S0": 1.32,
+   "S1": 1.19,
+   "S2": 1.39
+  }
+ },
+ "S3E11c11-L24": {
+  "S0": "«¡¿Por qué no lo llamas?!» ¡Bueno, muchas gracias! Sabes, ahora la va a preparar, ya sabes, prepararla, como lo que haces cuando extirpas quirúrgicamente al novio.",
+  "S1": "¡Muchas gracias! Ahora la va a preparar, como cuando se extirpa quirúrgicamente al novio.",
+  "S1_compact_chosen": false,
+  "S2": "«¿Por qué no le llamas?» ¡Pues muchas gracias! Ahora la va a preparar, ¿sabes? Preparar, como cuando preparan al paciente para extirparle el novio.",
+  "S2_cue": "",
+  "ratio": {
+   "S0": 0.95,
+   "S1": 0.56,
+   "S2": 0.85
+  }
+ },
+ "S3E11c11-L26": {
+  "S0": "¡Lo estoy! ¡Lo estoy! ¡¿Estoy fuera de mi mente?! ¡¡¿Estoy perdiendo los sentidos?!! Este tipo de ensueño se va a llevar a mi novia a comer.",
+  "S1": "¿Estoy loco? Este tío de ensueño se lleva a mi novia a comer.",
+  "S1_compact_chosen": false,
+  "S2": "¿Loco? ¿Yo? ¿He perdido la cabeza? ¿Se me ha ido la olla? Este tío de ensueño se lleva a mi novia a comer.",
+  "S2_cue": "",
+  "ratio": {
+   "S0": 1.05,
+   "S1": 0.51,
+   "S2": 0.89
+  }
+ },
+ "S3E11c11-L31": {
+  "S0": "¡Entonces supéralo! ¡Madura!",
+  "S1": "¡Pues supéralo! ¡Madura!",
+  "S1_compact_chosen": false,
+  "S2": "¡Pues deja de mirarte el ombligo! ¡Madura!",
+  "S2_cue": "",
+  "ratio": {
+   "S0": 0.99,
+   "S1": 0.79,
+   "S2": 1.29
+  }
+ },
+ "S3E11c11-L32": {
+  "S0": "Madura tú.",
+  "S1": "Madura tú.",
+  "S1_compact_chosen": false,
+  "S2": "Madura tú.",
+  "S2_cue": "",
+  "ratio": {
+   "S0": 1.06,
+   "S1": 1.06,
+   "S2": 1.06
+  }
+ },
+ "S3E12c1-L2": {
+  "S0": "Oh sí, pero no te preocupes. No creo que nadie se fije en eso mientras lleves ese vestido de toalla.",
+  "S1": "Sí, pero nadie se fijará mientras lleves ese vestido de toalla.",
+  "S1_compact_chosen": false,
+  "S2": "Ah, sí, pero tranquila. Nadie se va a fijar en eso mientras lleves ese vestido de toalla.",
+  "S2_cue": "",
+  "ratio": {
+   "S0": 0.74,
+   "S1": 0.49,
+   "S2": 0.69
+  }
+ },
+ "S3E12c1-L4": {
+  "S0": "Es su primer día en este nuevo trabajo. ¡No se supone que empieces con ella!",
+  "S1": "Es su primer día. ¡No te metas con ella!",
+  "S1_compact_chosen": false,
+  "S2": "Es su primer día en el trabajo nuevo. ¡Hoy no empieces con ella!",
+  "S2_cue": "",
+  "ratio": {
+   "S0": 1.01,
+   "S1": 0.53,
+   "S2": 0.88
+  }
+ },
+ "S3E12c1-L5": {
+  "S0": "Vale, supongo que puedo esperar un día. Oye, ¿qué haces el viernes?",
+  "S1": "Puedo esperar un día. ¿Qué haces el viernes?",
+  "S1_compact_chosen": false,
+  "S2": "Vale, supongo que puedo esperar a mañana. Oye, ¿qué haces el viernes?",
+  "S2_cue": "",
+  "ratio": {
+   "S0": 0.93,
+   "S1": 0.61,
+   "S2": 1.02
+  }
+ },
+ "S3E12c1-L9": {
+  "S0": "Sí. ¿Eso es una corbata de dinosaurios?",
+  "S1": "Sí. ¿Eso es una corbata de dinosaurios?",
+  "S1_compact_chosen": false,
+  "S2": "Ya. ¿Eso es una corbata de dinosaurios?",
+  "S2_cue": "",
+  "ratio": {
+   "S0": 1.39,
+   "S1": 1.39,
+   "S2": 1.39
+  }
+ },
+ "S3E12c1-L12": {
+  "S0": "Debes de tardar una eternidad en encontrar tus llaves.",
+  "S1": "Debes de tardar una eternidad en encontrar las llaves.",
+  "S1_compact_chosen": false,
+  "S2": "Debes de tardar horas en encontrar las llaves.",
+  "S2_cue": "",
+  "ratio": {
+   "S0": 1.3,
+   "S1": 1.3,
+   "S2": 1.01
+  }
+ },
+ "S3E12c1-L15": {
+  "S0": "No, no, no, nada de tortugas, me dan miedo. No necesito eso hoy.",
+  "S1": "No, las tortugas me dan miedo. Hoy no.",
+  "S1_compact_chosen": false,
+  "S2": "No, no, nada de tortugas, me dan miedo. Hoy no estoy para eso.",
+  "S2_cue": "",
+  "ratio": {
+   "S0": 1.11,
+   "S1": 0.58,
+   "S2": 1.06
+  }
+ },
+ "S3E12c1-L20": {
+  "S0": "Eh, no, es un bolso. Y hay un termo dentro.",
+  "S1": "No, es un bolso. Y lleva un termo dentro.",
+  "S1_compact_chosen": false,
+  "S2": "Eh, no, es un bolso. Y tiene un termo dentro.",
+  "S2_cue": "",
+  "ratio": {
+   "S0": 0.74,
+   "S1": 0.74,
+   "S2": 0.74
+  }
+ },
+ "S3E12c1-L24": {
+  "S0": "Bueno, al parecer Albert no tiene amigos. Aunque está muy emocionado con la despedida de soltero. Creo que en realidad la única razón por la que se casa es para poder ver a una stripper.",
+  "S1": "Albert no tiene amigos. Está ilusionado con la despedida; creo que solo se casa para ver a una stripper.",
+  "S1_compact_chosen": false,
+  "S2": "Pues, por lo visto, Albert no tiene amigos. Eso sí, está entusiasmado con la despedida. Yo creo que solo se casa para poder ver a una stripper.",
+  "S2_cue": "",
+  "ratio": {
+   "S0": 0.97,
+   "S1": 0.55,
+   "S2": 0.73
+  }
+ },
+ "S3E12c1-L25": {
+  "S0": "Una stripper en una despedida de soltero, qué cliché. ¡¿Por qué no contratáis a un mago?!",
+  "S1": "Una stripper en una despedida es un tópico. ¿Por qué no un mago?",
+  "S1_compact_chosen": false,
+  "S2": "¿Una stripper en una despedida? Qué tópico. ¿Por qué no contratáis a un mago?",
+  "S2_cue": "",
+  "ratio": {
+   "S0": 0.96,
+   "S1": 0.76,
+   "S2": 0.86
+  }
+ },
+ "S3E12c1-L26": {
+  "S0": "Bueno, si el mago puede abrirme la cerveza con las nalgas, entonces vale.",
+  "S1": "Si el mago puede abrirme la cerveza con las nalgas, vale.",
+  "S1_compact_chosen": false,
+  "S2": "Bueno, si el mago me abre la cerveza con el culo, vale.",
+  "S2_cue": "",
+  "ratio": {
+   "S0": 0.97,
+   "S1": 0.75,
+   "S2": 0.79
+  }
+ },
+ "S2E21c5-L22": {
+  "S0": "No juegues con sus cosas.",
+  "S1": "No juegues con sus cosas.",
+  "S1_compact_chosen": false,
+  "S2": "Deja sus juguetes en paz.",
+  "S2_cue": "",
+  "ratio": {
+   "S0": 0.92,
+   "S1": 0.92,
+   "S2": 1.06
+  }
+ },
+ "S2E21c5-L24": {
+  "S0": "Muy bien, llevemos esto fuera.",
+  "S1": "Vamos a llevar esto fuera.",
+  "S1_compact_chosen": false,
+  "S2": "Muy bien. Salgamos fuera.",
+  "S2_cue": "",
+  "ratio": {
+   "S0": 0.89,
+   "S1": 0.89,
+   "S2": 0.69
+  }
+ }
+}

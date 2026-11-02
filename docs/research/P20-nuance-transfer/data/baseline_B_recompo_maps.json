@@ -1,0 +1,3130 @@
+{
+ "S1E16c15-L1": {
+  "best": "I ended up telling her everything.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "told her everything",
+    "tier": "core"
+   },
+   {
+    "id": "u2",
+    "text": "in the end",
+    "tier": "colour"
+   }
+  ]
+ },
+ "S1E16c15-L2": {
+  "best": "How did she take it?",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "how did she react",
+    "tier": "core"
+   }
+  ]
+ },
+ "S1E16c15-L3": {
+  "best": "Pretty well, except for the stapler thing. Tip: in a similar situation never leave your hand on the desk.",
+  "confidence": "high",
+  "notes": "implies she stapled his hand",
+  "units": [
+   {
+    "id": "u1",
+    "text": "she took it pretty well",
+    "tier": "core"
+   },
+   {
+    "id": "u2",
+    "text": "except the stapler incident",
+    "tier": "core"
+   },
+   {
+    "id": "u3",
+    "text": "advice: never leave your hand on the desk",
+    "tier": "core"
+   },
+   {
+    "id": "u4",
+    "text": "never ever",
+    "tier": "colour"
+   }
+  ]
+ },
+ "S1E16c15-L4": {
+  "best": "I think I get how to do this.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "I think I understand how to do this",
+    "tier": "core"
+   }
+  ]
+ },
+ "S1E16c15-L5": {
+  "best": "Can we turn this off / make them go away? I can't watch.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "turn it off / make them go away",
+    "tier": "core"
+   },
+   {
+    "id": "u2",
+    "text": "I can't watch",
+    "tier": "core"
+   }
+  ]
+ },
+ "S1E16c15-L6": {
+  "best": "Okay Pheebs, they're gone.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "they're gone",
+    "tier": "core"
+   },
+   {
+    "id": "u2",
+    "text": "Pheebs (nickname)",
+    "tier": "colour"
+   }
+  ]
+ },
+ "S1E16c15-L7": {
+  "best": "Okay.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "okay",
+    "tier": "core"
+   }
+  ]
+ },
+ "S1E16c15-L8": {
+  "best": "Are you alright?",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "are you okay",
+    "tier": "core"
+   }
+  ]
+ },
+ "S1E16c15-L9": {
+  "best": "It's this whole stupid Ursula thing.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "it's the Ursula situation",
+    "tier": "core"
+   },
+   {
+    "id": "u2",
+    "text": "stupid",
+    "tier": "support"
+   }
+  ]
+ },
+ "S1E16c15-L10": {
+  "best": "Can I ask? He's dating her; is it really so terrible?",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "he's dating her",
+    "tier": "support"
+   },
+   {
+    "id": "u2",
+    "text": "is it really that bad",
+    "tier": "core"
+   }
+  ]
+ },
+ "S1E16c15-L11": {
+  "best": "She's not evil, but she always breaks my stuff: at eight she threw my Judy Jetson thermos under the bus when I wouldn't share it. And there was Randy Brown — ever had a boyfriend who was your best friend?",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "she's not evil",
+    "tier": "support"
+   },
+   {
+    "id": "u2",
+    "text": "she always breaks my things",
+    "tier": "core"
+   },
+   {
+    "id": "u3",
+    "text": "at eight she threw my Judy Jetson thermos under the bus",
+    "tier": "core"
+   },
+   {
+    "id": "u4",
+    "text": "because I wouldn't let her have it",
+    "tier": "support"
+   },
+   {
+    "id": "u5",
+    "text": "Randy Brown",
+    "tier": "support"
+   },
+   {
+    "id": "u6",
+    "text": "have you had a boyfriend who was also your best friend?",
+    "tier": "core"
+   }
+  ]
+ },
+ "S1E16c15-L12": {
+  "best": "No.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "no",
+    "tier": "core"
+   }
+  ]
+ },
+ "S1E16c15-L13": {
+  "best": "That's what he was for me; she stole him, broke his heart, and he stopped talking to me because he didn't want to be around anything that looked like either of us.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "he was that for me",
+    "tier": "core"
+   },
+   {
+    "id": "u2",
+    "text": "she stole him and broke his heart",
+    "tier": "core"
+   },
+   {
+    "id": "u3",
+    "text": "he stopped talking to me",
+    "tier": "core"
+   },
+   {
+    "id": "u4",
+    "text": "didn't want to be near anything that looked like either of us",
+    "tier": "core"
+   }
+  ]
+ },
+ "S1E16c15-L14": {
+  "best": "Oh, Pheebs.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "sympathy",
+    "tier": "core"
+   }
+  ]
+ },
+ "S1E16c15-L15": {
+  "best": "I know Joey isn't my boyfriend or my thermos, but...",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "Joey isn't my boyfriend",
+    "tier": "core"
+   },
+   {
+    "id": "u2",
+    "text": "or my thermos",
+    "tier": "support"
+   }
+  ]
+ },
+ "S1E16c15-L16": {
+  "best": "You're not going to lose him.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "you won't lose him",
+    "tier": "core"
+   }
+  ]
+ },
+ "S1E16c15-L17": {
+  "best": "You have to talk to Joey.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "talk to Joey",
+    "tier": "core"
+   },
+   {
+    "id": "u2",
+    "text": "hon",
+    "tier": "colour"
+   }
+  ]
+ },
+ "S1E16c15-L18": {
+  "best": "Yeah, okay.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "okay",
+    "tier": "core"
+   }
+  ]
+ },
+ "S1E16c15-L19": {
+  "best": "He doesn't know this; if he knew how you felt...",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "he doesn't know",
+    "tier": "core"
+   },
+   {
+    "id": "u2",
+    "text": "if he knew how you feel",
+    "tier": "core"
+   }
+  ]
+ },
+ "S1E16c15-L20": {
+  "best": "But he's falling in love with her.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "he's falling in love with her",
+    "tier": "core"
+   }
+  ]
+ },
+ "S1E16c15-L21": {
+  "best": "They've been dating a week and haven't slept together; that's not serious.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "only a week",
+    "tier": "core"
+   },
+   {
+    "id": "u2",
+    "text": "haven't slept together",
+    "tier": "support"
+   },
+   {
+    "id": "u3",
+    "text": "not serious",
+    "tier": "core"
+   }
+  ]
+ },
+ "S1E16c15-L22": {
+  "best": "Okay.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "okay",
+    "tier": "core"
+   }
+  ]
+ },
+ "S1E16c15-L23": {
+  "best": "Oh, okay.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "okay",
+    "tier": "core"
+   }
+  ]
+ },
+ "S1E16c15-L24": {
+  "best": "Oh.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "oh",
+    "tier": "core"
+   }
+  ]
+ },
+ "S1E16c15-L25": {
+  "best": "Can we help you?",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "may we help you",
+    "tier": "core"
+   }
+  ]
+ },
+ "S1E22c5-L1": {
+  "best": "Let it go, Ross; it was just a dream.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "let it go",
+    "tier": "core"
+   },
+   {
+    "id": "u2",
+    "text": "just a dream",
+    "tier": "core"
+   }
+  ]
+ },
+ "S1E22c5-L2": {
+  "best": "This is it — baby time!",
+  "confidence": "high",
+  "notes": "thinks the baby is coming",
+  "units": [
+   {
+    "id": "u1",
+    "text": "this is it",
+    "tier": "core"
+   },
+   {
+    "id": "u2",
+    "text": "the baby is coming",
+    "tier": "core"
+   }
+  ]
+ },
+ "S1E22c5-L3": {
+  "best": "Relax, be cool.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "relax",
+    "tier": "core"
+   },
+   {
+    "id": "u2",
+    "text": "be cool",
+    "tier": "support"
+   }
+  ]
+ },
+ "S1E22c5-L4": {
+  "best": "I was beeped. André isn't here — third time today. No sir, I don't perform those kinds of services.",
+  "confidence": "high",
+  "notes": "caller wants an escort; wrong number",
+  "units": [
+   {
+    "id": "u1",
+    "text": "I got a page",
+    "tier": "support"
+   },
+   {
+    "id": "u2",
+    "text": "André isn't here",
+    "tier": "core"
+   },
+   {
+    "id": "u3",
+    "text": "third time today",
+    "tier": "support"
+   },
+   {
+    "id": "u4",
+    "text": "I don't provide those services",
+    "tier": "core"
+   }
+  ]
+ },
+ "S1E22c5-L5": {
+  "best": "Services? Oh, services.",
+  "confidence": "high",
+  "notes": "Joey realizes what is meant",
+  "units": [
+   {
+    "id": "u1",
+    "text": "services?",
+    "tier": "core"
+   },
+   {
+    "id": "u2",
+    "text": "oh, (realizes) those services",
+    "tier": "core"
+   }
+  ]
+ },
+ "S1E22c5-L6": {
+  "best": "You want 55-JUMBO, with a U. Believe me, you don't want me; judging by his number I'd be a huge disappointment. Bye.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "you want 55-JUMBO",
+    "tier": "core"
+   },
+   {
+    "id": "u2",
+    "text": "with a U",
+    "tier": "support"
+   },
+   {
+    "id": "u3",
+    "text": "you don't want me",
+    "tier": "core"
+   },
+   {
+    "id": "u4",
+    "text": "judging by his number I'd be a disappointment",
+    "tier": "core"
+   },
+   {
+    "id": "u5",
+    "text": "bye",
+    "tier": "colour"
+   }
+  ]
+ },
+ "S1E22c5-L7": {
+  "best": "How was the first day?",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "how was your first day",
+    "tier": "core"
+   }
+  ]
+ },
+ "S1E22c5-L8": {
+  "best": "Excellent; everyone was so nice.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "excellent",
+    "tier": "core"
+   },
+   {
+    "id": "u2",
+    "text": "everyone was nice",
+    "tier": "core"
+   }
+  ]
+ },
+ "S1E22c5-L9": {
+  "best": "See, it pays to know the man who wears my shoes — me.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "it pays to know me",
+    "tier": "core"
+   },
+   {
+    "id": "u2",
+    "text": "the man in my shoes",
+    "tier": "colour"
+   }
+  ]
+ },
+ "S1E22c5-L10": {
+  "best": "I didn't tell anyone I knew you.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "I didn't tell anyone I know you",
+    "tier": "core"
+   }
+  ]
+ },
+ "S1E22c5-L11": {
+  "best": "Why not?",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "why not",
+    "tier": "core"
+   }
+  ]
+ },
+ "S1E22c5-L12": {
+  "best": "Because they don't like you.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "they don't like you",
+    "tier": "core"
+   }
+  ]
+ },
+ "S1E22c5-L13": {
+  "best": "What?!",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "what?!",
+    "tier": "core"
+   }
+  ]
+ },
+ "S1E22c5-L14": {
+  "best": "I thought you knew.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "I thought you knew",
+    "tier": "core"
+   }
+  ]
+ },
+ "S1E22c5-L15": {
+  "best": "No. Who doesn't like me?",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "who doesn't like me",
+    "tier": "core"
+   }
+  ]
+ },
+ "S1E22c5-L16": {
+  "best": "Everyone. Except... no, everyone.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "everyone",
+    "tier": "core"
+   },
+   {
+    "id": "u2",
+    "text": "except... no",
+    "tier": "support"
+   }
+  ]
+ },
+ "S1E22c5-L17": {
+  "best": "What are you talking about?",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "what are you talking about",
+    "tier": "core"
+   }
+  ]
+ },
+ "S1E22c5-L18": {
+  "best": "Don't feel bad; they used to like you, but since your promotion you're 'Mr. Boss Man', Mr. Bing, 'Boss Man Bing'.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "they used to like you",
+    "tier": "core"
+   },
+   {
+    "id": "u2",
+    "text": "since your promotion",
+    "tier": "core"
+   },
+   {
+    "id": "u3",
+    "text": "they call you Mr. Boss Man / Boss Man Bing",
+    "tier": "core"
+   }
+  ]
+ },
+ "S1E22c5-L19": {
+  "best": "I can't believe it.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "I can't believe it",
+    "tier": "core"
+   }
+  ]
+ },
+ "S1E22c5-L20": {
+  "best": "They even do you.",
+  "confidence": "high",
+  "notes": "impressions",
+  "units": [
+   {
+    "id": "u1",
+    "text": "they even imitate you",
+    "tier": "core"
+   }
+  ]
+ },
+ "S1E22c5-L21": {
+  "best": "They do me?",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "they imitate me?",
+    "tier": "core"
+   }
+  ]
+ },
+ "S1E22c5-L22": {
+  "best": "Like: 'Could that report be any later?'",
+  "confidence": "high",
+  "notes": "impression of Chandler",
+  "units": [
+   {
+    "id": "u1",
+    "text": "imitation: could that report be any later",
+    "tier": "core"
+   }
+  ]
+ },
+ "S1E22c5-L23": {
+  "best": "I don't sound like that.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "I don't sound like that",
+    "tier": "core"
+   }
+  ]
+ },
+ "S1E22c5-L24": {
+  "best": "Oh, Chandler...",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "Chandler...",
+    "tier": "core"
+   }
+  ]
+ },
+ "S1E22c5-L25": {
+  "best": "Yeah, you do.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "yes you do",
+    "tier": "core"
+   }
+  ]
+ },
+ "S1E22c5-L26": {
+  "best": "'The hills were alive with the sound of music.'",
+  "confidence": "high",
+  "notes": "impression",
+  "units": [
+   {
+    "id": "u1",
+    "text": "imitation: the hills were alive with the sound of music",
+    "tier": "core"
+   }
+  ]
+ },
+ "S1E22c5-L27": {
+  "best": "My scones.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "my scones",
+    "tier": "core"
+   }
+  ]
+ },
+ "S1E22c5-L28": {
+  "best": "'My scones.'",
+  "confidence": "high",
+  "notes": "imitation",
+  "units": [
+   {
+    "id": "u1",
+    "text": "imitation: my scones",
+    "tier": "core"
+   }
+  ]
+ },
+ "S1E22c5-L29": {
+  "best": "I don't sound like that. That is so not true.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "I don't sound like that",
+    "tier": "core"
+   },
+   {
+    "id": "u2",
+    "text": "that's not true",
+    "tier": "core"
+   }
+  ]
+ },
+ "S1E22c5-L30": {
+  "best": "That is so not... Oh, shut up!",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "that is so not",
+    "tier": "support"
+   },
+   {
+    "id": "u2",
+    "text": "shut up",
+    "tier": "core"
+   }
+  ]
+ },
+ "S2E2c2-L1": {
+  "best": "Do you have any muffins left?",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "any muffins left",
+    "tier": "core"
+   }
+  ]
+ },
+ "S2E2c2-L2": {
+  "best": "Yeah, I forget which ones.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "yes, I don't remember which",
+    "tier": "core"
+   }
+  ]
+ },
+ "S2E2c2-L3": {
+  "best": "You're busy, I'll get it. Anyone else want one?",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "you're busy, I'll get it",
+    "tier": "core"
+   },
+   {
+    "id": "u2",
+    "text": "anyone else want one",
+    "tier": "core"
+   }
+  ]
+ },
+ "S2E2c2-L4": {
+  "best": "No thanks.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "no thanks",
+    "tier": "core"
+   }
+  ]
+ },
+ "S2E2c2-L5": {
+  "best": "Your apron is coming off; let me fix it.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "your apron is coming off",
+    "tier": "core"
+   },
+   {
+    "id": "u2",
+    "text": "let me get it",
+    "tier": "core"
+   }
+  ]
+ },
+ "S2E2c2-L6": {
+  "best": "Thank you. What a bitch.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "thank you",
+    "tier": "core"
+   },
+   {
+    "id": "u2",
+    "text": "what a bitch",
+    "tier": "core"
+   }
+  ]
+ },
+ "S2E2c2-L7": {
+  "best": "My friend at Bloomingdale's is quitting tomorrow and wants to use his discount. Who wants to come take advantage?",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "friend at Bloomingdale's quitting tomorrow",
+    "tier": "core"
+   },
+   {
+    "id": "u2",
+    "text": "wants to use his discount",
+    "tier": "core"
+   },
+   {
+    "id": "u3",
+    "text": "anyone want to come",
+    "tier": "core"
+   }
+  ]
+ },
+ "S2E2c2-L8": {
+  "best": "I can't, I have to take my grandmother to the vet.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "I can't",
+    "tier": "core"
+   },
+   {
+    "id": "u2",
+    "text": "I must take my grandmother to the vet",
+    "tier": "core"
+   }
+  ]
+ },
+ "S2E2c2-L9": {
+  "best": "Okay, I'll go with you.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "I'll go with you",
+    "tier": "core"
+   }
+  ]
+ },
+ "S2E2c2-L10": {
+  "best": "Great.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "great",
+    "tier": "core"
+   }
+  ]
+ },
+ "S2E2c2-L11": {
+  "best": "Hi, honey.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "hi honey",
+    "tier": "core"
+   }
+  ]
+ },
+ "S2E2c2-L12": {
+  "best": "Hey, sweetums.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "hey sweetums",
+    "tier": "core"
+   }
+  ]
+ },
+ "S2E2c2-L13": {
+  "best": "Hello to the rest.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "hello to the rest",
+    "tier": "core"
+   }
+  ]
+ },
+ "S2E2c2-L14": {
+  "best": "Hi!",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "hi",
+    "tier": "core"
+   }
+  ]
+ },
+ "S2E2c2-L15": {
+  "best": "Monica, what are you doing? You can't go shopping with her. What about Rachel?",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "you can't go shopping with her",
+    "tier": "core"
+   },
+   {
+    "id": "u2",
+    "text": "what about Rachel",
+    "tier": "core"
+   }
+  ]
+ },
+ "S2E2c2-L16": {
+  "best": "It's going to be a problem, isn't it?",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "it's going to be a problem",
+    "tier": "core"
+   }
+  ]
+ },
+ "S2E2c2-L17": {
+  "best": "You're going to Bloomingdale's with Julie? That's like cheating on Rachel in her house of worship.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "going to Bloomingdale's with Julie",
+    "tier": "support"
+   },
+   {
+    "id": "u2",
+    "text": "that's like cheating on Rachel in her church",
+    "tier": "core"
+   }
+  ]
+ },
+ "S2E2c2-L18": {
+  "best": "But I'm...",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "but I'm",
+    "tier": "core"
+   }
+  ]
+ },
+ "S2E2c2-L19": {
+  "best": "She will kill you like a dog in the street.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "she will kill you",
+    "tier": "core"
+   },
+   {
+    "id": "u2",
+    "text": "like a dog in the street",
+    "tier": "colour"
+   }
+  ]
+ },
+ "S2E2c2-L20": {
+  "best": "Jules says you're going shopping tomorrow?",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "you're going shopping tomorrow",
+    "tier": "core"
+   }
+  ]
+ },
+ "S2E2c2-L21": {
+  "best": "It's actually not a big deal.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "not a big deal",
+    "tier": "core"
+   }
+  ]
+ },
+ "S2E2c2-L22": {
+  "best": "It's a big deal to me. I really appreciate this.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "it's a big deal to me",
+    "tier": "core"
+   },
+   {
+    "id": "u2",
+    "text": "I appreciate it",
+    "tier": "core"
+   }
+  ]
+ },
+ "S2E2c2-L23": {
+  "best": "You're welcome.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "you're welcome",
+    "tier": "core"
+   }
+  ]
+ },
+ "S2E2c2-L24": {
+  "best": "Woof, woof.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "woof woof",
+    "tier": "core"
+   }
+  ]
+ },
+ "S2E21c5-L1": {
+  "best": "Hey.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "hey",
+    "tier": "core"
+   }
+  ]
+ },
+ "S2E21c5-L2": {
+  "best": "What?",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "what",
+    "tier": "core"
+   }
+  ]
+ },
+ "S2E21c5-L3": {
+  "best": "Do you have to be a Century 21 agent to wear those cool jackets?",
+  "confidence": "high",
+  "notes": "mocking Ross's jacket",
+  "units": [
+   {
+    "id": "u1",
+    "text": "do you have to be a Century 21 agent",
+    "tier": "core"
+   },
+   {
+    "id": "u2",
+    "text": "to wear those jackets",
+    "tier": "core"
+   }
+  ]
+ },
+ "S2E21c5-L4": {
+  "best": "Do you say this stuff to girls?",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "do you say this to girls",
+    "tier": "core"
+   }
+  ]
+ },
+ "S2E21c5-L5": {
+  "best": "Isn't that the guy who used to wear your hat?",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "isn't that the guy who wore your hat",
+    "tier": "core"
+   }
+  ]
+ },
+ "S2E21c5-L6": {
+  "best": "And look where they're sitting.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "look where they're sitting",
+    "tier": "core"
+   }
+  ]
+ },
+ "S2E21c5-L7": {
+  "best": "You're joking? You just walked in.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "are you joking",
+    "tier": "support"
+   },
+   {
+    "id": "u2",
+    "text": "you just came in",
+    "tier": "core"
+   }
+  ]
+ },
+ "S2E21c5-L8": {
+  "best": "Maybe we didn't make it clear enough.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "we weren't clear enough",
+    "tier": "core"
+   }
+  ]
+ },
+ "S2E21c5-L9": {
+  "best": "Yeah.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "yeah",
+    "tier": "core"
+   }
+  ]
+ },
+ "S2E21c5-L10": {
+  "best": "This couch belongs to us.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "this couch is ours",
+    "tier": "core"
+   }
+  ]
+ },
+ "S2E21c5-L11": {
+  "best": "You call the couch, we call the couch, and we see who it comes to.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "you call the couch",
+    "tier": "core"
+   },
+   {
+    "id": "u2",
+    "text": "we call the couch",
+    "tier": "core"
+   },
+   {
+    "id": "u3",
+    "text": "see who it comes to",
+    "tier": "core"
+   }
+  ]
+ },
+ "S2E21c5-L12": {
+  "best": "I keep wondering why you two are still sitting here.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "why are you still here",
+    "tier": "core"
+   }
+  ]
+ },
+ "S2E21c5-L13": {
+  "best": "That's it, I've had enough. Gunther, these guys are trying to take our seat.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "I've had enough",
+    "tier": "support"
+   },
+   {
+    "id": "u2",
+    "text": "Gunther, they're trying to take our seat",
+    "tier": "core"
+   }
+  ]
+ },
+ "S2E21c5-L14": {
+  "best": "Fellas, these guys were here first.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "they were here first",
+    "tier": "core"
+   }
+  ]
+ },
+ "S2E21c5-L15": {
+  "best": "Sorry, I didn't realize.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "sorry",
+    "tier": "core"
+   }
+  ]
+ },
+ "S2E21c5-L16": {
+  "best": "Sorry.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "sorry",
+    "tier": "core"
+   }
+  ]
+ },
+ "S2E21c5-L17": {
+  "best": "There you go.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "there you go",
+    "tier": "core"
+   }
+  ]
+ },
+ "S2E21c5-L18": {
+  "best": "Thank you Gunther. We didn't want to have to do that.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "thanks Gunther",
+    "tier": "core"
+   },
+   {
+    "id": "u2",
+    "text": "we didn't want to do that",
+    "tier": "support"
+   }
+  ]
+ },
+ "S2E21c5-L19": {
+  "best": "He told on us?",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "he told on us",
+    "tier": "core"
+   }
+  ]
+ },
+ "S2E21c5-L20": {
+  "best": "You told on us?",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "you told on us",
+    "tier": "core"
+   }
+  ]
+ },
+ "S2E21c5-L21": {
+  "best": "You didn't give me much choice.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "you left me no choice",
+    "tier": "core"
+   }
+  ]
+ },
+ "S2E21c5-L22": {
+  "best": "Don't play with his things.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "don't play with his things",
+    "tier": "core"
+   }
+  ]
+ },
+ "S2E21c5-L23": {
+  "best": "I know.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "I know",
+    "tier": "core"
+   }
+  ]
+ },
+ "S2E21c5-L24": {
+  "best": "Let's take this outside.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "let's take this outside",
+    "tier": "core"
+   }
+  ]
+ },
+ "S2E21c5-L25": {
+  "best": "'Let's take this outside'? Who talks like that?",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "who talks like that",
+    "tier": "core"
+   }
+  ]
+ },
+ "S2E21c5-L26": {
+  "best": "The guy about to kick your ass talks like that.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "the guy about to beat you up",
+    "tier": "core"
+   }
+  ]
+ },
+ "S2E21c5-L27": {
+  "best": "You had to ask.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "you had to ask",
+    "tier": "core"
+   }
+  ]
+ },
+ "S2E21c5-L28": {
+  "best": "Yeah.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "yeah",
+    "tier": "core"
+   }
+  ]
+ },
+ "S2E21c5-L29": {
+  "best": "We're not going to fight you.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "we won't fight you",
+    "tier": "core"
+   }
+  ]
+ },
+ "S2E21c5-L30": {
+  "best": "Then you won't have to, as long as you never show your faces in this coffee house again.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "you won't have to fight",
+    "tier": "core"
+   },
+   {
+    "id": "u2",
+    "text": "never come back to this coffee house",
+    "tier": "core"
+   }
+  ]
+ },
+ "S2E21c5-L31": {
+  "best": "I think you played the Gunther card too soon.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "you used Gunther too early",
+    "tier": "core"
+   }
+  ]
+ },
+ "S2E24c4-L1": {
+  "best": "Where's Benny? There he is!",
+  "confidence": "high",
+  "notes": "peekaboo",
+  "units": [
+   {
+    "id": "u1",
+    "text": "where's Benny, there he is",
+    "tier": "core"
+   }
+  ]
+ },
+ "S2E24c4-L2": {
+  "best": "That's probably why babies learn to talk, so they can tell grown-ups to cut it out.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "that's why babies learn to talk",
+    "tier": "core"
+   },
+   {
+    "id": "u2",
+    "text": "to tell adults to stop",
+    "tier": "core"
+   }
+  ]
+ },
+ "S2E24c4-L3": {
+  "best": "I've got a question, just a little thing, no pressure.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "I have a question",
+    "tier": "core"
+   },
+   {
+    "id": "u2",
+    "text": "no pressure",
+    "tier": "support"
+   }
+  ]
+ },
+ "S2E24c4-L4": {
+  "best": "Okay.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "okay",
+    "tier": "core"
+   }
+  ]
+ },
+ "S2E24c4-L5": {
+  "best": "Do you ever think about the future?",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "do you think about the future",
+    "tier": "core"
+   }
+  ]
+ },
+ "S2E24c4-L6": {
+  "best": "Sure I do.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "sure",
+    "tier": "core"
+   }
+  ]
+ },
+ "S2E24c4-L7": {
+  "best": "Am I in it?",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "am I in it",
+    "tier": "core"
+   }
+  ]
+ },
+ "S2E24c4-L8": {
+  "best": "Honey, you are in it.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "you are in it",
+    "tier": "core"
+   }
+  ]
+ },
+ "S2E24c4-L9": {
+  "best": "You are about to get so lucky.",
+  "confidence": "high",
+  "notes": "sexual",
+  "units": [
+   {
+    "id": "u1",
+    "text": "you're about to get lucky",
+    "tier": "core"
+   }
+  ]
+ },
+ "S2E24c4-L10": {
+  "best": "Oh, yeah!",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "oh yeah",
+    "tier": "core"
+   }
+  ]
+ },
+ "S2E24c4-L11": {
+  "best": "Keep talking.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "keep talking",
+    "tier": "core"
+   }
+  ]
+ },
+ "S2E24c4-L12": {
+  "best": "Sometimes I think about selling my practice, moving to France, making French toast.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "sell my practice",
+    "tier": "core"
+   },
+   {
+    "id": "u2",
+    "text": "move to France",
+    "tier": "core"
+   },
+   {
+    "id": "u3",
+    "text": "make French toast",
+    "tier": "support"
+   }
+  ]
+ },
+ "S2E24c4-L13": {
+  "best": "So we're in France making the toast. Do you see a little bassinet in the corner?",
+  "confidence": "high",
+  "notes": "asking about a baby",
+  "units": [
+   {
+    "id": "u1",
+    "text": "we're in France making toast",
+    "tier": "support"
+   },
+   {
+    "id": "u2",
+    "text": "do you see a bassinet in the corner",
+    "tier": "core"
+   }
+  ]
+ },
+ "S2E24c4-L14": {
+  "best": "Like a hound?",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "like a hound?",
+    "tier": "core"
+   }
+  ]
+ },
+ "S2E24c4-L15": {
+  "best": "Not a basset, a bassinet.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "not a basset, a bassinet",
+    "tier": "core"
+   }
+  ]
+ },
+ "S2E24c4-L16": {
+  "best": "You really need the bassinet?",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "do you really need the bassinet",
+    "tier": "core"
+   }
+  ]
+ },
+ "S2E24c4-L17": {
+  "best": "I just think the baby would keep falling off the dog. Do you not see kids in our future?",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "the baby would keep falling off the dog",
+    "tier": "support"
+   },
+   {
+    "id": "u2",
+    "text": "do you not see kids in our future",
+    "tier": "core"
+   }
+  ]
+ },
+ "S2E24c4-L18": {
+  "best": "I love children, I have children. I just don't want to be 70 when our kids go to college and our lives can start.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "I love children, I have children",
+    "tier": "core"
+   },
+   {
+    "id": "u2",
+    "text": "I don't want to be 70 when they leave for college",
+    "tier": "core"
+   }
+  ]
+ },
+ "S2E24c4-L19": {
+  "best": "Uh-huh.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "uh-huh",
+    "tier": "core"
+   }
+  ]
+ },
+ "S2E24c4-L20": {
+  "best": "I want you, now.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "I want you now",
+    "tier": "core"
+   }
+  ]
+ },
+ "S2E24c4-L21": {
+  "best": "We don't need to talk about this now. It's way in the future — hovercrafts and apes taking over the planet.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "no need to talk about it now",
+    "tier": "core"
+   },
+   {
+    "id": "u2",
+    "text": "it's far in the future",
+    "tier": "core"
+   },
+   {
+    "id": "u3",
+    "text": "hovercrafts and apes ruling the planet",
+    "tier": "colour"
+   }
+  ]
+ },
+ "S3E4c6-L1": {
+  "best": "Honey, this will help.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "this will help",
+    "tier": "core"
+   }
+  ]
+ },
+ "S3E4c6-L2": {
+  "best": "I finally catch up to her and she says the relationship is going too fast and we have to slow down.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "I caught up with her",
+    "tier": "support"
+   },
+   {
+    "id": "u2",
+    "text": "she says it's going too fast",
+    "tier": "core"
+   },
+   {
+    "id": "u3",
+    "text": "we must slow down",
+    "tier": "core"
+   }
+  ]
+ },
+ "S3E4c6-L3": {
+  "best": "Uff.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "uff",
+    "tier": "core"
+   }
+  ]
+ },
+ "S3E4c6-L4": {
+  "best": "That is never good.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "that's never good",
+    "tier": "core"
+   }
+  ]
+ },
+ "S3E4c6-L5": {
+  "best": "Then I got all needy and clingy.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "I got needy and clingy",
+    "tier": "core"
+   }
+  ]
+ },
+ "S3E4c6-L6": {
+  "best": "Wait. Maybe it's not so bad. How did you leave it?",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "maybe it's not so bad",
+    "tier": "core"
+   },
+   {
+    "id": "u2",
+    "text": "how did you leave it",
+    "tier": "core"
+   }
+  ]
+ },
+ "S3E4c6-L7": {
+  "best": "She said she'd call me.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "she said she'd call",
+    "tier": "core"
+   }
+  ]
+ },
+ "S3E4c6-L8": {
+  "best": "Ohh!",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "ohh",
+    "tier": "core"
+   }
+  ]
+ },
+ "S3E4c6-L9": {
+  "best": "Oh God.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "oh God",
+    "tier": "core"
+   }
+  ]
+ },
+ "S3E4c6-L10": {
+  "best": "Welcome to our side of the tunnel.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "welcome to our side",
+    "tier": "core"
+   },
+   {
+    "id": "u2",
+    "text": "of the tunnel",
+    "tier": "colour"
+   }
+  ]
+ },
+ "S3E4c6-L11": {
+  "best": "This ice cream tastes like crap, by the way.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "this ice cream tastes bad",
+    "tier": "core"
+   }
+  ]
+ },
+ "S3E4c6-L12": {
+  "best": "That's the low-cal, non-dairy soy junk; we save the real stuff for the really terminal cases.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "it's low-cal non-dairy soy junk",
+    "tier": "core"
+   },
+   {
+    "id": "u2",
+    "text": "we save real ice cream for terminal cases",
+    "tier": "core"
+   }
+  ]
+ },
+ "S3E4c6-L13": {
+  "best": "When you get screwed over all the time, you have to switch to low-fat.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "when you get screwed over all the time",
+    "tier": "core"
+   },
+   {
+    "id": "u2",
+    "text": "you switch to low-fat",
+    "tier": "core"
+   }
+  ]
+ },
+ "S3E4c6-L14": {
+  "best": "Yeah, you do.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "yes",
+    "tier": "core"
+   }
+  ]
+ },
+ "S3E4c6-L15": {
+  "best": "So you don't think I'm terminal?",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "am I not terminal",
+    "tier": "core"
+   }
+  ]
+ },
+ "S3E4c6-L16": {
+  "best": "You're not terminal; you just need some damage control.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "you're not terminal",
+    "tier": "core"
+   },
+   {
+    "id": "u2",
+    "text": "you need damage control",
+    "tier": "core"
+   }
+  ]
+ },
+ "S3E4c6-L17": {
+  "best": "So should I call her?",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "should I call her",
+    "tier": "core"
+   }
+  ]
+ },
+ "S3E4c6-L18": {
+  "best": "Nooo!",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "no",
+    "tier": "core"
+   }
+  ]
+ },
+ "S3E4c6-L19": {
+  "best": "This is a critical time. If you reach for the phone, go shoe shopping, get in a bubble bath. To get her back, act aloof.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "critical time",
+    "tier": "support"
+   },
+   {
+    "id": "u2",
+    "text": "if you want to call, go shoe shopping or take a bubble bath",
+    "tier": "core"
+   },
+   {
+    "id": "u3",
+    "text": "act aloof to get her back",
+    "tier": "core"
+   }
+  ]
+ },
+ "S3E4c6-L20": {
+  "best": "She has to know you're not ready.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "she must know you're not ready",
+    "tier": "core"
+   }
+  ]
+ },
+ "S3E4c6-L21": {
+  "best": "You have to accidentally run into her on purpose, then act aloof.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "run into her 'accidentally' on purpose",
+    "tier": "core"
+   },
+   {
+    "id": "u2",
+    "text": "then act aloof",
+    "tier": "core"
+   }
+  ]
+ },
+ "S3E4c6-L22": {
+  "best": "So I'm not going to lose her?",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "so I won't lose her?",
+    "tier": "core"
+   }
+  ]
+ },
+ "S3E4c6-L23": {
+  "best": "Honey, you're not a total loser.",
+  "confidence": "high",
+  "notes": "misheard",
+  "units": [
+   {
+    "id": "u1",
+    "text": "you're not a total loser",
+    "tier": "core"
+   }
+  ]
+ },
+ "S3E4c6-L24": {
+  "best": "I said: 'So I'm not going to lose her?'",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "I said: I won't lose her?",
+    "tier": "core"
+   }
+  ]
+ },
+ "S3E4c6-L25": {
+  "best": "Oh.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "oh",
+    "tier": "core"
+   }
+  ]
+ },
+ "S3E11c11-L1": {
+  "best": "I can't believe Mark didn't call; it's Sunday night.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "Mark didn't call",
+    "tier": "core"
+   },
+   {
+    "id": "u2",
+    "text": "Sunday night",
+    "tier": "support"
+   }
+  ]
+ },
+ "S3E11c11-L2": {
+  "best": "Bummer.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "too bad",
+    "tier": "core"
+   }
+  ]
+ },
+ "S3E11c11-L3": {
+  "best": "Look at you, you're practically giddy.",
+  "confidence": "high",
+  "notes": "sarcastic: Ross is happy",
+  "units": [
+   {
+    "id": "u1",
+    "text": "you're practically happy about it",
+    "tier": "core"
+   }
+  ]
+ },
+ "S3E11c11-L4": {
+  "best": "I'm genuinely sorry it didn't work out. I want only good things for you.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "I'm sorry it didn't work out",
+    "tier": "core"
+   },
+   {
+    "id": "u2",
+    "text": "I want only good things for you",
+    "tier": "core"
+   }
+  ]
+ },
+ "S3E11c11-L5": {
+  "best": "Why don't you call Mark? Who says you have to wait; make stuff happen.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "why not call Mark",
+    "tier": "core"
+   },
+   {
+    "id": "u2",
+    "text": "you don't have to wait",
+    "tier": "support"
+   },
+   {
+    "id": "u3",
+    "text": "make things happen",
+    "tier": "support"
+   }
+  ]
+ },
+ "S3E11c11-L6": {
+  "best": "You don't want to seem too pushy.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "don't seem too pushy",
+    "tier": "core"
+   }
+  ]
+ },
+ "S3E11c11-L7": {
+  "best": "It's not pushy, he gave her his home number.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "not pushy",
+    "tier": "core"
+   },
+   {
+    "id": "u2",
+    "text": "he gave her his home number",
+    "tier": "core"
+   }
+  ]
+ },
+ "S3E11c11-L8": {
+  "best": "He gave you his home number? Like, to his home?",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "he gave you his home number?",
+    "tier": "core"
+   }
+  ]
+ },
+ "S3E11c11-L9": {
+  "best": "Yes, and you don't mind if I call, because you only want good things for me.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "you don't mind if I call",
+    "tier": "core"
+   },
+   {
+    "id": "u2",
+    "text": "because you want good things for me",
+    "tier": "core"
+   }
+  ]
+ },
+ "S3E11c11-L10": {
+  "best": "That's right, good things, that is what I said.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "right, that's what I said",
+    "tier": "core"
+   }
+  ]
+ },
+ "S3E11c11-L11": {
+  "best": "Mark? It's Rachel Green. Don't apologize. I'll hold. He left my number at work, he was helping his niece with her report on the pioneers.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "it's Rachel",
+    "tier": "core"
+   },
+   {
+    "id": "u2",
+    "text": "don't apologize",
+    "tier": "support"
+   },
+   {
+    "id": "u3",
+    "text": "I'll hold",
+    "tier": "support"
+   },
+   {
+    "id": "u4",
+    "text": "he left my number at work",
+    "tier": "core"
+   },
+   {
+    "id": "u5",
+    "text": "helping his niece with a report",
+    "tier": "support"
+   }
+  ]
+ },
+ "S3E11c11-L12": {
+  "best": "That is so made up!",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "that's invented",
+    "tier": "core"
+   }
+  ]
+ },
+ "S3E11c11-L13": {
+  "best": "Tomorrow is perfect, thank you so much! I got the interview!",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "tomorrow is perfect",
+    "tier": "support"
+   },
+   {
+    "id": "u2",
+    "text": "thank you",
+    "tier": "support"
+   },
+   {
+    "id": "u3",
+    "text": "I got the interview",
+    "tier": "core"
+   }
+  ]
+ },
+ "S3E11c11-L14": {
+  "best": "Yay!",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "yay",
+    "tier": "core"
+   }
+  ]
+ },
+ "S3E11c11-L15": {
+  "best": "There you go.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "there you go",
+    "tier": "core"
+   }
+  ]
+ },
+ "S3E11c11-L16": {
+  "best": "He even offered to meet me for lunch to prep me.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "he offered lunch tomorrow",
+    "tier": "core"
+   },
+   {
+    "id": "u2",
+    "text": "to prepare me",
+    "tier": "core"
+   }
+  ]
+ },
+ "S3E11c11-L17": {
+  "best": "That's amazing!",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "amazing",
+    "tier": "core"
+   }
+  ]
+ },
+ "S3E11c11-L18": {
+  "best": "If I know Mark, and I think I do, I'd expect nothing less.",
+  "confidence": "high",
+  "notes": "sarcastic",
+  "units": [
+   {
+    "id": "u1",
+    "text": "I'd expect nothing less from Mark",
+    "tier": "core"
+   },
+   {
+    "id": "u2",
+    "text": "if I know Mark",
+    "tier": "support"
+   }
+  ]
+ },
+ "S3E11c11-L19": {
+  "best": "I have to figure out what to wear.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "what will I wear",
+    "tier": "core"
+   }
+  ]
+ },
+ "S3E11c11-L20": {
+  "best": "High collar and baggy pants say 'I'm a pro'.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "wear a high collar and baggy pants",
+    "tier": "core"
+   },
+   {
+    "id": "u2",
+    "text": "they look professional",
+    "tier": "support"
+   }
+  ]
+ },
+ "S3E11c11-L21": {
+  "best": "See you later!",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "see you later",
+    "tier": "core"
+   }
+  ]
+ },
+ "S3E11c11-L22": {
+  "best": "Go get 'em. What did I do to you? Did I hurt you somehow?",
+  "confidence": "high",
+  "notes": "to Monica",
+  "units": [
+   {
+    "id": "u1",
+    "text": "go get them",
+    "tier": "support"
+   },
+   {
+    "id": "u2",
+    "text": "what did I do to you",
+    "tier": "core"
+   }
+  ]
+ },
+ "S3E11c11-L23": {
+  "best": "What?",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "what",
+    "tier": "core"
+   }
+  ]
+ },
+ "S3E11c11-L24": {
+  "best": "'Why don't you call him?!' Thanks a lot! Now he's going to prep her — as in what you do before you surgically remove the boyfriend!",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "mocks Monica's advice",
+    "tier": "support"
+   },
+   {
+    "id": "u2",
+    "text": "now he will prep her",
+    "tier": "core"
+   },
+   {
+    "id": "u3",
+    "text": "prep = what you do before surgically removing the boyfriend",
+    "tier": "core"
+   }
+  ]
+ },
+ "S3E11c11-L25": {
+  "best": "Are you crazy?!",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "are you crazy",
+    "tier": "core"
+   }
+  ]
+ },
+ "S3E11c11-L26": {
+  "best": "Am I out of my mind! This dreamy guy is taking my girlfriend out for a meal.",
+  "confidence": "high",
+  "notes": "sarcastic overreaction",
+  "units": [
+   {
+    "id": "u1",
+    "text": "am I crazy",
+    "tier": "support"
+   },
+   {
+    "id": "u2",
+    "text": "this dreamy guy is taking my girlfriend to lunch",
+    "tier": "core"
+   }
+  ]
+ },
+ "S3E11c11-L27": {
+  "best": "This isn't about you, it's about Rachel. Even if you're right and he wants to sleep with her, does that mean he gets to?",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "this isn't about you",
+    "tier": "core"
+   },
+   {
+    "id": "u2",
+    "text": "it's about Rachel",
+    "tier": "core"
+   },
+   {
+    "id": "u3",
+    "text": "even if he wants to sleep with her, it doesn't mean he gets to",
+    "tier": "core"
+   }
+  ]
+ },
+ "S3E11c11-L28": {
+  "best": "No.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "no",
+    "tier": "core"
+   }
+  ]
+ },
+ "S3E11c11-L29": {
+  "best": "Don't you trust her?",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "don't you trust her",
+    "tier": "core"
+   }
+  ]
+ },
+ "S3E11c11-L30": {
+  "best": "Well, yeah!",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "yes",
+    "tier": "core"
+   }
+  ]
+ },
+ "S3E11c11-L31": {
+  "best": "Then get over yourself! Grow up!",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "get over yourself",
+    "tier": "core"
+   },
+   {
+    "id": "u2",
+    "text": "grow up",
+    "tier": "core"
+   }
+  ]
+ },
+ "S3E11c11-L32": {
+  "best": "You grow up.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "you grow up",
+    "tier": "core"
+   }
+  ]
+ },
+ "S3E12c1-L1": {
+  "best": "Does everybody hate these shoes?",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "does everyone hate these shoes",
+    "tier": "core"
+   }
+  ]
+ },
+ "S3E12c1-L2": {
+  "best": "Yes, but no one will notice as long as you're wearing that towel dress.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "yes",
+    "tier": "core"
+   },
+   {
+    "id": "u2",
+    "text": "nobody will focus on them",
+    "tier": "core"
+   },
+   {
+    "id": "u3",
+    "text": "because of the towel dress",
+    "tier": "core"
+   }
+  ]
+ },
+ "S3E12c1-L3": {
+  "best": "Tell him.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "tell him",
+    "tier": "core"
+   }
+  ]
+ },
+ "S3E12c1-L4": {
+  "best": "It's her first day at a new job. You're not supposed to start with her!",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "it's her first day",
+    "tier": "core"
+   },
+   {
+    "id": "u2",
+    "text": "don't pick on her today",
+    "tier": "core"
+   }
+  ]
+ },
+ "S3E12c1-L5": {
+  "best": "I suppose I can wait a day. What are you doing Friday?",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "I can wait a day",
+    "tier": "core"
+   },
+   {
+    "id": "u2",
+    "text": "what are you doing Friday",
+    "tier": "core"
+   }
+  ]
+ },
+ "S3E12c1-L6": {
+  "best": "Why?",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "why",
+    "tier": "core"
+   }
+  ]
+ },
+ "S3E12c1-L7": {
+  "best": "Come to the bachelor party for my weird cousin Albert, the botanist.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "come to my cousin Albert's bachelor party",
+    "tier": "core"
+   },
+   {
+    "id": "u2",
+    "text": "he's a botanist",
+    "tier": "support"
+   },
+   {
+    "id": "u3",
+    "text": "weird",
+    "tier": "support"
+   }
+  ]
+ },
+ "S3E12c1-L8": {
+  "best": "God, botanists are such geeks.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "botanists are geeks",
+    "tier": "core"
+   }
+  ]
+ },
+ "S3E12c1-L9": {
+  "best": "Yeah. Is that a dinosaur tie?",
+  "confidence": "high",
+  "notes": "pointing out Ross is a geek too",
+  "units": [
+   {
+    "id": "u1",
+    "text": "is that a dinosaur tie",
+    "tier": "core"
+   }
+  ]
+ },
+ "S3E12c1-L10": {
+  "best": "Oh, yeah.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "yes",
+    "tier": "core"
+   }
+  ]
+ },
+ "S3E12c1-L11": {
+  "best": "Morning. I'm here with the purses!",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "I brought the purses",
+    "tier": "core"
+   }
+  ]
+ },
+ "S3E12c1-L12": {
+  "best": "It must take you forever to find your keys.",
+  "confidence": "high",
+  "notes": "the purses are huge",
+  "units": [
+   {
+    "id": "u1",
+    "text": "it must take forever to find your keys",
+    "tier": "core"
+   }
+  ]
+ },
+ "S3E12c1-L13": {
+  "best": "Thank you, Pheebs.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "thank you",
+    "tier": "core"
+   }
+  ]
+ },
+ "S3E12c1-L14": {
+  "best": "You're welcome; please not the one with the turtles.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "you're welcome",
+    "tier": "core"
+   },
+   {
+    "id": "u2",
+    "text": "not the turtle one",
+    "tier": "core"
+   }
+  ]
+ },
+ "S3E12c1-L15": {
+  "best": "No, turtles scare me. I don't need that today.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "turtles scare me",
+    "tier": "core"
+   },
+   {
+    "id": "u2",
+    "text": "not today",
+    "tier": "support"
+   }
+  ]
+ },
+ "S3E12c1-L16": {
+  "best": "Relax, it'll be fine. Why don't I take you to lunch?",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "relax, it'll be fine",
+    "tier": "core"
+   },
+   {
+    "id": "u2",
+    "text": "let me take you to lunch",
+    "tier": "core"
+   }
+  ]
+ },
+ "S3E12c1-L17": {
+  "best": "Thanks, but Mark's taking me out.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "Mark is taking me to lunch",
+    "tier": "core"
+   }
+  ]
+ },
+ "S3E12c1-L18": {
+  "best": "Mark — the same Mark who helped you get the job?",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "is that the Mark who got you the job",
+    "tier": "core"
+   }
+  ]
+ },
+ "S3E12c1-L19": {
+  "best": "It's a 'good luck on your first day' thing. Is this actually a lunchbox?",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "good-luck lunch",
+    "tier": "core"
+   },
+   {
+    "id": "u2",
+    "text": "is this a lunchbox",
+    "tier": "core"
+   }
+  ]
+ },
+ "S3E12c1-L20": {
+  "best": "No, it's a purse. And there's a thermos in it.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "it's a purse",
+    "tier": "core"
+   },
+   {
+    "id": "u2",
+    "text": "there's a thermos in it",
+    "tier": "core"
+   }
+  ]
+ },
+ "S3E12c1-L21": {
+  "best": "Oh.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "oh",
+    "tier": "core"
+   }
+  ]
+ },
+ "S3E12c1-L22": {
+  "best": "Can you make it Friday?",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "can you come Friday",
+    "tier": "core"
+   }
+  ]
+ },
+ "S3E12c1-L23": {
+  "best": "Yes, I think so. Why am I invited again?",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "yes",
+    "tier": "core"
+   },
+   {
+    "id": "u2",
+    "text": "why am I invited",
+    "tier": "core"
+   }
+  ]
+ },
+ "S3E12c1-L24": {
+  "best": "Albert has no friends. He's excited about the party; I think he's only getting married to see a stripper.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "Albert has no friends",
+    "tier": "core"
+   },
+   {
+    "id": "u2",
+    "text": "excited about the party",
+    "tier": "support"
+   },
+   {
+    "id": "u3",
+    "text": "only marrying to see a stripper",
+    "tier": "core"
+   }
+  ]
+ },
+ "S3E12c1-L25": {
+  "best": "A stripper at a bachelor party is so cliché. Why not a magician?",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "a stripper is a cliché",
+    "tier": "core"
+   },
+   {
+    "id": "u2",
+    "text": "get a magician instead",
+    "tier": "core"
+   }
+  ]
+ },
+ "S3E12c1-L26": {
+  "best": "If the magician can open my beer with his butt cheeks, then fine.",
+  "confidence": "high",
+  "notes": "",
+  "units": [
+   {
+    "id": "u1",
+    "text": "fine, if the magician can open my beer with his butt cheeks",
+    "tier": "core"
+   }
+  ]
+ }
+}

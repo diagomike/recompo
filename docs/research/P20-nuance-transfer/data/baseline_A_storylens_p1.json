@@ -1,0 +1,893 @@
+{
+ "S1E16c15": {
+  "beats": [
+   {
+    "text": "Chandler reports he told his boss's assistant/her everything; it went well except a stapler incident.",
+    "lines": [
+     1,
+     3
+    ]
+   },
+   {
+    "text": "Phoebe is upset about Joey dating her twin Ursula and explains Ursula always breaks her things, including stealing Randy Brown.",
+    "lines": [
+     5,
+     15
+    ]
+   },
+   {
+    "text": "The friends urge Phoebe to talk to Joey; Phoebe goes and finds Ursula.",
+    "lines": [
+     16,
+     25
+    ]
+   }
+  ],
+  "facts": [
+   {
+    "kind": "joke",
+    "actor": "Chandler",
+    "act_type": "",
+    "target": "",
+    "text": "Chandler jokes that the lesson is never to leave your hand on the desk (the stapler).",
+    "value": "never ever leave your hand... on the desk",
+    "lines": [
+     3,
+     3
+    ]
+   },
+   {
+    "kind": "state",
+    "actor": "Phoebe",
+    "act_type": "",
+    "target": "",
+    "text": "Phoebe can't bear watching Joey and Ursula.",
+    "value": "feels: upset",
+    "lines": [
+     5,
+     5
+    ]
+   },
+   {
+    "kind": "reveal",
+    "actor": "Phoebe",
+    "act_type": "",
+    "target": "Ursula",
+    "text": "Ursula threw Phoebe's Judy Jetson thermos under the bus when they were eight.",
+    "value": "",
+    "lines": [
+     11,
+     11
+    ]
+   },
+   {
+    "kind": "reveal",
+    "actor": "Phoebe",
+    "act_type": "",
+    "target": "Ursula",
+    "text": "Ursula stole Phoebe's best-friend boyfriend Randy Brown and broke his heart.",
+    "value": "",
+    "lines": [
+     11,
+     13
+    ]
+   },
+   {
+    "kind": "joke",
+    "actor": "Phoebe",
+    "act_type": "",
+    "target": "",
+    "text": "Phoebe lists Joey alongside her boyfriend and her thermos.",
+    "value": "Joey is not my boyfriend, or my thermos",
+    "lines": [
+     15,
+     15
+    ]
+   },
+   {
+    "kind": "act",
+    "actor": "Chandler",
+    "act_type": "comforts",
+    "target": "Phoebe",
+    "text": "Chandler reassures Phoebe she won't lose Joey.",
+    "value": "",
+    "lines": [
+     16,
+     16
+    ]
+   },
+   {
+    "kind": "act",
+    "actor": "Monica",
+    "act_type": "advises",
+    "target": "Phoebe",
+    "text": "Monica tells Phoebe to talk to Joey.",
+    "value": "",
+    "lines": [
+     17,
+     17
+    ]
+   },
+   {
+    "kind": "act",
+    "actor": "Rachel",
+    "act_type": "comforts",
+    "target": "Phoebe",
+    "text": "Rachel says a one-week relationship isn't serious.",
+    "value": "",
+    "lines": [
+     21,
+     21
+    ]
+   }
+  ]
+ },
+ "S1E22c5": {
+  "beats": [
+   {
+    "text": "Ross's beeper goes off; he thinks it is the baby but it is a wrong number for a male escort.",
+    "lines": [
+     2,
+     6
+    ]
+   },
+   {
+    "text": "Phoebe tells Chandler that his employees don't like him since his promotion and do impressions of him.",
+    "lines": [
+     8,
+     22
+    ]
+   },
+   {
+    "text": "Everyone joins in imitating Chandler's speech pattern; Chandler denies it.",
+    "lines": [
+     23,
+     30
+    ]
+   }
+  ],
+  "facts": [
+   {
+    "kind": "state",
+    "actor": "Ross",
+    "act_type": "",
+    "target": "",
+    "text": "Ross thinks the beep means the baby is coming.",
+    "value": "feels: excited",
+    "lines": [
+     2,
+     2
+    ]
+   },
+   {
+    "kind": "joke",
+    "actor": "Ross",
+    "act_type": "",
+    "target": "",
+    "text": "Ross keeps getting paged for an escort service and redirects the caller to 55-JUMBO.",
+    "value": "Judging by his number, I'd be a huge disappointment.",
+    "lines": [
+     4,
+     6
+    ]
+   },
+   {
+    "kind": "joke",
+    "actor": "Chandler",
+    "act_type": "",
+    "target": "",
+    "text": "Chandler says it pays to know the man who wears his shoes: himself.",
+    "value": "the man who wears my shoes. Me.",
+    "lines": [
+     9,
+     9
+    ]
+   },
+   {
+    "kind": "reveal",
+    "actor": "Phoebe",
+    "act_type": "",
+    "target": "Chandler",
+    "text": "Phoebe reveals Chandler's staff don't like him.",
+    "value": "",
+    "lines": [
+     12,
+     16
+    ]
+   },
+   {
+    "kind": "state",
+    "actor": "Chandler",
+    "act_type": "",
+    "target": "",
+    "text": "Chandler is shocked he's disliked.",
+    "value": "feels: hurt",
+    "lines": [
+     13,
+     19
+    ]
+   },
+   {
+    "kind": "quote",
+    "actor": "Phoebe",
+    "act_type": "",
+    "target": "",
+    "text": "Phoebe imitates Chandler.",
+    "value": "Could that report be any later?",
+    "lines": [
+     22,
+     22
+    ]
+   },
+   {
+    "kind": "joke",
+    "actor": "Ross",
+    "act_type": "",
+    "target": "",
+    "text": "Ross does a Chandler-style impression.",
+    "value": "The hills were alive with the sound of music.",
+    "lines": [
+     26,
+     26
+    ]
+   },
+   {
+    "kind": "joke",
+    "actor": "Joey",
+    "act_type": "",
+    "target": "",
+    "text": "Joey imitates Chandler.",
+    "value": "My scones.",
+    "lines": [
+     27,
+     28
+    ]
+   },
+   {
+    "kind": "joke",
+    "actor": "Chandler",
+    "act_type": "",
+    "target": "",
+    "text": "Chandler protests in the very cadence being mocked.",
+    "value": "That is so not true.",
+    "lines": [
+     29,
+     30
+    ]
+   }
+  ]
+ },
+ "S2E2c2": {
+  "beats": [
+   {
+    "text": "Rachel resents Ross's new girlfriend Julie, who is relentlessly nice.",
+    "lines": [
+     1,
+     6
+    ]
+   },
+   {
+    "text": "Monica agrees to go shopping at Bloomingdale's with Julie; the friends warn this betrays Rachel.",
+    "lines": [
+     7,
+     19
+    ]
+   },
+   {
+    "text": "Ross thanks Monica, sealing the problem.",
+    "lines": [
+     20,
+     24
+    ]
+   }
+  ],
+  "facts": [
+   {
+    "kind": "joke",
+    "actor": "Rachel",
+    "act_type": "",
+    "target": "Julie",
+    "text": "Rachel says 'what a bitch' after Julie helps her.",
+    "value": "What a bitch.",
+    "lines": [
+     5,
+     6
+    ]
+   },
+   {
+    "kind": "joke",
+    "actor": "Phoebe",
+    "act_type": "",
+    "target": "",
+    "text": "Phoebe excuses herself because she has to take her grandmother to the vet.",
+    "value": "take my grandmother to the vet",
+    "lines": [
+     8,
+     8
+    ]
+   },
+   {
+    "kind": "act",
+    "actor": "Monica",
+    "act_type": "decides",
+    "target": "Julie",
+    "text": "Monica agrees to shop with Julie.",
+    "value": "",
+    "lines": [
+     9,
+     9
+    ]
+   },
+   {
+    "kind": "joke",
+    "actor": "Chandler",
+    "act_type": "",
+    "target": "Monica",
+    "text": "Chandler compares it to cheating on Rachel in her house of worship.",
+    "value": "cheating on Rachel in her house of worship",
+    "lines": [
+     17,
+     17
+    ]
+   },
+   {
+    "kind": "quote",
+    "actor": "Phoebe",
+    "act_type": "",
+    "target": "Monica",
+    "text": "Phoebe warns Rachel will kill her.",
+    "value": "She will kill you like a dog in the street.",
+    "lines": [
+     19,
+     19
+    ]
+   },
+   {
+    "kind": "act",
+    "actor": "Ross",
+    "act_type": "thanks",
+    "target": "Monica",
+    "text": "Ross thanks Monica for being nice to Julie.",
+    "value": "",
+    "lines": [
+     22,
+     22
+    ]
+   },
+   {
+    "kind": "joke",
+    "actor": "Phoebe",
+    "act_type": "",
+    "target": "Monica",
+    "text": "Phoebe barks.",
+    "value": "Woof, woof.",
+    "lines": [
+     24,
+     24
+    ]
+   }
+  ]
+ },
+ "S2E21c5": {
+  "beats": [
+   {
+    "text": "Two bullies claim the Central Perk couch from Ross and Chandler.",
+    "lines": [
+     5,
+     12
+    ]
+   },
+   {
+    "text": "Ross gets Gunther to make them move; the bullies call him a tattletale and threaten to fight.",
+    "lines": [
+     13,
+     26
+    ]
+   },
+   {
+    "text": "Ross and Chandler refuse to fight and are banned from the coffee house.",
+    "lines": [
+     27,
+     31
+    ]
+   }
+  ],
+  "facts": [
+   {
+    "kind": "joke",
+    "actor": "Chandler",
+    "act_type": "",
+    "target": "Ross",
+    "text": "Chandler mocks Ross's jacket as a Century 21 real-estate jacket.",
+    "value": "Century 21",
+    "lines": [
+     3,
+     3
+    ]
+   },
+   {
+    "kind": "act",
+    "actor": "Big",
+    "act_type": "threatens",
+    "target": "Ross",
+    "text": "The bully says the couch belongs to them.",
+    "value": "",
+    "lines": [
+     10,
+     10
+    ]
+   },
+   {
+    "kind": "joke",
+    "actor": "Chandler",
+    "act_type": "",
+    "target": "Big",
+    "text": "Chandler proposes they each call the couch like a dog.",
+    "value": "you call the couch... we'll see who it comes to",
+    "lines": [
+     11,
+     11
+    ]
+   },
+   {
+    "kind": "act",
+    "actor": "Ross",
+    "act_type": "other",
+    "target": "Gunther",
+    "text": "Ross tells Gunther.",
+    "value": "",
+    "lines": [
+     13,
+     13
+    ]
+   },
+   {
+    "kind": "joke",
+    "actor": "Chandler",
+    "act_type": "",
+    "target": "Big",
+    "text": "Chandler mocks Ross 'Don't play with his things.'",
+    "value": "Don't play with his things.",
+    "lines": [
+     22,
+     22
+    ]
+   },
+   {
+    "kind": "act",
+    "actor": "Big",
+    "act_type": "threatens",
+    "target": "Ross",
+    "text": "Big threatens to kick Ross's ass.",
+    "value": "",
+    "lines": [
+     24,
+     26
+    ]
+   },
+   {
+    "kind": "joke",
+    "actor": "Chandler",
+    "act_type": "",
+    "target": "Ross",
+    "text": "Chandler says Ross played the Gunther card too soon.",
+    "value": "played the Gunther card too soon",
+    "lines": [
+     31,
+     31
+    ]
+   }
+  ]
+ },
+ "S2E24c4": {
+  "beats": [
+   {
+    "text": "Monica hints about the future and children; Richard dreams of France but doesn't want more kids.",
+    "lines": [
+     3,
+     18
+    ]
+   },
+   {
+    "text": "Monica backs off, saying it's far in the future.",
+    "lines": [
+     19,
+     21
+    ]
+   }
+  ],
+  "facts": [
+   {
+    "kind": "joke",
+    "actor": "Richard",
+    "act_type": "",
+    "target": "",
+    "text": "Richard says babies learn to talk to tell grown-ups to cut it out.",
+    "value": "so they can tell grown ups to cut it out",
+    "lines": [
+     2,
+     2
+    ]
+   },
+   {
+    "kind": "act",
+    "actor": "Monica",
+    "act_type": "other",
+    "target": "Richard",
+    "text": "Monica asks if she's in his future.",
+    "value": "",
+    "lines": [
+     5,
+     7
+    ]
+   },
+   {
+    "kind": "joke",
+    "actor": "Monica",
+    "act_type": "",
+    "target": "Richard",
+    "text": "Monica promises Richard he's about to get lucky.",
+    "value": "you are about to get sooo lucky",
+    "lines": [
+     9,
+     9
+    ]
+   },
+   {
+    "kind": "state",
+    "actor": "Richard",
+    "act_type": "",
+    "target": "",
+    "text": "Richard imagines moving to France.",
+    "value": "wants: move to France with Monica",
+    "lines": [
+     12,
+     12
+    ]
+   },
+   {
+    "kind": "joke",
+    "actor": "Richard",
+    "act_type": "",
+    "target": "",
+    "text": "Richard mishears bassinet as basset hound.",
+    "value": "Like a hound?",
+    "lines": [
+     13,
+     15
+    ]
+   },
+   {
+    "kind": "joke",
+    "actor": "Monica",
+    "act_type": "",
+    "target": "",
+    "text": "Monica says the baby would keep falling off the dog.",
+    "value": "the baby would keep falling off the dog",
+    "lines": [
+     17,
+     17
+    ]
+   },
+   {
+    "kind": "reveal",
+    "actor": "Richard",
+    "act_type": "",
+    "target": "Monica",
+    "text": "Richard doesn't want to have more children.",
+    "value": "",
+    "lines": [
+     18,
+     18
+    ]
+   },
+   {
+    "kind": "state",
+    "actor": "Monica",
+    "act_type": "",
+    "target": "",
+    "text": "Monica is disappointed but hides it.",
+    "value": "feels: disappointed",
+    "lines": [
+     19,
+     21
+    ]
+   },
+   {
+    "kind": "joke",
+    "actor": "Monica",
+    "act_type": "",
+    "target": "",
+    "text": "Monica says the future is so far off: hovercrafts and apes taking over the planet.",
+    "value": "hovercrafts and apes taking over the planet",
+    "lines": [
+     21,
+     21
+    ]
+   }
+  ]
+ },
+ "S3E4c6": {
+  "beats": [
+   {
+    "text": "Chandler's girlfriend wants to slow down; Rachel and Monica coach him on acting aloof.",
+    "lines": [
+     2,
+     21
+    ]
+   },
+   {
+    "text": "Rachel mishears Chandler's question.",
+    "lines": [
+     22,
+     25
+    ]
+   }
+  ],
+  "facts": [
+   {
+    "kind": "state",
+    "actor": "Chandler",
+    "act_type": "",
+    "target": "",
+    "text": "Chandler feels needy and clingy.",
+    "value": "feels: needy",
+    "lines": [
+     5,
+     5
+    ]
+   },
+   {
+    "kind": "quote",
+    "actor": "Monica",
+    "act_type": "",
+    "target": "Chandler",
+    "text": "Monica welcomes Chandler to the women's side.",
+    "value": "Welcome to our side of the tunnel.",
+    "lines": [
+     10,
+     10
+    ]
+   },
+   {
+    "kind": "joke",
+    "actor": "Rachel",
+    "act_type": "",
+    "target": "",
+    "text": "Rachel says they save real ice cream for terminal cases.",
+    "value": "we save the real stuff for those really terminal cases",
+    "lines": [
+     12,
+     12
+    ]
+   },
+   {
+    "kind": "act",
+    "actor": "Monica",
+    "act_type": "advises",
+    "target": "Chandler",
+    "text": "Monica says he needs damage control.",
+    "value": "",
+    "lines": [
+     16,
+     16
+    ]
+   },
+   {
+    "kind": "act",
+    "actor": "Rachel",
+    "act_type": "advises",
+    "target": "Chandler",
+    "text": "Rachel tells him to act aloof and run into her accidentally on purpose.",
+    "value": "accidentally run into her on purpose",
+    "lines": [
+     19,
+     21
+    ]
+   },
+   {
+    "kind": "joke",
+    "actor": "Rachel",
+    "act_type": "",
+    "target": "Chandler",
+    "text": "Rachel mishears and says he's not a total loser.",
+    "value": "you're not a total loser",
+    "lines": [
+     22,
+     24
+    ]
+   }
+  ]
+ },
+ "S3E11c11": {
+  "beats": [
+   {
+    "text": "Rachel calls Mark and gets a job interview; Ross is jealous.",
+    "lines": [
+     1,
+     21
+    ]
+   },
+   {
+    "text": "Ross blames Monica for encouraging the call; Monica tells him to grow up.",
+    "lines": [
+     22,
+     32
+    ]
+   }
+  ],
+  "facts": [
+   {
+    "kind": "state",
+    "actor": "Ross",
+    "act_type": "",
+    "target": "",
+    "text": "Ross is secretly happy Mark didn't call.",
+    "value": "feels: glad",
+    "lines": [
+     2,
+     3
+    ]
+   },
+   {
+    "kind": "act",
+    "actor": "Rachel",
+    "act_type": "other",
+    "target": "Mark",
+    "text": "Rachel calls Mark and gets the interview.",
+    "value": "",
+    "lines": [
+     11,
+     13
+    ]
+   },
+   {
+    "kind": "state",
+    "actor": "Ross",
+    "act_type": "",
+    "target": "",
+    "text": "Ross is jealous of Mark.",
+    "value": "feels: jealous",
+    "lines": [
+     18,
+     26
+    ]
+   },
+   {
+    "kind": "joke",
+    "actor": "Ross",
+    "act_type": "",
+    "target": "Rachel",
+    "text": "Ross suggests a high collar and baggy pants.",
+    "value": "High collar and baggy pants say I'm a pro.",
+    "lines": [
+     20,
+     20
+    ]
+   },
+   {
+    "kind": "joke",
+    "actor": "Ross",
+    "act_type": "",
+    "target": "Monica",
+    "text": "Ross mocks Monica's advice and says prep means surgically removing the boyfriend.",
+    "value": "what you do when you surgically remove the boyfriend",
+    "lines": [
+     24,
+     24
+    ]
+   },
+   {
+    "kind": "quote",
+    "actor": "Monica",
+    "act_type": "",
+    "target": "Ross",
+    "text": "Monica tells Ross to grow up.",
+    "value": "Then get over yourself! Grow up!",
+    "lines": [
+     31,
+     31
+    ]
+   }
+  ]
+ },
+ "S3E12c1": {
+  "beats": [
+   {
+    "text": "Rachel prepares for her first day; Chandler mocks her outfit and Ross's tie.",
+    "lines": [
+     1,
+     12
+    ]
+   },
+   {
+    "text": "Ross learns Mark is taking Rachel to lunch.",
+    "lines": [
+     16,
+     19
+    ]
+   },
+   {
+    "text": "Chandler invites Ross to his cousin Albert's bachelor party.",
+    "lines": [
+     22,
+     26
+    ]
+   }
+  ],
+  "facts": [
+   {
+    "kind": "joke",
+    "actor": "Chandler",
+    "act_type": "",
+    "target": "Rachel",
+    "text": "Chandler mocks Rachel's 'towel dress'.",
+    "value": "as long as your wearing that towel dress",
+    "lines": [
+     2,
+     2
+    ]
+   },
+   {
+    "kind": "joke",
+    "actor": "Ross",
+    "act_type": "",
+    "target": "",
+    "text": "Ross calls botanists geeks while wearing a dinosaur tie.",
+    "value": "botanists are such geeks",
+    "lines": [
+     8,
+     9
+    ]
+   },
+   {
+    "kind": "joke",
+    "actor": "Chandler",
+    "act_type": "",
+    "target": "Phoebe",
+    "text": "Chandler jokes about the huge purses.",
+    "value": "It must take you forever to find your keys.",
+    "lines": [
+     12,
+     12
+    ]
+   },
+   {
+    "kind": "state",
+    "actor": "Ross",
+    "act_type": "",
+    "target": "",
+    "text": "Ross is jealous that Mark is taking Rachel to lunch.",
+    "value": "feels: jealous",
+    "lines": [
+     17,
+     18
+    ]
+   },
+   {
+    "kind": "joke",
+    "actor": "Chandler",
+    "act_type": "",
+    "target": "",
+    "text": "Chandler says Albert is getting married only to see a stripper.",
+    "value": "only reason he's getting married is so he can see a stripper",
+    "lines": [
+     24,
+     24
+    ]
+   },
+   {
+    "kind": "joke",
+    "actor": "Chandler",
+    "act_type": "",
+    "target": "Phoebe",
+    "text": "Chandler accepts a magician if he can open beer with his butt cheeks.",
+    "value": "open my beer with his butt cheeks",
+    "lines": [
+     26,
+     26
+    ]
+   }
+  ]
+ }
+}

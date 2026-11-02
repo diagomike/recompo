@@ -1,0 +1,505 @@
+[
+ {
+  "id": "2_36",
+  "context": [
+   "PHOEBE: Okay, well Ross, what is this really about?",
+   "ROSS: Look, this is my home and I want to be able to come and go whenever I want!",
+   "PHOEBE: Okay, I will find someplace else to do the rest of my appointments. I just don't know what the big deal is!"
+  ],
+  "utterance": "ROSS: The big deal is I don't want naked, greasy strangers in my apartment when I want to kick back with a puzzle,beer! Cold beer."
+ },
+ {
+  "id": "2_225",
+  "context": [
+   "ROSS: Really, I, no, I think girls night out is a great idea. Okay, okay, bye",
+   "PHOEBE: So what are they doing?"
+  ],
+  "utterance": "ROSS: I don't know, something girlie."
+ },
+ {
+  "id": "2_423",
+  "context": [
+   "MONICA: Richard!",
+   "PERSON: Actually, I'm not here to complement the chef.",
+   "MONICA: Ohh ..  Oh, that's okay I hate when people come back to complement the chef."
+  ],
+  "utterance": "MONICA: Like I have nothing better to do!"
+ },
+ {
+  "id": "2_626",
+  "context": [
+   "CHANDLER: All right, y'know what, we've been talking about London too much haven't we?",
+   "PHOEBE: I'm sorry. It's just 'cause I couldn't be there."
+  ],
+  "utterance": "PHOEBE: Cause all I ever get to do now is pregnant stuff, it just bums me out."
+ },
+ {
+  "id": "2_146",
+  "context": [
+   "MONICA: Oh, about five minutes. Right now they're interviewing his opponent. Apparently he trains by going to Iran and pulling the arms off thieves.",
+   "ROSS: Hot dog?",
+   "MONICA: Four, please. I'm really nervous. Thank you."
+  ],
+  "utterance": "PHOEBE: So Ross, how umm, how did it go with Bonnie?"
+ },
+ {
+  "id": "2_163",
+  "context": [
+   "JOEY: Oh umm, my big scene is coming up. Big scene coming up.",
+   "CHANDLER: If you said, \"Big lima bean, bubbling up.\" Would she understand the difference?",
+   "MONICA: Rach? What are you doing?"
+  ],
+  "utterance": "RACHEL: Oh boy, I just can't watch. It's too scary!"
+ },
+ {
+  "id": "2_53",
+  "context": [
+   "PERSON: Oh good, you're here. Yeah, and I was worried that it was going to be uncomfortable.",
+   "RACHEL: I know Mona, just hear me out. First of all, I'm so sorry about my father yelling at you, but I heard you totally held your own."
+  ],
+  "utterance": "RACHEL: You're gonna have to tell me how you did that."
+ },
+ {
+  "id": "2_177",
+  "context": [
+   "PHOEBE: Um-hmm. Oh wait! This is Bonnie.",
+   "PERSON: Hi!",
+   "RACHEL: This is Bonnie?  This is Bonnie?  You're Bonnie?"
+  ],
+  "utterance": "PERSON: I can show you an ID if you want?"
+ },
+ {
+  "id": "2_400",
+  "context": [
+   "MONICA: I know, it is isn't it?",
+   "CHANDLER: No, I mean it, this feels really good. Is it a hundred percent cotton?",
+   "MONICA: Yeah! And I got it on sale, too."
+  ],
+  "utterance": "CHANDLER: Anyway, I should go, one of the lifeguards was just about to dismantle a nuclear device."
+ },
+ {
+  "id": "2_559",
+  "context": [
+   "MONICA: Well, you-you coulda just turned the cushion over.",
+   "PHOEBE: Yeah, I would've except I had a big spaghetti stain on the other side."
+  ],
+  "utterance": "MONICA: What?!?!"
+ },
+ {
+  "id": "2_150",
+  "context": [
+   "ROSS: Just your run-of-the-mill third nipple. You can take it off. Just slice that baby right off!"
+  ],
+  "utterance": "PERSON: Take your shirt off, and let's see what we're dealing with here.  What are you doing?"
+ },
+ {
+  "id": "2_504",
+  "context": [
+   "PHOEBE: So you like the drums! That's, that's great! Y'know, I was worried, that, you know, they would maybe an unbearable living situation."
+  ],
+  "utterance": "PHOEBE: All right, okay, well, apparently not!"
+ },
+ {
+  "id": "2_27",
+  "context": [
+   "MONICA: Yeah, Ross is great. He's uh, he's in a whole other place. No, he's gone."
+  ],
+  "utterance": "MONICA: No no, you don't have to fly back, really."
+ },
+ {
+  "id": "2_13",
+  "context": [
+   "MONICA: Rachel, I have not missed one question the whole game. I own this game! Look at my hand.",
+   "RACHEL: Why? Do you have the answers written on there?",
+   "MONICA: No! Steady as a rock! Now, are you with me."
+  ],
+  "utterance": "RACHEL: All right, let's do it."
+ },
+ {
+  "id": "2_172",
+  "context": [
+   "JOEY: You liked it? You really liked it?",
+   "CHANDLER: Oh-ho-ho, yeah!",
+   "JOEY: Which part exactly?"
+  ],
+  "utterance": "CHANDLER: The whole thing! Can we go?"
+ },
+ {
+  "id": "2_445",
+  "context": [
+   "PHOEBE: Okay, here's what we're gonna do. Okay, I'm gonna break into this mini-van and put it in neutral. You guys push it forward so Ross can drive out of his spot."
+  ],
+  "utterance": "PHOEBE: Okay?"
+ },
+ {
+  "id": "2_437",
+  "context": [
+   "JOEY: Oh, y'know the same thing happened to me one time.",
+   "CHANDLER: When did that happen to you?!",
+   "JOEY: Don't you remember when we were jogging in the park and we saw that really pretty bird and wanted to take a picture,I didn't have my camera!"
+  ],
+  "utterance": "CHANDLER: Oh yeah. First off all, chasing the Churo guy isn't jogging."
+ },
+ {
+  "id": "2_161",
+  "context": [
+   "MONICA: Can you give me a closer look so that I can see the price?"
+  ],
+  "utterance": "CHANDLER: I can see it from right here. It'll cost you one husband."
+ },
+ {
+  "id": "2_29",
+  "context": [
+   "CHANDLER: Oh, that's Ross's.",
+   "RACHEL: Oh...  Oh my God. He remembered.",
+   "PHOEBE: Remembered what?"
+  ],
+  "utterance": "RACHEL: It was like months ago."
+ },
+ {
+  "id": "2_174",
+  "context": [
+   "PHOEBE: And there's five hundred extra dollars in my account."
+  ],
+  "utterance": "CHANDLER: Oh! Satan's minions at work again?"
+ },
+ {
+  "id": "2_54",
+  "context": [
+   "RACHEL: Yes! And he said really mean things that were only partly true.",
+   "JOEY: I'm gonna go down there and teach that guy a lesson.",
+   "MONICA: Joey, please don't do that. I think it's best that we just forget about it."
+  ],
+  "utterance": "RACHEL: That's easy for you to say, you weren't almost just killed."
+ },
+ {
+  "id": "2_44",
+  "context": [
+   "JOEY: Very life-like and funny. Okay. Oh no-no-no, I wasn't waving at you lady."
+  ],
+  "utterance": "JOEY: Whoa, maybe I was!"
+ },
+ {
+  "id": "2_151",
+  "context": [
+   "ROSS: Yeah, I know, it's my birthday. We all should be here.",
+   "CHANDLER: So, let's go.",
+   "ROSS: Well maybe, you know, maybe we should stay for one song."
+  ],
+  "utterance": "CHANDLER: Yeah, I mean, it would be rude to them for us to leave now."
+ },
+ {
+  "id": "2_549",
+  "context": [
+   "MONICA: Honey the Miami vice sound track?"
+  ],
+  "utterance": "MONICA: Really?"
+ },
+ {
+  "id": "2_2",
+  "context": [
+   "PHOEBE: That's a good one. Mine is to pilot a commercial jet."
+  ],
+  "utterance": "CHANDLER: ThatÕs a good one too Pheebs, now all that I have to do is find a plane load of people whose resolution is to plummet to their deaths"
+ },
+ {
+  "id": "2_28",
+  "context": [
+   "RACHEL: I mean, I couldn't not know, I mean, if, if the doctor knows, and Carol knows, and Susan knows.... And Monica knows…",
+   "ROSS: Wha, heh, how could you know, I don't even know!"
+  ],
+  "utterance": "MONICA: Carol called me to thank me for the lasagna, I asked, she told me."
+ },
+ {
+  "id": "2_595",
+  "context": [
+   "ROSS: So Rachel called, wants to see me. Going over in a minute.",
+   "JOEY: Wow, what do you think she wants?",
+   "ROSS: Well, maybe the crazy fog has lifted and she realizes that life without me a sucks.",
+   "CHANDLER: Its possible, you are very lovable."
+  ],
+  "utterance": "CHANDLER: I'd miss you if I broke up with you. Just trying to be supportive."
+ },
+ {
+  "id": "2_594",
+  "context": [
+   "JOEY: No! He blew us off!",
+   "ROSS: What?!",
+   "JOEY: I know!"
+  ],
+  "utterance": "ROSS: I can't believe it.  Can I tell you something? I'm a little mad at him now."
+ },
+ {
+  "id": "2_152",
+  "context": [
+   "JOEY: Are you referring to my man's bag? At first it I thought it just look good. But its practical too, check it out! Its got compartments for all your stuff. Your wallet, your key, your addressbook."
+  ],
+  "utterance": "ROSS: Your makeup?"
+ },
+ {
+  "id": "2_556",
+  "context": [
+   "PERSON: When their pets pass on, they want them sort of laid out like they are sleeping. But, occassionally theres a person who wants them in a pose like chasing their tail or uh, jumping to catch a frizbee."
+  ],
+  "utterance": "CHANDLER: Joey if I go first, I want to be looking for my keys"
+ },
+ {
+  "id": "2_56",
+  "context": [
+   "PERSON: I knew it, wow!!",
+   "PHOEBE: Wait-wait-wait, wait! Puppies. Cute or ugly?",
+   "PERSON: Ohh, so cute."
+  ],
+  "utterance": "PHOEBE: Uh-huh, well! But umm, still I'm-I'm mad at you."
+ },
+ {
+  "id": "2_425",
+  "context": [
+   "PHOEBE: We couldn't keep our eyes off each other all night and then every once and a while y'know, he'd kinda lean over and stroke my hair and touch my neck.",
+   "MONICA: Okay, stop it Phoebe, you're getting me all tingly.",
+   "PHOEBE: All I could think of was y'know, \"Is he gonna kiss me? Is he gonna kiss me?\""
+  ],
+  "utterance": "MONICA: And did he?"
+ },
+ {
+  "id": "2_147",
+  "context": [
+   "MONICA: Well then we still have a problem.",
+   "CHANDLER: Yeah!",
+   "PHOEBE: With what?"
+  ],
+  "utterance": "MONICA: Well, we're trying to find someone to perform our wedding and they're all either boring or annoying or y'know, can't stop staring at the ladies."
+ },
+ {
+  "id": "2_279",
+  "context": [
+   "MONICA: How was your date with Ginger.",
+   "CHANDLER: Great. It was great. She is , uh, she is great, great looking, great personality, she is greatness"
+  ],
+  "utterance": "MONICA: Sounds like she has got the whole package!"
+ },
+ {
+  "id": "2_141",
+  "context": [
+   "ROSS: He also found an M and an O."
+  ],
+  "utterance": "CHANDLER: We think it was trying to spell out monkey."
+ },
+ {
+  "id": "2_542",
+  "context": [
+   "JOEY: Well, I'm just,if the paste matches the pants, you can make yourself a pair of paste pants and she won't know the difference!",
+   "RACHEL: Joey, do you have a minute?",
+   "ROSS: Dude, what am I gonna"
+  ],
+  "utterance": "JOEY: Uh, Rachel's here, so good luck man, let me know how it works out."
+ },
+ {
+  "id": "2_205",
+  "context": [
+   "RACHEL: Okay, well then how about a handshake? Oh God I'm sorry! Oh God, I'm sorry!"
+  ],
+  "utterance": "RACHEL: I did not mean to touch that,I mean"
+ },
+ {
+  "id": "2_326",
+  "context": [
+   "RACHEL: Ahh!",
+   "PERSON: It wasn't on your list, but hopefully you'll think it's really fun.",
+   "RACHEL: A scooter!"
+  ],
+  "utterance": "ROSS: Stick to the list."
+ },
+ {
+  "id": "2_217",
+  "context": [
+   "ROSS: OK, I have a question. Well, actually, it's not so much a question as.. more of a general wondering... ment.",
+   "RACHEL: OK.",
+   "ROSS: OK. Here goes. For a while now, I've been wanting to, um...."
+  ],
+  "utterance": "RACHEL: Ohhh!!!!"
+ },
+ {
+  "id": "2_531",
+  "context": [
+   "RACHEL: Yeah, I mean I was up sick all night.",
+   "JOEY: Yeah me too, all night. Really?!",
+   "RACHEL: How come we didn't cross paths?"
+  ],
+  "utterance": "JOEY: Yeah well that's because uh .. I stayed in my room. Yeah, you don't want to look in my hamper."
+ },
+ {
+  "id": "2_196",
+  "context": [
+   "RACHEL: Oh, I mean she's gonna be at the wedding waiting for him and people will be whispering, \"Oh that poor girl.\" Then she'll have to come back here and live all alone.",
+   "PHOEBE: Oh my God!"
+  ],
+  "utterance": "PHOEBE: What?"
+ },
+ {
+  "id": "2_552",
+  "context": [
+   "RACHEL: I don't like sitting up here! I'm just gonna over",
+   "PHOEBE: No Rachel! They got here first! Why is Ross doing that?"
+  ],
+  "utterance": "ROSS: DANGER"
+ },
+ {
+  "id": "2_345",
+  "context": [
+   "JOEY: It isnt working",
+   "MONICA: We have to unscrew the chain",
+   "JOEY: Hurry, I can't feel my ears",
+   "CHANDLER: Can you ever feel your ears?",
+   "JOEY: Interesting"
+  ],
+  "utterance": "CHANDLER: Oh I left them in my bulldozer .. I don't have tools!"
+ },
+ {
+  "id": "2_546",
+  "context": [
+   "MONICA: Hey",
+   "CHANDLER: Hey, where's the birthday girl?",
+   "RACHEL: Oh she is still napping."
+  ],
+  "utterance": "CHANDLER: Oh sure, she was probably up all night excited about the party she knows is happening."
+ },
+ {
+  "id": "2_88",
+  "context": [
+   "RACHEL: Hi! What are you doing here?",
+   "ROSS: Ah y'know, this building is on my paper route so I..."
+  ],
+  "utterance": "RACHEL: Oh."
+ },
+ {
+  "id": "2_245",
+  "context": [
+   "MONICA: Ooh, nice.",
+   "PERSON: So ah, there was this thing I wanted to talk to you about.",
+   "MONICA: Oh, right! I completely forgot about that."
+  ],
+  "utterance": "PERSON: Well ah, I've been doing a lot of thinking, and I look at my life"
+ },
+ {
+  "id": "2_183",
+  "context": [
+   "CHANDLER: What what?",
+   "JOEY: Hey, shaving?"
+  ],
+  "utterance": "CHANDLER: No, rabies."
+ },
+ {
+  "id": "2_558",
+  "context": [
+   "MONICA: Oh wait! Stop! Stop! Stop!",
+   "CHANDLER: Oh I'm sorry! Do you need a break?",
+   "MONICA: My boots in tan! Hey! Can you get a little closer so I can see the price?"
+  ],
+  "utterance": "CHANDLER: I can see it from right here. It'll cost you one husband."
+ },
+ {
+  "id": "2_609",
+  "context": [
+   "RACHEL: I know. I know. I panicked, I panicked. I didn't want him to start yelling at me like I was some '74 Latour.",
+   "PHOEBE: It's Lafite. The '74 Latour is actually drinking quite nicely.",
+   "RACHEL: All right here he comes. I'm gonna do this, I'm gonna tell him, I'm gonna be strong."
+  ],
+  "utterance": "PERSON: I just called a friend of mine."
+ },
+ {
+  "id": "2_250",
+  "context": [
+   "MONICA: David who?",
+   "PHOEBE: David the scientist guy, David that I was in love with, David who went to Russia and broke my heart David!",
+   "CHANDLER: Oh my God!"
+  ],
+  "utterance": "PHOEBE: Oh, you say someone's name enough, they turn around."
+ },
+ {
+  "id": "2_407",
+  "context": [
+   "RACHEL: Well, Joshua's coming in tomorrow and since I don't have the guts to ask him out, I'm going to sell him a coat and put this note in the pocket.",
+   "CHANDLER: Oh yeah? Joshua, give me a call sometime, guys like you never go out of style."
+  ],
+  "utterance": "JOEY: Hey!"
+ },
+ {
+  "id": "2_178",
+  "context": [
+   "CHANDLER: Mmm",
+   "ROSS: Mmm"
+  ],
+  "utterance": "CHANDLER: This is so good, that I am gonna enjoy it in the balcony. I can enjoy my view, whilst I enjoy my desert."
+ },
+ {
+  "id": "2_536",
+  "context": [
+   "ROSS: I mean, you two are-are my… I mean, I'm lucky to have just one good",
+   "CHANDLER: Thanks man.",
+   "JOEY: I gotta go check something over here."
+  ],
+  "utterance": "CHANDLER: What a baby."
+ },
+ {
+  "id": "2_154",
+  "context": [
+   "PHOEBE: Nobody respects the bucket! You wouldn't believe what people put in here! Look!"
+  ],
+  "utterance": "PHOEBE: Okay, does this look like a garbage can to you?"
+ },
+ {
+  "id": "2_548",
+  "context": [
+   "RACHEL: All right, I'm outta here!",
+   "MONICA: I'm kidding! I'm kidding!",
+   "RACHEL: So were done then!"
+  ],
+  "utterance": "PERSON: Almost! But first, we gotta start."
+ },
+ {
+  "id": "2_585",
+  "context": [
+   "ROSS: So theoretically we could download our thoughts and our memories into this computer... ...",
+   "PERSON: and live forever as a machine!",
+   "ROSS: That's so Janine, you-you-you know what, do you know we're doing right now?"
+  ],
+  "utterance": "ROSS: You and I, we're interfacing."
+ },
+ {
+  "id": "2_263",
+  "context": [
+   "PHOEBE: You guys make a",
+   "JOEY: Yeah, we look great together.",
+   "CHANDLER: Okay."
+  ],
+  "utterance": "MONICA: Wow! Imagine what our kids would look like!"
+ },
+ {
+  "id": "2_495",
+  "context": [
+   "PHOEBE: No, yeah! The groom cannot see the bride!",
+   "RACHEL: I'm not gonna marry Chandler!",
+   "PHOEBE: Not after this!"
+  ],
+  "utterance": "RACHEL: Okay, you guys, just relax.  I doooo."
+ },
+ {
+  "id": "2_87",
+  "context": [
+   "JOEY: Uhh, the ball thing.",
+   "ROSS: Yeah?",
+   "JOEY: Hey Ross, wouldn't it be great if we could go two straight hours without dropping it?!"
+  ],
+  "utterance": "ROSS: Yeah it would!"
+ },
+ {
+  "id": "2_525",
+  "context": [
+   "RACHEL: Y'know what, actually ..   Okay, okay, okay, what's so funny over here?",
+   "PERSON: I thought you didn't smoke.",
+   "RACHEL: Oh, I thought you guys meant marijuana cigarettes, y'know?"
+  ],
+  "utterance": "RACHEL: Y'know what I mean, like dubbies?"
+ }
+]

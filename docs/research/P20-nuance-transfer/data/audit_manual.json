@@ -1,0 +1,583 @@
+{
+ "S1E16c15-L3": {
+  "A_mech": true,
+  "A_dep": null,
+  "B_mech": true,
+  "B_dep": null,
+  "B_flat_genuine": false
+ },
+ "S1E16c15-L11": {
+  "A_mech": false,
+  "A_dep": null,
+  "B_mech": false,
+  "B_dep": null,
+  "B_flat_genuine": false
+ },
+ "S1E16c15-L11b": {
+  "A_mech": false,
+  "A_dep": null,
+  "B_mech": false,
+  "B_dep": null,
+  "B_flat_genuine": false
+ },
+ "S1E16c15-L15": {
+  "A_mech": true,
+  "A_dep": true,
+  "B_mech": false,
+  "B_dep": false,
+  "B_flat_genuine": false
+ },
+ "S1E16c15-L13": {
+  "A_mech": false,
+  "A_dep": null,
+  "B_mech": false,
+  "B_dep": null,
+  "B_flat_genuine": false
+ },
+ "S1E16c15-L21": {
+  "A_mech": false,
+  "A_dep": null,
+  "B_mech": false,
+  "B_dep": null,
+  "B_flat_genuine": false
+ },
+ "S1E16c15-L25": {
+  "A_mech": false,
+  "A_dep": null,
+  "B_mech": false,
+  "B_dep": null,
+  "B_flat_genuine": false
+ },
+ "S1E22c5-L4": {
+  "A_mech": true,
+  "A_dep": null,
+  "B_mech": true,
+  "B_dep": null,
+  "B_flat_genuine": false
+ },
+ "S1E22c5-L5": {
+  "A_mech": false,
+  "A_dep": false,
+  "B_mech": true,
+  "B_dep": false,
+  "B_flat_genuine": false
+ },
+ "S1E22c5-L6": {
+  "A_mech": false,
+  "A_dep": null,
+  "B_mech": false,
+  "B_dep": null,
+  "B_flat_genuine": false
+ },
+ "S1E22c5-L6b": {
+  "A_mech": false,
+  "A_dep": null,
+  "B_mech": false,
+  "B_dep": null,
+  "B_flat_genuine": false
+ },
+ "S1E22c5-L9": {
+  "A_mech": true,
+  "A_dep": null,
+  "B_mech": false,
+  "B_dep": null,
+  "B_flat_genuine": true
+ },
+ "S1E22c5-L16": {
+  "A_mech": false,
+  "A_dep": null,
+  "B_mech": false,
+  "B_dep": null,
+  "B_flat_genuine": false
+ },
+ "S1E22c5-L18": {
+  "A_mech": false,
+  "A_dep": null,
+  "B_mech": false,
+  "B_dep": null,
+  "B_flat_genuine": false
+ },
+ "S1E22c5-L20": {
+  "A_mech": false,
+  "A_dep": null,
+  "B_mech": true,
+  "B_dep": null,
+  "B_flat_genuine": true
+ },
+ "S1E22c5-L22": {
+  "A_mech": true,
+  "A_dep": null,
+  "B_mech": true,
+  "B_dep": null,
+  "B_flat_genuine": false
+ },
+ "S1E22c5-L26": {
+  "A_mech": true,
+  "A_dep": false,
+  "B_mech": true,
+  "B_dep": false,
+  "B_flat_genuine": false
+ },
+ "S1E22c5-L29": {
+  "A_mech": true,
+  "A_dep": true,
+  "B_mech": false,
+  "B_dep": false,
+  "B_flat_genuine": false
+ },
+ "S1E22c5-L30": {
+  "A_mech": true,
+  "A_dep": true,
+  "B_mech": false,
+  "B_dep": false,
+  "B_flat_genuine": false
+ },
+ "S2E2c2-L2": {
+  "A_mech": false,
+  "A_dep": null,
+  "B_mech": false,
+  "B_dep": null,
+  "B_flat_genuine": true
+ },
+ "S2E2c2-L6": {
+  "A_mech": true,
+  "A_dep": null,
+  "B_mech": false,
+  "B_dep": null,
+  "B_flat_genuine": false
+ },
+ "S2E2c2-L7": {
+  "A_mech": false,
+  "A_dep": null,
+  "B_mech": false,
+  "B_dep": null,
+  "B_flat_genuine": true
+ },
+ "S2E2c2-L8": {
+  "A_mech": false,
+  "A_dep": null,
+  "B_mech": false,
+  "B_dep": null,
+  "B_flat_genuine": false
+ },
+ "S2E2c2-L12": {
+  "A_mech": false,
+  "A_dep": false,
+  "B_mech": false,
+  "B_dep": false,
+  "B_flat_genuine": false
+ },
+ "S2E2c2-L17": {
+  "A_mech": false,
+  "A_dep": null,
+  "B_mech": false,
+  "B_dep": null,
+  "B_flat_genuine": false
+ },
+ "S2E2c2-L19": {
+  "A_mech": false,
+  "A_dep": null,
+  "B_mech": false,
+  "B_dep": null,
+  "B_flat_genuine": true
+ },
+ "S2E2c2-L24": {
+  "A_mech": false,
+  "A_dep": false,
+  "B_mech": false,
+  "B_dep": false,
+  "B_flat_genuine": false
+ },
+ "S2E2c2-L22": {
+  "A_mech": false,
+  "A_dep": false,
+  "B_mech": false,
+  "B_dep": false,
+  "B_flat_genuine": false
+ },
+ "S2E21c5-L3": {
+  "A_mech": true,
+  "A_dep": null,
+  "B_mech": true,
+  "B_dep": null,
+  "B_flat_genuine": true
+ },
+ "S2E21c5-L5": {
+  "A_mech": false,
+  "A_dep": null,
+  "B_mech": false,
+  "B_dep": null,
+  "B_flat_genuine": false
+ },
+ "S2E21c5-L11": {
+  "A_mech": true,
+  "A_dep": null,
+  "B_mech": false,
+  "B_dep": null,
+  "B_flat_genuine": false
+ },
+ "S2E21c5-L19": {
+  "A_mech": false,
+  "A_dep": false,
+  "B_mech": false,
+  "B_dep": false,
+  "B_flat_genuine": false
+ },
+ "S2E21c5-L22": {
+  "A_mech": false,
+  "A_dep": null,
+  "B_mech": false,
+  "B_dep": null,
+  "B_flat_genuine": false
+ },
+ "S2E21c5-L24": {
+  "A_mech": false,
+  "A_dep": null,
+  "B_mech": false,
+  "B_dep": null,
+  "B_flat_genuine": false
+ },
+ "S2E21c5-L25": {
+  "A_mech": false,
+  "A_dep": false,
+  "B_mech": false,
+  "B_dep": false,
+  "B_flat_genuine": true
+ },
+ "S2E21c5-L26": {
+  "A_mech": false,
+  "A_dep": false,
+  "B_mech": false,
+  "B_dep": false,
+  "B_flat_genuine": true
+ },
+ "S2E21c5-L27": {
+  "A_mech": false,
+  "A_dep": null,
+  "B_mech": false,
+  "B_dep": null,
+  "B_flat_genuine": false
+ },
+ "S2E21c5-L30": {
+  "A_mech": false,
+  "A_dep": null,
+  "B_mech": false,
+  "B_dep": null,
+  "B_flat_genuine": true
+ },
+ "S2E21c5-L31": {
+  "A_mech": false,
+  "A_dep": null,
+  "B_mech": false,
+  "B_dep": null,
+  "B_flat_genuine": true
+ },
+ "S2E24c4-L2": {
+  "A_mech": false,
+  "A_dep": null,
+  "B_mech": false,
+  "B_dep": null,
+  "B_flat_genuine": false
+ },
+ "S2E24c4-L3": {
+  "A_mech": false,
+  "A_dep": null,
+  "B_mech": false,
+  "B_dep": null,
+  "B_flat_genuine": false
+ },
+ "S2E24c4-L9": {
+  "A_mech": false,
+  "A_dep": null,
+  "B_mech": true,
+  "B_dep": null,
+  "B_flat_genuine": false
+ },
+ "S2E24c4-L12": {
+  "A_mech": false,
+  "A_dep": null,
+  "B_mech": false,
+  "B_dep": null,
+  "B_flat_genuine": false
+ },
+ "S2E24c4-L13": {
+  "A_mech": true,
+  "A_dep": false,
+  "B_mech": false,
+  "B_dep": false,
+  "B_flat_genuine": false
+ },
+ "S2E24c4-L14": {
+  "A_mech": true,
+  "A_dep": true,
+  "B_mech": false,
+  "B_dep": false,
+  "B_flat_genuine": false
+ },
+ "S2E24c4-L15": {
+  "A_mech": true,
+  "A_dep": true,
+  "B_mech": false,
+  "B_dep": false,
+  "B_flat_genuine": false
+ },
+ "S2E24c4-L17": {
+  "A_mech": false,
+  "A_dep": false,
+  "B_mech": false,
+  "B_dep": false,
+  "B_flat_genuine": false
+ },
+ "S2E24c4-L21": {
+  "A_mech": true,
+  "A_dep": null,
+  "B_mech": false,
+  "B_dep": null,
+  "B_flat_genuine": true
+ },
+ "S3E4c6-L2": {
+  "A_mech": false,
+  "A_dep": null,
+  "B_mech": false,
+  "B_dep": null,
+  "B_flat_genuine": false
+ },
+ "S3E4c6-L5": {
+  "A_mech": false,
+  "A_dep": null,
+  "B_mech": false,
+  "B_dep": null,
+  "B_flat_genuine": false
+ },
+ "S3E4c6-L10": {
+  "A_mech": true,
+  "A_dep": null,
+  "B_mech": false,
+  "B_dep": null,
+  "B_flat_genuine": true
+ },
+ "S3E4c6-L11": {
+  "A_mech": false,
+  "A_dep": null,
+  "B_mech": false,
+  "B_dep": null,
+  "B_flat_genuine": true
+ },
+ "S3E4c6-L12": {
+  "A_mech": false,
+  "A_dep": null,
+  "B_mech": false,
+  "B_dep": null,
+  "B_flat_genuine": false
+ },
+ "S3E4c6-L13": {
+  "A_mech": false,
+  "A_dep": null,
+  "B_mech": false,
+  "B_dep": null,
+  "B_flat_genuine": false
+ },
+ "S3E4c6-L15": {
+  "A_mech": false,
+  "A_dep": false,
+  "B_mech": false,
+  "B_dep": false,
+  "B_flat_genuine": false
+ },
+ "S3E4c6-L16": {
+  "A_mech": false,
+  "A_dep": false,
+  "B_mech": false,
+  "B_dep": false,
+  "B_flat_genuine": false
+ },
+ "S3E4c6-L19": {
+  "A_mech": false,
+  "A_dep": null,
+  "B_mech": false,
+  "B_dep": null,
+  "B_flat_genuine": false
+ },
+ "S3E4c6-L21": {
+  "A_mech": false,
+  "A_dep": null,
+  "B_mech": false,
+  "B_dep": null,
+  "B_flat_genuine": false
+ },
+ "S3E4c6-L23": {
+  "A_mech": true,
+  "A_dep": true,
+  "B_mech": true,
+  "B_dep": true,
+  "B_flat_genuine": false
+ },
+ "S3E4c6-L24": {
+  "A_mech": true,
+  "A_dep": true,
+  "B_mech": false,
+  "B_dep": false,
+  "B_flat_genuine": true
+ },
+ "S3E11c11-L2": {
+  "A_mech": false,
+  "A_dep": null,
+  "B_mech": false,
+  "B_dep": null,
+  "B_flat_genuine": true
+ },
+ "S3E11c11-L3": {
+  "A_mech": false,
+  "A_dep": false,
+  "B_mech": true,
+  "B_dep": false,
+  "B_flat_genuine": true
+ },
+ "S3E11c11-L4": {
+  "A_mech": false,
+  "A_dep": null,
+  "B_mech": false,
+  "B_dep": null,
+  "B_flat_genuine": false
+ },
+ "S3E11c11-L9": {
+  "A_mech": false,
+  "A_dep": false,
+  "B_mech": false,
+  "B_dep": false,
+  "B_flat_genuine": false
+ },
+ "S3E11c11-L10": {
+  "A_mech": false,
+  "A_dep": false,
+  "B_mech": false,
+  "B_dep": false,
+  "B_flat_genuine": true
+ },
+ "S3E11c11-L8": {
+  "A_mech": false,
+  "A_dep": null,
+  "B_mech": false,
+  "B_dep": null,
+  "B_flat_genuine": true
+ },
+ "S3E11c11-L12": {
+  "A_mech": false,
+  "A_dep": false,
+  "B_mech": false,
+  "B_dep": false,
+  "B_flat_genuine": true
+ },
+ "S3E11c11-L18": {
+  "A_mech": false,
+  "A_dep": null,
+  "B_mech": true,
+  "B_dep": null,
+  "B_flat_genuine": false
+ },
+ "S3E11c11-L20": {
+  "A_mech": false,
+  "A_dep": null,
+  "B_mech": false,
+  "B_dep": null,
+  "B_flat_genuine": false
+ },
+ "S3E11c11-L24": {
+  "A_mech": false,
+  "A_dep": false,
+  "B_mech": false,
+  "B_dep": false,
+  "B_flat_genuine": false
+ },
+ "S3E11c11-L26": {
+  "A_mech": false,
+  "A_dep": null,
+  "B_mech": true,
+  "B_dep": null,
+  "B_flat_genuine": false
+ },
+ "S3E11c11-L31": {
+  "A_mech": false,
+  "A_dep": null,
+  "B_mech": false,
+  "B_dep": null,
+  "B_flat_genuine": false
+ },
+ "S3E11c11-L32": {
+  "A_mech": false,
+  "A_dep": false,
+  "B_mech": false,
+  "B_dep": false,
+  "B_flat_genuine": false
+ },
+ "S3E12c1-L2": {
+  "A_mech": false,
+  "A_dep": null,
+  "B_mech": false,
+  "B_dep": null,
+  "B_flat_genuine": false
+ },
+ "S3E12c1-L4": {
+  "A_mech": false,
+  "A_dep": null,
+  "B_mech": false,
+  "B_dep": null,
+  "B_flat_genuine": false
+ },
+ "S3E12c1-L5": {
+  "A_mech": false,
+  "A_dep": null,
+  "B_mech": false,
+  "B_dep": null,
+  "B_flat_genuine": false
+ },
+ "S3E12c1-L9": {
+  "A_mech": true,
+  "A_dep": true,
+  "B_mech": true,
+  "B_dep": true,
+  "B_flat_genuine": false
+ },
+ "S3E12c1-L12": {
+  "A_mech": true,
+  "A_dep": null,
+  "B_mech": true,
+  "B_dep": null,
+  "B_flat_genuine": false
+ },
+ "S3E12c1-L15": {
+  "A_mech": false,
+  "A_dep": false,
+  "B_mech": false,
+  "B_dep": false,
+  "B_flat_genuine": false
+ },
+ "S3E12c1-L20": {
+  "A_mech": false,
+  "A_dep": false,
+  "B_mech": false,
+  "B_dep": false,
+  "B_flat_genuine": false
+ },
+ "S3E12c1-L24": {
+  "A_mech": false,
+  "A_dep": null,
+  "B_mech": false,
+  "B_dep": null,
+  "B_flat_genuine": false
+ },
+ "S3E12c1-L25": {
+  "A_mech": false,
+  "A_dep": null,
+  "B_mech": false,
+  "B_dep": null,
+  "B_flat_genuine": false
+ },
+ "S3E12c1-L26": {
+  "A_mech": false,
+  "A_dep": false,
+  "B_mech": false,
+  "B_dep": false,
+  "B_flat_genuine": false
+ }
+}
