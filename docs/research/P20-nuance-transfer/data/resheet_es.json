@@ -1,0 +1,649 @@
+[
+ {
+  "id": "S3E11c11-L2",
+  "context": [
+   "Rachel: I can't believe Mark didn't call. It's Sunday night, and he didn't call."
+  ],
+  "source": "Ross: Bummer.",
+  "trigger": "Bummer.",
+  "function": "fake sympathy",
+  "deps_source": {},
+  "candidates": {
+   "A": {
+    "line": "Qué pena.",
+    "deps": {}
+   },
+   "B": {
+    "line": "Qué faena.",
+    "deps": {}
+   },
+   "C": {
+    "line": "Vaya... qué pena.",
+    "deps": {}
+   },
+   "D": {
+    "line": "Qué desgracia.",
+    "deps": {}
+   }
+  }
+ },
+ {
+  "id": "S3E11c11-L10",
+  "context": [
+   "Ross: What, he gave you his home number? As in like, to, to his home?",
+   "Rachel: Yeah, and you don't mind if I call, because you only want good things for me."
+  ],
+  "source": "Ross: That's right good things, that-that is what I said.",
+  "trigger": "good things, that-that is what I said",
+  "function": "echo again",
+  "deps_source": {
+   "S3E11c11-L4": "Ross: No, I'm genuinely sorry the Mark thing didn't work out. Look, Rach, I want only good things for you."
+  },
+  "candidates": {
+   "A": {
+    "line": "Claro, eso dije.",
+    "deps": {
+     "S3E11c11-L4": "Siento de verdad que no saliera bien. Solo quiero cosas buenas para ti."
+    }
+   },
+   "B": {
+    "line": "Así es, cosas buenas, eso-eso es lo que dije.",
+    "deps": {
+     "S3E11c11-L4": "No, de verdad siento que lo de Mark no haya funcionado. Mira, Rach, solo quiero cosas buenas para ti."
+    }
+   },
+   "C": {
+    "line": "Eso es bueno, eso es lo que dije.",
+    "deps": {
+     "S3E11c11-L4": "No, siento sinceramente que la cosa de Mark no haya funcionado."
+    }
+   },
+   "D": {
+    "line": "Exacto, cosas buenas, eso... eso es lo que he dicho.",
+    "deps": {
+     "S3E11c11-L4": "No, en serio, siento que lo de Mark no haya salido bien. Mira, Rach, yo solo quiero cosas buenas para ti."
+    }
+   }
+  }
+ },
+ {
+  "id": "S2E21c5-L27",
+  "context": [
+   "Ross: Let's, let's take this outside? Who talks like that?",
+   "Big: The guy that's about to kick your ass talks like that."
+  ],
+  "source": "Chandler: You had to ask.",
+  "trigger": "You had to ask.",
+  "function": "Ross invited the threat",
+  "deps_source": {},
+  "candidates": {
+   "A": {
+    "line": "Tenías que preguntar.",
+    "deps": {}
+   },
+   "B": {
+    "line": "Tenías que preguntar.",
+    "deps": {}
+   },
+   "C": {
+    "line": "Tenías que preguntar.",
+    "deps": {}
+   },
+   "D": {
+    "line": "Tú has preguntado.",
+    "deps": {}
+   }
+  }
+ },
+ {
+  "id": "S3E4c6-L16",
+  "context": [
+   "Rachel: Yeah, you do.",
+   "Chandler: So, you don't think I'm terminal?"
+  ],
+  "source": "Monica: Well, no, not at all, you're not terminal, you just, you just need some damage control.",
+  "trigger": "you just need some damage control",
+  "function": "repairable",
+  "deps_source": {
+   "S3E4c6-L15": "Chandler: So, you don't think I'm terminal?"
+  },
+  "candidates": {
+   "A": {
+    "line": "No eres terminal; solo necesitas control de daños.",
+    "deps": {
+     "S3E4c6-L15": "¿No soy terminal?"
+    }
+   },
+   "B": {
+    "line": "Bueno, no, para nada, no eres terminal, solo, solo necesitas algo de control de daños.",
+    "deps": {
+     "S3E4c6-L15": "Entonces, ¿no crees que soy terminal?"
+    }
+   },
+   "C": {
+    "line": "Bueno, no, en absoluto, no estás terminal, sólo necesitas un poco de control de daños.",
+    "deps": {
+     "S3E4c6-L15": "Entonces, ¿no crees que estoy terminal?"
+    }
+   },
+   "D": {
+    "line": "Que no, que no eres terminal, solo necesitas un poco de control de daños.",
+    "deps": {
+     "S3E4c6-L15": "Entonces, ¿no soy un caso terminal?"
+    }
+   }
+  }
+ },
+ {
+  "id": "S2E21c5-L24",
+  "context": [
+   "Chandler: Don't play with his things.",
+   "Ross: I know."
+  ],
+  "source": "Big: Alright, let's take this outside.",
+  "trigger": "let's take this outside",
+  "function": "a stock tough-guy line",
+  "deps_source": {},
+  "candidates": {
+   "A": {
+    "line": "Muy bien, llevemos esto fuera.",
+    "deps": {}
+   },
+   "B": {
+    "line": "Muy bien. Salgamos fuera.",
+    "deps": {}
+   },
+   "C": {
+    "line": "Muy bien, vamos a hacer esto fuera.",
+    "deps": {}
+   },
+   "D": {
+    "line": "Vamos a llevar esto fuera.",
+    "deps": {}
+   }
+  }
+ },
+ {
+  "id": "S2E21c5-L5",
+  "context": [
+   "Chandler: Do you have to be a Century 21 real-estate agent to get to wear those really cool jackets?",
+   "Ross: Do you say this stuff to girls?"
+  ],
+  "source": "Big: Hehehehey, isn't that the guy who used to wear your hat?",
+  "trigger": "the guy who used to wear your hat",
+  "function": "mocking Ross's hat",
+  "deps_source": {},
+  "candidates": {
+   "A": {
+    "line": "Jejeje, ¿ese no es el tío que llevaba puesto tu sombrero?",
+    "deps": {}
+   },
+   "B": {
+    "line": "Jejeje, ¿ese no es el tío que llevaba tu sombrero?",
+    "deps": {}
+   },
+   "C": {
+    "line": "¿No es ese el tío que llevaba tu sombrero?",
+    "deps": {}
+   },
+   "D": {
+    "line": "Oye, ¿no es el tipo que solía usar tu sombrero?",
+    "deps": {}
+   }
+  }
+ },
+ {
+  "id": "S2E24c4-L13",
+  "context": [
+   "Monica: Keep talkin'.",
+   "Richard: Well, uh, sometimes I think about selling my practice, we could move to France, make French toast."
+  ],
+  "source": "Monica: Okay, so, uh, we're in France, we're making the toast. Do you see a little bassinet in the corner?",
+  "trigger": "we're in France, we're making the toast",
+  "function": "reuse of his image",
+  "deps_source": {
+   "S2E24c4-L12": "Richard: Well, uh, sometimes I think about selling my practice, we could move to France, make French toast."
+  },
+  "candidates": {
+   "A": {
+    "line": "Está bien, estamos en Francia, estamos haciendo el brindis. ¿Ves una pequeña cuna en la esquina?",
+    "deps": {
+     "S2E24c4-L12": "Bueno, a veces pienso en vender mi consulta, podríamos mudarnos a Francia, hacer tostadas francesas."
+    }
+   },
+   "B": {
+    "line": "Estamos en Francia haciendo tostadas. ¿Ves una cunita en el rincón?",
+    "deps": {
+     "S2E24c4-L12": "A veces pienso en vender mi consulta, mudarnos a Francia, hacer tostadas francesas."
+    }
+   },
+   "C": {
+    "line": "Vale, entonces, eh, estamos en Francia, estamos haciendo las tostadas. ¿Ves una pequeña cuna en el rincón?",
+    "deps": {
+     "S2E24c4-L12": "Bueno, eh, a veces pienso en vender mi consulta, podríamos mudarnos a Francia, hacer tostadas francesas."
+    }
+   },
+   "D": {
+    "line": "Vale, estamos en Francia, haciendo las tostadas. ¿Ves un moisés en el rincón?",
+    "deps": {
+     "S2E24c4-L12": "Bueno, a veces pienso en vender la consulta, irnos a Francia... a hacer tostadas francesas."
+    }
+   }
+  }
+ },
+ {
+  "id": "S1E22c5-L6b",
+  "context": [
+   "Ross: Yeah, hi, I was just beeped. No, Andr is not here. Third time today. Yes, I'm sure... No, sir. I don't perform those kind of services.",
+   "Joey: Services? Oh, services."
+  ],
+  "source": "Ross: Yeah, you want 55-JUMBO. Yeah, that's right. That's right, JUMBO with a U, sir. No, belive me, you don't want me. Judging by his number, I'd be a huge disappointment. All rightie, bye bye.",
+  "trigger": "Judging by his number, I'd be a huge disappointment",
+  "function": "Ross implies he is smaller than 'JUMBO'",
+  "deps_source": {},
+  "candidates": {
+   "A": {
+    "line": "Quiere el 55-JUMBO, con U. Créame, a mí no me quiere: a juzgar por su número, sería una decepción. Adiós.",
+    "deps": {}
+   },
+   "B": {
+    "line": "Sí, quiere el 55-JUMBO. Eso es, JUMBO, de tamaño jumbo. No, créame, a mí no me quiere. A juzgar por su número, yo sería una decepción enorme. Venga, adiós.",
+    "deps": {}
+   },
+   "C": {
+    "line": "Sí, usted quiere el 55-JUMBO. Sí, eso es. JUMBO con U, señor. No, créame, a mí no me quiere. A juzgar por su número, yo sería una enorme decepción. Venga, adiós.",
+    "deps": {}
+   },
+   "D": {
+    "line": "Sí, quieres 55-JUMBO. Sí, eso es correcto. Eso es correcto, JUMBO con una U, señor. No, créeme, no me quieres. A juzgar por su número, sería una gran decepción.",
+    "deps": {}
+   }
+  }
+ },
+ {
+  "id": "S1E22c5-L26",
+  "context": [
+   "Ross: Oh, oh Chandler...",
+   "Joey: Oh... Yeah, you do."
+  ],
+  "source": "Ross: 'The hills were alive with the sound of music.'",
+  "trigger": "The hills were alive with the sound of music",
+  "function": "famous song line + the mocked cadence",
+  "deps_source": {
+   "S1E22c5-L22": "Phoebe: You know like... uh okay... uh... 'Could that report be any later?'"
+  },
+  "candidates": {
+   "A": {
+    "line": "«¿Podrían las colinas ESTAR más vivas con el sonido de la música?»",
+    "deps": {
+     "S1E22c5-L22": "Ya sabes, así... eh, vale... «¿Podría ese informe llegar MÁS tarde?»"
+    }
+   },
+   "B": {
+    "line": "«Las colinas estaban vivas con el sonido de la música.»",
+    "deps": {
+     "S1E22c5-L22": "Ya sabes, como... eh, vale... eh... «¿Podría ese informe llegar más tarde?»"
+    }
+   },
+   "C": {
+    "line": "«Las colinas cobraban vida con el sonido de la música.»",
+    "deps": {
+     "S1E22c5-L22": "Así: «¿Podría ese informe llegar más tarde?»"
+    }
+   },
+   "D": {
+    "line": "Las colinas estaban vivas con el sonido de la música.",
+    "deps": {
+     "S1E22c5-L22": "Ya sabes, como... bueno... ¿podría ese informe ser más tarde?"
+    }
+   }
+  }
+ },
+ {
+  "id": "S2E24c4-L14",
+  "context": [
+   "Richard: Well, uh, sometimes I think about selling my practice, we could move to France, make French toast.",
+   "Monica: Okay, so, uh, we're in France, we're making the toast. Do you see a little bassinet in the corner?"
+  ],
+  "source": "Richard: Like a hound?",
+  "trigger": "bassinet ... Like a hound?",
+  "function": "Richard hears a near-homophone with a funny meaning (evasion)",
+  "deps_source": {
+   "S2E24c4-L13": "Monica: Okay, so, uh, we're in France, we're making the toast. Do you see a little bassinet in the corner?"
+  },
+  "candidates": {
+   "A": {
+    "line": "¿Como un sabueso?",
+    "deps": {
+     "S2E24c4-L13": "Vale, entonces, eh, estamos en Francia, estamos haciendo las tostadas. ¿Ves una pequeña cuna en el rincón?"
+    }
+   },
+   "B": {
+    "line": "¿Moisés? ¿El de las tablas de la ley?",
+    "deps": {
+     "S2E24c4-L13": "Vale, estamos en Francia, haciendo las tostadas. ¿Ves un moisés en el rincón?"
+    }
+   },
+   "C": {
+    "line": "¿Como un perro?",
+    "deps": {
+     "S2E24c4-L13": "Está bien, estamos en Francia, estamos haciendo el brindis. ¿Ves una pequeña cuna en la esquina?"
+    }
+   },
+   "D": {
+    "line": "¿Como un sabueso?",
+    "deps": {
+     "S2E24c4-L13": "Estamos en Francia haciendo tostadas. ¿Ves una cunita en el rincón?"
+    }
+   }
+  }
+ },
+ {
+  "id": "S3E11c11-L12",
+  "context": [
+   "Ross: That's right good things, that-that is what I said.",
+   "Rachel: Hello, Mark? Hi, it's Rachel Green. Oh no, don't you apologize. Yeah, I'll hold. He left my number at work, but he was helping his niece with her report on the pioneers."
+  ],
+  "source": "Ross: That is so made up!",
+  "trigger": "That is so made up!",
+  "function": "jealous disbelief",
+  "deps_source": {
+   "S3E11c11-L11": "Rachel: Hello, Mark? Hi, it's Rachel Green. Oh no, don't you apologize. Yeah, I'll hold. He left my number at work, but he was helping his niece with her report on the pioneers."
+  },
+  "candidates": {
+   "A": {
+    "line": "¡Eso se lo ha inventado!",
+    "deps": {}
+   },
+   "B": {
+    "line": "¡Eso es tan inventado!",
+    "deps": {}
+   },
+   "C": {
+    "line": "¡Eso es inventado!",
+    "deps": {}
+   },
+   "D": {
+    "line": "¡Eso es tan inventado!",
+    "deps": {}
+   }
+  }
+ },
+ {
+  "id": "S3E12c1-L26",
+  "context": [
+   "Chandler: Well apparently Albert has no friends. He's very excited about the bachelor party though. I think actually the only reason he's getting married is so he can see a stripper.",
+   "Phoebe: A stripper at a bachelor party, that is so clich. Why don't you get a magician?!"
+  ],
+  "source": "Chandler: Well, if the magician can open my beer with his but cheeks, then all right.",
+  "trigger": "open my beer with his butt cheeks",
+  "function": "crude trick",
+  "deps_source": {
+   "S3E12c1-L25": "Phoebe: A stripper at a bachelor party, that is so clich. Why don't you get a magician?!"
+  },
+  "candidates": {
+   "A": {
+    "line": "Bueno, si el mago puede abrir mi cerveza con sus mejillas, entonces está bien.",
+    "deps": {
+     "S3E12c1-L25": "Una stripper en una despedida de soltero, eso es tan cliché. ¿Por qué no consigues un mago?!"
+    }
+   },
+   "B": {
+    "line": "Bueno, si el mago me abre la cerveza con el culo, vale.",
+    "deps": {
+     "S3E12c1-L25": "¿Una stripper en una despedida? Qué tópico. ¿Por qué no contratáis a un mago?"
+    }
+   },
+   "C": {
+    "line": "Si el mago puede abrirme la cerveza con las nalgas, vale.",
+    "deps": {
+     "S3E12c1-L25": "Una stripper en una despedida es un tópico. ¿Por qué no un mago?"
+    }
+   },
+   "D": {
+    "line": "Bueno, si el mago puede abrirme la cerveza con las nalgas, entonces vale.",
+    "deps": {
+     "S3E12c1-L25": "Una stripper en una despedida de soltero, qué cliché. ¡¿Por qué no contratáis a un mago?!"
+    }
+   }
+  }
+ },
+ {
+  "id": "S3E12c1-L4",
+  "context": [
+   "Chandler: Oh yeah, but don't worry. I don't think anybody's gonna focus on that as long as your wearing that towel dress.",
+   "Rachel: Tell him."
+  ],
+  "source": "Ross: It's her first day at this new job. Your not supposed to start with her!",
+  "trigger": "Your not supposed to start with her!",
+  "function": "don't tease her today",
+  "deps_source": {},
+  "candidates": {
+   "A": {
+    "line": "Es su primer día. ¡No te metas con ella!",
+    "deps": {}
+   },
+   "B": {
+    "line": "Es su primer día en el trabajo nuevo. ¡Hoy no empieces con ella!",
+    "deps": {}
+   },
+   "C": {
+    "line": "Es su primer día en este nuevo trabajo. ¡No se supone que empieces con ella!",
+    "deps": {}
+   },
+   "D": {
+    "line": "Es su primer día en este nuevo trabajo. ¡No se supone que empieces con ella!",
+    "deps": {}
+   }
+  }
+ },
+ {
+  "id": "S3E4c6-L13",
+  "context": [
+   "Chandler: This ice cream tastes like crap by the way.",
+   "Rachel: Yeah, well that's that lo-cal, non dairy, soy milk junk. We sort of, we save the real stuff for those really terminal cases."
+  ],
+  "source": "Monica: You know, when you start get screwed over all the time, you gotta switch to low-fat.",
+  "trigger": "when you start get screwed over all the time, you gotta switch to low-fat",
+  "function": "frequent heartbreak -> diet ice cream",
+  "deps_source": {},
+  "candidates": {
+   "A": {
+    "line": "Sabes, cuando empiezas a ser jodido todo el tiempo, tienes que cambiar a bajo contenido de grasa.",
+    "deps": {}
+   },
+   "B": {
+    "line": "Mira, cuando te dejan tirada cada dos por tres, tienes que pasarte al desnatado.",
+    "deps": {}
+   },
+   "C": {
+    "line": "Sabes, cuando empiezas a que te jodan todo el tiempo, tienes que cambiarte a bajo en grasa.",
+    "deps": {}
+   },
+   "D": {
+    "line": "Cuando te la pegan constantemente, tienes que pasarte al desnatado.",
+    "deps": {}
+   }
+  }
+ },
+ {
+  "id": "S3E12c1-L15",
+  "context": [
+   "Rachel: Thank you, thank you, thank you, Pheebs.",
+   "Phoebe: Your welcome, oh please not the one with the turtles."
+  ],
+  "source": "Rachel: No, no, no, no turtles scare me. I don't need that today.",
+  "trigger": "turtles scare me",
+  "function": "silly fear",
+  "deps_source": {
+   "S3E12c1-L14": "Phoebe: Your welcome, oh please not the one with the turtles."
+  },
+  "candidates": {
+   "A": {
+    "line": "No, no, no, las tortugas no me asustan.",
+    "deps": {}
+   },
+   "B": {
+    "line": "No, no, no, nada de tortugas, me dan miedo. No necesito eso hoy.",
+    "deps": {}
+   },
+   "C": {
+    "line": "No, no, nada de tortugas, me dan miedo. Hoy no estoy para eso.",
+    "deps": {}
+   },
+   "D": {
+    "line": "No, las tortugas me dan miedo. Hoy no.",
+    "deps": {}
+   }
+  }
+ },
+ {
+  "id": "S3E4c6-L23",
+  "context": [
+   "Rachel: Right. So, what you have to do is, you have to accidentally run into her on purpose. And then act aloof.",
+   "Chandler: So I'm not, not gonna lose her?"
+  ],
+  "source": "Rachel: Oooh, honey, you're not a total loser.",
+  "trigger": "you're not a total loser",
+  "function": "Rachel's reassurance reveals she sees him as a loser",
+  "deps_source": {
+   "S3E4c6-L22": "Chandler: So I'm not, not gonna lose her?"
+  },
+  "candidates": {
+   "A": {
+    "line": "Ay, cariño, no eres un perdedor total.",
+    "deps": {}
+   },
+   "B": {
+    "line": "Oooh, cariño, no eres un perdedor total.",
+    "deps": {}
+   },
+   "C": {
+    "line": "Oh, cariño, no eres un completo perdedor.",
+    "deps": {}
+   },
+   "D": {
+    "line": "Ay, cielo, no eres un perdedor total.",
+    "deps": {}
+   }
+  }
+ },
+ {
+  "id": "S3E11c11-L24",
+  "context": [
+   "Ross: You go get 'em. What did I do to you? Did I hurt you in some way?",
+   "Monica: What?"
+  ],
+  "source": "Ross: 'Why don't you call him?!' Well, thank you very much! Y'know now he is going to prep her, y'know prep her, as in what you do when you surgically remove the boyfriend!",
+  "trigger": "prep her, as in what you do when you surgically remove the boyfriend",
+  "function": "Mark will 'operate' Ross out of her life",
+  "deps_source": {
+   "S3E11c11-L16": "Rachel: He even offered to meet me for lunch tomorrow to prep me for it."
+  },
+  "candidates": {
+   "A": {
+    "line": "«¿Por qué no le llamas?» ¡Pues muchas gracias! Ahora la va a preparar, ¿sabes? Preparar, como cuando preparan al paciente para extirparle el novio.",
+    "deps": {}
+   },
+   "B": {
+    "line": "¡Muchas gracias! Ahora la va a preparar, como cuando se extirpa quirúrgicamente al novio.",
+    "deps": {}
+   },
+   "C": {
+    "line": "'¿Por qué no lo llamas?!' Bueno, muchas gracias! Ya sabes ahora él va a prepararla, ya sabes prepararla, como en lo que haces cuando quitas quirúrgicamente al novio!",
+    "deps": {}
+   },
+   "D": {
+    "line": "«¡¿Por qué no lo llamas?!» ¡Bueno, muchas gracias! Sabes, ahora la va a preparar, ya sabes, prepararla, como lo que haces cuando extirpas quirúrgicamente al novio.",
+    "deps": {}
+   }
+  }
+ },
+ {
+  "id": "S2E21c5-L30",
+  "context": [
+   "Ross: Yeah.",
+   "Ross: Ok, ok look, see, the thing is we're, we're not gonna fight you guys."
+  ],
+  "source": "Little: Well then here's the deal, you won't have to so long as never ever show your faces in this coffee house ever again.",
+  "trigger": "never ever show your faces",
+  "function": "ban",
+  "deps_source": {},
+  "candidates": {
+   "A": {
+    "line": "Bueno, entonces este es el trato, no tendréis que hacerlo mientras nunca jamás mostréis vuestras caras en esta cafetería otra vez.",
+    "deps": {}
+   },
+   "B": {
+    "line": "Entonces no tendréis que pelear, siempre que no volváis nunca a esta cafetería.",
+    "deps": {}
+   },
+   "C": {
+    "line": "Bueno, entonces este es el trato, no tendrán que hacerlo mientras nunca más vuelvan a mostrar sus caras en esta cafetería.",
+    "deps": {}
+   },
+   "D": {
+    "line": "Pues entonces trato hecho: no tendréis que hacerlo, siempre que no volváis a asomar la cara por esta cafetería nunca jamás.",
+    "deps": {}
+   }
+  }
+ },
+ {
+  "id": "S2E2c2-L8",
+  "context": [
+   "Rachel: Thank you. What a bitch.",
+   "Julie: Oh, listen you guys. I have this friend at Bloomingdale's who's quitting tomorrow and he wants to abuse his discount. So, anyone want to come with me and take advantage of it?"
+  ],
+  "source": "Phoebe: I can't, I have to take my grandmother to the vet.",
+  "trigger": "I have to take my grandmother to the vet",
+  "function": "obviously fake excuse",
+  "deps_source": {},
+  "candidates": {
+   "A": {
+    "line": "No puedo, tengo que llevar a mi abuela al veterinario.",
+    "deps": {}
+   },
+   "B": {
+    "line": "No puedo, tengo que llevar a mi abuela al veterinario.",
+    "deps": {}
+   },
+   "C": {
+    "line": "No puedo, tengo que llevar a mi abuela al veterinario.",
+    "deps": {}
+   },
+   "D": {
+    "line": "No puedo, tengo que llevar a mi abuela al veterinario.",
+    "deps": {}
+   }
+  }
+ },
+ {
+  "id": "S3E4c6-L11",
+  "context": [
+   "Chandler: Oh God.",
+   "Monica: Welcome to our side of the tunnel."
+  ],
+  "source": "Chandler: This ice cream tastes like crap by the way.",
+  "trigger": "tastes like crap",
+  "function": "crude disgust",
+  "deps_source": {},
+  "candidates": {
+   "A": {
+    "line": "Este helado sabe a mierda, por cierto.",
+    "deps": {}
+   },
+   "B": {
+    "line": "Por cierto, este helado sabe fatal.",
+    "deps": {}
+   },
+   "C": {
+    "line": "Por cierto, este helado sabe a rayos.",
+    "deps": {}
+   },
+   "D": {
+    "line": "Este helado sabe a mierda, por cierto.",
+    "deps": {}
+   }
+  }
+ }
+]

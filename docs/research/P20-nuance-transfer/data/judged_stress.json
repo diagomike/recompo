@@ -1,0 +1,1178 @@
+[
+ {
+  "item": "X1",
+  "lang": "es",
+  "cond": "S0",
+  "meaning": 3,
+  "effect": 3
+ },
+ {
+  "item": "X1",
+  "lang": "es",
+  "cond": "S2",
+  "meaning": 3,
+  "effect": 3
+ },
+ {
+  "item": "X1",
+  "lang": "es",
+  "cond": "MTes",
+  "meaning": 3,
+  "effect": 3
+ },
+ {
+  "item": "X1",
+  "lang": "am",
+  "cond": "M0",
+  "meaning": 1,
+  "effect": 0
+ },
+ {
+  "item": "X1",
+  "lang": "am",
+  "cond": "M1",
+  "meaning": 1,
+  "effect": 1
+ },
+ {
+  "item": "X1",
+  "lang": "am",
+  "cond": "M2",
+  "meaning": 3,
+  "effect": 2
+ },
+ {
+  "item": "X1",
+  "lang": "om",
+  "cond": "M1",
+  "meaning": 3,
+  "effect": 2
+ },
+ {
+  "item": "X1",
+  "lang": "om",
+  "cond": "M0",
+  "meaning": 1,
+  "effect": 0
+ },
+ {
+  "item": "X1",
+  "lang": "om",
+  "cond": "M2",
+  "meaning": 3,
+  "effect": 3
+ },
+ {
+  "item": "X1",
+  "lang": "sw",
+  "cond": "M2",
+  "meaning": 3,
+  "effect": 3
+ },
+ {
+  "item": "X1",
+  "lang": "sw",
+  "cond": "M0",
+  "meaning": 3,
+  "effect": 3
+ },
+ {
+  "item": "X1",
+  "lang": "sw",
+  "cond": "M1",
+  "meaning": 3,
+  "effect": 2
+ },
+ {
+  "item": "X2",
+  "lang": "es",
+  "cond": "S2",
+  "meaning": 3,
+  "effect": 2
+ },
+ {
+  "item": "X2",
+  "lang": "es",
+  "cond": "S0",
+  "meaning": 3,
+  "effect": 3
+ },
+ {
+  "item": "X2",
+  "lang": "es",
+  "cond": "MTes",
+  "meaning": 0,
+  "effect": 0
+ },
+ {
+  "item": "X2",
+  "lang": "am",
+  "cond": "M1",
+  "meaning": 3,
+  "effect": 2
+ },
+ {
+  "item": "X2",
+  "lang": "am",
+  "cond": "M2",
+  "meaning": 1,
+  "effect": 1
+ },
+ {
+  "item": "X2",
+  "lang": "am",
+  "cond": "M0",
+  "meaning": 0,
+  "effect": 0
+ },
+ {
+  "item": "X2",
+  "lang": "om",
+  "cond": "M0",
+  "meaning": 2,
+  "effect": 1
+ },
+ {
+  "item": "X2",
+  "lang": "om",
+  "cond": "M2",
+  "meaning": 3,
+  "effect": 2
+ },
+ {
+  "item": "X2",
+  "lang": "om",
+  "cond": "M1",
+  "meaning": 3,
+  "effect": 2
+ },
+ {
+  "item": "X2",
+  "lang": "sw",
+  "cond": "M2",
+  "meaning": 3,
+  "effect": 2
+ },
+ {
+  "item": "X2",
+  "lang": "sw",
+  "cond": "M1",
+  "meaning": 3,
+  "effect": 2
+ },
+ {
+  "item": "X2",
+  "lang": "sw",
+  "cond": "M0",
+  "meaning": 3,
+  "effect": 2
+ },
+ {
+  "item": "X3",
+  "lang": "es",
+  "cond": "S2",
+  "meaning": 3,
+  "effect": 3
+ },
+ {
+  "item": "X3",
+  "lang": "es",
+  "cond": "S0",
+  "meaning": 3,
+  "effect": 3
+ },
+ {
+  "item": "X3",
+  "lang": "es",
+  "cond": "MTes",
+  "meaning": 3,
+  "effect": 3
+ },
+ {
+  "item": "X3",
+  "lang": "am",
+  "cond": "M1",
+  "meaning": 2,
+  "effect": 2
+ },
+ {
+  "item": "X3",
+  "lang": "am",
+  "cond": "M0",
+  "meaning": 3,
+  "effect": 3
+ },
+ {
+  "item": "X3",
+  "lang": "am",
+  "cond": "M2",
+  "meaning": 2,
+  "effect": 2
+ },
+ {
+  "item": "X3",
+  "lang": "om",
+  "cond": "M1",
+  "meaning": 2,
+  "effect": 2
+ },
+ {
+  "item": "X3",
+  "lang": "om",
+  "cond": "M2",
+  "meaning": 1,
+  "effect": 1
+ },
+ {
+  "item": "X3",
+  "lang": "om",
+  "cond": "M0",
+  "meaning": 3,
+  "effect": 3
+ },
+ {
+  "item": "X3",
+  "lang": "sw",
+  "cond": "M0",
+  "meaning": 3,
+  "effect": 3
+ },
+ {
+  "item": "X3",
+  "lang": "sw",
+  "cond": "M2",
+  "meaning": 2,
+  "effect": 2
+ },
+ {
+  "item": "X3",
+  "lang": "sw",
+  "cond": "M1",
+  "meaning": 2,
+  "effect": 2
+ },
+ {
+  "item": "X4",
+  "lang": "es",
+  "cond": "MTes",
+  "meaning": 2,
+  "effect": 1
+ },
+ {
+  "item": "X4",
+  "lang": "es",
+  "cond": "S2",
+  "meaning": 3,
+  "effect": 2
+ },
+ {
+  "item": "X4",
+  "lang": "es",
+  "cond": "S0",
+  "meaning": 3,
+  "effect": 2
+ },
+ {
+  "item": "X4",
+  "lang": "am",
+  "cond": "M1",
+  "meaning": 2,
+  "effect": 0
+ },
+ {
+  "item": "X4",
+  "lang": "am",
+  "cond": "M2",
+  "meaning": 3,
+  "effect": 3
+ },
+ {
+  "item": "X4",
+  "lang": "am",
+  "cond": "M0",
+  "meaning": 1,
+  "effect": 1
+ },
+ {
+  "item": "X4",
+  "lang": "om",
+  "cond": "M2",
+  "meaning": 2,
+  "effect": 2
+ },
+ {
+  "item": "X4",
+  "lang": "om",
+  "cond": "M1",
+  "meaning": 2,
+  "effect": 0
+ },
+ {
+  "item": "X4",
+  "lang": "om",
+  "cond": "M0",
+  "meaning": 1,
+  "effect": 1
+ },
+ {
+  "item": "X4",
+  "lang": "sw",
+  "cond": "M1",
+  "meaning": 2,
+  "effect": 0
+ },
+ {
+  "item": "X4",
+  "lang": "sw",
+  "cond": "M2",
+  "meaning": 3,
+  "effect": 3
+ },
+ {
+  "item": "X4",
+  "lang": "sw",
+  "cond": "M0",
+  "meaning": 1,
+  "effect": 1
+ },
+ {
+  "item": "X5",
+  "lang": "es",
+  "cond": "S2",
+  "meaning": 3,
+  "effect": 3
+ },
+ {
+  "item": "X5",
+  "lang": "es",
+  "cond": "MTes",
+  "meaning": 1,
+  "effect": 0
+ },
+ {
+  "item": "X5",
+  "lang": "es",
+  "cond": "S0",
+  "meaning": 3,
+  "effect": 2
+ },
+ {
+  "item": "X5",
+  "lang": "am",
+  "cond": "M1",
+  "meaning": 3,
+  "effect": 1
+ },
+ {
+  "item": "X5",
+  "lang": "am",
+  "cond": "M2",
+  "meaning": 3,
+  "effect": 2
+ },
+ {
+  "item": "X5",
+  "lang": "am",
+  "cond": "M0",
+  "meaning": 1,
+  "effect": 0
+ },
+ {
+  "item": "X5",
+  "lang": "om",
+  "cond": "M1",
+  "meaning": 2,
+  "effect": 0
+ },
+ {
+  "item": "X5",
+  "lang": "om",
+  "cond": "M2",
+  "meaning": 3,
+  "effect": 2
+ },
+ {
+  "item": "X5",
+  "lang": "om",
+  "cond": "M0",
+  "meaning": 1,
+  "effect": 0
+ },
+ {
+  "item": "X5",
+  "lang": "sw",
+  "cond": "M0",
+  "meaning": 1,
+  "effect": 0
+ },
+ {
+  "item": "X5",
+  "lang": "sw",
+  "cond": "M2",
+  "meaning": 3,
+  "effect": 2
+ },
+ {
+  "item": "X5",
+  "lang": "sw",
+  "cond": "M1",
+  "meaning": 3,
+  "effect": 1
+ },
+ {
+  "item": "X6",
+  "lang": "es",
+  "cond": "S2",
+  "meaning": 3,
+  "effect": 3
+ },
+ {
+  "item": "X6",
+  "lang": "es",
+  "cond": "MTes",
+  "meaning": 1,
+  "effect": 0
+ },
+ {
+  "item": "X6",
+  "lang": "es",
+  "cond": "S0",
+  "meaning": 1,
+  "effect": 0
+ },
+ {
+  "item": "X6",
+  "lang": "am",
+  "cond": "M1",
+  "meaning": 2,
+  "effect": 2
+ },
+ {
+  "item": "X6",
+  "lang": "am",
+  "cond": "M2",
+  "meaning": 2,
+  "effect": 2
+ },
+ {
+  "item": "X6",
+  "lang": "am",
+  "cond": "M0",
+  "meaning": 1,
+  "effect": 0
+ },
+ {
+  "item": "X6",
+  "lang": "om",
+  "cond": "M0",
+  "meaning": 1,
+  "effect": 0
+ },
+ {
+  "item": "X6",
+  "lang": "om",
+  "cond": "M2",
+  "meaning": 2,
+  "effect": 2
+ },
+ {
+  "item": "X6",
+  "lang": "om",
+  "cond": "M1",
+  "meaning": 2,
+  "effect": 1
+ },
+ {
+  "item": "X6",
+  "lang": "sw",
+  "cond": "M2",
+  "meaning": 2,
+  "effect": 2
+ },
+ {
+  "item": "X6",
+  "lang": "sw",
+  "cond": "M1",
+  "meaning": 1,
+  "effect": 0
+ },
+ {
+  "item": "X6",
+  "lang": "sw",
+  "cond": "M0",
+  "meaning": 1,
+  "effect": 0
+ },
+ {
+  "item": "X7",
+  "lang": "es",
+  "cond": "MTes",
+  "meaning": 3,
+  "effect": 2
+ },
+ {
+  "item": "X7",
+  "lang": "es",
+  "cond": "S0",
+  "meaning": 3,
+  "effect": 3
+ },
+ {
+  "item": "X7",
+  "lang": "es",
+  "cond": "S2",
+  "meaning": 3,
+  "effect": 3
+ },
+ {
+  "item": "X7",
+  "lang": "am",
+  "cond": "M2",
+  "meaning": 3,
+  "effect": 2
+ },
+ {
+  "item": "X7",
+  "lang": "am",
+  "cond": "M1",
+  "meaning": 1,
+  "effect": 0
+ },
+ {
+  "item": "X7",
+  "lang": "am",
+  "cond": "M0",
+  "meaning": 1,
+  "effect": 0
+ },
+ {
+  "item": "X7",
+  "lang": "om",
+  "cond": "M2",
+  "meaning": 1,
+  "effect": 0
+ },
+ {
+  "item": "X7",
+  "lang": "om",
+  "cond": "M1",
+  "meaning": 1,
+  "effect": 0
+ },
+ {
+  "item": "X7",
+  "lang": "om",
+  "cond": "M0",
+  "meaning": 1,
+  "effect": 1
+ },
+ {
+  "item": "X7",
+  "lang": "sw",
+  "cond": "M2",
+  "meaning": 2,
+  "effect": 2
+ },
+ {
+  "item": "X7",
+  "lang": "sw",
+  "cond": "M0",
+  "meaning": 2,
+  "effect": 1
+ },
+ {
+  "item": "X7",
+  "lang": "sw",
+  "cond": "M1",
+  "meaning": 2,
+  "effect": 2
+ },
+ {
+  "item": "X8",
+  "lang": "es",
+  "cond": "S0",
+  "meaning": 3,
+  "effect": 3
+ },
+ {
+  "item": "X8",
+  "lang": "es",
+  "cond": "S2",
+  "meaning": 3,
+  "effect": 3
+ },
+ {
+  "item": "X8",
+  "lang": "es",
+  "cond": "MTes",
+  "meaning": 2,
+  "effect": 2
+ },
+ {
+  "item": "X8",
+  "lang": "am",
+  "cond": "M2",
+  "meaning": 2,
+  "effect": 1
+ },
+ {
+  "item": "X8",
+  "lang": "am",
+  "cond": "M1",
+  "meaning": 1,
+  "effect": 0
+ },
+ {
+  "item": "X8",
+  "lang": "am",
+  "cond": "M0",
+  "meaning": 2,
+  "effect": 2
+ },
+ {
+  "item": "X8",
+  "lang": "om",
+  "cond": "M0",
+  "meaning": 0,
+  "effect": 0
+ },
+ {
+  "item": "X8",
+  "lang": "om",
+  "cond": "M2",
+  "meaning": 2,
+  "effect": 2
+ },
+ {
+  "item": "X8",
+  "lang": "om",
+  "cond": "M1",
+  "meaning": 2,
+  "effect": 1
+ },
+ {
+  "item": "X8",
+  "lang": "sw",
+  "cond": "M0",
+  "meaning": 3,
+  "effect": 3
+ },
+ {
+  "item": "X8",
+  "lang": "sw",
+  "cond": "M2",
+  "meaning": 3,
+  "effect": 2
+ },
+ {
+  "item": "X8",
+  "lang": "sw",
+  "cond": "M1",
+  "meaning": 2,
+  "effect": 1
+ },
+ {
+  "item": "X9",
+  "lang": "es",
+  "cond": "MTes",
+  "meaning": 2,
+  "effect": 2
+ },
+ {
+  "item": "X9",
+  "lang": "es",
+  "cond": "S2",
+  "meaning": 3,
+  "effect": 3
+ },
+ {
+  "item": "X9",
+  "lang": "es",
+  "cond": "S0",
+  "meaning": 3,
+  "effect": 3
+ },
+ {
+  "item": "X9",
+  "lang": "am",
+  "cond": "M2",
+  "meaning": 1,
+  "effect": 1
+ },
+ {
+  "item": "X9",
+  "lang": "am",
+  "cond": "M0",
+  "meaning": 2,
+  "effect": 2
+ },
+ {
+  "item": "X9",
+  "lang": "am",
+  "cond": "M1",
+  "meaning": 2,
+  "effect": 1
+ },
+ {
+  "item": "X9",
+  "lang": "om",
+  "cond": "M2",
+  "meaning": 1,
+  "effect": 1
+ },
+ {
+  "item": "X9",
+  "lang": "om",
+  "cond": "M1",
+  "meaning": 2,
+  "effect": 1
+ },
+ {
+  "item": "X9",
+  "lang": "om",
+  "cond": "M0",
+  "meaning": 1,
+  "effect": 1
+ },
+ {
+  "item": "X9",
+  "lang": "sw",
+  "cond": "M2",
+  "meaning": 1,
+  "effect": 1
+ },
+ {
+  "item": "X9",
+  "lang": "sw",
+  "cond": "M1",
+  "meaning": 2,
+  "effect": 1
+ },
+ {
+  "item": "X9",
+  "lang": "sw",
+  "cond": "M0",
+  "meaning": 3,
+  "effect": 3
+ },
+ {
+  "item": "X10",
+  "lang": "es",
+  "cond": "MTes",
+  "meaning": 2,
+  "effect": 1
+ },
+ {
+  "item": "X10",
+  "lang": "es",
+  "cond": "S0",
+  "meaning": 3,
+  "effect": 3
+ },
+ {
+  "item": "X10",
+  "lang": "es",
+  "cond": "S2",
+  "meaning": 3,
+  "effect": 3
+ },
+ {
+  "item": "X10",
+  "lang": "am",
+  "cond": "M0",
+  "meaning": 3,
+  "effect": 2
+ },
+ {
+  "item": "X10",
+  "lang": "am",
+  "cond": "M1",
+  "meaning": 3,
+  "effect": 2
+ },
+ {
+  "item": "X10",
+  "lang": "am",
+  "cond": "M2",
+  "meaning": 2,
+  "effect": 2
+ },
+ {
+  "item": "X10",
+  "lang": "om",
+  "cond": "M0",
+  "meaning": 1,
+  "effect": 1
+ },
+ {
+  "item": "X10",
+  "lang": "om",
+  "cond": "M2",
+  "meaning": 2,
+  "effect": 2
+ },
+ {
+  "item": "X10",
+  "lang": "om",
+  "cond": "M1",
+  "meaning": 0,
+  "effect": 0
+ },
+ {
+  "item": "X10",
+  "lang": "sw",
+  "cond": "M1",
+  "meaning": 2,
+  "effect": 1
+ },
+ {
+  "item": "X10",
+  "lang": "sw",
+  "cond": "M0",
+  "meaning": 1,
+  "effect": 1
+ },
+ {
+  "item": "X10",
+  "lang": "sw",
+  "cond": "M2",
+  "meaning": 1,
+  "effect": 1
+ },
+ {
+  "item": "X11",
+  "lang": "es",
+  "cond": "MTes",
+  "meaning": 3,
+  "effect": 2
+ },
+ {
+  "item": "X11",
+  "lang": "es",
+  "cond": "S0",
+  "meaning": 3,
+  "effect": 3
+ },
+ {
+  "item": "X11",
+  "lang": "es",
+  "cond": "S2",
+  "meaning": 3,
+  "effect": 3
+ },
+ {
+  "item": "X11",
+  "lang": "am",
+  "cond": "M1",
+  "meaning": 2,
+  "effect": 1
+ },
+ {
+  "item": "X11",
+  "lang": "am",
+  "cond": "M0",
+  "meaning": 3,
+  "effect": 3
+ },
+ {
+  "item": "X11",
+  "lang": "am",
+  "cond": "M2",
+  "meaning": 3,
+  "effect": 3
+ },
+ {
+  "item": "X11",
+  "lang": "om",
+  "cond": "M1",
+  "meaning": 0,
+  "effect": 0
+ },
+ {
+  "item": "X11",
+  "lang": "om",
+  "cond": "M0",
+  "meaning": 3,
+  "effect": 3
+ },
+ {
+  "item": "X11",
+  "lang": "om",
+  "cond": "M2",
+  "meaning": 0,
+  "effect": 0
+ },
+ {
+  "item": "X11",
+  "lang": "sw",
+  "cond": "M1",
+  "meaning": 3,
+  "effect": 2
+ },
+ {
+  "item": "X11",
+  "lang": "sw",
+  "cond": "M2",
+  "meaning": 3,
+  "effect": 3
+ },
+ {
+  "item": "X11",
+  "lang": "sw",
+  "cond": "M0",
+  "meaning": 3,
+  "effect": 3
+ },
+ {
+  "item": "X12",
+  "lang": "es",
+  "cond": "S0",
+  "meaning": 3,
+  "effect": 3
+ },
+ {
+  "item": "X12",
+  "lang": "es",
+  "cond": "MTes",
+  "meaning": 3,
+  "effect": 2
+ },
+ {
+  "item": "X12",
+  "lang": "es",
+  "cond": "S2",
+  "meaning": 3,
+  "effect": 3
+ },
+ {
+  "item": "X12",
+  "lang": "am",
+  "cond": "M0",
+  "meaning": 3,
+  "effect": 3
+ },
+ {
+  "item": "X12",
+  "lang": "am",
+  "cond": "M1",
+  "meaning": 3,
+  "effect": 3
+ },
+ {
+  "item": "X12",
+  "lang": "am",
+  "cond": "M2",
+  "meaning": 3,
+  "effect": 3
+ },
+ {
+  "item": "X12",
+  "lang": "om",
+  "cond": "M0",
+  "meaning": 1,
+  "effect": 0
+ },
+ {
+  "item": "X12",
+  "lang": "om",
+  "cond": "M1",
+  "meaning": 1,
+  "effect": 0
+ },
+ {
+  "item": "X12",
+  "lang": "om",
+  "cond": "M2",
+  "meaning": 1,
+  "effect": 0
+ },
+ {
+  "item": "X12",
+  "lang": "sw",
+  "cond": "M2",
+  "meaning": 3,
+  "effect": 3
+ },
+ {
+  "item": "X12",
+  "lang": "sw",
+  "cond": "M0",
+  "meaning": 1,
+  "effect": 0
+ },
+ {
+  "item": "X12",
+  "lang": "sw",
+  "cond": "M1",
+  "meaning": 3,
+  "effect": 3
+ },
+ {
+  "item": "X13",
+  "lang": "es",
+  "cond": "S0",
+  "meaning": 3,
+  "effect": 3
+ },
+ {
+  "item": "X13",
+  "lang": "es",
+  "cond": "S2",
+  "meaning": 3,
+  "effect": 3
+ },
+ {
+  "item": "X13",
+  "lang": "es",
+  "cond": "MTes",
+  "meaning": 3,
+  "effect": 3
+ },
+ {
+  "item": "X13",
+  "lang": "am",
+  "cond": "M2",
+  "meaning": 3,
+  "effect": 3
+ },
+ {
+  "item": "X13",
+  "lang": "am",
+  "cond": "M0",
+  "meaning": 3,
+  "effect": 3
+ },
+ {
+  "item": "X13",
+  "lang": "am",
+  "cond": "M1",
+  "meaning": 3,
+  "effect": 3
+ },
+ {
+  "item": "X13",
+  "lang": "om",
+  "cond": "M2",
+  "meaning": 3,
+  "effect": 2
+ },
+ {
+  "item": "X13",
+  "lang": "om",
+  "cond": "M0",
+  "meaning": 3,
+  "effect": 3
+ },
+ {
+  "item": "X13",
+  "lang": "om",
+  "cond": "M1",
+  "meaning": 1,
+  "effect": 0
+ },
+ {
+  "item": "X13",
+  "lang": "sw",
+  "cond": "M2",
+  "meaning": 3,
+  "effect": 3
+ },
+ {
+  "item": "X13",
+  "lang": "sw",
+  "cond": "M1",
+  "meaning": 3,
+  "effect": 3
+ },
+ {
+  "item": "X13",
+  "lang": "sw",
+  "cond": "M0",
+  "meaning": 3,
+  "effect": 3
+ },
+ {
+  "item": "X14",
+  "lang": "es",
+  "cond": "S0",
+  "meaning": 3,
+  "effect": 2
+ },
+ {
+  "item": "X14",
+  "lang": "es",
+  "cond": "S2",
+  "meaning": 3,
+  "effect": 2
+ },
+ {
+  "item": "X14",
+  "lang": "es",
+  "cond": "MTes",
+  "meaning": 3,
+  "effect": 2
+ },
+ {
+  "item": "X14",
+  "lang": "am",
+  "cond": "M2",
+  "meaning": 3,
+  "effect": 3
+ },
+ {
+  "item": "X14",
+  "lang": "am",
+  "cond": "M1",
+  "meaning": 2,
+  "effect": 1
+ },
+ {
+  "item": "X14",
+  "lang": "am",
+  "cond": "M0",
+  "meaning": 3,
+  "effect": 2
+ },
+ {
+  "item": "X14",
+  "lang": "om",
+  "cond": "M2",
+  "meaning": 1,
+  "effect": 0
+ },
+ {
+  "item": "X14",
+  "lang": "om",
+  "cond": "M0",
+  "meaning": 1,
+  "effect": 0
+ },
+ {
+  "item": "X14",
+  "lang": "om",
+  "cond": "M1",
+  "meaning": 2,
+  "effect": 1
+ },
+ {
+  "item": "X14",
+  "lang": "sw",
+  "cond": "M0",
+  "meaning": 1,
+  "effect": 0
+ },
+ {
+  "item": "X14",
+  "lang": "sw",
+  "cond": "M2",
+  "meaning": 2,
+  "effect": 2
+ },
+ {
+  "item": "X14",
+  "lang": "sw",
+  "cond": "M1",
+  "meaning": 2,
+  "effect": 1
+ }
+]

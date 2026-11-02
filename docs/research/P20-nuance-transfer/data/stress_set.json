@@ -1,0 +1,274 @@
+{
+ "X1": {
+  "speaker": "Chandler",
+  "text": "But, the silver lining, if you wanna see it, is that he made the decision all by himself! Without any outside help whatsoever.",
+  "context": [
+   "Rachel: So uh, what did you find out?",
+   "Chandler: He said... that they're having a great time. I'm sorry."
+  ],
+  "gold": [
+   "idiom:silver lining",
+   "L",
+   1,
+   "a fake consolation: 'the good side' is that he dumped her on his own",
+   "sarcastic consolation",
+   [
+    "X2"
+   ]
+  ],
+  "S0": "Pero lo bueno, si quieres verlo, es que tomó la decisión él solito. Sin ninguna ayuda externa.",
+  "S2": "Pero hay que verle el lado bueno, si quieres: tomó la decisión él solito. Sin que nadie le ayudara.",
+  "M1": "But there is one good thing, if you want to see it: he made the decision by himself, without anybody's help.",
+  "M2": "But there is a good side, if you want to see it: he made the decision all by himself! Nobody helped him at all."
+ },
+ "X2": {
+  "speaker": "Rachel",
+  "text": "How is that the silver lining?",
+  "context": [],
+  "gold": [
+   "idiom:metalinguistic callback",
+   "L",
+   1,
+   "questions the idiom itself",
+   "she rejects his 'good side'",
+   [
+    "X1"
+   ]
+  ],
+  "S0": "¿Cómo va a ser eso el lado positivo?",
+  "S2": "¿Y qué lado bueno tiene eso?",
+  "M1": "How is that a good thing?",
+  "M2": "How is that a good side?"
+ },
+ "X3": {
+  "speaker": "Phoebe",
+  "text": "Yeah, y'know what, there are other fish in the sea.",
+  "context": [
+   "Ross: She's really terrific.",
+   "Phoebe: Ohh, that's too bad!",
+   "Ross: No, I-I'm saying I liked her."
+  ],
+  "gold": [
+   "proverb:consolation (misapplied)",
+   "L",
+   1,
+   "consolation proverb for a break-up, used after good news because she misheard",
+   "Phoebe consoles him for something that didn't happen",
+   []
+  ],
+  "S0": "Sí, ¿sabes qué? Hay más peces en el mar.",
+  "S2": "Ya, ¿sabes qué? Hay más peces en el mar.",
+  "M1": "Well, you know, you will find other women.",
+  "M2": "Well, you know what, there are many other women in the world for you."
+ },
+ "X4": {
+  "speaker": "Chandler",
+  "text": "Well, like father, like son.",
+  "context": [
+   "Rachel: Chandler!! You have the best taste in men!"
+  ],
+  "gold": [
+   "proverb:twist",
+   "C",
+   1,
+   "Chandler's father is a gay drag performer; 'taste in men' + proverb",
+   "self-deprecating joke about his father",
+   []
+  ],
+  "S0": "Bueno, de tal palo, tal astilla.",
+  "S2": "Bueno, de tal palo, tal astilla.",
+  "M1": "Well, I am like my father.",
+  "M2": "Well, my father also has great taste in men. Like father, like son."
+ },
+ "X5": {
+  "speaker": "Chandler",
+  "text": "See? Every cloud has a...supple leather lining.",
+  "context": [
+   "Monica: Honey, we don't really have to go to this thing tonight do we?",
+   "Chandler: ...but you can wear your new boots."
+  ],
+  "gold": [
+   "proverb:twist",
+   "L",
+   1,
+   "'every cloud has a silver lining' bent into 'supple leather lining' (her boots)",
+   "the boots are the consolation",
+   []
+  ],
+  "S0": "¿Ves? No hay mal que... por bien de cuero suave no venga.",
+  "S2": "¿Ves? No hay mal que por bien no venga... con botas de cuero.",
+  "M1": "You see? There is something good in this bad situation: your boots.",
+  "M2": "See? Every bad night has one good thing in it: soft leather boots."
+ },
+ "X6": {
+  "speaker": "Phoebe",
+  "text": "Yeah, but he did have to have a bunch of stitches and he said that only once in a blue moon does a dog's ear grow back so...still hoping.",
+  "context": [],
+  "gold": [
+   "idiom:once in a blue moon (=never)",
+   "L",
+   1,
+   "'once in a blue moon' = almost never; she clings to it as hope",
+   "her naive hope about something impossible",
+   []
+  ],
+  "S0": "Sí, pero le tuvieron que dar un montón de puntos y dijo que solo una vez en una luna azul le vuelve a crecer la oreja a un perro, así que... sigo esperando.",
+  "S2": "Sí, pero le pusieron un montón de puntos y dijo que a un perro la oreja le vuelve a crecer de Pascuas a Ramos, así que... crucemos los dedos.",
+  "M1": "But he needed many stitches, and the vet said a dog's ear almost never grows back. So I am still hoping.",
+  "M2": "But he needed many stitches, and the vet said a dog's ear grows back almost never, maybe one time in a hundred years. So... I am still hoping."
+ },
+ "X7": {
+  "speaker": "Director",
+  "text": "Joey, all the roles got to dance a little. But believe me with your dance background it'll be a piece of cake.",
+  "context": [
+   "Joey: My agent said it wasn't a dancing part."
+  ],
+  "gold": [
+   "idiom:piece of cake + dramatic irony",
+   "L",
+   1,
+   "easy; Joey lied about dancing",
+   "the audience knows it won't be easy",
+   []
+  ],
+  "S0": "Joey, todos los papeles tienen que bailar un poco. Pero créeme, con tu experiencia en baile será pan comido.",
+  "S2": "Joey, todos los papeles bailan un poco. Pero créeme, con tu experiencia en baile, será pan comido.",
+  "M1": "Joey, all the roles must dance a little. But with your dance experience it will be very easy.",
+  "M2": "Joey, all the roles must dance a little. But believe me, with your dance experience it will be very, very easy for you."
+ },
+ "X8": {
+  "speaker": "Monica",
+  "text": "Great. So the ball is in his court?",
+  "context": [
+   "Rachel: I said, 'No!' Which puts me right back in the driver seat."
+  ],
+  "gold": [
+   "idiom:ball in his court",
+   "L",
+   1,
+   "it's his move now",
+   "Monica mocks Rachel's game logic",
+   [
+    "X9"
+   ]
+  ],
+  "S0": "Genial. ¿Así que la pelota está en su tejado?",
+  "S2": "Genial. ¿Entonces ahora le toca mover ficha a él?",
+  "M1": "Great. So now he must decide what to do?",
+  "M2": "Great. So now it is his turn to play?"
+ },
+ "X9": {
+  "speaker": "Rachel",
+  "text": "Ball? There is no ball.",
+  "context": [],
+  "gold": [
+   "idiom:literalized callback",
+   "L",
+   1,
+   "Rachel takes the idiom literally to say the game is over",
+   "there is no move left for him",
+   [
+    "X8"
+   ]
+  ],
+  "S0": "¿Pelota? No hay pelota.",
+  "S2": "¿Ficha? No hay ficha.",
+  "M1": "He cannot decide anything.",
+  "M2": "Turn? There is no turn."
+ },
+ "X10": {
+  "speaker": "Rachel",
+  "text": "We were on a break!",
+  "context": [
+   "Ross: Look, I didn't think there was a relationship to jeopardise. I thought we were broken up."
+  ],
+  "gold": [
+   "catchphrase:break vs break-up",
+   "L",
+   1,
+   "'on a break' (pause) vs 'broken up'; the show's running fight",
+   "a pause is not a break-up (in Ross's later version)",
+   []
+  ],
+  "S0": "¡Estábamos dándonos un tiempo!",
+  "S2": "¡Nos estábamos dando un tiempo!",
+  "M1": "We were taking a pause!",
+  "M2": "We were only taking a break, a pause, not a break-up!"
+ },
+ "X11": {
+  "speaker": "Ross",
+  "text": "Oh yeah it will! Come on, up! Up-up-up! Up! Yes! Here we go! Pivot! Pivot! Piv-ot! Piv-et!! Piv-ett!!! Piv-et!",
+  "context": [
+   "Rachel: Ross, I just don't think it's going to fit."
+  ],
+  "gold": [
+   "catchphrase:physical+sound",
+   "U",
+   1,
+   "Ross yelling one word louder and odder while the couch is stuck",
+   "escalating absurd shouting",
+   []
+  ],
+  "S0": "¡Claro que sí! ¡Vamos, arriba! ¡Arriba! ¡Sí! ¡Allá vamos! ¡Gira! ¡Gira! ¡Gi-ra! ¡Gi-raaa!",
+  "S2": "¡Que sí, que cabe! ¡Arriba! ¡Arriba! ¡Eso es! ¡Gira! ¡Gira! ¡Gi-ra! ¡Gi-rá! ¡GI-RAAA!",
+  "M1": "Yes, it will! Lift it up! Up! Here we go! Turn! Turn! Turn!",
+  "M2": "Oh yes it will! Come on, up! Up-up-up! Yes! Here we go! Turn! Turn! Tuuurn! TURN!"
+ },
+ "X12": {
+  "speaker": "Ross",
+  "text": "Look, I studying kara-tay for a long time, and there's a concept you should really be familiar with. It's what the Japanese call unagi.",
+  "context": [],
+  "gold": [
+   "pun:misused foreign word",
+   "C",
+   1,
+   "Ross calls a 'state of awareness' unagi; unagi is eel (sushi)",
+   "Ross is pompous and wrong",
+   [
+    "X13"
+   ]
+  ],
+  "S0": "Mira, he estudiado kárate mucho tiempo, y hay un concepto que deberías conocer. Es lo que los japoneses llaman unagi.",
+  "S2": "Mira, llevo años estudiando kárate, y hay un concepto que deberías conocer. Es lo que los japoneses llaman unagi.",
+  "M1": "I studied karate for a long time. There is a concept you should know. The Japanese call it unagi.",
+  "M2": "Look, I studied karate for a long time, and there is a concept you must know. The Japanese call it 'unagi'."
+ },
+ "X13": {
+  "speaker": "Rachel",
+  "text": "Isn't that a kind of sushi?",
+  "context": [],
+  "gold": [
+   "pun:callback",
+   "C",
+   1,
+   "unagi really is eel sushi",
+   "deflates Ross",
+   [
+    "X12"
+   ]
+  ],
+  "S0": "¿Eso no es un tipo de sushi?",
+  "S2": "¿Eso no es un tipo de sushi?",
+  "M1": "Is that not a type of sushi?",
+  "M2": "Unagi? Is that not a fish that people eat in sushi?"
+ },
+ "X14": {
+  "speaker": "Phoebe",
+  "text": "Because she's your lobster.",
+  "context": [
+   "Ross: OK, now how do you know that?"
+  ],
+  "gold": [
+   "metaphor:running",
+   "C",
+   1,
+   "lobsters 'mate for life' (explained in the next line); becomes the show's word for soulmate",
+   "Rachel is his destined partner",
+   []
+  ],
+  "S0": "Porque es tu langosta.",
+  "S2": "Porque es tu langosta.",
+  "M1": "Because she is your true love.",
+  "M2": "Because she is your lobster. Lobsters stay together for all their life."
+ }
+}

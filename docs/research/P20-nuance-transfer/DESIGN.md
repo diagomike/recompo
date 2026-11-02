@@ -104,3 +104,24 @@ English handed to MT must be compositional and the effect must be visible in the
 | MT routes | replace the blanket "no idioms" with the MT column above |
 | voice | pass `prosody` cues to voices that take them (edge SSML emphasis). MMS and OmniVoice ignore them (documented) |
 | storylens (linger) | the P1 fact `kind: joke` gets the same card fields (`trigger, mechanism, deps, bound, function`). Lenses such as "all of Chandler's sarcasm" then come for free |
+
+## 5. Additions the experiments asked for
+
+| Finding (RESULTS.md) | Addition |
+|---|---|
+| Running jokes and catchphrases recur across episodes ("on a break", "lobster", "Pivot!", "Could it BE…") and must be rendered the same way every time | a **series glossary** (`dub_work` kind `glossary`, per source series and language): source phrase → chosen rendering + prosody cue. The nuance pass looks it up first; the first rendering becomes canonical |
+| Live-audience laugh tracks mark laugh points (Alnajjar et al. 2022, 7,422 in *Friends*) | **laugh detection on the source audio** (a small CNN laugh detector or VAD energy pattern after a line). It sets `laugh` without an LLM, flags lines the nuance pass missed, and weights the dub check |
+| Text-only sarcasm detection: F1 0.73 (MUStARD) | the nuance pass also reads **prosody cues** of the source line (pitch range, lengthening), when the audio is there, as a hint for `sarcasm`/`irony` |
+| MADLAD makes correct Oromo look like nonsense; NLLB-back is optimistic | `dub verify` picks the **back-translator per language** from a small table (MADLAD for am/sw; NLLB or Google for om), and shows two views when it can |
+| Universal jokes survive plain translation (96 % line-alone) | **budget the cards**: for `bound: U` items the card only needs `laugh`, `payoff_last` and `deps`. Full mechanism/strategy only for L/C/P items and chains (46 of 83 items here, 55 %) |
+| The map-driven writer lost 20 points vs line-alone in Spanish | the writer always sees the **source line** (strong routes) or the **function-preserving English** (MT routes) next to the units; units bound the meaning, they are not the text to translate |
+| Function-preserving English is ~12 % longer on average | the fit loop treats `laugh` items as core (never dropped) and shortens **around** them; compact options must keep `keep_words` |
+
+## 6. Where Claude's effort goes (cost)
+
+| Step | When | Size |
+|---|---|---|
+| Nuance cards | once per source line, in the `understand` batch | ~0.4 items per sitcom line; short for U items |
+| Glossary | once per running joke per language | tiny |
+| Substitution writing | only for L/C/P items and chains | ≤ 55 % of items (fewer need a real substitution) |
+| Effect check in `verify` | only for lines with cards that crossed MT | one line per card |

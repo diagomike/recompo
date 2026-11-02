@@ -2,7 +2,7 @@
 
 The build's working memory. If context runs short, resume from here.
 
-**Last updated:** 2026-11-01 (P19: the LLM dubber is in the app — `recomp dub …`, route settings per media, merged to main with all research; before that 2026-10-31 P19 research; 2026-10-21: M5 complete; P18 backlog run built: fast re-exports, viewer polish, cross-release
+**Last updated:** 2026-11-02 (P20 research: do jokes, idioms and nuance survive the dub? — `docs/research/P20-nuance-transfer/`, branch `claude/p20-nuance-transfer`, not built; before that 2026-11-01 P19: the LLM dubber is in the app — `recomp dub …`, route settings per media, merged to main with all research; before that 2026-10-31 P19 research; 2026-10-21: M5 complete; P18 backlog run built: fast re-exports, viewer polish, cross-release
 matching, gapless recipe player, dub fixes, face-cropped Shorts, semantic search, cloned-voice dubs)
 
 | | |
@@ -239,6 +239,18 @@ matching, gapless recipe player, dub fixes, face-cropped Shorts, semantic search
   speakers (OmniVoice); not their recordings") in credits.json, the description and the endcard. Dark Knight J1 fr:
   23 lines cloned in ~25 min; after shortening seg:126/183, 1 line over (0.99 s), round-trip WER 0.26 vs 0.04 for
   the studio voice (X41 vs X42). The viewer marks these exports "original voices (AI)" with their own matrix row.
+
+## P20 research: nuance transfer in dubbing (2026-11-02, branch `claude/p20-nuance-transfer`)
+- Question: do jokes, sarcasm, idioms, slang, proverbs, collocations survive `recomp dub`? Benchmark: 8 random *Friends*
+  scenes (214 lines, 83 gold items) + 14 stress items + MUStARD sarcasm; Spanish (strong) and Amharic/Swahili/Oromo
+  (NLLB-200 1.3B; MADLAD-400 back-translation), blind judging.
+- Findings: the meaning map flags 20 % of jokes and flattens 23 % of items; writing from the map kept 67 % of effects in
+  Spanish (line-alone 87 %). A nuance card per item (trigger, mechanism, function, deps, strategy) → 100 % (self-judged
+  ceiling). For MT routes, today's "no idioms" rule lowers jokes (am 25→23 %, sw 45→39 %); function-preserving
+  pre-editing raises them (am 57 %, sw 77 %, om 35 %). MADLAD om→en is unusable as a verifier.
+- Proposed (not built): nuance cards in `dub understand`, laugh points core, chains as one decision, route-specific
+  strategies replacing "no idioms", substitution-aware `select`/`verify`, series glossary, laugh-track detection,
+  per-language back-translator. See `docs/research/P20-nuance-transfer/README.md` and `DESIGN.md`.
 
 ## P19 LLM dubber in the app (2026-11-01, D-25)
 - `recomp dub settings | understand | write | fit | verify | status` (docs/VERBS.md; agent skill `recomp-dub`).

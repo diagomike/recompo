@@ -1,0 +1,624 @@
+{
+ "am:M0": {
+  "X1": {
+   "mt": "ይሁን እንጂ ከቤት ውጭ እርዳታ ሳያገኝ ብቻውን ውሳኔውን ማድረጉ ጥሩ ነው።",
+   "back": "However, it is better to make the decision on your own without help from outside."
+  },
+  "X10": {
+   "mt": "እረፍት ላይ ነበርን!",
+   "back": "We were on a break!"
+  },
+  "X11": {
+   "mt": "ኦህ አዎ ይሰራል! ኑ፣ ወደላይ! ወደላይ! ወደላይ! አዎ! እንሂድ! ፒቮት! ፒቮት! ፒቮት! ፒቮት! ፒቮት! ፒቮት! ፒቮት!",
+   "back": "Oh yeah, it works! Come on, up! Up! Up! Yeah! Let's go! Pivot! Pivot! Pivot! Pivot! Pivot! Pivot! Pivot!"
+  },
+  "X12": {
+   "mt": "ለረጅም ጊዜ ካራ-ታይን ተምሬያለሁ፣ እና በደንብ ልታውቀው የሚገባህ አንድ ጽንሰ ሀሳብ አለ፣ ጃፓኖች ኡናጊ ብለው ይጠሩታል።",
+   "back": "I've been studying Karate for a long time, and there's a concept you should know, the Japanese call it unagi."
+  },
+  "X13": {
+   "mt": "ያ ሱሺ አይመስልም?",
+   "back": "Isn't that sushi?"
+  },
+  "X14": {
+   "mt": "ምክንያቱም እርሷ የእርስዎ ሎብስተር ነች።",
+   "back": "Because she's your lobster."
+  },
+  "X2": {
+   "mt": "እንዴት ነው ይህ ብርጭቆ ሽፋን ነው?",
+   "back": "How is this glass cover?"
+  },
+  "X3": {
+   "mt": "አዎን፣ ሌላ ዓሣም በባህር ውስጥ አለ።",
+   "back": "Yes, there is another fish in the sea."
+  },
+  "X4": {
+   "mt": "እንደ አባት እንደ ልጅ።",
+   "back": "As a father as a son."
+  },
+  "X5": {
+   "mt": "እያንዳንዱ ደመና... ለስላሳ የቆዳ ሽፋን አለው።",
+   "back": "Each cloud... has a soft skin cover."
+  },
+  "X6": {
+   "mt": "አዎ፣ ነገር ግን የተወሰኑ ሽፍታዎችን ማድረግ ነበረበት እና በሰማያዊ ጨረቃ ውስጥ አንድ ጊዜ ብቻ ነው የውሻ ጆሮ መልሶ የሚያድገው ስለዚህ... አሁንም ተስፋ አደርጋለሁ።",
+   "back": "Yes, but he had to do some surgery and the dog's ear only grows back once in the sky moon so...I still hope."
+  },
+  "X7": {
+   "mt": "ጆይ፣ ሁሉም ሚናዎች ትንሽ ዳንስ ማድረግ አለባቸው።",
+   "back": "Joey, all roles have to do a little dance."
+  },
+  "X8": {
+   "mt": "ግሩም፣ ስለዚህ ኳሱ በእሱ ሜዳ ላይ ነው?",
+   "back": "Well, so the ball is on his field?"
+  },
+  "X9": {
+   "mt": "ኳስ የለም?",
+   "back": "No ball?"
+  }
+ },
+ "am:M1": {
+  "X1": {
+   "mt": "ነገር ግን ማየት ከፈለጉ አንድ ጥሩ ነገር አለ ውሳኔውን ያደረገው ማንም ሳይረዳው ነው።",
+   "back": "But if you want to see one good thing, the decision was made without anyone realizing it."
+  },
+  "X10": {
+   "mt": "እረፍት እያደረግን ነበር!",
+   "back": "We were taking a break!"
+  },
+  "X11": {
+   "mt": "አዎ ይነሳል! አነሳው! አነሳው! እንሂድ! ዞር! ዞር! ዞር!",
+   "back": "Turn, turn, turn!"
+  },
+  "X12": {
+   "mt": "ካራቴን ለረጅም ጊዜ ተምሬያለሁ። ማወቅ ያለብዎት አንድ ፅንሰ-ሀሳብ አለ። ጃፓኖች ኡናጊ ብለው ይጠሩታል።",
+   "back": "I've been learning karate for a long time. There's a concept you should know. The Japanese call it unagi."
+  },
+  "X13": {
+   "mt": "ይህ የሱሺ ዓይነት አይደለም?",
+   "back": "Isn't this a kind of sushi?"
+  },
+  "X14": {
+   "mt": "ምክንያቱም እሷ እውነተኛ ፍቅርሽ ናት።",
+   "back": "Because she is your true love."
+  },
+  "X2": {
+   "mt": "ይህ ጥሩ ነገር የሆነው እንዴት ነው?",
+   "back": "How can this be a good thing?"
+  },
+  "X3": {
+   "mt": "ሌሎች ሴቶችን ታገኛለህ።",
+   "back": "You'll find other women."
+  },
+  "X4": {
+   "mt": "እኔ እንደ አባቴ ነኝ።",
+   "back": "I am like my father."
+  },
+  "X5": {
+   "mt": "ታያለህ፣ በዚህ መጥፎ ሁኔታ ውስጥ አንድ ጥሩ ነገር አለ፤ ቦት ጫማህ ነው።",
+   "back": "You see, there is one good thing in this bad situation; your boots."
+  },
+  "X6": {
+   "mt": "ይሁን እንጂ ብዙ ጥፍሮች ያስፈልጉት ነበር፤ የእንስሳት ሐኪሙ ደግሞ የአንድ ውሻ ጆሮ በጭራሽ እንደማያድግ ተናግሯል። ስለዚህ አሁንም ተስፋ አደርጋለሁ።",
+   "back": "However, he needed a lot of hair; the vet said that a dog's ear never grows, so I'm still hoping."
+  },
+  "X7": {
+   "mt": "ጆይ፣ ሁሉም ሚናዎች ትንሽ ዳንስ አለባቸው።",
+   "back": "Joey, all roles need a little dance."
+  },
+  "X8": {
+   "mt": "በጣም ጥሩ አሁን ምን ማድረግ እንዳለበት መወሰን አለበት?",
+   "back": "Well, what do we have to decide now?"
+  },
+  "X9": {
+   "mt": "እሱ ምንም ነገር መወሰን አይችልም።",
+   "back": "He can't decide anything."
+  }
+ },
+ "am:M2": {
+  "X1": {
+   "mt": "ነገር ግን ማየት ከፈለጉ ጥሩ ጎኑ አለ፤ ውሳኔውን ያደረገው ሙሉ በሙሉ በራሱ ነው። ማንም አልረዳውም።",
+   "back": "But if you want to see the good side, he made the decision entirely on his own, no one helped him."
+  },
+  "X10": {
+   "mt": "እረፍት ብቻ ነበር ያደረግነው፣ እረፍት እንጂ መለያየት አይደለም!",
+   "back": "We just had a break, not a break but a break!"
+  },
+  "X11": {
+   "mt": "ኦህ አዎ ይሰራል! ኑ፣ ወደላይ! ወደላይ! አዎ! እንሂድ! ዞር! ዞር! ዞር! ዞር! ዞር! ዞር!",
+   "back": "Oh, yeah, it works! Come on, up! Up! Yeah! Let's go! Turn! Turn! Turn! Turn! Turn! Turn!"
+  },
+  "X12": {
+   "mt": "ለረጅም ጊዜ ካራቴ ተምሬያለሁ፤ ማወቅ ያለባችሁ ነገር አለ፤ ጃፓኖች 'ኡናጊ' ብለው ይጠሩታል።",
+   "back": "I've been learning karate for a long time; here's something you need to know; the Japanese call it 'unagi'."
+  },
+  "X13": {
+   "mt": "ኡናጊ፣ ሰዎች በሱሺ ውስጥ የሚበሉት ዓሣ አይደለምን?",
+   "back": "Unagi, isn't it the fish that people eat in sushi?"
+  },
+  "X14": {
+   "mt": "ምክንያቱም እሷ የእርስዎ ሎብስተር ናት ሎብስተሮች ዕድሜያቸውን በሙሉ አብረው ይቆያሉ።",
+   "back": "Because she's your lobster. Lobsters stay together for life."
+  },
+  "X2": {
+   "mt": "ይህ እንዴት ጥሩ ጎን ነው?",
+   "back": "How good is this side?"
+  },
+  "X3": {
+   "mt": "ታውቂያለሽ በዓለም ላይ ሌሎች ብዙ ሴቶች አሉልሽ።",
+   "back": "You know there are many other women in the world."
+  },
+  "X4": {
+   "mt": "አባቴም ለወንዶች ጥሩ ጣዕም አለው።",
+   "back": "My father also has a good taste for men."
+  },
+  "X5": {
+   "mt": "እያንዳንዱ መጥፎ ምሽት አንድ ጥሩ ነገር አለው: ለስላሳ የቆዳ ቦት ጫማዎች.",
+   "back": "Every bad night has one good thing: soft leather boots."
+  },
+  "X6": {
+   "mt": "ነገር ግን ብዙ ጠርሙሶች ያስፈልጉት ነበር፤ የእንስሳት ሐኪሙ ደግሞ የአንድ ውሻ ጆሮ በጭራሽ እንደማያድግ፣ ምናልባትም በ100 ዓመት ውስጥ አንድ ጊዜ ብቻ እንደሆነ ተናግሯል። ስለዚህ... አሁንም ተስፋ አደርጋለሁ።",
+   "back": "But he needed a lot of bottles; the vet said that a dog's ear never grows, maybe only once in 100 years, so...I'm still hoping."
+  },
+  "X7": {
+   "mt": "ጆይ፣ ሁሉም ሚናዎች ትንሽ ዳንስ ያስፈልጋቸዋል፣ ግን እመኑኝ፣ በዳንስ ልምዳችሁ ለእናንተ በጣም ቀላል ይሆናል።",
+   "back": "Joey, all roles need a little dance, but believe me, it will be very easy for you with your dance experience."
+  },
+  "X8": {
+   "mt": "ግሩም፣ አሁን የእሱ ተራ ነው?",
+   "back": "Great, is it his now?"
+  },
+  "X9": {
+   "mt": "ዞር ማለት ነው?",
+   "back": "Do you mean turn?"
+  }
+ },
+ "om:M0": {
+  "X1": {
+   "mt": "Haa taʼu malee, wanti gaariin inni godhe, gargaarsa alaatiin utuu hin taʼin, kophaa isaa akka taʼe beekamaa dha.",
+   "back": "However, it is clear that he did what was good on his own, not with the help of others.",
+   "back_madlad": "However, it is well known that in the best of cases, without the aid of tools, the door would have been opened."
+  },
+  "X10": {
+   "mt": "Yeroo boqonnaatti turre!",
+   "back": "We were on vacation!",
+   "back_madlad": "Time to turn hundreds!"
+  },
+  "X11": {
+   "mt": "Ooh haa ta'u! Karaan, ol! Ol! Ol! Eeyyee! Kunoo deemna! Pivot! Pivot! Piv-ot! Piv-et!! Piv-ett!!! Piv-et!",
+   "back": "Oh well! The way, up! Up! Up! Yes! Here we go! Pivot! Pivot! Piv-ot! Piv-et!! Piv-ett!!! Piv-et!",
+   "back_madlad": "Ooh haa ta'u! Karaan, ol! Ol! Ol! Eeyyee! Kunoo deemna! Pivot! Pivot! Piv-ot! Piv-et!! Piv-ett!!! Piv-et!"
+  },
+  "X12": {
+   "mt": "Mee yaadi, ani yeroo dheeraadhaaf kara-taayiin baradheera, akkasumas yaanni ati sirriitti beekuu qabdu tokko jira.",
+   "back": "I've been practicing karate for a long time, so there's one thing you should know.",
+   "back_madlad": "Look, I've been studying architecture for a long time, and there's one thing you need to understand very well."
+  },
+  "X13": {
+   "mt": "Kun akka suushiitti kan ilaalamu mitii?",
+   "back": "Wouldn't that be considered sushi?",
+   "back_madlad": "When you're in your mouth, why do you laugh?"
+  },
+  "X14": {
+   "mt": "Sababiin isaas, isheen kankee waan taateefidha.",
+   "back": "Because she is yours.",
+   "back_madlad": "Because of it, she'll be free."
+  },
+  "X2": {
+   "mt": "Kun faayidaa maalii qaba?",
+   "back": "What are the benefits?",
+   "back_madlad": "What good will it do to you?"
+  },
+  "X3": {
+   "mt": "Eeyyee, bishaan keessa qurxummii kan biraa ni jira.",
+   "back": "Yes, there are other fish in the sea.",
+   "back_madlad": "Yes, there is something else in the water."
+  },
+  "X4": {
+   "mt": "Eeyyee, akkuma abbaa, akkuma ilmaas.",
+   "back": "Yes, just as the father and the son.",
+   "back_madlad": "Yes, as a father, as a son."
+  },
+  "X5": {
+   "mt": "Dhugaadha, duumessi hundumtuu... gogaa laafaa qaba.",
+   "back": "Of course, every cloud has a... soft skin.",
+   "back_madlad": "Dugaadha, duumessi hundumtuu... gogaa laafaa qaba."
+  },
+  "X6": {
+   "mt": "Eeyyee, garuu mallattoo tokko tokko uumuun isa barbaachisee ture. Akkasumas, gurri sarootaa jiʼa tokko keessatti siʼa tokko qofa akka deebiʼu dubbateera. Kanaaf... ammayyuu abdii qaba.",
+   "back": "Yes, but he had to create some symptoms, and he said that the dog's ears only come back once a month, so . . . he still has hope.",
+   "back_madlad": "\"Yes, but it was too much for him to make a sign, and he said that he would only return once a month, so ... he was still hopeful.\""
+  },
+  "X7": {
+   "mt": "Jooy, gaʼeen hundi xiqqoo qooda fudhachuu qaba, taʼus beekumsa qooda fudhachuuf qabduun salphaa akka taʼu natti himi.",
+   "back": "Tell me, Joy, that every role involves a little bit, but with my knowledge, it will be easy.",
+   "back_madlad": "Instead, each party should make a small contribution, but with the knowledge needed to contribute, it would be better."
+  },
+  "X8": {
+   "mt": "Baayʼee gaariidha.",
+   "back": "It is very good.",
+   "back_madlad": "It's very good."
+  },
+  "X9": {
+   "mt": "Taphni hin jiru.",
+   "back": "There are no games.",
+   "back_madlad": "The action does not exist."
+  }
+ },
+ "om:M1": {
+  "X1": {
+   "mt": "Haa taʼu malee, wanti gaariin tokko jira, yoo ilaaluu barbaadde: murtoo kana kan godhe kophaa isaa, gargaarsa nama kamiinuu malee.",
+   "back": "However, if you want to look into it, there is one interesting fact: He made this decision on his own, without any help from others.",
+   "back_madlad": "However, there was a good chance that if he tried to play it, he would be shot in the head with no help from anyone."
+  },
+  "X10": {
+   "mt": "Yeroo muraasaaf callisnee turre!",
+   "back": "There was a moment of silence!",
+   "back_madlad": "Please wait a moment."
+  },
+  "X11": {
+   "mt": "Eeyyee ni ta'a! Ol fuudhaa! Ol fuudhaa! Akkana goona! Deebisaa! Deebisaa!",
+   "back": "Yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, this is it, this is it, this is it, this is it, this is it.",
+   "back_madlad": "Yea, yea, yea, yea, yea!"
+  },
+  "X12": {
+   "mt": "Yeroo dheeraadhaaf kaaraatee baradheera. Yaada tokko beekuu qabda. Jaappaanonni unagi jedhanii waamu.",
+   "back": "I have studied karate for a long time, and you need to know one thing.",
+   "back_madlad": "It takes a long time to learn a language, and it takes a long time to understand a concept."
+  },
+  "X13": {
+   "mt": "Kun sanyii suushii mitii?",
+   "back": "Isn't that a sushi seed?",
+   "back_madlad": "What's the heat?"
+  },
+  "X14": {
+   "mt": "Isheen jaalala dhugaa kee waan taateefidha.",
+   "back": "Because she is your true love.",
+   "back_madlad": "Our true love will always be with you."
+  },
+  "X2": {
+   "mt": "Kun akkamitti gaarii taʼuu dandaʼa?",
+   "back": "How can that be good?",
+   "back_madlad": "How can this be good?"
+  },
+  "X3": {
+   "mt": "Dubartoota kan biraa ni argatta.",
+   "back": "You find other women.",
+   "back_madlad": "There will be other females."
+  },
+  "X4": {
+   "mt": "Eeyyee, ani akkuma abbaa kooti.",
+   "back": "Yes, I am just like my father.",
+   "back_madlad": "Yes, I am like your father."
+  },
+  "X5": {
+   "mt": "Haala gaddisiisaa taʼe kana keessatti wanti gaarii taʼe jira.",
+   "back": "There is good in this sad situation.",
+   "back_madlad": "There have been good times in this contradiction."
+  },
+  "X6": {
+   "mt": "Haataʼu malee, harkasaa baayʼee hodhuu kan qabu siʼa taʼu, ogeessi fayyaa horii hundumtuu gurri isaa deebiʼee akka hin guddanne dubbateera.",
+   "back": "However, he had to undergo several surgeries, and the doctor said that his hearing would never grow back.",
+   "back_madlad": "However, she was so sore that the doctor told her she wouldn't be able to go home."
+  },
+  "X7": {
+   "mt": "Jooy, ga'een hundi xiqqoo qooda fudhachuu qaba.",
+   "back": "Joy, every part has to be a little bit involved.",
+   "back_madlad": "Therefore, each country must contribute a little."
+  },
+  "X8": {
+   "mt": "Kanaaf, amma maal gochuu akka qabu murteessuu qaba.",
+   "back": "Now he must decide what to do.",
+   "back_madlad": "Therefore, one must decide what to do now."
+  },
+  "X9": {
+   "mt": "Murtoo gochuu hin dandaʼu.",
+   "back": "He can't make a decision.",
+   "back_madlad": "It is impossible to argue."
+  }
+ },
+ "om:M2": {
+  "X1": {
+   "mt": "Haa taʼu malee, yoo ilaaluu barbaadde gama gaarii qaba: Murtoo kana kan godhe kophaa isaa ture!",
+   "back": "But if you want to look at it, there is a silver lining: He made that decision by himself!",
+   "back_madlad": "\"However, if he wanted to play, he had a good word for it: \"\"That word was his head!\"\""
+  },
+  "X10": {
+   "mt": "Yeroo boqonnaa qofa fudhannee turre, utuu hin taʼin addaan baane!",
+   "back": "We had just taken a vacation, not a break!",
+   "back_madlad": "It is only when we are in the middle of something that there is no separation!"
+  },
+  "X11": {
+   "mt": "Ooh haa ta'u! Karaan, ol! Ol! Eeyyee! Karaan! Karaan! Karaan!",
+   "back": "O woe! way, way, way, way, way, way, way!",
+   "back_madlad": "Ooh ha ta'u! Karaan, ol! Ol! Eeyyee! Karaan! Karaan! Karaan!"
+  },
+  "X12": {
+   "mt": "Mee ilaali, ani yeroo dheeraadhaaf kaaraatee baradheera, akkasumas yaada tokko beekuu qabda. Jaappaanonni 'unagi' jedhanii waamu.",
+   "back": "You see, I have studied karate for a long time, and you should know one thing.",
+   "back_madlad": "See, I've been studying for a long time, and I have to understand a concept: the Japanese say 'unagi'."
+  },
+  "X13": {
+   "mt": "Unagiin qurxummii namoonni suushiitti nyaatan mitii?",
+   "back": "Unagi is a type of fish commonly eaten in sushi.",
+   "back_madlad": "Did people eat the beautiful oats in their mouths?"
+  },
+  "X14": {
+   "mt": "Sababiin isaas, isheen bosonaa kee waan taateef, bosonni jireenya isaanii guutuu waliin jiraatu.",
+   "back": "Because she is your forest, the forests will live together all their lives.",
+   "back_madlad": "As a result, because she was not married, the twins lived together for the rest of their lives."
+  },
+  "X2": {
+   "mt": "Kun gama gaarii taʼuu kan dandaʼu akkamitti?",
+   "back": "How can this be a good thing?",
+   "back_madlad": "How can that be a good thing?"
+  },
+  "X3": {
+   "mt": "Eeyyee, dubartoonni addunyaa kana keessatti siif jiran hedduun akka jiran beektaa?",
+   "back": "Yes, did you know that there are many women in this world for you?",
+   "back_madlad": "Yes, did you know that there are more women than men in the world?"
+  },
+  "X4": {
+   "mt": "Abbaan koo dhiirota ilaalchisee miira gaarii qaba.",
+   "back": "My father has good feelings for men.",
+   "back_madlad": "My father had a better opinion of men."
+  },
+  "X5": {
+   "mt": "Halkan gadheen hundi wanta gaarii tokko qaba: kophee gogaa laafaa.",
+   "back": "Every bad night has a silver lining: soft leather shoes.",
+   "back_madlad": "Each of them has one of the following qualities: a rounded head."
+  },
+  "X6": {
+   "mt": "Haa taʼu malee, ulfaaʼiinsi baayʼeen isa barbaachisee ture, doktoorichis gurri sarootaa yeroo baayʼee hin guddatu, tarii waggaa dhibba tokko keessatti al tokko qofa akka guddatu dubbateera.",
+   "back": "However, she had to have multiple pregnancies, and the doctor said that a dog's ears rarely grow back, perhaps only once a century.",
+   "back_madlad": "However, the complexity of the project was overestimated, and the doctor predicted that the number of houses would grow slowly, with a rate of only one per thousand years."
+  },
+  "X7": {
+   "mt": "Jooy, ga'een hundumtuu xiqqoo qooda fudhachuu qaba.",
+   "back": "Joy, you have to do a little bit of everything.",
+   "back_madlad": "Yes, there must be a smaller participation."
+  },
+  "X8": {
+   "mt": "Kanaaf amma taphachuu kan qabu isaatii?",
+   "back": "So why should he play now?",
+   "back_madlad": "So what do we need to do?"
+  },
+  "X9": {
+   "mt": "Gara fuulduraatti deebiʼuu hin dandeenyu.",
+   "back": "There is no turning back.",
+   "back_madlad": "We can't go backwards."
+  }
+ },
+ "sw:M0": {
+  "X1": {
+   "mt": "Lakini, upande mzuri, kama unataka kuiona, ni kwamba alichukua uamuzi huo peke yake bila msaada wowote wa nje.",
+   "back": "But, the bright side, if you want to see it, is that he made that decision alone without any outside help."
+  },
+  "X10": {
+   "mt": "Tulikuwa katika mapumziko!",
+   "back": "We were on holiday!"
+  },
+  "X11": {
+   "mt": "Oh yeah it will! Come on, up! Up-up-up! Up! Yes! Here we go! Pivot! Pivot! Piv-ot! Piv-et!! Piv-ett!!! Piv-et!",
+   "back": "Come on, up! Up-up-up! Up! Yes! Here we go! Pivot! Pivot! Piv-ot! Piv-et!! Piv-ett!!!"
+  },
+  "X12": {
+   "mt": "Angalia, mimi kujifunza kara-tay kwa muda mrefu, na kuna dhana unapaswa kweli kuwa ukoo na.",
+   "back": "Look, I’ve been learning kara-tay for a long time, and there are concepts you should really be familiar with."
+  },
+  "X13": {
+   "mt": "Je, hiyo si aina ya sushi?",
+   "back": "Isn’t that kind of sushi?"
+  },
+  "X14": {
+   "mt": "Kwa sababu yeye ni humster yako.",
+   "back": "Because he’s your humster."
+  },
+  "X2": {
+   "mt": "Kwa nini hilo ni jambo zuri?",
+   "back": "Why is that a good thing?"
+  },
+  "X3": {
+   "mt": "Ndiyo, unajua nini, kuna samaki wengine katika bahari.",
+   "back": "Yes, you know what, there are other fish in the sea."
+  },
+  "X4": {
+   "mt": "Naam, kama baba, kama mwana.",
+   "back": "Yes, as a father, as a son."
+  },
+  "X5": {
+   "mt": "Unaona, kila wingu lina...kifuniko cha ngozi.",
+   "back": "You see, every cloud has a...skin cover."
+  },
+  "X6": {
+   "mt": "Ndiyo, lakini alikuwa na kuwa na mfululizo wa mshono na alisema kwamba mara moja tu katika mwezi bluu masikio ya mbwa kukua tena hivyo ... bado matumaini.",
+   "back": "Yes, but he had to have a series of stitches and said that only once in a month the blue dog's ears grow again so... still hope."
+  },
+  "X7": {
+   "mt": "Joey, majukumu yote yanahitaji kucheza kidogo, lakini niamini, kwa kuwa una uzoefu wa kucheza, itakuwa rahisi.",
+   "back": "Joey, all roles need a little play, but I believe, as you have experience playing, it will be easy."
+  },
+  "X8": {
+   "mt": "Hivyo mpira ni katika uwanja wake?",
+   "back": "So the ball is in his court?"
+  },
+  "X9": {
+   "mt": "Hakuna mpira.",
+   "back": "No ball."
+  }
+ },
+ "sw:M1": {
+  "X1": {
+   "mt": "Lakini kuna jambo moja zuri, kama unataka kuona ni: yeye alifanya uamuzi mwenyewe, bila msaada wa mtu yeyote.",
+   "back": "But there is one nice thing, if you want to see it is: he made the decision himself, without the help of anyone."
+  },
+  "X10": {
+   "mt": "Tulikuwa tukipumzika!",
+   "back": "We were resting!"
+  },
+  "X11": {
+   "mt": "Ndiyo, itakuwa! kuinua! juu! hapa sisi kwenda! turn! turn! turn!",
+   "back": "Yes, it will! raise! up! here we go! turn! turn! turn!"
+  },
+  "X12": {
+   "mt": "Nilijifunza karate kwa muda mrefu. kuna dhana unapaswa kujua. Wajapani wanaiita unagi.",
+   "back": "I learned karate for a long time. There is a concept you should know. The Japanese call it unagi."
+  },
+  "X13": {
+   "mt": "Je, hiyo si aina fulani ya sushi?",
+   "back": "Isn’t that a certain kind of sushi?"
+  },
+  "X14": {
+   "mt": "Kwa sababu yeye ndiye upendo wako wa kweli.",
+   "back": "Because he is your true love."
+  },
+  "X2": {
+   "mt": "Kwa nini hilo ni jambo zuri?",
+   "back": "Why is that a good thing?"
+  },
+  "X3": {
+   "mt": "Naam, unajua, utapata wanawake wengine.",
+   "back": "Well, you know, you'll find other women."
+  },
+  "X4": {
+   "mt": "Naam, mimi ni kama baba yangu.",
+   "back": "Yes, I am like my father."
+  },
+  "X5": {
+   "mt": "Unaona, kuna jambo zuri katika hali hii mbaya: viatu vyako.",
+   "back": "You see, there is a good thing in this bad situation: your shoes."
+  },
+  "X6": {
+   "mt": "Lakini alihitaji kushonwa mara nyingi, na daktari alisema sikio la mbwa halikui tena.",
+   "back": "But he had to be sutured several times, and the doctor said the dog's ear was no longer sutured."
+  },
+  "X7": {
+   "mt": "Joey, majukumu yote yanahitaji kucheza kidogo lakini kwa uzoefu wako wa kucheza itakuwa rahisi sana.",
+   "back": "Joey, all roles need a little play but with your playing experience it will be very easy."
+  },
+  "X8": {
+   "mt": "Hivyo sasa yeye lazima kuamua nini cha kufanya?",
+   "back": "So now he must decide what to do?"
+  },
+  "X9": {
+   "mt": "Hawezi kuamua lolote.",
+   "back": "He can't decide anything."
+  }
+ },
+ "sw:M2": {
+  "X1": {
+   "mt": "Lakini kuna upande mzuri, kama unataka kuona ni: yeye alifanya uamuzi mwenyewe! hakuna mtu alimsaidia wakati wote.",
+   "back": "But there is a good side, if you want to see it is: he made the decision himself! no one helped him at all."
+  },
+  "X10": {
+   "mt": "Tulikuwa tukipumzika tu, lakini hatukuvunjika moyo!",
+   "back": "We were just relaxing, but we were not discouraged!"
+  },
+  "X11": {
+   "mt": "Oh ndiyo itakuwa! Haya, juu! juu-up-up! Ndiyo! Hapa sisi kwenda! Geuka! Geuka! Tuuurn! Geuka!",
+   "back": "Oh yeah it will! Come on, up! up-up-up! Yeah! Here we go! Turn! Turn! Tuuurn! Turn!"
+  },
+  "X12": {
+   "mt": "Angalia, nimejifunza karate kwa muda mrefu, na kuna dhana ambayo lazima ujue. Wajapani huiita 'unagi'.",
+   "back": "Look, I've been learning karate for a long time, and there's a concept you need to know. The Japanese call it 'unagi'."
+  },
+  "X13": {
+   "mt": "Unagi? Je, si samaki kwamba watu kula katika sushi?",
+   "back": "Isn’t it the fish that people eat in sushi?"
+  },
+  "X14": {
+   "mt": "Kwa sababu yeye ni humster yako. humsters kukaa pamoja kwa maisha yao yote.",
+   "back": "Because he’s your humster. Humsters stay together for their entire lives."
+  },
+  "X2": {
+   "mt": "Kwa nini hilo ni jambo zuri?",
+   "back": "Why is that a good thing?"
+  },
+  "X3": {
+   "mt": "Naam, unajua nini, kuna wanawake wengine wengi katika dunia kwa ajili yenu.",
+   "back": "Well, you know what, there are many other women in the world for you."
+  },
+  "X4": {
+   "mt": "Baba yangu pia ana ladha nzuri ya wanaume.",
+   "back": "My father also has a good taste for men."
+  },
+  "X5": {
+   "mt": "Kila usiku mbaya una kitu kimoja kizuri ndani yake: buti laini za ngozi.",
+   "back": "Every bad night has one good thing in it: soft leather boots."
+  },
+  "X6": {
+   "mt": "Lakini alihitaji kushonwa mara nyingi, na daktari alisema sikio la mbwa halikui tena, labda mara moja katika miaka mia moja.",
+   "back": "But he needed to be sutured many times, and the doctor said the dog's ear would not be sutured again, perhaps once in a hundred years."
+  },
+  "X7": {
+   "mt": "Joey, majukumu yote lazima kucheza kidogo lakini kuniamini, na uzoefu wako wa ngoma itakuwa rahisi sana kwa ajili yenu.",
+   "back": "Joey, all the roles have to play a little but believe me, and your dance experience will be very easy for you."
+  },
+  "X8": {
+   "mt": "Hivyo sasa ni zamu yake ya kucheza?",
+   "back": "So now is it his turn to play?"
+  },
+  "X9": {
+   "mt": "Hakuna kugeuka.",
+   "back": "No turning."
+  }
+ },
+ "es:M0": {
+  "X1": {
+   "mt": "Pero el lado positivo, si quieres verlo, es que tomó la decisión por sí mismo, sin ninguna ayuda externa.",
+   "back": ""
+  },
+  "X10": {
+   "mt": "¡Estábamos en un descanso!",
+   "back": ""
+  },
+  "X11": {
+   "mt": "Oh sí lo hará! Vamos, arriba! arriba! arriba! sí! aquí vamos! pivote! pivote! pivote! pivote! pivote! pivote! pivote! pivote! pivote!",
+   "back": ""
+  },
+  "X12": {
+   "mt": "Mira, he estudiado kara-tay durante mucho tiempo, y hay un concepto que deberías estar familiarizado con lo que los japoneses llaman unagi.",
+   "back": ""
+  },
+  "X13": {
+   "mt": "¿No es una especie de sushi?",
+   "back": ""
+  },
+  "X14": {
+   "mt": "Porque ella es tu langosta.",
+   "back": ""
+  },
+  "X2": {
+   "mt": "¿Cómo es eso el revestimiento de luz?",
+   "back": ""
+  },
+  "X3": {
+   "mt": "Sí, ya sabes, hay otros peces en el mar.",
+   "back": ""
+  },
+  "X4": {
+   "mt": "Bueno, como padre, como hijo.",
+   "back": ""
+  },
+  "X5": {
+   "mt": "Cada nube tiene un... suave revestimiento de cuero.",
+   "back": ""
+  },
+  "X6": {
+   "mt": "Sí, pero tuvo que tener un montón de puntos y dijo que sólo una vez en una luna azul la oreja de un perro vuelve a crecer así que... todavía espero.",
+   "back": ""
+  },
+  "X7": {
+   "mt": "Joey, todos los papeles tienen que bailar un poco, pero créeme, con tu experiencia de baile, será fácil.",
+   "back": ""
+  },
+  "X8": {
+   "mt": "Genial. ¿Así que la pelota está en su cancha?",
+   "back": ""
+  },
+  "X9": {
+   "mt": "No hay pelota.",
+   "back": ""
+  }
+ }
+}

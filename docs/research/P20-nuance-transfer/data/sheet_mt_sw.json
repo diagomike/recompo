@@ -1,0 +1,2250 @@
+[
+ {
+  "id": "S1E16c15-L3",
+  "context": [
+   "Chandler: Well, I ended up telling her everything.",
+   "Rachel: Oh, howd she take it?"
+  ],
+  "source": "Chandler: Pretty well. Except for the stapler thing. Little tip: if youre ever in a similar situation, never ever leave your hand... ..on the desk.",
+  "trigger": "never ever leave your hand... ..on the desk",
+  "function": "listener infers the stapler injury; payoff word last after a pause",
+  "deps_source": {},
+  "candidates": {
+   "A": {
+    "line": "He took it pretty well. Except for the stapler case. Here’s the advice: if you’re ever in such a situation, never leave your hand on the desk.",
+    "deps": {}
+   },
+   "B": {
+    "line": "Very nice. except for the stapler. little advice: if you are at any time in that situation, never, never leave your hand... on the desk.",
+    "deps": {}
+   },
+   "C": {
+    "line": "Very nice. except for the stapler thing. Small tip: if you are at any time in such a situation, never ever leave your hand… ..on the desk.",
+    "deps": {}
+   }
+  }
+ },
+ {
+  "id": "S1E16c15-L11",
+  "context": [
+   "Phoebe: Yeah. Its just, you know, its this whole stupid Ursula thing, its...",
+   "Rachel: Okay, Pheebs, can I ask? So, hes going out with her. I mean, is it really so terrible?"
+  ],
+  "source": "Phoebe: Um, yeah. Look, I mean, Im not saying shes like evil or anything. She just, you know, shes always breaking my stuff. When I was eight, and I wouldnt let her have my Judy Jetson thermos, so she threw it under the bus. And then, oh, and then there was Randy Brown, who was like... Have you ever had a boyfriend who was like your best friend?",
+  "trigger": "she threw it under the bus",
+  "function": "literal event (petty cruelty) must stay true; idiom echo is bonus",
+  "deps_source": {},
+  "candidates": {
+   "A": {
+    "line": "um, yeah. and then, oh, and then there was Randy Brown, who was like... have you ever had a boyfriend who was like your best friend?",
+    "deps": {}
+   },
+   "B": {
+    "line": "I’m not saying he’s bad. He just always ruins my things. When I was eight years old, I didn’t want to give him my cartoon thermos, so he threw it under the bus. Real bus. And then there was Randy Brown. Have you ever had a boyfriend who was your best friend?",
+    "deps": {}
+   },
+   "C": {
+    "line": "I’m not saying that he’s bad. But he always ruins my stuff. When I was eight years old, I didn’t want his to have my cartoon thermos, so he threw it under the bus. And then there was Randy Brown. Have you ever had a boyfriend who was also your best friend?",
+    "deps": {}
+   }
+  }
+ },
+ {
+  "id": "S1E16c15-L11b",
+  "context": [
+   "Phoebe: Yeah. Its just, you know, its this whole stupid Ursula thing, its...",
+   "Rachel: Okay, Pheebs, can I ask? So, hes going out with her. I mean, is it really so terrible?"
+  ],
+  "source": "Phoebe: Um, yeah. Look, I mean, Im not saying shes like evil or anything. She just, you know, shes always breaking my stuff. When I was eight, and I wouldnt let her have my Judy Jetson thermos, so she threw it under the bus. And then, oh, and then there was Randy Brown, who was like... Have you ever had a boyfriend who was like your best friend?",
+  "trigger": "Judy Jetson thermos",
+  "function": "a beloved childhood object",
+  "deps_source": {},
+  "candidates": {
+   "A": {
+    "line": "I’m not saying he’s bad. He just always ruins my things. When I was eight years old, I didn’t want to give him my cartoon thermos, so he threw it under the bus. Real bus. And then there was Randy Brown. Have you ever had a boyfriend who was your best friend?",
+    "deps": {}
+   },
+   "B": {
+    "line": "um, yeah. and then, oh, and then there was Randy Brown, who was like... have you ever had a boyfriend who was like your best friend?",
+    "deps": {}
+   },
+   "C": {
+    "line": "I’m not saying that he’s bad. But he always ruins my stuff. When I was eight years old, I didn’t want his to have my cartoon thermos, so he threw it under the bus. And then there was Randy Brown. Have you ever had a boyfriend who was also your best friend?",
+    "deps": {}
+   }
+  }
+ },
+ {
+  "id": "S1E16c15-L15",
+  "context": [
+   "Phoebe: Well, but thats what he was for me. And she you know, kind of stole him away, and then... broke his heart... and then he wouldnt even talk to me any more. Because he said he didnt wanna be around... anything that looked like either one of us.",
+   "Rachel: Oh... Oh, Pheebs."
+  ],
+  "source": "Phoebe: I mean, I know Joey is not my boyfriend, or my thermos, or anything, but...",
+  "trigger": "Joey is not my boyfriend, or my thermos",
+  "function": "same word 'thermos' as L11 so the callback lands",
+  "deps_source": {
+   "S1E16c15-L11": "Phoebe: Um, yeah. Look, I mean, Im not saying shes like evil or anything. She just, you know, shes always breaking my stuff. When I was eight, and I wouldnt let her have my Judy Jetson thermos, so she threw it under the bus. And then, oh, and then there was Randy Brown, who was like... Have you ever had a boyfriend who was like your best friend?"
+  },
+  "candidates": {
+   "A": {
+    "line": "I mean, I know Joey is not my boyfriend, or my thermos, or anything, but...",
+    "deps": {
+     "S1E16c15-L11": "um, yeah. and then, oh, and then there was Randy Brown, who was like... have you ever had a boyfriend who was like your best friend?"
+    }
+   },
+   "B": {
+    "line": "I know that Joey is not my boyfriend, but...",
+    "deps": {
+     "S1E16c15-L11": "I’m not saying that he’s bad. But he always ruins my stuff. When I was eight years old, I didn’t want his to have my cartoon thermos, so he threw it under the bus. And then there was Randy Brown. Have you ever had a boyfriend who was also your best friend?"
+    }
+   },
+   "C": {
+    "line": "I know Joey is not my boyfriend, or my thermos, or anything, but...",
+    "deps": {
+     "S1E16c15-L11": "I’m not saying he’s bad. He just always ruins my things. When I was eight years old, I didn’t want to give him my cartoon thermos, so he threw it under the bus. Real bus. And then there was Randy Brown. Have you ever had a boyfriend who was your best friend?"
+    }
+   }
+  }
+ },
+ {
+  "id": "S1E16c15-L13",
+  "context": [
+   "Phoebe: Um, yeah. Look, I mean, Im not saying shes like evil or anything. She just, you know, shes always breaking my stuff. When I was eight, and I wouldnt let her have my Judy Jetson thermos, so she threw it under the bus. And then, oh, and then there was Randy Brown, who was like... Have you ever had a boyfriend who was like your best friend?",
+   "Monica: No."
+  ],
+  "source": "Phoebe: Well, but thats what he was for me. And she you know, kind of stole him away, and then... broke his heart... and then he wouldnt even talk to me any more. Because he said he didnt wanna be around... anything that looked like either one of us.",
+  "trigger": "anything that looked like either one of us",
+  "function": "knowledge that they are twins (series context)",
+  "deps_source": {},
+  "candidates": {
+   "A": {
+    "line": "But that's how he was to me and he, you know, took her away, and then... he broke his heart... and then he didn't even want to talk to me again because he said he didn't want to be around... with anything that looked like us.",
+    "deps": {}
+   },
+   "B": {
+    "line": "That’s what it was for me and he stole it, broke his heart, and then he stopped talking and I said he didn’t want to be around anything that looks like any of us.",
+    "deps": {}
+   },
+   "C": {
+    "line": "Then he stopped talking to me because he didn't want to be close to anyone like us.",
+    "deps": {}
+   }
+  }
+ },
+ {
+  "id": "S1E16c15-L21",
+  "context": [
+   "Ross: No, come on, he doesnt know this stuff. If he knew how you felt.",
+   "Phoebe: But hes falling in love with her."
+  ],
+  "source": "Rachel: Oh please, theyve been going out a week. They havent even slept together yet, I mean, thats not serious.",
+  "trigger": "slept together",
+  "function": "conventional euphemism",
+  "deps_source": {},
+  "candidates": {
+   "A": {
+    "line": "Oh please, they've been meeting for a week and haven't slept together yet, so it's not a big deal.",
+    "deps": {}
+   },
+   "B": {
+    "line": "They have been dating for a week and still haven't had sex.",
+    "deps": {}
+   },
+   "C": {
+    "line": "Oh please, they’ve been meeting for a week and haven’t slept together yet.",
+    "deps": {}
+   }
+  }
+ },
+ {
+  "id": "S1E16c15-L25",
+  "context": [
+   "Phoebe: Oh, okay, oh.",
+   "Ursula: Oh."
+  ],
+  "source": "Ursula: Yeah, um, may we help you?",
+  "trigger": "Yeah, um, may we help you?",
+  "function": "icy over-formality toward her twin",
+  "deps_source": {},
+  "candidates": {
+   "A": {
+    "line": "Yes. Hello. Can we help you, ma'am?",
+    "deps": {}
+   },
+   "B": {
+    "line": "Yeah, um, can we help you?",
+    "deps": {}
+   },
+   "C": {
+    "line": "Can we help you?",
+    "deps": {}
+   }
+  }
+ },
+ {
+  "id": "S1E22c5-L4",
+  "context": [
+   "Ross: Oh, oh. Oh, oh. Oh this is it. Oh my god it's baby time. Baby time.",
+   "Joey: All right, relax, relax. Just relax, just relax. Be cool, be cool."
+  ],
+  "source": "Ross: Yeah, hi, I was just beeped. No, Andr is not here. Third time today. Yes, I'm sure... No, sir. I don't perform those kind of services.",
+  "trigger": "I don't perform those kind of services",
+  "function": "polite refusal that hides a sexual meaning",
+  "deps_source": {},
+  "candidates": {
+   "A": {
+    "line": "Yes, hello, someone piped me. no, Andre is not here. third time today. no, sir. I do not sell sex.",
+    "deps": {}
+   },
+   "B": {
+    "line": "Yes, hi, I was just beeped. no, Andr is not here. third time today. yes, I'm sure... no, sir. I don't do that kind of service.",
+    "deps": {}
+   },
+   "C": {
+    "line": "Mr. Chairman, I have received a telephone message.",
+    "deps": {}
+   }
+  }
+ },
+ {
+  "id": "S1E22c5-L5",
+  "context": [
+   "Joey: All right, relax, relax. Just relax, just relax. Be cool, be cool.",
+   "Ross: Yeah, hi, I was just beeped. No, Andr is not here. Third time today. Yes, I'm sure... No, sir. I don't perform those kind of services."
+  ],
+  "source": "Joey: Services? Oh, services.",
+  "trigger": "Services? Oh, services.",
+  "function": "the same word must carry both senses",
+  "deps_source": {
+   "S1E22c5-L4": "Ross: Yeah, hi, I was just beeped. No, Andr is not here. Third time today. Yes, I'm sure... No, sir. I don't perform those kind of services."
+  },
+  "candidates": {
+   "A": {
+    "line": "Huduma?",
+    "deps": {
+     "S1E22c5-L4": "Yes, hi, I was just beeped. no, Andr is not here. third time today. yes, I'm sure... no, sir. I don't do that kind of service."
+    }
+   },
+   "B": {
+    "line": "Sex?",
+    "deps": {
+     "S1E22c5-L4": "Yes, hello, someone piped me. no, Andre is not here. third time today. no, sir. I do not sell sex."
+    }
+   },
+   "C": {
+    "line": "Service? Oh, I understand.",
+    "deps": {
+     "S1E22c5-L4": "Mr. Chairman, I have received a telephone message."
+    }
+   }
+  }
+ },
+ {
+  "id": "S1E22c5-L6",
+  "context": [
+   "Ross: Yeah, hi, I was just beeped. No, Andr is not here. Third time today. Yes, I'm sure... No, sir. I don't perform those kind of services.",
+   "Joey: Services? Oh, services."
+  ],
+  "source": "Ross: Yeah, you want 55-JUMBO. Yeah, that's right. That's right, JUMBO with a U, sir. No, belive me, you don't want me. Judging by his number, I'd be a huge disappointment. All rightie, bye bye.",
+  "trigger": "55-JUMBO... with a U",
+  "function": "the number advertises 'big'",
+  "deps_source": {},
+  "candidates": {
+   "A": {
+    "line": "Yes, you want a 55-BOB. Yes, that’s right. That’s right, BOB and U, sir. No, believe me, you don’t want me.",
+    "deps": {}
+   },
+   "B": {
+    "line": "You want someone in the 55-BIG. Big, as big as possible. Believe me, you don’t want me. Compared to his number, I like to be very despairing. Bye bye.",
+    "deps": {}
+   },
+   "C": {
+    "line": "You want the number 55-BIG. Believe me, you don’t want me. Given its number, you would be very despairing of me. Goodbye.",
+    "deps": {}
+   }
+  }
+ },
+ {
+  "id": "S1E22c5-L6b",
+  "context": [
+   "Ross: Yeah, hi, I was just beeped. No, Andr is not here. Third time today. Yes, I'm sure... No, sir. I don't perform those kind of services.",
+   "Joey: Services? Oh, services."
+  ],
+  "source": "Ross: Yeah, you want 55-JUMBO. Yeah, that's right. That's right, JUMBO with a U, sir. No, belive me, you don't want me. Judging by his number, I'd be a huge disappointment. All rightie, bye bye.",
+  "trigger": "Judging by his number, I'd be a huge disappointment",
+  "function": "Ross implies he is smaller than 'JUMBO'",
+  "deps_source": {},
+  "candidates": {
+   "A": {
+    "line": "You want the number 55-BIG. Believe me, you don’t want me. Given its number, you would be very despairing of me. Goodbye.",
+    "deps": {}
+   },
+   "B": {
+    "line": "Yes, you want a 55-BOB. Yes, that’s right. That’s right, BOB and U, sir. No, believe me, you don’t want me.",
+    "deps": {}
+   },
+   "C": {
+    "line": "You want someone in the 55-BIG. Big, as big as possible. Believe me, you don’t want me. Compared to his number, I like to be very despairing. Bye bye.",
+    "deps": {}
+   }
+  }
+ },
+ {
+  "id": "S1E22c5-L9",
+  "context": [
+   "Joey: Hey, hey. How was the first day?",
+   "Phoebe: Oh, exellent. Everyone was so, so nice."
+  ],
+  "source": "Chandler: See, it pays to know the man who wears my shoes. Me.",
+  "trigger": "it pays to know the man who wears my shoes. Me.",
+  "function": "boastful set-up, deflating 'Me.' last",
+  "deps_source": {},
+  "candidates": {
+   "A": {
+    "line": "Look, it’s good to know someone who wears my shoes.",
+    "deps": {}
+   },
+   "B": {
+    "line": "You see, it's important to know me.",
+    "deps": {}
+   },
+   "C": {
+    "line": "You see, it's good to know someone who wears my shoes.",
+    "deps": {}
+   }
+  }
+ },
+ {
+  "id": "S1E22c5-L16",
+  "context": [
+   "Phoebe: I thought you knew that.",
+   "Chandler: Noho. Who doesn't they like me?"
+  ],
+  "source": "Phoebe: Everyone. Except for uh... no everyone.",
+  "trigger": "Everyone. Except for uh... no everyone.",
+  "function": "pause then reversal; 'everyone' last",
+  "deps_source": {},
+  "candidates": {
+   "A": {
+    "line": "Everyone, except... no, everyone.",
+    "deps": {}
+   },
+   "B": {
+    "line": "Everyone, except... no.",
+    "deps": {}
+   },
+   "C": {
+    "line": "Everyone. Except uh … not everyone.",
+    "deps": {}
+   }
+  }
+ },
+ {
+  "id": "S1E22c5-L18",
+  "context": [
+   "Phoebe: Everyone. Except for uh... no everyone.",
+   "Chandler: What are you talking about?"
+  ],
+  "source": "Phoebe: Don't feel bad. You know they used to like you a lot. But then you got promoted, and, you know, now you're like \"Mr. Boss Man\". You know, Mr. Bing. Mr. Bing, \"Boss Man Bing\".",
+  "trigger": "Mr. Boss Man... Boss Man Bing",
+  "function": "a silly, catchy mocking title",
+  "deps_source": {},
+  "candidates": {
+   "A": {
+    "line": "Don't feel bad, they liked you before, but you were promoted, and now they call you Mr. Boss Man, Boss Man Bing.",
+    "deps": {}
+   },
+   "B": {
+    "line": "Don’t feel bad. you know they used you too much. but then you got promoted, and, you know, now you’re like “Mr. Boss Man”. you know, Mr. Bing. Mr. Bing, “Boss Man Bing”.",
+    "deps": {}
+   },
+   "C": {
+    "line": "Don’t feel bad. they used to like you a lot. but then you became the boss, and now you’re Mister Big Boss. Mister Bing. Big Boss Bing.",
+    "deps": {}
+   }
+  }
+ },
+ {
+  "id": "S1E22c5-L20",
+  "context": [
+   "Phoebe: Don't feel bad. You know they used to like you a lot. But then you got promoted, and, you know, now you're like \"Mr. Boss Man\". You know, Mr. Bing. Mr. Bing, \"Boss Man Bing\".",
+   "Chandler: I can't belive it."
+  ],
+  "source": "Phoebe: Yeah, yeah. They even do you.",
+  "trigger": "They even do you.",
+  "function": "they imitate you",
+  "deps_source": {},
+  "candidates": {
+   "A": {
+    "line": "Yes, even they mimic your voice.",
+    "deps": {}
+   },
+   "B": {
+    "line": "Even they will kill you.",
+    "deps": {}
+   },
+   "C": {
+    "line": "Yes, yes, they even do you.",
+    "deps": {}
+   }
+  }
+ },
+ {
+  "id": "S1E22c5-L22",
+  "context": [
+   "Phoebe: Yeah, yeah. They even do you.",
+   "Chandler: They do me?"
+  ],
+  "source": "Phoebe: You know like... uh okay... uh... 'Could that report be any later?'",
+  "trigger": "Could that report BE any later?",
+  "function": "recognizable sarcastic cadence of Chandler",
+  "deps_source": {},
+  "candidates": {
+   "A": {
+    "line": "Such as: 'Can the report be released later?'",
+    "deps": {}
+   },
+   "B": {
+    "line": "Like this: ‘Can the report be delayed any longer?’",
+    "deps": {}
+   },
+   "C": {
+    "line": "You know like... uh okay... uh... 'Can that report be later?'",
+    "deps": {}
+   }
+  }
+ },
+ {
+  "id": "S1E22c5-L26",
+  "context": [
+   "Ross: Oh, oh Chandler...",
+   "Joey: Oh... Yeah, you do."
+  ],
+  "source": "Ross: 'The hills were alive with the sound of music.'",
+  "trigger": "The hills were alive with the sound of music",
+  "function": "famous song line + the mocked cadence",
+  "deps_source": {
+   "S1E22c5-L22": "Phoebe: You know like... uh okay... uh... 'Could that report be any later?'"
+  },
+  "candidates": {
+   "A": {
+    "line": "'Can the mountains have more music?'",
+    "deps": {
+     "S1E22c5-L22": "Like this: ‘Can the report be delayed any longer?’"
+    }
+   },
+   "B": {
+    "line": "'The mountains were filled with the sound of music.'",
+    "deps": {
+     "S1E22c5-L22": "You know like... uh okay... uh... 'Can that report be later?'"
+    }
+   },
+   "C": {
+    "line": "'The mountains were filled with the sound of music.'",
+    "deps": {
+     "S1E22c5-L22": "Such as: 'Can the report be released later?'"
+    }
+   }
+  }
+ },
+ {
+  "id": "S1E22c5-L29",
+  "context": [
+   "Joey: My scones.",
+   "Joey: 'My scones.'"
+  ],
+  "source": "Chandler: Okay, I don't sound like that. That is so not true.",
+  "trigger": "That is so not true.",
+  "function": "he sounds like the impression while denying it",
+  "deps_source": {
+   "S1E22c5-L22": "Phoebe: You know like... uh okay... uh... 'Could that report be any later?'"
+  },
+  "candidates": {
+   "A": {
+    "line": "Okay, I don’t sound like that.",
+    "deps": {
+     "S1E22c5-L22": "You know like... uh okay... uh... 'Can that report be later?'"
+    }
+   },
+   "B": {
+    "line": "Okay, I don’t sound like that.",
+    "deps": {
+     "S1E22c5-L22": "Like this: ‘Can the report be delayed any longer?’"
+    }
+   },
+   "C": {
+    "line": "I don’t sound like that. That’s not true.",
+    "deps": {
+     "S1E22c5-L22": "Such as: 'Can the report be released later?'"
+    }
+   }
+  }
+ },
+ {
+  "id": "S1E22c5-L30",
+  "context": [
+   "Joey: 'My scones.'",
+   "Chandler: Okay, I don't sound like that. That is so not true."
+  ],
+  "source": "Chandler: That is so not... That is so not... That... Oh, shut up!",
+  "trigger": "That is so not... That is so not...",
+  "function": "repetition with the same mocked stress",
+  "deps_source": {
+   "S1E22c5-L29": "Chandler: Okay, I don't sound like that. That is so not true."
+  },
+  "candidates": {
+   "A": {
+    "line": "That's not... that's not... that's... oh, quiet!",
+    "deps": {
+     "S1E22c5-L29": "Okay, I don’t sound like that."
+    }
+   },
+   "B": {
+    "line": "That's not... oh, be quiet!",
+    "deps": {
+     "S1E22c5-L29": "I don’t sound like that. That’s not true."
+    }
+   },
+   "C": {
+    "line": "That's not so... that's not so... oh, quiet!",
+    "deps": {
+     "S1E22c5-L29": "Okay, I don’t sound like that."
+    }
+   }
+  }
+ },
+ {
+  "id": "S2E2c2-L2",
+  "context": [
+   "Julie: Rachel, do you have any muffins left?"
+  ],
+  "source": "Rachel: Yeah, I forget which ones.",
+  "trigger": "Yeah, I forget which ones.",
+  "function": "deliberately unhelpful tone",
+  "deps_source": {},
+  "candidates": {
+   "A": {
+    "line": "Yes, I don't remember which.",
+    "deps": {}
+   },
+   "B": {
+    "line": "Yes, I forgot which ones.",
+    "deps": {}
+   },
+   "C": {
+    "line": "Yes, I don't know what it is, and I won't look for it.",
+    "deps": {}
+   }
+  }
+ },
+ {
+  "id": "S2E2c2-L6",
+  "context": [
+   "#ALL#: No thanks.",
+   "Julie: Oh, you're losin' your apron here, let me get it. There you go."
+  ],
+  "source": "Rachel: Thank you. What a bitch.",
+  "trigger": "Thank you. What a bitch.",
+  "function": "sweet surface, insult aside",
+  "deps_source": {},
+  "candidates": {
+   "A": {
+    "line": "Thank you. She's an awesome woman.",
+    "deps": {}
+   },
+   "B": {
+    "line": "Thank you. what a bitch.",
+    "deps": {}
+   },
+   "C": {
+    "line": "Thank you. what a wizard.",
+    "deps": {}
+   }
+  }
+ },
+ {
+  "id": "S2E2c2-L7",
+  "context": [
+   "Julie: Oh, you're losin' your apron here, let me get it. There you go.",
+   "Rachel: Thank you. What a bitch."
+  ],
+  "source": "Julie: Oh, listen you guys. I have this friend at Bloomingdale's who's quitting tomorrow and he wants to abuse his discount. So, anyone want to come with me and take advantage of it?",
+  "trigger": "wants to abuse his discount... take advantage of it",
+  "function": "exploit his discount",
+  "deps_source": {},
+  "candidates": {
+   "A": {
+    "line": "oh,listen people. I have this friend at Bloomingdale who is leaving tomorrow and wants to abuse his discount. so, anyone wants to come with me and take advantage of it?",
+    "deps": {}
+   },
+   "B": {
+    "line": "My friend at Bloomingdale’s is leaving tomorrow and wants to use her employee discount.",
+    "deps": {}
+   },
+   "C": {
+    "line": "Listen. My friend at Bloomingdale’s is leaving tomorrow and he wants to use his employees discount as much as possible.",
+    "deps": {}
+   }
+  }
+ },
+ {
+  "id": "S2E2c2-L8",
+  "context": [
+   "Rachel: Thank you. What a bitch.",
+   "Julie: Oh, listen you guys. I have this friend at Bloomingdale's who's quitting tomorrow and he wants to abuse his discount. So, anyone want to come with me and take advantage of it?"
+  ],
+  "source": "Phoebe: I can't, I have to take my grandmother to the vet.",
+  "trigger": "I have to take my grandmother to the vet",
+  "function": "obviously fake excuse",
+  "deps_source": {},
+  "candidates": {
+   "A": {
+    "line": "I can't, I have to send my grandmother to the vet.",
+    "deps": {}
+   },
+   "B": {
+    "line": "I can't. I have to send my grandmother to the vet.",
+    "deps": {}
+   },
+   "C": {
+    "line": "I can't, I have to send my grandmother to the doctor.",
+    "deps": {}
+   }
+  }
+ },
+ {
+  "id": "S2E2c2-L12",
+  "context": [
+   "Julie: Great.",
+   "Ross: Hi, honey."
+  ],
+  "source": "Chandler: Hey, sweetums.",
+  "trigger": "Hey, sweetums.",
+  "function": "silly pet name, mocking Ross's 'honey'",
+  "deps_source": {
+   "S2E2c2-L11": "Ross: Hi, honey."
+  },
+  "candidates": {
+   "A": {
+    "line": "Hey, sweets.",
+    "deps": {}
+   },
+   "B": {
+    "line": "Hello, dear.",
+    "deps": {}
+   },
+   "C": {
+    "line": "Hello, my little sugar cake.",
+    "deps": {}
+   }
+  }
+ },
+ {
+  "id": "S2E2c2-L17",
+  "context": [
+   "Joey: Monica what're you doin'? You can't go shopping with her? What about Rachel?",
+   "Monica: It's gonna be a problem, isn't it?"
+  ],
+  "source": "Chandler: Come on, you're going to Bloomingdale's with Julie? That's like cheating on Rachel in her house of worship.",
+  "trigger": "cheating on Rachel in her house of worship",
+  "function": "the store is sacred to Rachel; it's a betrayal",
+  "deps_source": {},
+  "candidates": {
+   "A": {
+    "line": "You go shopping with Julie at Bloomingdale’s? That’s like betraying Rachel in her church.",
+    "deps": {}
+   },
+   "B": {
+    "line": "Hey, you going to Bloomingdale with Julie? That’s like cheating Rachel in her house of worship.",
+    "deps": {}
+   },
+   "C": {
+    "line": "Are you going shopping with Julie at Bloomingdale's? That store is like Rachel's church. That's like deceiving Rachel into her church.",
+    "deps": {}
+   }
+  }
+ },
+ {
+  "id": "S2E2c2-L19",
+  "context": [
+   "Chandler: Come on, you're going to Bloomingdale's with Julie? That's like cheating on Rachel in her house of worship.",
+   "Monica: But I'm..."
+  ],
+  "source": "Phoebe: Monica, she will kill you. She will kill you like a dog in the street.",
+  "trigger": "She will kill you like a dog in the street.",
+  "function": "she'll destroy you, violently (DOG image)",
+  "deps_source": {},
+  "candidates": {
+   "A": {
+    "line": "Monica, he'll kill you, he'll kill you like a dog on the street.",
+    "deps": {}
+   },
+   "B": {
+    "line": "Monica, he'll kill you, he'll kill you like a dog on the street.",
+    "deps": {}
+   },
+   "C": {
+    "line": "Monica, he'll kill you, he'll be mad at you.",
+    "deps": {}
+   }
+  }
+ },
+ {
+  "id": "S2E2c2-L24",
+  "context": [
+   "Ross: It's a big deal to me. This is great, Monica. I really appreciate this.",
+   "Monica: You're welcome."
+  ],
+  "source": "Phoebe: Woof, woof.",
+  "trigger": "Woof, woof.",
+  "function": "needs the dog image of L19",
+  "deps_source": {
+   "S2E2c2-L19": "Phoebe: Monica, she will kill you. She will kill you like a dog in the street."
+  },
+  "candidates": {
+   "A": {
+    "line": "Woof, woof.",
+    "deps": {
+     "S2E2c2-L19": "Monica, he'll kill you, he'll be mad at you."
+    }
+   },
+   "B": {
+    "line": "Woof, woof.",
+    "deps": {
+     "S2E2c2-L19": "Monica, he'll kill you, he'll kill you like a dog on the street."
+    }
+   },
+   "C": {
+    "line": "Woof, woof.",
+    "deps": {
+     "S2E2c2-L19": "Monica, he'll kill you, he'll kill you like a dog on the street."
+    }
+   }
+  }
+ },
+ {
+  "id": "S2E2c2-L22",
+  "context": [
+   "Ross: So, uh, Jules tells me you guys are going shopping tomorrow?",
+   "Monica: Yeah, uh, it's actually not that big a deal."
+  ],
+  "source": "Ross: It's a big deal to me. This is great, Monica. I really appreciate this.",
+  "trigger": "It's a big deal to me.",
+  "function": "same phrase reused against her",
+  "deps_source": {
+   "S2E2c2-L21": "Monica: Yeah, uh, it's actually not that big a deal."
+  },
+  "candidates": {
+   "A": {
+    "line": "This is great, Monica. I really understand this.",
+    "deps": {}
+   },
+   "B": {
+    "line": "This is great, Monica. I really understand this.",
+    "deps": {}
+   },
+   "C": {
+    "line": "It's important to me. I really appreciate that.",
+    "deps": {}
+   }
+  }
+ },
+ {
+  "id": "S2E21c5-L3",
+  "context": [
+   "Chandler: Hey.",
+   "Ross: What?"
+  ],
+  "source": "Chandler: Do you have to be a Century 21 real-estate agent to get to wear those really cool jackets?",
+  "trigger": "a Century 21 real-estate agent... really cool jackets",
+  "function": "his jacket looks like a tacky company uniform",
+  "deps_source": {},
+  "candidates": {
+   "A": {
+    "line": "Do you have to be a 21st-century real estate agent to wear those beautiful coats?",
+    "deps": {}
+   },
+   "B": {
+    "line": "Do you have to be a real estate agent to wear these jackets?",
+    "deps": {}
+   },
+   "C": {
+    "line": "Do you have to sell your house to wear those shiny coats?",
+    "deps": {}
+   }
+  }
+ },
+ {
+  "id": "S2E21c5-L5",
+  "context": [
+   "Chandler: Do you have to be a Century 21 real-estate agent to get to wear those really cool jackets?",
+   "Ross: Do you say this stuff to girls?"
+  ],
+  "source": "Big: Hehehehey, isn't that the guy who used to wear your hat?",
+  "trigger": "the guy who used to wear your hat",
+  "function": "mocking Ross's hat",
+  "deps_source": {},
+  "candidates": {
+   "A": {
+    "line": "Isn’t that the person who wore your hat?",
+    "deps": {}
+   },
+   "B": {
+    "line": "Hey, isn’t that the guy who used to wear your hat?",
+    "deps": {}
+   },
+   "C": {
+    "line": "Hehehehey, isn’t that guy who used to wear your hat?",
+    "deps": {}
+   }
+  }
+ },
+ {
+  "id": "S2E21c5-L11",
+  "context": [
+   "Little: Yeah.",
+   "Big: This couch belongs to us."
+  ],
+  "source": "Chandler: Alright, I'll tell you what, you call the couch and then, and then we'll call the couch, and we'll see who it comes to.",
+  "trigger": "you call the couch, and we'll call the couch, and we'll see who it comes to",
+  "function": "a childish 'let the pet choose' contest",
+  "deps_source": {},
+  "candidates": {
+   "A": {
+    "line": "Okay. you call the sofa a dog, then we call the sofa a dog, and we see who comes up.",
+    "deps": {}
+   },
+   "B": {
+    "line": "You call on the sofa, we call on the sofa, and we'll see which group goes.",
+    "deps": {}
+   },
+   "C": {
+    "line": "Okay, I’ll tell you what, you call the bed and then, and then we call the bed, and we see who comes.",
+    "deps": {}
+   }
+  }
+ },
+ {
+  "id": "S2E21c5-L19",
+  "context": [
+   "Gunther: There you go.",
+   "Ross: Thank you Gunther. We didn't want to have to go and do that."
+  ],
+  "source": "Little: He told on us?",
+  "trigger": "He told on us?",
+  "function": "bullies sound like kids",
+  "deps_source": {
+   "S2E21c5-L13": "Ross: Alright, that's it. I've had enough of this, alright. Gunther, these guys are trying to take our seat."
+  },
+  "candidates": {
+   "A": {
+    "line": "He gave up on us, as a young child?",
+    "deps": {}
+   },
+   "B": {
+    "line": "He gave over us?",
+    "deps": {}
+   },
+   "C": {
+    "line": "Did he tell you?",
+    "deps": {}
+   }
+  }
+ },
+ {
+  "id": "S2E21c5-L22",
+  "context": [
+   "Big: You told on us?",
+   "Ross: Well pal, you didn't give me much of a choice."
+  ],
+  "source": "Chandler: Don't play with his things.",
+  "trigger": "Don't play with his things.",
+  "function": "childish framing of the fight",
+  "deps_source": {},
+  "candidates": {
+   "A": {
+    "line": "Do not play with his things.",
+    "deps": {}
+   },
+   "B": {
+    "line": "Do not play with his playthings.",
+    "deps": {}
+   },
+   "C": {
+    "line": "Do not play with his things.",
+    "deps": {}
+   }
+  }
+ },
+ {
+  "id": "S2E21c5-L24",
+  "context": [
+   "Chandler: Don't play with his things.",
+   "Ross: I know."
+  ],
+  "source": "Big: Alright, let's take this outside.",
+  "trigger": "let's take this outside",
+  "function": "a stock tough-guy line",
+  "deps_source": {},
+  "candidates": {
+   "A": {
+    "line": "Okay, let’s take this out.",
+    "deps": {}
+   },
+   "B": {
+    "line": "Let's go out and fight.",
+    "deps": {}
+   },
+   "C": {
+    "line": "Okay, let's go out.",
+    "deps": {}
+   }
+  }
+ },
+ {
+  "id": "S2E21c5-L25",
+  "context": [
+   "Ross: I know.",
+   "Big: Alright, let's take this outside."
+  ],
+  "source": "Ross: Let's, let's take this outside? Who talks like that?",
+  "trigger": "Let's take this outside? Who talks like that?",
+  "function": "needs a recognizably clichéd target phrase in L24",
+  "deps_source": {
+   "S2E21c5-L24": "Big: Alright, let's take this outside."
+  },
+  "candidates": {
+   "A": {
+    "line": "Go out and fight?",
+    "deps": {
+     "S2E21c5-L24": "Let's go out and fight."
+    }
+   },
+   "B": {
+    "line": "'Let's go out'?",
+    "deps": {
+     "S2E21c5-L24": "Okay, let's go out."
+    }
+   },
+   "C": {
+    "line": "Come on, let's take this out?",
+    "deps": {
+     "S2E21c5-L24": "Okay, let’s take this out."
+    }
+   }
+  }
+ },
+ {
+  "id": "S2E21c5-L26",
+  "context": [
+   "Big: Alright, let's take this outside.",
+   "Ross: Let's, let's take this outside? Who talks like that?"
+  ],
+  "source": "Big: The guy that's about to kick your ass talks like that.",
+  "trigger": "The guy that's about to kick your ass talks like that.",
+  "function": "threat that answers the question",
+  "deps_source": {
+   "S2E21c5-L25": "Ross: Let's, let's take this outside? Who talks like that?"
+  },
+  "candidates": {
+   "A": {
+    "line": "The guy who’s about to kick your ass speaks so.",
+    "deps": {
+     "S2E21c5-L25": "Come on, let's take this out?"
+    }
+   },
+   "B": {
+    "line": "Someone who is close to you speaks like that.",
+    "deps": {
+     "S2E21c5-L25": "'Let's go out'?"
+    }
+   },
+   "C": {
+    "line": "Someone who is close to you speaks like that.",
+    "deps": {
+     "S2E21c5-L25": "Go out and fight?"
+    }
+   }
+  }
+ },
+ {
+  "id": "S2E21c5-L27",
+  "context": [
+   "Ross: Let's, let's take this outside? Who talks like that?",
+   "Big: The guy that's about to kick your ass talks like that."
+  ],
+  "source": "Chandler: You had to ask.",
+  "trigger": "You had to ask.",
+  "function": "Ross invited the threat",
+  "deps_source": {},
+  "candidates": {
+   "A": {
+    "line": "You had to ask.",
+    "deps": {}
+   },
+   "B": {
+    "line": "You had to ask.",
+    "deps": {}
+   },
+   "C": {
+    "line": "You asked.",
+    "deps": {}
+   }
+  }
+ },
+ {
+  "id": "S2E21c5-L30",
+  "context": [
+   "Ross: Yeah.",
+   "Ross: Ok, ok look, see, the thing is we're, we're not gonna fight you guys."
+  ],
+  "source": "Little: Well then here's the deal, you won't have to so long as never ever show your faces in this coffee house ever again.",
+  "trigger": "never ever show your faces",
+  "function": "ban",
+  "deps_source": {},
+  "candidates": {
+   "A": {
+    "line": "So then here is the plan, you won’t need for a long time as you will never ever show your faces in this coffee house again.",
+    "deps": {}
+   },
+   "B": {
+    "line": "Then you do not have to fight, as you will never return to this coffee house again.",
+    "deps": {}
+   },
+   "C": {
+    "line": "Then you do not have to fight, as you will never come to this coffee again.",
+    "deps": {}
+   }
+  }
+ },
+ {
+  "id": "S2E21c5-L31",
+  "context": [
+   "Ross: Ok, ok look, see, the thing is we're, we're not gonna fight you guys.",
+   "Little: Well then here's the deal, you won't have to so long as never ever show your faces in this coffee house ever again."
+  ],
+  "source": "Chandler: I think you played the Gunther card too soon.",
+  "trigger": "you played the Gunther card too soon",
+  "function": "used their only weapon too early",
+  "deps_source": {},
+  "candidates": {
+   "A": {
+    "line": "I think you played Gunther's card too early.",
+    "deps": {}
+   },
+   "B": {
+    "line": "I think you used your secret weapon, Gunther, too soon.",
+    "deps": {}
+   },
+   "C": {
+    "line": "I think you asked Gunther for help too early.",
+    "deps": {}
+   }
+  }
+ },
+ {
+  "id": "S2E24c4-L2",
+  "context": [
+   "Monica: Where's Benny? There he is! Where's Benny, there he is."
+  ],
+  "source": "Richard: Awww! You know that's probably why babies learn to talk, so they can tell grown ups to cut it out.",
+  "trigger": "so they can tell grown ups to cut it out",
+  "function": "stop doing that",
+  "deps_source": {},
+  "candidates": {
+   "A": {
+    "line": "Perhaps this is why children learn to speak, so that they can tell adults to stop.",
+    "deps": {}
+   },
+   "B": {
+    "line": "Perhaps this is why children learn to speak so that they can tell adults to stop.",
+    "deps": {}
+   },
+   "C": {
+    "line": "Perhaps that's why children learn to speak, so they can tell adults to stop.",
+    "deps": {}
+   }
+  }
+ },
+ {
+  "id": "S2E24c4-L3",
+  "context": [
+   "Monica: Where's Benny? There he is! Where's Benny, there he is.",
+   "Richard: Awww! You know that's probably why babies learn to talk, so they can tell grown ups to cut it out."
+  ],
+  "source": "Monica: Hey, you know I got a question for ya. Just a little thing, no pressure.",
+  "trigger": "Just a little thing, no pressure.",
+  "function": "fake casualness",
+  "deps_source": {},
+  "candidates": {
+   "A": {
+    "line": "Hey, you know I have a question for you. Just a little thing, no pressure.",
+    "deps": {}
+   },
+   "B": {
+    "line": "I have a question for you, a very small question, no pressure.",
+    "deps": {}
+   },
+   "C": {
+    "line": "I have a question for you.",
+    "deps": {}
+   }
+  }
+ },
+ {
+  "id": "S2E24c4-L9",
+  "context": [
+   "Monica: Yeah, am I in it?",
+   "Richard: Honey, you are in it."
+  ],
+  "source": "Monica: Oh God, you are about to get sooo lucky.",
+  "trigger": "you are about to get sooo lucky",
+  "function": "sexual promise",
+  "deps_source": {},
+  "candidates": {
+   "A": {
+    "line": "You are about to be very lucky.",
+    "deps": {}
+   },
+   "B": {
+    "line": "Oh God, you’re about to get sooo lucky.",
+    "deps": {}
+   },
+   "C": {
+    "line": "Oh God, tonight you will be very lucky in bed.",
+    "deps": {}
+   }
+  }
+ },
+ {
+  "id": "S2E24c4-L12",
+  "context": [
+   "Richard: Oh, yeah!",
+   "Monica: Keep talkin'."
+  ],
+  "source": "Richard: Well, uh, sometimes I think about selling my practice, we could move to France, make French toast.",
+  "trigger": "move to France, make French toast",
+  "function": "cheesy pun-like romantic image",
+  "deps_source": {},
+  "candidates": {
+   "A": {
+    "line": "Well, uh, sometimes I think about selling my practice, we can move to France, make a French toast.",
+    "deps": {}
+   },
+   "B": {
+    "line": "Sometimes I think of selling my office and moving to France… and making French toast.",
+    "deps": {}
+   },
+   "C": {
+    "line": "Sometimes I think of selling my medical practice. We could move to France and make a French toast.",
+    "deps": {}
+   }
+  }
+ },
+ {
+  "id": "S2E24c4-L13",
+  "context": [
+   "Monica: Keep talkin'.",
+   "Richard: Well, uh, sometimes I think about selling my practice, we could move to France, make French toast."
+  ],
+  "source": "Monica: Okay, so, uh, we're in France, we're making the toast. Do you see a little bassinet in the corner?",
+  "trigger": "we're in France, we're making the toast",
+  "function": "reuse of his image",
+  "deps_source": {
+   "S2E24c4-L12": "Richard: Well, uh, sometimes I think about selling my practice, we could move to France, make French toast."
+  },
+  "candidates": {
+   "A": {
+    "line": "Okay, so we are in France, we are making a toast. Can you see a little baby bed in the corner?",
+    "deps": {
+     "S2E24c4-L12": "Sometimes I think of selling my office and moving to France… and making French toast."
+    }
+   },
+   "B": {
+    "line": "Okay, so, uh, we’re in France, we’re making a toast. Can you see the little bed in the corner?",
+    "deps": {
+     "S2E24c4-L12": "Well, uh, sometimes I think about selling my practice, we can move to France, make a French toast."
+    }
+   },
+   "C": {
+    "line": "We are in France and we are making a toast. Do you see a little baby bed in the corner?",
+    "deps": {
+     "S2E24c4-L12": "Sometimes I think of selling my medical practice. We could move to France and make a French toast."
+    }
+   }
+  }
+ },
+ {
+  "id": "S2E24c4-L14",
+  "context": [
+   "Richard: Well, uh, sometimes I think about selling my practice, we could move to France, make French toast.",
+   "Monica: Okay, so, uh, we're in France, we're making the toast. Do you see a little bassinet in the corner?"
+  ],
+  "source": "Richard: Like a hound?",
+  "trigger": "bassinet ... Like a hound?",
+  "function": "Richard hears a near-homophone with a funny meaning (evasion)",
+  "deps_source": {
+   "S2E24c4-L13": "Monica: Okay, so, uh, we're in France, we're making the toast. Do you see a little bassinet in the corner?"
+  },
+  "candidates": {
+   "A": {
+    "line": "Like a wolf?",
+    "deps": {
+     "S2E24c4-L13": "Okay, so, uh, we’re in France, we’re making a toast. Can you see the little bed in the corner?"
+    }
+   },
+   "B": {
+    "line": "A dog bed?",
+    "deps": {
+     "S2E24c4-L13": "Okay, so we are in France, we are making a toast. Can you see a little baby bed in the corner?"
+    }
+   },
+   "C": {
+    "line": "Like a dog?",
+    "deps": {
+     "S2E24c4-L13": "We are in France and we are making a toast. Do you see a little baby bed in the corner?"
+    }
+   }
+  }
+ },
+ {
+  "id": "S2E24c4-L15",
+  "context": [
+   "Monica: Okay, so, uh, we're in France, we're making the toast. Do you see a little bassinet in the corner?",
+   "Richard: Like a hound?"
+  ],
+  "source": "Monica: Not a basset, a bassinet.",
+  "trigger": "Not a basset, a bassinet.",
+  "function": "the two sound-alike words",
+  "deps_source": {
+   "S2E24c4-L14": "Richard: Like a hound?"
+  },
+  "candidates": {
+   "A": {
+    "line": "Not a basset dog, a child's bed.",
+    "deps": {
+     "S2E24c4-L14": "Like a dog?"
+    }
+   },
+   "B": {
+    "line": "Not a bed for a dog, a bed for a child.",
+    "deps": {
+     "S2E24c4-L14": "A dog bed?"
+    }
+   },
+   "C": {
+    "line": "Si basset, bassinet.",
+    "deps": {
+     "S2E24c4-L14": "Like a wolf?"
+    }
+   }
+  }
+ },
+ {
+  "id": "S2E24c4-L17",
+  "context": [
+   "Monica: Not a basset, a bassinet.",
+   "Richard: You really need the bassinet?"
+  ],
+  "source": "Monica: Well, I just think the baby would keep falling off the dog. Do you, uh, do you , do you not see kids in our future.",
+  "trigger": "the baby would keep falling off the dog",
+  "function": "must reuse whatever the mishearing produced",
+  "deps_source": {
+   "S2E24c4-L14": "Richard: Like a hound?"
+  },
+  "candidates": {
+   "A": {
+    "line": "I think the child would continue to fall from the dog. Do you see children in the future?",
+    "deps": {
+     "S2E24c4-L14": "Like a wolf?"
+    }
+   },
+   "B": {
+    "line": "Well, I think the child would continue to fall from the dog. Do you... do not see children in the future?",
+    "deps": {
+     "S2E24c4-L14": "A dog bed?"
+    }
+   },
+   "C": {
+    "line": "I think that the child would have fallen from the dog. Would not see children in our future?",
+    "deps": {
+     "S2E24c4-L14": "Like a dog?"
+    }
+   }
+  }
+ },
+ {
+  "id": "S2E24c4-L21",
+  "context": [
+   "Monica: Uh-huh.",
+   "Richard: Look I want you, now."
+  ],
+  "source": "Monica: That's Great. You know we don't need to talk about this now. Really, I mean this is, is so way, way, way, in the future, I'm talkin' hovercrafts and apes taking over the planet.",
+  "trigger": "hovercrafts and apes taking over the planet",
+  "function": "absurdly distant future",
+  "deps_source": {},
+  "candidates": {
+   "A": {
+    "line": "That’s great. You know we don’t need to discuss this right now. Actually, I mean this is, it’s way, way, way, in the future, I’m talking ‘hovercrafts and doves taking over the world.",
+    "deps": {}
+   },
+   "B": {
+    "line": "We don’t need to talk about this now. It’s far away in the future.",
+    "deps": {}
+   },
+   "C": {
+    "line": "We don’t need to discuss this right now. This is very far into the future. I mean flying cars and birds ruling the world.",
+    "deps": {}
+   }
+  }
+ },
+ {
+  "id": "S3E4c6-L2",
+  "context": [
+   "Rachel: Honey, this will help."
+  ],
+  "source": "Chandler: So, I finally catch up to her and she says this relationship is going to fast and we have to slow down.",
+  "trigger": "this relationship is going too fast and we have to slow down",
+  "function": "she wants to cool it",
+  "deps_source": {},
+  "candidates": {
+   "A": {
+    "line": "So finally I get her, and she says our relationship is going too fast and we should slow down.",
+    "deps": {}
+   },
+   "B": {
+    "line": "Finally I reached out to him and he said that our relationship is going very fast and that we need to slow down.",
+    "deps": {}
+   },
+   "C": {
+    "line": "So, I finally catch up with him and he says this relationship is going fast and we need to slow down.",
+    "deps": {}
+   }
+  }
+ },
+ {
+  "id": "S3E4c6-L5",
+  "context": [
+   "Monica: Uff.",
+   "Monica: That is never good."
+  ],
+  "source": "Chandler: Then I got all needy and clingy.",
+  "trigger": "I got all needy and clingy",
+  "function": "he acts like the clingy partner",
+  "deps_source": {},
+  "candidates": {
+   "A": {
+    "line": "Then I became needy and attached to others, like a sad dog's child.",
+    "deps": {}
+   },
+   "B": {
+    "line": "Then I became destitute and very loved.",
+    "deps": {}
+   },
+   "C": {
+    "line": "Then I became very independent and destitute.",
+    "deps": {}
+   }
+  }
+ },
+ {
+  "id": "S3E4c6-L10",
+  "context": [
+   "Monica: Ohh!",
+   "Chandler: Oh God."
+  ],
+  "source": "Monica: Welcome to our side of the tunnel.",
+  "trigger": "Welcome to our side of the tunnel.",
+  "function": "now you know how we feel",
+  "deps_source": {},
+  "candidates": {
+   "A": {
+    "line": "Near our side of the tunnel.",
+    "deps": {}
+   },
+   "B": {
+    "line": "Near our side of the dark tunnel.",
+    "deps": {}
+   },
+   "C": {
+    "line": "Now you know how we feel.",
+    "deps": {}
+   }
+  }
+ },
+ {
+  "id": "S3E4c6-L11",
+  "context": [
+   "Chandler: Oh God.",
+   "Monica: Welcome to our side of the tunnel."
+  ],
+  "source": "Chandler: This ice cream tastes like crap by the way.",
+  "trigger": "tastes like crap",
+  "function": "crude disgust",
+  "deps_source": {},
+  "candidates": {
+   "A": {
+    "line": "This ice cream tastes like shit by the way.",
+    "deps": {}
+   },
+   "B": {
+    "line": "This ice cream tastes like trash, by the way.",
+    "deps": {}
+   },
+   "C": {
+    "line": "This ice cream is very bad.",
+    "deps": {}
+   }
+  }
+ },
+ {
+  "id": "S3E4c6-L12",
+  "context": [
+   "Monica: Welcome to our side of the tunnel.",
+   "Chandler: This ice cream tastes like crap by the way."
+  ],
+  "source": "Rachel: Yeah, well that's that lo-cal, non dairy, soy milk junk. We sort of, we save the real stuff for those really terminal cases.",
+  "trigger": "we save the real stuff for those really terminal cases",
+  "function": "ice cream as medicine by severity",
+  "deps_source": {},
+  "candidates": {
+   "A": {
+    "line": "Yes, well that’s domestic, non-dairy, junk soy milk. We kind of, we save real things for those really terminal cases.",
+    "deps": {}
+   },
+   "B": {
+    "line": "We save the real ice cream for the real last case, the patient who is dying.",
+    "deps": {}
+   },
+   "C": {
+    "line": "That’s low-calorie, dairy-free soy ice. We store real ice for the worst case scenario.",
+    "deps": {}
+   }
+  }
+ },
+ {
+  "id": "S3E4c6-L13",
+  "context": [
+   "Chandler: This ice cream tastes like crap by the way.",
+   "Rachel: Yeah, well that's that lo-cal, non dairy, soy milk junk. We sort of, we save the real stuff for those really terminal cases."
+  ],
+  "source": "Monica: You know, when you start get screwed over all the time, you gotta switch to low-fat.",
+  "trigger": "when you start get screwed over all the time, you gotta switch to low-fat",
+  "function": "frequent heartbreak -> diet ice cream",
+  "deps_source": {},
+  "candidates": {
+   "A": {
+    "line": "When people abuse you all the time, you need to change to a less-fat diet.",
+    "deps": {}
+   },
+   "B": {
+    "line": "You know, when you start getting fucked over all the time, you need to switch to low fuel.",
+    "deps": {}
+   },
+   "C": {
+    "line": "When men hurt you all the time, you should switch to low-fat ice cream.",
+    "deps": {}
+   }
+  }
+ },
+ {
+  "id": "S3E4c6-L15",
+  "context": [
+   "Monica: You know, when you start get screwed over all the time, you gotta switch to low-fat.",
+   "Rachel: Yeah, you do."
+  ],
+  "source": "Chandler: So, you don't think I'm terminal?",
+  "trigger": "So you don't think I'm terminal?",
+  "function": "same word 'terminal' as L12",
+  "deps_source": {
+   "S3E4c6-L12": "Rachel: Yeah, well that's that lo-cal, non dairy, soy milk junk. We sort of, we save the real stuff for those really terminal cases."
+  },
+  "candidates": {
+   "A": {
+    "line": "So you don’t think I’m a terminal?",
+    "deps": {
+     "S3E4c6-L12": "We save the real ice cream for the real last case, the patient who is dying."
+    }
+   },
+   "B": {
+    "line": "So you think that my condition is very bad?",
+    "deps": {
+     "S3E4c6-L12": "That’s low-calorie, dairy-free soy ice. We store real ice for the worst case scenario."
+    }
+   },
+   "C": {
+    "line": "So, don't you think I'm the last?",
+    "deps": {
+     "S3E4c6-L12": "Yes, well that’s domestic, non-dairy, junk soy milk. We kind of, we save real things for those really terminal cases."
+    }
+   }
+  }
+ },
+ {
+  "id": "S3E4c6-L16",
+  "context": [
+   "Rachel: Yeah, you do.",
+   "Chandler: So, you don't think I'm terminal?"
+  ],
+  "source": "Monica: Well, no, not at all, you're not terminal, you just, you just need some damage control.",
+  "trigger": "you just need some damage control",
+  "function": "repairable",
+  "deps_source": {
+   "S3E4c6-L15": "Chandler: So, you don't think I'm terminal?"
+  },
+  "candidates": {
+   "A": {
+    "line": "No, you do not have an incurable disease, you just need emergency treatment.",
+    "deps": {
+     "S3E4c6-L15": "So you don’t think I’m a terminal?"
+    }
+   },
+   "B": {
+    "line": "Well, no, in any case, you are not a terminal, you are just, you just need some damage control.",
+    "deps": {
+     "S3E4c6-L15": "So, don't you think I'm the last?"
+    }
+   },
+   "C": {
+    "line": "No, your condition is not very bad, you just need to reduce the damage.",
+    "deps": {
+     "S3E4c6-L15": "So you think that my condition is very bad?"
+    }
+   }
+  }
+ },
+ {
+  "id": "S3E4c6-L19",
+  "context": [
+   "Chandler: Okay, okay. So, should I call her?",
+   "Monica: Nooo!"
+  ],
+  "source": "Rachel: This is a very critical time right now. If you feel yourself reaching for that phone, then you go shoe shopping, you get your butt in a bubble bath. You want her back you have to start acting aloof.",
+  "trigger": "get your butt in a bubble bath",
+  "function": "self-care instead of calling",
+  "deps_source": {},
+  "candidates": {
+   "A": {
+    "line": "This is a crucial moment. If you feel your hand reach for that phone, you go buy shoes, you get in a bubble bath. If you want it back, you have to act like you don’t care.",
+    "deps": {}
+   },
+   "B": {
+    "line": "This is a very important time right now as you feel yourself reaching for that phone, then you go buy shoes, you get your back in a bubble bath.",
+    "deps": {}
+   },
+   "C": {
+    "line": "This is an important time. If you want to call her, go buy shoes or take a bath instead. If you want her back, you must act as if you don’t care.",
+    "deps": {}
+   }
+  }
+ },
+ {
+  "id": "S3E4c6-L21",
+  "context": [
+   "Rachel: This is a very critical time right now. If you feel yourself reaching for that phone, then you go shoe shopping, you get your butt in a bubble bath. You want her back you have to start acting aloof.",
+   "Monica: She has to know that your not ready."
+  ],
+  "source": "Rachel: Right. So, what you have to do is, you have to accidentally run into her on purpose. And then act aloof.",
+  "trigger": "accidentally run into her on purpose",
+  "function": "contradiction is the joke",
+  "deps_source": {},
+  "candidates": {
+   "A": {
+    "line": "You have to meet him and pretend it's an accident.",
+    "deps": {}
+   },
+   "B": {
+    "line": "So you have to meet him by accident, but deliberately and then act as if you are not serving.",
+    "deps": {}
+   },
+   "C": {
+    "line": "Okay, so what you have to do is deliberately meet him by mistake and then act in an inappropriate way.",
+    "deps": {}
+   }
+  }
+ },
+ {
+  "id": "S3E4c6-L23",
+  "context": [
+   "Rachel: Right. So, what you have to do is, you have to accidentally run into her on purpose. And then act aloof.",
+   "Chandler: So I'm not, not gonna lose her?"
+  ],
+  "source": "Rachel: Oooh, honey, you're not a total loser.",
+  "trigger": "you're not a total loser",
+  "function": "Rachel's reassurance reveals she sees him as a loser",
+  "deps_source": {
+   "S3E4c6-L22": "Chandler: So I'm not, not gonna lose her?"
+  },
+  "candidates": {
+   "A": {
+    "line": "Oh dear, you’re not entirely pathetic.",
+    "deps": {}
+   },
+   "B": {
+    "line": "Oooh, sweetie, you’re not a loser at all.",
+    "deps": {}
+   },
+   "C": {
+    "line": "Love, you’re not a loser at all.",
+    "deps": {}
+   }
+  }
+ },
+ {
+  "id": "S3E4c6-L24",
+  "context": [
+   "Chandler: So I'm not, not gonna lose her?",
+   "Rachel: Oooh, honey, you're not a total loser."
+  ],
+  "source": "Chandler: I said, 'So I'm not gonna lose her?'",
+  "trigger": "I said, 'So I'm not gonna lose her?'",
+  "function": "the two sound-alikes side by side",
+  "deps_source": {
+   "S3E4c6-L23": "Rachel: Oooh, honey, you're not a total loser."
+  },
+  "candidates": {
+   "A": {
+    "line": "I asked him if I would lose him.",
+    "deps": {
+     "S3E4c6-L23": "Oh dear, you’re not entirely pathetic."
+    }
+   },
+   "B": {
+    "line": "I said, 'Then shall I not mislead him?'",
+    "deps": {
+     "S3E4c6-L23": "Love, you’re not a loser at all."
+    }
+   },
+   "C": {
+    "line": "I said, 'So shall I not lose him?'",
+    "deps": {
+     "S3E4c6-L23": "Oooh, sweetie, you’re not a loser at all."
+    }
+   }
+  }
+ },
+ {
+  "id": "S3E11c11-L2",
+  "context": [
+   "Rachel: I can't believe Mark didn't call. It's Sunday night, and he didn't call."
+  ],
+  "source": "Ross: Bummer.",
+  "trigger": "Bummer.",
+  "function": "fake sympathy",
+  "deps_source": {},
+  "candidates": {
+   "A": {
+    "line": "A sad thing.",
+    "deps": {}
+   },
+   "B": {
+    "line": "It's sad.",
+    "deps": {}
+   },
+   "C": {
+    "line": "Indeed, it is a great punishment.",
+    "deps": {}
+   }
+  }
+ },
+ {
+  "id": "S3E11c11-L3",
+  "context": [
+   "Rachel: I can't believe Mark didn't call. It's Sunday night, and he didn't call.",
+   "Ross: Bummer."
+  ],
+  "source": "Rachel: Yeah, right. Look at you, you're practically giddy.",
+  "trigger": "you're practically giddy",
+  "function": "Ross is secretly happy",
+  "deps_source": {
+   "S3E11c11-L2": "Ross: Bummer."
+  },
+  "candidates": {
+   "A": {
+    "line": "Yeah, right. Look at you. You’re about to play for fun.",
+    "deps": {
+     "S3E11c11-L2": "Indeed, it is a great punishment."
+    }
+   },
+   "B": {
+    "line": "Yeah, right, look at you, you’re almost dizzy.",
+    "deps": {
+     "S3E11c11-L2": "A sad thing."
+    }
+   },
+   "C": {
+    "line": "Look at you. You are almost happy about it.",
+    "deps": {
+     "S3E11c11-L2": "It's sad."
+    }
+   }
+  }
+ },
+ {
+  "id": "S3E11c11-L4",
+  "context": [
+   "Ross: Bummer.",
+   "Rachel: Yeah, right. Look at you, you're practically giddy."
+  ],
+  "source": "Ross: No, I'm genuinely sorry the Mark thing didn't work out. Look, Rach, I want only good things for you.",
+  "trigger": "I want only good things for you",
+  "function": "exact phrase reused later",
+  "deps_source": {},
+  "candidates": {
+   "A": {
+    "line": "Rachel, I just want good things for you.",
+    "deps": {}
+   },
+   "B": {
+    "line": "Listen, Rachel, I just want good things for you.",
+    "deps": {}
+   },
+   "C": {
+    "line": "No, I’m really sorry that Mark didn’t work out.",
+    "deps": {}
+   }
+  }
+ },
+ {
+  "id": "S3E11c11-L9",
+  "context": [
+   "Monica: Honey, it's not pushy, he gave her his home number.",
+   "Ross: What, he gave you his home number? As in like, to, to his home?"
+  ],
+  "source": "Rachel: Yeah, and you don't mind if I call, because you only want good things for me.",
+  "trigger": "because you only want good things for me",
+  "function": "verbatim echo of L4",
+  "deps_source": {
+   "S3E11c11-L4": "Ross: No, I'm genuinely sorry the Mark thing didn't work out. Look, Rach, I want only good things for you."
+  },
+  "candidates": {
+   "A": {
+    "line": "Yes, and you don’t mind as I call him, because you want good things for me.",
+    "deps": {
+     "S3E11c11-L4": "Rachel, I just want good things for you."
+    }
+   },
+   "B": {
+    "line": "Yes, and you don't care if I call you, because you only want good things for me.",
+    "deps": {
+     "S3E11c11-L4": "Listen, Rachel, I just want good things for you."
+    }
+   },
+   "C": {
+    "line": "Yes, and you don't care if I call you, because you only want good things for me.",
+    "deps": {
+     "S3E11c11-L4": "No, I’m really sorry that Mark didn’t work out."
+    }
+   }
+  }
+ },
+ {
+  "id": "S3E11c11-L10",
+  "context": [
+   "Ross: What, he gave you his home number? As in like, to, to his home?",
+   "Rachel: Yeah, and you don't mind if I call, because you only want good things for me."
+  ],
+  "source": "Ross: That's right good things, that-that is what I said.",
+  "trigger": "good things, that-that is what I said",
+  "function": "echo again",
+  "deps_source": {
+   "S3E11c11-L4": "Ross: No, I'm genuinely sorry the Mark thing didn't work out. Look, Rach, I want only good things for you."
+  },
+  "candidates": {
+   "A": {
+    "line": "That’s right. good things. That’s what I said.",
+    "deps": {
+     "S3E11c11-L4": "Listen, Rachel, I just want good things for you."
+    }
+   },
+   "B": {
+    "line": "That’s right. That’s what I said.",
+    "deps": {
+     "S3E11c11-L4": "Rachel, I just want good things for you."
+    }
+   },
+   "C": {
+    "line": "That’s right good things, that-that’s what I said.",
+    "deps": {
+     "S3E11c11-L4": "No, I’m really sorry that Mark didn’t work out."
+    }
+   }
+  }
+ },
+ {
+  "id": "S3E11c11-L8",
+  "context": [
+   "Ross: But, you, you don't want to seem too pushy.",
+   "Monica: Honey, it's not pushy, he gave her his home number."
+  ],
+  "source": "Ross: What, he gave you his home number? As in like, to, to his home?",
+  "trigger": "As in like, to, to his home?",
+  "function": "jealous overreaction",
+  "deps_source": {},
+  "candidates": {
+   "A": {
+    "line": "Did he give you his home phone number?",
+    "deps": {}
+   },
+   "B": {
+    "line": "Did he give you his home phone number?",
+    "deps": {}
+   },
+   "C": {
+    "line": "Did he give you his house number?",
+    "deps": {}
+   }
+  }
+ },
+ {
+  "id": "S3E11c11-L12",
+  "context": [
+   "Ross: That's right good things, that-that is what I said.",
+   "Rachel: Hello, Mark? Hi, it's Rachel Green. Oh no, don't you apologize. Yeah, I'll hold. He left my number at work, but he was helping his niece with her report on the pioneers."
+  ],
+  "source": "Ross: That is so made up!",
+  "trigger": "That is so made up!",
+  "function": "jealous disbelief",
+  "deps_source": {
+   "S3E11c11-L11": "Rachel: Hello, Mark? Hi, it's Rachel Green. Oh no, don't you apologize. Yeah, I'll hold. He left my number at work, but he was helping his niece with her report on the pioneers."
+  },
+  "candidates": {
+   "A": {
+    "line": "This story is not true!",
+    "deps": {}
+   },
+   "B": {
+    "line": "He invented it!",
+    "deps": {}
+   },
+   "C": {
+    "line": "This is nothing but a fabricated thing.",
+    "deps": {}
+   }
+  }
+ },
+ {
+  "id": "S3E11c11-L18",
+  "context": [
+   "Rachel: He even offered to meet me for lunch tomorrow to prep me for it.",
+   "Monica: Oh, that is amazing!"
+  ],
+  "source": "Ross: Yeah well, if I know Mark, and I think I do, I'd expect nothing less.",
+  "trigger": "if I know Mark, and I think I do, I'd expect nothing less",
+  "function": "fake praise hiding jealousy",
+  "deps_source": {},
+  "candidates": {
+   "A": {
+    "line": "If I know Mark, and I think I do, I didn’t expect anything small.",
+    "deps": {}
+   },
+   "B": {
+    "line": "I expected that from Mark.",
+    "deps": {}
+   },
+   "C": {
+    "line": "Well, if I knew Mark, and I think I do, I would not have expected anything else.",
+    "deps": {}
+   }
+  }
+ },
+ {
+  "id": "S3E11c11-L20",
+  "context": [
+   "Ross: Yeah well, if I know Mark, and I think I do, I'd expect nothing less.",
+   "Rachel: I got to figure out what I'm going to wear."
+  ],
+  "source": "Ross: High collar and baggy pants say I'm a pro.",
+  "trigger": "High collar and baggy pants say I'm a pro",
+  "function": "jealous advice posing as fashion tip",
+  "deps_source": {},
+  "candidates": {
+   "A": {
+    "line": "The long neck and large pants show that I am a professional.",
+    "deps": {}
+   },
+   "B": {
+    "line": "A long neck and big pants show 'I'm a professional,' not 'I'm pretty.'",
+    "deps": {}
+   },
+   "C": {
+    "line": "Wear a top collar and soft trousers. They look professional.",
+    "deps": {}
+   }
+  }
+ },
+ {
+  "id": "S3E11c11-L24",
+  "context": [
+   "Ross: You go get 'em. What did I do to you? Did I hurt you in some way?",
+   "Monica: What?"
+  ],
+  "source": "Ross: 'Why don't you call him?!' Well, thank you very much! Y'know now he is going to prep her, y'know prep her, as in what you do when you surgically remove the boyfriend!",
+  "trigger": "prep her, as in what you do when you surgically remove the boyfriend",
+  "function": "Mark will 'operate' Ross out of her life",
+  "deps_source": {
+   "S3E11c11-L16": "Rachel: He even offered to meet me for lunch tomorrow to prep me for it."
+  },
+  "candidates": {
+   "A": {
+    "line": "Thank you so much! now she is going to help her get ready. she wants to take away with your boyfriend.",
+    "deps": {}
+   },
+   "B": {
+    "line": "'Why don't you call him?' Yes, thank you very much! Now he will prepare her, as a surgeon prepares a patient before removing his lover!",
+    "deps": {}
+   },
+   "C": {
+    "line": "'Why don't you call her?!' Well, thank you so much! Y'know now she's going to prep her, y'know her prep, as in what to do during surgery to remove a boyfriend!",
+    "deps": {}
+   }
+  }
+ },
+ {
+  "id": "S3E11c11-L26",
+  "context": [
+   "Ross: 'Why don't you call him?!' Well, thank you very much! Y'know now he is going to prep her, y'know prep her, as in what you do when you surgically remove the boyfriend!",
+   "Monica: Are you crazy?!"
+  ],
+  "source": "Ross: Am I! Am I! Am I out of my mind! Am I losing my senses!! This dreamy guy is taking my girlfriend out for a meal.",
+  "trigger": "Am I out of my mind! Am I losing my senses!! This dreamy guy",
+  "function": "sarcastic overreaction",
+  "deps_source": {},
+  "candidates": {
+   "A": {
+    "line": "This attractive man is taking my girlfriend out for lunch.",
+    "deps": {}
+   },
+   "B": {
+    "line": "Would I! Would I! Would I out of my mind! Would I lose my mind!! This dreamy guy is taking my girlfriend out for dinner.",
+    "deps": {}
+   },
+   "C": {
+    "line": "Am I crazy? Yes! I’m crazy! I’m losing my mind! This nice dream guy is taking my boyfriend for lunch!",
+    "deps": {}
+   }
+  }
+ },
+ {
+  "id": "S3E11c11-L31",
+  "context": [
+   "Monica: I mean don't you trust her?",
+   "Ross: Well, yeah!"
+  ],
+  "source": "Monica: Then get over yourself! Grow up!",
+  "trigger": "get over yourself! Grow up!",
+  "function": "scolding",
+  "deps_source": {},
+  "candidates": {
+   "A": {
+    "line": "So go away, grow up!",
+    "deps": {}
+   },
+   "B": {
+    "line": "So stop thinking only about yourself!",
+    "deps": {}
+   },
+   "C": {
+    "line": "So stop thinking, be a man of age!",
+    "deps": {}
+   }
+  }
+ },
+ {
+  "id": "S3E11c11-L32",
+  "context": [
+   "Ross: Well, yeah!",
+   "Monica: Then get over yourself! Grow up!"
+  ],
+  "source": "Ross: You grow up.",
+  "trigger": "You grow up.",
+  "function": "childish echo of her word",
+  "deps_source": {
+   "S3E11c11-L31": "Monica: Then get over yourself! Grow up!"
+  },
+  "candidates": {
+   "A": {
+    "line": "No, you grow up.",
+    "deps": {
+     "S3E11c11-L31": "So stop thinking only about yourself!"
+    }
+   },
+   "B": {
+    "line": "Cook.",
+    "deps": {
+     "S3E11c11-L31": "So go away, grow up!"
+    }
+   },
+   "C": {
+    "line": "Be a man.",
+    "deps": {
+     "S3E11c11-L31": "So stop thinking, be a man of age!"
+    }
+   }
+  }
+ },
+ {
+  "id": "S3E12c1-L2",
+  "context": [
+   "Rachel: Okay. Hey. Umm. Does everybody hate these shoes?"
+  ],
+  "source": "Chandler: Oh yeah, but don't worry. I don't think anybody's gonna focus on that as long as your wearing that towel dress.",
+  "trigger": "as long as your wearing that towel dress",
+  "function": "backhanded comfort",
+  "deps_source": {},
+  "candidates": {
+   "A": {
+    "line": "Oh yeah, but don’t worry. I don’t think anyone will notice that for as long as you wear that cloth.",
+    "deps": {}
+   },
+   "B": {
+    "line": "But don't worry, no one will look at your shoes, because everyone will look at your clothes.",
+    "deps": {}
+   },
+   "C": {
+    "line": "Yes, but don't worry, no one will look at your shoes because you're wearing that cloth-like garment.",
+    "deps": {}
+   }
+  }
+ },
+ {
+  "id": "S3E12c1-L4",
+  "context": [
+   "Chandler: Oh yeah, but don't worry. I don't think anybody's gonna focus on that as long as your wearing that towel dress.",
+   "Rachel: Tell him."
+  ],
+  "source": "Ross: It's her first day at this new job. Your not supposed to start with her!",
+  "trigger": "Your not supposed to start with her!",
+  "function": "don't tease her today",
+  "deps_source": {},
+  "candidates": {
+   "A": {
+    "line": "It's his first day in this new job. Don't make fun of him today!",
+    "deps": {}
+   },
+   "B": {
+    "line": "It is his first day in this new job.",
+    "deps": {}
+   },
+   "C": {
+    "line": "It's his first day in his new job. Don't make fun of him!",
+    "deps": {}
+   }
+  }
+ },
+ {
+  "id": "S3E12c1-L5",
+  "context": [
+   "Rachel: Tell him.",
+   "Ross: It's her first day at this new job. Your not supposed to start with her!"
+  ],
+  "source": "Chandler: All right, I suppose I can wait a day. Hey, what are you doing Friday?",
+  "trigger": "All right, I suppose I can wait a day.",
+  "function": "grudging postponement",
+  "deps_source": {},
+  "candidates": {
+   "A": {
+    "line": "Okay, I can wait until tomorrow.",
+    "deps": {}
+   },
+   "B": {
+    "line": "I can wait one day. What do you do on Friday?",
+    "deps": {}
+   },
+   "C": {
+    "line": "Okay, I guess I can wait one day.",
+    "deps": {}
+   }
+  }
+ },
+ {
+  "id": "S3E12c1-L9",
+  "context": [
+   "Chandler: I need you to come to this bachelor party for my weird cousin Albert, y'know he's the botanist.",
+   "Ross: Oh God. Y'know, botanists are such geeks."
+  ],
+  "source": "Chandler: Yeah. Is that a dinosaur tie?",
+  "trigger": "Is that a dinosaur tie?",
+  "function": "Ross is the geek",
+  "deps_source": {
+   "S3E12c1-L8": "Ross: Oh God. Y'know, botanists are such geeks."
+  },
+  "candidates": {
+   "A": {
+    "line": "Yes. Is that a dinosaur eagle?",
+    "deps": {}
+   },
+   "B": {
+    "line": "And is that an eagle with dinosaurs on it?",
+    "deps": {}
+   },
+   "C": {
+    "line": "Does that tie with the dinosaurs on it?",
+    "deps": {}
+   }
+  }
+ },
+ {
+  "id": "S3E12c1-L12",
+  "context": [
+   "Ross: Hmm? Oh, yeah.",
+   "Phoebe: Morning. Rach, I'm here with the purses!"
+  ],
+  "source": "Chandler: It must take you forever to find your keys.",
+  "trigger": "It must take you forever to find your keys.",
+  "function": "huge purse",
+  "deps_source": {},
+  "candidates": {
+   "A": {
+    "line": "It must take hours to get your keys there.",
+    "deps": {}
+   },
+   "B": {
+    "line": "You have to take a long time to get your keys.",
+    "deps": {}
+   },
+   "C": {
+    "line": "It must take you forever to get your keys.",
+    "deps": {}
+   }
+  }
+ },
+ {
+  "id": "S3E12c1-L15",
+  "context": [
+   "Rachel: Thank you, thank you, thank you, Pheebs.",
+   "Phoebe: Your welcome, oh please not the one with the turtles."
+  ],
+  "source": "Rachel: No, no, no, no turtles scare me. I don't need that today.",
+  "trigger": "turtles scare me",
+  "function": "silly fear",
+  "deps_source": {
+   "S3E12c1-L14": "Phoebe: Your welcome, oh please not the one with the turtles."
+  },
+  "candidates": {
+   "A": {
+    "line": "No, don’t worry me. I don’t need that today.",
+    "deps": {}
+   },
+   "B": {
+    "line": "No, no turtles. Turtles are my fear. Not today.",
+    "deps": {}
+   },
+   "C": {
+    "line": "No, no, no, there are no turtles my fear.",
+    "deps": {}
+   }
+  }
+ },
+ {
+  "id": "S3E12c1-L20",
+  "context": [
+   "Ross: Mark is that ah, the same Mark that helped you get the job?",
+   "Rachel: Yeah, it's kinda like a 'good luck on your first day' sort of thing. Is this actually a lunchbox?"
+  ],
+  "source": "Phoebe: Umm, no, it's a purse. And there's a thermos in it.",
+  "trigger": "No, it's a purse. And there's a thermos in it.",
+  "function": "denial undercut",
+  "deps_source": {
+   "S3E12c1-L19": "Rachel: Yeah, it's kinda like a 'good luck on your first day' sort of thing. Is this actually a lunchbox?"
+  },
+  "candidates": {
+   "A": {
+    "line": "No, it’s a bag, you have a thermometer inside it.",
+    "deps": {}
+   },
+   "B": {
+    "line": "No, it is a bag and there is a thermos inside it.",
+    "deps": {}
+   },
+   "C": {
+    "line": "Um, no, it’s a bag and there’s a thermos in it.",
+    "deps": {}
+   }
+  }
+ },
+ {
+  "id": "S3E12c1-L24",
+  "context": [
+   "Chandler: Hey, so can you make it on Friday?",
+   "Ross: What? Oh yeah, yeah I think so. Why am I invited to this again?"
+  ],
+  "source": "Chandler: Well apparently Albert has no friends. He's very excited about the bachelor party though. I think actually the only reason he's getting married is so he can see a stripper.",
+  "trigger": "the only reason he's getting married is so he can see a stripper",
+  "function": "absurd motive",
+  "deps_source": {},
+  "candidates": {
+   "A": {
+    "line": "Albert has no friends. I guess he's getting married just so he can see the gangster.",
+    "deps": {}
+   },
+   "B": {
+    "line": "It really seems Albert has no friends although he is very excited about the bachelor party I really think the only reason he is married is so he can see a stripper",
+    "deps": {}
+   },
+   "C": {
+    "line": "Albert has no friends, but he enjoys the party a lot and I think the only reason for marrying is to see a stripper.",
+    "deps": {}
+   }
+  }
+ },
+ {
+  "id": "S3E12c1-L25",
+  "context": [
+   "Ross: What? Oh yeah, yeah I think so. Why am I invited to this again?",
+   "Chandler: Well apparently Albert has no friends. He's very excited about the bachelor party though. I think actually the only reason he's getting married is so he can see a stripper."
+  ],
+  "source": "Phoebe: A stripper at a bachelor party, that is so clich. Why don't you get a magician?!",
+  "trigger": "that is so cliché. Why don't you get a magician?!",
+  "function": "innocent absurd suggestion",
+  "deps_source": {},
+  "candidates": {
+   "A": {
+    "line": "Stripper at a bachelor party? so boring. why not get a wizard?",
+    "deps": {}
+   },
+   "B": {
+    "line": "Stripper at a bachelor party is not original. why not hire a wizard?",
+    "deps": {}
+   },
+   "C": {
+    "line": "Stripper at a bachelor party, that's a very cliché. Why not get a wizard?!",
+    "deps": {}
+   }
+  }
+ },
+ {
+  "id": "S3E12c1-L26",
+  "context": [
+   "Chandler: Well apparently Albert has no friends. He's very excited about the bachelor party though. I think actually the only reason he's getting married is so he can see a stripper.",
+   "Phoebe: A stripper at a bachelor party, that is so clich. Why don't you get a magician?!"
+  ],
+  "source": "Chandler: Well, if the magician can open my beer with his but cheeks, then all right.",
+  "trigger": "open my beer with his butt cheeks",
+  "function": "crude trick",
+  "deps_source": {
+   "S3E12c1-L25": "Phoebe: A stripper at a bachelor party, that is so clich. Why don't you get a magician?!"
+  },
+  "candidates": {
+   "A": {
+    "line": "If a sorcerer can open my beer with his mouth, then it's fine.",
+    "deps": {
+     "S3E12c1-L25": "Stripper at a bachelor party, that's a very cliché. Why not get a wizard?!"
+    }
+   },
+   "B": {
+    "line": "Well, if the wizard can open my beer by his back, then fine.",
+    "deps": {
+     "S3E12c1-L25": "Stripper at a bachelor party? so boring. why not get a wizard?"
+    }
+   },
+   "C": {
+    "line": "If a sorcerer can open my beer with his knife, then it's okay.",
+    "deps": {
+     "S3E12c1-L25": "Stripper at a bachelor party is not original. why not hire a wizard?"
+    }
+   }
+  }
+ }
+]

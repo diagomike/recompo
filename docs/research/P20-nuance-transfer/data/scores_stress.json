@@ -1,0 +1,62 @@
+{
+ "es:MTes": {
+  "meaning": 2.21,
+  "effect": 1.64,
+  "effect_kept": 0.64
+ },
+ "es:S0": {
+  "meaning": 2.86,
+  "effect": 2.57,
+  "effect_kept": 0.93
+ },
+ "es:S2": {
+  "meaning": 3,
+  "effect": 2.79,
+  "effect_kept": 1.0
+ },
+ "am:M0": {
+  "meaning": 1.93,
+  "effect": 1.5,
+  "effect_kept": 0.57
+ },
+ "am:M1": {
+  "meaning": 2.14,
+  "effect": 1.36,
+  "effect_kept": 0.43
+ },
+ "am:M2": {
+  "meaning": 2.43,
+  "effect": 2.14,
+  "effect_kept": 0.79
+ },
+ "om:M0": {
+  "meaning": 1.43,
+  "effect": 1,
+  "effect_kept": 0.21
+ },
+ "om:M1": {
+  "meaning": 1.64,
+  "effect": 0.71,
+  "effect_kept": 0.21
+ },
+ "om:M2": {
+  "meaning": 1.79,
+  "effect": 1.36,
+  "effect_kept": 0.57
+ },
+ "sw:M0": {
+  "meaning": 2.07,
+  "effect": 1.64,
+  "effect_kept": 0.5
+ },
+ "sw:M1": {
+  "meaning": 2.36,
+  "effect": 1.5,
+  "effect_kept": 0.5
+ },
+ "sw:M2": {
+  "meaning": 2.43,
+  "effect": 2.21,
+  "effect_kept": 0.86
+ }
+}

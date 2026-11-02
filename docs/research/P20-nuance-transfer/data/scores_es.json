@@ -1,0 +1,242 @@
+{
+ "all": {
+  "MTes": {
+   "n": 83,
+   "meaning": 2.29,
+   "effect": 1.59,
+   "effect_kept": 0.54,
+   "natural": 0.75
+  },
+  "S0": {
+   "n": 83,
+   "meaning": 2.92,
+   "effect": 2.47,
+   "effect_kept": 0.87,
+   "natural": 0.84
+  },
+  "S1": {
+   "n": 83,
+   "meaning": 2.76,
+   "effect": 2.01,
+   "effect_kept": 0.67,
+   "natural": 0.98
+  },
+  "S2": {
+   "n": 83,
+   "meaning": 2.99,
+   "effect": 2.92,
+   "effect_kept": 1.0,
+   "natural": 1
+  }
+ },
+ "humor": {
+  "MTes": {
+   "n": 70,
+   "meaning": 2.29,
+   "effect": 1.63,
+   "effect_kept": 0.56,
+   "natural": 0.73
+  },
+  "S0": {
+   "n": 70,
+   "meaning": 2.91,
+   "effect": 2.46,
+   "effect_kept": 0.86,
+   "natural": 0.86
+  },
+  "S1": {
+   "n": 70,
+   "meaning": 2.74,
+   "effect": 1.97,
+   "effect_kept": 0.66,
+   "natural": 0.99
+  },
+  "S2": {
+   "n": 70,
+   "meaning": 2.99,
+   "effect": 2.9,
+   "effect_kept": 1.0,
+   "natural": 1
+  }
+ },
+ "laugh": {
+  "MTes": {
+   "n": 62,
+   "meaning": 2.34,
+   "effect": 1.68,
+   "effect_kept": 0.58,
+   "natural": 0.73
+  },
+  "S0": {
+   "n": 62,
+   "meaning": 2.92,
+   "effect": 2.45,
+   "effect_kept": 0.85,
+   "natural": 0.85
+  },
+  "S1": {
+   "n": 62,
+   "meaning": 2.76,
+   "effect": 2,
+   "effect_kept": 0.66,
+   "natural": 0.98
+  },
+  "S2": {
+   "n": 62,
+   "meaning": 2.98,
+   "effect": 2.9,
+   "effect_kept": 1.0,
+   "natural": 1
+  }
+ },
+ "L": {
+  "MTes": {
+   "n": 21,
+   "meaning": 2.19,
+   "effect": 1.43,
+   "effect_kept": 0.48,
+   "natural": 0.71
+  },
+  "S0": {
+   "n": 21,
+   "meaning": 2.67,
+   "effect": 2.05,
+   "effect_kept": 0.71,
+   "natural": 0.76
+  },
+  "S1": {
+   "n": 21,
+   "meaning": 2.67,
+   "effect": 1.81,
+   "effect_kept": 0.57,
+   "natural": 0.95
+  },
+  "S2": {
+   "n": 21,
+   "meaning": 3,
+   "effect": 2.9,
+   "effect_kept": 1.0,
+   "natural": 1
+  }
+ },
+ "C": {
+  "MTes": {
+   "n": 6,
+   "meaning": 2.5,
+   "effect": 1.67,
+   "effect_kept": 0.67,
+   "natural": 0.17
+  },
+  "S0": {
+   "n": 6,
+   "meaning": 3,
+   "effect": 2.17,
+   "effect_kept": 0.83,
+   "natural": 1
+  },
+  "S1": {
+   "n": 6,
+   "meaning": 2.83,
+   "effect": 1.67,
+   "effect_kept": 0.67,
+   "natural": 1
+  },
+  "S2": {
+   "n": 6,
+   "meaning": 2.83,
+   "effect": 2.83,
+   "effect_kept": 1.0,
+   "natural": 1
+  }
+ },
+ "U": {
+  "MTes": {
+   "n": 53,
+   "meaning": 2.32,
+   "effect": 1.7,
+   "effect_kept": 0.58,
+   "natural": 0.83
+  },
+  "S0": {
+   "n": 53,
+   "meaning": 3,
+   "effect": 2.74,
+   "effect_kept": 0.96,
+   "natural": 0.89
+  },
+  "S1": {
+   "n": 53,
+   "meaning": 2.79,
+   "effect": 2.17,
+   "effect_kept": 0.74,
+   "natural": 1
+  },
+  "S2": {
+   "n": 53,
+   "meaning": 3,
+   "effect": 2.92,
+   "effect_kept": 1.0,
+   "natural": 1
+  }
+ },
+ "P": {
+  "MTes": {
+   "n": 3,
+   "meaning": 2,
+   "effect": 0.67,
+   "effect_kept": 0.0,
+   "natural": 0.67
+  },
+  "S0": {
+   "n": 3,
+   "meaning": 3,
+   "effect": 1.33,
+   "effect_kept": 0.33,
+   "natural": 0.33
+  },
+  "S1": {
+   "n": 3,
+   "meaning": 2.67,
+   "effect": 1.33,
+   "effect_kept": 0.33,
+   "natural": 0.67
+  },
+  "S2": {
+   "n": 3,
+   "meaning": 3,
+   "effect": 3,
+   "effect_kept": 1.0,
+   "natural": 1
+  }
+ },
+ "deps": {
+  "MTes": {
+   "n": 29,
+   "meaning": 1.93,
+   "effect": 1.14,
+   "effect_kept": 0.38,
+   "natural": 0.79
+  },
+  "S0": {
+   "n": 29,
+   "meaning": 2.86,
+   "effect": 2.38,
+   "effect_kept": 0.79,
+   "natural": 0.86
+  },
+  "S1": {
+   "n": 29,
+   "meaning": 2.69,
+   "effect": 2,
+   "effect_kept": 0.62,
+   "natural": 0.97
+  },
+  "S2": {
+   "n": 29,
+   "meaning": 2.97,
+   "effect": 3,
+   "effect_kept": 1.0,
+   "natural": 1
+  }
+ }
+}

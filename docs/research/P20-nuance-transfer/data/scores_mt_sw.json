@@ -1,0 +1,162 @@
+{
+ "all": {
+  "M0": {
+   "n": 83,
+   "meaning": 2.12,
+   "effect": 1.4,
+   "effect_kept": 0.45
+  },
+  "M1": {
+   "n": 83,
+   "meaning": 2.17,
+   "effect": 1.2,
+   "effect_kept": 0.39
+  },
+  "M2": {
+   "n": 83,
+   "meaning": 2.57,
+   "effect": 2.1,
+   "effect_kept": 0.77
+  }
+ },
+ "humor": {
+  "M0": {
+   "n": 70,
+   "meaning": 2.1,
+   "effect": 1.39,
+   "effect_kept": 0.44
+  },
+  "M1": {
+   "n": 70,
+   "meaning": 2.04,
+   "effect": 1.09,
+   "effect_kept": 0.33
+  },
+  "M2": {
+   "n": 70,
+   "meaning": 2.53,
+   "effect": 2.1,
+   "effect_kept": 0.76
+  }
+ },
+ "laugh": {
+  "M0": {
+   "n": 62,
+   "meaning": 2.11,
+   "effect": 1.37,
+   "effect_kept": 0.42
+  },
+  "M1": {
+   "n": 62,
+   "meaning": 2.05,
+   "effect": 1.1,
+   "effect_kept": 0.32
+  },
+  "M2": {
+   "n": 62,
+   "meaning": 2.53,
+   "effect": 2.1,
+   "effect_kept": 0.76
+  }
+ },
+ "L": {
+  "M0": {
+   "n": 21,
+   "meaning": 1.71,
+   "effect": 1.05,
+   "effect_kept": 0.29
+  },
+  "M1": {
+   "n": 21,
+   "meaning": 1.95,
+   "effect": 1.05,
+   "effect_kept": 0.33
+  },
+  "M2": {
+   "n": 21,
+   "meaning": 2.57,
+   "effect": 2.1,
+   "effect_kept": 0.81
+  }
+ },
+ "C": {
+  "M0": {
+   "n": 6,
+   "meaning": 1.67,
+   "effect": 0.83,
+   "effect_kept": 0.17
+  },
+  "M1": {
+   "n": 6,
+   "meaning": 2.17,
+   "effect": 1.33,
+   "effect_kept": 0.5
+  },
+  "M2": {
+   "n": 6,
+   "meaning": 2.33,
+   "effect": 1.83,
+   "effect_kept": 0.83
+  }
+ },
+ "U": {
+  "M0": {
+   "n": 53,
+   "meaning": 2.34,
+   "effect": 1.64,
+   "effect_kept": 0.55
+  },
+  "M1": {
+   "n": 53,
+   "meaning": 2.26,
+   "effect": 1.28,
+   "effect_kept": 0.42
+  },
+  "M2": {
+   "n": 53,
+   "meaning": 2.6,
+   "effect": 2.19,
+   "effect_kept": 0.77
+  }
+ },
+ "P": {
+  "M0": {
+   "n": 3,
+   "meaning": 2,
+   "effect": 0.67,
+   "effect_kept": 0.33
+  },
+  "M1": {
+   "n": 3,
+   "meaning": 2,
+   "effect": 0.67,
+   "effect_kept": 0.0
+  },
+  "M2": {
+   "n": 3,
+   "meaning": 2.33,
+   "effect": 1,
+   "effect_kept": 0.33
+  }
+ },
+ "deps": {
+  "M0": {
+   "n": 29,
+   "meaning": 1.97,
+   "effect": 1.03,
+   "effect_kept": 0.28
+  },
+  "M1": {
+   "n": 29,
+   "meaning": 1.93,
+   "effect": 0.86,
+   "effect_kept": 0.14
+  },
+  "M2": {
+   "n": 29,
+   "meaning": 2.45,
+   "effect": 1.97,
+   "effect_kept": 0.69
+  }
+ }
+}

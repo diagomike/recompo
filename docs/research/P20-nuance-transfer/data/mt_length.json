@@ -1,0 +1,52 @@
+{
+ "am:M0": {
+  "median_ratio": 1.19,
+  "over_1.1": 0.63,
+  "in_band": 0.14
+ },
+ "am:M1": {
+  "median_ratio": 1.01,
+  "over_1.1": 0.48,
+  "in_band": 0.21
+ },
+ "am:M2": {
+  "median_ratio": 1.2,
+  "over_1.1": 0.59,
+  "in_band": 0.17
+ },
+ "om:M0": {
+  "median_ratio": 1.1,
+  "over_1.1": 0.49,
+  "in_band": 0.21
+ },
+ "om:M1": {
+  "median_ratio": 1.05,
+  "over_1.1": 0.47,
+  "in_band": 0.17
+ },
+ "om:M2": {
+  "median_ratio": 1.23,
+  "over_1.1": 0.58,
+  "in_band": 0.19
+ },
+ "sw:M0": {
+  "median_ratio": 1.14,
+  "over_1.1": 0.57,
+  "in_band": 0.15
+ },
+ "sw:M1": {
+  "median_ratio": 1.09,
+  "over_1.1": 0.48,
+  "in_band": 0.2
+ },
+ "sw:M2": {
+  "median_ratio": 1.19,
+  "over_1.1": 0.58,
+  "in_band": 0.26
+ },
+ "es:M0": {
+  "median_ratio": 0.92,
+  "over_1.1": 0.23,
+  "in_band": 0.35
+ }
+}

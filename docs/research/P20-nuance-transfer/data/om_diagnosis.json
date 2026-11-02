@@ -1,0 +1,72 @@
+[
+ {
+  "line": "S2E2c2-L19",
+  "en_input": "Monica, she will kill you. She will kill you like a dog in the street.",
+  "om": "Mooniikaa, akka saree daandii irra jiruutti si ajjeessi.",
+  "back_madlad": "May he kill you as he kills the horses on the road.",
+  "back_nllb": "Monica, he will kill you like a dog in the street."
+ },
+ {
+  "line": "S2E2c2-L8",
+  "en_input": "I can't. I have to take my grandmother to the animal doctor.",
+  "om": "Anis hin dandaʼu, akkoo koo gara doktoora bineensotaatti geessuu qaba.",
+  "back_madlad": "I couldn't, I had to go to a doctor.",
+  "back_nllb": "I can't either, so I have to take my grandmother to the vet."
+ },
+ {
+  "line": "S3E4c6-L21",
+  "en_input": "So you have to meet her by accident, but on purpose. And then act like you do not care.",
+  "om": "Kanaaf, utuu hin beekin ishee wajjin wal arguu qabda, taʼus kaayyoodhaan, achiis akka waan hin yaadneetti jiraatta.",
+  "back_madlad": "Therefore, he must communicate with her without hesitation, but with purpose, rather than as if he was not aware of her.",
+  "back_nllb": "So you have to meet her without realizing it, but you do it on purpose and then as if you hadn't expected it."
+ },
+ {
+  "line": "S3E11c11-L4",
+  "en_input": "No, I am truly sorry about Mark. Look, Rachel, I want only good things for you.",
+  "om": "Lakki, waaʼee Maarkitti baayʼeen gadda.",
+  "back_madlad": "However, there is a lot of controversy about this.",
+  "back_nllb": "No, I feel sorry for Mark."
+ },
+ {
+  "line": "S2E24c4-L14",
+  "en_input": "A dog bed? For a dog?",
+  "om": "Siree saree?",
+  "back_madlad": "Siree saree?",
+  "back_nllb": "A dog bed?"
+ },
+ {
+  "line": "S3E12c1-L12",
+  "en_input": "It must take you hours to find your keys in there.",
+  "om": "Achitti furtuu kee argachuun saʼaatii dheeraa si fudhachuu qaba.",
+  "back_madlad": "It would take several hours to get to such a hole.",
+  "back_nllb": "It will take you hours to find your keys."
+ },
+ {
+  "line": "S2E21c5-L31",
+  "en_input": "I think you used your secret weapon, Gunther, too early.",
+  "om": "Meeshaa waraanaa dhoksaa kee, Gunter, baayʼee dursitee akka fayyadamte natti fakkaata.",
+  "back_madlad": "It appears that Gunther, his warrior brother, used it with a great deal of skill.",
+  "back_nllb": "I think you used your secret weapon, Gunter, too early."
+ },
+ {
+  "line": "S3E11c11-L2",
+  "en_input": "Oh no. What a terrible, terrible tragedy.",
+  "om": "Lakki, kun baayʼee nama gaddisiisa.",
+  "back_madlad": "However, there are many who reject it.",
+  "back_nllb": "No, that is sad."
+ },
+ {
+  "line": "S1E22c5-L16",
+  "en_input": "Everyone. Except for... no. Everyone.",
+  "om": "Hundi isaanii malee... lakki.",
+  "back_madlad": "Except for their body... lakki.",
+  "back_nllb": "Not all of them."
+ },
+ {
+  "line": "S3E12c1-L24",
+  "en_input": "Well, Albert has no friends. But he is very excited about the party. I think the only reason he is getting married is to see a stripper.",
+  "om": "Albarti michoota hin qabu. Haataʼu malee ayyaanichaaf baayʼee gammadeera. Sababiin inni gaaʼela itti godhatu dubartii striptiist tokko ilaaluuf qofa akka taʼe natti fakkaata.",
+  "back_madlad": "I had no hair, but I was very disappointed by the scene because it seemed to me that he was wearing a skirt just to see a stripper.",
+  "back_nllb": "Albert has no friends, but he enjoys the party so much that I think he will marry just to see a stripper."
+ }
+]
